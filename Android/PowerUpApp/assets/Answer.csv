@@ -1,0 +1,15 @@
+1,1,Maybe another time.,3,2
+2,1,Sure,2,1
+3,2,Can we talk about this?,$,2
+4,2,Sure,4,1
+5,4,Do you have condoms?,5,3
+6,4,Let’s head inside,$,0
+7,4,I’m feeling weird. Can we talk about this?,$,2
+8,5,Let’s go to the store and buy some.,6,4
+9,5,I am not feeling comfortable about this.,7,4
+10,5,"Nevermind let’s just have sex.",$,0
+11,7,I really think we should find a condom,6,3
+12,7,I changed my mind. I wanna go home.,$,3
+13,6,"Ok I am going home",$,4
+14,6,Ok fine. Let’s have sex,$,0
+15,3,Returns Home,$,0
