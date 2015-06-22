@@ -1,17 +1,23 @@
 package com.example.powerupapp;
 
 import com.example.powerupapp.R;
+import com.example.powerupapp.datamodel.Answer;
+import com.example.powerupapp.datamodel.Question;
+import com.example.powerupapp.datamodel.Scenario;
+import com.example.powerupapp.datamodel.SessionHistory;
+import com.example.powerupapp.db.DatabaseHandler;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +30,9 @@ public class Game extends Activity {
 	private Scenario scene;
 	private ListView mainListView;
 	private TextView questionTextView;
+	private TextView scenarioNameTextView;
+	private TextView pointsTextView;
+	private Button backToMap;
 	private ArrayAdapter<String> listAdapter;
 
 	/** Called when the activity is first created. */
@@ -36,41 +45,93 @@ public class Game extends Activity {
 		// Find the ListView resource.
 		mainListView = (ListView) findViewById(R.id.mainListView);
 		questionTextView = (TextView) findViewById(R.id.editText1);
+		scenarioNameTextView = (TextView) findViewById(R.id.editText2);
+		pointsTextView = (TextView) findViewById(R.id.textView1);
 		listAdapter = new ArrayAdapter<String>(this, R.layout.simplerow,
 				new ArrayList<String>());
 		answers = new ArrayList<Answer>();
-		
-		// Update Answer, Question and Scene 
-		updateQA();
-		
+		backToMap = (Button) findViewById(R.id.button1);
+		backToMap.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// Incase the user move back to map in between a running
+				// Scenario.
+				SessionHistory.totalPoints -= SessionHistory.currScenePoints;
+				Intent myIntent = new Intent(Game.this, Map.class);
+				startActivityForResult(myIntent, 0);
+			}
+		});
+		pointsTextView.setText(SessionHistory.totalPoints.toString());
+		// Update Scene
+		updateScenario();
+
 		// Set the ArrayAdapter as the ListView's adapter.
 		mainListView.setAdapter(listAdapter);
-		mainListView.setOnItemClickListener(new
-				AdapterView.OnItemClickListener() {
+		mainListView
+				.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 					@Override
 					public void onItemClick(AdapterView<?> arg0, View view,
 							int position, long id) {
-
 						if (answers.get(position).getNextQId() > 0) {
-							Toast.makeText(getApplicationContext(),
-									((TextView) view).getText(),
+							Toast.makeText(
+									getApplicationContext(),
+									((TextView) view).getText()
+											+ scene.getScenarioName(),
 									Toast.LENGTH_SHORT).show();
+							// Next Question
 							SessionHistory.currQID = answers.get(position)
 									.getNextQId();
+							updatePoints(position);
+							updateQA();
 
 						} else {
 							Toast.makeText(getApplicationContext(),
 									"Next Scene", Toast.LENGTH_SHORT).show();
 							SessionHistory.currSessionID = scene
 									.getNextScenarioId();
-							SessionHistory.currQID = scene.getFirstQId();
+							if (SessionHistory.currSessionID == -1) {
+								// Check to make sure all scenes are completed
+								SessionHistory.currSessionID = 1;
+							}
+							updatePoints(position);
+							getmDbHandler().setCompletedScenario(
+									scene.getScenarioName());
+							SessionHistory.currScenePoints = 0;
+							updateScenario();
 						}
-						updateQA();
 					}
 				});
 	}
+	
+	private void updatePoints(int position) {
+		// Update the Scene Points
+		SessionHistory.currScenePoints +=
+				answers.get(position).getPoint();
+		// Update Total Points
+		SessionHistory.totalPoints +=
+				answers.get(position).getPoint();
+		pointsTextView.setText(SessionHistory.totalPoints.toString());
+	}
+	
+	private void updateScenario() {
+		scene = getmDbHandler().getScenario();
+		// If completed check if it is last scene
+		if (scene.getCompleted() == 1) {
+			if (scene.getNextScenarioId() == -1) {
+				Intent myIntent = new Intent(Game.this, GameOver.class);
+				startActivityForResult(myIntent, 0);
+			} else {
+				SessionHistory.currSessionID = scene.getNextScenarioId();
+				updateScenario();
+			}
+		}
+		SessionHistory.currQID = scene.getFirstQId();
+		scenarioNameTextView.setText(scene.getScenarioName());
+		updateQA();
+	}
 
 	private void updateQA() {
+		
 		listAdapter.clear();
 		getmDbHandler().getAllAnswer(answers, SessionHistory.currQID);
 		for (ListIterator<Answer> iter = answers.listIterator(); iter.hasNext();) {
@@ -79,7 +140,6 @@ public class Game extends Activity {
 		}
 		questions = getmDbHandler().getCurrentQuestion();
 		questionTextView.setText(questions.getQDes());
-		scene = getmDbHandler().getScenario();
 	}
 
 	public DatabaseHandler getmDbHandler() {

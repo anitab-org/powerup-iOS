@@ -13,3 +13,33 @@
 13,6,"Ok I am going home",$,4
 14,6,Ok fine. Let’s have sex,$,0
 15,3,Returns Home,$,0
+16,8,Maybe another time.,3,2
+17,8,Sure,2,1
+18,9,Can we talk about this?,$,2
+19,9,Sure,4,1
+20,11,Do you have condoms?,5,3
+21,11,Let’s head inside,$,0
+22,11,I’m feeling weird. Can we talk about this?,$,2
+23,12,Let’s go to the store and buy some.,6,4
+24,12,I am not feeling comfortable about this.,7,4
+25,12,"Nevermind let’s just have sex.",$,0
+26,14,I really think we should find a condom,6,3
+27,14,I changed my mind. I wanna go home.,$,3
+28,13,"Ok I am going home",$,4
+29,13,Ok fine. Let’s have sex,$,0
+30,10,Returns Home,$,0
+31,15,Maybe another time.,3,2
+32,15,Sure,2,1
+33,16,Can we talk about this?,$,2
+34,16,Sure,4,1
+35,18,Do you have condoms?,5,3
+36,18,Let’s head inside,$,0
+37,18,I’m feeling weird. Can we talk about this?,$,2
+38,19,Let’s go to the store and buy some.,6,4
+39,19,I am not feeling comfortable about this.,7,4
+40,19,"Nevermind let’s just have sex.",$,0
+41,21,I really think we should find a condom,6,3
+42,21,I changed my mind. I wanna go home.,$,3
+43,20,"Ok I am going home",$,4
+44,20,Ok fine. Let’s have sex,$,0
+45,17,Returns Home,$,0

@@ -30,6 +30,18 @@
             android:name="com.example.powerupapp.CreatorRoom"
             android:label="@string/app_name" >
         </activity>
+        <activity
+            android:name="com.example.powerupapp.Map"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.powerupapp.CompletedScene"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.powerupapp.GameOver"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>

@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 public class MainActivity extends Activity {
 
@@ -32,15 +31,12 @@ public class MainActivity extends Activity {
 	    start.setOnClickListener(new View.OnClickListener() {
 	        @Override
 	        public void onClick(View v) {
-	    		Intent myIntent = new Intent(MainActivity.this, Game.class);
+	    		Intent myIntent = new Intent(MainActivity.this, Map.class);
 	    		startActivityForResult(myIntent, 0);
 	    		//setContentView(R.layout.activity_main);
 	        }
 	    });
 	    
-		//Intent myIntent = new Intent(MainActivity.this, Game.class);
-		//startActivityForResult(myIntent, 0);
-		// setContentView(R.layout.activity_main);
 	}
 
 	@Override
