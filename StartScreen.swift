@@ -11,6 +11,8 @@ import UIKit
 class StartScreen: UIViewController {
     
     
+    @IBOutlet weak var MiniGamesButton: UIButton!
+    @IBOutlet weak var StartButton: UIButton!
     @IBOutlet weak var PowerUp: UITextView!
     
     
@@ -26,7 +28,11 @@ class StartScreen: UIViewController {
     }
     
     @IBAction func Start(sender: UIButton) {
+        
     }
 
     
+    @IBAction func MiniGames(sender: UIButton) {
+        
+            }
 }

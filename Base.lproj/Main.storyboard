@@ -29,7 +29,7 @@
                                 <rect key="frame" x="179" y="269" width="124" height="67"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="buttons 3" translatesAutoresizingMaskIntoConstraints="NO" id="kdB-yk-3Jf">
-                                <rect key="frame" x="170" y="364" width="133" height="57"/>
+                                <rect key="frame" x="170" y="357" width="133" height="64"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" text="PowerUp" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AKT-5A-duS">
                                 <rect key="frame" x="45" y="96" width="231" height="83"/>
@@ -47,12 +47,23 @@
                                     <segue destination="S3c-uW-lpA" kind="push" id="lfn-y2-37L"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwb-Wz-xvg">
+                                <rect key="frame" x="192" y="284" width="95" height="44"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="MiniGames:" destination="S65-lq-9jr" eventType="touchUpInside" id="TIv-1h-M3Z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="EmJ-7a-eTn"/>
                     <connections>
+                        <outlet property="MiniGamesButton" destination="bwb-Wz-xvg" id="Szp-v1-xPQ"/>
                         <outlet property="PowerUp" destination="AKT-5A-duS" id="Pbe-tp-vaX"/>
+                        <outlet property="StartButton" destination="S80-hG-Bup" id="BUd-iF-8Dk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5D-0F-CHK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -272,7 +283,8 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ywa-nu-uIK">
                                 <rect key="frame" x="41" y="53" width="263" height="430"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="CLICK  HERE!!!">
+                                    <color key="titleColor" red="1" green="0.15084797722921828" blue="0.28862401098987778" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>

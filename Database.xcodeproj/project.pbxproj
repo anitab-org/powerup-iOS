@@ -19,7 +19,6 @@
 		2A0CA5841B29E83500ED8781 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0CA57D1B29E83500ED8781 /* FMDatabaseQueue.m */; };
 		2A0CA5851B29E83500ED8781 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0CA57F1B29E83500ED8781 /* FMDatabaseAdditions.m */; };
 		2A0CA5861B29E83500ED8781 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0CA5811B29E83500ED8781 /* FMDatabasePool.m */; };
-		2A0CA5881B2A0D5700ED8781 /* PowerUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0CA5871B2A0D5700ED8781 /* PowerUp.swift */; };
 		2A2322DB1B2C5EB200F3F6D4 /* mainDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */; };
 		2A2A4DB71B373C5B00D50860 /* StartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A4DB61B373C5B00D50860 /* StartScreen.swift */; };
 		2A68C3DB1B2EA28700E2FAE8 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A68C3DA1B2EA28700E2FAE8 /* SecondViewController.swift */; };
@@ -62,7 +61,6 @@
 		2A0CA57F1B29E83500ED8781 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = ../../Documents/fmdb/src/fmdb/FMDatabaseAdditions.m; sourceTree = "<group>"; };
 		2A0CA5801B29E83500ED8781 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = ../../Documents/fmdb/src/fmdb/FMDatabasePool.h; sourceTree = "<group>"; };
 		2A0CA5811B29E83500ED8781 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = ../../Documents/fmdb/src/fmdb/FMDatabasePool.m; sourceTree = "<group>"; };
-		2A0CA5871B2A0D5700ED8781 /* PowerUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PowerUp.swift; path = ../../Documents/PowerUp.swift; sourceTree = "<group>"; };
 		2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = mainDatabase.sqlite; path = ../mainDatabase.sqlite; sourceTree = "<group>"; };
 		2A2A4DB61B373C5B00D50860 /* StartScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScreen.swift; sourceTree = "<group>"; };
 		2A68C3DA1B2EA28700E2FAE8 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 				2A0CA5671B294C6B00ED8781 /* DatabaseTests */,
 				2A0CA5501B294C6B00ED8781 /* Products */,
 				2A0CA5761B29E83500ED8781 /* Database-Bridging-Header.h */,
-				2A0CA5871B2A0D5700ED8781 /* PowerUp.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -271,7 +268,6 @@
 				2A0CA5821B29E83500ED8781 /* FMDatabase.m in Sources */,
 				2A2A4DB71B373C5B00D50860 /* StartScreen.swift in Sources */,
 				2A8962311B386AB2009B2338 /* MapScreen.swift in Sources */,
-				2A0CA5881B2A0D5700ED8781 /* PowerUp.swift in Sources */,
 				2A0CA5571B294C6B00ED8781 /* ViewController.swift in Sources */,
 				2A0CA5831B29E83500ED8781 /* FMResultSet.m in Sources */,
 				2A0CA5861B29E83500ED8781 /* FMDatabasePool.m in Sources */,
