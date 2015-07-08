@@ -19,6 +19,40 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+            /*- (void) copyDatabaseIfNeeded {
+                
+                //Using NSFileManager we can perform many file system operations.
+                NSFileManager *fileManager = [NSFileManager defaultManager];
+                NSError *error;
+                
+                NSString *dbPath = [self getDBPath];
+                BOOL success = [fileManager fileExistsAtPath:dbPath];
+                
+                if(!success) {
+                    
+                    NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"database.sqlite"];
+                    success = [fileManager copyItemAtPath:defaultDBPath toPath:dbPath error:&error];
+                    
+                    if (!success)
+                    NSAssert1(0, @"Failed to create writable database file with message '%@'.", [error localizedDescription]);
+                }
+                }
+                
+                - (NSString *) getDBPath
+                    {
+                        //Search for standard documents using NSSearchPathForDirectoriesInDomains
+                        //First Param = Searching the documents directory
+                        //Second Param = Searching the Users directory and not the System
+                        //Expand any tildes and identify home directories.
+                        
+                        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory , NSUserDomainMask, YES);
+                        NSString *documentsDir = [paths objectAtIndex:0];
+                        //NSLog(@"dbpath : %@",documentsDir);
+                        return [documentsDir stringByAppendingPathComponent:@"database.sqlite"];
+        }
+        */
+        
 
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
@@ -30,9 +64,17 @@ class ViewController: UIViewController {
         databasePath = docsDir.stringByAppendingPathComponent(
             "mainDatabase.sqlite")
         
+        if filemgr.fileExistsAtPath(databasePath as String){
+            println("FOUND!!!!")
         
-            let mainDB = FMDatabase(path: databasePath as String)
-            
+        }
+        
+        
+        let mainDB = FMDatabase(path: databasePath as String)
+            if mainDB == nil{
+                println("Error: \(mainDB.lastErrorMessage())")
+            }
+        
             
            if mainDB.open(){
                 let question = "SELECT QDescription FROM Question Where QID=1"
@@ -67,6 +109,7 @@ class ViewController: UIViewController {
         }
         mainDB.close()
     }
+    
     
     
     
