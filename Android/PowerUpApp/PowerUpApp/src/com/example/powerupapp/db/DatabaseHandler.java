@@ -74,23 +74,23 @@ public class DatabaseHandler extends AbstractDbAdapter {
 		Cursor cursor = mDb.rawQuery(selectQuery, null);
 		if (cursor.moveToFirst()) {
 			// If the scene is already completed
-			if (cursor.getInt(6) == 1) {
+			if(cursor.getInt(6)==1) {
 				return false;
 			}
 			SessionHistory.currSessionID = cursor.getInt(0);
 			SessionHistory.currQID = cursor.getInt(5);
 			return true;
 		}
-		// Scenario not Found
+		//Scenario not Found
 		return false;
 	}
-
+	
 	public void setCompletedScenario(CharSequence ScenarioName) {
 		String updateQuery = "UPDATE  Scenario SET Completed=1 WHERE"
 				+ " ScenarioName = " + "\"" + ScenarioName + "\"";
 		mDb.execSQL(updateQuery);
 	}
-
+	
 	public void setReplayedScenario(CharSequence ScenarioName) {
 		String updateQuery = "UPDATE  Scenario SET Replayed=1 WHERE"
 				+ " ScenarioName = " + "\"" + ScenarioName + "\"";

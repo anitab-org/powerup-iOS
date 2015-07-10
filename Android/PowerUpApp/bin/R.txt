@@ -409,11 +409,12 @@ int drawable abc_textfield_search_activated_mtrl_alpha 0x7f020038
 int drawable abc_textfield_search_default_mtrl_alpha 0x7f020039
 int drawable abc_textfield_search_material 0x7f02003a
 int drawable background 0x7f02003b
-int drawable buttons 0x7f02003c
-int drawable ic_launcher 0x7f02003d
-int drawable map 0x7f02003e
-int drawable new_user 0x7f02003f
-int drawable notification_template_icon_bg 0x7f020040
+int drawable buttonbg 0x7f02003c
+int drawable buttons 0x7f02003d
+int drawable ic_launcher 0x7f02003e
+int drawable map 0x7f02003f
+int drawable new_user 0x7f020040
+int drawable notification_template_icon_bg 0x7f020041
 int id action0 0x7f090059
 int id action_bar 0x7f090040
 int id action_bar_activity_content 0x7f090003
@@ -473,7 +474,7 @@ int id line1 0x7f09005e
 int id line3 0x7f090062
 int id listMode 0x7f09000a
 int id list_item 0x7f09002a
-int id mainListView 0x7f090066
+int id mainListView 0x7f090068
 int id media_actions 0x7f09005c
 int id middle 0x7f090022
 int id multiply 0x7f090014
@@ -512,7 +513,7 @@ int id tabMode 0x7f09000c
 int id text 0x7f090063
 int id text2 0x7f090061
 int id textSpacerNoButtons 0x7f090033
-int id textView1 0x7f090068
+int id textView1 0x7f090066
 int id time 0x7f09005f
 int id title 0x7f09002c
 int id title_template 0x7f09002f

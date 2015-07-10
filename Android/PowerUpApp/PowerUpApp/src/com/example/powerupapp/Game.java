@@ -147,6 +147,7 @@ public class Game extends Activity {
 				}
 			});
 		}
+		
 		// If completed check if it is last scene
 		if (scene.getCompleted() == 1) {
 			if (scene.getNextScenarioId() == -1) {
