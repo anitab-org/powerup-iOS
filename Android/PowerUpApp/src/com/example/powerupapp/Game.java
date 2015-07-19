@@ -53,7 +53,6 @@ public class Game extends Activity {
 		answers = new ArrayList<Answer>();
 		goToMap = (Button) findViewById(R.id.button1);
 		replay = (Button) findViewById(R.id.button2);
-		// pointsTextView.setText(SessionHistory.totalPoints.toString());
 		// Update Scene
 		updateScenario();
 		if (scene.getReplayed() == 1) {
@@ -104,7 +103,6 @@ public class Game extends Activity {
 		SessionHistory.currScenePoints += answers.get(position).getPoint();
 		// Update Total Points
 		SessionHistory.totalPoints += answers.get(position).getPoint();
-		// pointsTextView.setText(SessionHistory.totalPoints.toString());
 	}
 
 	private void updateScenario() {

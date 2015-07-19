@@ -1,5 +1,6 @@
 package com.example.powerupapp;
 
+import com.example.powerupapp.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

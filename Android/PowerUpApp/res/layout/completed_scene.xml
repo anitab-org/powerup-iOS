@@ -2,39 +2,38 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    android:orientation="vertical" >
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button1"
-        android:layout_alignBottom="@+id/button1"
-        android:layout_alignLeft="@+id/editText1"
-        android:text="@string/store" />
+    android:background="@drawable/background" >
 
     <TextView
-        android:id="@+id/editText1"
+        android:id="@+id/completed_scene_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginRight="26dp"
-        android:layout_marginTop="118dp"
+        android:layout_marginRight="@dimen/completed_scene_margin_right"
+        android:layout_marginTop="@dimen/completed_scene_margin_top"
         android:ems="10"
         android:text="@string/completed_scene"
-        android:textColor="#000000"
-        android:textSize="20dp" />
+        android:textColor="@color/black"
+        android:textSize="@dimen/game_text_size" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/editText1"
-        android:layout_marginBottom="70dp"
-        android:layout_marginRight="25dp"
+        android:layout_alignRight="@id/editText1"
+        android:layout_marginBottom="@dimen/completed_scene_map_margin_bottom"
+        android:layout_marginRight="@dimen/completed_scene_map_margin_right"
         android:text="@string/map" />
+
+    <Button
+        android:id="@+id/store_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/button1"
+        android:layout_alignBottom="@id/button1"
+        android:layout_alignLeft="@id/completed_scene_textView"
+        android:text="@string/store" />
 
 </RelativeLayout>

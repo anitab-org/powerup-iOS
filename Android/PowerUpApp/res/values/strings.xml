@@ -7,6 +7,7 @@
     <string name="boyfriend">Boyfriend</string>
     <string name="hospital">Hospital</string>
     <string name="school">School</string>
+    <string name="powerup">"     PowerUp"</string>
     <string name="completed_scene">This scene is completed Darling.\n\n
         Please go back to the map or buy exiting things from the store</string>
     <string name="completed_game">Wow! You are brilliant. Game completed \n \n \n
@@ -14,4 +15,7 @@
     <string name="map">Map</string>
     <string name="store">Store</string>
     <string name="enter">Continue..</string>
+    <string name="back_to_map">Back to Map</string>
+    <string name="replay">Replay</string>
+
 </resources>
