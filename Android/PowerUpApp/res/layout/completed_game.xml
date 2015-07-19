@@ -7,7 +7,7 @@
     android:background="@drawable/background" >
 
     <TextView
-        android:id="@+id/editText1"
+        android:id="@+id/completed_game_textView"
         android:layout_width="@dimen/completed_game_width"
         android:layout_height="@dimen/completed_game_height"
         android:text="@string/completed_game"

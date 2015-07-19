@@ -12,8 +12,8 @@
     tools:context="com.example.powerup.MainActivity" >
 
     <TextView
-        android:id="@+id/editText1"
-        android:layout_width="304dp"
+        android:id="@+id/powerup_textView"
+        android:layout_width="@dimen/powerup_width"
         android:layout_height="wrap_content"
         android:fontFamily="cursive"
         android:text="@string/powerup"
@@ -22,25 +22,25 @@
         android:typeface="serif" />
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/powerup_icon"
         android:layout_width="@dimen/powerup_icon_width"
         android:layout_height="@dimen/powerup_icon_height"
         android:background="@drawable/ic_launcher" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/buttons" />
 
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/new_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/new_user" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/about"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/buttons" />

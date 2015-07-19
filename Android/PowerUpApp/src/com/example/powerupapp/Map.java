@@ -21,7 +21,7 @@ public class Map extends Activity {
 		getmDbHandler().open();
 		setContentView(R.layout.gamemap);
 
-		Button continueButton = (Button) findViewById(R.id.button1);
+		Button continueButton = (Button) findViewById(R.id.enter);
 		continueButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -29,16 +29,16 @@ public class Map extends Activity {
 				startActivityForResult(myIntent, 0);
 			}
 		});
-		Button house = (Button) findViewById(R.id.button2);
+		Button house = (Button) findViewById(R.id.house);
 		house.setOnClickListener(onClickListener);
 
-		Button boyfriend = (Button) findViewById(R.id.button4);
+		Button boyfriend = (Button) findViewById(R.id.boyfriend);
 		boyfriend.setOnClickListener(onClickListener);
 
-		Button hospital = (Button) findViewById(R.id.button3);
+		Button hospital = (Button) findViewById(R.id.hospital);
 		hospital.setOnClickListener(onClickListener);
 
-		Button school = (Button) findViewById(R.id.button5);
+		Button school = (Button) findViewById(R.id.school);
 		school.setOnClickListener(onClickListener);
 
 	}

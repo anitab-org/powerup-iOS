@@ -5,7 +5,7 @@
     android:background="@drawable/map" >
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/enter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -14,7 +14,7 @@
         android:text="@string/enter" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/house"
         android:layout_width="@dimen/map_click_width"
         android:layout_height="@dimen/map_click_height"
         android:layout_alignParentLeft="true"
@@ -25,33 +25,37 @@
         android:text="@string/house" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/hospital"
         android:layout_width="@dimen/map_click_width"
         android:layout_height="@dimen/map_click_height"
-        android:layout_alignLeft="@+id/button1"
-        android:layout_alignTop="@+id/button2"
-        android:layout_marginLeft="28dp"
+        android:layout_alignBaseline="@id/house"
+        android:layout_alignBottom="@id/house"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="22dp"
         android:alpha="0.00"
         android:text="@string/hospital" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/boyfriend"
         android:layout_width="@dimen/map_click_width"
         android:layout_height="@dimen/map_click_height"
-        android:layout_above="@+id/button1"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="15dp"
-        android:alpha="0.00"
-        android:text="@string/school" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="@dimen/map_click_width"
-        android:layout_height="@dimen/map_click_height"
-        android:layout_alignBottom="@+id/button5"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_marginBottom="15dp"
+        android:layout_above="@id/enter"
+        android:layout_alignLeft="@id/house"
+        android:layout_alignStart="@id/house"
+        android:layout_marginTop="275dp"
         android:alpha="0.00"
         android:text="@string/boyfriend" />
+
+    <Button
+        android:id="@+id/school"
+        android:layout_width="@dimen/map_click_width"
+        android:layout_height="@dimen/map_click_height"
+        android:layout_above="@id/enter"
+        android:layout_alignEnd="@id/enter"
+        android:layout_alignRight="@id/enter"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="300dp"
+        android:alpha="0.00"
+        android:text="@string/school" />
 
 </RelativeLayout>

@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@id/editText1"
+        android:layout_alignRight="@id/completed_scene_textView"
         android:layout_marginBottom="@dimen/completed_scene_map_margin_bottom"
         android:layout_marginRight="@dimen/completed_scene_map_margin_right"
         android:text="@string/map" />
