@@ -17,7 +17,7 @@ public abstract class AbstractDbAdapter {
 	// Database Version
 	private static final int DATABASE_VERSION = 1;
 	// Database Name
-	private static final String DATABASE_NAME = "DatabaseName";
+	private static final String DATABASE_NAME = "DatabaseName3";
 
 	protected DatabaseHelper mDbHelper;
 	protected static SQLiteDatabase mDb;

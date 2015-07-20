@@ -16,7 +16,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		ImageButton new_user = (ImageButton) findViewById(R.id.new_user);
+		ImageButton new_user = (ImageButton) findViewById(R.id.imageButton2);
 		new_user.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
 			}
 		});
 
-		ImageButton start = (ImageButton) findViewById(R.id.start);
+		ImageButton start = (ImageButton) findViewById(R.id.imageButton1);
 		start.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {

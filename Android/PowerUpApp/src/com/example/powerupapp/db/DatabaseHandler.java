@@ -16,6 +16,15 @@ public class DatabaseHandler extends AbstractDbAdapter {
 		super(ctx);
 		ctx.getAssets();
 	}
+	
+	public boolean gameOver() {
+		String selectQuery = "SELECT  * FROM Scenario WHERE Completed = 0";
+		Cursor cursor = mDb.rawQuery(selectQuery, null);
+		if (cursor.moveToFirst()) {
+			return false;
+		}
+		return true;
+	}
 
 	public void getAllAnswer(List<Answer> answers, Integer qId) {
 		String selectQuery = "SELECT  * FROM Answer WHERE QID = " + qId;
