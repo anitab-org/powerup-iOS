@@ -12,7 +12,7 @@
     <dimen name="powerup_size">50sp</dimen>
     <dimen name="powerup_icon_height">150dp</dimen>
     <dimen name="powerup_icon_width">300dp</dimen>
-    <dimen name="powerup_width">304dp</dimen>
+    <dimen name="powerup_width">304</dimen>
     <dimen name="game_text_size">20dp</dimen>
     <dimen name="map_click_height">100dp</dimen>
     <dimen name="map_click_width">100dp</dimen>
