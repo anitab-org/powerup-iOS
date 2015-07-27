@@ -13,6 +13,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    
+    
+   /*
+    func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> Int {
+        
+        if self.window?.rootViewController?.presentedViewController is SecondViewController {
+            
+            let secondController = self.window!.rootViewController!.presentedViewController as! Choices_EndScreen
+            
+            if secondController.isPresented {
+                return Int(UIInterfaceOrientationMask.All.rawValue);
+            } else {
+                return Int(UIInterfaceOrientationMask.Portrait.rawValue);
+            }
+        } else {
+            return Int(UIInterfaceOrientationMask.Portrait.rawValue);
+        }
+        
+    }
+    */
+    
+    
+    
+    
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
       return true
     }

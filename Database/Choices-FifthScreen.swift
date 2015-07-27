@@ -8,20 +8,22 @@ class Choices_FifthScreen: UIViewController {
 
     //@IBOutlet weak var CommentView: UITextView!
     
-    @IBOutlet weak var mapScreen: UIButton!
-    @IBOutlet weak var replay: UIButton!
+//    @IBOutlet weak var mapScreen: UIButton!
+//    @IBOutlet weak var replay: UIButton!
     @IBOutlet weak var labelView: UILabel!
     
     @IBOutlet weak var friendImage: UIImageView!
     
+    @IBOutlet weak var continueImage: UIImageView!
+    @IBOutlet weak var continuetoEnd: UIButton!
     var databasePath = NSString()
     var counter = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapScreen.hidden = true
-        replay.hidden = true
+    continuetoEnd.hidden = true
+        continueImage.hidden = true
         
         labelView.lineBreakMode = .ByWordWrapping // or NSLineBreakMode.ByWordWrapping
         labelView.numberOfLines = 0
@@ -67,10 +69,11 @@ class Choices_FifthScreen: UIViewController {
                     // Fade in
                     UIView.animateWithDuration(2.0, delay: 2.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
                         self.labelView.alpha = 1.0
+                        self.continuetoEnd.alpha = 1.0
                         }, completion: {
                             (finished: Bool) -> Void in
-                            self.mapScreen.hidden = false
-                            self.replay.hidden = false
+                         self.continueImage.hidden = false
+                            self.continuetoEnd.hidden = false
                             
                     })
             })
@@ -90,8 +93,10 @@ class Choices_FifthScreen: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func continueButton(sender: UIButton) {
+    }
 
-    @IBAction func mapScreenButton(sender: UIButton) {
+  /*  @IBAction func mapScreenButton(sender: UIButton) {
     }
     
     @IBAction func replayButton(sender: UIButton) {
@@ -105,8 +110,8 @@ class Choices_FifthScreen: UIViewController {
                 destinationVC.numberToDisplay = counter
             }
         }
-        
-    }
 
+    }
+*/
 
 }

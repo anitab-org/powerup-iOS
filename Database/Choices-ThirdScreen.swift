@@ -12,13 +12,16 @@ class Choices_ThirdScreen: UIViewController {
     
     @IBOutlet weak var friendImage: UIImageView!
     
-    @IBOutlet weak var mapScreen: UIButton!
-    @IBOutlet weak var replay: UIButton!
+    @IBOutlet weak var continueImage: UIImageView!
+    
+    @IBOutlet weak var continueToEnd: UIButton!
+    //@IBOutlet weak var mapScreen: UIButton!
+    //@IBOutlet weak var replay: UIButton!
    
     
     
    
-    
+
     
     var databasePath = NSString()
     //var myText = NSString()
@@ -30,9 +33,10 @@ class Choices_ThirdScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapScreen.hidden = true
-        replay.hidden = true
-       
+      //  mapScreen.hidden = true
+        //replay.hidden = true
+        continueToEnd.hidden = true
+        continueImage.hidden = true
         
         
         textLabel.lineBreakMode = .ByWordWrapping
@@ -74,11 +78,13 @@ class Choices_ThirdScreen: UIViewController {
         // Fade out to set the text
             
             
+            
         UIView.animateWithDuration(2.0, delay: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
             self.textLabel.alpha = 0.0
             }, completion: {
                 (finished: Bool) -> Void in
                 self.friendImage.hidden = true
+                
                 //Once the label is completely invisible, set the text and fade it back in
             if c2results?.next() == true {
                 self.textLabel.text = c2results?.stringForColumn("Text")
@@ -86,13 +92,16 @@ class Choices_ThirdScreen: UIViewController {
                 // Fade in
                 UIView.animateWithDuration(2.0, delay: 2.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
                     self.textLabel.alpha = 1.0
-                    self.mapScreen.alpha = 1.0
-                    self.replay.alpha = 1.0
+                    self.continueToEnd.alpha = 1.0
+                   // self.mapScreen.alpha = 1.0
+                // self.replay.alpha = 1.0
                     }, completion:{
                         (finished: Bool) -> Void in
+                        self.continueToEnd.hidden = false
+                        self.continueImage.hidden = false
                         
-                        self.mapScreen.hidden = false
-                        self.replay.hidden = false
+                   //     self.mapScreen.hidden = false
+                     //   self.replay.hidden = false
                         
                 
                         })
@@ -110,12 +119,12 @@ class Choices_ThirdScreen: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func mapScreenButton(sender: UIButton) {
-        
-        
-        
     
-
+    @IBAction func continueButton(sender: UIButton) {
+    }
+    
+    /*
+    @IBAction func mapScreenButton(sender: UIButton) {
 
         
     }
@@ -139,5 +148,5 @@ override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         }
     }
     
-}
+}*/
 }

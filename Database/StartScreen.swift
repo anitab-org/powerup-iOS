@@ -16,6 +16,14 @@ class StartScreen: UIViewController {
     @IBOutlet weak var PowerUp: UITextView!
     
     
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> Int {
+        return UIInterfaceOrientation.Portrait.rawValue
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

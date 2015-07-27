@@ -11,13 +11,27 @@ class Choices_FirstScreen: UIViewController {
     
     @IBOutlet weak var AnswerView: UITextView!
     
+    
+    
 
     
     var databasePath = NSString()
+    
+    
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> Int {
+        return UIInterfaceOrientation.Portrait.rawValue
+        //return UIInterfaceOrientation.LandscapeLeft.rawValue
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let value = UIInterfaceOrientation.Portrait.rawValue
+        UIDevice.currentDevice().setValue(value, forKey: "orientation")
         
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
@@ -25,11 +39,27 @@ class Choices_FirstScreen: UIViewController {
             .UserDomainMask, true)
         
         let docsDir = dirPaths[0] as! String
+        var error:NSError?
+        //let destPath = (docsDir as NSString).stringByAppendingPathComponent("Choices.sqlite")
+        databasePath = docsDir.stringByAppendingPathComponent("Choices.sqlite")
         
-        databasePath = docsDir.stringByAppendingPathComponent(
-            "Choices.sqlite")
-        
-        
+       if filemgr.fileExistsAtPath(databasePath as String){
+            println("FOUND!!!!")
+        filemgr.removeItemAtPath(databasePath as String, error: &error)
+            
+        }
+
+        if let bundle_path = NSBundle.mainBundle().pathForResource("Choices", ofType: "sqlite"){
+        println("Test!!!!!!!!")
+            
+            if filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String, error: &error){
+                    println("Success!!!!!!!!")
+            }
+                else{
+                    println("Failure")
+                println(error?.localizedDescription)
+                }
+            }
         let mainDB = FMDatabase(path: databasePath as String)
         
         

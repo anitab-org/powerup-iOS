@@ -60,14 +60,33 @@ class ViewController: UIViewController {
             .UserDomainMask, true)
         
         let docsDir = dirPaths[0] as! String
+        var error: NSError?
         
         databasePath = docsDir.stringByAppendingPathComponent(
             "mainDatabase.sqlite")
         
+        
+        
+        
         if filemgr.fileExistsAtPath(databasePath as String){
             println("FOUND!!!!")
-        
+            filemgr.removeItemAtPath(databasePath as String, error: &error)
+            
         }
+        
+        if let bundle_path = NSBundle.mainBundle().pathForResource("mainDatabase", ofType: "sqlite"){
+            println("Test!!!!!!!!")
+            
+            if filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String, error: &error){
+                println("Success!!!!!!!!")
+            }
+            else{
+                println("Failure")
+                println(error?.localizedDescription)
+            }
+        }
+
+        
         
         
         let mainDB = FMDatabase(path: databasePath as String)

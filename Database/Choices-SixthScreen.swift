@@ -7,20 +7,21 @@ import UIKit
 
 class Choices_SixthScreen: UIViewController {
 
-    @IBOutlet weak var replay: UIButton!
-    @IBOutlet weak var mapScreen: UIButton!
+    
     
     @IBOutlet weak var friendImage: UIImageView!
     @IBOutlet weak var labelView: UILabel!
     
+    @IBOutlet weak var continueImage: UIImageView!
+    @IBOutlet weak var continueToEnd: UIButton!
         var databasePath = NSString()
         var counter = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapScreen.hidden = true
-        replay.hidden = true
+        continueToEnd.hidden = true
+        continueImage.hidden = true
         
         labelView.lineBreakMode = .ByWordWrapping // or NSLineBreakMode.ByWordWrapping
         labelView.numberOfLines = 0
@@ -67,10 +68,13 @@ class Choices_SixthScreen: UIViewController {
                     // Fade in
                     UIView.animateWithDuration(2.0, delay: 2.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
                         self.labelView.alpha = 1.0
+                        self.continueToEnd.alpha = 1.0
                         }, completion: {
                             (finished: Bool) -> Void in
-                            self.mapScreen.hidden = false
-                            self.replay.hidden = false
+                            self.continueToEnd.hidden = false
+                            self.continueImage.hidden = false
+                           // self.mapScreen.hidden = false
+                           // self.replay.hidden = false
                             
                     })
             })
@@ -81,7 +85,9 @@ class Choices_SixthScreen: UIViewController {
     
     }
 
-    
+    @IBAction func continueButton(sender: UIButton) {
+    }
+    /*
     @IBAction func mapScreenButton(sender: UIButton) {
     }
    
@@ -103,6 +109,7 @@ class Choices_SixthScreen: UIViewController {
         }
         
     }
+*/
 }
 
     

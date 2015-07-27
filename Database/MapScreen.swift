@@ -18,7 +18,8 @@ class MapScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        let value = UIInterfaceOrientation.Portrait.rawValue
+        UIDevice.currentDevice().setValue(value, forKey: "orientation")
         
         
     }

@@ -13,14 +13,14 @@
                         <viewControllerLayoutGuide type="bottom" id="crB-5J-nEd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Gv1-Un-5xq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="ZgC-aR-FMO">
-                                <rect key="frame" x="-56" y="56" width="415" height="492"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="lq3-AT-Fhu">
+                                <rect key="frame" x="-51" y="64" width="412" height="504"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="7HO-YQ-J0u">
-                                <rect key="frame" x="5" y="195" width="195" height="231"/>
+                                <rect key="frame" x="6" y="181" width="195" height="231"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="buttons" translatesAutoresizingMaskIntoConstraints="NO" id="rT3-Pw-jE9">
                                 <rect key="frame" x="171" y="195" width="140" height="74"/>
@@ -28,12 +28,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="buttons 2" translatesAutoresizingMaskIntoConstraints="NO" id="2qz-lw-B6D">
                                 <rect key="frame" x="179" y="277" width="124" height="67"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" text="PowerUp" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AKT-5A-duS">
-                                <rect key="frame" x="45" y="104" width="231" height="83"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="76"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S80-hG-Bup">
                                 <rect key="frame" x="192" y="212" width="90" height="44"/>
                                 <state key="normal">
@@ -56,6 +50,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="buttons 3" translatesAutoresizingMaskIntoConstraints="NO" id="kdB-yk-3Jf">
                                 <rect key="frame" x="171" y="368" width="133" height="64"/>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" text="PowerUp" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AKT-5A-duS">
+                                <rect key="frame" x="40" y="104" width="231" height="83"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="76"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -68,7 +68,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5D-0F-CHK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="294" y="305"/>
+            <point key="canvasLocation" x="218" y="205"/>
         </scene>
         <!--Scene 1-->
         <scene sceneID="tne-QT-ifu">
@@ -79,7 +79,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SCREEN 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qm-lJ-LQ9">
@@ -228,7 +228,7 @@
                         <viewControllerLayoutGuide type="bottom" id="NYm-52-4w6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wEj-B0-jtW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Marcello" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1h-WC-e8y">
@@ -317,6 +317,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="XQf-H9-Gol"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="AnswerView" destination="slU-7r-Igd" id="uwU-s5-Cdt"/>
                         <outlet property="Question" destination="7S1-dK-g1z" id="kJO-u9-SAA"/>
@@ -324,7 +325,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MA8-Tz-Vk9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="94" y="-364"/>
+            <point key="canvasLocation" x="80" y="-670"/>
         </scene>
         <!--Choices Second Screen-->
         <scene sceneID="MGI-r9-0Fh">
@@ -436,6 +437,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="RHL-Os-RmN"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="AnswerView1" destination="KZj-IZ-plw" id="2uh-iY-CQS"/>
                         <outlet property="AnswerView2" destination="wDk-JO-twP" id="ErC-Ow-ZKR"/>
@@ -472,44 +474,34 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evw-zA-uUT">
-                                <rect key="frame" x="92" y="363" width="149" height="30"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="REPLAY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen6" translatesAutoresizingMaskIntoConstraints="NO" id="IRM-LX-V8A">
+                                <rect key="frame" x="105" y="379" width="132" height="42"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5M-7d-5K4">
+                                <rect key="frame" x="146" y="385" width="62" height="30"/>
+                                <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="replayButton:" destination="z1x-Pt-S2S" eventType="touchUpInside" id="zeF-hG-hNz"/>
-                                    <segue destination="ujD-Mr-MgV" kind="push" id="dE6-gx-O0S"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lHP-GJ-W5Z">
-                                <rect key="frame" x="92" y="420" width="141" height="30"/>
-                                <color key="backgroundColor" red="5.918560606e-05" green="3.1257057529999999e-05" blue="3.2756785650000002e-05" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="BACK TO MAP SCREEN">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="mapScreenButton:" destination="z1x-Pt-S2S" eventType="touchUpInside" id="UVu-I0-ouQ"/>
-                                    <segue destination="S3c-uW-lpA" kind="push" identifier="nextView" id="yO0-ci-DeB"/>
+                                    <action selector="continueButton:" destination="z1x-Pt-S2S" eventType="touchUpInside" id="u4W-8e-9UP"/>
+                                    <segue destination="Kej-3M-rbU" kind="push" id="MOD-Bo-uno"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Z79-bL-ckl"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
+                        <outlet property="continueImage" destination="IRM-LX-V8A" id="ea2-lT-0uC"/>
+                        <outlet property="continuetoEnd" destination="c5M-7d-5K4" id="T3m-ef-54p"/>
                         <outlet property="friendImage" destination="qWx-P7-3sI" id="iUb-o0-HpK"/>
                         <outlet property="labelView" destination="4gf-6Z-Z6j" id="XtL-9p-TR8"/>
-                        <outlet property="mapScreen" destination="lHP-GJ-W5Z" id="krv-M8-Xvl"/>
-                        <outlet property="replay" destination="evw-zA-uUT" id="NFA-Yl-C19"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0VH-Io-oWf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1279" y="105"/>
+            <point key="canvasLocation" x="1963" y="-1477"/>
         </scene>
         <!--Choices Fourth Screen-->
         <scene sceneID="RKv-7V-cgF">
@@ -612,6 +604,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="4lX-nc-vTf"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="AnswerView1" destination="VPS-P5-Hd5" id="Cmq-5X-Qwu"/>
                         <outlet property="AnswerView2" destination="yin-l9-l08" id="jDl-yc-r47"/>
@@ -648,44 +641,125 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vln-Wx-gej">
-                                <rect key="frame" x="95" y="361" width="151" height="31"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="REPLAY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen6" translatesAutoresizingMaskIntoConstraints="NO" id="kFB-qe-vBG">
+                                <rect key="frame" x="113" y="380" width="119" height="40"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lig-dY-tfk">
+                                <rect key="frame" x="147" y="385" width="56" height="30"/>
+                                <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="replayButton:" destination="6cR-IH-bv9" eventType="touchUpInside" id="Lyr-It-Ja0"/>
-                                    <segue destination="ujD-Mr-MgV" kind="push" id="CIO-wT-lsT"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAq-Sw-pQR">
-                                <rect key="frame" x="95" y="412" width="151" height="34"/>
-                                <color key="backgroundColor" red="5.918560606e-05" green="3.1257057529999999e-05" blue="3.2756785650000002e-05" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="BACK TO MAP SCREEN">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="mapScreenButton:" destination="6cR-IH-bv9" eventType="touchUpInside" id="ZkL-DS-JaY"/>
-                                    <segue destination="S3c-uW-lpA" kind="push" identifier="nextView" id="5C4-KZ-HCB"/>
+                                    <action selector="continueButton:" destination="6cR-IH-bv9" eventType="touchUpInside" id="L0p-p0-Pc2"/>
+                                    <segue destination="Kej-3M-rbU" kind="push" id="Rew-bX-gDf"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="EHY-os-Agh"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
+                        <outlet property="continueImage" destination="kFB-qe-vBG" id="LhL-oY-cGa"/>
+                        <outlet property="continueToEnd" destination="lig-dY-tfk" id="bd5-7L-bCQ"/>
                         <outlet property="friendImage" destination="CNB-ry-FtV" id="eih-di-Pzq"/>
                         <outlet property="labelView" destination="Ogo-eR-7Nn" id="ul6-mq-ZgO"/>
-                        <outlet property="mapScreen" destination="TAq-Sw-pQR" id="nLM-09-aHz"/>
-                        <outlet property="replay" destination="vln-Wx-gej" id="Hdc-ej-ASA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dlu-QW-9IP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1525" y="-1477"/>
+        </scene>
+        <!--Choices End Screen-->
+        <scene sceneID="7iy-JJ-2EY">
+            <objects>
+                <viewController id="Kej-3M-rbU" customClass="Choices_EndScreen" customModule="Database" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="niI-hx-Uj2"/>
+                        <viewControllerLayoutGuide type="bottom" id="j4y-Z7-O5g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5cF-Xa-Kzb">
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen" translatesAutoresizingMaskIntoConstraints="NO" id="Be8-ZB-uyt">
+                                <rect key="frame" x="0.0" y="11" width="568" height="320"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen5" translatesAutoresizingMaskIntoConstraints="NO" id="w8S-2e-WTz">
+                                <rect key="frame" x="256" y="149" width="104" height="43"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen6" translatesAutoresizingMaskIntoConstraints="NO" id="zcq-Yl-jH2">
+                                <rect key="frame" x="388" y="149" width="102" height="43"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen2" translatesAutoresizingMaskIntoConstraints="NO" id="5NB-Df-h2J">
+                                <rect key="frame" x="212" y="207" width="182" height="31"/>
+                            </imageView>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="XkY-9Y-jGh">
+                                <rect key="frame" x="210" y="239" width="118" height="31"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
+                                <color key="minimumTrackTintColor" red="0.55308964520000004" green="0.65654283810000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="80" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="NDd-mc-GHQ">
+                                <rect key="frame" x="393" y="239" width="118" height="31"/>
+                                <color key="minimumTrackTintColor" red="0.55308964520000004" green="0.65654283810000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="A5A-fN-NqA">
+                                <rect key="frame" x="210" y="271" width="118" height="31"/>
+                                <color key="minimumTrackTintColor" red="0.55308964520000004" green="0.65654283810000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="60" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="VyY-h7-TLm">
+                                <rect key="frame" x="393" y="271" width="118" height="31"/>
+                                <color key="minimumTrackTintColor" red="0.55308964520000004" green="0.65654283810000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </slider>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Sample concluding text goes here concerning scenario and discussion topic with parents" translatesAutoresizingMaskIntoConstraints="NO" id="ncj-rT-ty2">
+                                <rect key="frame" x="260" y="43" width="230" height="98"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen1" translatesAutoresizingMaskIntoConstraints="NO" id="boM-vC-gQU">
+                                <rect key="frame" x="46" y="24" width="188" height="272"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UVv-Xm-Tec">
+                                <rect key="frame" x="285" y="156" width="46" height="30"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="replayButton:" destination="Kej-3M-rbU" eventType="touchUpInside" id="ccI-5i-y7U"/>
+                                    <segue destination="ujD-Mr-MgV" kind="push" id="5NV-Ks-xI9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eA-5h-upJ">
+                                <rect key="frame" x="415" y="156" width="57" height="30"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="mapScreenButton:" destination="Kej-3M-rbU" eventType="touchUpInside" id="Jed-02-wmK"/>
+                                    <segue destination="S3c-uW-lpA" kind="push" identifier="nextView" id="Wwi-sM-z0Q"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen7" translatesAutoresizingMaskIntoConstraints="NO" id="06L-8d-x15">
+                                <rect key="frame" x="0.0" y="24" width="562" height="65"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="3kO-Pm-0qg"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="mapScreen" destination="9eA-5h-upJ" id="kgm-nV-qSF"/>
+                        <outlet property="replay" destination="UVv-Xm-Tec" id="F2H-ns-Ufh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kEs-g1-97C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1347" y="-2113"/>
         </scene>
         <!--Choices Third Screen-->
         <scene sceneID="PPq-VR-6KX">
@@ -712,44 +786,34 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPa-Xw-dbq">
-                                <rect key="frame" x="85" y="382" width="143" height="30"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="REPLAY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen6" translatesAutoresizingMaskIntoConstraints="NO" id="a90-YA-uAk">
+                                <rect key="frame" x="108" y="384" width="118" height="40"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64d-8y-C21">
+                                <rect key="frame" x="144" y="389" width="46" height="30"/>
+                                <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="replayButton:" destination="HQL-wz-yLL" eventType="touchUpInside" id="FQS-rk-vBW"/>
-                                    <segue destination="ujD-Mr-MgV" kind="push" id="GbF-Ip-9Gn"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmW-cp-dY3">
-                                <rect key="frame" x="85" y="447" width="143" height="30"/>
-                                <color key="backgroundColor" red="5.918560606e-05" green="3.1257057529999999e-05" blue="3.2756785650000002e-05" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="BACK TO MAP SCREEN">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="mapScreenButton:" destination="HQL-wz-yLL" eventType="touchUpInside" id="bJP-s8-dpn"/>
-                                    <segue destination="S3c-uW-lpA" kind="push" identifier="nextView" id="wIl-zN-rm6"/>
+                                    <action selector="continueButton:" destination="HQL-wz-yLL" eventType="touchUpInside" id="8eN-U4-TXH"/>
+                                    <segue destination="Kej-3M-rbU" kind="push" id="LGS-eY-kT4"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Cx0-Ye-01U"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
+                        <outlet property="continueImage" destination="a90-YA-uAk" id="iUZ-iI-GfT"/>
+                        <outlet property="continueToEnd" destination="64d-8y-C21" id="aal-Cy-Jla"/>
                         <outlet property="friendImage" destination="wbt-Nj-k9X" id="ijE-sQ-aLA"/>
-                        <outlet property="mapScreen" destination="bmW-cp-dY3" id="nGj-Uo-9xc"/>
-                        <outlet property="replay" destination="qPa-Xw-dbq" id="xE8-Kn-LPO"/>
                         <outlet property="textLabel" destination="82l-rM-GTW" id="qiw-5n-yBO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b8u-e7-RRW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056" y="-1383"/>
+            <point key="canvasLocation" x="934" y="-1526"/>
         </scene>
         <!--Map Screen-->
         <scene sceneID="8zi-ZT-9cM">
@@ -760,7 +824,7 @@
                         <viewControllerLayoutGuide type="bottom" id="1Sr-V8-zvm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qU0-tn-cF3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PowerUp-Map" translatesAutoresizingMaskIntoConstraints="NO" id="tPY-8j-neT">
@@ -802,13 +866,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="jFe-nm-wls"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <segue destination="ujD-Mr-MgV" kind="push" identifier="start1View" id="Ofw-jX-WZ6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OMF-eo-Ren" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="700" y="305"/>
+            <point key="canvasLocation" x="700.5" y="298.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cD8-wF-rc7">
@@ -835,6 +901,12 @@
         <image name="buttons" width="259" height="103"/>
         <image name="buttons 2" width="234" height="82"/>
         <image name="buttons 3" width="227" height="88"/>
+        <image name="endingscreen" width="1028" height="586"/>
+        <image name="endingscreen1" width="379" height="490"/>
+        <image name="endingscreen2" width="247" height="40"/>
+        <image name="endingscreen5" width="139" height="50"/>
+        <image name="endingscreen6" width="139" height="50"/>
+        <image name="endingscreen7" width="976" height="93"/>
         <image name="girl_4" width="128" height="128"/>
         <image name="hp_girl" width="128" height="128"/>
         <image name="logo" width="113" height="102"/>
@@ -845,10 +917,11 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="dE6-gx-O0S"/>
-        <segue reference="YqI-cc-ylF"/>
-        <segue reference="yO0-ci-DeB"/>
-        <segue reference="Pcl-29-Fre"/>
+        <segue reference="Wwi-sM-z0Q"/>
+        <segue reference="LGS-eY-kT4"/>
         <segue reference="H18-Fs-chN"/>
+        <segue reference="5NV-Ks-xI9"/>
+        <segue reference="YqI-cc-ylF"/>
+        <segue reference="Pcl-29-Fre"/>
     </inferredMetricsTieBreakers>
 </document>
