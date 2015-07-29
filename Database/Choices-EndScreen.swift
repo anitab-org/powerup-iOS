@@ -11,6 +11,7 @@ class Choices_EndScreen: UIViewController {
     @IBOutlet weak var replay: UIButton!
     
     
+    @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var mapScreen: UIButton!
     
     var counter = 0
@@ -26,12 +27,7 @@ class Choices_EndScreen: UIViewController {
         //return UIInterfaceOrientation.LandscapeLeft.rawValue
     }
     
-   /* override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        if (segue.identifier == "") {
-            // pass data to next view
-        }
-    }
-*/
+    
     
     /*@IBAction
     func dismiss() {
