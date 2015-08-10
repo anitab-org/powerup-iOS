@@ -15,7 +15,7 @@ class Choices_SixthScreen: UIViewController {
     @IBOutlet weak var continueImage: UIImageView!
     @IBOutlet weak var continueToEnd: UIButton!
         var databasePath = NSString()
-        var counter = 0
+        var points = 20
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,29 +87,15 @@ class Choices_SixthScreen: UIViewController {
 
     @IBAction func continueButton(sender: UIButton) {
     }
-    /*
-    @IBAction func mapScreenButton(sender: UIButton) {
-    }
-   
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func replayButton(sender: UIButton) {
-    }
-
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "nextView"
+        if segue.identifier == "assertive"
         {
-            if let destinationVC = segue.destinationViewController as? MapScreen{
-                counter++
-                destinationVC.numberToDisplay = counter
+            if let destinationVC = segue.destinationViewController as? Choices_EndScreen{
+                
+                destinationVC.numberToDisplay = points
             }
         }
-        
     }
-*/
 }
 
     

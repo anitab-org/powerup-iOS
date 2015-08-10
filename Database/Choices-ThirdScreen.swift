@@ -26,7 +26,7 @@ class Choices_ThirdScreen: UIViewController {
     var databasePath = NSString()
     //var myText = NSString()
     
-    var counter = 0
+    var points = 10
     
     
     
@@ -115,48 +115,24 @@ class Choices_ThirdScreen: UIViewController {
 
    
     
-    /*override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        if (segue.identifier == "points0") {
-            pointsLabel.text = "0"
-            
-        }
-    }*/
+  
 
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "passive"
+        {
+            if let destinationVC = segue.destinationViewController as? Choices_EndScreen{
+                
+                destinationVC.numberToDisplay = points
+            }
+        }
     }
+    
+    
+  
     
     
     @IBAction func continueButton(sender: UIButton) {
     }
     
-    /*
-    @IBAction func mapScreenButton(sender: UIButton) {
-
-        
-    }
-    
-    @IBAction func replayButton(sender: UIButton) {
-        
-    println("Replay Button Pressed!!!!!!!!!")
-    }
-
-    
-    
-
-
-
-override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "nextView"
-    {
-        if let destinationVC = segue.destinationViewController as? MapScreen{
-            counter++
-            destinationVC.numberToDisplay = counter
-        }
-    }
-    
-}*/
+   
 }

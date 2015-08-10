@@ -15,6 +15,7 @@ class Choices_EndScreen: UIViewController {
     @IBOutlet weak var mapScreen: UIButton!
     
     var counter = 0
+    var numberToDisplay = 0
     //var isPresented = true
     
     
@@ -43,13 +44,11 @@ class Choices_EndScreen: UIViewController {
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
         
 
-        // Do any additional setup after loading the view.
+   
+        pointsLabel.text = "\(numberToDisplay)"
+    
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
 
     @IBAction func replayButton(sender: UIButton) {

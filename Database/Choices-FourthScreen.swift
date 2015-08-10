@@ -98,10 +98,6 @@ class Choices_FourthScreen: UIViewController {
     
     @IBAction func Answer3Button(sender: UIButton) {
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
 
 

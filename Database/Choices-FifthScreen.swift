@@ -17,7 +17,7 @@ class Choices_FifthScreen: UIViewController {
     @IBOutlet weak var continueImage: UIImageView!
     @IBOutlet weak var continuetoEnd: UIButton!
     var databasePath = NSString()
-    var counter = 0
+    var points = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,22 +96,15 @@ class Choices_FifthScreen: UIViewController {
     @IBAction func continueButton(sender: UIButton) {
     }
 
-  /*  @IBAction func mapScreenButton(sender: UIButton) {
-    }
-    
-    @IBAction func replayButton(sender: UIButton) {
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "nextView"
+        if segue.identifier == "aggressive"
         {
-            if let destinationVC = segue.destinationViewController as? MapScreen{
-                counter++
-                destinationVC.numberToDisplay = counter
+            if let destinationVC = segue.destinationViewController as? Choices_EndScreen{
+                
+                destinationVC.numberToDisplay = points
             }
         }
-
     }
-*/
+
 
 }

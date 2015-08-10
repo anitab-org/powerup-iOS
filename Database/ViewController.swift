@@ -5,14 +5,15 @@ import UIKit
 class ViewController: UIViewController {
 
 
-    @IBOutlet weak var t1: UITextField!
+    @IBOutlet weak var bgImage: UIImageView!
+    @IBOutlet weak var mar_text: UITextView!
+    //@IBOutlet weak var t1: UITextField!
 
+    @IBOutlet weak var answerViewA: UITextField!
+    @IBOutlet weak var answerViewB: UITextField!
     @IBOutlet weak var label: UILabel!
 
-    @IBOutlet weak var find: UIButton!
     
-    @IBOutlet weak var test: UIButton!
-
     
     var databasePath = NSString()
     
@@ -20,40 +21,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-            /*- (void) copyDatabaseIfNeeded {
-                
-                //Using NSFileManager we can perform many file system operations.
-                NSFileManager *fileManager = [NSFileManager defaultManager];
-                NSError *error;
-                
-                NSString *dbPath = [self getDBPath];
-                BOOL success = [fileManager fileExistsAtPath:dbPath];
-                
-                if(!success) {
-                    
-                    NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"database.sqlite"];
-                    success = [fileManager copyItemAtPath:defaultDBPath toPath:dbPath error:&error];
-                    
-                    if (!success)
-                    NSAssert1(0, @"Failed to create writable database file with message '%@'.", [error localizedDescription]);
-                }
-                }
-                
-                - (NSString *) getDBPath
-                    {
-                        //Search for standard documents using NSSearchPathForDirectoriesInDomains
-                        //First Param = Searching the documents directory
-                        //Second Param = Searching the Users directory and not the System
-                        //Expand any tildes and identify home directories.
-                        
-                        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory , NSUserDomainMask, YES);
-                        NSString *documentsDir = [paths objectAtIndex:0];
-                        //NSLog(@"dbpath : %@",documentsDir);
-                        return [documentsDir stringByAppendingPathComponent:@"database.sqlite"];
-        }
-        */
+        mar_text.editable = false
+        mar_text.selectable = false
+       
+        bgImage.image = UIImage(named: "endingscreen")
         
-
+        
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
@@ -110,16 +83,20 @@ class ViewController: UIViewController {
             
             
             if qresults?.next() == true {
-                t1.text = qresults?.stringForColumn("QDescription")
+                mar_text.text = qresults?.stringForColumn("QDescription")
 
                 
             }
             
             if aresults?.next() == true {
-            find.setTitle(aresults?.stringForColumn("ADescription"), forState: .Normal)
+        answerViewA.text = aresults?.stringForColumn("ADescription")
+                
+                //find.setTitle(aresults?.stringForColumn("ADescription"), forState: .Normal)
             }
             if bresults?.next() == true {
-                test.setTitle(bresults?.stringForColumn("ADescription"), forState: .Normal)
+                answerViewB.text = bresults?.stringForColumn("ADescription")
+                
+                //test.setTitle(bresults?.stringForColumn("ADescription"), forState: .Normal)
                 
 
             }

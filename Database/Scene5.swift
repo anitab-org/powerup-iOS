@@ -1,29 +1,36 @@
-
-//  ThirdViewController.swift
+//
+//  Scene5.swift
 //  Database
+
 
 import UIKit
 
-class ThirdViewController: UIViewController {
-    
+class Scene5: UIViewController {
     
     @IBOutlet weak var mar_text: UITextView!
-   // @IBOutlet weak var S3Marcello: UITextField!
     
-    @IBOutlet weak var answerViewA: UITextField!
+    @IBOutlet weak var answerViewA: UITextView!
+    
     @IBOutlet weak var answerViewB: UITextView!
     
-
-    var databasePath = NSString()
+    @IBOutlet weak var answerViewC: UITextView!
     
+    var databasePath = NSString()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mar_text.editable = false
         mar_text.selectable = false
         
+        answerViewA.editable = false
+        answerViewA.selectable = false
+        
         answerViewB.editable = false
         answerViewB.selectable = false
+        
+        answerViewC.editable = false
+        answerViewC.selectable = false
         
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
@@ -39,9 +46,11 @@ class ThirdViewController: UIViewController {
         let mainDB = FMDatabase(path: databasePath as String)
         
         if mainDB.open(){
-            let question = "SELECT QDescription FROM Question Where QID=2"
-            let Aoption = "SELECT ADescription FROM Answer WHERE AID=4"
-            let Boption = "SELECT ADescription FROM Answer WHERE AID=3"
+            let question = "SELECT QDescription FROM Question Where QID=5"
+            let Aoption = "SELECT ADescription FROM Answer WHERE AID=8"
+            let Boption = "SELECT ADescription FROM Answer WHERE AID=9"
+            let Coption = "SELECT ADescription FROM Answer WHERE AID=10"
+            
             
             let qresults:FMResultSet? = mainDB.executeQuery(question,
                 withArgumentsInArray: nil)
@@ -50,26 +59,46 @@ class ThirdViewController: UIViewController {
                 withArgumentsInArray: nil)
             let bresults:FMResultSet? = mainDB.executeQuery(Boption,
                 withArgumentsInArray: nil)
+            let cresults:FMResultSet? = mainDB.executeQuery(Coption,
+                withArgumentsInArray: nil)
             
             
             if qresults?.next() == true
             {
                 mar_text.text = qresults?.stringForColumn("QDescription")
-                }
+            }
             if aresults?.next() == true
             {
                 answerViewA.text = aresults?.stringForColumn("ADescription")
                 
-                //S3Aoption.setTitle(aresults?.stringForColumn("ADescription"), forState: .Normal)
+                
             }
             if bresults?.next() == true
             {
                 answerViewB.text = bresults?.stringForColumn("ADescription")
-                //S3Boption.setTitle(bresults?.stringForColumn("ADescription"), forState: .Normal)
                 
+            }
+            if cresults?.next() == true
+            {
+                answerViewC.text = cresults?.stringForColumn("ADescription")
+                
+            }
+        
         }
-        }
-         mainDB.close()
-}
+        mainDB.close()
+    }
+    
+    
+    @IBAction func ansButton3(sender: UIButton) {
+        
+        var alertView = UIAlertView();
+        alertView.addButtonWithTitle("Ok");
+        alertView.title = "MESSAGE!!!";
+        alertView.message = "SEX MINI - GAME!!!";
+        
+        alertView.show();
+        
 
+    }
+    
 }
