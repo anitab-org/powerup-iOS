@@ -21,7 +21,13 @@ class Choices_SecondScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        Question.editable = false
+        Question.selectable = false
         
+        AnswerView2.editable = false
+        AnswerView2.selectable = false
+        AnswerView3.editable = false
+        AnswerView3.selectable = false
         
         
         let filemgr = NSFileManager.defaultManager()

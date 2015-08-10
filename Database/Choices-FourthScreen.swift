@@ -21,6 +21,11 @@ class Choices_FourthScreen: UIViewController {
         super.viewDidLoad()
         
         
+        Question.editable = false
+        Question.selectable = false
+        AnswerView2.editable = false
+        AnswerView2.selectable = false
+        
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
