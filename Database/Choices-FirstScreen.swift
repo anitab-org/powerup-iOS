@@ -31,7 +31,9 @@ class Choices_FirstScreen: UIViewController {
         super.viewDidLoad()
         
         Question.selectable = false
+        Question.editable = false
         AnswerView.editable = false
+        AnswerView.selectable = false
         
         let value = UIInterfaceOrientation.Portrait.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
