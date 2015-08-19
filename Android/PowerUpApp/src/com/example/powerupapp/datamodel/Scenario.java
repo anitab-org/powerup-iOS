@@ -2,19 +2,20 @@ package com.example.powerupapp.datamodel;
 
 public class Scenario {
 
-	private Integer id;
+	private int id;
 	private String scenarioName;
 	private String timestamp;
 	private String asker;
-	private Integer avatar;
-	private Integer firstQId;
-	private Integer completed;
-	private Integer nextScenarioId;
+	private int avatar;
+	private int firstQId;
+	private int completed;
+	private int nextScenarioId;
+	private int replayed;
 	
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Integer iD) {
+	public void setId(int iD) {
 		id = iD;
 	}
 	public String getScenarioName() {
@@ -35,28 +36,34 @@ public class Scenario {
 	public void setAsker(String asker) {
 		this.asker = asker;
 	}
-	public Integer getAvatar() {
+	public int getAvatar() {
 		return avatar;
 	}
-	public void setAvatar(Integer avatar) {
+	public void setAvatar(int avatar) {
 		this.avatar = avatar;
 	}
-	public Integer getFirstQId() {
+	public int getFirstQId() {
 		return firstQId;
 	}
-	public void setFirstQId(Integer firstQId) {
+	public void setFirstQId(int firstQId) {
 		this.firstQId = firstQId;
 	}
-	public Integer getNextScenarioId() {
+	public int getNextScenarioId() {
 		return nextScenarioId;
 	}
-	public void setNextScenarioId(Integer nextScenarioId) {
+	public void setNextScenarioId(int nextScenarioId) {
 		this.nextScenarioId = nextScenarioId;
 	}
-	public Integer getCompleted() {
+	public int getCompleted() {
 		return completed;
 	}
-	public void setCompleted(Integer completed) {
+	public void setCompleted(int completed) {
 		this.completed = completed;
+	}
+	public int getReplayed() {
+		return replayed;
+	}
+	public void setReplayed(int replayed) {
+		this.replayed = replayed;
 	}
 }
