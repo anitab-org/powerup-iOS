@@ -20,6 +20,8 @@ class Scene5: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.setHidesBackButton(true, animated:true);
+        
         mar_text.editable = false
         mar_text.selectable = false
         
@@ -31,6 +33,23 @@ class Scene5: UIViewController {
         
         answerViewC.editable = false
         answerViewC.selectable = false
+        
+        mar_text!.layer.borderWidth = 6
+        mar_text!.layer.borderColor = UIColor.blackColor().CGColor
+        mar_text!.layer.cornerRadius = 5
+        
+        answerViewA!.layer.borderWidth = 6
+        answerViewA!.layer.borderColor = UIColor.blackColor().CGColor
+        answerViewA!.layer.cornerRadius = 5
+        
+        answerViewB!.layer.borderWidth = 6
+        answerViewB!.layer.borderColor = UIColor.blackColor().CGColor
+        answerViewB!.layer.cornerRadius = 5
+        
+        answerViewC!.layer.borderWidth = 6
+        answerViewC!.layer.borderColor = UIColor.blackColor().CGColor
+        answerViewC!.layer.cornerRadius = 5
+
         
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =

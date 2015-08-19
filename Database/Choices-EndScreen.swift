@@ -11,12 +11,13 @@ class Choices_EndScreen: UIViewController {
     @IBOutlet weak var replay: UIButton!
     
     
+    @IBOutlet weak var conclusionText: UITextView!
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var mapScreen: UIButton!
     
     var counter = 0
     var numberToDisplay = 0
-    //var isPresented = true
+    var sampleText = ""
     
     
    override func shouldAutorotate() -> Bool {
@@ -25,26 +26,26 @@ class Choices_EndScreen: UIViewController {
     
     override func supportedInterfaceOrientations() -> Int {
         return UIInterfaceOrientation.LandscapeRight.rawValue
-        //return UIInterfaceOrientation.LandscapeLeft.rawValue
+        
     }
     
     
-    
-    /*@IBAction
-    func dismiss() {
-        
-        isPresented = false
-        self.presentingViewController!.dismissViewControllerAnimated(true, completion: nil);
-        
-    }*/
-
-    override func viewDidLoad() {
+      override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.setHidesBackButton(true, animated:true);
+        
+        conclusionText!.layer.borderWidth = 6
+        conclusionText!.layer.borderColor = UIColor.blackColor().CGColor
+        conclusionText!.layer.cornerRadius = 5
+        
         let value = UIInterfaceOrientation.LandscapeRight.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
         
-
-   
+        println("\(sampleText)")
+        if var check = conclusionText{
+            conclusionText.text = "\(sampleText)"
+        }
         pointsLabel.text = "\(numberToDisplay)"
     
     }

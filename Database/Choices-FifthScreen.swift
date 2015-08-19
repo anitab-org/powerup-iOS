@@ -6,26 +6,28 @@ import UIKit
 
 class Choices_FifthScreen: UIViewController {
 
-    //@IBOutlet weak var CommentView: UITextView!
-    
-//    @IBOutlet weak var mapScreen: UIButton!
-//    @IBOutlet weak var replay: UIButton!
-    @IBOutlet weak var labelView: UILabel!
+     @IBOutlet weak var labelView: UILabel!
     
     @IBOutlet weak var friendImage: UIImageView!
     
     @IBOutlet weak var continueImage: UIImageView!
     @IBOutlet weak var continuetoEnd: UIButton!
     var databasePath = NSString()
-    var points = 10
+    var points = 0
+    var passString = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    continuetoEnd.hidden = true
-        continueImage.hidden = true
+        self.navigationItem.setHidesBackButton(true, animated:true);
         
-        labelView.lineBreakMode = .ByWordWrapping // or NSLineBreakMode.ByWordWrapping
+        labelView!.layer.borderWidth = 6
+        labelView!.layer.borderColor = UIColor.blackColor().CGColor
+        labelView!.layer.cornerRadius = 5
+    
+        
+        labelView.lineBreakMode = .ByWordWrapping
         labelView.numberOfLines = 0
         
         let filemgr = NSFileManager.defaultManager()
@@ -56,7 +58,13 @@ class Choices_FifthScreen: UIViewController {
                 labelView.text = c1results?.stringForColumn("Text")
                 
             }
+            if c2results?.next() == true {
+                var a = c2results?.stringForColumn("Text")
+                passString = passString + a!
+            }
+
             
+            /*
             UIView.animateWithDuration(2.0, delay: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
                 self.labelView.alpha = 0.0
                 }, completion: {
@@ -77,6 +85,7 @@ class Choices_FifthScreen: UIViewController {
                             
                     })
             })
+*/
             
         }
 
@@ -88,11 +97,6 @@ class Choices_FifthScreen: UIViewController {
     
 
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func continueButton(sender: UIButton) {
     }
 
@@ -100,7 +104,8 @@ class Choices_FifthScreen: UIViewController {
         if segue.identifier == "aggressive"
         {
             if let destinationVC = segue.destinationViewController as? Choices_EndScreen{
-                
+                destinationVC.sampleText = passString
+                println("\(passString)")
                 destinationVC.numberToDisplay = points
             }
         }

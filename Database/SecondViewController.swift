@@ -11,11 +11,22 @@ class SecondViewController: UIViewController {
     
     @IBOutlet weak var S2Rosie: UITextField!
   
-
+    var counter = 0
+    
     var databasePath = NSString()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        S2Marcello!.layer.borderWidth = 6
+        S2Marcello!.layer.borderColor = UIColor.blackColor().CGColor
+        S2Marcello!.layer.cornerRadius = 5
+        
+        S2Rosie!.layer.borderWidth = 6
+        S2Rosie!.layer.borderColor = UIColor.blackColor().CGColor
+        S2Rosie!.layer.cornerRadius = 5
+        
+        self.navigationItem.setHidesBackButton(true, animated:true);
 
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
@@ -55,8 +66,14 @@ class SecondViewController: UIViewController {
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "level2end"
+        {
+            if let destinationVC = segue.destinationViewController as? MapScreen{
+                counter++
+                destinationVC.numberToDisplay = counter
+            }
+        }
         
     }
 

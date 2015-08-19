@@ -24,16 +24,26 @@ class Choices_FirstScreen: UIViewController {
     
     override func supportedInterfaceOrientations() -> Int {
         return UIInterfaceOrientation.Portrait.rawValue
-        //return UIInterfaceOrientation.LandscapeLeft.rawValue
-    }
+       }
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.setHidesBackButton(true, animated:true);
         
         Question.selectable = false
         Question.editable = false
         AnswerView.editable = false
         AnswerView.selectable = false
+        
+        
+        Question!.layer.borderWidth = 6
+        Question!.layer.borderColor = UIColor.blackColor().CGColor
+        Question!.layer.cornerRadius = 5
+        
+        AnswerView!.layer.borderWidth = 6
+        AnswerView!.layer.borderColor = UIColor.blackColor().CGColor
+        AnswerView!.layer.cornerRadius = 5
         
         let value = UIInterfaceOrientation.Portrait.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
@@ -45,7 +55,7 @@ class Choices_FirstScreen: UIViewController {
         
         let docsDir = dirPaths[0] as! String
         var error:NSError?
-        //let destPath = (docsDir as NSString).stringByAppendingPathComponent("Choices.sqlite")
+        
         databasePath = docsDir.stringByAppendingPathComponent("Choices.sqlite")
         
        if filemgr.fileExistsAtPath(databasePath as String){
@@ -99,12 +109,8 @@ class Choices_FirstScreen: UIViewController {
     @IBAction func AnswerButton(sender: UIButton) {
     
     
-    
     }
     
-    
-    
-
 }
 
 

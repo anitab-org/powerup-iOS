@@ -16,12 +16,19 @@ class Choices_SixthScreen: UIViewController {
     @IBOutlet weak var continueToEnd: UIButton!
         var databasePath = NSString()
         var points = 20
+        var passString = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        continueToEnd.hidden = true
-        continueImage.hidden = true
+        self.navigationItem.setHidesBackButton(true, animated:true);
+        
+        labelView!.layer.borderWidth = 6
+        labelView!.layer.borderColor = UIColor.blackColor().CGColor
+        labelView!.layer.cornerRadius = 5
+        
+        //continueToEnd.hidden = true
+        //continueImage.hidden = true
         
         labelView.lineBreakMode = .ByWordWrapping // or NSLineBreakMode.ByWordWrapping
         labelView.numberOfLines = 0
@@ -56,6 +63,13 @@ class Choices_SixthScreen: UIViewController {
                 
             }
             
+            if c2results?.next() == true {
+                var a = c2results?.stringForColumn("Text")
+                passString = passString + a!
+            }
+
+            
+            /*
             UIView.animateWithDuration(2.0, delay: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
                 self.labelView.alpha = 0.0
                 }, completion: {
@@ -78,6 +92,7 @@ class Choices_SixthScreen: UIViewController {
                             
                     })
             })
+*/
             
         }
         
@@ -92,6 +107,8 @@ class Choices_SixthScreen: UIViewController {
         {
             if let destinationVC = segue.destinationViewController as? Choices_EndScreen{
                 
+                destinationVC.sampleText = passString
+                println("\(passString)")
                 destinationVC.numberToDisplay = points
             }
         }

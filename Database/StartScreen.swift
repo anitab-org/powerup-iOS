@@ -15,6 +15,8 @@ class StartScreen: UIViewController {
     @IBOutlet weak var StartButton: UIButton!
     @IBOutlet weak var PowerUp: UITextView!
     
+    var counter = -1
+
     
     override func shouldAutorotate() -> Bool {
         return false
@@ -27,13 +29,9 @@ class StartScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @IBAction func Start(sender: UIButton) {
         
@@ -43,4 +41,27 @@ class StartScreen: UIViewController {
     @IBAction func MiniGames(sender: UIButton) {
         
             }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "logoToStart"
+        {
+            if let destinationVC = segue.destinationViewController as? MapScreen{
+                counter = 1
+                destinationVC.numberToDisplay = counter
+            }
+        }
+
+        if segue.identifier == "startToMap"
+        {
+            if let destinationVC = segue.destinationViewController as? MapScreen{
+                counter++
+                destinationVC.numberToDisplay = counter
+            }
+        }
+        
+    }
+
+    
+    
 }

@@ -2,9 +2,6 @@
 //  MapScreen.swift
 //  Database
 //
-//  Created by Sanya Jain on 22/06/15.
-//  Copyright (c) 2015 Sanya Jain. All rights reserved.
-//
 
 import UIKit
 import SpriteKit
@@ -17,6 +14,8 @@ class MapScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.setHidesBackButton(true, animated:true);
 
         let value = UIInterfaceOrientation.Portrait.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
@@ -24,12 +23,7 @@ class MapScreen: UIViewController {
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func ClickableMap(sender: UIButton) {
+       @IBAction func ClickableMap(sender: UIButton) {
     
     
     }
@@ -46,7 +40,6 @@ class MapScreen: UIViewController {
         {
             println("This action is not possible!! Kindly choose another level!!")
             
-            //performSegueWithIdentifier("alertView", sender: self)
             var alertView = UIAlertView();
             alertView.addButtonWithTitle("Ok");
             alertView.title = "MESSAGE!!!";
@@ -57,21 +50,14 @@ class MapScreen: UIViewController {
             
         }
         else{
+            
             performSegueWithIdentifier("start1View", sender: self)
             
             
         }
         
         
-        /*
-    //let fadeOut = SKAction.fadeOutWithDuration(1.0)
-        
-        let doors = SKTransition.doorwayWithDuration(1.5)
-        let level1 = Choices_FirstScreen.animationDidStart("Choices_FirstScreen")
-        UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions CurveEae()
-            self., animations: <#() -> Void##() -> Void#>, completion: <#((Bool) -> Void)?##(Bool) -> Void#>)
-        
-*/
+       
     }
    
 }

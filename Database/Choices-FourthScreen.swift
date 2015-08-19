@@ -20,11 +20,29 @@ class Choices_FourthScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.setHidesBackButton(true, animated:true);
         
         Question.editable = false
         Question.selectable = false
         AnswerView2.editable = false
         AnswerView2.selectable = false
+        
+        Question!.layer.borderWidth = 6
+        Question!.layer.borderColor = UIColor.blackColor().CGColor
+        Question!.layer.cornerRadius = 5
+        
+        AnswerView1!.layer.borderWidth = 6
+        AnswerView1!.layer.borderColor = UIColor.blackColor().CGColor
+        AnswerView1!.layer.cornerRadius = 5
+        
+        AnswerView2!.layer.borderWidth = 6
+        AnswerView2!.layer.borderColor = UIColor.blackColor().CGColor
+        AnswerView2!.layer.cornerRadius = 5
+        
+        AnswerView3!.layer.borderWidth = 6
+        AnswerView3!.layer.borderColor = UIColor.blackColor().CGColor
+        AnswerView3!.layer.cornerRadius = 5
+        
         
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =

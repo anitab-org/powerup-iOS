@@ -24,24 +24,27 @@ class Choices_ThirdScreen: UIViewController {
 
     
     var databasePath = NSString()
-    //var myText = NSString()
     
     var points = 10
+    var passString = ""
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      //  mapScreen.hidden = true
-        //replay.hidden = true
-        continueToEnd.hidden = true
-        continueImage.hidden = true
+        self.navigationItem.setHidesBackButton(true, animated:true);
+        
+        textLabel!.layer.borderWidth = 6
+      textLabel!.layer.borderColor = UIColor.blackColor().CGColor
+        textLabel!.layer.cornerRadius = 5
+        
+        
+       
         
         
         textLabel.lineBreakMode = .ByWordWrapping
-        // or NSLineBreakMode.ByWordWrapping
-        textLabel.numberOfLines = 0
+         textLabel.numberOfLines = 0
     
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
@@ -75,10 +78,16 @@ class Choices_ThirdScreen: UIViewController {
                 
             }
             
-        // Fade out to set the text
+            if c2results?.next() == true {
+                var a = c2results?.stringForColumn("Text")
+                passString = passString + a!
+            }
             
             
             
+            
+          /*
+        
         UIView.animateWithDuration(2.0, delay: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
             self.textLabel.alpha = 0.0
             }, completion: {
@@ -107,14 +116,17 @@ class Choices_ThirdScreen: UIViewController {
                         })
         })
             
+        */
         }
         
-        
+
         
     }
 
    
     
+    @IBAction func continueButton(sender: AnyObject) {
+    }
   
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -123,6 +135,12 @@ class Choices_ThirdScreen: UIViewController {
             if let destinationVC = segue.destinationViewController as? Choices_EndScreen{
                 
                 destinationVC.numberToDisplay = points
+                destinationVC.sampleText = passString
+                println("\(passString)")
+                                }
+                
+                
+            
             }
         }
     }
@@ -131,8 +149,6 @@ class Choices_ThirdScreen: UIViewController {
   
     
     
-    @IBAction func continueButton(sender: UIButton) {
-    }
     
    
-}
+
