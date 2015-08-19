@@ -17,7 +17,7 @@ public abstract class AbstractDbAdapter {
 	// Database Version
 	private static final int DATABASE_VERSION = 1;
 	// Database Name
-	private static final String DATABASE_NAME = "DatabaseNamePowerUpApp";
+	private static final String DATABASE_NAME = "DatabaseName3";
 
 	protected DatabaseHelper mDbHelper;
 	protected static SQLiteDatabase mDb;
@@ -33,52 +33,53 @@ public abstract class AbstractDbAdapter {
 			super(context, DATABASE_NAME, null, DATABASE_VERSION);
 		}
 		
-		public void insertDBQuestion(SQLiteDatabase db, String[] RowData) {
+		public void insertDBQuestion(SQLiteDatabase db, String[] rowData) {
 			ContentValues values = new ContentValues();
-			if (RowData.length == 3) {
-				values.put("QID", RowData[0]);
-				values.put("ScenarioID", RowData[1]);
-				values.put("QDes", RowData[2]);
+			if (rowData.length == 3) {
+				values.put("QID", rowData[0]);
+				values.put("ScenarioID", rowData[1]);
+				values.put("QDes", rowData[2]);
 				db.insert("Question", null, values);
 			} else {
 			    throw new Error("Incorrect Question CSV Format! Use QID,"
-						+ "ScenarioID, QDes at line: " + RowData.toString());
+						+ "ScenarioID, QDes at line: " + rowData.toString());
 			}
 		}
 
-		public void insertDBAnswer(SQLiteDatabase db, String[] RowData) {
+		public void insertDBAnswer(SQLiteDatabase db, String[] rowData) {
 			ContentValues values = new ContentValues();
-			if (RowData.length == 5) {
-				values.put("AID", RowData[0]);
-				values.put("QID", RowData[1]);
-				values.put("ADes", RowData[2]);
-				values.put("NextID", RowData[3]);
-				values.put("Points", RowData[4]);
+			if (rowData.length == 5) {
+				values.put("AID", rowData[0]);
+				values.put("QID", rowData[1]);
+				values.put("ADes", rowData[2]);
+				values.put("NextID", rowData[3]);
+				values.put("Points", rowData[4]);
 				db.insert("Answer", null, values);
-				System.out.println(RowData);
+				System.out.println(rowData);
 			} else {
 				throw new Error("Incorrect Answer CSV Format! Use AID, QID, ADes,"
-						+ "NextID, Points at line: " + RowData.toString());
+						+ "NextID, Points at line: " + rowData.toString());
 			}
 		}
 
-		public void insertDBScenario(SQLiteDatabase db, String[] RowData) {
+		public void insertDBScenario(SQLiteDatabase db, String[] rowData) {
 			ContentValues values = new ContentValues();
-			if (RowData.length == 8) {
-				values.put("ID", RowData[0]);
-				values.put("ScenarioName", RowData[1]);
-				values.put("Timestamp", RowData[2]);
-				values.put("Asker", RowData[3]);
-				values.put("Avatar", RowData[4]);
-				values.put("FirstQID", RowData[5]);
-				values.put("Completed", RowData[6]);
-				values.put("NextScenarioID", RowData[7]);
+			if (rowData.length == 7) {
+				values.put("ID", rowData[0]);
+				values.put("ScenarioName", rowData[1]);
+				values.put("Timestamp", rowData[2]);
+				values.put("Asker", rowData[3]);
+				values.put("Avatar", rowData[4]);
+				values.put("FirstQID", rowData[5]);
+				values.put("Completed", 0);
+				values.put("NextScenarioID", rowData[6]);
+				values.put("Replayed", 0);
 				db.insert("Scenario", null, values);
 			} else {
 				throw new Error("Incorrect Scenario CSV Format! Use ID,"
 						+ "ScenarioName, Timestamp, Asker, Avatar, FirstQID,"
-						+ "Completed, NextScenarioID at line: "
-						+ RowData.toString());
+						+ " NextScenarioID at line: "
+						+ rowData.toString());
 			}
 		}
 
@@ -129,7 +130,7 @@ public abstract class AbstractDbAdapter {
 			String CREATE_SCENARIO_TABLE = "CREATE TABLE Scenario(ID INTEGER"
 					+ "PRIMARY KEY, ScenarioName TEXT, Timestamp TEXT,"
 					+ "Asker TEXT, Avatar INTEGER, FirstQID INTEGER, Completed"
-					+ " INTEGER, NextScenarioID INTEGER)";
+					+ " INTEGER, NextScenarioID INTEGER, Replayed INTEGER)";
 			String CREATE_POINT_TABLE = "CREATE TABLE Point(Strength INTEGER,"
 					+ "Invisibility INTEGER, Healing INTEGER, Telepathy INTEGER"
 					+ ")";

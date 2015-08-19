@@ -16,27 +16,25 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		ImageButton new_user = (ImageButton) findViewById(R.id.imageButton1);
-	    new_user.setOnClickListener(new View.OnClickListener() {
-	        @Override
-	        public void onClick(View v) {
-	    		Intent myIntent = new Intent(MainActivity.this,
-	    				CreatorRoom.class);
-	    		startActivityForResult(myIntent, 0);
-	    		//setContentView(R.layout.activity_main);
-	        }
-	    });
-	    
-		ImageButton start = (ImageButton) findViewById(R.id.imageButton2);
-	    start.setOnClickListener(new View.OnClickListener() {
-	        @Override
-	        public void onClick(View v) {
-	    		Intent myIntent = new Intent(MainActivity.this, Map.class);
-	    		startActivityForResult(myIntent, 0);
-	    		//setContentView(R.layout.activity_main);
-	        }
-	    });
-	    
+		ImageButton new_user = (ImageButton) findViewById(R.id.imageButton2);
+		new_user.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent myIntent = new Intent(MainActivity.this,
+						CreatorRoom.class);
+				startActivityForResult(myIntent, 0);
+			}
+		});
+
+		ImageButton start = (ImageButton) findViewById(R.id.imageButton1);
+		start.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent myIntent = new Intent(MainActivity.this, Map.class);
+				startActivityForResult(myIntent, 0);
+			}
+		});
+
 	}
 
 	@Override

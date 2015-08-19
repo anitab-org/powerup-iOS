@@ -32,10 +32,10 @@ public class Map extends Activity {
 		Button house = (Button) findViewById(R.id.button2);
 		house.setOnClickListener(onClickListener);
 
-		Button boyfriend = (Button) findViewById(R.id.button4);
+		Button boyfriend = (Button) findViewById(R.id.button3);
 		boyfriend.setOnClickListener(onClickListener);
 
-		Button hospital = (Button) findViewById(R.id.button3);
+		Button hospital = (Button) findViewById(R.id.button4);
 		hospital.setOnClickListener(onClickListener);
 
 		Button school = (Button) findViewById(R.id.button5);
