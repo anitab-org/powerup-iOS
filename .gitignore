@@ -1,0 +1,41 @@
+# Copyright: Chetna (cheatiiit) https://github.com/cheatiiit
+# Under GNU GPL v2.0 
+
+# built application files
+*.apk
+*.ap_
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+
+# lint folder
+lint
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+classes/
+gen-external-apklibs/
+
+# maven output folder
+target
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Eclipse project files
+.classpath
+.project
+.metadata
+.settings
+
+# vi swap files
+*.swp
+
+# backup files
+*.bak
