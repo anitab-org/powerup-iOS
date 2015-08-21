@@ -9,8 +9,6 @@ import UIKit
 class Choices_EndScreen: UIViewController {
     
     @IBOutlet weak var replay: UIButton!
-    
-    
     @IBOutlet weak var conclusionText: UITextView!
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var mapScreen: UIButton!
@@ -19,7 +17,7 @@ class Choices_EndScreen: UIViewController {
     var numberToDisplay = 0
     var sampleText = ""
     
-    
+    // Orientation- setting it to landscape
    override func shouldAutorotate() -> Bool {
         return true
     }
@@ -33,8 +31,10 @@ class Choices_EndScreen: UIViewController {
       override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(true, animated:true);
         
+        // TextView borders and rounded corners
         conclusionText!.layer.borderWidth = 6
         conclusionText!.layer.borderColor = UIColor.blackColor().CGColor
         conclusionText!.layer.cornerRadius = 5
@@ -42,16 +42,19 @@ class Choices_EndScreen: UIViewController {
         let value = UIInterfaceOrientation.LandscapeRight.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
         
+        
+        // Suitable concluding remark is displayed
         println("\(sampleText)")
         if var check = conclusionText{
             conclusionText.text = "\(sampleText)"
         }
+        // Points also displayed according to line of communication
         pointsLabel.text = "\(numberToDisplay)"
     
     }
 
     
-
+// Checking replay button functionality
     @IBAction func replayButton(sender: UIButton) {
     println("Replay Button Pressed!!!!!!!!!")
     }
@@ -60,6 +63,7 @@ class Choices_EndScreen: UIViewController {
     @IBAction func mapScreenButton(sender: UIButton) {
     }
     
+    // Conveying End of Scenario to Map Screen so that Level 1 can't be clicked again, value of counter copied to numberToDisplay field of MapScreen
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "nextView"
         {

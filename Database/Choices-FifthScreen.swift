@@ -20,16 +20,19 @@ class Choices_FifthScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(true, animated:true);
         
+        // Setting the label's border and making its corners rounded
         labelView!.layer.borderWidth = 6
         labelView!.layer.borderColor = UIColor.blackColor().CGColor
         labelView!.layer.cornerRadius = 5
     
-        
+        // Making content in the label to be word wrapped(and not in center)
         labelView.lineBreakMode = .ByWordWrapping
         labelView.numberOfLines = 0
         
+       // Accessing the database
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
@@ -64,33 +67,9 @@ class Choices_FifthScreen: UIViewController {
             }
 
             
-            /*
-            UIView.animateWithDuration(2.0, delay: 5.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-                self.labelView.alpha = 0.0
-                }, completion: {
-                    (finished: Bool) -> Void in
-                    self.friendImage.hidden = true
-                    //Once the label is completely invisible, set the text and fade it back in
-                    if c2results?.next() == true {
-                        self.labelView.text = c2results?.stringForColumn("Text")
-                    }
-                    // Fade in
-                    UIView.animateWithDuration(2.0, delay: 2.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
-                        self.labelView.alpha = 1.0
-                        self.continuetoEnd.alpha = 1.0
-                        }, completion: {
-                            (finished: Bool) -> Void in
-                         self.continueImage.hidden = false
-                            self.continuetoEnd.hidden = false
-                            
-                    })
-            })
-*/
             
         }
 
-        
-        
     
         
     }
@@ -100,6 +79,7 @@ class Choices_FifthScreen: UIViewController {
     @IBAction func continueButton(sender: UIButton) {
     }
 
+    // Communicate to ending screen that aggressive mode of communication was chosen so that appropriate concluding mark can be displayed
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "aggressive"
         {

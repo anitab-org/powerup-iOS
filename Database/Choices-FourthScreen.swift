@@ -20,6 +20,7 @@ class Choices_FourthScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(true, animated:true);
         
         Question.editable = false

@@ -20,6 +20,7 @@ class Scene5: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(true, animated:true);
         
         mar_text.editable = false
@@ -107,7 +108,8 @@ class Scene5: UIViewController {
         mainDB.close()
     }
     
-    
+   
+    // Alert message pops up if option C is chosen
     @IBAction func ansButton3(sender: UIButton) {
         
         var alertView = UIAlertView();

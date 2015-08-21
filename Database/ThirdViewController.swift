@@ -18,14 +18,17 @@ class ThirdViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(true, animated:true);
         
+        // Making textviews non editable and non-selectable so that user can't change the content
         mar_text.editable = false
         mar_text.selectable = false
         
         answerViewB.editable = false
         answerViewB.selectable = false
         
+        // Borders and rounded corners for textfields and textviews
         mar_text!.layer.borderWidth = 6
         mar_text!.layer.borderColor = UIColor.blackColor().CGColor
         mar_text!.layer.cornerRadius = 5
@@ -39,6 +42,7 @@ class ThirdViewController: UIViewController {
         answerViewB!.layer.cornerRadius = 5
 
         
+        // Fetching database content via FMDB wrapper
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,

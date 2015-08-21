@@ -21,6 +21,7 @@ class Choices_SecondScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(true, animated:true);
 
         Question.editable = false
@@ -48,6 +49,8 @@ class Choices_SecondScreen: UIViewController {
         AnswerView3!.layer.borderColor = UIColor.blackColor().CGColor
         AnswerView3!.layer.cornerRadius = 5
         
+        
+        // Accessing the database
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,

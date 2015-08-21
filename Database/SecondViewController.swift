@@ -18,6 +18,9 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Back Button of navigation controller hidden
+        self.navigationItem.setHidesBackButton(true, animated:true);
+
         S2Marcello!.layer.borderWidth = 6
         S2Marcello!.layer.borderColor = UIColor.blackColor().CGColor
         S2Marcello!.layer.cornerRadius = 5
@@ -26,8 +29,7 @@ class SecondViewController: UIViewController {
         S2Rosie!.layer.borderColor = UIColor.blackColor().CGColor
         S2Rosie!.layer.cornerRadius = 5
         
-        self.navigationItem.setHidesBackButton(true, animated:true);
-
+        
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
@@ -66,6 +68,8 @@ class SecondViewController: UIViewController {
         
     }
 
+    
+    // Conveying End of Scenario to Map Screen so that Level 1 can't be clicked again, value of counter copied to numberToDisplay field of MapScreen
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "level2end"
         {

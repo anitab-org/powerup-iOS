@@ -12,12 +12,9 @@ class Choices_FirstScreen: UIViewController {
     @IBOutlet weak var AnswerView: UITextView!
     
     
-    
-
-    
     var databasePath = NSString()
     
-    
+    // Orientation - set to Portrait
     override func shouldAutorotate() -> Bool {
         return false
     }
@@ -29,6 +26,7 @@ class Choices_FirstScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(true, animated:true);
         
         Question.selectable = false
@@ -48,6 +46,8 @@ class Choices_FirstScreen: UIViewController {
         let value = UIInterfaceOrientation.Portrait.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
         
+        
+        // Accessing the Choices.sqlite database and getting its location
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
@@ -77,7 +77,7 @@ class Choices_FirstScreen: UIViewController {
             }
         let mainDB = FMDatabase(path: databasePath as String)
         
-        
+        // Fetching required data from the database through suitable queries
         if mainDB.open(){
             println("DB is open and running...")
             

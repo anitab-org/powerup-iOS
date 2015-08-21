@@ -1,4 +1,4 @@
-
+// Screen 1 for Sex- Scenario
 
 import UIKit
 
@@ -20,12 +20,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Hide back button of navigation controller
         self.navigationItem.setHidesBackButton(true, animated:true);
+        
+        // Making textview non editable and non-selectable so that user can't change the content
         
         mar_text.editable = false
         mar_text.selectable = false
         
         
+        // Borders and rounded corners for textfields and textviews
         mar_text!.layer.borderWidth = 6
         mar_text!.layer.borderColor = UIColor.blackColor().CGColor
         mar_text!.layer.cornerRadius = 5
@@ -41,6 +45,8 @@ class ViewController: UIViewController {
         bgImage.image = UIImage(named: "endingscreen")
         
         
+        // Fetching database content via FMDB wrapper
+        
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
@@ -51,8 +57,6 @@ class ViewController: UIViewController {
         
         databasePath = docsDir.stringByAppendingPathComponent(
             "mainDatabase.sqlite")
-        
-        
         
         
         if filemgr.fileExistsAtPath(databasePath as String){
@@ -81,7 +85,7 @@ class ViewController: UIViewController {
                 println("Error: \(mainDB.lastErrorMessage())")
             }
         
-            
+        // opening the database and extracting content through suitable queries
            if mainDB.open(){
                 let question = "SELECT QDescription FROM Question Where QID=1"
                 let Aoption = "SELECT ADescription FROM Answer WHERE QID=1 AND AID=1"
@@ -120,13 +124,13 @@ class ViewController: UIViewController {
     
     
     
-    
+    // clickable Option A button
 
     @IBAction func find(sender: UIButton) {
         
     }
 
-
+ // clickable Option B button
     @IBAction func Boption(sender: UIButton) {
            }
     
