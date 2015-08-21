@@ -45,8 +45,8 @@ class Choices_FifthScreen: UIViewController {
         
         
         if mainDB.open(){
-            let comment1 = "SELECT Text FROM ChoicesTable WHERE QID=5 AND RefID='$'"
-            let comment2 = "SELECT Text FROM ChoicesTable WHERE QID=7 AND RefID='&'"
+            let comment1 = "SELECT Text FROM Communication WHERE QID='E' AND AID='$'"
+            let comment2 = "SELECT Text FROM Communication WHERE QID='I' AND AID='$'"
             
             
             let c1results:FMResultSet? = mainDB.executeQuery(comment1,

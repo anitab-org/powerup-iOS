@@ -27,10 +27,7 @@ class Choices_SixthScreen: UIViewController {
         labelView!.layer.borderColor = UIColor.blackColor().CGColor
         labelView!.layer.cornerRadius = 5
         
-        //continueToEnd.hidden = true
-        //continueImage.hidden = true
-        
-        labelView.lineBreakMode = .ByWordWrapping // or NSLineBreakMode.ByWordWrapping
+        labelView.lineBreakMode = .ByWordWrapping 
         labelView.numberOfLines = 0
         
         let filemgr = NSFileManager.defaultManager()
@@ -48,8 +45,8 @@ class Choices_SixthScreen: UIViewController {
         
         
         if mainDB.open(){
-            let comment1 = "SELECT Text FROM ChoicesTable WHERE QID=6 AND RefID='$'"
-            let comment2 = "SELECT Text FROM ChoicesTable WHERE QID=8 AND RefID='&'"
+            let comment1 = "SELECT Text FROM Communication WHERE QID='F' AND AID='$'"
+            let comment2 = "SELECT Text FROM Communication WHERE QID='H' AND AID='$'"
             
             let c1results:FMResultSet? = mainDB.executeQuery(comment1,
                 withArgumentsInArray: nil)

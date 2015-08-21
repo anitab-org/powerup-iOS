@@ -79,8 +79,11 @@ class Choices_FirstScreen: UIViewController {
         
         
         if mainDB.open(){
-            let question1 = "SELECT Text FROM ChoicesTable WHERE QID=1 AND RefID='$'"
-            let answer1 =   "SELECT Text FROM ChoicesTable WHERE QID=1 AND RefID=1"
+            println("DB is open and running...")
+            
+            
+            let question1 = "SELECT Text FROM Communication WHERE QID= 'A' AND AID='$'"
+            let answer1 =   "SELECT Text FROM Communication WHERE QID='A' AND AID='A1'"
             
             
             let qresults:FMResultSet? = mainDB.executeQuery(question1,

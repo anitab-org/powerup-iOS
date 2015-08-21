@@ -61,8 +61,8 @@ class Choices_ThirdScreen: UIViewController {
         
         
         if mainDB.open(){
-            let comment1 = "SELECT Text FROM ChoicesTable WHERE QID=3 AND RefID='$'"
-            let comment2 = "SELECT Text FROM ChoicesTable WHERE QID=9 AND RefID='&'"
+            let comment1 = "SELECT Text FROM Communication WHERE QID='C' AND AID='$'"
+            let comment2 = "SELECT Text FROM Communication WHERE QID='G' AND AID='$'"
            
             
             

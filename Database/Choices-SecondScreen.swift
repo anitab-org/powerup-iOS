@@ -73,11 +73,11 @@ class Choices_SecondScreen: UIViewController {
         if mainDB.open(){
         
 
-        let question2 = "SELECT Text FROM ChoicesTable WHERE QID=2 AND RefID='$'"
-        let answer2a =  "SELECT Text FROM ChoicesTable WHERE QID=2 AND RefID=1"
-        let answer2b =  "SELECT Text FROM ChoicesTable WHERE QID=2 AND RefID=2"
-        let answer2c =  "SELECT Text FROM ChoicesTable WHERE QID=2 AND RefID=3"
-        
+        let question2 = "SELECT Text FROM Communication WHERE QID='B' AND AID='$'"
+        let answer2a =  "SELECT Text FROM Communication WHERE QID='B' AND AID='B1'"
+        let answer2b =  "SELECT Text FROM Communication WHERE QID='B' AND AID='B2'"
+        let answer2c =  "SELECT Text FROM Communication WHERE QID='B' AND AID='B3'"
+       
         
         let qresults:FMResultSet? = mainDB.executeQuery(question2,
         withArgumentsInArray: nil)

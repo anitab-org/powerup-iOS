@@ -69,10 +69,10 @@ class Choices_FourthScreen: UIViewController {
         if mainDB.open(){
             
             
-            let question4 = "SELECT Text FROM ChoicesTable WHERE QID=4 AND RefID='$'"
-            let answer4a =  "SELECT Text FROM ChoicesTable WHERE QID=4 AND RefID=1"
-            let answer4b =  "SELECT Text FROM ChoicesTable WHERE QID=4 AND RefID=2"
-            let answer4c =  "SELECT Text FROM ChoicesTable WHERE QID=4 AND RefID=3"
+            let question4 = "SELECT Text FROM Communication WHERE QID='D' AND AID='$'"
+            let answer4a =  "SELECT Text FROM Communication WHERE QID='D' AND AID='D1'"
+            let answer4b =  "SELECT Text FROM Communication WHERE QID='D' AND AID='D2'"
+            let answer4c =  "SELECT Text FROM Communication WHERE QID='D' AND AID='D3'"
             
             
             let qresults:FMResultSet? = mainDB.executeQuery(question4,
