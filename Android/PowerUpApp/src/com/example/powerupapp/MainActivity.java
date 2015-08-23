@@ -16,45 +16,24 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		ImageButton new_user = (ImageButton) findViewById(R.id.imageButton1);
-	    new_user.setOnClickListener(new View.OnClickListener() {
-	        @Override
-	        public void onClick(View v) {
-	    		Intent myIntent = new Intent(MainActivity.this,
-	    				CreatorRoom.class);
-	    		startActivityForResult(myIntent, 0);
-	    		//setContentView(R.layout.activity_main);
-	        }
-	    });
-	    
-		ImageButton start = (ImageButton) findViewById(R.id.imageButton2);
-	    start.setOnClickListener(new View.OnClickListener() {
-	        @Override
-	        public void onClick(View v) {
-	    		Intent myIntent = new Intent(MainActivity.this, Map.class);
-	    		startActivityForResult(myIntent, 0);
-	    		//setContentView(R.layout.activity_main);
-	        }
-	    });
-	    
-	}
+		ImageButton new_user = (ImageButton) findViewById(R.id.newUserButtonFirstPage);
+		new_user.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent myIntent = new Intent(MainActivity.this,
+						AvatarRoom.class);
+				startActivityForResult(myIntent, 0);
+			}
+		});
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
+		ImageButton start = (ImageButton) findViewById(R.id.startButtonMain);
+		start.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent myIntent = new Intent(MainActivity.this, MapActivity.class);
+				startActivityForResult(myIntent, 0);
+			}
+		});
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
 	}
 }

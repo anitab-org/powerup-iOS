@@ -17,6 +17,15 @@ public class DatabaseHandler extends AbstractDbAdapter {
 		ctx.getAssets();
 	}
 
+	public boolean gameOver() {
+		String selectQuery = "SELECT  * FROM Scenario WHERE Completed = 0";
+		Cursor cursor = mDb.rawQuery(selectQuery, null);
+		if (cursor.moveToFirst()) {
+			return false;
+		}
+		return true;
+	}
+
 	public void getAllAnswer(List<Answer> answers, Integer qId) {
 		String selectQuery = "SELECT  * FROM Answer WHERE QID = " + qId;
 		Cursor cursor = mDb.rawQuery(selectQuery, null);
@@ -62,6 +71,7 @@ public class DatabaseHandler extends AbstractDbAdapter {
 			scene.setFirstQId(cursor.getInt(5));
 			scene.setCompleted(cursor.getInt(6));
 			scene.setNextScenarioId(cursor.getInt(7));
+			scene.setReplayed(cursor.getInt(8));
 			return scene;
 		}
 		return null;
@@ -73,20 +83,86 @@ public class DatabaseHandler extends AbstractDbAdapter {
 		Cursor cursor = mDb.rawQuery(selectQuery, null);
 		if (cursor.moveToFirst()) {
 			// If the scene is already completed
-			if(cursor.getInt(6)==1) {
+			if (cursor.getInt(6) == 1) {
 				return false;
 			}
 			SessionHistory.currSessionID = cursor.getInt(0);
 			SessionHistory.currQID = cursor.getInt(5);
 			return true;
 		}
-		//Scenario not Found
+		// Scenario not Found
 		return false;
 	}
-	
+
 	public void setCompletedScenario(CharSequence ScenarioName) {
 		String updateQuery = "UPDATE  Scenario SET Completed=1 WHERE"
 				+ " ScenarioName = " + "\"" + ScenarioName + "\"";
 		mDb.execSQL(updateQuery);
+	}
+
+	public void setReplayedScenario(CharSequence ScenarioName) {
+		String updateQuery = "UPDATE  Scenario SET Replayed=1 WHERE"
+				+ " ScenarioName = " + "\"" + ScenarioName + "\"";
+		mDb.execSQL(updateQuery);
+	}
+
+	public void setAvatarEye(Integer eye) {
+		String query = "UPDATE Avatar SET Eyes = " + eye + " WHERE" + " ID = 1";
+		mDb.execSQL(query);
+	}
+
+	public void setAvatarFace(Integer face) {
+		String query = "UPDATE Avatar SET Face = " + face + " WHERE"
+				+ " ID = 1";
+		mDb.execSQL(query);
+	}
+
+	public void setAvatarCloth(Integer cloth) {
+		String query = "UPDATE Avatar SET Clothes = " + cloth + " WHERE"
+				+ " ID = 1";
+		mDb.execSQL(query);
+	}
+
+	public void setAvatarHair(Integer hair) {
+		String query = "UPDATE Avatar SET Hair = " + hair + " WHERE"
+				+ " ID = 1";
+		mDb.execSQL(query);
+	}
+
+	public Integer getAvatarFace() {
+		String query = "Select * from Avatar WHERE ID = 1";
+		Cursor cursor = mDb.rawQuery(query, null);
+		if (cursor.moveToFirst()) {
+			return cursor.getInt(1);
+		}
+		return 1;
+	}
+
+	public int getAvatarEye() {
+		String query = "Select * from Avatar WHERE ID = 1";
+		Cursor cursor = mDb.rawQuery(query, null);
+		if (cursor.moveToFirst()) {
+			return cursor.getInt(4);
+		}
+		return 1;
+	}
+
+	public int getAvatarCloth() {
+		String query = "Select * from Avatar WHERE ID = 1";
+		Cursor cursor = mDb.rawQuery(query, null);
+		if (cursor.moveToFirst()) {
+			return cursor.getInt(2);
+		}
+		return 1;
+	}
+
+	public int getAvatarHair() {
+		String query = "Select * from Avatar WHERE ID = 1";
+		Cursor cursor = mDb.rawQuery(query, null);
+		if (cursor.moveToFirst()) {
+			return cursor.getInt(3);
+		}
+		return 1;
+
 	}
 }

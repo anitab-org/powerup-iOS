@@ -17,11 +17,11 @@ public abstract class AbstractDbAdapter {
 	// Database Version
 	private static final int DATABASE_VERSION = 1;
 	// Database Name
-	private static final String DATABASE_NAME = "DatabaseNamePowerUpApp";
+	private static final String DATABASE_NAME = "PowerUpDB";
 
 	protected DatabaseHelper mDbHelper;
 	protected static SQLiteDatabase mDb;
-	
+
 	private static BufferedReader in;
 
 	protected final Context mCtx;
@@ -32,58 +32,71 @@ public abstract class AbstractDbAdapter {
 		DatabaseHelper(Context context) {
 			super(context, DATABASE_NAME, null, DATABASE_VERSION);
 		}
-		
-		public void insertDBQuestion(SQLiteDatabase db, String[] RowData) {
+
+		public void insertAvatar(SQLiteDatabase db) {
 			ContentValues values = new ContentValues();
-			if (RowData.length == 3) {
-				values.put("QID", RowData[0]);
-				values.put("ScenarioID", RowData[1]);
-				values.put("QDes", RowData[2]);
-				db.insert("Question", null, values);
-			} else {
-			    throw new Error("Incorrect Question CSV Format! Use QID,"
-						+ "ScenarioID, QDes at line: " + RowData.toString());
-			}
+			values.put("ID", 1);
+			values.put("Face", 1);
+			values.put("Clothes", 1);
+			values.put("Hair", 1);
+			values.put("Eyes", 1);
+			db.insert("Avatar", null, values);
 		}
 
-		public void insertDBAnswer(SQLiteDatabase db, String[] RowData) {
+		public void insertDBQuestion(SQLiteDatabase db, String[] rowData) {
 			ContentValues values = new ContentValues();
-			if (RowData.length == 5) {
-				values.put("AID", RowData[0]);
-				values.put("QID", RowData[1]);
-				values.put("ADes", RowData[2]);
-				values.put("NextID", RowData[3]);
-				values.put("Points", RowData[4]);
+			// if (rowData.length == 3) {
+			values.put("QID", rowData[0]);
+			values.put("ScenarioID", rowData[1]);
+			values.put("QDes", rowData[2]);
+			db.insert("Question", null, values);
+			/*
+			 * } else { throw new
+			 * Error("Incorrect Question CSV Format! Use QID," +
+			 * "ScenarioID, QDes at line: " + rowData.toString()); }
+			 */
+		}
+
+		public void insertDBAnswer(SQLiteDatabase db, String[] rowData) {
+			ContentValues values = new ContentValues();
+			if (rowData.length == 5) {
+				values.put("AID", rowData[0]);
+				values.put("QID", rowData[1]);
+				values.put("ADes", rowData[2]);
+				values.put("NextID", rowData[3]);
+				values.put("Points", rowData[4]);
 				db.insert("Answer", null, values);
-				System.out.println(RowData);
+				System.out.println(rowData);
 			} else {
-				throw new Error("Incorrect Answer CSV Format! Use AID, QID, ADes,"
-						+ "NextID, Points at line: " + RowData.toString());
+				throw new Error(
+						"Incorrect Answer CSV Format! Use AID, QID, ADes,"
+								+ "NextID, Points at line: "
+								+ rowData.toString());
 			}
 		}
 
-		public void insertDBScenario(SQLiteDatabase db, String[] RowData) {
+		public void insertDBScenario(SQLiteDatabase db, String[] rowData) {
 			ContentValues values = new ContentValues();
-			if (RowData.length == 8) {
-				values.put("ID", RowData[0]);
-				values.put("ScenarioName", RowData[1]);
-				values.put("Timestamp", RowData[2]);
-				values.put("Asker", RowData[3]);
-				values.put("Avatar", RowData[4]);
-				values.put("FirstQID", RowData[5]);
-				values.put("Completed", RowData[6]);
-				values.put("NextScenarioID", RowData[7]);
+			if (rowData.length == 7) {
+				values.put("ID", rowData[0]);
+				values.put("ScenarioName", rowData[1]);
+				values.put("Timestamp", rowData[2]);
+				values.put("Asker", rowData[3]);
+				values.put("Avatar", rowData[4]);
+				values.put("FirstQID", rowData[5]);
+				values.put("Completed", 0);
+				values.put("NextScenarioID", rowData[6]);
+				values.put("Replayed", 0);
 				db.insert("Scenario", null, values);
 			} else {
 				throw new Error("Incorrect Scenario CSV Format! Use ID,"
 						+ "ScenarioName, Timestamp, Asker, Avatar, FirstQID,"
-						+ "Completed, NextScenarioID at line: "
-						+ RowData.toString());
+						+ " NextScenarioID at line: " + rowData.toString());
 			}
 		}
 
-		public void readCSVQuestion(SQLiteDatabase db,
-				String filename) throws IOException {
+		public void readCSVQuestion(SQLiteDatabase db, String filename)
+				throws IOException {
 			in = new BufferedReader(new InputStreamReader(
 					assetManager.open(filename)));
 			String reader = "";
@@ -94,8 +107,8 @@ public abstract class AbstractDbAdapter {
 			in.close();
 		}
 
-		public void readCSVAnswer(SQLiteDatabase db,
-				String filename) throws IOException {
+		public void readCSVAnswer(SQLiteDatabase db, String filename)
+				throws IOException {
 			in = new BufferedReader(new InputStreamReader(
 					assetManager.open(filename)));
 			String reader = "";
@@ -106,8 +119,8 @@ public abstract class AbstractDbAdapter {
 			in.close();
 		}
 
-		public void readCSVScenario(SQLiteDatabase db,
-				String filename) throws IOException {
+		public void readCSVScenario(SQLiteDatabase db, String filename)
+				throws IOException {
 			in = new BufferedReader(new InputStreamReader(
 					assetManager.open(filename)));
 			String reader = "";
@@ -117,7 +130,7 @@ public abstract class AbstractDbAdapter {
 			}
 			in.close();
 		}
-		
+
 		@Override
 		public void onCreate(SQLiteDatabase db) {
 
@@ -129,17 +142,18 @@ public abstract class AbstractDbAdapter {
 			String CREATE_SCENARIO_TABLE = "CREATE TABLE Scenario(ID INTEGER"
 					+ "PRIMARY KEY, ScenarioName TEXT, Timestamp TEXT,"
 					+ "Asker TEXT, Avatar INTEGER, FirstQID INTEGER, Completed"
-					+ " INTEGER, NextScenarioID INTEGER)";
+					+ " INTEGER, NextScenarioID INTEGER, Replayed INTEGER)";
 			String CREATE_POINT_TABLE = "CREATE TABLE Point(Strength INTEGER,"
 					+ "Invisibility INTEGER, Healing INTEGER, Telepathy INTEGER"
 					+ ")";
 			String CREATE_AVATAR_TABLE = " CREATE TABLE Avatar(ID INTEGER, Face"
-					+ "INTEGER, Clothes INTEGER, Hair INTEGER, Eyes INTEGER)";
+					+ " INTEGER, Clothes INTEGER, Hair INTEGER, Eyes INTEGER)";
 
 			db.execSQL(CREATE_QUESTION_TABLE);
 			db.execSQL(CREATE_ANSWER_TABLE);
 			db.execSQL(CREATE_SCENARIO_TABLE);
 			db.execSQL(CREATE_POINT_TABLE);
+			db.execSQL(CREATE_AVATAR_TABLE);
 			try {
 				readCSVQuestion(db, "Question.csv");
 				readCSVAnswer(db, "Answer.csv");
@@ -147,6 +161,7 @@ public abstract class AbstractDbAdapter {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			insertAvatar(db);
 		}
 
 		@Override
