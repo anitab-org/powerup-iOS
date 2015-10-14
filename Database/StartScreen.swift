@@ -30,7 +30,9 @@ class StartScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        // Back Button of navigation controller is hidden on home screen
+        self.navigationItem.setHidesBackButton(true, animated:true);
+    
     }
 
    // Start button is clickable
@@ -41,7 +43,7 @@ class StartScreen: UIViewController {
     // minigames not clickable
     @IBAction func MiniGames(sender: UIButton) {
         
-            }
+    }
     
     
     
