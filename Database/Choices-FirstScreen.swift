@@ -27,7 +27,7 @@ class Choices_FirstScreen: UIViewController {
         super.viewDidLoad()
         
         // Back Button of navigation controller hidden
-        self.navigationItem.setHidesBackButton(true, animated:true);
+        self.navigationItem.setHidesBackButton(false, animated:true);
         
         Question.selectable = false
         Question.editable = false

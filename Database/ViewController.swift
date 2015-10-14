@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // Hide back button of navigation controller
-        self.navigationItem.setHidesBackButton(true, animated:true);
+        self.navigationItem.setHidesBackButton(false, animated:true);
         
         // Making textview non editable and non-selectable so that user can't change the content
         
