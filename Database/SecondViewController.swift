@@ -35,9 +35,9 @@ class SecondViewController: UIViewController {
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] as! String
+        let docsDir = dirPaths[0] 
         
-        databasePath = docsDir.stringByAppendingPathComponent(
+        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
             "mainDatabase.sqlite")
         
         
