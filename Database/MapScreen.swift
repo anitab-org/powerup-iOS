@@ -43,10 +43,10 @@ class MapScreen: UIViewController {
         
         if (numberToDisplay > 0)
         {
-            println("This action is not possible!! Kindly choose another level!!")
+            print("This action is not possible!! Kindly choose another level!!")
             
            //alert message popped up
-            var alertView = UIAlertView();
+            let alertView = UIAlertView();
             alertView.addButtonWithTitle("Ok");
             alertView.title = "MESSAGE!!!";
             alertView.message = "You have already played this scenario! Go try another level!!";

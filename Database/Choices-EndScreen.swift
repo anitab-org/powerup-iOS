@@ -22,8 +22,8 @@ class Choices_EndScreen: UIViewController {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> Int {
-        return UIInterfaceOrientation.LandscapeRight.rawValue
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.LandscapeRight
         
     }
     
@@ -44,7 +44,7 @@ class Choices_EndScreen: UIViewController {
         
         
         // Suitable concluding remark is displayed
-        println("\(sampleText)")
+        print("\(sampleText)")
         if var check = conclusionText{
             conclusionText.text = "\(sampleText)"
         }
@@ -56,7 +56,7 @@ class Choices_EndScreen: UIViewController {
     
 // Checking replay button functionality
     @IBAction func replayButton(sender: UIButton) {
-    println("Replay Button Pressed!!!!!!!!!")
+    print("Replay Button Pressed!!!!!!!!!")
     }
     
     
