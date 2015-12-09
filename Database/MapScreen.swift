@@ -16,13 +16,15 @@ class MapScreen: UIViewController {
         super.viewDidLoad()
         
         // Back Button of navigation controller hidden
-        self.navigationItem.setHidesBackButton(true, animated:true);
-
+        self.navigationItem.setHidesBackButton(true, animated:true)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
         // setting the orientation to portrait
         let value = UIInterfaceOrientation.Portrait.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
-        
-        
     }
 
     //Level 2 Button: clickable
@@ -66,6 +68,10 @@ class MapScreen: UIViewController {
         
         
        
+    }
+    
+    @IBAction func unwindToMap(segue: UIStoryboardSegue) {
+        println("Unwind to MapScreen")
     }
    
 }
