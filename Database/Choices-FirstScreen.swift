@@ -19,8 +19,8 @@ class Choices_FirstScreen: UIViewController {
         return false
     }
     
-    override func supportedInterfaceOrientations() -> Int {
-        return UIInterfaceOrientation.Portrait.rawValue
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return [UIInterfaceOrientationMask.Portrait, UIInterfaceOrientationMask.PortraitUpsideDown]
        }
    
     override func viewDidLoad() {
@@ -53,33 +53,38 @@ class Choices_FirstScreen: UIViewController {
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] as! String
+        let docsDir = dirPaths[0] 
         var error:NSError?
         
-        databasePath = docsDir.stringByAppendingPathComponent("Choices.sqlite")
+        databasePath = (docsDir as NSString).stringByAppendingPathComponent("Choices.sqlite")
         
        if filemgr.fileExistsAtPath(databasePath as String){
-            println("FOUND!!!!")
-        filemgr.removeItemAtPath(databasePath as String, error: &error)
+            print("FOUND!!!!")
+            do {
+                try filemgr.removeItemAtPath(databasePath as String)
+            } catch let error1 as NSError {
+                error = error1
+            }
             
         }
 
         if let bundle_path = NSBundle.mainBundle().pathForResource("Choices", ofType: "sqlite"){
-        println("Test!!!!!!!!")
+        print("Test!!!!!!!!")
             
-            if filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String, error: &error){
-                    println("Success!!!!!!!!")
+        do {
+            try filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String)
+                print("Success!!!!!!!!")
+        } catch let error1 as NSError {
+            error = error1
+                print("Failure")
+            print(error?.localizedDescription)
             }
-                else{
-                    println("Failure")
-                println(error?.localizedDescription)
-                }
             }
         let mainDB = FMDatabase(path: databasePath as String)
         
         // Fetching required data from the database through suitable queries
         if mainDB.open(){
-            println("DB is open and running...")
+            print("DB is open and running...")
             
             
             let question1 = "SELECT Text FROM Communication WHERE QID= 'A' AND AID='$'"

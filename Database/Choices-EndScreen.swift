@@ -8,6 +8,8 @@ import UIKit
 
 class Choices_EndScreen: UIViewController {
     
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
     @IBOutlet weak var replay: UIButton!
     @IBOutlet weak var conclusionText: UITextView!
     @IBOutlet weak var pointsLabel: UILabel!
@@ -18,17 +20,17 @@ class Choices_EndScreen: UIViewController {
     var sampleText = ""
     
     // Orientation- setting it to landscape
-   override func shouldAutorotate() -> Bool {
+    override func shouldAutorotate() -> Bool {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> Int {
-        return UIInterfaceOrientation.LandscapeRight.rawValue
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return [UIInterfaceOrientationMask.Portrait, UIInterfaceOrientationMask.PortraitUpsideDown]
         
     }
     
     
-      override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         // Back Button of navigation controller hidden
@@ -44,19 +46,19 @@ class Choices_EndScreen: UIViewController {
         
         
         // Suitable concluding remark is displayed
-        println("\(sampleText)")
+        print("\(sampleText)")
         if var check = conclusionText{
             conclusionText.text = "\(sampleText)"
         }
         // Points also displayed according to line of communication
         pointsLabel.text = "\(numberToDisplay)"
-    
+        
     }
-
     
-// Checking replay button functionality
+    
+    // Checking replay button functionality
     @IBAction func replayButton(sender: UIButton) {
-    println("Replay Button Pressed!!!!!!!!!")
+        print("Replay Button Pressed!!!!!!!!!")
     }
     
     
@@ -68,12 +70,13 @@ class Choices_EndScreen: UIViewController {
         if segue.identifier == "nextView"
         {
             if let destinationVC = segue.destinationViewController as? MapScreen{
+                counter = defaults.integerForKey("level1clicks")
                 counter++
-                destinationVC.numberToDisplay = counter
+                defaults.setInteger(counter, forKey: "level1clicks")
             }
         }
         
     }
-
+    
     
 }

@@ -9,26 +9,30 @@ import SpriteKit
 
 class MapScreen: UIViewController {
     
-    
     var numberToDisplay = 0
+    let defaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if(defaults.integerForKey("level1clicks") == 0){
+            defaults.setInteger(1, forKey: "level1clicks")
+        }
+        
         // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(true, animated:true);
-
+        
         // setting the orientation to portrait
         let value = UIInterfaceOrientation.Portrait.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
         
         
     }
-
+    
     //Level 2 Button: clickable
     @IBAction func ClickableMap(sender: UIButton) {
-    
-    
+        
+        
     }
     
     // logo button on top right corner clickable
@@ -37,16 +41,16 @@ class MapScreen: UIViewController {
     
     //Level 1 Button
     @IBAction func ChoicesClickableMap(sender: UIButton) {
-      
         
-      // Testing condition if level 1 button pressed again after comming out of the scenario
         
-        if (numberToDisplay > 0)
+        // Testing condition if level 1 button pressed again after comming out of the scenario
+        numberToDisplay = defaults.integerForKey("level1clicks")
+        if (numberToDisplay > 2)
         {
-            println("This action is not possible!! Kindly choose another level!!")
+            print("This action is not possible!! Kindly choose another level!!")
             
-           //alert message popped up
-            var alertView = UIAlertView();
+            //alert message popped up
+            let alertView = UIAlertView();
             alertView.addButtonWithTitle("Ok");
             alertView.title = "MESSAGE!!!";
             alertView.message = "You have already played this scenario! Go try another level!!";
@@ -58,14 +62,14 @@ class MapScreen: UIViewController {
             
             // condition for first time click - navigates to scenario
         else{
-            
+            print(numberToDisplay)
             performSegueWithIdentifier("start1View", sender: self)
             
             
         }
         
         
-       
+        
     }
-   
+    
 }
