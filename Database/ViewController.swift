@@ -56,7 +56,7 @@ class ViewController: UIViewController {
         var error: NSError?
         
         databasePath = (docsDir as NSString).stringByAppendingPathComponent(
-            "mainDatabase.sqlite")
+            "level1.sqlite")
         
         
         if filemgr.fileExistsAtPath(databasePath as String){
@@ -69,7 +69,7 @@ class ViewController: UIViewController {
             
         }
         
-        if let bundle_path = NSBundle.mainBundle().pathForResource("mainDatabase", ofType: "sqlite"){
+        if let bundle_path = NSBundle.mainBundle().pathForResource("level1", ofType: "sqlite"){
             print("Test!!!!!!!!")
             
             do {

@@ -51,7 +51,7 @@ class ThirdViewController: UIViewController {
         let docsDir = dirPaths[0] 
         
         databasePath = (docsDir as NSString).stringByAppendingPathComponent(
-            "mainDatabase.sqlite")
+            "level1.sqlite")
         
         
         let mainDB = FMDatabase(path: databasePath as String)
