@@ -1,8 +1,3 @@
-//
-//  Choices-FirstScreen.swift
-//  Database
-
-
 import UIKit
 
 class Choices_FirstScreen: UIViewController {
@@ -22,7 +17,7 @@ class Choices_FirstScreen: UIViewController {
     override func supportedInterfaceOrientations() -> Int {
         return UIInterfaceOrientation.Portrait.rawValue
     }
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,28 +51,30 @@ class Choices_FirstScreen: UIViewController {
         let docsDir = dirPaths[0] as! String
         var error:NSError?
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent("Choices.sqlite")
+        databasePath = docsDir.stringByAppendingPathComponent("Choices.sqlite")
         
         if filemgr.fileExistsAtPath(databasePath as String){
             println("FOUND!!!!")
             filemgr.removeItemAtPath(databasePath as String, error: &error)
+            
         }
-
+        
         if let bundle_path = NSBundle.mainBundle().pathForResource("Choices", ofType: "sqlite"){
-        print("Test!!!!!!!!")
+            println("Test!!!!!!!!")
             
-        if filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String, error: &error){
-             println("Success!!!!!!!!")
-        }else{
-            println("Failure")
-            println(error?.localizedDescription)
+            if filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String, error: &error){
+                println("Success!!!!!!!!")
             }
-            
+            else{
+                println("Failure")
+                println(error?.localizedDescription)
+            }
+        }
         let mainDB = FMDatabase(path: databasePath as String)
         
         // Fetching required data from the database through suitable queries
         if mainDB.open(){
-            print("DB is open and running...")
+            println("DB is open and running...")
             
             
             let question1 = "SELECT Text FROM Communication WHERE QID= 'A' AND AID='$'"
@@ -101,26 +98,16 @@ class Choices_FirstScreen: UIViewController {
             
         }
         mainDB.close()
-    
-}
+        
+    }
     
     
     
     
     @IBAction func AnswerButton(sender: UIButton) {
-    
-    
+        
+        
     }
     
 }
-
-
-
-
-
-
-
-
-
-
 
