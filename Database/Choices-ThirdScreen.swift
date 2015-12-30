@@ -46,9 +46,9 @@ class Choices_ThirdScreen: UIViewController {
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] 
+        let docsDir = dirPaths[0] as! String
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
+       databasePath = docsDir.stringByAppendingPathComponent(
             "Choices.sqlite")
         
         
@@ -74,7 +74,7 @@ class Choices_ThirdScreen: UIViewController {
             }
             
             if c2results?.next() == true {
-                let a = c2results?.stringForColumn("Text")
+                var a = c2results?.stringForColumn("Text")
                 passString = passString + a!
             }
             

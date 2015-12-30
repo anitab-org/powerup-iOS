@@ -52,33 +52,28 @@ class ViewController: UIViewController {
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] 
         var error: NSError?
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
+        let docsDir = dirPaths[0] as! String
+        
+        databasePath = docsDir.stringByAppendingPathComponent(
             "level1.sqlite")
         
-        
         if filemgr.fileExistsAtPath(databasePath as String){
-            print("FOUND!!!!")
-            do {
-                try filemgr.removeItemAtPath(databasePath as String)
-            } catch let error1 as NSError {
-                error = error1
-            }
+            println("FOUND!!!!")
+            filemgr.removeItemAtPath(databasePath as String, error: &error)
             
         }
         
         if let bundle_path = NSBundle.mainBundle().pathForResource("level1", ofType: "sqlite"){
             print("Test!!!!!!!!")
             
-            do {
-                try filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String)
-                print("Success!!!!!!!!")
-            } catch let error1 as NSError {
-                error = error1
-                print("Failure")
-                print(error?.localizedDescription)
+            if filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String, error: &error){
+                    println("Success!!!!!!!!")
+            }
+            else{
+                    println("Failure")
+                    println(error?.localizedDescription)
             }
         }
 

@@ -56,9 +56,9 @@ class Choices_SecondScreen: UIViewController {
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
         .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] 
+        let docsDir = dirPaths[0] as! String
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
+        databasePath = docsDir.stringByAppendingPathComponent(
         "Choices.sqlite")
         
         if filemgr.fileExistsAtPath(databasePath as String){

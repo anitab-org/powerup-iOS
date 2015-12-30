@@ -24,8 +24,8 @@ class Choices_EndScreen: UIViewController {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return [UIInterfaceOrientationMask.Portrait, UIInterfaceOrientationMask.PortraitUpsideDown]
+    override func supportedInterfaceOrientations() -> Int {
+        return UIInterfaceOrientation.LandscapeRight.rawValue
         
     }
     

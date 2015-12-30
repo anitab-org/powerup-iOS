@@ -19,9 +19,9 @@ class Choices_FirstScreen: UIViewController {
         return false
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return [UIInterfaceOrientationMask.Portrait, UIInterfaceOrientationMask.PortraitUpsideDown]
-       }
+    override func supportedInterfaceOrientations() -> Int {
+        return UIInterfaceOrientation.Portrait.rawValue
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,33 +53,26 @@ class Choices_FirstScreen: UIViewController {
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] 
+        let docsDir = dirPaths[0] as! String
         var error:NSError?
         
         databasePath = (docsDir as NSString).stringByAppendingPathComponent("Choices.sqlite")
         
-       if filemgr.fileExistsAtPath(databasePath as String){
-            print("FOUND!!!!")
-            do {
-                try filemgr.removeItemAtPath(databasePath as String)
-            } catch let error1 as NSError {
-                error = error1
-            }
-            
+        if filemgr.fileExistsAtPath(databasePath as String){
+            println("FOUND!!!!")
+            filemgr.removeItemAtPath(databasePath as String, error: &error)
         }
 
         if let bundle_path = NSBundle.mainBundle().pathForResource("Choices", ofType: "sqlite"){
         print("Test!!!!!!!!")
             
-        do {
-            try filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String)
-                print("Success!!!!!!!!")
-        } catch let error1 as NSError {
-            error = error1
-                print("Failure")
-            print(error?.localizedDescription)
+        if filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String, error: &error){
+             println("Success!!!!!!!!")
+        }else{
+            println("Failure")
+            println(error?.localizedDescription)
             }
-            }
+            
         let mainDB = FMDatabase(path: databasePath as String)
         
         // Fetching required data from the database through suitable queries
