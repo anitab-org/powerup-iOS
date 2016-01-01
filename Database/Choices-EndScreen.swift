@@ -70,9 +70,8 @@ class Choices_EndScreen: UIViewController {
         if segue.identifier == "nextView"
         {
             if let destinationVC = segue.destinationViewController as? MapScreen{
-                counter = defaults.integerForKey("level1clicks")
                 counter++
-                defaults.setInteger(counter, forKey: "level1clicks")
+                destinationVC.numberToDisplay = counter
             }
         }
         

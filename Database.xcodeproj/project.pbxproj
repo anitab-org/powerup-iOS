@@ -16,7 +16,7 @@
 		2A0CA56B1B294C6B00ED8781 /* DatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0CA56A1B294C6B00ED8781 /* DatabaseTests.swift */; };
 		2A0CA5751B294C9200ED8781 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0CA5741B294C9200ED8781 /* libsqlite3.dylib */; };
 		2A0FEF611B52A7E400E28079 /* Choices-SixthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0FEF601B52A7E400E28079 /* Choices-SixthScreen.swift */; };
-		2A2322DB1B2C5EB200F3F6D4 /* level1.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2A2322DA1B2C5EB200F3F6D4 /* level1.sqlite */; };
+		2A2322DB1B2C5EB200F3F6D4 /* Contraceptives.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2A2322DA1B2C5EB200F3F6D4 /* Contraceptives.sqlite */; };
 		2A2A4DB71B373C5B00D50860 /* StartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A4DB61B373C5B00D50860 /* StartScreen.swift */; };
 		2A3530631B6617DB00F9E5DF /* Choices-EndScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3530621B6617DB00F9E5DF /* Choices-EndScreen.swift */; };
 		2A4AED701B77877C00268B6B /* Scene4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4AED6F1B77877C00268B6B /* Scene4.swift */; };
@@ -64,7 +64,7 @@
 		2A0CA5741B294C9200ED8781 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsqlite3.dylib; sourceTree = "<group>"; };
 		2A0CA5761B29E83500ED8781 /* Database-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Database-Bridging-Header.h"; sourceTree = "<group>"; };
 		2A0FEF601B52A7E400E28079 /* Choices-SixthScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-SixthScreen.swift"; sourceTree = "<group>"; };
-		2A2322DA1B2C5EB200F3F6D4 /* level1.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = level1.sqlite; path = ../level1.sqlite; sourceTree = "<group>"; };
+		2A2322DA1B2C5EB200F3F6D4 /* Contraceptives.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = Contraceptives.sqlite; path = ../Contraceptives.sqlite; sourceTree = "<group>"; };
 		2A2A4DB61B373C5B00D50860 /* StartScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScreen.swift; sourceTree = "<group>"; };
 		2A3530621B6617DB00F9E5DF /* Choices-EndScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-EndScreen.swift"; sourceTree = "<group>"; };
 		2A4AED6F1B77877C00268B6B /* Scene4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene4.swift; sourceTree = "<group>"; };
@@ -149,7 +149,7 @@
 			children = (
 				2A0CA5541B294C6B00ED8781 /* AppDelegate.swift */,
 				2AAEE5391B482E4600885044 /* Choices.sqlite */,
-				2A2322DA1B2C5EB200F3F6D4 /* level1.sqlite */,
+				2A2322DA1B2C5EB200F3F6D4 /* Contraceptives.sqlite */,
 				2A0CA5561B294C6B00ED8781 /* ViewController.swift */,
 				2A68C3DA1B2EA28700E2FAE8 /* SecondViewController.swift */,
 				2A0CA5581B294C6B00ED8781 /* Main.storyboard */,
@@ -282,7 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A0CA55A1B294C6B00ED8781 /* Main.storyboard in Resources */,
-				2A2322DB1B2C5EB200F3F6D4 /* level1.sqlite in Resources */,
+				2A2322DB1B2C5EB200F3F6D4 /* Contraceptives.sqlite in Resources */,
 				2A0CA55F1B294C6B00ED8781 /* LaunchScreen.xib in Resources */,
 				2A0CA55C1B294C6B00ED8781 /* Images.xcassets in Resources */,
 				2AAEE53A1B482E4600885044 /* Choices.sqlite in Resources */,

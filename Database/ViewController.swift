@@ -57,7 +57,7 @@ class ViewController: UIViewController {
         let docsDir = dirPaths[0] as! String
         
         databasePath = docsDir.stringByAppendingPathComponent(
-            "level1.sqlite")
+            "Contraceptives.sqlite")
         
         if filemgr.fileExistsAtPath(databasePath as String){
             println("FOUND!!!!")
@@ -65,7 +65,7 @@ class ViewController: UIViewController {
             
         }
         
-        if let bundle_path = NSBundle.mainBundle().pathForResource("level1", ofType: "sqlite"){
+        if let bundle_path = NSBundle.mainBundle().pathForResource("Contraceptives", ofType: "sqlite"){
             print("Test!!!!!!!!")
             
             if filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String, error: &error){

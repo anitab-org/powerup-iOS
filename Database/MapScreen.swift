@@ -44,8 +44,7 @@ class MapScreen: UIViewController {
         
         
         // Testing condition if level 1 button pressed again after comming out of the scenario
-        numberToDisplay = defaults.integerForKey("level1clicks")
-        if (numberToDisplay > 2)
+        if (played1 > 1)
         {
             print("This action is not possible!! Kindly choose another level!!")
             
@@ -62,13 +61,17 @@ class MapScreen: UIViewController {
             
             // condition for first time click - navigates to scenario
         else{
-            print(numberToDisplay)
+            played1++
             performSegueWithIdentifier("start1View", sender: self)
             
             
         }
         
         
+        
+    }
+    
+    @IBAction func unwindToMapScreen(segue: UIStoryboardSegue){
         
     }
     

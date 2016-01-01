@@ -1282,8 +1282,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="mapScreenButton:" destination="Kej-3M-rbU" eventType="touchUpInside" id="Jed-02-wmK"/>
-                                    <segue destination="S3c-uW-lpA" kind="push" identifier="nextView" id="Wwi-sM-z0Q"/>
+                                    <segue destination="hOx-ej-M13" kind="unwind" unwindAction="unwindToMapScreen:" id="ib8-Vm-Caw"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen7" translatesAutoresizingMaskIntoConstraints="NO" id="06L-8d-x15">
@@ -1314,6 +1313,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kEs-g1-97C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="hOx-ej-M13" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1217" y="-2051"/>
         </scene>
@@ -1471,14 +1471,14 @@
         <image name="logo" width="113" height="102"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dAo-OD-1PD"/>
+        <segue reference="Pcl-29-Fre"/>
+        <segue reference="lfn-y2-37L"/>
+        <segue reference="wIg-qb-dZP"/>
+        <segue reference="VXk-Sx-JOj"/>
+        <segue reference="KqI-h0-VLh"/>
         <segue reference="5NV-Ks-xI9"/>
         <segue reference="MOD-Bo-uno"/>
-        <segue reference="Wwi-sM-z0Q"/>
-        <segue reference="Pcl-29-Fre"/>
-        <segue reference="wIg-qb-dZP"/>
-        <segue reference="KqI-h0-VLh"/>
-        <segue reference="VXk-Sx-JOj"/>
+        <segue reference="dAo-OD-1PD"/>
         <segue reference="ckn-hC-8D8"/>
     </inferredMetricsTieBreakers>
 </document>

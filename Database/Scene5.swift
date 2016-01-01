@@ -60,7 +60,7 @@ class Scene5: UIViewController {
         let docsDir = dirPaths[0] as! String
         
         databasePath = docsDir.stringByAppendingPathComponent(
-            "level1.sqlite")
+            "Contraceptives.sqlite")
 
         let mainDB = FMDatabase(path: databasePath as String)
         
