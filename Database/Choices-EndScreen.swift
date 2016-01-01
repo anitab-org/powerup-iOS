@@ -8,8 +8,6 @@ import UIKit
 
 class Choices_EndScreen: UIViewController {
     
-    let defaults = NSUserDefaults.standardUserDefaults()
-    
     @IBOutlet weak var replay: UIButton!
     @IBOutlet weak var conclusionText: UITextView!
     @IBOutlet weak var pointsLabel: UILabel!
@@ -20,7 +18,7 @@ class Choices_EndScreen: UIViewController {
     var sampleText = ""
     
     // Orientation- setting it to landscape
-    override func shouldAutorotate() -> Bool {
+   override func shouldAutorotate() -> Bool {
         return true
     }
     
@@ -30,7 +28,7 @@ class Choices_EndScreen: UIViewController {
     }
     
     
-    override func viewDidLoad() {
+      override func viewDidLoad() {
         super.viewDidLoad()
         
         // Back Button of navigation controller hidden
@@ -52,13 +50,13 @@ class Choices_EndScreen: UIViewController {
         }
         // Points also displayed according to line of communication
         pointsLabel.text = "\(numberToDisplay)"
-        
+    
     }
+
     
-    
-    // Checking replay button functionality
+// Checking replay button functionality
     @IBAction func replayButton(sender: UIButton) {
-        print("Replay Button Pressed!!!!!!!!!")
+    print("Replay Button Pressed!!!!!!!!!")
     }
     
     
@@ -76,6 +74,6 @@ class Choices_EndScreen: UIViewController {
         }
         
     }
-    
+
     
 }

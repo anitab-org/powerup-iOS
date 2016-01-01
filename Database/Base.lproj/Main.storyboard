@@ -78,7 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5D-0F-CHK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="218" y="205"/>
+            <point key="canvasLocation" x="204" y="256"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="zcc-y7-lCe">
@@ -396,7 +396,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="S3c-uW-lpA" kind="push" identifier="level2end" id="5VO-Md-ZNK"/>
+                                    <segue destination="22d-pr-1iw" kind="unwind" unwindAction="unwindToMapScreen:" id="x74-t9-Z40"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Clothing-Room-all" translatesAutoresizingMaskIntoConstraints="NO" id="Kcw-tm-vPl">
@@ -411,8 +411,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctT-Jt-Q9N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="22d-pr-1iw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1837" y="1305"/>
+            <point key="canvasLocation" x="1783" y="1298"/>
         </scene>
         <!--Scene7-->
         <scene sceneID="Wwh-Fz-JnA">
@@ -1216,7 +1217,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dlu-QW-9IP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1525" y="-1477"/>
+            <point key="canvasLocation" x="1492" y="-1412"/>
         </scene>
         <!--Choices End Screen-->
         <scene sceneID="7iy-JJ-2EY">
@@ -1282,7 +1283,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="hOx-ej-M13" kind="unwind" unwindAction="unwindToMapScreen:" id="ib8-Vm-Caw"/>
+                                    <segue destination="k0P-wi-9t4" kind="unwind" unwindAction="unwindToMapScreen:" id="lIk-2C-xUv"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen7" translatesAutoresizingMaskIntoConstraints="NO" id="06L-8d-x15">
@@ -1313,9 +1314,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kEs-g1-97C" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="hOx-ej-M13" userLabel="Exit" sceneMemberID="exit"/>
+                <exit id="k0P-wi-9t4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1217" y="-2051"/>
+            <point key="canvasLocation" x="1261" y="-2103"/>
         </scene>
         <!--Choices Third Screen-->
         <scene sceneID="PPq-VR-6KX">
@@ -1428,7 +1429,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OMF-eo-Ren" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="674.5" y="1255.5"/>
+            <point key="canvasLocation" x="549.5" y="1206.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cD8-wF-rc7">
@@ -1472,12 +1473,11 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Pcl-29-Fre"/>
-        <segue reference="lfn-y2-37L"/>
         <segue reference="wIg-qb-dZP"/>
-        <segue reference="VXk-Sx-JOj"/>
         <segue reference="KqI-h0-VLh"/>
+        <segue reference="VXk-Sx-JOj"/>
         <segue reference="5NV-Ks-xI9"/>
-        <segue reference="MOD-Bo-uno"/>
+        <segue reference="Rew-bX-gDf"/>
         <segue reference="dAo-OD-1PD"/>
         <segue reference="ckn-hC-8D8"/>
     </inferredMetricsTieBreakers>

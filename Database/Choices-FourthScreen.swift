@@ -50,9 +50,9 @@ class Choices_FourthScreen: UIViewController {
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] as! String
+        let docsDir = dirPaths[0] 
         
-        databasePath = docsDir.stringByAppendingPathComponent(
+        databasePath = (docsDir as! NSString).stringByAppendingPathComponent(
             "Choices.sqlite")
         
         if filemgr.fileExistsAtPath(databasePath as String){
