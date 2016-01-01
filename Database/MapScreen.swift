@@ -10,14 +10,10 @@ import SpriteKit
 class MapScreen: UIViewController {
     
     var numberToDisplay = 0
-    let defaults = NSUserDefaults.standardUserDefaults()
+    var played1 = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if(defaults.integerForKey("level1clicks") == 0){
-            defaults.setInteger(1, forKey: "level1clicks")
-        }
         
         // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(true, animated:true);
