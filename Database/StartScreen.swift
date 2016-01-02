@@ -20,9 +20,9 @@ class StartScreen: UIViewController {
         return false
     }
     
-    
     override func supportedInterfaceOrientations() -> Int {
-        return UIInterfaceOrientation.Portrait.rawValue
+        return UIInterfaceOrientation.LandscapeRight.rawValue
+        
     }
     
     

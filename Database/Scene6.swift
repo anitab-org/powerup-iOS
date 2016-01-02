@@ -46,9 +46,9 @@ class Scene6: UIViewController {
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] as! String
+        let docsDir = dirPaths[0] 
         
-        databasePath = docsDir.stringByAppendingPathComponent(
+        databasePath = (docsDir as! NSString).stringByAppendingPathComponent(
             "Contraceptives.sqlite")
         
         
@@ -92,7 +92,7 @@ class Scene6: UIViewController {
     // Alert message if Option A is chosen
 
     @IBAction func ansButton1(sender: UIButton) {
-        var alertView = UIAlertView();
+        let alertView = UIAlertView();
         alertView.addButtonWithTitle("Ok");
         alertView.title = "MESSAGE!!!";
         alertView.message = "SEX MINI - GAME !!!";

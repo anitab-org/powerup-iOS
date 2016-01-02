@@ -38,9 +38,9 @@ class Choices_FifthScreen: UIViewController {
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] as! String
+        let docsDir = dirPaths[0] 
         
-        databasePath = docsDir.stringByAppendingPathComponent(
+        databasePath = (docsDir as! NSString).stringByAppendingPathComponent(
             "Choices.sqlite")
         
         
@@ -62,7 +62,7 @@ class Choices_FifthScreen: UIViewController {
                 
             }
             if c2results?.next() == true {
-                var a = c2results?.stringForColumn("Text")
+                let a = c2results?.stringForColumn("Text")
                 passString = passString + a!
             }
 
@@ -85,7 +85,7 @@ class Choices_FifthScreen: UIViewController {
         {
             if let destinationVC = segue.destinationViewController as? Choices_EndScreen{
                 destinationVC.sampleText = passString
-                println("\(passString)")
+                print("\(passString)")
                 destinationVC.numberToDisplay = points
             }
         }

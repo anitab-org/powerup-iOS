@@ -21,8 +21,8 @@ class Choices_FirstScreen: UIViewController {
     
     override func supportedInterfaceOrientations() -> Int {
         return UIInterfaceOrientation.Portrait.rawValue
-       }
-   
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,23 +58,23 @@ class Choices_FirstScreen: UIViewController {
         
         databasePath = docsDir.stringByAppendingPathComponent("Choices.sqlite")
         
-       if filemgr.fileExistsAtPath(databasePath as String){
+        if filemgr.fileExistsAtPath(databasePath as String){
             println("FOUND!!!!")
-        filemgr.removeItemAtPath(databasePath as String, error: &error)
+            filemgr.removeItemAtPath(databasePath as String, error: &error)
             
         }
-
+        
         if let bundle_path = NSBundle.mainBundle().pathForResource("Choices", ofType: "sqlite"){
-        println("Test!!!!!!!!")
+            println("Test!!!!!!!!")
             
             if filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String, error: &error){
-                    println("Success!!!!!!!!")
+                println("Success!!!!!!!!")
             }
-                else{
-                    println("Failure")
+            else{
+                println("Failure")
                 println(error?.localizedDescription)
-                }
             }
+        }
         let mainDB = FMDatabase(path: databasePath as String)
         
         // Fetching required data from the database through suitable queries
@@ -103,15 +103,15 @@ class Choices_FirstScreen: UIViewController {
             
         }
         mainDB.close()
-    
-}
+        
+    }
     
     
     
     
     @IBAction func AnswerButton(sender: UIButton) {
-    
-    
+        
+        
     }
     
 }

@@ -1,25 +1,26 @@
 //
-//  Choices-EndScreen.swift
-//  Database
+//  Scene-EndScreen.swift
+//  
 //
-
+//  Created by Andrew  on 1/1/16.
+//
+//
 
 import UIKit
 
-class Choices_EndScreen: UIViewController {
+class Scene_EndScreen: UIViewController {
+
     
-    let defaults = NSUserDefaults.standardUserDefaults()
     @IBOutlet weak var replay: UIButton!
     @IBOutlet weak var conclusionText: UITextView!
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var mapScreen: UIButton!
     
-    var counter = 0
     var numberToDisplay = 0
-    var sampleText = ""
+    var sampleText = "Good Choice!"
     
     // Orientation- setting it to landscape
-   override func shouldAutorotate() -> Bool {
+    override func shouldAutorotate() -> Bool {
         return true
     }
     
@@ -29,7 +30,7 @@ class Choices_EndScreen: UIViewController {
     }
     
     
-      override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         // Back Button of navigation controller hidden
@@ -51,34 +52,27 @@ class Choices_EndScreen: UIViewController {
         }
         // Points also displayed according to line of communication
         pointsLabel.text = "\(numberToDisplay)"
-    
+        
     }
-
     
-// Checking replay button functionality
+    
+    // Checking replay button functionality
     @IBAction func replayButton(sender: UIButton) {
-    print("Replay Button Pressed!!!!!!!!!")
-    var x = defaults.integerForKey("timesplayed")
-    x++
-    defaults.setInteger(x, forKey: "timesplayed")
-    println("This scenario was played \(x) times already")
+        
     }
     
     
     @IBAction func mapScreenButton(sender: UIButton) {
     }
     
-    // Conveying End of Scenario to Map Screen so that Level 1 can't be clicked again, value of counter copied to numberToDisplay field of MapScreen
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "nextView"
         {
             if let destinationVC = segue.destinationViewController as? MapScreen{
-                counter++
-                destinationVC.numberToDisplay = counter
+                
             }
         }
         
     }
 
-    
 }

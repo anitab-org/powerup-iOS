@@ -10,6 +10,8 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var S2Marcello: UITextField!
     
     @IBOutlet weak var S2Rosie: UITextField!
+    
+    @IBOutlet weak var continueToEnd: UIButton!
   
     var counter = 0
     
@@ -35,9 +37,9 @@ class SecondViewController: UIViewController {
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] as! String
+        let docsDir = dirPaths[0] 
         
-        databasePath = docsDir.stringByAppendingPathComponent(
+        databasePath = (docsDir as! NSString).stringByAppendingPathComponent(
             "Contraceptives.sqlite")
         
         
@@ -68,7 +70,8 @@ class SecondViewController: UIViewController {
         
     }
 
-    
+    @IBAction func continueButton(sender: UIButton) {
+    }
     // Conveying End of Scenario to Map Screen so that Level 1 can't be clicked again, value of counter copied to numberToDisplay field of MapScreen
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "level2end"
