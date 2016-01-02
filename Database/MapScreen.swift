@@ -17,13 +17,12 @@ class MapScreen: UIViewController {
         
         // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(true, animated:true);
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+
         // setting the orientation to portrait
         let value = UIInterfaceOrientation.Portrait.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
+        
+        
     }
 
     //Level 2 Button: clickable
@@ -44,10 +43,10 @@ class MapScreen: UIViewController {
         
         if (numberToDisplay > 0)
         {
-            print("This action is not possible!! Kindly choose another level!!")
+            println("This action is not possible!! Kindly choose another level!!")
             
            //alert message popped up
-            let alertView = UIAlertView();
+            var alertView = UIAlertView();
             alertView.addButtonWithTitle("Ok");
             alertView.title = "MESSAGE!!!";
             alertView.message = "You have already played this scenario! Go try another level!!";
@@ -59,6 +58,7 @@ class MapScreen: UIViewController {
             
             // condition for first time click - navigates to scenario
         else{
+            
             performSegueWithIdentifier("start1View", sender: self)
             
             
@@ -66,10 +66,6 @@ class MapScreen: UIViewController {
         
         
        
-    }
-    
-    @IBAction func unwindToMapScreen(segue: UIStoryboardSegue) {
-        print("Unwind to map screen")
     }
    
 }

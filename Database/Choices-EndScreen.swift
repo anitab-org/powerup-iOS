@@ -44,7 +44,7 @@ class Choices_EndScreen: UIViewController {
         
         
         // Suitable concluding remark is displayed
-        print("\(sampleText)")
+        println("\(sampleText)")
         if var check = conclusionText{
             conclusionText.text = "\(sampleText)"
         }
@@ -56,7 +56,7 @@ class Choices_EndScreen: UIViewController {
     
 // Checking replay button functionality
     @IBAction func replayButton(sender: UIButton) {
-    print("Replay Button Pressed!!!!!!!!!")
+    println("Replay Button Pressed!!!!!!!!!")
     }
     
     

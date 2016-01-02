@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="eFm-LF-3yb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="eFm-LF-3yb">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--Start Screen-->
@@ -14,7 +13,7 @@
                         <viewControllerLayoutGuide type="bottom" id="crB-5J-nEd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Gv1-Un-5xq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="lq3-AT-Fhu">
@@ -78,7 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5D-0F-CHK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="204" y="256"/>
+            <point key="canvasLocation" x="218" y="205"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="zcc-y7-lCe">
@@ -89,7 +88,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lW9-er-4kz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8Iq-DJ-45h">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen" translatesAutoresizingMaskIntoConstraints="NO" id="acu-mp-gO5">
@@ -155,7 +154,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen" translatesAutoresizingMaskIntoConstraints="NO" id="Ilc-E8-Kyn">
@@ -396,7 +395,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="22d-pr-1iw" kind="unwind" unwindAction="unwindToMapScreen:" id="x74-t9-Z40"/>
+                                    <segue destination="S3c-uW-lpA" kind="push" identifier="level2end" id="5VO-Md-ZNK"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Clothing-Room-all" translatesAutoresizingMaskIntoConstraints="NO" id="Kcw-tm-vPl">
@@ -411,9 +410,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctT-Jt-Q9N" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="22d-pr-1iw" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1783" y="1298"/>
+            <point key="canvasLocation" x="1837" y="1305"/>
         </scene>
         <!--Scene7-->
         <scene sceneID="Wwh-Fz-JnA">
@@ -1217,7 +1215,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dlu-QW-9IP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1492" y="-1412"/>
+            <point key="canvasLocation" x="1525" y="-1477"/>
         </scene>
         <!--Choices End Screen-->
         <scene sceneID="7iy-JJ-2EY">
@@ -1283,7 +1281,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="k0P-wi-9t4" kind="unwind" unwindAction="unwindToMapScreen:" id="lIk-2C-xUv"/>
+                                    <action selector="mapScreenButton:" destination="Kej-3M-rbU" eventType="touchUpInside" id="Jed-02-wmK"/>
+                                    <segue destination="S3c-uW-lpA" kind="push" identifier="nextView" id="Wwi-sM-z0Q"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen7" translatesAutoresizingMaskIntoConstraints="NO" id="06L-8d-x15">
@@ -1314,9 +1313,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kEs-g1-97C" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="k0P-wi-9t4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1261" y="-2103"/>
+            <point key="canvasLocation" x="1217" y="-2051"/>
         </scene>
         <!--Choices Third Screen-->
         <scene sceneID="PPq-VR-6KX">
@@ -1429,7 +1427,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OMF-eo-Ren" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="549.5" y="1206.5"/>
+            <point key="canvasLocation" x="674.5" y="1255.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cD8-wF-rc7">
@@ -1471,14 +1469,20 @@
         <image name="endingscreen7" width="976" height="93"/>
         <image name="logo" width="113" height="102"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="MOD-Bo-uno"/>
+        <segue reference="dAo-OD-1PD"/>
+        <segue reference="5NV-Ks-xI9"/>
+        <segue reference="ckn-hC-8D8"/>
+        <segue reference="Wwi-sM-z0Q"/>
         <segue reference="Pcl-29-Fre"/>
         <segue reference="wIg-qb-dZP"/>
         <segue reference="KqI-h0-VLh"/>
         <segue reference="VXk-Sx-JOj"/>
-        <segue reference="5NV-Ks-xI9"/>
-        <segue reference="Rew-bX-gDf"/>
-        <segue reference="dAo-OD-1PD"/>
-        <segue reference="ckn-hC-8D8"/>
     </inferredMetricsTieBreakers>
 </document>
