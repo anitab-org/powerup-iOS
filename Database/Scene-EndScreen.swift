@@ -17,7 +17,7 @@ class Scene_EndScreen: UIViewController {
     @IBOutlet weak var mapScreen: UIButton!
     
     var numberToDisplay = 0
-    var sampleText = "Good Choice!"
+    var sampleText = ""
     
     // Orientation- setting it to landscape
     override func shouldAutorotate() -> Bool {

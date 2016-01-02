@@ -14,7 +14,9 @@ class ThirdViewController: UIViewController {
     
 
     var databasePath = NSString()
-    
+    var points = 0
+    var passString = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -246,7 +246,7 @@
                                 </state>
                                 <connections>
                                     <action selector="find:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bKh-uh-Ur7"/>
-                                    <segue destination="3df-yn-1B5" kind="push" id="Bqy-ss-HWE"/>
+                                    <segue destination="3df-yn-1B5" kind="push" identifier="leftearly" id="Bqy-ss-HWE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3AU-ec-fnI">
@@ -257,7 +257,7 @@
                                 </state>
                                 <connections>
                                     <action selector="Boption:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VxF-53-bqI"/>
-                                    <segue destination="2oR-aA-H4C" kind="push" id="NFk-xt-hdN"/>
+                                    <segue destination="2oR-aA-H4C" kind="push" identifier="" id="NFk-xt-hdN"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Clothing-Room-all" translatesAutoresizingMaskIntoConstraints="NO" id="gnH-NS-wXr">
@@ -461,7 +461,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Ltf-J7-VJf" kind="unwind" unwindAction="unwindToMapScreen:" id="aFJ-jb-Ash"/>
+                                    <action selector="mapScreenButton:" destination="OD7-de-bxO" eventType="touchUpInside" id="iXW-7A-WVg"/>
+                                    <segue destination="S3c-uW-lpA" kind="push" id="CdK-AG-1fD"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZa-7R-cCK">
@@ -503,7 +504,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sB5-lz-Pw8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Ltf-J7-VJf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1252" y="1429"/>
         </scene>
@@ -569,7 +569,7 @@
                                 </state>
                                 <connections>
                                     <action selector="continueButton:" destination="3df-yn-1B5" eventType="touchUpInside" id="DTh-Cf-JHt"/>
-                                    <segue destination="OD7-de-bxO" kind="push" id="Zv8-cX-nRu"/>
+                                    <segue destination="OD7-de-bxO" kind="push" identifier="done" id="Zv8-cX-nRu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -655,7 +655,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="3df-yn-1B5" kind="push" id="KqI-h0-VLh"/>
+                                    <segue destination="3df-yn-1B5" kind="push" identifier="wenthome" id="KqI-h0-VLh"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rosie" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHe-Fx-FP6">
@@ -792,7 +792,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="3df-yn-1B5" kind="push" id="1DS-Vl-YRq"/>
+                                    <segue destination="3df-yn-1B5" kind="push" identifier="knowledgeable" id="1DS-Vl-YRq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1572,7 +1572,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="k0P-wi-9t4" kind="unwind" unwindAction="unwindToMapScreen:" id="lIk-2C-xUv"/>
+                                    <action selector="mapScreenButton:" destination="Kej-3M-rbU" eventType="touchUpInside" id="mbi-ft-msX"/>
+                                    <segue destination="S3c-uW-lpA" kind="push" identifier="nextView" id="Jnc-Zj-FU8"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen7" translatesAutoresizingMaskIntoConstraints="NO" id="06L-8d-x15">
@@ -1607,7 +1608,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kEs-g1-97C" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="k0P-wi-9t4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1261" y="-2103"/>
         </scene>
@@ -1782,14 +1782,15 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="QG8-EX-wjY"/>
-        <segue reference="Bqy-ss-HWE"/>
-        <segue reference="wIg-qb-dZP"/>
         <segue reference="VXk-Sx-JOj"/>
+        <segue reference="3cG-51-Ykd"/>
+        <segue reference="QG8-EX-wjY"/>
+        <segue reference="KqI-h0-VLh"/>
+        <segue reference="CdK-AG-1fD"/>
+        <segue reference="Pcl-29-Fre"/>
         <segue reference="5NV-Ks-xI9"/>
         <segue reference="Rew-bX-gDf"/>
-        <segue reference="dAo-OD-1PD"/>
-        <segue reference="ckn-hC-8D8"/>
-        <segue reference="Pcl-29-Fre"/>
+        <segue reference="YqI-cc-ylF"/>
+        <segue reference="H18-Fs-chN"/>
     </inferredMetricsTieBreakers>
 </document>

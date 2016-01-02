@@ -16,6 +16,8 @@ class SecondViewController: UIViewController {
     var counter = 0
     
     var databasePath = NSString()
+    var points = 0
+    var passString = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,13 +74,14 @@ class SecondViewController: UIViewController {
 
     @IBAction func continueButton(sender: UIButton) {
     }
-    // Conveying End of Scenario to Map Screen so that Level 1 can't be clicked again, value of counter copied to numberToDisplay field of MapScreen
+   
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "level2end"
+        if segue.identifier == "done"
         {
-            if let destinationVC = segue.destinationViewController as? MapScreen{
-                counter++
-                destinationVC.numberToDisplay = counter
+            if let destinationVC = segue.destinationViewController as? Scene_EndScreen{
+                destinationVC.sampleText = passString
+                print("\(passString)")
+                destinationVC.numberToDisplay = points
             }
         }
         

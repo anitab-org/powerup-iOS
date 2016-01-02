@@ -12,14 +12,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var answerViewB: UITextField!
     @IBOutlet weak var label: UILabel!
     
-    
-    
+    var points = 0
+    var passString = "You should've stayed and told him what was right!"
+
+        
     var databasePath = NSString()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // setting the orientation to portrait
+        let value = UIInterfaceOrientation.Portrait.rawValue
+        UIDevice.currentDevice().setValue(value, forKey: "orientation")
+
         // Hide back button of navigation controller
         self.navigationItem.setHidesBackButton(false, animated:true);
         
@@ -121,9 +126,19 @@ class ViewController: UIViewController {
         mainDB.close()
     }
     
-    
-    
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "leftearly"
+        {
+            if let destinationVC = segue.destinationViewController as? SecondViewController{
+                
+                destinationVC.passString = passString
+                print("\(passString)")
+                destinationVC.points = points
+            }
+        }
+    }
+
+        
     // clickable Option A button
     
     @IBAction func find(sender: UIButton) {

@@ -8,9 +8,7 @@ import SpriteKit
 
 
 class MapScreen: UIViewController {
-    let defaults = NSUserDefaults.standardUserDefaults()
     var numberToDisplay = 0
-    var timesPlayed1 = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +39,7 @@ class MapScreen: UIViewController {
       
         
       // Testing condition if level 1 button pressed again after comming out of the scenario
-        
-        if (timesPlayed1 > 1)
+        if (numberToDisplay > 0)
         {
             print("This action is not possible!! Kindly choose another level!!")
             
@@ -59,7 +56,6 @@ class MapScreen: UIViewController {
             
             // condition for first time click - navigates to scenario
         else{
-            timesPlayed1++
             performSegueWithIdentifier("start1View", sender: self)
             
             
@@ -69,14 +65,5 @@ class MapScreen: UIViewController {
        
     }
     
-    @IBAction func unwindToMapScreen(segue: UIStoryboardSegue) {
-        var x = defaults.integerForKey("timesplayed")
-        if(x == 1){
-            println("This scenario was played once")
-        }else{
-            println("This scenario was replayed \(x) times already")
-        }
-        defaults.setInteger(0, forKey: "timesplayed")
-    }
    
 }

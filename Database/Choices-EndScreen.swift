@@ -8,7 +8,6 @@ import UIKit
 
 class Choices_EndScreen: UIViewController {
     
-    let defaults = NSUserDefaults.standardUserDefaults()
     @IBOutlet weak var replay: UIButton!
     @IBOutlet weak var conclusionText: UITextView!
     @IBOutlet weak var pointsLabel: UILabel!
@@ -55,13 +54,9 @@ class Choices_EndScreen: UIViewController {
     }
 
     
-// Checking replay button functionality
+    // Checking replay button functionality
     @IBAction func replayButton(sender: UIButton) {
-    print("Replay Button Pressed!!!!!!!!!")
-    var x = defaults.integerForKey("timesplayed")
-    x++
-    defaults.setInteger(x, forKey: "timesplayed")
-    println("This scenario was played \(x) times already")
+
     }
     
     

@@ -16,7 +16,9 @@ class Scene7: UIViewController {
     @IBOutlet weak var answerViewB: UITextView!
     
     var databasePath = NSString()
-
+    var points = 10
+    var passString = "Good work! You didn't give in"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,6 +90,17 @@ class Scene7: UIViewController {
         }
         mainDB.close()
 
+        
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "wenthome"
+        {
+            if let destinationVC = segue.destinationViewController as? SecondViewController{
+                destinationVC.passString = passString
+                print("\(passString)")
+                destinationVC.points = points
+            }
+        }
         
     }
 
