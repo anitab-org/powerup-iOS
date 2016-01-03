@@ -53,6 +53,8 @@ class Scene_EndScreen: UIViewController {
         // Points also displayed according to line of communication
         pointsLabel.text = "\(numberToDisplay)"
         
+        conclusionText.textAlignment = .Center
+        
     }
     
     

@@ -47,7 +47,7 @@ class MapScreen: UIViewController {
             let alertView = UIAlertView();
             alertView.addButtonWithTitle("Ok");
             alertView.title = "MESSAGE!!!";
-            alertView.message = "You have already played this scenario a few times! Go try another level!!";
+            alertView.message = "You have already played this scenario once! Go try another level!!";
             
             alertView.show();
             
