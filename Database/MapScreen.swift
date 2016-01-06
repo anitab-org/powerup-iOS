@@ -42,7 +42,7 @@ class MapScreen: UIViewController {
         
         // Testing condition if level 1 button pressed again after coming out of the scenario
         
-        if (timesPlayed1 > 1)
+        if (timesPlayed1 > 0)
         {
             print("This action is not possible!! Kindly choose another level!!")
             
@@ -71,6 +71,7 @@ class MapScreen: UIViewController {
     
     @IBAction func unwindToMapScreen(segue: UIStoryboardSegue) {
         var x = defaults.integerForKey("timesplayed")
+        x++
         if(x == 1){
             println("This scenario was played once")
         }else{
