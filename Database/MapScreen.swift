@@ -8,7 +8,9 @@ import SpriteKit
 
 
 class MapScreen: UIViewController {
+    let defaults = NSUserDefaults.standardUserDefaults()
     var numberToDisplay = 0
+    var timesPlayed1 = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +25,11 @@ class MapScreen: UIViewController {
         let value = UIInterfaceOrientation.Portrait.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
     }
-
+    
     //Level 2 Button: clickable
     @IBAction func ClickableMap(sender: UIButton) {
-    
-    
+        
+        
     }
     
     // logo button on top right corner clickable
@@ -36,18 +38,19 @@ class MapScreen: UIViewController {
     
     //Level 1 Button
     @IBAction func ChoicesClickableMap(sender: UIButton) {
-      
         
-      // Testing condition if level 1 button pressed again after comming out of the scenario
-        if (numberToDisplay > 0)
+        
+        // Testing condition if level 1 button pressed again after coming out of the scenario
+        
+        if (timesPlayed1 > 1)
         {
             print("This action is not possible!! Kindly choose another level!!")
             
-           //alert message popped up
+            //alert message popped up
             let alertView = UIAlertView();
             alertView.addButtonWithTitle("Ok");
             alertView.title = "MESSAGE!!!";
-            alertView.message = "You have already played this scenario once! Go try another level!!";
+            alertView.message = "You have already played this scenario! Go try another level!!";
             
             alertView.show();
             
@@ -56,14 +59,24 @@ class MapScreen: UIViewController {
             
             // condition for first time click - navigates to scenario
         else{
+            timesPlayed1++
             performSegueWithIdentifier("start1View", sender: self)
             
             
         }
         
         
-       
+        
     }
     
-   
+    @IBAction func unwindToMapScreen(segue: UIStoryboardSegue) {
+        var x = defaults.integerForKey("timesplayed")
+        if(x == 1){
+            println("This scenario was played once")
+        }else{
+            println("This scenario was replayed \(x) times already")
+        }
+        defaults.setInteger(0, forKey: "timesplayed")
+    }
+    
 }

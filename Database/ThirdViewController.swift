@@ -14,9 +14,7 @@ class ThirdViewController: UIViewController {
     
 
     var databasePath = NSString()
-    var points = 0
-    var passString = ""
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,10 +48,10 @@ class ThirdViewController: UIViewController {
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] 
+        let docsDir = dirPaths[0] as! String
         
-        databasePath = (docsDir as! NSString).stringByAppendingPathComponent(
-            "Contraceptives.sqlite")
+        databasePath = docsDir.stringByAppendingPathComponent(
+            "mainDatabase.sqlite")
         
         
         let mainDB = FMDatabase(path: databasePath as String)

@@ -13,9 +13,7 @@ class Scene6: UIViewController {
     @IBOutlet weak var answerViewB: UITextView!
     
     var databasePath = NSString()
-    var points = 20
-    var passString = "Great job! You shined back there!"
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,10 +46,10 @@ class Scene6: UIViewController {
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] 
+        let docsDir = dirPaths[0] as! String
         
-        databasePath = (docsDir as! NSString).stringByAppendingPathComponent(
-            "Contraceptives.sqlite")
+        databasePath = docsDir.stringByAppendingPathComponent(
+            "mainDatabase.sqlite")
         
         
         let mainDB = FMDatabase(path: databasePath as String)
@@ -94,7 +92,7 @@ class Scene6: UIViewController {
     // Alert message if Option A is chosen
 
     @IBAction func ansButton1(sender: UIButton) {
-        let alertView = UIAlertView();
+        var alertView = UIAlertView();
         alertView.addButtonWithTitle("Ok");
         alertView.title = "MESSAGE!!!";
         alertView.message = "SEX MINI - GAME !!!";
@@ -105,18 +103,7 @@ class Scene6: UIViewController {
         
     }
    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "knowledgeable"
-        {
-            if let destinationVC = segue.destinationViewController as? SecondViewController{
-                destinationVC.passString = passString
-                print("\(passString)")
-                destinationVC.points = points
-            }
-        }
-        
-    }
-
+    
 
     
 }

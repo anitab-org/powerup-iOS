@@ -16,9 +16,7 @@ class Scene7: UIViewController {
     @IBOutlet weak var answerViewB: UITextView!
     
     var databasePath = NSString()
-    var points = 10
-    var passString = "Good work! You didn't give in"
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,10 +49,10 @@ class Scene7: UIViewController {
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] 
+        let docsDir = dirPaths[0] as! String
         
-        databasePath = (docsDir as! NSString).stringByAppendingPathComponent(
-            "Contraceptives.sqlite")
+        databasePath = docsDir.stringByAppendingPathComponent(
+            "mainDatabase.sqlite")
         
         
         let mainDB = FMDatabase(path: databasePath as String)
@@ -90,17 +88,6 @@ class Scene7: UIViewController {
         }
         mainDB.close()
 
-        
-    }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "wenthome"
-        {
-            if let destinationVC = segue.destinationViewController as? SecondViewController{
-                destinationVC.passString = passString
-                print("\(passString)")
-                destinationVC.points = points
-            }
-        }
         
     }
 

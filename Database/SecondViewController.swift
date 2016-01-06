@@ -10,14 +10,10 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var S2Marcello: UITextField!
     
     @IBOutlet weak var S2Rosie: UITextField!
-    
-    @IBOutlet weak var continueToEnd: UIButton!
   
     var counter = 0
     
     var databasePath = NSString()
-    var points = 0
-    var passString = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,10 +35,10 @@ class SecondViewController: UIViewController {
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] 
+        let docsDir = dirPaths[0] as! String
         
-        databasePath = (docsDir as! NSString).stringByAppendingPathComponent(
-            "Contraceptives.sqlite")
+        databasePath = docsDir.stringByAppendingPathComponent(
+            "mainDatabase.sqlite")
         
         
         let mainDB = FMDatabase(path: databasePath as String)
@@ -72,16 +68,14 @@ class SecondViewController: UIViewController {
         
     }
 
-    @IBAction func continueButton(sender: UIButton) {
-    }
-   
+    
+    // Conveying End of Scenario to Map Screen so that Level 1 can't be clicked again, value of counter copied to numberToDisplay field of MapScreen
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "done"
+        if segue.identifier == "level2end"
         {
-            if let destinationVC = segue.destinationViewController as? Scene_EndScreen{
-                destinationVC.sampleText = passString
-                print("\(passString)")
-                destinationVC.numberToDisplay = points
+            if let destinationVC = segue.destinationViewController as? MapScreen{
+                counter++
+                destinationVC.numberToDisplay = counter
             }
         }
         
