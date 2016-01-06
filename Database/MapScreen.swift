@@ -70,13 +70,16 @@ class MapScreen: UIViewController {
     }
     
     @IBAction func unwindToMapScreen(segue: UIStoryboardSegue) {
+        /*
         var x = defaults.integerForKey("timesplayed")
         x++
+        let vc = Choices_EndScreen()
         if(x == 1){
-            println("This scenario was played once")
+            vc.attemptsLabel.text = "This scenario was played once"
         }else{
-            println("This scenario was replayed \(x) times already")
+            vc.attemptsLabel.text = "This scenario was replayed \(x) times"
         }
+        */
         defaults.setInteger(0, forKey: "timesplayed")
     }
     
