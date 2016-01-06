@@ -12,6 +12,7 @@ class Choices_EndScreen: UIViewController {
     @IBOutlet weak var replay: UIButton!
     @IBOutlet weak var conclusionText: UITextView!
     @IBOutlet weak var pointsLabel: UILabel!
+    @IBOutlet weak var attemptsLabel: UITextView!
     @IBOutlet weak var mapScreen: UIButton!
     
     var counter = 0
@@ -61,7 +62,7 @@ class Choices_EndScreen: UIViewController {
         var x = defaults.integerForKey("timesplayed")
         x++
         defaults.setInteger(x, forKey: "timesplayed")
-        println("This scenario was played \(x) times already")
+        attemptsLabel.text = "You have played this scenario \(x) times"
     }
     
     

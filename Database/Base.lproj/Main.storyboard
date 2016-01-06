@@ -1300,12 +1300,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Number of Attempts" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4BY-sw-uF5">
+                                <rect key="frame" x="278" y="20" width="181" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="3kO-Pm-0qg"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="attemptsLabel" destination="4BY-sw-uF5" id="l3U-ce-3lR"/>
                         <outlet property="conclusionText" destination="ncj-rT-ty2" id="8So-gA-PhW"/>
                         <outlet property="mapScreen" destination="9eA-5h-upJ" id="kgm-nV-qSF"/>
                         <outlet property="pointsLabel" destination="Sui-gy-H7k" id="J9Y-uo-ptF"/>
