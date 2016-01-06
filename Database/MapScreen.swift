@@ -24,6 +24,7 @@ class MapScreen: UIViewController {
         // setting the orientation to portrait
         let value = UIInterfaceOrientation.Portrait.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
+        defaults.removeObjectForKey("timesplayed")
     }
     
     //Level 2 Button: clickable
