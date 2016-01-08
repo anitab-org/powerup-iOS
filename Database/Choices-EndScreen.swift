@@ -8,11 +8,9 @@ import UIKit
 
 class Choices_EndScreen: UIViewController {
     
-    let defaults = NSUserDefaults.standardUserDefaults()
     @IBOutlet weak var replay: UIButton!
     @IBOutlet weak var conclusionText: UITextView!
     @IBOutlet weak var pointsLabel: UILabel!
-    @IBOutlet weak var attemptsLabel: UILabel!
     @IBOutlet weak var mapScreen: UIButton!
     
     var counter = 0
@@ -20,7 +18,7 @@ class Choices_EndScreen: UIViewController {
     var sampleText = ""
     
     // Orientation- setting it to landscape
-    override func shouldAutorotate() -> Bool {
+   override func shouldAutorotate() -> Bool {
         return true
     }
     
@@ -30,7 +28,7 @@ class Choices_EndScreen: UIViewController {
     }
     
     
-    override func viewDidLoad() {
+      override func viewDidLoad() {
         super.viewDidLoad()
         
         // Back Button of navigation controller hidden
@@ -41,40 +39,24 @@ class Choices_EndScreen: UIViewController {
         conclusionText!.layer.borderColor = UIColor.blackColor().CGColor
         conclusionText!.layer.cornerRadius = 5
         
-        var x = defaults.integerForKey("timesplayed")
-        x++
-        defaults.setInteger(x, forKey: "timesplayed")
-        
-        
         let value = UIInterfaceOrientation.LandscapeRight.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
         
         
         // Suitable concluding remark is displayed
-        print("\(sampleText)")
+        println("\(sampleText)")
         if var check = conclusionText{
             conclusionText.text = "\(sampleText)"
         }
         // Points also displayed according to line of communication
         pointsLabel.text = "\(numberToDisplay)"
-        
-        if(x == 1){
-            attemptsLabel.text = "You have played this scenario \(x) time"
-        }else{
-            attemptsLabel.text = "You have played this scenario \(x) times"
-
-        }
-        
+    
     }
+
     
-    
-    // Checking replay button functionality
+// Checking replay button functionality
     @IBAction func replayButton(sender: UIButton) {
-        print("Replay Button Pressed!!!!!!!!!")
-        //var x = defaults.integerForKey("timesplayed")
-        //x++
-        //defaults.setInteger(x, forKey: "timesplayed")
-        //attemptsLabel.text = "You have played this scenario \(x) times"
+    println("Replay Button Pressed!!!!!!!!!")
     }
     
     
@@ -92,6 +74,6 @@ class Choices_EndScreen: UIViewController {
         }
         
     }
-    
+
     
 }

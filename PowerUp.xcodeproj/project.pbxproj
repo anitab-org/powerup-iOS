@@ -51,14 +51,14 @@
 
 /* Begin PBXFileReference section */
 		2A057D5D1B50F26E009CD214 /* Choices-SecondScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-SecondScreen.swift"; sourceTree = "<group>"; };
-		2A0CA54F1B294C6B00ED8781 /* Database.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Database.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A0CA54F1B294C6B00ED8781 /* PowerUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PowerUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A0CA5531B294C6B00ED8781 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A0CA5541B294C6B00ED8781 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A0CA5561B294C6B00ED8781 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2A0CA5591B294C6B00ED8781 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2A0CA55B1B294C6B00ED8781 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2A0CA55E1B294C6B00ED8781 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		2A0CA5641B294C6B00ED8781 /* DatabaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DatabaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A0CA5641B294C6B00ED8781 /* PowerUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PowerUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A0CA5691B294C6B00ED8781 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A0CA56A1B294C6B00ED8781 /* DatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseTests.swift; sourceTree = "<group>"; };
 		2A0CA5741B294C9200ED8781 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsqlite3.dylib; sourceTree = "<group>"; };
@@ -138,8 +138,8 @@
 		2A0CA5501B294C6B00ED8781 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2A0CA54F1B294C6B00ED8781 /* Database.app */,
-				2A0CA5641B294C6B00ED8781 /* DatabaseTests.xctest */,
+				2A0CA54F1B294C6B00ED8781 /* PowerUp.app */,
+				2A0CA5641B294C6B00ED8781 /* PowerUpTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -202,9 +202,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2A0CA54E1B294C6B00ED8781 /* Database */ = {
+		2A0CA54E1B294C6B00ED8781 /* PowerUp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2A0CA56E1B294C6B00ED8781 /* Build configuration list for PBXNativeTarget "Database" */;
+			buildConfigurationList = 2A0CA56E1B294C6B00ED8781 /* Build configuration list for PBXNativeTarget "PowerUp" */;
 			buildPhases = (
 				2A0CA54B1B294C6B00ED8781 /* Sources */,
 				2A0CA54C1B294C6B00ED8781 /* Frameworks */,
@@ -214,14 +214,14 @@
 			);
 			dependencies = (
 			);
-			name = Database;
+			name = PowerUp;
 			productName = Database;
-			productReference = 2A0CA54F1B294C6B00ED8781 /* Database.app */;
+			productReference = 2A0CA54F1B294C6B00ED8781 /* PowerUp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2A0CA5631B294C6B00ED8781 /* DatabaseTests */ = {
+		2A0CA5631B294C6B00ED8781 /* PowerUpTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2A0CA5711B294C6B00ED8781 /* Build configuration list for PBXNativeTarget "DatabaseTests" */;
+			buildConfigurationList = 2A0CA5711B294C6B00ED8781 /* Build configuration list for PBXNativeTarget "PowerUpTests" */;
 			buildPhases = (
 				2A0CA5601B294C6B00ED8781 /* Sources */,
 				2A0CA5611B294C6B00ED8781 /* Frameworks */,
@@ -232,9 +232,9 @@
 			dependencies = (
 				2A0CA5661B294C6B00ED8781 /* PBXTargetDependency */,
 			);
-			name = DatabaseTests;
+			name = PowerUpTests;
 			productName = DatabaseTests;
-			productReference = 2A0CA5641B294C6B00ED8781 /* DatabaseTests.xctest */;
+			productReference = 2A0CA5641B294C6B00ED8781 /* PowerUpTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -243,7 +243,6 @@
 		2A0CA5471B294C6B00ED8781 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Sanya Jain";
 				TargetAttributes = {
@@ -256,7 +255,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2A0CA54A1B294C6B00ED8781 /* Build configuration list for PBXProject "Database" */;
+			buildConfigurationList = 2A0CA54A1B294C6B00ED8781 /* Build configuration list for PBXProject "PowerUp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -269,8 +268,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2A0CA54E1B294C6B00ED8781 /* Database */,
-				2A0CA5631B294C6B00ED8781 /* DatabaseTests */,
+				2A0CA54E1B294C6B00ED8781 /* PowerUp */,
+				2A0CA5631B294C6B00ED8781 /* PowerUpTests */,
 			);
 		};
 /* End PBXProject section */
@@ -341,7 +340,7 @@
 /* Begin PBXTargetDependency section */
 		2A0CA5661B294C6B00ED8781 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2A0CA54E1B294C6B00ED8781 /* Database */;
+			target = 2A0CA54E1B294C6B00ED8781 /* PowerUp */;
 			targetProxy = 2A0CA5651B294C6B00ED8781 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -457,7 +456,7 @@
 				INFOPLIST_FILE = Database/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PowerUp;
 				SWIFT_OBJC_BRIDGING_HEADER = "Database-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -472,7 +471,7 @@
 				INFOPLIST_FILE = Database/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PowerUp;
 				SWIFT_OBJC_BRIDGING_HEADER = "Database-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -492,7 +491,7 @@
 				);
 				INFOPLIST_FILE = DatabaseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PowerUpTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Database.app/Database";
 			};
 			name = Debug;
@@ -507,7 +506,7 @@
 				);
 				INFOPLIST_FILE = DatabaseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PowerUpTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Database.app/Database";
 			};
 			name = Release;
@@ -515,7 +514,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2A0CA54A1B294C6B00ED8781 /* Build configuration list for PBXProject "Database" */ = {
+		2A0CA54A1B294C6B00ED8781 /* Build configuration list for PBXProject "PowerUp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2A0CA56C1B294C6B00ED8781 /* Debug */,
@@ -524,7 +523,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2A0CA56E1B294C6B00ED8781 /* Build configuration list for PBXNativeTarget "Database" */ = {
+		2A0CA56E1B294C6B00ED8781 /* Build configuration list for PBXNativeTarget "PowerUp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2A0CA56F1B294C6B00ED8781 /* Debug */,
@@ -533,7 +532,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2A0CA5711B294C6B00ED8781 /* Build configuration list for PBXNativeTarget "DatabaseTests" */ = {
+		2A0CA5711B294C6B00ED8781 /* Build configuration list for PBXNativeTarget "PowerUpTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2A0CA5721B294C6B00ED8781 /* Debug */,
