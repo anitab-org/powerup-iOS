@@ -13,7 +13,7 @@
 		2A0CA55A1B294C6B00ED8781 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A0CA5581B294C6B00ED8781 /* Main.storyboard */; };
 		2A0CA55C1B294C6B00ED8781 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A0CA55B1B294C6B00ED8781 /* Images.xcassets */; };
 		2A0CA55F1B294C6B00ED8781 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A0CA55D1B294C6B00ED8781 /* LaunchScreen.xib */; };
-		2A0CA56B1B294C6B00ED8781 /* DatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0CA56A1B294C6B00ED8781 /* DatabaseTests.swift */; };
+		2A0CA56B1B294C6B00ED8781 /* PowerUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0CA56A1B294C6B00ED8781 /* PowerUpTests.swift */; };
 		2A0CA5751B294C9200ED8781 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0CA5741B294C9200ED8781 /* libsqlite3.dylib */; };
 		2A0FEF611B52A7E400E28079 /* Choices-SixthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0FEF601B52A7E400E28079 /* Choices-SixthScreen.swift */; };
 		2A2322DB1B2C5EB200F3F6D4 /* mainDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */; };
@@ -60,9 +60,9 @@
 		2A0CA55E1B294C6B00ED8781 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		2A0CA5641B294C6B00ED8781 /* PowerUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PowerUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A0CA5691B294C6B00ED8781 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2A0CA56A1B294C6B00ED8781 /* DatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseTests.swift; sourceTree = "<group>"; };
+		2A0CA56A1B294C6B00ED8781 /* PowerUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerUpTests.swift; sourceTree = "<group>"; };
 		2A0CA5741B294C9200ED8781 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsqlite3.dylib; sourceTree = "<group>"; };
-		2A0CA5761B29E83500ED8781 /* Database-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Database-Bridging-Header.h"; sourceTree = "<group>"; };
+		2A0CA5761B29E83500ED8781 /* PowerUp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PowerUp-Bridging-Header.h"; sourceTree = "<group>"; };
 		2A0FEF601B52A7E400E28079 /* Choices-SixthScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-SixthScreen.swift"; sourceTree = "<group>"; };
 		2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = mainDatabase.sqlite; path = ../mainDatabase.sqlite; sourceTree = "<group>"; };
 		2A2A4DB61B373C5B00D50860 /* StartScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScreen.swift; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 				2A0CA5511B294C6B00ED8781 /* PowerUp */,
 				2A0CA5671B294C6B00ED8781 /* PowerUpTests */,
 				2A0CA5501B294C6B00ED8781 /* Products */,
-				2A0CA5761B29E83500ED8781 /* Database-Bridging-Header.h */,
+				2A0CA5761B29E83500ED8781 /* PowerUp-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -185,7 +185,7 @@
 		2A0CA5671B294C6B00ED8781 /* PowerUpTests */ = {
 			isa = PBXGroup;
 			children = (
-				2A0CA56A1B294C6B00ED8781 /* DatabaseTests.swift */,
+				2A0CA56A1B294C6B00ED8781 /* PowerUpTests.swift */,
 				2A0CA5681B294C6B00ED8781 /* Supporting Files */,
 			);
 			path = PowerUpTests;
@@ -332,7 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A0CA56B1B294C6B00ED8781 /* DatabaseTests.swift in Sources */,
+				2A0CA56B1B294C6B00ED8781 /* PowerUpTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
