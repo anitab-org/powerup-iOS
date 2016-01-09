@@ -9,7 +9,7 @@ import SpriteKit
 
 class MapScreen: UIViewController {
     
-    let defaults = NSUserDefaults.standardUserDefaults()
+    
     var numberToDisplay = 0
     
     override func viewDidLoad() {
@@ -40,8 +40,8 @@ class MapScreen: UIViewController {
       
         
       // Testing condition if level 1 button pressed again after comming out of the scenario
-        var x = defaults.integerForKey("backtomap")
-        if (x > 0)
+        
+        if (numberToDisplay > 0)
         {
             println("This action is not possible!! Kindly choose another level!!")
             

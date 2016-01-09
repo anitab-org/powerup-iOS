@@ -15,7 +15,6 @@
 		2A0CA55F1B294C6B00ED8781 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A0CA55D1B294C6B00ED8781 /* LaunchScreen.xib */; };
 		2A0CA56B1B294C6B00ED8781 /* DatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0CA56A1B294C6B00ED8781 /* DatabaseTests.swift */; };
 		2A0CA5751B294C9200ED8781 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0CA5741B294C9200ED8781 /* libsqlite3.dylib */; };
-		2A0FEF611B52A7E400E28079 /* Choices-SixthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0FEF601B52A7E400E28079 /* Choices-SixthScreen.swift */; };
 		2A2322DB1B2C5EB200F3F6D4 /* mainDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */; };
 		2A2A4DB71B373C5B00D50860 /* StartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A4DB61B373C5B00D50860 /* StartScreen.swift */; };
 		2A3530631B6617DB00F9E5DF /* Choices-EndScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3530621B6617DB00F9E5DF /* Choices-EndScreen.swift */; };
@@ -26,9 +25,7 @@
 		2A68C3DB1B2EA28700E2FAE8 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A68C3DA1B2EA28700E2FAE8 /* SecondViewController.swift */; };
 		2A8962311B386AB2009B2338 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8962301B386AB2009B2338 /* MapScreen.swift */; };
 		2A93D8711B2F4DFE00AE4824 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93D8701B2F4DFE00AE4824 /* ThirdViewController.swift */; };
-		2A992EE11B513B9A00E9AF04 /* Choices-ThirdScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A992EE01B513B9A00E9AF04 /* Choices-ThirdScreen.swift */; };
 		2A992EE31B5174D000E9AF04 /* Choices-FourthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A992EE21B5174D000E9AF04 /* Choices-FourthScreen.swift */; };
-		2A992EE51B51758F00E9AF04 /* Choices-FifthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A992EE41B51758F00E9AF04 /* Choices-FifthScreen.swift */; };
 		2AAEE53A1B482E4600885044 /* Choices.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2AAEE5391B482E4600885044 /* Choices.sqlite */; };
 		2AAEE53E1B48303500885044 /* Choices-FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAEE53D1B48303500885044 /* Choices-FirstScreen.swift */; };
 		2AD1A1E71B2B1ADA00BCA94D /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1A1E61B2B1ADA00BCA94D /* ModelManager.swift */; };
@@ -37,6 +34,7 @@
 		2AF82A8F1B4BA74A00307BED /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A871B4BA74A00307BED /* FMDatabasePool.m */; };
 		2AF82A901B4BA74A00307BED /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A891B4BA74A00307BED /* FMDatabaseQueue.m */; };
 		2AF82A911B4BA74A00307BED /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A8C1B4BA74A00307BED /* FMResultSet.m */; };
+		490B3DFF1C4187D6008576BD /* Choices-Continue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490B3DFE1C4187D6008576BD /* Choices-Continue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +61,6 @@
 		2A0CA56A1B294C6B00ED8781 /* DatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseTests.swift; sourceTree = "<group>"; };
 		2A0CA5741B294C9200ED8781 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsqlite3.dylib; sourceTree = "<group>"; };
 		2A0CA5761B29E83500ED8781 /* Database-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Database-Bridging-Header.h"; sourceTree = "<group>"; };
-		2A0FEF601B52A7E400E28079 /* Choices-SixthScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-SixthScreen.swift"; sourceTree = "<group>"; };
 		2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = mainDatabase.sqlite; path = ../mainDatabase.sqlite; sourceTree = "<group>"; };
 		2A2A4DB61B373C5B00D50860 /* StartScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScreen.swift; sourceTree = "<group>"; };
 		2A3530621B6617DB00F9E5DF /* Choices-EndScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-EndScreen.swift"; sourceTree = "<group>"; };
@@ -74,9 +71,7 @@
 		2A68C3DA1B2EA28700E2FAE8 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		2A8962301B386AB2009B2338 /* MapScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
 		2A93D8701B2F4DFE00AE4824 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
-		2A992EE01B513B9A00E9AF04 /* Choices-ThirdScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-ThirdScreen.swift"; sourceTree = "<group>"; };
 		2A992EE21B5174D000E9AF04 /* Choices-FourthScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-FourthScreen.swift"; sourceTree = "<group>"; };
-		2A992EE41B51758F00E9AF04 /* Choices-FifthScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-FifthScreen.swift"; sourceTree = "<group>"; };
 		2AAEE5391B482E4600885044 /* Choices.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = Choices.sqlite; path = ../Choices.sqlite; sourceTree = "<group>"; };
 		2AAEE53D1B48303500885044 /* Choices-FirstScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-FirstScreen.swift"; sourceTree = "<group>"; };
 		2AD1A1E61B2B1ADA00BCA94D /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
@@ -91,6 +86,7 @@
 		2AF82A8A1B4BA74A00307BED /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
 		2AF82A8B1B4BA74A00307BED /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		2AF82A8C1B4BA74A00307BED /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		490B3DFE1C4187D6008576BD /* Choices-Continue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-Continue.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +143,7 @@
 		2A0CA5511B294C6B00ED8781 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				490B3DFE1C4187D6008576BD /* Choices-Continue.swift */,
 				2A0CA5541B294C6B00ED8781 /* AppDelegate.swift */,
 				2AAEE5391B482E4600885044 /* Choices.sqlite */,
 				2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */,
@@ -158,10 +155,7 @@
 				2A4AED711B778A2400268B6B /* Scene5.swift */,
 				2A4AED6F1B77877C00268B6B /* Scene4.swift */,
 				2A3530621B6617DB00F9E5DF /* Choices-EndScreen.swift */,
-				2A0FEF601B52A7E400E28079 /* Choices-SixthScreen.swift */,
-				2A992EE41B51758F00E9AF04 /* Choices-FifthScreen.swift */,
 				2A992EE21B5174D000E9AF04 /* Choices-FourthScreen.swift */,
-				2A992EE01B513B9A00E9AF04 /* Choices-ThirdScreen.swift */,
 				2A057D5D1B50F26E009CD214 /* Choices-SecondScreen.swift */,
 				2A8962301B386AB2009B2338 /* MapScreen.swift */,
 				2A93D8701B2F4DFE00AE4824 /* ThirdViewController.swift */,
@@ -302,20 +296,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AAEE53E1B48303500885044 /* Choices-FirstScreen.swift in Sources */,
-				2A992EE11B513B9A00E9AF04 /* Choices-ThirdScreen.swift in Sources */,
 				2A2A4DB71B373C5B00D50860 /* StartScreen.swift in Sources */,
 				2A8962311B386AB2009B2338 /* MapScreen.swift in Sources */,
-				2A992EE51B51758F00E9AF04 /* Choices-FifthScreen.swift in Sources */,
 				2A4AED721B778A2400268B6B /* Scene5.swift in Sources */,
 				2A4AED741B778AF400268B6B /* Scene7.swift in Sources */,
 				2AF82A8D1B4BA74A00307BED /* FMDatabase.m in Sources */,
 				2A0CA5571B294C6B00ED8781 /* ViewController.swift in Sources */,
+				490B3DFF1C4187D6008576BD /* Choices-Continue.swift in Sources */,
 				2AF82A901B4BA74A00307BED /* FMDatabaseQueue.m in Sources */,
 				2AF82A911B4BA74A00307BED /* FMResultSet.m in Sources */,
 				2A992EE31B5174D000E9AF04 /* Choices-FourthScreen.swift in Sources */,
 				2AF82A8F1B4BA74A00307BED /* FMDatabasePool.m in Sources */,
 				2A4AED761B77950B00268B6B /* Scene6.swift in Sources */,
-				2A0FEF611B52A7E400E28079 /* Choices-SixthScreen.swift in Sources */,
 				2AD1A1E71B2B1ADA00BCA94D /* ModelManager.swift in Sources */,
 				2A0CA5551B294C6B00ED8781 /* AppDelegate.swift in Sources */,
 				2A057D5E1B50F26E009CD214 /* Choices-SecondScreen.swift in Sources */,

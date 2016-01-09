@@ -132,7 +132,21 @@ class Choices_SecondScreen: UIViewController {
     @IBAction func Answer3Button(sender: UIButton) {
     }
    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "passive"
+        {
+            if let destinationVC = segue.destinationViewController as? Choices_Continue{
+                destinationVC.version = 1
+            }
+        }
+        if segue.identifier == "aggressive"
+        {
+            if let destinationVC = segue.destinationViewController as? Choices_Continue{
+                destinationVC.version = 3
+            }
+        }
 
+    }
 
     
 }
