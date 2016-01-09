@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/andrew/Downloads/PowerUp-iOS-develop/PowerUp.xcodeproj">
+      location = "self:Database.xcodeproj">
    </FileRef>
 </Workspace>

@@ -8,6 +8,7 @@ import UIKit
 
 class Choices_EndScreen: UIViewController {
     
+    let defaults = NSUserDefaults.standardUserDefaults()
     @IBOutlet weak var replay: UIButton!
     @IBOutlet weak var conclusionText: UITextView!
     @IBOutlet weak var pointsLabel: UILabel!
@@ -68,8 +69,9 @@ class Choices_EndScreen: UIViewController {
         if segue.identifier == "nextView"
         {
             if let destinationVC = segue.destinationViewController as? MapScreen{
-                counter++
-                destinationVC.numberToDisplay = counter
+                var x = defaults.integerForKey("backtomap")
+                x++
+                defaults.setInteger(x, forKey: "backtomap")
             }
         }
         

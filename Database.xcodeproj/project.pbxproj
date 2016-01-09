@@ -13,7 +13,7 @@
 		2A0CA55A1B294C6B00ED8781 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A0CA5581B294C6B00ED8781 /* Main.storyboard */; };
 		2A0CA55C1B294C6B00ED8781 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A0CA55B1B294C6B00ED8781 /* Images.xcassets */; };
 		2A0CA55F1B294C6B00ED8781 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A0CA55D1B294C6B00ED8781 /* LaunchScreen.xib */; };
-		2A0CA56B1B294C6B00ED8781 /* PowerUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0CA56A1B294C6B00ED8781 /* PowerUpTests.swift */; };
+		2A0CA56B1B294C6B00ED8781 /* DatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0CA56A1B294C6B00ED8781 /* DatabaseTests.swift */; };
 		2A0CA5751B294C9200ED8781 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0CA5741B294C9200ED8781 /* libsqlite3.dylib */; };
 		2A0FEF611B52A7E400E28079 /* Choices-SixthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0FEF601B52A7E400E28079 /* Choices-SixthScreen.swift */; };
 		2A2322DB1B2C5EB200F3F6D4 /* mainDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */; };
@@ -51,18 +51,18 @@
 
 /* Begin PBXFileReference section */
 		2A057D5D1B50F26E009CD214 /* Choices-SecondScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-SecondScreen.swift"; sourceTree = "<group>"; };
-		2A0CA54F1B294C6B00ED8781 /* PowerUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PowerUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A0CA54F1B294C6B00ED8781 /* Database.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Database.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A0CA5531B294C6B00ED8781 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A0CA5541B294C6B00ED8781 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A0CA5561B294C6B00ED8781 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2A0CA5591B294C6B00ED8781 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2A0CA55B1B294C6B00ED8781 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2A0CA55E1B294C6B00ED8781 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		2A0CA5641B294C6B00ED8781 /* PowerUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PowerUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A0CA5641B294C6B00ED8781 /* DatabaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DatabaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A0CA5691B294C6B00ED8781 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2A0CA56A1B294C6B00ED8781 /* PowerUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerUpTests.swift; sourceTree = "<group>"; };
+		2A0CA56A1B294C6B00ED8781 /* DatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseTests.swift; sourceTree = "<group>"; };
 		2A0CA5741B294C9200ED8781 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsqlite3.dylib; sourceTree = "<group>"; };
-		2A0CA5761B29E83500ED8781 /* PowerUp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PowerUp-Bridging-Header.h"; sourceTree = "<group>"; };
+		2A0CA5761B29E83500ED8781 /* Database-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Database-Bridging-Header.h"; sourceTree = "<group>"; };
 		2A0FEF601B52A7E400E28079 /* Choices-SixthScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-SixthScreen.swift"; sourceTree = "<group>"; };
 		2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = mainDatabase.sqlite; path = ../mainDatabase.sqlite; sourceTree = "<group>"; };
 		2A2A4DB61B373C5B00D50860 /* StartScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScreen.swift; sourceTree = "<group>"; };
@@ -128,23 +128,23 @@
 				2AF82A8C1B4BA74A00307BED /* FMResultSet.m */,
 				2AD1A1E61B2B1ADA00BCA94D /* ModelManager.swift */,
 				2A0CA5741B294C9200ED8781 /* libsqlite3.dylib */,
-				2A0CA5511B294C6B00ED8781 /* PowerUp */,
-				2A0CA5671B294C6B00ED8781 /* PowerUpTests */,
+				2A0CA5511B294C6B00ED8781 /* Database */,
+				2A0CA5671B294C6B00ED8781 /* DatabaseTests */,
 				2A0CA5501B294C6B00ED8781 /* Products */,
-				2A0CA5761B29E83500ED8781 /* PowerUp-Bridging-Header.h */,
+				2A0CA5761B29E83500ED8781 /* Database-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
 		2A0CA5501B294C6B00ED8781 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2A0CA54F1B294C6B00ED8781 /* PowerUp.app */,
-				2A0CA5641B294C6B00ED8781 /* PowerUpTests.xctest */,
+				2A0CA54F1B294C6B00ED8781 /* Database.app */,
+				2A0CA5641B294C6B00ED8781 /* DatabaseTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2A0CA5511B294C6B00ED8781 /* PowerUp */ = {
+		2A0CA5511B294C6B00ED8781 /* Database */ = {
 			isa = PBXGroup;
 			children = (
 				2A0CA5541B294C6B00ED8781 /* AppDelegate.swift */,
@@ -171,7 +171,7 @@
 				2A2A4DB61B373C5B00D50860 /* StartScreen.swift */,
 				2AAEE53D1B48303500885044 /* Choices-FirstScreen.swift */,
 			);
-			path = PowerUp;
+			path = Database;
 			sourceTree = "<group>";
 		};
 		2A0CA5521B294C6B00ED8781 /* Supporting Files */ = {
@@ -182,13 +182,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2A0CA5671B294C6B00ED8781 /* PowerUpTests */ = {
+		2A0CA5671B294C6B00ED8781 /* DatabaseTests */ = {
 			isa = PBXGroup;
 			children = (
-				2A0CA56A1B294C6B00ED8781 /* PowerUpTests.swift */,
+				2A0CA56A1B294C6B00ED8781 /* DatabaseTests.swift */,
 				2A0CA5681B294C6B00ED8781 /* Supporting Files */,
 			);
-			path = PowerUpTests;
+			path = DatabaseTests;
 			sourceTree = "<group>";
 		};
 		2A0CA5681B294C6B00ED8781 /* Supporting Files */ = {
@@ -202,9 +202,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2A0CA54E1B294C6B00ED8781 /* PowerUp */ = {
+		2A0CA54E1B294C6B00ED8781 /* Database */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2A0CA56E1B294C6B00ED8781 /* Build configuration list for PBXNativeTarget "PowerUp" */;
+			buildConfigurationList = 2A0CA56E1B294C6B00ED8781 /* Build configuration list for PBXNativeTarget "Database" */;
 			buildPhases = (
 				2A0CA54B1B294C6B00ED8781 /* Sources */,
 				2A0CA54C1B294C6B00ED8781 /* Frameworks */,
@@ -214,14 +214,14 @@
 			);
 			dependencies = (
 			);
-			name = PowerUp;
+			name = Database;
 			productName = Database;
-			productReference = 2A0CA54F1B294C6B00ED8781 /* PowerUp.app */;
+			productReference = 2A0CA54F1B294C6B00ED8781 /* Database.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2A0CA5631B294C6B00ED8781 /* PowerUpTests */ = {
+		2A0CA5631B294C6B00ED8781 /* DatabaseTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2A0CA5711B294C6B00ED8781 /* Build configuration list for PBXNativeTarget "PowerUpTests" */;
+			buildConfigurationList = 2A0CA5711B294C6B00ED8781 /* Build configuration list for PBXNativeTarget "DatabaseTests" */;
 			buildPhases = (
 				2A0CA5601B294C6B00ED8781 /* Sources */,
 				2A0CA5611B294C6B00ED8781 /* Frameworks */,
@@ -232,9 +232,9 @@
 			dependencies = (
 				2A0CA5661B294C6B00ED8781 /* PBXTargetDependency */,
 			);
-			name = PowerUpTests;
+			name = DatabaseTests;
 			productName = DatabaseTests;
-			productReference = 2A0CA5641B294C6B00ED8781 /* PowerUpTests.xctest */;
+			productReference = 2A0CA5641B294C6B00ED8781 /* DatabaseTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -243,7 +243,6 @@
 		2A0CA5471B294C6B00ED8781 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Sanya Jain";
 				TargetAttributes = {
@@ -256,7 +255,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2A0CA54A1B294C6B00ED8781 /* Build configuration list for PBXProject "PowerUp" */;
+			buildConfigurationList = 2A0CA54A1B294C6B00ED8781 /* Build configuration list for PBXProject "Database" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -269,8 +268,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2A0CA54E1B294C6B00ED8781 /* PowerUp */,
-				2A0CA5631B294C6B00ED8781 /* PowerUpTests */,
+				2A0CA54E1B294C6B00ED8781 /* Database */,
+				2A0CA5631B294C6B00ED8781 /* DatabaseTests */,
 			);
 		};
 /* End PBXProject section */
@@ -332,7 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A0CA56B1B294C6B00ED8781 /* PowerUpTests.swift in Sources */,
+				2A0CA56B1B294C6B00ED8781 /* DatabaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,7 +340,7 @@
 /* Begin PBXTargetDependency section */
 		2A0CA5661B294C6B00ED8781 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2A0CA54E1B294C6B00ED8781 /* PowerUp */;
+			target = 2A0CA54E1B294C6B00ED8781 /* Database */;
 			targetProxy = 2A0CA5651B294C6B00ED8781 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -454,11 +453,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = PowerUp/Info.plist;
+				INFOPLIST_FILE = Database/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
-				PRODUCT_NAME = PowerUp;
-				SWIFT_OBJC_BRIDGING_HEADER = "PowerUp-Bridging-Header.h";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Database-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -469,11 +468,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = PowerUp/Info.plist;
+				INFOPLIST_FILE = Database/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
-				PRODUCT_NAME = PowerUp;
-				SWIFT_OBJC_BRIDGING_HEADER = "PowerUp-Bridging-Header.h";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Database-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -490,10 +489,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = PowerUpTests/Info.plist;
+				INFOPLIST_FILE = DatabaseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = PowerUpTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PowerUp.app/PowerUp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Database.app/Database";
 			};
 			name = Debug;
 		};
@@ -505,17 +504,17 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = PowerUpTests/Info.plist;
+				INFOPLIST_FILE = DatabaseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = PowerUpTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PowerUp.app/PowerUp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Database.app/Database";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2A0CA54A1B294C6B00ED8781 /* Build configuration list for PBXProject "PowerUp" */ = {
+		2A0CA54A1B294C6B00ED8781 /* Build configuration list for PBXProject "Database" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2A0CA56C1B294C6B00ED8781 /* Debug */,
@@ -524,7 +523,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2A0CA56E1B294C6B00ED8781 /* Build configuration list for PBXNativeTarget "PowerUp" */ = {
+		2A0CA56E1B294C6B00ED8781 /* Build configuration list for PBXNativeTarget "Database" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2A0CA56F1B294C6B00ED8781 /* Debug */,
@@ -533,7 +532,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2A0CA5711B294C6B00ED8781 /* Build configuration list for PBXNativeTarget "PowerUpTests" */ = {
+		2A0CA5711B294C6B00ED8781 /* Build configuration list for PBXNativeTarget "DatabaseTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2A0CA5721B294C6B00ED8781 /* Debug */,
