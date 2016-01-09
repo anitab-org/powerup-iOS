@@ -243,7 +243,6 @@
 		2A0CA5471B294C6B00ED8781 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Sanya Jain";
 				TargetAttributes = {
@@ -458,7 +457,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
 				PRODUCT_NAME = PowerUp;
-				SWIFT_OBJC_BRIDGING_HEADER = "Database-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "PowerUp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -473,7 +472,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
 				PRODUCT_NAME = PowerUp;
-				SWIFT_OBJC_BRIDGING_HEADER = "Database-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "PowerUp-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -490,7 +489,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = DatabaseTests/Info.plist;
+				INFOPLIST_FILE = PowerUpTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = PowerUpTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Database.app/Database";
@@ -505,7 +504,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = DatabaseTests/Info.plist;
+				INFOPLIST_FILE = PowerUpTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = PowerUpTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Database.app/Database";
