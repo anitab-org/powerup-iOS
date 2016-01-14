@@ -11,7 +11,7 @@ class MapScreen: UIViewController {
     
     
     var numberToDisplay = 0
-    
+    let defaults = NSUserDefaults.standardUserDefaults()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,8 +40,8 @@ class MapScreen: UIViewController {
       
         
       // Testing condition if level 1 button pressed again after comming out of the scenario
-        
-        if (numberToDisplay > 0)
+        var x = defaults.integerForKey("backtomap")
+        if (x > 0)
         {
             println("This action is not possible!! Kindly choose another level!!")
             
