@@ -96,16 +96,18 @@ class Scene6: UIViewController {
         let acceptAction = UIAlertAction(title: "Ok", style: .Default) { (_) -> Void in
             
             
-            let vc = self.storyboard?.instantiateViewControllerWithIdentifier("2") as! MapScreen
-            self.navigationController!.pushViewController(vc, animated: true)
+            //let vc = self.storyboard?.instantiateViewControllerWithIdentifier("2") as! MapScreen
+            //self.navigationController!.pushViewController(vc, animated: true)
+            self.performSegueWithIdentifier("goback", sender: self)
         }
         alert.addAction(acceptAction)
         presentViewController(alert, animated: true, completion: nil);
         
+        
 
         
     }
-    
+   
     
 
     

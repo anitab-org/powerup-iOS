@@ -15,7 +15,6 @@ class MapScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(true, animated:true);
 

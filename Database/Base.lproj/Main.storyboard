@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="bottom" id="crB-5J-nEd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Gv1-Un-5xq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="lq3-AT-Fhu">
@@ -40,7 +40,7 @@
                                 </state>
                                 <connections>
                                     <action selector="Start:" destination="S65-lq-9jr" eventType="touchUpInside" id="fIF-Th-UQv"/>
-                                    <segue destination="S3c-uW-lpA" kind="push" id="FCb-cK-kyI"/>
+                                    <segue destination="S3c-uW-lpA" kind="push" identifier="startToMap" id="lfn-y2-37L"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwb-Wz-xvg">
@@ -98,7 +98,7 @@
                         <viewControllerLayoutGuide type="bottom" id="lW9-er-4kz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8Iq-DJ-45h">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen" translatesAutoresizingMaskIntoConstraints="NO" id="acu-mp-gO5">
@@ -285,7 +285,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1683" y="860"/>
+            <point key="canvasLocation" x="1151.5" y="860.5"/>
         </scene>
         <!--Scene 3-->
         <scene sceneID="Uqz-iV-0V9">
@@ -395,7 +395,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oSe-Bl-KcF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2369" y="613"/>
+            <point key="canvasLocation" x="1837" y="613"/>
         </scene>
         <!--Scene 2-->
         <scene sceneID="Kf0-GX-vhj">
@@ -406,7 +406,7 @@
                         <viewControllerLayoutGuide type="bottom" id="NYm-52-4w6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wEj-B0-jtW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen" translatesAutoresizingMaskIntoConstraints="NO" id="Rw4-HA-eb9">
@@ -453,6 +453,9 @@
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="S3c-uW-lpA" kind="push" identifier="level2end" id="5VO-Md-ZNK"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Clothing-Room-all" translatesAutoresizingMaskIntoConstraints="NO" id="Kcw-tm-vPl">
                                 <rect key="frame" x="-14" y="472" width="336" height="105"/>
@@ -469,7 +472,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctT-Jt-Q9N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2369" y="1305"/>
+            <point key="canvasLocation" x="1837" y="1305"/>
         </scene>
         <!--Scene7-->
         <scene sceneID="Wwh-Fz-JnA">
@@ -480,7 +483,7 @@
                         <viewControllerLayoutGuide type="bottom" id="DOj-LM-oIc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Qgk-Rk-EQf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen" translatesAutoresizingMaskIntoConstraints="NO" id="pK8-mv-w9E">
@@ -581,7 +584,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gfS-ch-I9w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2744" y="1305"/>
+            <point key="canvasLocation" x="2212" y="1305"/>
         </scene>
         <!--Scene6-->
         <scene sceneID="vxy-LJ-9Nv">
@@ -592,7 +595,7 @@
                         <viewControllerLayoutGuide type="bottom" id="WdG-hY-foA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9Bo-Ps-iL3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen" translatesAutoresizingMaskIntoConstraints="NO" id="fZ4-ng-jya">
@@ -689,11 +692,12 @@
                         <outlet property="answerViewA" destination="RHm-QI-FUD" id="Mzg-aJ-NFN"/>
                         <outlet property="answerViewB" destination="bNX-BT-mVm" id="wXZ-Wn-9k7"/>
                         <outlet property="mar_text" destination="v4x-2R-ggZ" id="iAQ-fn-zAZ"/>
+                        <segue destination="S3c-uW-lpA" kind="push" identifier="goback" id="XIu-bz-dDi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Cu-CI-sZj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3154" y="1305"/>
+            <point key="canvasLocation" x="2622" y="1305"/>
         </scene>
         <!--Scene5-->
         <scene sceneID="f6k-G0-ppA">
@@ -704,7 +708,7 @@
                         <viewControllerLayoutGuide type="bottom" id="BfH-gV-Jzk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BVT-JM-ExR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen" translatesAutoresizingMaskIntoConstraints="NO" id="hej-kW-XkN">
@@ -826,11 +830,12 @@
                         <outlet property="answerViewB" destination="fJs-Ve-6Tc" id="OlN-yV-YiG"/>
                         <outlet property="answerViewC" destination="voG-Dd-a7p" id="go3-Ot-aaD"/>
                         <outlet property="mar_text" destination="SzG-Jp-W4u" id="LEM-kq-Gcg"/>
+                        <segue destination="S3c-uW-lpA" kind="push" identifier="goback" id="WcY-qf-vJC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="31M-Qq-FBj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3162" y="613"/>
+            <point key="canvasLocation" x="2630" y="613"/>
         </scene>
         <!--Scene4-->
         <scene sceneID="g0D-D8-8fJ">
@@ -841,7 +846,7 @@
                         <viewControllerLayoutGuide type="bottom" id="SP8-n1-3E4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FH1-Hf-enJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen" translatesAutoresizingMaskIntoConstraints="NO" id="ciK-O3-iPd">
@@ -942,7 +947,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gb2-zS-7gk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2754" y="613"/>
+            <point key="canvasLocation" x="2222" y="613"/>
         </scene>
         <!--Choices First Screen-->
         <scene sceneID="hU5-RP-cal">
@@ -953,7 +958,7 @@
                         <viewControllerLayoutGuide type="bottom" id="yWt-cV-81G"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="i2H-rS-PLe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen" translatesAutoresizingMaskIntoConstraints="NO" id="p0l-83-eVj">
@@ -1019,7 +1024,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Fmy-W9-TBB"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="0UC-da-cIZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98O-xk-pCY">
@@ -1152,7 +1157,7 @@
                         <viewControllerLayoutGuide type="bottom" id="usr-Bk-8WT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eSi-4C-ELn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen" translatesAutoresizingMaskIntoConstraints="NO" id="bGW-iP-d3F">
@@ -1210,7 +1215,7 @@
                         <viewControllerLayoutGuide type="bottom" id="NsD-Yw-ekB"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uGu-Fn-NPe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen" translatesAutoresizingMaskIntoConstraints="NO" id="xCa-ao-a5F">
@@ -1333,7 +1338,7 @@
                         <viewControllerLayoutGuide type="bottom" id="6ut-bW-Otg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="e6v-6r-zzh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen" translatesAutoresizingMaskIntoConstraints="NO" id="P6m-zG-ZlZ">
@@ -1391,7 +1396,7 @@
                         <viewControllerLayoutGuide type="bottom" id="j4y-Z7-O5g"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5cF-Xa-Kzb">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen" translatesAutoresizingMaskIntoConstraints="NO" id="Be8-ZB-uyt">
@@ -1458,6 +1463,7 @@
                                 </state>
                                 <connections>
                                     <action selector="mapScreenButton:" destination="Kej-3M-rbU" eventType="touchUpInside" id="Jed-02-wmK"/>
+                                    <segue destination="S3c-uW-lpA" kind="push" identifier="nextView" id="Wwi-sM-z0Q"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen7" translatesAutoresizingMaskIntoConstraints="NO" id="06L-8d-x15">
@@ -1504,7 +1510,7 @@
                         <viewControllerLayoutGuide type="bottom" id="oJB-6c-Aa3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3Gc-Bw-sb8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen" translatesAutoresizingMaskIntoConstraints="NO" id="G14-SA-PsI">
@@ -1556,7 +1562,7 @@
         <!--Map Screen-->
         <scene sceneID="8zi-ZT-9cM">
             <objects>
-                <viewController storyboardIdentifier="2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="S3c-uW-lpA" customClass="MapScreen" customModule="Database" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="2" id="S3c-uW-lpA" customClass="MapScreen" customModule="Database" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a2t-1i-ibK"/>
                         <viewControllerLayoutGuide type="bottom" id="1Sr-V8-zvm"/>
@@ -1617,7 +1623,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OMF-eo-Ren" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1206.5" y="1255.5"/>
+            <point key="canvasLocation" x="674.5" y="1255.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cD8-wF-rc7">
@@ -1666,13 +1672,14 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Ofw-jX-WZ6"/>
-        <segue reference="23j-Va-GOj"/>
+        <segue reference="1DS-Vl-YRq"/>
+        <segue reference="v73-P1-b3f"/>
+        <segue reference="WcY-qf-vJC"/>
+        <segue reference="Pcl-29-Fre"/>
         <segue reference="wIg-qb-dZP"/>
-        <segue reference="VXk-Sx-JOj"/>
-        <segue reference="KqI-h0-VLh"/>
-        <segue reference="ckn-hC-8D8"/>
-        <segue reference="dAo-OD-1PD"/>
+        <segue reference="5NV-Ks-xI9"/>
         <segue reference="MOD-Bo-uno"/>
+        <segue reference="dAo-OD-1PD"/>
+        <segue reference="ckn-hC-8D8"/>
     </inferredMetricsTieBreakers>
 </document>
