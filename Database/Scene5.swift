@@ -112,16 +112,12 @@ class Scene5: UIViewController {
     // Alert message pops up if option C is chosen
     @IBAction func ansButton3(sender: UIButton) {
         
-        var alert=UIAlertController(title: "MESSAGE!!!", message: "SEX MINI - GAME !!!", preferredStyle: UIAlertControllerStyle.Alert);
-        let acceptAction = UIAlertAction(title: "Ok", style: .Default) { (_) -> Void in
-            
-            
-            //let vc = self.storyboard?.instantiateViewControllerWithIdentifier("2") as! MapScreen
-            //self.navigationController!.pushViewController(vc, animated: true)
-            self.performSegueWithIdentifier("goback", sender: self)
-        }
-        alert.addAction(acceptAction)
-        presentViewController(alert, animated: true, completion: nil);
+        var alertView = UIAlertView();
+        alertView.addButtonWithTitle("Ok");
+        alertView.title = "MESSAGE!!!";
+        alertView.message = "SEX MINI - GAME!!!";
+        
+        alertView.show();
         
 
     }

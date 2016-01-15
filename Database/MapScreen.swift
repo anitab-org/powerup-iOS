@@ -11,7 +11,15 @@ class MapScreen: UIViewController {
     
     
     var numberToDisplay = 0
+    override func shouldAutorotate() -> Bool {
+        return true
+    }
     
+    
+    override func supportedInterfaceOrientations() -> Int {
+        return UIInterfaceOrientation.Portrait.rawValue | UIInterfaceOrientation.LandscapeLeft.rawValue | UIInterfaceOrientation.LandscapeRight.rawValue
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         

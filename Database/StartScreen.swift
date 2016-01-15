@@ -15,14 +15,14 @@ class StartScreen: UIViewController {
     
     var counter = -1
 
-   // For orientation - set to Portrait
+   // For orientation - set to any
     override func shouldAutorotate() -> Bool {
-        return false
+        return true
     }
     
     
     override func supportedInterfaceOrientations() -> Int {
-        return UIInterfaceOrientation.Portrait.rawValue
+         return UIInterfaceOrientation.Portrait.rawValue | UIInterfaceOrientation.LandscapeLeft.rawValue | UIInterfaceOrientation.LandscapeRight.rawValue
     }
     
     
