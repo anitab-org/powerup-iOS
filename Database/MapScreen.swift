@@ -11,15 +11,7 @@ class MapScreen: UIViewController {
     
     
     var numberToDisplay = 0
-    override func shouldAutorotate() -> Bool {
-        return true
-    }
     
-    
-    override func supportedInterfaceOrientations() -> Int {
-        return UIInterfaceOrientation.Portrait.rawValue | UIInterfaceOrientation.LandscapeLeft.rawValue | UIInterfaceOrientation.LandscapeRight.rawValue
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,8 +19,8 @@ class MapScreen: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated:true);
 
         // setting the orientation to portrait
-        //let value = UIInterfaceOrientation.Portrait.rawValue
-        //UIDevice.currentDevice().setValue(value, forKey: "orientation")
+        let value = UIInterfaceOrientation.Portrait.rawValue
+        UIDevice.currentDevice().setValue(value, forKey: "orientation")
         
         
     }
