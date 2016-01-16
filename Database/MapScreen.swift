@@ -27,8 +27,8 @@ class MapScreen: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated:true);
 
         // setting the orientation to portrait
-        let value = UIInterfaceOrientation.Portrait.rawValue
-        UIDevice.currentDevice().setValue(value, forKey: "orientation")
+        //let value = UIInterfaceOrientation.Portrait.rawValue
+        //UIDevice.currentDevice().setValue(value, forKey: "orientation")
         
         
     }
