@@ -947,6 +947,56 @@
             </objects>
             <point key="canvasLocation" x="2222" y="613"/>
         </scene>
+        <!--Intro View Controller-->
+        <scene sceneID="kvf-Ii-7ee">
+            <objects>
+                <viewController id="cNX-wz-ahi" customClass="IntroViewController" customModule="Database" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4ze-WM-5SU"/>
+                        <viewControllerLayoutGuide type="bottom" id="ANC-Xk-AGO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9JU-Sm-6NW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="LBq-3R-BHF">
+                                <rect key="frame" x="-33" y="62" width="386" height="506"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen6" translatesAutoresizingMaskIntoConstraints="NO" id="jkc-lN-WsJ">
+                                <rect key="frame" x="99" y="412" width="122" height="52"/>
+                                <animations/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXz-aY-tIO">
+                                <rect key="frame" x="121" y="420" width="79" height="35"/>
+                                <animations/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ujD-Mr-MgV" kind="push" id="B0m-it-nFX"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to Level 1!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ph4-dt-DcI">
+                                <rect key="frame" x="64" y="117" width="220" height="139"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="53"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="eeC-YQ-88w"/>
+                    <connections>
+                        <outlet property="continueButton" destination="MXz-aY-tIO" id="IPi-pg-jqR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G2u-8X-OQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-298" y="-539"/>
+        </scene>
         <!--Choices First Screen-->
         <scene sceneID="hU5-RP-cal">
             <objects>
@@ -1616,7 +1666,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <segue destination="ujD-Mr-MgV" kind="push" identifier="start1View" id="Ofw-jX-WZ6"/>
+                        <segue destination="cNX-wz-ahi" kind="push" identifier="startintroView" id="qLq-ld-cYH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OMF-eo-Ren" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1670,14 +1720,14 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="5NV-Ks-xI9"/>
-        <segue reference="MOD-Bo-uno"/>
-        <segue reference="dAo-OD-1PD"/>
-        <segue reference="ckn-hC-8D8"/>
-        <segue reference="KqI-h0-VLh"/>
-        <segue reference="wIg-qb-dZP"/>
         <segue reference="lfn-y2-37L"/>
         <segue reference="Pcl-29-Fre"/>
+        <segue reference="B0m-it-nFX"/>
+        <segue reference="ckn-hC-8D8"/>
+        <segue reference="dAo-OD-1PD"/>
+        <segue reference="MOD-Bo-uno"/>
+        <segue reference="wIg-qb-dZP"/>
         <segue reference="VXk-Sx-JOj"/>
+        <segue reference="KqI-h0-VLh"/>
     </inferredMetricsTieBreakers>
 </document>

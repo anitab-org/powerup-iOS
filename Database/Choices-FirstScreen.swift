@@ -106,18 +106,7 @@ class Choices_FirstScreen: UIViewController {
     
 }
     
-    func moveImage(view: UIImageView){
-        var toPoint: CGPoint = CGPointMake(0.0, -10.0)
-        var fromPoint : CGPoint = CGPointZero
-        
-        var movement = CABasicAnimation(keyPath: "movement")
-        movement.additive = true
-        movement.fromValue =  NSValue(CGPoint: fromPoint)
-        movement.toValue =  NSValue(CGPoint: toPoint)
-        movement.duration = 0.3
-        
-        view.layer.addAnimation(movement, forKey: "move")
-    }
+    
     
     
     @IBAction func AnswerButton(sender: UIButton) {

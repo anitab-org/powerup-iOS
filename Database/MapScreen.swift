@@ -59,7 +59,7 @@ class MapScreen: UIViewController {
             // condition for first time click - navigates to scenario
         else{
             
-            performSegueWithIdentifier("start1View", sender: self)
+            performSegueWithIdentifier("startintroView", sender: self)
             
             
         }
