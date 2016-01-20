@@ -947,64 +947,6 @@
             </objects>
             <point key="canvasLocation" x="2222" y="613"/>
         </scene>
-        <!--Intro View Controller-->
-        <scene sceneID="kvf-Ii-7ee">
-            <objects>
-                <viewController id="cNX-wz-ahi" customClass="IntroViewController" customModule="Database" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4ze-WM-5SU"/>
-                        <viewControllerLayoutGuide type="bottom" id="ANC-Xk-AGO"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9JU-Sm-6NW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="LBq-3R-BHF">
-                                <rect key="frame" x="-33" y="62" width="386" height="506"/>
-                                <animations/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen6" translatesAutoresizingMaskIntoConstraints="NO" id="jkc-lN-WsJ">
-                                <rect key="frame" x="99" y="412" width="122" height="52"/>
-                                <animations/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MXz-aY-tIO">
-                                <rect key="frame" x="121" y="420" width="79" height="35"/>
-                                <animations/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="ujD-Mr-MgV" kind="push" id="B0m-it-nFX"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to Level 1!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ph4-dt-DcI">
-                                <rect key="frame" x="64" y="117" width="220" height="139"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="53"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iA-iX-S31">
-                                <rect key="frame" x="43" y="221" width="246" height="150"/>
-                                <animations/>
-                                <string key="text">Explore your friendship and communication skills! Learn to make more informed decisions! This is the chance to prove yourself...</string>
-                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="27"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="eeC-YQ-88w"/>
-                    <connections>
-                        <outlet property="continueButton" destination="MXz-aY-tIO" id="IPi-pg-jqR"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G2u-8X-OQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-298" y="-539"/>
-        </scene>
         <!--Choices First Screen-->
         <scene sceneID="hU5-RP-cal">
             <objects>
@@ -1065,6 +1007,8 @@
                     <connections>
                         <outlet property="AnswerView" destination="slU-7r-Igd" id="uwU-s5-Cdt"/>
                         <outlet property="Question" destination="7S1-dK-g1z" id="kJO-u9-SAA"/>
+                        <outlet property="girl" destination="XQQ-QO-X1Z" id="hiF-Kp-FoX"/>
+                        <outlet property="marco" destination="bJ2-PN-F2V" id="Nf4-ov-xlI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MA8-Tz-Vk9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1187,6 +1131,14 @@
                                 <rect key="frame" x="-15" y="34" width="147" height="285"/>
                                 <animations/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="annoyed" translatesAutoresizingMaskIntoConstraints="NO" id="uSs-F8-2bb">
+                                <rect key="frame" x="268" y="276" width="52" height="43"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sweat" translatesAutoresizingMaskIntoConstraints="NO" id="85H-c8-ufk">
+                                <rect key="frame" x="83" y="110" width="22" height="34"/>
+                                <animations/>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1198,6 +1150,8 @@
                         <outlet property="AnswerView2" destination="wDk-JO-twP" id="ErC-Ow-ZKR"/>
                         <outlet property="AnswerView3" destination="fpt-SG-mYS" id="k4O-MO-mxQ"/>
                         <outlet property="Question" destination="qOH-16-GQh" id="q4O-ub-hVa"/>
+                        <outlet property="annoyed" destination="uSs-F8-2bb" id="3bS-fY-hxP"/>
+                        <outlet property="sweat" destination="85H-c8-ufk" id="aaM-FM-946"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mWr-EI-DXd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1255,6 +1209,7 @@
                     <connections>
                         <outlet property="continueImage" destination="IRM-LX-V8A" id="ea2-lT-0uC"/>
                         <outlet property="continuetoEnd" destination="c5M-7d-5K4" id="T3m-ef-54p"/>
+                        <outlet property="friendImage" destination="dvJ-bP-0Im" id="uGw-0M-v2V"/>
                         <outlet property="labelView" destination="4gf-6Z-Z6j" id="XtL-9p-TR8"/>
                     </connections>
                 </viewController>
@@ -1379,6 +1334,8 @@
                         <outlet property="AnswerView2" destination="yin-l9-l08" id="jDl-yc-r47"/>
                         <outlet property="AnswerView3" destination="G61-Sa-a0s" id="V3S-of-M4A"/>
                         <outlet property="Question" destination="5fi-jx-ZYH" id="1nh-4f-oUO"/>
+                        <outlet property="boy" destination="kC3-Rv-VN7" id="BgE-3O-5ET"/>
+                        <outlet property="girl" destination="Imc-ZE-Fmc" id="VqU-ho-e2a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dyv-5g-YLl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1436,6 +1393,7 @@
                     <connections>
                         <outlet property="continueImage" destination="kFB-qe-vBG" id="LhL-oY-cGa"/>
                         <outlet property="continueToEnd" destination="lig-dY-tfk" id="bd5-7L-bCQ"/>
+                        <outlet property="friendImage" destination="gvR-YS-fdj" id="nA4-vT-Nej"/>
                         <outlet property="labelView" destination="Ogo-eR-7Nn" id="ul6-mq-ZgO"/>
                     </connections>
                 </viewController>
@@ -1548,6 +1506,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="conclusionText" destination="ncj-rT-ty2" id="8So-gA-PhW"/>
+                        <outlet property="girl" destination="boM-vC-gQU" id="oSH-bG-PG7"/>
                         <outlet property="mapScreen" destination="9eA-5h-upJ" id="kgm-nV-qSF"/>
                         <outlet property="pointsLabel" destination="Sui-gy-H7k" id="J9Y-uo-ptF"/>
                         <outlet property="replay" destination="UVv-Xm-Tec" id="F2H-ns-Ufh"/>
@@ -1608,6 +1567,7 @@
                     <connections>
                         <outlet property="continueImage" destination="a90-YA-uAk" id="iUZ-iI-GfT"/>
                         <outlet property="continueToEnd" destination="64d-8y-C21" id="aal-Cy-Jla"/>
+                        <outlet property="friendImage" destination="SuF-Od-Zek" id="KXQ-rS-hRm"/>
                         <outlet property="textLabel" destination="82l-rM-GTW" id="qiw-5n-yBO"/>
                     </connections>
                 </viewController>
@@ -1674,7 +1634,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <segue destination="cNX-wz-ahi" kind="push" identifier="startintroView" id="qLq-ld-cYH"/>
+                        <segue destination="ujD-Mr-MgV" kind="push" identifier="start1View" id="Ofw-jX-WZ6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OMF-eo-Ren" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1710,6 +1670,7 @@
         <image name="Hair" width="470" height="341"/>
         <image name="Marco" width="612" height="792"/>
         <image name="PowerUp-Map" width="792" height="612"/>
+        <image name="annoyed" width="136" height="128"/>
         <image name="background" width="1028" height="584"/>
         <image name="buttons" width="259" height="103"/>
         <image name="buttons 2" width="234" height="82"/>
@@ -1721,6 +1682,7 @@
         <image name="endingscreen6" width="139" height="50"/>
         <image name="endingscreen7" width="976" height="93"/>
         <image name="logo" width="113" height="102"/>
+        <image name="sweat" width="800" height="1153"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -1728,14 +1690,14 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="lfn-y2-37L"/>
-        <segue reference="Pcl-29-Fre"/>
-        <segue reference="B0m-it-nFX"/>
-        <segue reference="ckn-hC-8D8"/>
-        <segue reference="dAo-OD-1PD"/>
+        <segue reference="5NV-Ks-xI9"/>
         <segue reference="MOD-Bo-uno"/>
+        <segue reference="dAo-OD-1PD"/>
+        <segue reference="Wwi-sM-z0Q"/>
+        <segue reference="Pcl-29-Fre"/>
         <segue reference="wIg-qb-dZP"/>
-        <segue reference="VXk-Sx-JOj"/>
         <segue reference="KqI-h0-VLh"/>
+        <segue reference="VXk-Sx-JOj"/>
+        <segue reference="ckn-hC-8D8"/>
     </inferredMetricsTieBreakers>
 </document>

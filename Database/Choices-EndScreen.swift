@@ -12,6 +12,7 @@ class Choices_EndScreen: UIViewController {
     @IBOutlet weak var conclusionText: UITextView!
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var mapScreen: UIButton!
+    @IBOutlet weak var girl: UIImageView!
     
     var counter = 0
     var numberToDisplay = 0
@@ -33,6 +34,23 @@ class Choices_EndScreen: UIViewController {
         
         // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(true, animated:true);
+        
+        
+        var hover: CABasicAnimation = CABasicAnimation(keyPath: "position")
+        hover.additive = true
+        // fromValue and toValue will be relative instead of absolute values
+        hover.fromValue = NSValue(CGPoint: CGPointZero)
+        hover.toValue = NSValue(CGPoint: CGPointMake(0.0, -10.0))
+        // y increases downwards on iOS
+        hover.autoreverses = true
+        // Animate back to normal afterwards
+        hover.duration = 0.5
+        // The duration for one part of the animation (0.2 up and 0.2 down)
+        hover.repeatCount = .infinity
+        // The number of times the animation should repeat
+        girl.layer.addAnimation(hover, forKey: "myHoverAnimation")
+        
+        
         
         // TextView borders and rounded corners
         conclusionText!.layer.borderWidth = 6

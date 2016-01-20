@@ -7,6 +7,8 @@ import UIKit
 class Choices_FourthScreen: UIViewController {
 
     
+    @IBOutlet weak var boy: UIImageView!
+    @IBOutlet weak var girl: UIImageView!
     @IBOutlet weak var Question: UITextView!
     
     @IBOutlet weak var AnswerView1: UITextField!
@@ -22,6 +24,22 @@ class Choices_FourthScreen: UIViewController {
         
         // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(true, animated:true);
+        
+        var hover: CABasicAnimation = CABasicAnimation(keyPath: "position")
+        hover.additive = true
+        // fromValue and toValue will be relative instead of absolute values
+        hover.fromValue = NSValue(CGPoint: CGPointZero)
+        hover.toValue = NSValue(CGPoint: CGPointMake(0.0, -10.0))
+        // y increases downwards on iOS
+        hover.autoreverses = true
+        // Animate back to normal afterwards
+        hover.duration = 0.5
+        // The duration for one part of the animation (0.2 up and 0.2 down)
+        hover.repeatCount = .infinity
+        // The number of times the animation should repeat
+        boy.layer.addAnimation(hover, forKey: "animation4")
+        girl.layer.addAnimation(hover, forKey: "animation5")
+        
         
         Question.editable = false
         Question.selectable = false
