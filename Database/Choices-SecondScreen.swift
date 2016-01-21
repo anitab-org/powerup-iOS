@@ -8,8 +8,6 @@ import UIKit
 class Choices_SecondScreen: UIViewController {
     
     
-    @IBOutlet weak var sweat: UIImageView!
-    @IBOutlet weak var annoyed: UIImageView!
     @IBOutlet weak var Question: UITextView!
     
     @IBOutlet weak var AnswerView1: UITextField!
@@ -25,31 +23,6 @@ class Choices_SecondScreen: UIViewController {
         
         // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(true, animated:true);
-        
-        var move: CABasicAnimation = CABasicAnimation(keyPath: "position")
-        move.additive = true
-        // fromValue and toValue will be relative instead of absolute values
-        move.fromValue = NSValue(CGPoint: CGPointZero)
-        move.toValue = NSValue(CGPoint: CGPointMake(0.0, 25.0))
-        // y increases downwards on iOS
-        //move.autoreverses = true
-        // Animate back to normal afterwards
-        move.duration = 1.0
-        // The duration for one part of the animation (0.2 up and 0.2 down)
-        move.repeatCount = .infinity
-        // The number of times the animation should repeat
-        sweat.layer.addAnimation(move, forKey: "myHoverAnimation")
-        
-        
-        
-        UIView.animateWithDuration(3.0, animations: {() -> Void in
-            self.annoyed.transform = CGAffineTransformMakeScale(0.5, 0.5)
-            }, completion: {(finished: Bool) -> Void in
-                UIView.animateWithDuration(6.0, animations: {() -> Void in
-                    self.annoyed.transform = CGAffineTransformMakeScale(1.2, 1.2)
-                })
-        })
-
 
         Question.editable = false
         Question.selectable = false

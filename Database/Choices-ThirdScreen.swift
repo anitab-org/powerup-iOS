@@ -27,27 +27,12 @@ class Choices_ThirdScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    
         // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(true, animated:true);
         
-        var hover: CABasicAnimation = CABasicAnimation(keyPath: "position")
-        hover.additive = true
-        // fromValue and toValue will be relative instead of absolute values
-        hover.fromValue = NSValue(CGPoint: CGPointZero)
-        hover.toValue = NSValue(CGPoint: CGPointMake(0.0, -10.0))
-        // y increases downwards on iOS
-        hover.autoreverses = true
-        // Animate back to normal afterwards
-        hover.duration = 0.5
-        // The duration for one part of the animation (0.2 up and 0.2 down)
-        hover.repeatCount = .infinity
-        // The number of times the animation should repeat
-        friendImage.layer.addAnimation(hover, forKey: "animation3")
-        
        // Setting the label's border and making its corners rounded
         textLabel!.layer.borderWidth = 6
-        textLabel!.layer.borderColor = UIColor.blackColor().CGColor
+      textLabel!.layer.borderColor = UIColor.blackColor().CGColor
         textLabel!.layer.cornerRadius = 5
        
         // Making content in the label to be word wrapped(and not in center)

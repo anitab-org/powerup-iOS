@@ -7,13 +7,11 @@ import UIKit
 
 class Choices_FirstScreen: UIViewController {
     
-    @IBOutlet weak var marco: UIImageView!
-    @IBOutlet weak var girl: UIImageView!
     @IBOutlet weak var Question: UITextView!
     
     @IBOutlet weak var AnswerView: UITextView!
     
-
+    
     var databasePath = NSString()
     
     // Orientation - set to Portrait
@@ -28,34 +26,16 @@ class Choices_FirstScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var shrink = false
         // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(false, animated:true);
-        
-        ////
-        var hover: CABasicAnimation = CABasicAnimation(keyPath: "position")
-        hover.additive = true
-        // fromValue and toValue will be relative instead of absolute values
-        hover.fromValue = NSValue(CGPoint: CGPointZero)
-        hover.toValue = NSValue(CGPoint: CGPointMake(0.0, -10.0))
-        // y increases downwards on iOS
-        hover.autoreverses = true
-        // Animate back to normal afterwards
-        hover.duration = 0.5
-        // The duration for one part of the animation (0.2 up and 0.2 down)
-        hover.repeatCount = .infinity
-        // The number of times the animation should repeat
-        marco.layer.addAnimation(hover, forKey: "myHoverAnimation")
-        girl.layer.addAnimation(hover, forKey: "girlhover")
-        ////
         
         Question.selectable = false
         Question.editable = false
         AnswerView.editable = false
         AnswerView.selectable = false
         
-        Question!.layer.borderWidth = 6
         
+        Question!.layer.borderWidth = 6
         Question!.layer.borderColor = UIColor.blackColor().CGColor
         Question!.layer.cornerRadius = 5
         

@@ -37,8 +37,6 @@
 		2AF82A8F1B4BA74A00307BED /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A871B4BA74A00307BED /* FMDatabasePool.m */; };
 		2AF82A901B4BA74A00307BED /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A891B4BA74A00307BED /* FMDatabaseQueue.m */; };
 		2AF82A911B4BA74A00307BED /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A8C1B4BA74A00307BED /* FMResultSet.m */; };
-		491935FA1C4DC7EC00166460 /* annoyed.png in Resources */ = {isa = PBXBuildFile; fileRef = 491935F91C4DC7EC00166460 /* annoyed.png */; };
-		491935FC1C4DC91A00166460 /* sweat.png in Resources */ = {isa = PBXBuildFile; fileRef = 491935FB1C4DC91A00166460 /* sweat.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,8 +91,6 @@
 		2AF82A8A1B4BA74A00307BED /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
 		2AF82A8B1B4BA74A00307BED /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		2AF82A8C1B4BA74A00307BED /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
-		491935F91C4DC7EC00166460 /* annoyed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = annoyed.png; sourceTree = "<group>"; };
-		491935FB1C4DC91A00166460 /* sweat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sweat.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,10 +164,8 @@
 				2A992EE01B513B9A00E9AF04 /* Choices-ThirdScreen.swift */,
 				2A057D5D1B50F26E009CD214 /* Choices-SecondScreen.swift */,
 				2A8962301B386AB2009B2338 /* MapScreen.swift */,
-				491935FB1C4DC91A00166460 /* sweat.png */,
 				2A93D8701B2F4DFE00AE4824 /* ThirdViewController.swift */,
 				2A0CA55B1B294C6B00ED8781 /* Images.xcassets */,
-				491935F91C4DC7EC00166460 /* annoyed.png */,
 				2A0CA55D1B294C6B00ED8781 /* LaunchScreen.xib */,
 				2A0CA5521B294C6B00ED8781 /* Supporting Files */,
 				2A2A4DB61B373C5B00D50860 /* StartScreen.swift */,
@@ -285,8 +279,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				491935FC1C4DC91A00166460 /* sweat.png in Resources */,
-				491935FA1C4DC7EC00166460 /* annoyed.png in Resources */,
 				2A0CA55A1B294C6B00ED8781 /* Main.storyboard in Resources */,
 				2A2322DB1B2C5EB200F3F6D4 /* mainDatabase.sqlite in Resources */,
 				2A0CA55F1B294C6B00ED8781 /* LaunchScreen.xib in Resources */,
