@@ -37,6 +37,7 @@
 		2AF82A8F1B4BA74A00307BED /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A871B4BA74A00307BED /* FMDatabasePool.m */; };
 		2AF82A901B4BA74A00307BED /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A891B4BA74A00307BED /* FMDatabaseQueue.m */; };
 		2AF82A911B4BA74A00307BED /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A8C1B4BA74A00307BED /* FMResultSet.m */; };
+		49DB118D1C51299600BFD83B /* CustomizeCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DB118C1C51299600BFD83B /* CustomizeCharacter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		2AF82A8A1B4BA74A00307BED /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
 		2AF82A8B1B4BA74A00307BED /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		2AF82A8C1B4BA74A00307BED /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		49DB118C1C51299600BFD83B /* CustomizeCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizeCharacter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 		2A0CA5511B294C6B00ED8781 /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				49DB118C1C51299600BFD83B /* CustomizeCharacter.swift */,
 				2A0CA5541B294C6B00ED8781 /* AppDelegate.swift */,
 				2AAEE5391B482E4600885044 /* Choices.sqlite */,
 				2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */,
@@ -243,7 +246,6 @@
 		2A0CA5471B294C6B00ED8781 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Sanya Jain";
 				TargetAttributes = {
@@ -321,6 +323,7 @@
 				2A0CA5551B294C6B00ED8781 /* AppDelegate.swift in Sources */,
 				2A057D5E1B50F26E009CD214 /* Choices-SecondScreen.swift in Sources */,
 				2A93D8711B2F4DFE00AE4824 /* ThirdViewController.swift in Sources */,
+				49DB118D1C51299600BFD83B /* CustomizeCharacter.swift in Sources */,
 				2A68C3DB1B2EA28700E2FAE8 /* SecondViewController.swift in Sources */,
 				2A4AED701B77877C00268B6B /* Scene4.swift in Sources */,
 				2AF82A8E1B4BA74A00307BED /* FMDatabaseAdditions.m in Sources */,
