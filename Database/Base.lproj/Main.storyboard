@@ -89,10 +89,10 @@
             </objects>
             <point key="canvasLocation" x="218" y="205"/>
         </scene>
-        <!--Customize Character-->
+        <!--View Controller-->
         <scene sceneID="zcc-y7-lCe">
             <objects>
-                <viewController id="vCf-Jb-qhY" customClass="CustomizeCharacter" customModule="Database" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vCf-Jb-qhY" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nLu-Qc-m2d"/>
                         <viewControllerLayoutGuide type="bottom" id="lW9-er-4kz"/>
@@ -105,140 +105,56 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hairbox" translatesAutoresizingMaskIntoConstraints="NO" id="X5f-lb-CZ7">
-                                <rect key="frame" x="213" y="120" width="100" height="100"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Clothes" translatesAutoresizingMaskIntoConstraints="NO" id="k14-sP-eZu">
+                                <rect key="frame" x="243" y="313" width="61" height="100"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="eyesbox" translatesAutoresizingMaskIntoConstraints="NO" id="ZjT-aJ-g0u">
-                                <rect key="frame" x="101" y="120" width="100" height="100"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Eyes" translatesAutoresizingMaskIntoConstraints="NO" id="Sge-dF-aGG">
+                                <rect key="frame" x="132" y="216" width="69" height="45"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="facebox" translatesAutoresizingMaskIntoConstraints="NO" id="LWz-Ue-HOb">
-                                <rect key="frame" x="99" y="234" width="100" height="100"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Hair" translatesAutoresizingMaskIntoConstraints="NO" id="b4G-Ph-OM1">
+                                <rect key="frame" x="227" y="209" width="93" height="59"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clothesbox" translatesAutoresizingMaskIntoConstraints="NO" id="H5i-8v-kR4">
-                                <rect key="frame" x="217" y="234" width="100" height="100"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Face" translatesAutoresizingMaskIntoConstraints="NO" id="grz-zJ-ped">
+                                <rect key="frame" x="119" y="318" width="106" height="45"/>
                                 <animations/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k14-sP-eZu">
-                                <rect key="frame" x="243" y="253" width="49" height="70"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hair" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sic-9r-HQa">
+                                <rect key="frame" x="252" y="187" width="42" height="21"/>
                                 <animations/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b4G-Ph-OM1">
-                                <rect key="frame" x="217" y="151" width="93" height="59"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Face" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTv-ST-ynY">
+                                <rect key="frame" x="132" y="284" width="42" height="21"/>
                                 <animations/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="grz-zJ-ped">
-                                <rect key="frame" x="101" y="263" width="96" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Clothes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k76-Ql-ybt">
+                                <rect key="frame" x="243" y="284" width="61" height="21"/>
                                 <animations/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="body" translatesAutoresizingMaskIntoConstraints="NO" id="C3m-JC-jAO">
-                                <rect key="frame" x="7" y="129" width="105" height="194"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Eyes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOI-BT-wcG">
+                                <rect key="frame" x="145" y="187" width="42" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Character-Design2" translatesAutoresizingMaskIntoConstraints="NO" id="C3m-JC-jAO">
+                                <rect key="frame" x="0.0" y="100" width="152" height="258"/>
                                 <animations/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Clothing-Room-all" translatesAutoresizingMaskIntoConstraints="NO" id="bdk-dL-IMh">
                                 <rect key="frame" x="-6" y="477" width="326" height="103"/>
-                                <animations/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Clothes" translatesAutoresizingMaskIntoConstraints="NO" id="Pvb-Rv-1nl">
-                                <rect key="frame" x="-76" y="274" width="61" height="128"/>
-                                <animations/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sge-dF-aGG">
-                                <rect key="frame" x="124" y="165" width="51" height="32"/>
-                                <animations/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPq-Nl-2Wt">
-                                <rect key="frame" x="285" y="313" width="28" height="15"/>
-                                <animations/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="clothesR:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="FOs-gB-c78"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99Q-Rw-tjG">
-                                <rect key="frame" x="222" y="313" width="28" height="15"/>
-                                <animations/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="clothesL:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="b4i-Uq-OT7"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WJp-N4-5ka">
-                                <rect key="frame" x="164" y="312" width="28" height="15"/>
-                                <animations/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="faceR:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="hmz-PH-MgE"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="92a-gA-vk8">
-                                <rect key="frame" x="106" y="312" width="28" height="15"/>
-                                <animations/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="faceL:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="V8h-7j-E7J"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wB5-Zz-bO6">
-                                <rect key="frame" x="169" y="195" width="28" height="15"/>
-                                <animations/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="eyesR:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="aUN-Ab-Lp1"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eyG-7b-Av4">
-                                <rect key="frame" x="112" y="195" width="28" height="15"/>
-                                <animations/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="eyesL:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="eWA-M6-hsV"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUg-om-5pG">
-                                <rect key="frame" x="222" y="195" width="28" height="15"/>
-                                <animations/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="hairL:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="jhM-MH-pw9"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pN6-fO-xMV">
-                                <rect key="frame" x="282" y="195" width="28" height="15"/>
-                                <animations/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="hairR:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="RiF-v1-z83"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tyu-bl-VNa">
-                                <rect key="frame" x="35" y="223" width="48" height="100"/>
-                                <animations/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e20-hf-kcj">
-                                <rect key="frame" x="7" y="145" width="105" height="120"/>
-                                <animations/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y9r-jp-SC7">
-                                <rect key="frame" x="35" y="185" width="50" height="30"/>
                                 <animations/>
                             </imageView>
                         </subviews>
@@ -246,15 +162,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Wzb-7i-Gda"/>
-                    <connections>
-                        <outlet property="clothesview" destination="k14-sP-eZu" id="2mv-3h-jxR"/>
-                        <outlet property="customclothes" destination="tyu-bl-VNa" id="Pt6-m6-Kg8"/>
-                        <outlet property="customeyes" destination="Y9r-jp-SC7" id="sGp-F6-xhc"/>
-                        <outlet property="customhead" destination="e20-hf-kcj" id="urS-gA-ZrX"/>
-                        <outlet property="eyesview" destination="Sge-dF-aGG" id="nRj-oI-Ohj"/>
-                        <outlet property="faceview" destination="grz-zJ-ped" id="5UR-Vt-FOz"/>
-                        <outlet property="hairview" destination="b4G-Ph-OM1" id="Bh8-sz-J3c"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KnS-W8-cZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1737,25 +1644,24 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Character-Design2" width="478" height="628"/>
         <image name="Clothes" width="185" height="326"/>
         <image name="Clothing-Room-all" width="796" height="140"/>
+        <image name="Eyes" width="230" height="94"/>
+        <image name="Face" width="422" height="148"/>
+        <image name="Hair" width="470" height="341"/>
         <image name="Marco" width="612" height="792"/>
         <image name="PowerUp-Map" width="792" height="612"/>
         <image name="background" width="1028" height="584"/>
-        <image name="body" width="478" height="628"/>
         <image name="buttons" width="259" height="103"/>
         <image name="buttons 2" width="234" height="82"/>
         <image name="buttons 3" width="227" height="88"/>
-        <image name="clothesbox" width="300" height="300"/>
         <image name="endingscreen" width="1028" height="586"/>
         <image name="endingscreen1" width="379" height="490"/>
         <image name="endingscreen2" width="247" height="40"/>
         <image name="endingscreen5" width="139" height="50"/>
         <image name="endingscreen6" width="139" height="50"/>
         <image name="endingscreen7" width="976" height="93"/>
-        <image name="eyesbox" width="300" height="300"/>
-        <image name="facebox" width="300" height="300"/>
-        <image name="hairbox" width="300" height="300"/>
         <image name="logo" width="113" height="102"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
