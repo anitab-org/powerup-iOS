@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A057D5E1B50F26E009CD214 /* Level2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A057D5D1B50F26E009CD214 /* Level2.swift */; };
+		2A057D5E1B50F26E009CD214 /* Choices2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A057D5D1B50F26E009CD214 /* Choices2.swift */; };
 		2A0CA5551B294C6B00ED8781 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0CA5541B294C6B00ED8781 /* AppDelegate.swift */; };
 		2A0CA5571B294C6B00ED8781 /* SS1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0CA5561B294C6B00ED8781 /* SS1.swift */; };
 		2A0CA55A1B294C6B00ED8781 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A0CA5581B294C6B00ED8781 /* Main.storyboard */; };
@@ -15,10 +15,10 @@
 		2A0CA55F1B294C6B00ED8781 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A0CA55D1B294C6B00ED8781 /* LaunchScreen.xib */; };
 		2A0CA56B1B294C6B00ED8781 /* DatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0CA56A1B294C6B00ED8781 /* DatabaseTests.swift */; };
 		2A0CA5751B294C9200ED8781 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0CA5741B294C9200ED8781 /* libsqlite3.dylib */; };
-		2A0FEF611B52A7E400E28079 /* Level6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0FEF601B52A7E400E28079 /* Level6.swift */; };
+		2A0FEF611B52A7E400E28079 /* Choices6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0FEF601B52A7E400E28079 /* Choices6.swift */; };
 		2A2322DB1B2C5EB200F3F6D4 /* mainDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */; };
 		2A2A4DB71B373C5B00D50860 /* StartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A4DB61B373C5B00D50860 /* StartScreen.swift */; };
-		2A3530631B6617DB00F9E5DF /* Level7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3530621B6617DB00F9E5DF /* Level7.swift */; };
+		2A3530631B6617DB00F9E5DF /* Choices7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3530621B6617DB00F9E5DF /* Choices7.swift */; };
 		2A4AED701B77877C00268B6B /* SS4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4AED6F1B77877C00268B6B /* SS4.swift */; };
 		2A4AED721B778A2400268B6B /* SS5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4AED711B778A2400268B6B /* SS5.swift */; };
 		2A4AED741B778AF400268B6B /* SS7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4AED731B778AF400268B6B /* SS7.swift */; };
@@ -26,11 +26,11 @@
 		2A68C3DB1B2EA28700E2FAE8 /* SS2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A68C3DA1B2EA28700E2FAE8 /* SS2.swift */; };
 		2A8962311B386AB2009B2338 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8962301B386AB2009B2338 /* MapScreen.swift */; };
 		2A93D8711B2F4DFE00AE4824 /* SS3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93D8701B2F4DFE00AE4824 /* SS3.swift */; };
-		2A992EE11B513B9A00E9AF04 /* Level3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A992EE01B513B9A00E9AF04 /* Level3.swift */; };
-		2A992EE31B5174D000E9AF04 /* Level4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A992EE21B5174D000E9AF04 /* Level4.swift */; };
-		2A992EE51B51758F00E9AF04 /* Level5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A992EE41B51758F00E9AF04 /* Level5.swift */; };
+		2A992EE11B513B9A00E9AF04 /* Choices3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A992EE01B513B9A00E9AF04 /* Choices3.swift */; };
+		2A992EE31B5174D000E9AF04 /* Choices4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A992EE21B5174D000E9AF04 /* Choices4.swift */; };
+		2A992EE51B51758F00E9AF04 /* Choices5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A992EE41B51758F00E9AF04 /* Choices5.swift */; };
 		2AAEE53A1B482E4600885044 /* Choices.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2AAEE5391B482E4600885044 /* Choices.sqlite */; };
-		2AAEE53E1B48303500885044 /* Level1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAEE53D1B48303500885044 /* Level1.swift */; };
+		2AAEE53E1B48303500885044 /* Choices1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAEE53D1B48303500885044 /* Choices1.swift */; };
 		2AD1A1E71B2B1ADA00BCA94D /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1A1E61B2B1ADA00BCA94D /* ModelManager.swift */; };
 		2AF82A8D1B4BA74A00307BED /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A831B4BA74A00307BED /* FMDatabase.m */; };
 		2AF82A8E1B4BA74A00307BED /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A851B4BA74A00307BED /* FMDatabaseAdditions.m */; };
@@ -50,7 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2A057D5D1B50F26E009CD214 /* Level2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level2.swift; sourceTree = "<group>"; };
+		2A057D5D1B50F26E009CD214 /* Choices2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choices2.swift; sourceTree = "<group>"; };
 		2A0CA54F1B294C6B00ED8781 /* Database.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Database.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A0CA5531B294C6B00ED8781 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A0CA5541B294C6B00ED8781 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,10 +63,10 @@
 		2A0CA56A1B294C6B00ED8781 /* DatabaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseTests.swift; sourceTree = "<group>"; };
 		2A0CA5741B294C9200ED8781 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsqlite3.dylib; sourceTree = "<group>"; };
 		2A0CA5761B29E83500ED8781 /* Database-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Database-Bridging-Header.h"; sourceTree = "<group>"; };
-		2A0FEF601B52A7E400E28079 /* Level6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level6.swift; sourceTree = "<group>"; };
+		2A0FEF601B52A7E400E28079 /* Choices6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choices6.swift; sourceTree = "<group>"; };
 		2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = mainDatabase.sqlite; path = ../mainDatabase.sqlite; sourceTree = "<group>"; };
 		2A2A4DB61B373C5B00D50860 /* StartScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScreen.swift; sourceTree = "<group>"; };
-		2A3530621B6617DB00F9E5DF /* Level7.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level7.swift; sourceTree = "<group>"; };
+		2A3530621B6617DB00F9E5DF /* Choices7.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choices7.swift; sourceTree = "<group>"; };
 		2A4AED6F1B77877C00268B6B /* SS4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SS4.swift; sourceTree = "<group>"; };
 		2A4AED711B778A2400268B6B /* SS5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SS5.swift; sourceTree = "<group>"; };
 		2A4AED731B778AF400268B6B /* SS7.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SS7.swift; sourceTree = "<group>"; };
@@ -74,11 +74,11 @@
 		2A68C3DA1B2EA28700E2FAE8 /* SS2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SS2.swift; sourceTree = "<group>"; };
 		2A8962301B386AB2009B2338 /* MapScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
 		2A93D8701B2F4DFE00AE4824 /* SS3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SS3.swift; sourceTree = "<group>"; };
-		2A992EE01B513B9A00E9AF04 /* Level3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level3.swift; sourceTree = "<group>"; };
-		2A992EE21B5174D000E9AF04 /* Level4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level4.swift; sourceTree = "<group>"; };
-		2A992EE41B51758F00E9AF04 /* Level5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level5.swift; sourceTree = "<group>"; };
+		2A992EE01B513B9A00E9AF04 /* Choices3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choices3.swift; sourceTree = "<group>"; };
+		2A992EE21B5174D000E9AF04 /* Choices4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choices4.swift; sourceTree = "<group>"; };
+		2A992EE41B51758F00E9AF04 /* Choices5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choices5.swift; sourceTree = "<group>"; };
 		2AAEE5391B482E4600885044 /* Choices.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = Choices.sqlite; path = ../Choices.sqlite; sourceTree = "<group>"; };
-		2AAEE53D1B48303500885044 /* Level1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level1.swift; sourceTree = "<group>"; };
+		2AAEE53D1B48303500885044 /* Choices1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choices1.swift; sourceTree = "<group>"; };
 		2AD1A1E61B2B1ADA00BCA94D /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		2AF82A821B4BA74A00307BED /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		2AF82A831B4BA74A00307BED /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
@@ -158,13 +158,13 @@
 				2A4AED711B778A2400268B6B /* SS5.swift */,
 				2A4AED751B77950B00268B6B /* SS6.swift */,
 				2A4AED731B778AF400268B6B /* SS7.swift */,
-				2AAEE53D1B48303500885044 /* Level1.swift */,
-				2A057D5D1B50F26E009CD214 /* Level2.swift */,
-				2A992EE01B513B9A00E9AF04 /* Level3.swift */,
-				2A992EE21B5174D000E9AF04 /* Level4.swift */,
-				2A992EE41B51758F00E9AF04 /* Level5.swift */,
-				2A0FEF601B52A7E400E28079 /* Level6.swift */,
-				2A3530621B6617DB00F9E5DF /* Level7.swift */,
+				2AAEE53D1B48303500885044 /* Choices1.swift */,
+				2A057D5D1B50F26E009CD214 /* Choices2.swift */,
+				2A992EE01B513B9A00E9AF04 /* Choices3.swift */,
+				2A992EE21B5174D000E9AF04 /* Choices4.swift */,
+				2A992EE41B51758F00E9AF04 /* Choices5.swift */,
+				2A0FEF601B52A7E400E28079 /* Choices6.swift */,
+				2A3530621B6617DB00F9E5DF /* Choices7.swift */,
 				2A0CA5581B294C6B00ED8781 /* Main.storyboard */,
 				2A8962301B386AB2009B2338 /* MapScreen.swift */,
 				2A0CA55B1B294C6B00ED8781 /* Images.xcassets */,
@@ -243,6 +243,7 @@
 		2A0CA5471B294C6B00ED8781 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Sanya Jain";
 				TargetAttributes = {
@@ -301,29 +302,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AAEE53E1B48303500885044 /* Level1.swift in Sources */,
-				2A992EE11B513B9A00E9AF04 /* Level3.swift in Sources */,
+				2AAEE53E1B48303500885044 /* Choices1.swift in Sources */,
+				2A992EE11B513B9A00E9AF04 /* Choices3.swift in Sources */,
 				2A2A4DB71B373C5B00D50860 /* StartScreen.swift in Sources */,
 				2A8962311B386AB2009B2338 /* MapScreen.swift in Sources */,
-				2A992EE51B51758F00E9AF04 /* Level5.swift in Sources */,
+				2A992EE51B51758F00E9AF04 /* Choices5.swift in Sources */,
 				2A4AED721B778A2400268B6B /* SS5.swift in Sources */,
 				2A4AED741B778AF400268B6B /* SS7.swift in Sources */,
 				2AF82A8D1B4BA74A00307BED /* FMDatabase.m in Sources */,
 				2A0CA5571B294C6B00ED8781 /* SS1.swift in Sources */,
 				2AF82A901B4BA74A00307BED /* FMDatabaseQueue.m in Sources */,
 				2AF82A911B4BA74A00307BED /* FMResultSet.m in Sources */,
-				2A992EE31B5174D000E9AF04 /* Level4.swift in Sources */,
+				2A992EE31B5174D000E9AF04 /* Choices4.swift in Sources */,
 				2AF82A8F1B4BA74A00307BED /* FMDatabasePool.m in Sources */,
 				2A4AED761B77950B00268B6B /* SS6.swift in Sources */,
-				2A0FEF611B52A7E400E28079 /* Level6.swift in Sources */,
+				2A0FEF611B52A7E400E28079 /* Choices6.swift in Sources */,
 				2AD1A1E71B2B1ADA00BCA94D /* ModelManager.swift in Sources */,
 				2A0CA5551B294C6B00ED8781 /* AppDelegate.swift in Sources */,
-				2A057D5E1B50F26E009CD214 /* Level2.swift in Sources */,
+				2A057D5E1B50F26E009CD214 /* Choices2.swift in Sources */,
 				2A93D8711B2F4DFE00AE4824 /* SS3.swift in Sources */,
 				2A68C3DB1B2EA28700E2FAE8 /* SS2.swift in Sources */,
 				2A4AED701B77877C00268B6B /* SS4.swift in Sources */,
 				2AF82A8E1B4BA74A00307BED /* FMDatabaseAdditions.m in Sources */,
-				2A3530631B6617DB00F9E5DF /* Level7.swift in Sources */,
+				2A3530631B6617DB00F9E5DF /* Choices7.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
