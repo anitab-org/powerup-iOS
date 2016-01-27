@@ -12,15 +12,28 @@ class ThirdViewController: UIViewController {
     @IBOutlet weak var answerViewA: UITextField!
     @IBOutlet weak var answerViewB: UITextView!
     
+    @IBOutlet weak var thoughtbubble: UIImageView!
 
     var databasePath = NSString()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        var imagesListArray :NSMutableArray = []
         // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(true, animated:true);
         
+        
+        for position in 1...4
+        {
+            
+            var strImageName : String = "thought\(position).png"
+            var image  = UIImage(named:strImageName)
+            imagesListArray.addObject(image!)
+        }
+        
+        self.thoughtbubble.animationImages = imagesListArray as [AnyObject];
+        self.thoughtbubble.animationDuration = 1.2
+        self.thoughtbubble.startAnimating()
         // Making textviews non editable and non-selectable so that user can't change the content
         mar_text.editable = false
         mar_text.selectable = false

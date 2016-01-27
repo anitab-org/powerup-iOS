@@ -4,26 +4,61 @@ import UIKit
 
 class ViewController: UIViewController {
 
-
+    let defaults = NSUserDefaults.standardUserDefaults()
     @IBOutlet weak var bgImage: UIImageView!
     @IBOutlet weak var mar_text: UITextView!
 
     @IBOutlet weak var answerViewA: UITextField!
     @IBOutlet weak var answerViewB: UITextField!
     @IBOutlet weak var label: UILabel!
+    
+    
+    @IBOutlet weak var health: UIImageView!
 
     
+    @IBOutlet weak var currentemotion: UILabel!
     
     var databasePath = NSString()
+    
+    @IBOutlet weak var imageAnimation: UIImageView!
+    @IBOutlet weak var image2Animation: UIImageView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+                var imagesListArray :NSMutableArray = []
+        //use for loop
+        for position in 1...4
+        {
+            
+            var strImageName : String = "mouth\(position).png"
+            var image  = UIImage(named:strImageName)
+            imagesListArray.addObject(image!)
+        }
         
+        self.imageAnimation.animationImages = imagesListArray as [AnyObject];
+        self.imageAnimation.animationDuration = 0.5
+        self.imageAnimation.startAnimating()
+        self.image2Animation.animationImages = imagesListArray as [AnyObject];
+        self.image2Animation.animationDuration = 0.5
+        self.image2Animation.startAnimating()
+        
+        
+        
+        if(defaults.integerForKey("health") == 0){
+            defaults.setInteger(100, forKey: "health")
+        }
         // Hide back button of navigation controller
         self.navigationItem.setHidesBackButton(false, animated:true);
         
         // Making textview non editable and non-selectable so that user can't change the content
+        
+        if(defaults.integerForKey("health") > 50){
+            currentemotion.text = "Happy"
+            health.image = UIImage(named:"green-1")
+        }
+        let length = defaults.integerForKey("health") 
+        health = UIImageView(frame: CGRect(x: length, y: 27, width: 201, height: 535));
         
         mar_text.editable = false
         mar_text.selectable = false
