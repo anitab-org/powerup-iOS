@@ -302,6 +302,14 @@
                                 <rect key="frame" x="201" y="535" width="100" height="27"/>
                                 <animations/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Ns-aV-8Vl">
+                                <rect key="frame" x="62" y="334" width="20" height="15"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xwm-Zo-cVC">
+                                <rect key="frame" x="240" y="158" width="22" height="17"/>
+                                <animations/>
+                            </imageView>
                         </subviews>
                         <animations/>
                     </view>
@@ -312,6 +320,8 @@
                         <outlet property="bgImage" destination="Ilc-E8-Kyn" id="krA-7X-BbH"/>
                         <outlet property="currentemotion" destination="83h-zc-NHZ" id="I7Y-Ok-Jj2"/>
                         <outlet property="health" destination="9dL-LO-WY0" id="VgD-Vk-8d9"/>
+                        <outlet property="image2Animation" destination="0Ns-aV-8Vl" id="chp-mG-baz"/>
+                        <outlet property="imageAnimation" destination="xwm-Zo-cVC" id="vbr-Ju-Rcv"/>
                         <outlet property="label" destination="1qm-lJ-LQ9" id="t9H-z9-pOd"/>
                         <outlet property="mar_text" destination="daM-9C-SL9" id="rd8-8i-onL"/>
                     </connections>
@@ -416,6 +426,10 @@
                                 <rect key="frame" x="-15" y="463" width="335" height="105"/>
                                 <animations/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s4q-sP-UD7">
+                                <rect key="frame" x="2" y="206" width="139" height="103"/>
+                                <animations/>
+                            </imageView>
                         </subviews>
                         <animations/>
                     </view>
@@ -424,6 +438,7 @@
                         <outlet property="answerViewA" destination="XO0-EC-J2j" id="axa-yZ-uZ0"/>
                         <outlet property="answerViewB" destination="3o3-Gw-Mzk" id="5KT-Ko-gRW"/>
                         <outlet property="mar_text" destination="QCT-XG-dre" id="PzM-eV-n9Q"/>
+                        <outlet property="thoughtbubble" destination="s4q-sP-UD7" id="tot-xV-yHn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oSe-Bl-KcF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -494,6 +509,10 @@
                                 <rect key="frame" x="-14" y="472" width="336" height="105"/>
                                 <animations/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2RS-o5-oGR">
+                                <rect key="frame" x="55" y="376" width="33" height="28"/>
+                                <animations/>
+                            </imageView>
                         </subviews>
                         <animations/>
                     </view>
@@ -501,6 +520,7 @@
                     <connections>
                         <outlet property="S2Marcello" destination="jtY-eB-mS2" id="kKN-a0-kc1"/>
                         <outlet property="S2Rosie" destination="MxY-BA-rHn" id="CVT-rE-1Ux"/>
+                        <outlet property="heart" destination="2RS-o5-oGR" id="Ni5-Fm-9xz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ctT-Jt-Q9N" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1710,14 +1730,14 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="dAo-OD-1PD"/>
-        <segue reference="5NV-Ks-xI9"/>
-        <segue reference="MOD-Bo-uno"/>
-        <segue reference="Wwi-sM-z0Q"/>
         <segue reference="Pcl-29-Fre"/>
+        <segue reference="5VO-Md-ZNK"/>
         <segue reference="Bqy-ss-HWE"/>
         <segue reference="wIg-qb-dZP"/>
         <segue reference="VXk-Sx-JOj"/>
+        <segue reference="5NV-Ks-xI9"/>
+        <segue reference="MOD-Bo-uno"/>
+        <segue reference="dAo-OD-1PD"/>
         <segue reference="ckn-hC-8D8"/>
     </inferredMetricsTieBreakers>
 </document>

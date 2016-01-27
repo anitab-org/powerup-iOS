@@ -20,9 +20,30 @@ class ViewController: UIViewController {
     
     var databasePath = NSString()
     
+    @IBOutlet weak var imageAnimation: UIImageView!
+    @IBOutlet weak var image2Animation: UIImageView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+                var imagesListArray :NSMutableArray = []
+        //use for loop
+        for position in 1...4
+        {
+            
+            var strImageName : String = "mouth\(position).png"
+            var image  = UIImage(named:strImageName)
+            imagesListArray.addObject(image!)
+        }
+        
+        self.imageAnimation.animationImages = imagesListArray as [AnyObject];
+        self.imageAnimation.animationDuration = 0.5
+        self.imageAnimation.startAnimating()
+        self.image2Animation.animationImages = imagesListArray as [AnyObject];
+        self.image2Animation.animationDuration = 0.5
+        self.image2Animation.startAnimating()
+        
+        
         
         if(defaults.integerForKey("health") == 0){
             defaults.setInteger(100, forKey: "health")

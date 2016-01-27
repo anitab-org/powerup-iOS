@@ -15,12 +15,25 @@ class SecondViewController: UIViewController {
     
     var databasePath = NSString()
     
+    @IBOutlet weak var heart: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        var imagesListArray :NSMutableArray = []
         // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(true, animated:true);
-
+        
+        for position in 1...3
+        {
+            
+            var strImageName : String = "heart\(position).png"
+            var image  = UIImage(named:strImageName)
+            imagesListArray.addObject(image!)
+        }
+        
+        self.heart.animationImages = imagesListArray as [AnyObject];
+        self.heart.animationDuration = 0.5
+        self.heart.startAnimating()
+      
         S2Marcello!.layer.borderWidth = 6
         S2Marcello!.layer.borderColor = UIColor.blackColor().CGColor
         S2Marcello!.layer.cornerRadius = 5
