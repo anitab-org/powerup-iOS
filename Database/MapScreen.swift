@@ -11,18 +11,21 @@ class MapScreen: UIViewController {
     
     
     var numberToDisplay = 0
+    var timesPlayed1 = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Back Button of navigation controller hidden
-        self.navigationItem.setHidesBackButton(true, animated:true);
-
+        self.navigationItem.setHidesBackButton(true, animated:true)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
         // setting the orientation to portrait
         let value = UIInterfaceOrientation.Portrait.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
-        
-        
     }
 
     //Level 2 Button: clickable
@@ -41,7 +44,7 @@ class MapScreen: UIViewController {
         
       // Testing condition if level 1 button pressed again after comming out of the scenario
         
-        if (numberToDisplay > 0)
+        if (timesPlayed1 > 1)
         {
             println("This action is not possible!! Kindly choose another level!!")
             
@@ -49,7 +52,7 @@ class MapScreen: UIViewController {
             var alertView = UIAlertView();
             alertView.addButtonWithTitle("Ok");
             alertView.title = "MESSAGE!!!";
-            alertView.message = "You have already played this scenario! Go try another level!!";
+            alertView.message = "You have already played this scenario a few times! Go try another level!!";
             
             alertView.show();
             
@@ -59,6 +62,7 @@ class MapScreen: UIViewController {
             // condition for first time click - navigates to scenario
         else{
             
+            timesPlayed1++
             performSegueWithIdentifier("start1View", sender: self)
             
             
@@ -66,6 +70,10 @@ class MapScreen: UIViewController {
         
         
        
+    }
+    
+    @IBAction func unwindToMap(segue: UIStoryboardSegue) {
+        println("Unwind to MapScreen")
     }
    
 }
