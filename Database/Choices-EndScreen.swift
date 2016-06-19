@@ -11,7 +11,7 @@ class Choices_EndScreen: UIViewController {
     @IBOutlet weak var replay: UIButton!
     @IBOutlet weak var conclusionText: UITextView!
     @IBOutlet weak var pointsLabel: UILabel!
-    @IBOutlet weak var mapScreen: UIButton!
+    //@IBOutlet weak var mapScreen: UIButton!
     
     var counter = 0
     var numberToDisplay = 0
@@ -50,7 +50,7 @@ class Choices_EndScreen: UIViewController {
         }
         // Points also displayed according to line of communication
         pointsLabel.text = "\(numberToDisplay)"
-    
+        //println("\(numberToDisplay)")
     }
 
     
@@ -59,17 +59,20 @@ class Choices_EndScreen: UIViewController {
     println("Replay Button Pressed!!!!!!!!!")
     }
     
-    
+   /*
     @IBAction func mapScreenButton(sender: UIButton) {
     }
+    */
     
     // Conveying End of Scenario to Map Screen so that Level 1 can't be clicked again, value of counter copied to numberToDisplay field of MapScreen
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "nextView"
         {
-            if let destinationVC = segue.destinationViewController as? MapScreen{
+            if let destinationVC = segue.destinationViewController as? DressingRoom2{
                 counter++
+                destinationVC.points = numberToDisplay
                 destinationVC.numberToDisplay = counter
+                
             }
         }
         

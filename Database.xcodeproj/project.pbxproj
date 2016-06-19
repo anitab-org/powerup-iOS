@@ -30,6 +30,7 @@
 		2A992EE11B513B9A00E9AF04 /* Choices-ThirdScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A992EE01B513B9A00E9AF04 /* Choices-ThirdScreen.swift */; };
 		2A992EE31B5174D000E9AF04 /* Choices-FourthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A992EE21B5174D000E9AF04 /* Choices-FourthScreen.swift */; };
 		2A992EE51B51758F00E9AF04 /* Choices-FifthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A992EE41B51758F00E9AF04 /* Choices-FifthScreen.swift */; };
+		2A99DDB91D15DAB300ABEF45 /* DressingRoom2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A99DDB81D15DAB300ABEF45 /* DressingRoom2.swift */; };
 		2AAEE53A1B482E4600885044 /* Choices.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2AAEE5391B482E4600885044 /* Choices.sqlite */; };
 		2AAEE53E1B48303500885044 /* Choices-FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAEE53D1B48303500885044 /* Choices-FirstScreen.swift */; };
 		2AD1A1E71B2B1ADA00BCA94D /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1A1E61B2B1ADA00BCA94D /* ModelManager.swift */; };
@@ -79,6 +80,7 @@
 		2A992EE01B513B9A00E9AF04 /* Choices-ThirdScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-ThirdScreen.swift"; sourceTree = "<group>"; };
 		2A992EE21B5174D000E9AF04 /* Choices-FourthScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-FourthScreen.swift"; sourceTree = "<group>"; };
 		2A992EE41B51758F00E9AF04 /* Choices-FifthScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-FifthScreen.swift"; sourceTree = "<group>"; };
+		2A99DDB81D15DAB300ABEF45 /* DressingRoom2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DressingRoom2.swift; sourceTree = "<group>"; };
 		2AAEE5391B482E4600885044 /* Choices.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = Choices.sqlite; path = Scenarios/Choices.sqlite; sourceTree = "<group>"; };
 		2AAEE53D1B48303500885044 /* Choices-FirstScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-FirstScreen.swift"; sourceTree = "<group>"; };
 		2AD1A1E61B2B1ADA00BCA94D /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				2A4AED751B77950B00268B6B /* Scene6.swift */,
 				2A271E6C1D075CEC008B0689 /* CustomizeAvatar.swift */,
 				2A4AED731B778AF400268B6B /* Scene7.swift */,
+				2A99DDB81D15DAB300ABEF45 /* DressingRoom2.swift */,
 				2A4AED711B778A2400268B6B /* Scene5.swift */,
 				2A4AED6F1B77877C00268B6B /* Scene4.swift */,
 				2A3530621B6617DB00F9E5DF /* Choices-EndScreen.swift */,
@@ -344,6 +347,7 @@
 				2A4AED701B77877C00268B6B /* Scene4.swift in Sources */,
 				2AF82A8E1B4BA74A00307BED /* FMDatabaseAdditions.m in Sources */,
 				2A3530631B6617DB00F9E5DF /* Choices-EndScreen.swift in Sources */,
+				2A99DDB91D15DAB300ABEF45 /* DressingRoom2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

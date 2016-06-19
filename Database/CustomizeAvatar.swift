@@ -14,19 +14,19 @@ class CustomizeAvatar: UIViewController {
     @IBOutlet weak var eyesview: UIImageView!
     var eyes = ["blue_eyes", "brown_eyes", "green_eyes","lightGreen_eyes","lightPink_eyes","grey_eyes","pink_eyes"]
     var eyescount = 0
-    
+    var eyestotal = 7
     @IBOutlet weak var faceview: UIImageView!
     var face = ["brick_face", "yellow_face",  "orange_face","peach_face"]
     var facecount = 0
-    
+    var facetotal = 4
     @IBOutlet weak var hairview: UIImageView!
     var hair = ["pink", "blue", "purple","red","curly","black_straight"]
     var haircount = 0
-    
+    var hairtotal = 6
     @IBOutlet weak var clothesview: UIImageView!
     var clothes = ["magenta_blue", "blue_orange", "green_blue","peach_grey","lightpink_purple","cyan_purple"]
     var clothescount = 0
-    
+    var clothestotal = 6
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,7 +59,7 @@ class CustomizeAvatar: UIViewController {
     }
     */
     @IBAction func clothesR(sender: AnyObject) {
-        if(clothescount + 1 < 6){
+        if(clothescount + 1 < clothestotal){
             clothescount++
         }
         clothesview.image = UIImage(named: "\(clothes[clothescount]).png")
@@ -76,7 +76,7 @@ class CustomizeAvatar: UIViewController {
     
     @IBAction func hairR(sender: AnyObject) {
         
-        if(haircount + 1 < 6){
+        if(haircount + 1 < hairtotal){
             haircount++
         }
         hairview.image = UIImage(named: "\(hair[haircount]).png")
@@ -93,7 +93,7 @@ class CustomizeAvatar: UIViewController {
       
     }
     @IBAction func faceR(sender: AnyObject) {
-        if(facecount + 1 < 4){
+        if(facecount + 1 < facetotal){
             facecount++
         }
         faceview.image = UIImage(named: "\(face[facecount]).png")
@@ -112,7 +112,7 @@ class CustomizeAvatar: UIViewController {
     }
     
     @IBAction func eyesR(sender: AnyObject) {
-        if(eyescount + 1 < 7){
+        if(eyescount + 1 < eyestotal){
             eyescount++
         }
         eyesview.image = UIImage(named: "\(eyes[eyescount]).png")
