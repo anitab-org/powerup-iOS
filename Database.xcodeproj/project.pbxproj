@@ -17,6 +17,7 @@
 		2A0CA5751B294C9200ED8781 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0CA5741B294C9200ED8781 /* libsqlite3.dylib */; };
 		2A0FEF611B52A7E400E28079 /* Choices-SixthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0FEF601B52A7E400E28079 /* Choices-SixthScreen.swift */; };
 		2A2322DB1B2C5EB200F3F6D4 /* mainDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */; };
+		2A271E6D1D075CEC008B0689 /* CustomizeAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A271E6C1D075CEC008B0689 /* CustomizeAvatar.swift */; };
 		2A2A4DB71B373C5B00D50860 /* StartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A4DB61B373C5B00D50860 /* StartScreen.swift */; };
 		2A3530631B6617DB00F9E5DF /* Choices-EndScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3530621B6617DB00F9E5DF /* Choices-EndScreen.swift */; };
 		2A4AED701B77877C00268B6B /* Scene4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4AED6F1B77877C00268B6B /* Scene4.swift */; };
@@ -29,6 +30,7 @@
 		2A992EE11B513B9A00E9AF04 /* Choices-ThirdScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A992EE01B513B9A00E9AF04 /* Choices-ThirdScreen.swift */; };
 		2A992EE31B5174D000E9AF04 /* Choices-FourthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A992EE21B5174D000E9AF04 /* Choices-FourthScreen.swift */; };
 		2A992EE51B51758F00E9AF04 /* Choices-FifthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A992EE41B51758F00E9AF04 /* Choices-FifthScreen.swift */; };
+		2A99DDB91D15DAB300ABEF45 /* DressingRoom2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A99DDB81D15DAB300ABEF45 /* DressingRoom2.swift */; };
 		2AAEE53A1B482E4600885044 /* Choices.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2AAEE5391B482E4600885044 /* Choices.sqlite */; };
 		2AAEE53E1B48303500885044 /* Choices-FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAEE53D1B48303500885044 /* Choices-FirstScreen.swift */; };
 		2AD1A1E71B2B1ADA00BCA94D /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1A1E61B2B1ADA00BCA94D /* ModelManager.swift */; };
@@ -64,7 +66,8 @@
 		2A0CA5741B294C9200ED8781 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsqlite3.dylib; sourceTree = "<group>"; };
 		2A0CA5761B29E83500ED8781 /* Database-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Database-Bridging-Header.h"; sourceTree = "<group>"; };
 		2A0FEF601B52A7E400E28079 /* Choices-SixthScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-SixthScreen.swift"; sourceTree = "<group>"; };
-		2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = mainDatabase.sqlite; path = ../mainDatabase.sqlite; sourceTree = "<group>"; };
+		2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = mainDatabase.sqlite; path = Scenarios/mainDatabase.sqlite; sourceTree = "<group>"; };
+		2A271E6C1D075CEC008B0689 /* CustomizeAvatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizeAvatar.swift; sourceTree = "<group>"; };
 		2A2A4DB61B373C5B00D50860 /* StartScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScreen.swift; sourceTree = "<group>"; };
 		2A3530621B6617DB00F9E5DF /* Choices-EndScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-EndScreen.swift"; sourceTree = "<group>"; };
 		2A4AED6F1B77877C00268B6B /* Scene4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene4.swift; sourceTree = "<group>"; };
@@ -77,7 +80,8 @@
 		2A992EE01B513B9A00E9AF04 /* Choices-ThirdScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-ThirdScreen.swift"; sourceTree = "<group>"; };
 		2A992EE21B5174D000E9AF04 /* Choices-FourthScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-FourthScreen.swift"; sourceTree = "<group>"; };
 		2A992EE41B51758F00E9AF04 /* Choices-FifthScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-FifthScreen.swift"; sourceTree = "<group>"; };
-		2AAEE5391B482E4600885044 /* Choices.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = Choices.sqlite; path = ../Choices.sqlite; sourceTree = "<group>"; };
+		2A99DDB81D15DAB300ABEF45 /* DressingRoom2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DressingRoom2.swift; sourceTree = "<group>"; };
+		2AAEE5391B482E4600885044 /* Choices.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = Choices.sqlite; path = Scenarios/Choices.sqlite; sourceTree = "<group>"; };
 		2AAEE53D1B48303500885044 /* Choices-FirstScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-FirstScreen.swift"; sourceTree = "<group>"; };
 		2AD1A1E61B2B1ADA00BCA94D /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		2AF82A821B4BA74A00307BED /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = FMDB/FMDatabase.h; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 				2AC905691CDB445B00FFA856 /* FMDB */,
 				2AD1A1E61B2B1ADA00BCA94D /* ModelManager.swift */,
 				2A0CA5741B294C9200ED8781 /* libsqlite3.dylib */,
+				2A259E3C1CE8ECFE00AC1CF7 /* Scenarios */,
 				2A0CA5511B294C6B00ED8781 /* Database */,
 				2A0CA5671B294C6B00ED8781 /* DatabaseTests */,
 				2A0CA5501B294C6B00ED8781 /* Products */,
@@ -138,13 +143,13 @@
 			isa = PBXGroup;
 			children = (
 				2A0CA5541B294C6B00ED8781 /* AppDelegate.swift */,
-				2AAEE5391B482E4600885044 /* Choices.sqlite */,
-				2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */,
 				2A0CA5561B294C6B00ED8781 /* ViewController.swift */,
 				2A68C3DA1B2EA28700E2FAE8 /* SecondViewController.swift */,
 				2A0CA5581B294C6B00ED8781 /* Main.storyboard */,
 				2A4AED751B77950B00268B6B /* Scene6.swift */,
+				2A271E6C1D075CEC008B0689 /* CustomizeAvatar.swift */,
 				2A4AED731B778AF400268B6B /* Scene7.swift */,
+				2A99DDB81D15DAB300ABEF45 /* DressingRoom2.swift */,
 				2A4AED711B778A2400268B6B /* Scene5.swift */,
 				2A4AED6F1B77877C00268B6B /* Scene4.swift */,
 				2A3530621B6617DB00F9E5DF /* Choices-EndScreen.swift */,
@@ -187,6 +192,15 @@
 				2A0CA5691B294C6B00ED8781 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2A259E3C1CE8ECFE00AC1CF7 /* Scenarios */ = {
+			isa = PBXGroup;
+			children = (
+				2AAEE5391B482E4600885044 /* Choices.sqlite */,
+				2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */,
+			);
+			name = Scenarios;
 			sourceTree = "<group>";
 		};
 		2AC905691CDB445B00FFA856 /* FMDB */ = {
@@ -311,6 +325,7 @@
 			files = (
 				2AAEE53E1B48303500885044 /* Choices-FirstScreen.swift in Sources */,
 				2A992EE11B513B9A00E9AF04 /* Choices-ThirdScreen.swift in Sources */,
+				2A271E6D1D075CEC008B0689 /* CustomizeAvatar.swift in Sources */,
 				2A2A4DB71B373C5B00D50860 /* StartScreen.swift in Sources */,
 				2A8962311B386AB2009B2338 /* MapScreen.swift in Sources */,
 				2A992EE51B51758F00E9AF04 /* Choices-FifthScreen.swift in Sources */,
@@ -332,6 +347,7 @@
 				2A4AED701B77877C00268B6B /* Scene4.swift in Sources */,
 				2AF82A8E1B4BA74A00307BED /* FMDatabaseAdditions.m in Sources */,
 				2A3530631B6617DB00F9E5DF /* Choices-EndScreen.swift in Sources */,
+				2A99DDB91D15DAB300ABEF45 /* DressingRoom2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
