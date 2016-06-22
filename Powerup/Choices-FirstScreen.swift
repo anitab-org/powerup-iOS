@@ -1,11 +1,21 @@
 //
 //  Choices-FirstScreen.swift
-//  Database
 
 
 import UIKit
 
 class Choices_FirstScreen: UIViewController {
+    
+    @IBOutlet weak var eyesview: UIImageView!
+    @IBOutlet weak var hairview: UIImageView!
+    @IBOutlet weak var faceview: UIImageView!
+    @IBOutlet weak var clothesview: UIImageView!
+    
+    var eyeImage: UIImage!
+    var faceImage: UIImage!
+    var clothesImage: UIImage!
+    var hairImage: UIImage!
+    
     
     @IBOutlet weak var Question: UITextView!
     
@@ -25,6 +35,11 @@ class Choices_FirstScreen: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        eyesview.image = eyeImage
+        hairview.image = hairImage
+        faceview.image = faceImage
+        clothesview.image = clothesImage
         
         // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(false, animated:true);
@@ -112,6 +127,19 @@ class Choices_FirstScreen: UIViewController {
     @IBAction func AnswerButton(sender: UIButton) {
     
     
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "secondView"
+        {
+            if let destinationVC = segue.destinationViewController as? Choices_SecondScreen  {
+                
+                destinationVC.eyeImage = eyesview.image
+                destinationVC.hairImage = hairview.image
+                destinationVC.clothesImage = clothesview.image
+                destinationVC.faceImage = faceview.image
+            }
+        }
+        
     }
     
 }

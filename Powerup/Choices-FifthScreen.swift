@@ -6,6 +6,11 @@ import UIKit
 
 class Choices_FifthScreen: UIViewController {
 
+    var eyeImage: UIImage!
+    var faceImage: UIImage!
+    var clothesImage: UIImage!
+    var hairImage: UIImage!
+    
      @IBOutlet weak var labelView: UILabel!
     
     @IBOutlet weak var friendImage: UIImageView!
@@ -87,6 +92,11 @@ class Choices_FifthScreen: UIViewController {
                 destinationVC.sampleText = passString
                 println("\(passString)")
                 destinationVC.numberToDisplay = points
+                
+                destinationVC.eyeImage = eyeImage
+                destinationVC.hairImage = hairImage
+                destinationVC.clothesImage = clothesImage
+                destinationVC.faceImage = faceImage
             }
         }
     }

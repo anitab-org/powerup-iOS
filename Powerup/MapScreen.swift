@@ -9,6 +9,11 @@ import SpriteKit
 
 class MapScreen: UIViewController {
     
+    var eyeImage: UIImage!
+    var faceImage: UIImage!
+    var clothesImage: UIImage!
+    var hairImage: UIImage!
+
     
     var numberToDisplay = 0
     

@@ -8,6 +8,16 @@ import UIKit
 
 class Choices_EndScreen: UIViewController {
     
+    @IBOutlet weak var eyesview: UIImageView!
+    @IBOutlet weak var hairview: UIImageView!
+    @IBOutlet weak var faceview: UIImageView!
+    @IBOutlet weak var clothesview: UIImageView!
+    
+    var eyeImage: UIImage!
+    var faceImage: UIImage!
+    var clothesImage: UIImage!
+    var hairImage: UIImage!
+    
     @IBOutlet weak var replay: UIButton!
     @IBOutlet weak var conclusionText: UITextView!
     @IBOutlet weak var pointsLabel: UILabel!
@@ -30,6 +40,11 @@ class Choices_EndScreen: UIViewController {
     
       override func viewDidLoad() {
         super.viewDidLoad()
+        
+        eyesview.image = eyeImage
+        hairview.image = hairImage
+        faceview.image = faceImage
+        clothesview.image = clothesImage
         
         // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(true, animated:true);
@@ -73,9 +88,27 @@ class Choices_EndScreen: UIViewController {
                 destinationVC.points = numberToDisplay
                 destinationVC.numberToDisplay = counter
                 
+                destinationVC.eyeImage = eyesview.image
+                destinationVC.hairImage = hairview.image
+                destinationVC.clothesImage = clothesview.image
+                destinationVC.faceImage = faceview.image
+                
             }
         }
-        
+        if segue.identifier == "toFirst"
+        {
+            if let destinationVC = segue.destinationViewController as? Choices_FirstScreen{
+                //counter++
+                //destinationVC.points = numberToDisplay
+                //destinationVC.numberToDisplay = counter
+                
+                destinationVC.eyeImage = eyesview.image
+                destinationVC.hairImage = hairview.image
+                destinationVC.clothesImage = clothesview.image
+                destinationVC.faceImage = faceview.image
+                
+            }
+        }
     }
 
     

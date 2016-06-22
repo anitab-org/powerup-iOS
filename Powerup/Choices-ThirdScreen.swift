@@ -7,6 +7,11 @@ import UIKit
 
 class Choices_ThirdScreen: UIViewController {
 
+    
+    var eyeImage: UIImage!
+    var faceImage: UIImage!
+    var clothesImage: UIImage!
+    var hairImage: UIImage!
   
     @IBOutlet weak var textLabel: UILabel!
     
@@ -78,16 +83,11 @@ class Choices_ThirdScreen: UIViewController {
                 passString = passString + a!
             }
             
-            
-            
         }
-        
-
         
     }
 
    
-    
     @IBAction func continueButton(sender: AnyObject) {
     }
   
@@ -98,12 +98,16 @@ class Choices_ThirdScreen: UIViewController {
         {
             if let destinationVC = segue.destinationViewController as? Choices_EndScreen{
                 
+                
                 destinationVC.numberToDisplay = points
                 destinationVC.sampleText = passString
                 println("\(passString)")
-                                }
                 
-                
+                destinationVC.eyeImage = eyeImage
+                destinationVC.hairImage = hairImage
+                destinationVC.clothesImage = clothesImage
+                destinationVC.faceImage = faceImage
+                }
             
             }
         }

@@ -6,6 +6,15 @@ import UIKit
 
 class Choices_FourthScreen: UIViewController {
 
+    var eyeImage: UIImage!
+    var faceImage: UIImage!
+    var clothesImage: UIImage!
+    var hairImage: UIImage!
+    
+    @IBOutlet weak var eyesview: UIImageView!
+    @IBOutlet weak var hairview: UIImageView!
+    @IBOutlet weak var faceview: UIImageView!
+    @IBOutlet weak var clothesview: UIImageView!
     
     @IBOutlet weak var Question: UITextView!
     
@@ -13,12 +22,17 @@ class Choices_FourthScreen: UIViewController {
     
     @IBOutlet weak var AnswerView2: UITextView!
     
-    @IBOutlet weak var AnswerView3: UITextField!
+    @IBOutlet weak var AnswerView3: UITextView!
     
     var databasePath = NSString()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        eyesview.image = eyeImage
+        hairview.image = hairImage
+        faceview.image = faceImage
+        clothesview.image = clothesImage
         
         // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(true, animated:true);
@@ -123,6 +137,38 @@ class Choices_FourthScreen: UIViewController {
     @IBAction func Answer3Button(sender: UIButton) {
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toThree"
+        {
+            if let destinationVC = segue.destinationViewController as? Choices_ThirdScreen  {
+                
+                destinationVC.eyeImage = eyesview.image
+                destinationVC.hairImage = hairview.image
+                destinationVC.clothesImage = clothesview.image
+                destinationVC.faceImage = faceview.image
+            }
+        }
+        if segue.identifier == "toSix"
+        {
+            if let destinationVC = segue.destinationViewController as? Choices_SixthScreen  {
+                
+                destinationVC.eyeImage = eyesview.image
+                destinationVC.hairImage = hairview.image
+                destinationVC.clothesImage = clothesview.image
+                destinationVC.faceImage = faceview.image
+            }
+        }
+        if segue.identifier == "toFive"
+        {
+            if let destinationVC = segue.destinationViewController as? Choices_FifthScreen  {
+                
+                destinationVC.eyeImage = eyesview.image
+                destinationVC.hairImage = hairview.image
+                destinationVC.clothesImage = clothesview.image
+                destinationVC.faceImage = faceview.image
+            }
+        }
+    }
 
 
 }

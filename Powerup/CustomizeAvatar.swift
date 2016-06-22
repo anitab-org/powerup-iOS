@@ -6,6 +6,9 @@ import UIKit
 
 class CustomizeAvatar: UIViewController {
     
+    //strong var eyeImage : UIImage!
+    
+    
     @IBOutlet weak var customclothes: UIImageView!
     @IBOutlet weak var customhair: UIImageView!
     @IBOutlet weak var customface: UIImageView!
@@ -125,4 +128,22 @@ class CustomizeAvatar: UIViewController {
         eyesview.image = UIImage(named: "\(eyes[eyescount]).png")
         customeyes.image = UIImage(named: "\(eyes[eyescount]).png")
     }
+   
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "firstView"
+        {
+            if let destinationVC = segue.destinationViewController as? Choices_FirstScreen  {
+                println("Working!!!!!!!!")
+                
+                destinationVC.eyeImage = eyesview.image
+                destinationVC.hairImage = hairview.image
+                destinationVC.clothesImage = clothesview.image
+                destinationVC.faceImage = faceview.image
+            }
+            
+            
+        }
+        
+    }
+
 }
