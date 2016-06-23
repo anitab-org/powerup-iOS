@@ -520,7 +520,7 @@
 				INFOPLIST_FILE = PowerupTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = PowerupTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Database.app/Database";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Powerup.app/Powerup";
 			};
 			name = Debug;
 		};
@@ -535,7 +535,7 @@
 				INFOPLIST_FILE = PowerupTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = PowerupTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Database.app/Database";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Powerup.app/Powerup";
 			};
 			name = Release;
 		};
