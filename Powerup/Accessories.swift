@@ -3,12 +3,14 @@
 //  Powerup
 //
 
-
-
 import UIKit
 
 class Accessories: UIViewController {
 
+    var points = 0
+    @IBOutlet weak var pointsLabel: UILabel!
+    
+    
     var eyeImage: UIImage!
     var faceImage: UIImage!
     var clothesImage: UIImage!
@@ -24,16 +26,20 @@ class Accessories: UIViewController {
     @IBOutlet weak var hatsview: UIImageView!
     @IBOutlet weak var necklaceview: UIImageView!
     
+    @IBOutlet weak var customhandbags: UIImageView!
+    @IBOutlet weak var customglasses: UIImageView!
+    @IBOutlet weak var customhats: UIImageView!
+    @IBOutlet weak var customnecklace: UIImageView!
     
-    var handbags = ["purse1", "purse2", "purse3", "purse4"]
+    var handbags = ["purse2", "purse3", "purse4", "purse1"]
     var glasses = ["glasses1", "glasses2", "glasses3"]
-    var hats = ["hat1", "hat2", "hat3", "hat4", "hat5"]
+    var hats = ["hat1", "hat2", "hat4", "hat5"]
     var necklace = ["necklace1", "necklace2", "necklace3", "necklace4"]
     
+    var necklacecount = 0, necklacetotal = 4
     var handbagscount = 0, handbagstotal = 4
     var glassescount = 0, glassestotal = 3
-    var hatscount = 0, hatstotal = 5
-    var necklacecount = 0, necklacetotal = 4
+    var hatscount = 0, hatstotal = 4
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,73 +54,83 @@ class Accessories: UIViewController {
         hatsview.image = UIImage(named: "\(hats[0]).png")
         necklaceview.image = UIImage(named: "\(necklace[0]).png")
         
+        pointsLabel.text = "\(points)"
+        
+        //customhandbags.image = UIImage(named: "\(handbags[0]).png")
+        //customglasses.image = UIImage(named: "\(glasses[0]).png")
+        //customhats.image = UIImage(named: "\(hats[0]).png")
+        //customnecklace.image = UIImage(named: "\(necklace[0]).png")
     }
 
     @IBAction func handbagsR(sender: AnyObject) {
-        if(handbagscount + 1 < handbagstotal){
+        if(handbagscount  < handbagstotal){
             handbagscount++
         }
-        handbagsview.image = UIImage(named: "\(handbags[handbagscount]).png")
-        //customhandbags.image = UIImage(named: "\(handbags[handbagscount]).png")
+        handbagsview.image = UIImage(named: "\(handbags[handbagscount-1]).png")
+        customhandbags.image = UIImage(named: "\(handbags[handbagscount-1]).png")
     }
     
     @IBAction func handbagsL(sender: AnyObject) {
-        if(handbagscount > 0){
+        if(handbagscount > 1){
             handbagscount--
         }
-        handbagsview.image = UIImage(named: "\(handbags[handbagscount]).png")
-        //customhandbags.image = UIImage(named: "\(handbags[handbagscount]).png")
+        handbagsview.image = UIImage(named: "\(handbags[handbagscount-1]).png")
+        customhandbags.image = UIImage(named: "\(handbags[handbagscount-1]).png")
+        
     }
     
     @IBAction func glassesR(sender: AnyObject) {
         
-        if(glassescount + 1 < glassestotal){
+        if(glassescount < glassestotal){
+            
             glassescount++
         }
-        glassesview.image = UIImage(named: "\(glasses[glassescount]).png")
-       // customglasses.image = UIImage(named: "\(glasses[glassescount]).png")
+        glassesview.image = UIImage(named: "\(glasses[glassescount-1]).png")
+        customglasses.image = UIImage(named: "\(glasses[glassescount-1]).png")
         
     }
     @IBAction func glassesL(sender: AnyObject) {
-        if(glassescount > 0){
+        if(glassescount > 1){
+            
             glassescount--
         }
-        glassesview.image = UIImage(named: "\(glasses[glassescount]).png")
-       // customglasses.image = UIImage(named: "\(glasses[glassescount]).png")
+        glassesview.image = UIImage(named: "\(glasses[glassescount-1]).png")
+        customglasses.image = UIImage(named: "\(glasses[glassescount-1]).png")
+        
         
     }
     @IBAction func hatsR(sender: AnyObject) {
-        if(hatscount + 1 < hatstotal){
+        if(hatscount  < hatstotal){
             hatscount++
         }
-        hatsview.image = UIImage(named: "\(hats[hatscount]).png")
-       // customhats.image = UIImage(named: "\(hats[hatscount]).png")
+        hatsview.image = UIImage(named: "\(hats[hatscount-1]).png")
+        customhats.image = UIImage(named: "\(hats[hatscount-1]).png")
         
         
         
     }
     
     @IBAction func hatsL(sender: AnyObject) {
-        if(hatscount  > 0){
+        if(hatscount  > 1){
             hatscount--
         }
-        hatsview.image = UIImage(named: "\(hats[hatscount]).png")
-       // customhats.image = UIImage(named: "\(hats[hatscount]).png")
+        hatsview.image = UIImage(named: "\(hats[hatscount-1]).png")
+        customhats.image = UIImage(named: "\(hats[hatscount-1]).png")
     }
     
     @IBAction func necklaceR(sender: AnyObject) {
-        if(necklacecount + 1 < necklacetotal){
+        if(necklacecount  <  necklacetotal){
             necklacecount++
         }
-        necklaceview.image = UIImage(named: "\(necklace[necklacecount]).png")
-      //  customnecklace.image = UIImage(named: "\(necklace[necklacecount]).png")
+        necklaceview.image = UIImage(named: "\(necklace[necklacecount-1]).png")
+        customnecklace.image = UIImage(named: "\(necklace[necklacecount-1]).png")
     }
     @IBAction func necklaceL(sender: AnyObject) {
-        if(necklacecount  > 0){
+        if(necklacecount  > 1){
             necklacecount--
         }
-        necklaceview.image = UIImage(named: "\(necklace[necklacecount]).png")
-       // customnecklace.image = UIImage(named: "\(necklace[necklacecount]).png")
+        necklaceview.image = UIImage(named: "\(necklace[necklacecount-1]).png")
+        customnecklace.image = UIImage(named: "\(necklace[necklacecount-1]).png")
     }
 
     

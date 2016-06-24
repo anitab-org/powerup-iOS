@@ -52,7 +52,30 @@ class DressingRoom2: UIViewController {
         if segue.identifier == "accessoriesView"
         {
             if let destinationVC = segue.destinationViewController as? Accessories{
-               // destinationVC.numberToDisplay = numberToDisplay
+                destinationVC.points = points
+                
+                destinationVC.eyeImage = eyesview.image
+                destinationVC.hairImage = hairview.image
+                destinationVC.clothesImage = clothesview.image
+                destinationVC.faceImage = faceview.image
+            }
+        }
+        if segue.identifier == "clothesView"
+        {
+            if let destinationVC = segue.destinationViewController as? Clothes{
+                //destinationVC.points = points
+                
+                destinationVC.eyeImage = eyesview.image
+                destinationVC.hairImage = hairview.image
+                destinationVC.clothesImage = clothesview.image
+                destinationVC.faceImage = faceview.image
+            }
+        }
+        
+        if segue.identifier == "hairView"
+        {
+            if let destinationVC = segue.destinationViewController as? Hair{
+                //destinationVC.points = points
                 
                 destinationVC.eyeImage = eyesview.image
                 destinationVC.hairImage = hairview.image

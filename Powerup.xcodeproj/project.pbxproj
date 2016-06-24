@@ -35,6 +35,8 @@
 		2AAEE53A1B482E4600885044 /* Choices.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2AAEE5391B482E4600885044 /* Choices.sqlite */; };
 		2AAEE53E1B48303500885044 /* Choices-FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAEE53D1B48303500885044 /* Choices-FirstScreen.swift */; };
 		2AD1A1E71B2B1ADA00BCA94D /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1A1E61B2B1ADA00BCA94D /* ModelManager.swift */; };
+		2AD5A1B41D1C473800CE0DF2 /* Clothes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5A1B31D1C473800CE0DF2 /* Clothes.swift */; };
+		2AD5A1B61D1C521A00CE0DF2 /* Hair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5A1B51D1C521A00CE0DF2 /* Hair.swift */; };
 		2AF82A8D1B4BA74A00307BED /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A831B4BA74A00307BED /* FMDatabase.m */; };
 		2AF82A8E1B4BA74A00307BED /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A851B4BA74A00307BED /* FMDatabaseAdditions.m */; };
 		2AF82A8F1B4BA74A00307BED /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A871B4BA74A00307BED /* FMDatabasePool.m */; };
@@ -86,6 +88,8 @@
 		2AAEE5391B482E4600885044 /* Choices.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = Choices.sqlite; path = Scenarios/Choices.sqlite; sourceTree = "<group>"; };
 		2AAEE53D1B48303500885044 /* Choices-FirstScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-FirstScreen.swift"; sourceTree = "<group>"; };
 		2AD1A1E61B2B1ADA00BCA94D /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
+		2AD5A1B31D1C473800CE0DF2 /* Clothes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clothes.swift; sourceTree = "<group>"; };
+		2AD5A1B51D1C521A00CE0DF2 /* Hair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hair.swift; sourceTree = "<group>"; };
 		2AF82A821B4BA74A00307BED /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = FMDB/FMDatabase.h; sourceTree = "<group>"; };
 		2AF82A831B4BA74A00307BED /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = FMDB/FMDatabase.m; sourceTree = "<group>"; };
 		2AF82A841B4BA74A00307BED /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = FMDB/FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -149,12 +153,14 @@
 				2A68C3DA1B2EA28700E2FAE8 /* SecondViewController.swift */,
 				2A0CA5581B294C6B00ED8781 /* Main.storyboard */,
 				2A4AED751B77950B00268B6B /* Scene6.swift */,
+				2AD5A1B31D1C473800CE0DF2 /* Clothes.swift */,
 				2A271E6C1D075CEC008B0689 /* CustomizeAvatar.swift */,
 				2A4AED731B778AF400268B6B /* Scene7.swift */,
 				2A8D2E061D17CDF700154F98 /* Accessories.swift */,
 				2A99DDB81D15DAB300ABEF45 /* DressingRoom2.swift */,
 				2A4AED711B778A2400268B6B /* Scene5.swift */,
 				2A4AED6F1B77877C00268B6B /* Scene4.swift */,
+				2AD5A1B51D1C521A00CE0DF2 /* Hair.swift */,
 				2A3530621B6617DB00F9E5DF /* Choices-EndScreen.swift */,
 				2A0FEF601B52A7E400E28079 /* Choices-SixthScreen.swift */,
 				2A992EE41B51758F00E9AF04 /* Choices-FifthScreen.swift */,
@@ -326,6 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AD5A1B41D1C473800CE0DF2 /* Clothes.swift in Sources */,
 				2AAEE53E1B48303500885044 /* Choices-FirstScreen.swift in Sources */,
 				2A992EE11B513B9A00E9AF04 /* Choices-ThirdScreen.swift in Sources */,
 				2A271E6D1D075CEC008B0689 /* CustomizeAvatar.swift in Sources */,
@@ -334,6 +341,7 @@
 				2A992EE51B51758F00E9AF04 /* Choices-FifthScreen.swift in Sources */,
 				2A4AED721B778A2400268B6B /* Scene5.swift in Sources */,
 				2A4AED741B778AF400268B6B /* Scene7.swift in Sources */,
+				2AD5A1B61D1C521A00CE0DF2 /* Hair.swift in Sources */,
 				2AF82A8D1B4BA74A00307BED /* FMDatabase.m in Sources */,
 				2A0CA5571B294C6B00ED8781 /* ViewController.swift in Sources */,
 				2AF82A901B4BA74A00307BED /* FMDatabaseQueue.m in Sources */,
