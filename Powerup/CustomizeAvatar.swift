@@ -1,6 +1,5 @@
-//
-//  CustomizeAvatar.swift
 
+//  CustomizeAvatar.swift
 
 import UIKit
 
@@ -51,16 +50,7 @@ class CustomizeAvatar: UIViewController {
         super.didReceiveMemoryWarning()
           }
     
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
+   
     @IBAction func clothesR(sender: AnyObject) {
         if(clothescount + 1 < clothestotal){
             clothescount++
@@ -101,9 +91,6 @@ class CustomizeAvatar: UIViewController {
         }
         faceview.image = UIImage(named: "\(face[facecount]).png")
         customface.image = UIImage(named: "\(face[facecount]).png")
-        
-        
-       
     }
     
     @IBAction func faceL(sender: AnyObject) {
@@ -130,9 +117,9 @@ class CustomizeAvatar: UIViewController {
     }
    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "firstView"
+        if segue.identifier == "firstMap"
         {
-            if let destinationVC = segue.destinationViewController as? Choices_FirstScreen  {
+            if let destinationVC = segue.destinationViewController as? MapScreen  {
                 println("Working!!!!!!!!")
                 
                 destinationVC.eyeImage = eyesview.image

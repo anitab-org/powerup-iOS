@@ -11,12 +11,27 @@ class SecondViewController: UIViewController {
     
     @IBOutlet weak var S2Rosie: UITextField!
   
-    var counter = 0
+    @IBOutlet weak var eyesview: UIImageView!
+    @IBOutlet weak var hairview: UIImageView!
+    @IBOutlet weak var faceview: UIImageView!
+    @IBOutlet weak var clothesview: UIImageView!
+    
+    var eyeImage: UIImage!
+    var faceImage: UIImage!
+    var clothesImage: UIImage!
+    var hairImage: UIImage!
+    
+    //var counter = 0
     
     var databasePath = NSString()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        eyesview.image = eyeImage
+        hairview.image = hairImage
+        faceview.image = faceImage
+        clothesview.image = clothesImage
         
         // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(true, animated:true);
@@ -63,8 +78,6 @@ class SecondViewController: UIViewController {
             }
         }
         mainDB.close()
-    
-        
         
     }
 
@@ -74,8 +87,12 @@ class SecondViewController: UIViewController {
         if segue.identifier == "level2end"
         {
             if let destinationVC = segue.destinationViewController as? MapScreen{
-                counter++
-                destinationVC.numberToDisplay = counter
+                //counter++
+                
+                destinationVC.eyeImage = eyesview.image
+                destinationVC.hairImage = hairview.image
+                destinationVC.clothesImage = clothesview.image
+                destinationVC.faceImage = faceview.image
             }
         }
         

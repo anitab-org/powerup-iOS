@@ -43,9 +43,7 @@ class MapScreen: UIViewController {
     //Level 1 Button
     @IBAction func ChoicesClickableMap(sender: UIButton) {
       
-        
       // Testing condition if level 1 button pressed again after comming out of the scenario
-        
         if (numberToDisplay > 0)
         {
             println("This action is not possible!! Kindly choose another level!!")
@@ -65,12 +63,32 @@ class MapScreen: UIViewController {
         else{
             
             performSegueWithIdentifier("start1View", sender: self)
-            
-            
         }
-        
-        
        
     }
-   
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "start1View"
+        {
+            if let destinationVC = segue.destinationViewController as? Choices_FirstScreen  {
+                
+                destinationVC.eyeImage = eyeImage
+                destinationVC.hairImage = hairImage
+                destinationVC.clothesImage = clothesImage
+                destinationVC.faceImage = faceImage
+            }
+        }
+        if segue.identifier == "start2View"
+        {
+            if let destinationVC = segue.destinationViewController as? ViewController  {
+                
+                destinationVC.eyeImage = eyeImage
+                destinationVC.hairImage = hairImage
+                destinationVC.clothesImage = clothesImage
+                destinationVC.faceImage = faceImage
+            }
+        }
+    }
+
+
 }

@@ -6,17 +6,29 @@ import UIKit
 
 class ThirdViewController: UIViewController {
     
+    var eyeImage: UIImage!
+    var faceImage: UIImage!
+    var clothesImage: UIImage!
+    var hairImage: UIImage!
     
     @IBOutlet weak var mar_text: UITextView!
-
     @IBOutlet weak var answerViewA: UITextField!
     @IBOutlet weak var answerViewB: UITextView!
     
+    @IBOutlet weak var eyesview: UIImageView!
+    @IBOutlet weak var hairview: UIImageView!
+    @IBOutlet weak var faceview: UIImageView!
+    @IBOutlet weak var clothesview: UIImageView!
 
     var databasePath = NSString()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        eyesview.image = eyeImage
+        hairview.image = hairImage
+        faceview.image = faceImage
+        clothesview.image = clothesImage
         
         // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(true, animated:true);
@@ -87,5 +99,28 @@ class ThirdViewController: UIViewController {
         }
          mainDB.close()
 }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toScene4"
+        {
+            if let destinationVC = segue.destinationViewController as? Scene4  {
+                
+                destinationVC.eyeImage = eyesview.image
+                destinationVC.hairImage = hairview.image
+                destinationVC.clothesImage = clothesview.image
+                destinationVC.faceImage = faceview.image
+            }
+        }
+        if segue.identifier == "toScene7"
+        {
+            if let destinationVC = segue.destinationViewController as? Scene7  {
+                
+                destinationVC.eyeImage = eyesview.image
+                destinationVC.hairImage = hairview.image
+                destinationVC.clothesImage = clothesview.image
+                destinationVC.faceImage = faceview.image
+            }
+        }
+
+    }
 
 }

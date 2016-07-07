@@ -12,13 +12,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var answerViewB: UITextField!
     @IBOutlet weak var label: UILabel!
 
+    @IBOutlet weak var eyesview: UIImageView!
+    @IBOutlet weak var hairview: UIImageView!
+    @IBOutlet weak var faceview: UIImageView!
+    @IBOutlet weak var clothesview: UIImageView!
     
+    var eyeImage: UIImage!
+    var faceImage: UIImage!
+    var clothesImage: UIImage!
+    var hairImage: UIImage!
+
     
     var databasePath = NSString()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        eyesview.image = eyeImage
+        hairview.image = hairImage
+        faceview.image = faceImage
+        clothesview.image = clothesImage
         
         // Hide back button of navigation controller
         self.navigationItem.setHidesBackButton(false, animated:true);
@@ -121,7 +135,28 @@ class ViewController: UIViewController {
         mainDB.close()
     }
     
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toScene2"
+        {
+            if let destinationVC = segue.destinationViewController as? SecondViewController  {
+                
+                destinationVC.eyeImage = eyesview.image
+                destinationVC.hairImage = hairview.image
+                destinationVC.clothesImage = clothesview.image
+                destinationVC.faceImage = faceview.image
+            }
+        }
+        if segue.identifier == "toScene3"
+        {
+            if let destinationVC = segue.destinationViewController as? ThirdViewController  {
+                
+                destinationVC.eyeImage = eyesview.image
+                destinationVC.hairImage = hairview.image
+                destinationVC.clothesImage = clothesview.image
+                destinationVC.faceImage = faceview.image
+            }
+        }
+    }
     
     
     // clickable Option A button
