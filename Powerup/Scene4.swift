@@ -1,7 +1,6 @@
 //
 //  Scene4.swift
-//  Database
-//
+
 
 import UIKit
 

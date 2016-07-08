@@ -1,7 +1,6 @@
 //
 //  Choices-EndScreen.swift
-//  Database
-//
+
 
 
 import UIKit
@@ -98,6 +97,7 @@ class Choices_EndScreen: UIViewController {
         if segue.identifier == "toFirst"
         {
             if let destinationVC = segue.destinationViewController as? Choices_FirstScreen{
+                
                 //counter++
                 //destinationVC.points = numberToDisplay
                 //destinationVC.numberToDisplay = counter

@@ -6,6 +6,7 @@ import UIKit
 
 class DressingRoom2: UIViewController {
     
+    let defaults = NSUserDefaults.standardUserDefaults()
     var points = 0
     var numberToDisplay = 0
       @IBOutlet weak var pointsLabel: UILabel!
@@ -41,7 +42,11 @@ class DressingRoom2: UIViewController {
         if segue.identifier == "mapView"
         {
             if let destinationVC = segue.destinationViewController as? MapScreen{
-                destinationVC.numberToDisplay = numberToDisplay
+                //destinationVC.numberToDisplay = numberToDisplay
+                
+                var x = defaults.integerForKey("backtomap")
+                x++
+                defaults.setInteger(x, forKey: "backtomap")
                 
                 destinationVC.eyeImage = eyesview.image
                 destinationVC.hairImage = hairview.image

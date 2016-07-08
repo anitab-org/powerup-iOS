@@ -1,6 +1,5 @@
 //
 //  StartScreen.swift
-//  Database
 //
 
 
@@ -8,10 +7,11 @@ import UIKit
 
 class StartScreen: UIViewController {
     
-    
+    let defaults = NSUserDefaults.standardUserDefaults()
     @IBOutlet weak var MiniGamesButton: UIButton!
     @IBOutlet weak var StartButton: UIButton!
     @IBOutlet weak var PowerUp: UITextView!
+    
     
     var counter = -1
 
@@ -37,6 +37,7 @@ class StartScreen: UIViewController {
 
    // Start button is clickable
     @IBAction func Start(sender: UIButton) {
+       
         
     }
 
@@ -44,7 +45,13 @@ class StartScreen: UIViewController {
     @IBAction func MiniGames(sender: UIButton) {
         
     }
-    
+   
+    @IBAction func NewUser(sender: UIButton) {
+        var x = defaults.integerForKey("backtomap")
+        x = 0
+        defaults.setInteger(x, forKey: "backtomap")
+        
+    }
     
     
 }

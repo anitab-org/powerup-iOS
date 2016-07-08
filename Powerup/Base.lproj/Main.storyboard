@@ -62,6 +62,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="NewUser:" destination="S65-lq-9jr" eventType="touchUpInside" id="dbR-aK-uMM"/>
                                     <segue destination="vCf-Jb-qhY" kind="push" id="w9y-Z5-EtT"/>
                                 </connections>
                             </button>
@@ -2263,14 +2264,14 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="MOD-Bo-uno"/>
+        <segue reference="QNH-AA-Zx0"/>
+        <segue reference="XLD-my-7cR"/>
+        <segue reference="lfn-y2-37L"/>
         <segue reference="Pcl-29-Fre"/>
-        <segue reference="5VO-Md-ZNK"/>
         <segue reference="Bqy-ss-HWE"/>
         <segue reference="3cG-51-Ykd"/>
         <segue reference="VXk-Sx-JOj"/>
-        <segue reference="XLD-my-7cR"/>
         <segue reference="Uzd-Dz-Up2"/>
-        <segue reference="QNH-AA-Zx0"/>
-        <segue reference="MOD-Bo-uno"/>
     </inferredMetricsTieBreakers>
 </document>

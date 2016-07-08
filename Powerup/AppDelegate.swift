@@ -1,10 +1,6 @@
 //
 //  AppDelegate.swift
-//  Database
-//
-//  Created by Sanya Jain on 11/06/15.
-//  Copyright (c) 2015 Sanya Jain. All rights reserved.
-//
+
 
 import UIKit
 

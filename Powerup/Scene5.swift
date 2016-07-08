@@ -1,6 +1,5 @@
 //
 //  Scene5.swift
-//  Database
 
 
 import UIKit

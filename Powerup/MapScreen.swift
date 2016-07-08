@@ -1,6 +1,5 @@
 //
 //  MapScreen.swift
-//  Database
 //
 
 import UIKit
@@ -8,15 +7,16 @@ import SpriteKit
 
 
 class MapScreen: UIViewController {
-    
+   
+    let defaults = NSUserDefaults.standardUserDefaults()
     var eyeImage: UIImage!
     var faceImage: UIImage!
     var clothesImage: UIImage!
     var hairImage: UIImage!
 
     
-    var numberToDisplay = 0
-    
+    //var numberToDisplay = 0
+    var x = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,7 +44,9 @@ class MapScreen: UIViewController {
     @IBAction func ChoicesClickableMap(sender: UIButton) {
       
       // Testing condition if level 1 button pressed again after comming out of the scenario
-        if (numberToDisplay > 0)
+        //if (numberToDisplay > 0)
+        x = defaults.integerForKey("backtomap")
+        if (x > 0)
         {
             println("This action is not possible!! Kindly choose another level!!")
             
@@ -55,8 +57,6 @@ class MapScreen: UIViewController {
             alertView.message = "You have already played this scenario! Go try another level!!";
             
             alertView.show();
-            
-            
         }
             
             // condition for first time click - navigates to scenario

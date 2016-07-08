@@ -1,6 +1,5 @@
 //
 //  SecondViewController.swift
-//  Database
 
 
 import UIKit
