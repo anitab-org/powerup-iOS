@@ -48,9 +48,7 @@ class Choices_SixthScreen: UIViewController {
         databasePath = docsDir.stringByAppendingPathComponent(
             "Choices.sqlite")
         
-        
         let mainDB = FMDatabase(path: databasePath as String)
-        
         
         if mainDB.open(){
             let comment1 = "SELECT Text FROM Communication WHERE QID='F' AND AID='$'"
@@ -60,8 +58,6 @@ class Choices_SixthScreen: UIViewController {
                 withArgumentsInArray: nil)
             let c2results:FMResultSet? = mainDB.executeQuery(comment2,
                 withArgumentsInArray: nil)
-            
-            
             
             if c1results?.next() == true {
                 labelView.text = c1results?.stringForColumn("Text")
@@ -73,12 +69,7 @@ class Choices_SixthScreen: UIViewController {
                 passString = passString + a!
             }
 
-            
-            
-            
         }
-        
-        
     
     }
 

@@ -7,9 +7,8 @@ import UIKit
 
 class CustomizeAvatar: UIViewController {
     
-    
     var databasePath = NSString()
-    //var absPath = NSString()
+   
     @IBOutlet weak var customclothes: UIImageView!
     @IBOutlet weak var customhair: UIImageView!
     @IBOutlet weak var customface: UIImageView!
@@ -34,25 +33,6 @@ class CustomizeAvatar: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let filemgr = NSFileManager.defaultManager()
-        let dirPaths =
-        NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-            .UserDomainMask, true)
-        
-        let docsDir = dirPaths[0] as! String
-        
-        databasePath = docsDir.stringByAppendingPathComponent(
-            "contacts.db")
-        
-        if !filemgr.fileExistsAtPath(databasePath as String) {
-            
-            let contactDB = FMDatabase(path: databasePath as String)
-            
-            if contactDB == nil {
-                println("Error: \(contactDB.lastErrorMessage())")
-            }
-        }
-        
         eyesview.image = UIImage(named: "\(eyes[eyescount]).png")
         hairview.image = UIImage(named: "\(hair[haircount]).png")
         clothesview.image = UIImage(named: "\(clothes[clothescount]).png")
@@ -65,19 +45,12 @@ class CustomizeAvatar: UIViewController {
         
         
     }
- //   @IBAction func saveData(sender: AnyObject) {}
-            
-            
-            
-            
-            
-            
-            
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
           }
     
-   
    
     @IBAction func clothesR(sender: AnyObject) {
         if(clothescount + 1 < clothestotal){

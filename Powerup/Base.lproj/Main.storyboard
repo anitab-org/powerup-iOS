@@ -1432,10 +1432,10 @@
                                 <rect key="frame" x="35" y="223" width="48" height="100"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hairbox" translatesAutoresizingMaskIntoConstraints="NO" id="VbE-d7-ps0">
-                                <rect key="frame" x="155" y="170" width="149" height="151"/>
+                                <rect key="frame" x="167" y="152" width="137" height="169"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOk-WA-mML">
-                                <rect key="frame" x="167" y="282" width="42" height="29"/>
+                                <rect key="frame" x="179" y="282" width="30" height="29"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1443,11 +1443,8 @@
                                     <action selector="hairL:" destination="uwr-Kr-eqY" eventType="touchUpInside" id="0ik-JY-Bu6"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EgY-ZT-IAl">
-                                <rect key="frame" x="179" y="202" width="100" height="78"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hz-cU-VLs">
-                                <rect key="frame" x="259" y="282" width="42" height="29"/>
+                                <rect key="frame" x="267" y="282" width="30" height="29"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1455,6 +1452,15 @@
                                     <action selector="hairR:" destination="uwr-Kr-eqY" eventType="touchUpInside" id="ghH-1k-B71"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qla-WZ-gy9">
+                                <rect key="frame" x="214" y="273" width="51" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EgY-ZT-IAl">
+                                <rect key="frame" x="199" y="188" width="75" height="81"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1464,6 +1470,7 @@
                         <outlet property="customhair" destination="S1Z-X7-YcK" id="e1f-WC-kRQ"/>
                         <outlet property="eyesview" destination="kde-4D-xlj" id="Sel-jf-5rs"/>
                         <outlet property="faceview" destination="pe3-8V-maf" id="Lqf-3N-TqI"/>
+                        <outlet property="hairLabel" destination="qla-WZ-gy9" id="bTy-Qi-kfm"/>
                         <outlet property="hairview" destination="EgY-ZT-IAl" id="j3I-Vd-Sqw"/>
                     </connections>
                 </viewController>
@@ -1520,7 +1527,7 @@
                                 <rect key="frame" x="136" y="428" width="184" height="29"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clothesbox" translatesAutoresizingMaskIntoConstraints="NO" id="ec6-sY-MHp">
-                                <rect key="frame" x="155" y="170" width="149" height="151"/>
+                                <rect key="frame" x="155" y="138" width="149" height="183"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwS-uJ-zdN">
                                 <rect key="frame" x="258" y="283" width="42" height="29"/>
@@ -1541,16 +1548,23 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Rz-EP-ojB">
-                                <rect key="frame" x="191" y="199" width="80" height="93"/>
+                                <rect key="frame" x="191" y="177" width="75" height="90"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bIn-lM-92z">
                                 <rect key="frame" x="11" y="160" width="96" height="97"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIp-aG-yDu">
+                                <rect key="frame" x="204" y="268" width="55" height="31"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Yj6-yl-tVk"/>
                     <connections>
+                        <outlet property="clothesLabel" destination="uIp-aG-yDu" id="KmW-55-mLb"/>
                         <outlet property="clothesview" destination="2Rz-EP-ojB" id="3d8-IE-dbI"/>
                         <outlet property="customclothes" destination="RjQ-4I-mup" id="K4C-AW-eeg"/>
                         <outlet property="eyesview" destination="BY1-Xs-GIg" id="7C9-jZ-vAL"/>
@@ -1593,8 +1607,14 @@
                                 <rect key="frame" x="35" y="191" width="50" height="26"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hatsbox" translatesAutoresizingMaskIntoConstraints="NO" id="jfW-ko-dhG">
-                                <rect key="frame" x="115" y="262" width="90" height="100"/>
+                                <rect key="frame" x="115" y="262" width="90" height="105"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUN-DC-fe0">
+                                <rect key="frame" x="139" y="332" width="42" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OL6-dz-1a3">
                                 <rect key="frame" x="123" y="340" width="19" height="15"/>
                                 <state key="normal">
@@ -1614,10 +1634,10 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SV0-j7-ZLX">
-                                <rect key="frame" x="123" y="278" width="74" height="58"/>
+                                <rect key="frame" x="123" y="282" width="74" height="48"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="necklacebox" translatesAutoresizingMaskIntoConstraints="NO" id="gta-7s-jrp">
-                                <rect key="frame" x="220" y="262" width="90" height="100"/>
+                                <rect key="frame" x="220" y="262" width="90" height="105"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeh-vA-JlS">
                                 <rect key="frame" x="230" y="340" width="19" height="15"/>
@@ -1638,8 +1658,14 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="glassesbox" translatesAutoresizingMaskIntoConstraints="NO" id="wbB-BP-iYc">
-                                <rect key="frame" x="220" y="133" width="90" height="100"/>
+                                <rect key="frame" x="220" y="129" width="90" height="104"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u8T-Ei-8zA">
+                                <rect key="frame" x="246" y="196" width="42" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeV-Ct-Unp">
                                 <rect key="frame" x="230" y="206" width="19" height="19"/>
                                 <state key="normal">
@@ -1680,7 +1706,7 @@
                                 <rect key="frame" x="-3" y="477" width="326" height="102"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="handbagsbox" translatesAutoresizingMaskIntoConstraints="NO" id="lmL-nF-Y2N">
-                                <rect key="frame" x="115" y="133" width="90" height="100"/>
+                                <rect key="frame" x="115" y="129" width="90" height="104"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wQ-Rf-uwF">
                                 <rect key="frame" x="121" y="210" width="27" height="15"/>
@@ -1692,7 +1718,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V88-7t-81S">
-                                <rect key="frame" x="123" y="150" width="74" height="58"/>
+                                <rect key="frame" x="123" y="147" width="74" height="47"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="bUI-ff-TW3">
                                 <rect key="frame" x="253" y="55" width="67" height="70"/>
@@ -1707,7 +1733,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sj1-Nb-FB4">
-                                <rect key="frame" x="230" y="160" width="74" height="38"/>
+                                <rect key="frame" x="230" y="150" width="74" height="43"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ud8-qH-Agx">
                                 <rect key="frame" x="178" y="210" width="21" height="15"/>
@@ -1731,13 +1757,26 @@
                                 <rect key="frame" x="21" y="183" width="75" height="33"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kqa-uJ-5Ad">
-                                <rect key="frame" x="242" y="287" width="50" height="45"/>
+                                <rect key="frame" x="242" y="282" width="50" height="45"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhb-Zz-at1">
+                                <rect key="frame" x="139" y="196" width="42" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFY-dk-RDB">
+                                <rect key="frame" x="246" y="328" width="42" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="D4F-cd-wPJ"/>
                     <connections>
+                        <outlet property="bagsLabel" destination="Yhb-Zz-at1" id="evD-hQ-buR"/>
                         <outlet property="clothesview" destination="jVn-Wg-s1z" id="h6D-f2-Wd9"/>
                         <outlet property="customglasses" destination="Kzc-jB-9Hv" id="Ni7-p1-fZY"/>
                         <outlet property="customhandbags" destination="CIU-OA-hhU" id="KE2-aJ-i4Q"/>
@@ -1745,10 +1784,13 @@
                         <outlet property="customnecklace" destination="wEI-40-d18" id="whU-i1-dwb"/>
                         <outlet property="eyesview" destination="W3g-zf-VmM" id="28S-4L-KxA"/>
                         <outlet property="faceview" destination="I8o-vm-tkl" id="Kqw-m1-kru"/>
+                        <outlet property="glassesLabel" destination="u8T-Ei-8zA" id="Fbo-Lr-gAw"/>
                         <outlet property="glassesview" destination="Sj1-Nb-FB4" id="gtT-KC-GHQ"/>
                         <outlet property="hairview" destination="YdH-c5-srP" id="PlW-wv-Ae5"/>
                         <outlet property="handbagsview" destination="V88-7t-81S" id="xu0-MC-cYz"/>
+                        <outlet property="hatsLabel" destination="gUN-DC-fe0" id="UGd-qd-Bmq"/>
                         <outlet property="hatsview" destination="SV0-j7-ZLX" id="BXD-Tr-7GL"/>
+                        <outlet property="necklaceLabel" destination="DFY-dk-RDB" id="cZ8-1m-Re6"/>
                         <outlet property="necklaceview" destination="Kqa-uJ-5Ad" id="YkB-pM-lLL"/>
                         <outlet property="pointsLabel" destination="9IW-7K-Gls" id="lm7-Xg-smx"/>
                     </connections>
@@ -2264,11 +2306,11 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="MOD-Bo-uno"/>
-        <segue reference="QNH-AA-Zx0"/>
         <segue reference="XLD-my-7cR"/>
         <segue reference="lfn-y2-37L"/>
-        <segue reference="Pcl-29-Fre"/>
+        <segue reference="Ekm-Jp-iDh"/>
+        <segue reference="MOD-Bo-uno"/>
+        <segue reference="QNH-AA-Zx0"/>
         <segue reference="Bqy-ss-HWE"/>
         <segue reference="3cG-51-Ykd"/>
         <segue reference="VXk-Sx-JOj"/>
