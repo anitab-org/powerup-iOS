@@ -35,7 +35,6 @@
                                 </state>
                                 <connections>
                                     <action selector="Start:" destination="S65-lq-9jr" eventType="touchUpInside" id="fIF-Th-UQv"/>
-                                    <segue destination="S3c-uW-lpA" kind="push" identifier="startToMap" id="lfn-y2-37L"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwb-Wz-xvg">
@@ -74,6 +73,7 @@
                         <outlet property="MiniGamesButton" destination="bwb-Wz-xvg" id="Szp-v1-xPQ"/>
                         <outlet property="PowerUp" destination="AKT-5A-duS" id="Pbe-tp-vaX"/>
                         <outlet property="StartButton" destination="S80-hG-Bup" id="BUd-iF-8Dk"/>
+                        <segue destination="S3c-uW-lpA" kind="push" identifier="startToMap" id="Ck5-aV-1L2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5D-0F-CHK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2306,14 +2306,14 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="Ck5-aV-1L2"/>
+        <segue reference="Pcl-29-Fre"/>
         <segue reference="XLD-my-7cR"/>
-        <segue reference="lfn-y2-37L"/>
-        <segue reference="Ekm-Jp-iDh"/>
-        <segue reference="MOD-Bo-uno"/>
+        <segue reference="Uzd-Dz-Up2"/>
         <segue reference="QNH-AA-Zx0"/>
+        <segue reference="MOD-Bo-uno"/>
         <segue reference="Bqy-ss-HWE"/>
         <segue reference="3cG-51-Ykd"/>
         <segue reference="VXk-Sx-JOj"/>
-        <segue reference="Uzd-Dz-Up2"/>
     </inferredMetricsTieBreakers>
 </document>

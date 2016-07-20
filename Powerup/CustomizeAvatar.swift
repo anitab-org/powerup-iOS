@@ -132,9 +132,6 @@ class CustomizeAvatar: UIViewController {
         }
         println("This is printed when you reach Map from DR1!")
         
-        
-        
-        
         // Fetching database content via FMDB wrapper
         
         let filemgr = NSFileManager.defaultManager()
