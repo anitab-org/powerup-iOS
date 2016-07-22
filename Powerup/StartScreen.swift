@@ -42,7 +42,7 @@ class StartScreen: UIViewController {
         
         if(c == 0 ){
             var alertView = UIAlertView();
-            alertView.addButtonWithTitle("Ok");
+            alertView.addButtonWithTitle("OK");
             alertView.title = "MESSAGE!!!";
             alertView.message = "Press New User First!!";
             alertView.show();
