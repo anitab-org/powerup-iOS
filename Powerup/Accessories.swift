@@ -116,11 +116,11 @@ class Accessories: UIViewController {
     }
 
     @IBAction func handbagsR(sender: AnyObject) {
-        if(handbagscount  < handbagstotal){
+        if(handbagscount + 1 < handbagstotal){
             handbagscount++
         }
-        handbagsview.image = UIImage(named: "\(handbags[handbagscount-1]).png")
-        customhandbags.image = UIImage(named: "\(handbags[handbagscount-1]).png")
+        handbagsview.image = UIImage(named: "\(handbags[handbagscount]).png")
+        customhandbags.image = UIImage(named: "\(handbags[handbagscount]).png")
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
@@ -135,7 +135,7 @@ class Accessories: UIViewController {
         let mainDB = FMDatabase(path: databasePath as String)
         
         if mainDB.open(){
-            let bagsRes = "SELECT Points FROM Accessories Where Name='\(handbags[handbagscount-1])'"
+            let bagsRes = "SELECT Points FROM Accessories Where Name='\(handbags[handbagscount])'"
             
             let bResults:FMResultSet? = mainDB.executeQuery(bagsRes,
                 withArgumentsInArray: nil)
@@ -152,11 +152,11 @@ class Accessories: UIViewController {
     }
     
     @IBAction func handbagsL(sender: AnyObject) {
-        if(handbagscount > 1){
+        if(handbagscount > 0){
             handbagscount--
         }
-        handbagsview.image = UIImage(named: "\(handbags[handbagscount-1]).png")
-        customhandbags.image = UIImage(named: "\(handbags[handbagscount-1]).png")
+        handbagsview.image = UIImage(named: "\(handbags[handbagscount]).png")
+        customhandbags.image = UIImage(named: "\(handbags[handbagscount]).png")
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
@@ -171,7 +171,7 @@ class Accessories: UIViewController {
         let mainDB = FMDatabase(path: databasePath as String)
         
         if mainDB.open(){
-            let bagsRes = "SELECT Points FROM Accessories Where Name='\(handbags[handbagscount-1])'"
+            let bagsRes = "SELECT Points FROM Accessories Where Name='\(handbags[handbagscount])'"
             
             let bResults:FMResultSet? = mainDB.executeQuery(bagsRes,
                 withArgumentsInArray: nil)
@@ -189,12 +189,12 @@ class Accessories: UIViewController {
     
     @IBAction func glassesR(sender: AnyObject) {
         
-        if(glassescount < glassestotal){
+        if(glassescount + 1 < glassestotal){
             
             glassescount++
         }
-        glassesview.image = UIImage(named: "\(glasses[glassescount-1]).png")
-        customglasses.image = UIImage(named: "\(glasses[glassescount-1]).png")
+        glassesview.image = UIImage(named: "\(glasses[glassescount]).png")
+        customglasses.image = UIImage(named: "\(glasses[glassescount]).png")
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
@@ -209,7 +209,7 @@ class Accessories: UIViewController {
         let mainDB = FMDatabase(path: databasePath as String)
         
         if mainDB.open(){
-            let glassesRes = "SELECT Points FROM Accessories Where Name='\(glasses[glassescount-1])'"
+            let glassesRes = "SELECT Points FROM Accessories Where Name='\(glasses[glassescount])'"
             
             let gResults:FMResultSet? = mainDB.executeQuery(glassesRes,
                 withArgumentsInArray: nil)
@@ -225,12 +225,12 @@ class Accessories: UIViewController {
         
     }
     @IBAction func glassesL(sender: AnyObject) {
-        if(glassescount > 1){
+        if(glassescount > 0){
             
             glassescount--
         }
-        glassesview.image = UIImage(named: "\(glasses[glassescount-1]).png")
-        customglasses.image = UIImage(named: "\(glasses[glassescount-1]).png")
+        glassesview.image = UIImage(named: "\(glasses[glassescount]).png")
+        customglasses.image = UIImage(named: "\(glasses[glassescount]).png")
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
@@ -245,7 +245,7 @@ class Accessories: UIViewController {
         let mainDB = FMDatabase(path: databasePath as String)
         
         if mainDB.open(){
-            let glassesRes = "SELECT Points FROM Accessories Where Name='\(glasses[glassescount-1])'"
+            let glassesRes = "SELECT Points FROM Accessories Where Name='\(glasses[glassescount])'"
             
             let gResults:FMResultSet? = mainDB.executeQuery(glassesRes,
                 withArgumentsInArray: nil)
@@ -261,11 +261,11 @@ class Accessories: UIViewController {
         
     }
     @IBAction func hatsR(sender: AnyObject) {
-        if(hatscount  < hatstotal){
+        if(hatscount + 1 < hatstotal){
             hatscount++
         }
-        hatsview.image = UIImage(named: "\(hats[hatscount-1]).png")
-        customhats.image = UIImage(named: "\(hats[hatscount-1]).png")
+        hatsview.image = UIImage(named: "\(hats[hatscount]).png")
+        customhats.image = UIImage(named: "\(hats[hatscount]).png")
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
@@ -280,7 +280,7 @@ class Accessories: UIViewController {
         let mainDB = FMDatabase(path: databasePath as String)
         
         if mainDB.open(){
-            let hatsRes = "SELECT Points FROM Accessories Where Name='\(hats[hatscount-1])'"
+            let hatsRes = "SELECT Points FROM Accessories Where Name='\(hats[hatscount])'"
             
             let hResults:FMResultSet? = mainDB.executeQuery(hatsRes,
                 withArgumentsInArray: nil)
@@ -296,11 +296,11 @@ class Accessories: UIViewController {
     }
     
     @IBAction func hatsL(sender: AnyObject) {
-        if(hatscount  > 1){
+        if(hatscount > 0){
             hatscount--
         }
-        hatsview.image = UIImage(named: "\(hats[hatscount-1]).png")
-        customhats.image = UIImage(named: "\(hats[hatscount-1]).png")
+        hatsview.image = UIImage(named: "\(hats[hatscount]).png")
+        customhats.image = UIImage(named: "\(hats[hatscount]).png")
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
@@ -315,7 +315,7 @@ class Accessories: UIViewController {
         let mainDB = FMDatabase(path: databasePath as String)
         
         if mainDB.open(){
-            let hatsRes = "SELECT Points FROM Accessories Where Name='\(hats[hatscount-1])'"
+            let hatsRes = "SELECT Points FROM Accessories Where Name='\(hats[hatscount])'"
             
             let hResults:FMResultSet? = mainDB.executeQuery(hatsRes,
                 withArgumentsInArray: nil)
@@ -331,11 +331,11 @@ class Accessories: UIViewController {
     }
     
     @IBAction func necklaceR(sender: AnyObject) {
-        if(necklacecount  <  necklacetotal){
+        if(necklacecount + 1 <  necklacetotal){
             necklacecount++
         }
-        necklaceview.image = UIImage(named: "\(necklace[necklacecount-1]).png")
-        customnecklace.image = UIImage(named: "\(necklace[necklacecount-1]).png")
+        necklaceview.image = UIImage(named: "\(necklace[necklacecount]).png")
+        customnecklace.image = UIImage(named: "\(necklace[necklacecount]).png")
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
@@ -349,7 +349,7 @@ class Accessories: UIViewController {
         let mainDB = FMDatabase(path: databasePath as String)
         
         if mainDB.open(){
-            let necklaceRes = "SELECT Points FROM Accessories Where Name='\(necklace[necklacecount-1])'"
+            let necklaceRes = "SELECT Points FROM Accessories Where Name='\(necklace[necklacecount])'"
             
             let nResults:FMResultSet? = mainDB.executeQuery(necklaceRes,
                 withArgumentsInArray: nil)
@@ -364,11 +364,11 @@ class Accessories: UIViewController {
         
     }
     @IBAction func necklaceL(sender: AnyObject) {
-        if(necklacecount  > 1){
+        if(necklacecount > 0){
             necklacecount--
         }
-        necklaceview.image = UIImage(named: "\(necklace[necklacecount-1]).png")
-        customnecklace.image = UIImage(named: "\(necklace[necklacecount-1]).png")
+        necklaceview.image = UIImage(named: "\(necklace[necklacecount]).png")
+        customnecklace.image = UIImage(named: "\(necklace[necklacecount]).png")
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
@@ -382,7 +382,7 @@ class Accessories: UIViewController {
         let mainDB = FMDatabase(path: databasePath as String)
         
         if mainDB.open(){
-            let necklaceRes = "SELECT Points FROM Accessories Where Name='\(necklace[necklacecount-1])'"
+            let necklaceRes = "SELECT Points FROM Accessories Where Name='\(necklace[necklacecount])'"
             
             let nResults:FMResultSet? = mainDB.executeQuery(necklaceRes,
                 withArgumentsInArray: nil)

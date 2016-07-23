@@ -62,11 +62,11 @@ class Clothes: UIViewController {
     }
 
     @IBAction func clothesR(sender: AnyObject) {
-        if(clothescount  < clothestotal){
+        if(clothescount + 1  < clothestotal){
             clothescount++
         }
-        clothesview.image = UIImage(named: "\(clothes[clothescount-1]).png")
-        customclothes.image = UIImage(named: "\(clothes[clothescount-1]).png")
+        clothesview.image = UIImage(named: "\(clothes[clothescount]).png")
+        customclothes.image = UIImage(named: "\(clothes[clothescount]).png")
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
@@ -81,7 +81,7 @@ class Clothes: UIViewController {
         let mainDB = FMDatabase(path: databasePath as String)
         
         if mainDB.open(){
-            let clothesRes = "SELECT Points FROM Clothes Where Name='\(clothes[clothescount-1])'"
+            let clothesRes = "SELECT Points FROM Clothes Where Name='\(clothes[clothescount])'"
             
             let cResults:FMResultSet? = mainDB.executeQuery(clothesRes,
                 withArgumentsInArray: nil)
@@ -96,11 +96,11 @@ class Clothes: UIViewController {
     }
     
     @IBAction func clothesL(sender: AnyObject) {
-        if(clothescount > 1){
+        if(clothescount > 0){
             clothescount--
         }
-        clothesview.image = UIImage(named: "\(clothes[clothescount-1]).png")
-        customclothes.image = UIImage(named: "\(clothes[clothescount-1]).png")
+        clothesview.image = UIImage(named: "\(clothes[clothescount]).png")
+        customclothes.image = UIImage(named: "\(clothes[clothescount]).png")
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
@@ -115,7 +115,7 @@ class Clothes: UIViewController {
         let mainDB = FMDatabase(path: databasePath as String)
         
         if mainDB.open(){
-            let clothesRes = "SELECT Points FROM Clothes Where Name='\(clothes[clothescount-1])'"
+            let clothesRes = "SELECT Points FROM Clothes Where Name='\(clothes[clothescount])'"
             
             let cResults:FMResultSet? = mainDB.executeQuery(clothesRes,
                 withArgumentsInArray: nil)

@@ -62,11 +62,11 @@ class Hair: UIViewController {
     }
     
     @IBAction func hairR(sender: AnyObject) {
-        if(haircount  < hairtotal){
+        if(haircount + 1 < hairtotal){
             haircount++
         }
-        hairview.image = UIImage(named: "\(hair[haircount-1]).png")
-        customhair.image = UIImage(named: "\(hair[haircount-1]).png")
+        hairview.image = UIImage(named: "\(hair[haircount]).png")
+        customhair.image = UIImage(named: "\(hair[haircount]).png")
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
@@ -80,7 +80,7 @@ class Hair: UIViewController {
         let mainDB = FMDatabase(path: databasePath as String)
         
         if mainDB.open(){
-            let hairRes = "SELECT Points FROM Hair Where Name='\(hair[haircount-1])'"
+            let hairRes = "SELECT Points FROM Hair Where Name='\(hair[haircount])'"
             
             let hResults:FMResultSet? = mainDB.executeQuery(hairRes,
                 withArgumentsInArray: nil)
@@ -95,11 +95,11 @@ class Hair: UIViewController {
     }
     
     @IBAction func hairL(sender: AnyObject) {
-        if(haircount > 1){
+        if(haircount > 0){
             haircount--
         }
-        hairview.image = UIImage(named: "\(hair[haircount-1]).png")
-        customhair.image = UIImage(named: "\(hair[haircount-1]).png")
+        hairview.image = UIImage(named: "\(hair[haircount]).png")
+        customhair.image = UIImage(named: "\(hair[haircount]).png")
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
@@ -113,7 +113,7 @@ class Hair: UIViewController {
         let mainDB = FMDatabase(path: databasePath as String)
         
         if mainDB.open(){
-            let hairRes = "SELECT Points FROM Hair Where Name='\(hair[haircount-1])'"
+            let hairRes = "SELECT Points FROM Hair Where Name='\(hair[haircount])'"
             
             let hResults:FMResultSet? = mainDB.executeQuery(hairRes,
                 withArgumentsInArray: nil)

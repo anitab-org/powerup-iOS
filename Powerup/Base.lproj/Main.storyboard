@@ -212,15 +212,6 @@
                                     <action selector="clothesR:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="UqM-SQ-3jj"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNl-Jt-XgP">
-                                <rect key="frame" x="277" y="60" width="36" height="52"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="S65-lq-9jr" kind="push" id="K4y-Ls-PQw"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nJ-HE-yPQ">
                                 <rect key="frame" x="41" y="409" width="60" height="30"/>
                                 <state key="normal">
@@ -1714,15 +1705,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="bUI-ff-TW3">
                                 <rect key="frame" x="253" y="55" width="67" height="70"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHU-3e-HdY">
-                                <rect key="frame" x="272" y="69" width="38" height="41"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="S65-lq-9jr" kind="push" id="Ekm-Jp-iDh"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sj1-Nb-FB4">
                                 <rect key="frame" x="230" y="150" width="74" height="43"/>
                             </imageView>
@@ -2297,12 +2279,12 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="3SD-2Q-hBE"/>
         <segue reference="MOD-Bo-uno"/>
         <segue reference="QNH-AA-Zx0"/>
         <segue reference="pLN-RO-Lff"/>
         <segue reference="Uzd-Dz-Up2"/>
         <segue reference="Pcl-29-Fre"/>
+        <segue reference="TfY-gY-RXS"/>
         <segue reference="Bqy-ss-HWE"/>
         <segue reference="3cG-51-Ykd"/>
         <segue reference="VXk-Sx-JOj"/>
