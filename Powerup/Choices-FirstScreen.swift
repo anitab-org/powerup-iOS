@@ -135,19 +135,6 @@ class Choices_FirstScreen: UIViewController {
         }
         
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "secondView"
-        {
-            if let destinationVC = segue.destinationViewController as? Choices_SecondScreen  {
-                
-                destinationVC.eyeImage = eyesview.image
-                destinationVC.hairImage = hairview.image
-                destinationVC.clothesImage = clothesview.image
-                destinationVC.faceImage = faceview.image
-            }
-        }
-        
-    }
     
 }
 
