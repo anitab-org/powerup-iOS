@@ -20,7 +20,6 @@ class Choices_EndScreen: UIViewController {
     @IBOutlet weak var replay: UIButton!
     @IBOutlet weak var conclusionText: UITextView!
     @IBOutlet weak var pointsLabel: UILabel!
-    //@IBOutlet weak var mapScreen: UIButton!
     
     var counter = 0
     var numberToDisplay = 0
@@ -35,7 +34,6 @@ class Choices_EndScreen: UIViewController {
         return UIInterfaceOrientation.LandscapeRight.rawValue
         
     }
-    
     
       override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,25 +56,19 @@ class Choices_EndScreen: UIViewController {
         
         
         // Suitable concluding remark is displayed
-        println("\(sampleText)")
         if var check = conclusionText{
             conclusionText.text = "\(sampleText)"
         }
         // Points also displayed according to line of communication
         pointsLabel.text = "\(numberToDisplay)"
-        //println("\(numberToDisplay)")
     }
 
     
 // Checking replay button functionality
     @IBAction func replayButton(sender: UIButton) {
-    println("Replay Button Pressed!!!!!!!!!")
+    println("Replay Button Pressed...")
     }
     
-   /*
-    @IBAction func mapScreenButton(sender: UIButton) {
-    }
-    */
     
     // Conveying End of Scenario to Map Screen so that Level 1 can't be clicked again, value of counter copied to numberToDisplay field of MapScreen
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -97,10 +89,6 @@ class Choices_EndScreen: UIViewController {
         if segue.identifier == "toFirst"
         {
             if let destinationVC = segue.destinationViewController as? Choices_FirstScreen{
-                
-                //counter++
-                //destinationVC.points = numberToDisplay
-                //destinationVC.numberToDisplay = counter
                 
                 destinationVC.eyeImage = eyesview.image
                 destinationVC.hairImage = hairview.image

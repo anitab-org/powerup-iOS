@@ -16,7 +16,6 @@
 		2A0CA56B1B294C6B00ED8781 /* PowerupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0CA56A1B294C6B00ED8781 /* PowerupTests.swift */; };
 		2A0CA5751B294C9200ED8781 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0CA5741B294C9200ED8781 /* libsqlite3.dylib */; };
 		2A0FEF611B52A7E400E28079 /* Choices-SixthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0FEF601B52A7E400E28079 /* Choices-SixthScreen.swift */; };
-		2A2322DB1B2C5EB200F3F6D4 /* mainDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */; };
 		2A271E6D1D075CEC008B0689 /* CustomizeAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A271E6C1D075CEC008B0689 /* CustomizeAvatar.swift */; };
 		2A2A4DB71B373C5B00D50860 /* StartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A4DB61B373C5B00D50860 /* StartScreen.swift */; };
 		2A3530631B6617DB00F9E5DF /* Choices-EndScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3530621B6617DB00F9E5DF /* Choices-EndScreen.swift */; };
@@ -24,6 +23,7 @@
 		2A4AED721B778A2400268B6B /* Scene5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4AED711B778A2400268B6B /* Scene5.swift */; };
 		2A4AED741B778AF400268B6B /* Scene7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4AED731B778AF400268B6B /* Scene7.swift */; };
 		2A4AED761B77950B00268B6B /* Scene6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4AED751B77950B00268B6B /* Scene6.swift */; };
+		2A5B28371D3E6E6300308F78 /* mainDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */; };
 		2A68C3DB1B2EA28700E2FAE8 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A68C3DA1B2EA28700E2FAE8 /* SecondViewController.swift */; };
 		2A8962311B386AB2009B2338 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8962301B386AB2009B2338 /* MapScreen.swift */; };
 		2A8D2E071D17CDF700154F98 /* Accessories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8D2E061D17CDF700154F98 /* Accessories.swift */; };
@@ -32,8 +32,8 @@
 		2A992EE31B5174D000E9AF04 /* Choices-FourthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A992EE21B5174D000E9AF04 /* Choices-FourthScreen.swift */; };
 		2A992EE51B51758F00E9AF04 /* Choices-FifthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A992EE41B51758F00E9AF04 /* Choices-FifthScreen.swift */; };
 		2A99DDB91D15DAB300ABEF45 /* DressingRoom2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A99DDB81D15DAB300ABEF45 /* DressingRoom2.swift */; };
-		2AAEE53A1B482E4600885044 /* Choices.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2AAEE5391B482E4600885044 /* Choices.sqlite */; };
 		2AAEE53E1B48303500885044 /* Choices-FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAEE53D1B48303500885044 /* Choices-FirstScreen.swift */; };
+		2AB2B8971D3B5B7C005663EB /* Choices.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2AAEE5391B482E4600885044 /* Choices.sqlite */; };
 		2AD1A1E71B2B1ADA00BCA94D /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1A1E61B2B1ADA00BCA94D /* ModelManager.swift */; };
 		2AD5A1B41D1C473800CE0DF2 /* Clothes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5A1B31D1C473800CE0DF2 /* Clothes.swift */; };
 		2AD5A1B61D1C521A00CE0DF2 /* Hair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5A1B51D1C521A00CE0DF2 /* Hair.swift */; };
@@ -53,6 +53,18 @@
 			remoteInfo = Database;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2A5B28351D3E6BF000308F78 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2A057D5D1B50F26E009CD214 /* Choices-SecondScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-SecondScreen.swift"; sourceTree = "<group>"; };
@@ -240,6 +252,7 @@
 				2A0CA54B1B294C6B00ED8781 /* Sources */,
 				2A0CA54C1B294C6B00ED8781 /* Frameworks */,
 				2A0CA54D1B294C6B00ED8781 /* Resources */,
+				2A5B28351D3E6BF000308F78 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -310,11 +323,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A5B28371D3E6E6300308F78 /* mainDatabase.sqlite in Resources */,
+				2AB2B8971D3B5B7C005663EB /* Choices.sqlite in Resources */,
 				2A0CA55A1B294C6B00ED8781 /* Main.storyboard in Resources */,
-				2A2322DB1B2C5EB200F3F6D4 /* mainDatabase.sqlite in Resources */,
 				2A0CA55F1B294C6B00ED8781 /* LaunchScreen.xib in Resources */,
 				2A0CA55C1B294C6B00ED8781 /* Images.xcassets in Resources */,
-				2AAEE53A1B482E4600885044 /* Choices.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

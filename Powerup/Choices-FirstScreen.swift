@@ -42,7 +42,7 @@ class Choices_FirstScreen: UIViewController {
         clothesview.image = clothesImage
         
         // Back Button of navigation controller hidden
-        self.navigationItem.setHidesBackButton(false, animated:true);
+        self.navigationItem.setHidesBackButton(true, animated:true);
         
         Question.selectable = false
         Question.editable = false
@@ -74,16 +74,16 @@ class Choices_FirstScreen: UIViewController {
         databasePath = docsDir.stringByAppendingPathComponent("Choices.sqlite")
         
        if filemgr.fileExistsAtPath(databasePath as String){
-            println("FOUND!!!!")
+            println("FOUND!!!")
         filemgr.removeItemAtPath(databasePath as String, error: &error)
             
         }
 
         if let bundle_path = NSBundle.mainBundle().pathForResource("Choices", ofType: "sqlite"){
-        println("Test!!!!!!!!")
+        println("Test!")
             
             if filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String, error: &error){
-                    println("Success!!!!!!!!")
+                    println("Success!!!")
             }
                 else{
                     println("Failure")
@@ -96,10 +96,8 @@ class Choices_FirstScreen: UIViewController {
         if mainDB.open(){
             println("DB is open and running...")
             
-            
             let question1 = "SELECT Text FROM Communication WHERE QID= 'A' AND AID='$'"
             let answer1 =   "SELECT Text FROM Communication WHERE QID='A' AND AID='A1'"
-            
             
             let qresults:FMResultSet? = mainDB.executeQuery(question1,
                 withArgumentsInArray: nil)
@@ -109,24 +107,33 @@ class Choices_FirstScreen: UIViewController {
             
             if qresults?.next() == true {
                 Question.text = qresults?.stringForColumn("Text")
-                
             }
             
             if aresults?.next() == true {
                 AnswerView.text = aresults?.stringForColumn("Text")
             }
-            
         }
         mainDB.close()
     
 }
     
     
-    
-    
     @IBAction func AnswerButton(sender: UIButton) {
     
+    }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "secondView"
+        {
+            if let destinationVC = segue.destinationViewController as? Choices_SecondScreen  {
+                
+                destinationVC.eyeImage = eyesview.image
+                destinationVC.hairImage = hairview.image
+                destinationVC.clothesImage = clothesview.image
+                destinationVC.faceImage = faceview.image
+            }
+        }
+        
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "secondView"
@@ -143,14 +150,5 @@ class Choices_FirstScreen: UIViewController {
     }
     
 }
-
-
-
-
-
-
-
-
-
 
 

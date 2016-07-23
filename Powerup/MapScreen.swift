@@ -13,7 +13,6 @@ class MapScreen: UIViewController {
     var faceImage: UIImage!
     var clothesImage: UIImage!
     var hairImage: UIImage!
-
     
     //var numberToDisplay = 0
     var x = 0
@@ -27,12 +26,10 @@ class MapScreen: UIViewController {
         let value = UIInterfaceOrientation.Portrait.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
         
-        
     }
 
     //Level 2 Button: clickable
     @IBAction func ClickableMap(sender: UIButton) {
-    
     
     }
     
@@ -72,6 +69,7 @@ class MapScreen: UIViewController {
         {
             if let destinationVC = segue.destinationViewController as? Choices_FirstScreen  {
                 
+              
                 destinationVC.eyeImage = eyeImage
                 destinationVC.hairImage = hairImage
                 destinationVC.clothesImage = clothesImage

@@ -2,12 +2,12 @@
 //  Hair.swift
 //  Powerup
 
-
-
 import UIKit
 
 class Hair: UIViewController {
     
+    var databasePath = NSString()
+    @IBOutlet weak var hairLabel: UILabel!
     @IBOutlet weak var hairview: UIImageView!
     @IBOutlet weak var customhair: UIImageView!
     
@@ -20,9 +20,9 @@ class Hair: UIViewController {
     var hairImage: UIImage!
     var clothesImage: UIImage!
     
-    var hair = ["pink", "blue", "purple","red","curly","black_straight"]
+    var hair = ["hair2", "hair3", "hair4", "hair5", "hair6", "hair7", "hair8", "hair9", "hair10", "hair11"]
     var haircount = 0
-    var hairtotal = 6
+    var hairtotal = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,32 @@ class Hair: UIViewController {
         customhair.image = hairImage
         
         hairview.image = UIImage(named: "\(hair[0]).png")
-        //customclothes.image = UIImage(named: "\(clothes[clothescount]).png")
+        let filemgr = NSFileManager.defaultManager()
+        let dirPaths =
+        NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
+            .UserDomainMask, true)
+        
+        let docsDir = dirPaths[0] as! String
+        
+        databasePath = docsDir.stringByAppendingPathComponent(
+            "mainDatabase.sqlite")
+        
+        let mainDB = FMDatabase(path: databasePath as String)
+        
+        if mainDB.open(){
+            let hairRes = "SELECT Points FROM Hair Where Name='\(hair[0])'"
+            
+            let hResults:FMResultSet? = mainDB.executeQuery(hairRes,
+                withArgumentsInArray: nil)
+            
+            if hResults?.next() == true
+            {
+                hairLabel.text = hResults?.stringForColumn("Points")
+            }
+            
+        }
+        mainDB.close()
+        
     }
     
     @IBAction func hairR(sender: AnyObject) {
@@ -42,6 +67,31 @@ class Hair: UIViewController {
         }
         hairview.image = UIImage(named: "\(hair[haircount-1]).png")
         customhair.image = UIImage(named: "\(hair[haircount-1]).png")
+        let filemgr = NSFileManager.defaultManager()
+        let dirPaths =
+        NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
+            .UserDomainMask, true)
+        
+        let docsDir = dirPaths[0] as! String
+        
+        databasePath = docsDir.stringByAppendingPathComponent(
+            "mainDatabase.sqlite")
+        
+        let mainDB = FMDatabase(path: databasePath as String)
+        
+        if mainDB.open(){
+            let hairRes = "SELECT Points FROM Hair Where Name='\(hair[haircount-1])'"
+            
+            let hResults:FMResultSet? = mainDB.executeQuery(hairRes,
+                withArgumentsInArray: nil)
+            
+            if hResults?.next() == true
+            {
+                hairLabel.text = hResults?.stringForColumn("Points")
+            }
+            
+        }
+        mainDB.close()
     }
     
     @IBAction func hairL(sender: AnyObject) {
@@ -50,6 +100,31 @@ class Hair: UIViewController {
         }
         hairview.image = UIImage(named: "\(hair[haircount-1]).png")
         customhair.image = UIImage(named: "\(hair[haircount-1]).png")
+        let filemgr = NSFileManager.defaultManager()
+        let dirPaths =
+        NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
+            .UserDomainMask, true)
+        
+        let docsDir = dirPaths[0] as! String
+        
+        databasePath = docsDir.stringByAppendingPathComponent(
+            "mainDatabase.sqlite")
+        
+        let mainDB = FMDatabase(path: databasePath as String)
+        
+        if mainDB.open(){
+            let hairRes = "SELECT Points FROM Hair Where Name='\(hair[haircount-1])'"
+            
+            let hResults:FMResultSet? = mainDB.executeQuery(hairRes,
+                withArgumentsInArray: nil)
+            
+            if hResults?.next() == true
+            {
+                hairLabel.text = hResults?.stringForColumn("Points")
+            }
+            
+        }
+        mainDB.close()
         
     }
     

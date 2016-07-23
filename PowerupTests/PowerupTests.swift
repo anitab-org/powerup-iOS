@@ -1,15 +1,9 @@
-//
-//  DatabaseTests.swift
-//  DatabaseTests
-//
-//  Created by Sanya Jain on 11/06/15.
-//  Copyright (c) 2015 Sanya Jain. All rights reserved.
-//
+
 
 import UIKit
 import XCTest
 
-class DatabaseTests: XCTestCase {
+class PowerupTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

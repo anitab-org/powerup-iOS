@@ -80,10 +80,10 @@ class ViewController: UIViewController {
         }
         
         if let bundle_path = NSBundle.mainBundle().pathForResource("mainDatabase", ofType: "sqlite"){
-            println("Test!!!!!!!!")
+            println("\(bundle_path)")
             
             if filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String, error: &error){
-                println("Success!!!!!!!!")
+                println("Success!!!")
             }
             else{
                 println("Failure")
@@ -91,8 +91,6 @@ class ViewController: UIViewController {
             }
         }
 
-        
-        
         
         let mainDB = FMDatabase(path: databasePath as String)
             if mainDB == nil{
@@ -125,7 +123,6 @@ class ViewController: UIViewController {
                 }
             if bresults?.next() == true {
                 answerViewB.text = bresults?.stringForColumn("ADescription")
-                
                 
 
             }
