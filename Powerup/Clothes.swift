@@ -8,6 +8,8 @@ class Clothes: UIViewController {
 
     var databasePath = NSString()
     @IBOutlet weak var clothesLabel: UILabel!
+    @IBOutlet weak var paidLabel: UILabel!
+    
     @IBOutlet weak var clothesview: UIImageView!
     @IBOutlet weak var customclothes: UIImageView!
     
@@ -27,20 +29,22 @@ class Clothes: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        paidLabel.hidden = true
+        paidLabel.transform = CGAffineTransformMakeRotation(-45 * CGFloat(M_PI) / 180.0)
         eyesview.image = eyeImage
         hairview.image = hairImage
         faceview.image = faceImage
         customclothes.image = clothesImage
         
         clothesview.image = UIImage(named: "\(clothes[0]).png")
-        let filemgr = NSFileManager.defaultManager()
+        
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] as! String
+        let docsDir = dirPaths[0] 
         
-        databasePath = docsDir.stringByAppendingPathComponent(
+        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
             "mainDatabase.sqlite")
         
         
@@ -56,25 +60,26 @@ class Clothes: UIViewController {
             {
                 clothesLabel.text = cResults?.stringForColumn("Points")
             }
-            
         }
         mainDB.close()
     }
 
     @IBAction func clothesR(sender: AnyObject) {
         if(clothescount + 1  < clothestotal){
-            clothescount++
+            clothescount += 1
         }
         clothesview.image = UIImage(named: "\(clothes[clothescount]).png")
         customclothes.image = UIImage(named: "\(clothes[clothescount]).png")
-        let filemgr = NSFileManager.defaultManager()
+        
+        //paidLabel.hidden = false
+        
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] as! String
+        let docsDir = dirPaths[0] 
         
-        databasePath = docsDir.stringByAppendingPathComponent(
+        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
             "mainDatabase.sqlite")
         
         
@@ -97,20 +102,20 @@ class Clothes: UIViewController {
     
     @IBAction func clothesL(sender: AnyObject) {
         if(clothescount > 0){
-            clothescount--
+            clothescount -= 1
         }
+        if(clothescount != -1){
         clothesview.image = UIImage(named: "\(clothes[clothescount]).png")
         customclothes.image = UIImage(named: "\(clothes[clothescount]).png")
-        let filemgr = NSFileManager.defaultManager()
+        
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] as! String
+        let docsDir = dirPaths[0] 
         
-        databasePath = docsDir.stringByAppendingPathComponent(
+        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
             "mainDatabase.sqlite")
-        
         
         let mainDB = FMDatabase(path: databasePath as String)
         
@@ -124,11 +129,9 @@ class Clothes: UIViewController {
             {
                 clothesLabel.text = cResults?.stringForColumn("Points")
             }
-            
         }
         mainDB.close()
-        
     }
-  
+}
 }
 

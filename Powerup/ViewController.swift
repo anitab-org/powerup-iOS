@@ -66,35 +66,40 @@ class ViewController: UIViewController {
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] as! String
+        let docsDir = dirPaths[0] 
         var error: NSError?
         
-        databasePath = docsDir.stringByAppendingPathComponent(
+        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
             "mainDatabase.sqlite")
         
         
         if filemgr.fileExistsAtPath(databasePath as String){
-            println("FOUND!!!!")
-            filemgr.removeItemAtPath(databasePath as String, error: &error)
+            print("FOUND!!!!")
+            do {
+                try filemgr.removeItemAtPath(databasePath as String)
+            } catch let error1 as NSError {
+                error = error1
+            }
             
         }
         
         if let bundle_path = NSBundle.mainBundle().pathForResource("mainDatabase", ofType: "sqlite"){
-            println("\(bundle_path)")
+            print("\(bundle_path)")
             
-            if filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String, error: &error){
-                println("Success!!!")
-            }
-            else{
-                println("Failure")
-                println(error?.localizedDescription)
+            do {
+                try filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String)
+                print("Success!!!")
+            } catch let error1 as NSError {
+                error = error1
+                print("Failure")
+                print(error?.localizedDescription)
             }
         }
 
         
         let mainDB = FMDatabase(path: databasePath as String)
             if mainDB == nil{
-                println("Error: \(mainDB.lastErrorMessage())")
+                print("Error: \(mainDB.lastErrorMessage())")
             }
         
         // opening the database and extracting content through suitable queries

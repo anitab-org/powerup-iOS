@@ -46,14 +46,14 @@ class Choices_ThirdScreen: UIViewController {
     
         
         // Accessing the database
-        let filemgr = NSFileManager.defaultManager()
+        
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] as! String
+        let docsDir = dirPaths[0] 
         
-        databasePath = docsDir.stringByAppendingPathComponent(
+        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
             "Choices.sqlite")
         
         
@@ -79,7 +79,7 @@ class Choices_ThirdScreen: UIViewController {
             }
             
             if c2results?.next() == true {
-                var a = c2results?.stringForColumn("Text")
+                let a = c2results?.stringForColumn("Text")
                 passString = passString + a!
             }
             
@@ -101,7 +101,7 @@ class Choices_ThirdScreen: UIViewController {
                 
                 destinationVC.numberToDisplay = points
                 destinationVC.sampleText = passString
-                println("\(passString)")
+                print("\(passString)")
                 
                 destinationVC.eyeImage = eyeImage
                 destinationVC.hairImage = hairImage

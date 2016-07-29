@@ -63,14 +63,14 @@ class Scene5: UIViewController {
         answerViewC!.layer.cornerRadius = 5
 
         
-        let filemgr = NSFileManager.defaultManager()
+       
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] as! String
+        let docsDir = dirPaths[0] 
         
-        databasePath = docsDir.stringByAppendingPathComponent(
+        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
             "mainDatabase.sqlite")
         
         
@@ -123,12 +123,9 @@ class Scene5: UIViewController {
     // Alert message pops up if option C is chosen
     @IBAction func ansButton3(sender: UIButton) {
         
-        var alertView = UIAlertView();
-        alertView.addButtonWithTitle("Ok");
-        alertView.title = "MESSAGE!!!";
-        alertView.message = "SEX MINI - GAME!!!";
-        
-        alertView.show();
+        let alert = UIAlertController(title: "MESSAGE!!!", message:"SEX MINI - GAME !!!", preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+        self.presentViewController(alert, animated: true){}
         
     }
     

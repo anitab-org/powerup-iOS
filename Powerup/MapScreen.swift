@@ -45,15 +45,13 @@ class MapScreen: UIViewController {
         x = defaults.integerForKey("backtomap")
         if (x > 0)
         {
-            println("This action is not possible!! Kindly choose another level!!")
+            print("This action is not possible!! Kindly choose another level!!")
             
            //alert message popped up
-            var alertView = UIAlertView();
-            alertView.addButtonWithTitle("Ok");
-            alertView.title = "MESSAGE!!!";
-            alertView.message = "You have already played this scenario! Go try another level!!";
+            let alert = UIAlertController(title: "MESSAGE!!!", message:"You have already played this scenario! Go try another level!!", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+            self.presentViewController(alert, animated: true){}
             
-            alertView.show();
         }
             
             // condition for first time click - navigates to scenario

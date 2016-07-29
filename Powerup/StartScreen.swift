@@ -24,8 +24,9 @@ class StartScreen: UIViewController {
         return false
     }
     
-    override func supportedInterfaceOrientations() -> Int {
-        return UIInterfaceOrientation.Portrait.rawValue
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return [.Portrait]
+        //return UIInterfaceOrientation.Portrait.rawValue
     }
     
     override func viewDidLoad() {
@@ -38,24 +39,22 @@ class StartScreen: UIViewController {
     
     // Start button is clickable
     @IBAction func Start(sender: UIButton) {
-        var c = defaults.integerForKey("newuser")
+        let c = defaults.integerForKey("newuser")
         
         if(c == 0 ){
-            var alertView = UIAlertView();
-            alertView.addButtonWithTitle("OK");
-            alertView.title = "MESSAGE!!!";
-            alertView.message = "Press New User First!!";
-            alertView.show();
+            let alert = UIAlertController(title: "MESSAGE!!!", message:"Press New User First!!", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
+            self.presentViewController(alert, animated: true){}
         }
         else{
-            let filemgr = NSFileManager.defaultManager()
+            //let filemgr = NSFileManager.defaultManager()
             let dirPaths =
             NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
                 .UserDomainMask, true)
             
-            let docsDir = dirPaths[0] as! String
+            let docsDir = dirPaths[0] 
             
-            databasePath = docsDir.stringByAppendingPathComponent(
+            databasePath = (docsDir as NSString).stringByAppendingPathComponent(
                 "mainDatabase.sqlite")
             
             let mainDB = FMDatabase(path: databasePath as String)
@@ -106,7 +105,7 @@ class StartScreen: UIViewController {
     
     @IBAction func NewUser(sender: UIButton) {
         var c = defaults.integerForKey("newuser")
-        c++
+        c += 1
         defaults.setInteger(c, forKey: "newuser")
         
         var x = defaults.integerForKey("backtomap")
@@ -121,11 +120,11 @@ class StartScreen: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "startToMap"
         {
-            var c = defaults.integerForKey("newuser")
+            let c = defaults.integerForKey("newuser")
             if (c > 0){
                 
                 if let destinationVC = segue.destinationViewController as? MapScreen{
-                    println("Passing data to Map from Start button!!")
+                    print("Passing data to Map from Start button!!")
                     destinationVC.eyeImage = eyeImage
                     destinationVC.hairImage = hairImage
                     destinationVC.clothesImage = clothesImage

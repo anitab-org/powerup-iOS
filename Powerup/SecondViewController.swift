@@ -44,14 +44,14 @@ class SecondViewController: UIViewController {
         S2Rosie!.layer.cornerRadius = 5
         
         
-        let filemgr = NSFileManager.defaultManager()
+        //let filemgr = NSFileManager.defaultManager()
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] as! String
+        let docsDir = dirPaths[0] 
         
-        databasePath = docsDir.stringByAppendingPathComponent(
+        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
             "mainDatabase.sqlite")
         
         

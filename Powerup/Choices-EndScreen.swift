@@ -30,8 +30,9 @@ class Choices_EndScreen: UIViewController {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> Int {
-        return UIInterfaceOrientation.LandscapeRight.rawValue
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return [.Portrait]
+        //return UIInterfaceOrientation.LandscapeRight.rawValue
         
     }
     
@@ -56,7 +57,7 @@ class Choices_EndScreen: UIViewController {
         
         
         // Suitable concluding remark is displayed
-        if var check = conclusionText{
+        if conclusionText != nil{
             conclusionText.text = "\(sampleText)"
         }
         // Points also displayed according to line of communication
@@ -66,18 +67,17 @@ class Choices_EndScreen: UIViewController {
     
 // Checking replay button functionality
     @IBAction func replayButton(sender: UIButton) {
-    println("Replay Button Pressed...")
+    print("Replay Button Pressed...")
     }
     
     
-    // Conveying End of Scenario to Map Screen so that Level 1 can't be clicked again, value of counter copied to numberToDisplay field of MapScreen
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "nextView"
         {
             if let destinationVC = segue.destinationViewController as? DressingRoom2{
-                counter++
+                //counter += 1
                 destinationVC.points = numberToDisplay
-                destinationVC.numberToDisplay = counter
+                //destinationVC.numberToDisplay = counter
                 
                 destinationVC.eyeImage = eyesview.image
                 destinationVC.hairImage = hairview.image

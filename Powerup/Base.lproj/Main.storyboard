@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="eFm-LF-3yb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="eFm-LF-3yb">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--Start Screen-->
@@ -1443,6 +1444,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EgY-ZT-IAl">
                                 <rect key="frame" x="199" y="188" width="75" height="81"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="***Paid***" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Kx-Lr-AHA">
+                                <rect key="frame" x="169" y="217" width="135" height="18"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1454,6 +1461,7 @@
                         <outlet property="faceview" destination="pe3-8V-maf" id="Lqf-3N-TqI"/>
                         <outlet property="hairLabel" destination="qla-WZ-gy9" id="bTy-Qi-kfm"/>
                         <outlet property="hairview" destination="EgY-ZT-IAl" id="j3I-Vd-Sqw"/>
+                        <outlet property="paidLabel" destination="7Kx-Lr-AHA" id="Kri-Ak-ypn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHT-6E-nux" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1541,6 +1549,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="***Paid***" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onV-Sx-yzL">
+                                <rect key="frame" x="155" y="207" width="149" height="18"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1552,11 +1566,12 @@
                         <outlet property="eyesview" destination="BY1-Xs-GIg" id="7C9-jZ-vAL"/>
                         <outlet property="faceview" destination="4sV-5a-AYF" id="Yfb-hq-Wxj"/>
                         <outlet property="hairview" destination="bIn-lM-92z" id="6dP-Vd-LdP"/>
+                        <outlet property="paidLabel" destination="onV-Sx-yzL" id="Zcc-br-jpP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qzo-E4-Zcc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2222" y="-2770"/>
+            <point key="canvasLocation" x="2225" y="-2640"/>
         </scene>
         <!--Accessories-->
         <scene sceneID="uGO-Kb-Jms">
@@ -1618,6 +1633,16 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SV0-j7-ZLX">
                                 <rect key="frame" x="123" y="282" width="74" height="48"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Amw-Y6-opT">
+                                <rect key="frame" x="133" y="292" width="56" height="32"/>
+                                <connections>
+                                    <action selector="Hats:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="Pn9-nE-Tqg"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="***Paid***" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqC-TR-ITw">
+                                <rect key="frame" x="119" y="300" width="82" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="necklacebox" translatesAutoresizingMaskIntoConstraints="NO" id="gta-7s-jrp">
                                 <rect key="frame" x="220" y="262" width="90" height="105"/>
                             </imageView>
@@ -1705,9 +1730,17 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="bUI-ff-TW3">
                                 <rect key="frame" x="253" y="55" width="67" height="70"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="***Paid***" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlL-8l-A45">
+                                <rect key="frame" x="119" y="162" width="82" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sj1-Nb-FB4">
                                 <rect key="frame" x="230" y="150" width="74" height="43"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="***Paid***" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkc-0f-QDS">
+                                <rect key="frame" x="225" y="164" width="82" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ud8-qH-Agx">
                                 <rect key="frame" x="178" y="210" width="21" height="15"/>
                                 <state key="normal">
@@ -1732,6 +1765,22 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kqa-uJ-5Ad">
                                 <rect key="frame" x="242" y="282" width="50" height="45"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qla-t9-KSQ">
+                                <rect key="frame" x="252" y="292" width="36" height="32"/>
+                                <connections>
+                                    <action selector="Necklace:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="Y3g-fv-440"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tAS-ri-pCM">
+                                <rect key="frame" x="123" y="157" width="74" height="33"/>
+                                <connections>
+                                    <action selector="Bags:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="Nxd-Pl-800"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="***Paid***" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YdK-1N-moW">
+                                <rect key="frame" x="225" y="299" width="80" height="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhb-Zz-at1">
                                 <rect key="frame" x="139" y="196" width="42" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1744,6 +1793,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iYP-0y-88c">
+                                <rect key="frame" x="233" y="160" width="68" height="32"/>
+                                <connections>
+                                    <action selector="Glasses:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="CVZ-UJ-X28"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1765,6 +1820,10 @@
                         <outlet property="hatsview" destination="SV0-j7-ZLX" id="BXD-Tr-7GL"/>
                         <outlet property="necklaceLabel" destination="DFY-dk-RDB" id="cZ8-1m-Re6"/>
                         <outlet property="necklaceview" destination="Kqa-uJ-5Ad" id="YkB-pM-lLL"/>
+                        <outlet property="paidbagsLabel" destination="jlL-8l-A45" id="rJ2-xW-tDi"/>
+                        <outlet property="paidglassesLabel" destination="bkc-0f-QDS" id="ypZ-oh-zgT"/>
+                        <outlet property="paidhatsLabel" destination="qqC-TR-ITw" id="XqI-hh-PA4"/>
+                        <outlet property="paidnecklaceLabel" destination="YdK-1N-moW" id="6Xx-BY-uZX"/>
                         <outlet property="pointsLabel" destination="9IW-7K-Gls" id="lm7-Xg-smx"/>
                     </connections>
                 </viewController>
@@ -2273,20 +2332,15 @@
         <image name="necklacebox" width="300" height="300"/>
         <image name="powers" width="382" height="62"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="MOD-Bo-uno"/>
-        <segue reference="QNH-AA-Zx0"/>
-        <segue reference="pLN-RO-Lff"/>
-        <segue reference="Uzd-Dz-Up2"/>
         <segue reference="Pcl-29-Fre"/>
-        <segue reference="TfY-gY-RXS"/>
+        <segue reference="Ck5-aV-1L2"/>
         <segue reference="Bqy-ss-HWE"/>
         <segue reference="3cG-51-Ykd"/>
-        <segue reference="VXk-Sx-JOj"/>
+        <segue reference="v73-P1-b3f"/>
+        <segue reference="pLN-RO-Lff"/>
+        <segue reference="MOD-Bo-uno"/>
+        <segue reference="QNH-AA-Zx0"/>
+        <segue reference="Uzd-Dz-Up2"/>
     </inferredMetricsTieBreakers>
 </document>

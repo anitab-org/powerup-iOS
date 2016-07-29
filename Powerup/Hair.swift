@@ -8,6 +8,7 @@ class Hair: UIViewController {
     
     var databasePath = NSString()
     @IBOutlet weak var hairLabel: UILabel!
+    @IBOutlet weak var paidLabel: UILabel!
     @IBOutlet weak var hairview: UIImageView!
     @IBOutlet weak var customhair: UIImageView!
     
@@ -21,26 +22,28 @@ class Hair: UIViewController {
     var clothesImage: UIImage!
     
     var hair = ["hair2", "hair3", "hair4", "hair5", "hair6", "hair7", "hair8", "hair9", "hair10", "hair11"]
-    var haircount = 0
+    var haircount = -1
     var hairtotal = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        paidLabel.hidden = true
+        paidLabel.transform = CGAffineTransformMakeRotation(-45 * CGFloat(M_PI) / 180.0)
         eyesview.image = eyeImage
         clothesview.image = clothesImage
         faceview.image = faceImage
         customhair.image = hairImage
         
         hairview.image = UIImage(named: "\(hair[0]).png")
-        let filemgr = NSFileManager.defaultManager()
+        
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] as! String
+        let docsDir = dirPaths[0] 
         
-        databasePath = docsDir.stringByAppendingPathComponent(
+        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
             "mainDatabase.sqlite")
         
         let mainDB = FMDatabase(path: databasePath as String)
@@ -63,18 +66,18 @@ class Hair: UIViewController {
     
     @IBAction func hairR(sender: AnyObject) {
         if(haircount + 1 < hairtotal){
-            haircount++
+            haircount += 1
         }
         hairview.image = UIImage(named: "\(hair[haircount]).png")
         customhair.image = UIImage(named: "\(hair[haircount]).png")
-        let filemgr = NSFileManager.defaultManager()
+       
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] as! String
+        let docsDir = dirPaths[0] 
         
-        databasePath = docsDir.stringByAppendingPathComponent(
+        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
             "mainDatabase.sqlite")
         
         let mainDB = FMDatabase(path: databasePath as String)
@@ -96,18 +99,19 @@ class Hair: UIViewController {
     
     @IBAction func hairL(sender: AnyObject) {
         if(haircount > 0){
-            haircount--
+            haircount -= 1
         }
+        if(haircount != -1){
         hairview.image = UIImage(named: "\(hair[haircount]).png")
         customhair.image = UIImage(named: "\(hair[haircount]).png")
-        let filemgr = NSFileManager.defaultManager()
+        
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] as! String
+        let docsDir = dirPaths[0] 
         
-        databasePath = docsDir.stringByAppendingPathComponent(
+        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
             "mainDatabase.sqlite")
         
         let mainDB = FMDatabase(path: databasePath as String)
@@ -125,7 +129,7 @@ class Hair: UIViewController {
             
         }
         mainDB.close()
-        
+        }
     }
     
 }

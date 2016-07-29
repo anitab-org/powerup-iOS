@@ -52,7 +52,7 @@ class CustomizeAvatar: UIViewController {
    
     @IBAction func clothesR(sender: AnyObject) {
         if(clothescount + 1 < clothestotal){
-            clothescount++
+            clothescount += 1
         }
         clothesview.image = UIImage(named: "\(clothes[clothescount]).png")
         customclothes.image = UIImage(named: "\(clothes[clothescount]).png")
@@ -60,7 +60,7 @@ class CustomizeAvatar: UIViewController {
     
     @IBAction func clothesL(sender: AnyObject) {
         if(clothescount > 0){
-            clothescount--
+            clothescount -= 1
         }
         clothesview.image = UIImage(named: "\(clothes[clothescount]).png")
         customclothes.image = UIImage(named: "\(clothes[clothescount]).png")
@@ -69,7 +69,7 @@ class CustomizeAvatar: UIViewController {
     @IBAction func hairR(sender: AnyObject) {
         
         if(haircount + 1 < hairtotal){
-            haircount++
+            haircount += 1
         }
         hairview.image = UIImage(named: "\(hair[haircount]).png")
         customhair.image = UIImage(named: "\(hair[haircount]).png")
@@ -78,7 +78,7 @@ class CustomizeAvatar: UIViewController {
     }
     @IBAction func hairL(sender: AnyObject) {
         if(haircount > 0){
-            haircount--
+            haircount -= 1
         }
         hairview.image = UIImage(named: "\(hair[haircount]).png")
         customhair.image = UIImage(named: "\(hair[haircount]).png")
@@ -86,7 +86,7 @@ class CustomizeAvatar: UIViewController {
     }
     @IBAction func faceR(sender: AnyObject) {
         if(facecount + 1 < facetotal){
-            facecount++
+            facecount += 1
         }
         faceview.image = UIImage(named: "\(face[facecount]).png")
         customface.image = UIImage(named: "\(face[facecount]).png")
@@ -94,7 +94,7 @@ class CustomizeAvatar: UIViewController {
     
     @IBAction func faceL(sender: AnyObject) {
         if(facecount  > 0){
-            facecount--
+            facecount -= 1
         }
         faceview.image = UIImage(named: "\(face[facecount]).png")
         customface.image = UIImage(named: "\(face[facecount]).png")
@@ -102,14 +102,14 @@ class CustomizeAvatar: UIViewController {
     
     @IBAction func eyesR(sender: AnyObject) {
         if(eyescount + 1 < eyestotal){
-            eyescount++
+            eyescount += 1
         }
         eyesview.image = UIImage(named: "\(eyes[eyescount]).png")
         customeyes.image = UIImage(named: "\(eyes[eyescount]).png")
     }
     @IBAction func eyesL(sender: AnyObject) {
         if(eyescount  > 0){
-            eyescount--
+            eyescount -= 1
         }
         eyesview.image = UIImage(named: "\(eyes[eyescount]).png")
         customeyes.image = UIImage(named: "\(eyes[eyescount]).png")
@@ -128,7 +128,7 @@ class CustomizeAvatar: UIViewController {
             
             
         }
-        println("This is printed when you reach Map from DR1!")
+        print("This is printed when you reach Map from DR1!")
         
         // Fetching database content via FMDB wrapper
         
@@ -137,31 +137,36 @@ class CustomizeAvatar: UIViewController {
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] as! String
+        let docsDir = dirPaths[0] 
         var error: NSError?
         
-        databasePath = docsDir.stringByAppendingPathComponent(
+        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
             "mainDatabase.sqlite")
         
         
         if filemgr.fileExistsAtPath(databasePath as String){
-            println("FOUND!!!!")
-            filemgr.removeItemAtPath(databasePath as String, error: &error)
+            print("FOUND!!!!")
+            do {
+                try filemgr.removeItemAtPath(databasePath as String)
+            } catch let error1 as NSError {
+                error = error1
+            }
         }
        
         
        if let bundle_path = NSBundle.mainBundle().pathForResource("mainDatabase", ofType: "sqlite"){
-            println("Bundle path:\(bundle_path)")
-            println(" ")
-            if filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String, error: &error){
-                println("Success in copying from bundle to databasepath")
-                println("Database path: \(databasePath)")
-                println(" ")
+            print("Bundle path:\(bundle_path)")
+            print(" ")
+            do {
+                try filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String)
+                print("Success in copying from bundle to databasepath")
+                print("Database path: \(databasePath)")
+                print(" ")
 
-            }
-            else{
-                println("Failure 1")
-                println(error?.localizedDescription)
+            } catch let error1 as NSError {
+                error = error1
+                print("Failure 1")
+                print(error?.localizedDescription)
             }
         
         
@@ -173,27 +178,32 @@ class CustomizeAvatar: UIViewController {
             let query = "INSERT INTO Avatar (Face, Clothes, Hair, Eyes) VALUES ('\(face[facecount])', '\(clothes[clothescount])', '\(hair[haircount])', '\(eyes[eyescount])')"
               let addSuccess = mainDB.executeUpdate(query, withArgumentsInArray: nil)
             if(!addSuccess){
-                println("Failed to add data to Avatar Table")
+                print("Failed to add data to Avatar Table")
             }
             else
             {
-                print("Success....")
+                print("Success....", terminator: "")
             }
        
        
         if filemgr.fileExistsAtPath(bundle_path){
-            println("About to del bundle file")
-            filemgr.removeItemAtPath(bundle_path, error: &error)
+            print("About to del bundle file")
+            do {
+                try filemgr.removeItemAtPath(bundle_path)
+            } catch let error1 as NSError {
+                error = error1
+            }
             
         }
         
-        if filemgr.copyItemAtPath(databasePath as String, toPath: bundle_path, error: &error){
-            println("replaced bundle path contents")
+        do {
+            try filemgr.copyItemAtPath(databasePath as String, toPath: bundle_path)
+            print("replaced bundle path contents")
             
-        }
-        else{
-            println("Failure 2")
-            println(error?.localizedDescription)
+        } catch let error1 as NSError {
+            error = error1
+            print("Failure 2")
+            print(error?.localizedDescription)
         }
 
         }

@@ -6,6 +6,7 @@ import UIKit
 
 class DressingRoom2: UIViewController {
     
+    var databasePath = NSString()
     let defaults = NSUserDefaults.standardUserDefaults()
     var points = 0
     var numberToDisplay = 0
@@ -36,6 +37,82 @@ class DressingRoom2: UIViewController {
         let value = UIInterfaceOrientation.Portrait.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
         pointsLabel.text = "\(points)"
+        
+       
+        let filemgr = NSFileManager.defaultManager()
+        let dirPaths =
+            NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
+                                                .UserDomainMask, true)
+        
+        let docsDir = dirPaths[0]
+        var error: NSError?
+        
+        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
+            "mainDatabase.sqlite")
+        
+        
+        if filemgr.fileExistsAtPath(databasePath as String){
+            print("FOUND!!!!")
+            do {
+                try filemgr.removeItemAtPath(databasePath as String)
+            } catch let error1 as NSError {
+                error = error1
+            }
+        }
+        
+        
+        if let bundle_path = NSBundle.mainBundle().pathForResource("mainDatabase", ofType: "sqlite"){
+            print("Bundle path:\(bundle_path)")
+            print(" ")
+            do {
+                try filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String)
+                print("Success in copying from bundle to databasepath")
+                print("Database path: \(databasePath)")
+                print(" ")
+                
+            } catch let error1 as NSError {
+                error = error1
+                print("Failure 1")
+                print(error?.localizedDescription)
+            }
+            
+            
+            let mainDB = FMDatabase(path: databasePath as String)
+            if mainDB.open(){
+                
+                let query = "INSERT INTO Score (Points) VALUES ('\(points)')"
+                let addSuccess = mainDB.executeUpdate(query, withArgumentsInArray: nil)
+                if(!addSuccess){
+                    print("Failed to add data to Avatar Table")
+                }
+                else
+                {
+                    print("Success....", terminator: "")
+                }
+                
+                if filemgr.fileExistsAtPath(bundle_path){
+                    print("About to del bundle file")
+                    do {
+                        try filemgr.removeItemAtPath(bundle_path)
+                    } catch let error1 as NSError {
+                        error = error1
+                    }
+                }
+                
+                do {
+                    try filemgr.copyItemAtPath(databasePath as String, toPath: bundle_path)
+                    print("replaced bundle path contents")
+                    
+                } catch let error1 as NSError {
+                    error = error1
+                    print("Failure 2")
+                    print(error?.localizedDescription)
+                }
+                
+            }
+            mainDB.close()
+        }
+ 
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -45,7 +122,7 @@ class DressingRoom2: UIViewController {
                 //destinationVC.numberToDisplay = numberToDisplay
                 
                 var x = defaults.integerForKey("backtomap")
-                x++
+                x += 1
                 defaults.setInteger(x, forKey: "backtomap")
                 
                 destinationVC.eyeImage = eyesview.image
