@@ -73,8 +73,8 @@ class Accessories: UIViewController {
         hatsview.image = UIImage(named: "\(hats[0]).png")
         necklaceview.image = UIImage(named: "\(necklace[0]).png")
         
-        pointsLabel.text = "\(points)"
-        
+        /****** Take points value from updated database- Table Score*****/
+        //pointsLabel.text = "\(points)"
        
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
@@ -88,6 +88,7 @@ class Accessories: UIViewController {
         let mainDB = FMDatabase(path: databasePath as String)
         
         if mainDB.open(){
+            
             let bagsRes = "SELECT Points FROM Accessories Where Name='\(handbags[0])'"
             let glassesRes = "SELECT Points FROM Accessories Where Name='\(glasses[0])'"
             let hatsRes = "SELECT Points FROM Accessories Where Name='\(hats[0])'"
@@ -95,14 +96,12 @@ class Accessories: UIViewController {
             
             let bResults:FMResultSet? = mainDB.executeQuery(bagsRes,
                 withArgumentsInArray: nil)
-            
             let gResults:FMResultSet? = mainDB.executeQuery(glassesRes,
                 withArgumentsInArray: nil)
             let hResults:FMResultSet? = mainDB.executeQuery(hatsRes,
                 withArgumentsInArray: nil)
             let nResults:FMResultSet? = mainDB.executeQuery(necklaceRes,
                 withArgumentsInArray: nil)
-            
             
             if bResults?.next() == true
             {
@@ -122,6 +121,13 @@ class Accessories: UIViewController {
             if nResults?.next() == true
             {
                 necklaceLabel.text = nResults?.stringForColumn("Points")
+            }
+            let p = "SELECT Points FROM Score Where ID=1"
+            let presults:FMResultSet? = mainDB.executeQuery(p,
+                                                            withArgumentsInArray: nil)
+            
+            if presults?.next() == true {
+                pointsLabel.text = presults?.stringForColumn("Points")
             }
             
         }
@@ -495,6 +501,9 @@ class Accessories: UIViewController {
 }
     
     @IBAction func Bags(sender: UIButton) {
+        if(handbagscount == -1){
+            return
+        }
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
             NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
@@ -607,6 +616,9 @@ class Accessories: UIViewController {
     
     
     @IBAction func Glasses(sender: UIButton) {
+        if(glassescount == -1){
+            return
+        }
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
             NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
@@ -724,6 +736,10 @@ class Accessories: UIViewController {
         
     }
     @IBAction func Hats(sender: UIButton) {
+        if(hatscount == -1){
+            return
+        }
+        
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
             NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
@@ -747,18 +763,13 @@ class Accessories: UIViewController {
         }
         
         if let bundle_path = NSBundle.mainBundle().pathForResource("mainDatabase", ofType: "sqlite"){
-            //print("\(bundle_path)")
-            
             do {
                 try filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String)
-                //print("Success!!!")
             } catch let error1 as NSError {
                 error = error1
                 print("Failure")
                 print(error?.localizedDescription)
             }
-            
-            
             
             let mainDB = FMDatabase(path: databasePath as String)
             if mainDB == nil{
@@ -842,6 +853,9 @@ class Accessories: UIViewController {
         
     }
     @IBAction func Necklace(sender: UIButton) {
+        if(necklacecount == -1){
+            return
+        }
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
             NSSearchPathForDirectoriesInDomains(.DocumentDirectory,

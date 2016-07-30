@@ -36,8 +36,9 @@ class DressingRoom2: UIViewController {
         // setting the orientation to portrait
         let value = UIInterfaceOrientation.Portrait.rawValue
         UIDevice.currentDevice().setValue(value, forKey: "orientation")
-        pointsLabel.text = "\(points)"
         
+        /***********Update points label from table Score- database**********/
+        //pointsLabel.text = "\(points)"
        
         let filemgr = NSFileManager.defaultManager()
         let dirPaths =
@@ -108,7 +109,13 @@ class DressingRoom2: UIViewController {
                     print("Failure 2")
                     print(error?.localizedDescription)
                 }
+                let p = "SELECT Points FROM Score Where ID=1"
+                let presults:FMResultSet? = mainDB.executeQuery(p,
+                                                                withArgumentsInArray: nil)
                 
+                if presults?.next() == true {
+                    pointsLabel.text = presults?.stringForColumn("Points")
+                }
             }
             mainDB.close()
         }
@@ -145,7 +152,7 @@ class DressingRoom2: UIViewController {
         if segue.identifier == "clothesView"
         {
             if let destinationVC = segue.destinationViewController as? Clothes{
-                //destinationVC.points = points
+                destinationVC.points = points
                 
                 destinationVC.eyeImage = eyesview.image
                 destinationVC.hairImage = hairview.image
@@ -157,7 +164,7 @@ class DressingRoom2: UIViewController {
         if segue.identifier == "hairView"
         {
             if let destinationVC = segue.destinationViewController as? Hair{
-                //destinationVC.points = points
+                destinationVC.points = points
                 
                 destinationVC.eyeImage = eyesview.image
                 destinationVC.hairImage = hairview.image

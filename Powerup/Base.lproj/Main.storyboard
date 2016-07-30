@@ -1298,7 +1298,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="karma_icon" translatesAutoresizingMaskIntoConstraints="NO" id="NQh-lQ-yiu">
                                 <rect key="frame" x="16" y="69" width="64" height="59"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G99-jO-5HD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G99-jO-5HD">
                                 <rect key="frame" x="26" y="94" width="47" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1378,6 +1378,15 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dressingroom_bgd" translatesAutoresizingMaskIntoConstraints="NO" id="2Jk-eO-nlf" customClass="Ha">
                                 <rect key="frame" x="0.0" y="55" width="320" height="504"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="karma_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Iu7-io-aCI">
+                                <rect key="frame" x="10" y="65" width="64" height="59"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfP-0x-2wg">
+                                <rect key="frame" x="19" y="90" width="47" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="UaJ-ph-l6v">
                                 <rect key="frame" x="253" y="55" width="67" height="70"/>
                             </imageView>
@@ -1444,11 +1453,15 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EgY-ZT-IAl">
                                 <rect key="frame" x="199" y="188" width="75" height="81"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWC-Wt-nya">
+                                <rect key="frame" x="204" y="192" width="67" height="63"/>
+                                <connections>
+                                    <action selector="Hair:" destination="uwr-Kr-eqY" eventType="touchUpInside" id="Fas-hy-edR"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="***Paid***" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Kx-Lr-AHA">
                                 <rect key="frame" x="169" y="217" width="135" height="18"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1462,6 +1475,7 @@
                         <outlet property="hairLabel" destination="qla-WZ-gy9" id="bTy-Qi-kfm"/>
                         <outlet property="hairview" destination="EgY-ZT-IAl" id="j3I-Vd-Sqw"/>
                         <outlet property="paidLabel" destination="7Kx-Lr-AHA" id="Kri-Ak-ypn"/>
+                        <outlet property="pointsLabel" destination="gfP-0x-2wg" id="cnM-bz-Qrr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHT-6E-nux" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1483,6 +1497,15 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dressingroom_bgd" translatesAutoresizingMaskIntoConstraints="NO" id="zu8-yr-nrs">
                                 <rect key="frame" x="0.0" y="55" width="320" height="504"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="karma_icon" translatesAutoresizingMaskIntoConstraints="NO" id="si1-ts-0H5">
+                                <rect key="frame" x="10" y="65" width="64" height="59"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhC-ax-6bP">
+                                <rect key="frame" x="19" y="90" width="47" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="body" translatesAutoresizingMaskIntoConstraints="NO" id="Eb4-9z-F9h">
                                 <rect key="frame" x="7" y="129" width="105" height="194"/>
                             </imageView>
@@ -1551,10 +1574,14 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="***Paid***" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onV-Sx-yzL">
                                 <rect key="frame" x="155" y="207" width="149" height="18"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbU-Pz-AJf">
+                                <rect key="frame" x="194" y="191" width="67" height="63"/>
+                                <connections>
+                                    <action selector="Clothes:" destination="5Sy-Jc-ysf" eventType="touchUpInside" id="e7s-TR-q6u"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1567,6 +1594,7 @@
                         <outlet property="faceview" destination="4sV-5a-AYF" id="Yfb-hq-Wxj"/>
                         <outlet property="hairview" destination="bIn-lM-92z" id="6dP-Vd-LdP"/>
                         <outlet property="paidLabel" destination="onV-Sx-yzL" id="Zcc-br-jpP"/>
+                        <outlet property="pointsLabel" destination="fhC-ax-6bP" id="PWD-jN-tOu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qzo-E4-Zcc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1694,7 +1722,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="karma_icon" translatesAutoresizingMaskIntoConstraints="NO" id="1WZ-w5-9yF">
                                 <rect key="frame" x="10" y="65" width="64" height="59"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9IW-7K-Gls">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9IW-7K-Gls">
                                 <rect key="frame" x="19" y="90" width="47" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2333,14 +2361,14 @@
         <image name="powers" width="382" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Pcl-29-Fre"/>
-        <segue reference="Ck5-aV-1L2"/>
-        <segue reference="Bqy-ss-HWE"/>
-        <segue reference="3cG-51-Ykd"/>
-        <segue reference="v73-P1-b3f"/>
         <segue reference="pLN-RO-Lff"/>
         <segue reference="MOD-Bo-uno"/>
         <segue reference="QNH-AA-Zx0"/>
+        <segue reference="3SD-2Q-hBE"/>
+        <segue reference="Pcl-29-Fre"/>
+        <segue reference="Bqy-ss-HWE"/>
+        <segue reference="3cG-51-Ykd"/>
+        <segue reference="v73-P1-b3f"/>
         <segue reference="Uzd-Dz-Up2"/>
     </inferredMetricsTieBreakers>
 </document>
