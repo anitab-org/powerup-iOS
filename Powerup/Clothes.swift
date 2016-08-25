@@ -13,16 +13,18 @@ class Clothes: UIViewController {
     
     @IBOutlet weak var clothesview: UIImageView!
     @IBOutlet weak var customclothes: UIImageView!
-    
+   
     @IBOutlet weak var eyesview: UIImageView!
     @IBOutlet weak var hairview: UIImageView!
     @IBOutlet weak var faceview: UIImageView!
     
     var points = 0
+    var idno = 0
     var eyeImage: UIImage!
     var faceImage: UIImage!
     var hairImage: UIImage!
     var clothesImage: UIImage!
+    var originalclothes: UIImage!
     
     var clothes = ["cloth1", "cloth2", "cloth3", "cloth4", "cloth5", "cloth6", "cloth7", "cloth8", "cloth9"]
     var clothescount = -1
@@ -37,10 +39,10 @@ class Clothes: UIViewController {
         hairview.image = hairImage
         faceview.image = faceImage
         customclothes.image = clothesImage
+        originalclothes = clothesImage
         
         clothesview.image = UIImage(named: "\(clothes[0]).png")
         
-        /***********Take points value from database- Table Score***********/
         //pointsLabel.text = "\(points)"
         
         let dirPaths =
@@ -65,7 +67,8 @@ class Clothes: UIViewController {
             {
                 clothesLabel.text = cResults?.stringForColumn("Points")
             }
-            let p = "SELECT Points FROM Score Where ID=1"
+            
+            let p = "SELECT Points FROM Score Where ID='\(idno)'"
             let presults:FMResultSet? = mainDB.executeQuery(p,
                                                             withArgumentsInArray: nil)
             
@@ -209,12 +212,12 @@ class Clothes: UIViewController {
             
             // opening the database and extracting content through suitable queries
             if mainDB.open(){
-                let p = "SELECT Points FROM Score Where ID=1"
+                let p = "SELECT Points FROM Score Where ID='\(idno)'"
                 let presults:FMResultSet? = mainDB.executeQuery(p,
                                                                 withArgumentsInArray: nil)
                 
                 if presults?.next() == true {
-                    print("Selected Points entry from ID=1")
+                    print("Selected Points entry")
                     let x = presults?.stringForColumn("Points")
                     let clothesRes = "SELECT Points FROM Clothes Where Name='\(clothes[clothescount])'"
                     let cresults:FMResultSet? = mainDB.executeQuery(clothesRes,
@@ -230,7 +233,7 @@ class Clothes: UIViewController {
                         if(a >= b )
                         {
                             paidLabel.hidden = false
-                            let query = "UPDATE Score SET Points='\(a!-b!)' WHERE ID=1"
+                            let query = "UPDATE Score SET Points='\(a!-b!)' WHERE ID='\(idno)'"
                             let addSuccess = mainDB.executeUpdate(query, withArgumentsInArray: nil)
                             if(!addSuccess){
                                 print("Failed to add data to Avatar Table")
@@ -280,6 +283,19 @@ class Clothes: UIViewController {
             mainDB.close()
         }
 
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "fromCloth"
+        {
+            if let destinationVC = segue.destinationViewController as? DressingRoom2{
+                destinationVC.idno = idno
+                destinationVC.eyeImage = eyesview.image
+                destinationVC.hairImage = hairview.image
+                destinationVC.clothesImage = originalclothes
+                destinationVC.faceImage = faceview.image
+                
+            }
+        }
     }
 }
 

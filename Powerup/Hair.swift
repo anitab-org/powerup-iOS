@@ -7,6 +7,7 @@ import UIKit
 class Hair: UIViewController {
     
     var points = 0
+    var idno = 0
     var databasePath = NSString()
     @IBOutlet weak var hairLabel: UILabel!
     @IBOutlet weak var paidLabel: UILabel!
@@ -22,6 +23,7 @@ class Hair: UIViewController {
     var eyeImage: UIImage!
     var faceImage: UIImage!
     var hairImage: UIImage!
+    var originalhair: UIImage!
     var clothesImage: UIImage!
     
     var hair = ["hair2", "hair3", "hair4", "hair5", "hair6", "hair7", "hair8", "hair9", "hair10", "hair11"]
@@ -37,10 +39,9 @@ class Hair: UIViewController {
         clothesview.image = clothesImage
         faceview.image = faceImage
         customhair.image = hairImage
-        
+        originalhair = hairImage
         hairview.image = UIImage(named: "\(hair[0]).png")
         
-        /***********Take points value from database- Table Score***********/
         //pointsLabel.text = "\(points)"
         
         let dirPaths =
@@ -64,7 +65,7 @@ class Hair: UIViewController {
             {
                 hairLabel.text = hResults?.stringForColumn("Points")
             }
-            let p = "SELECT Points FROM Score Where ID=1"
+            let p = "SELECT Points FROM Score Where ID='\(idno)'"
             let presults:FMResultSet? = mainDB.executeQuery(p,
                                                             withArgumentsInArray: nil)
             
@@ -210,12 +211,12 @@ class Hair: UIViewController {
             
             // opening the database and extracting content through suitable queries
             if mainDB.open(){
-                let p = "SELECT Points FROM Score Where ID=1"
+                let p = "SELECT Points FROM Score Where ID='\(idno)'"
                 let presults:FMResultSet? = mainDB.executeQuery(p,
                                                                 withArgumentsInArray: nil)
                 
                 if presults?.next() == true {
-                    print("Selected Points entry from ID=1")
+                    print("Selected Points entry")
                     let x = presults?.stringForColumn("Points")
                     let hairRes = "SELECT Points FROM Hair Where Name='\(hair[haircount])'"
                     let hresults:FMResultSet? = mainDB.executeQuery(hairRes,
@@ -231,7 +232,7 @@ class Hair: UIViewController {
                         if(a >= b )
                         {
                             paidLabel.hidden = false
-                            let query = "UPDATE Score SET Points='\(a!-b!)' WHERE ID=1"
+                            let query = "UPDATE Score SET Points='\(a!-b!)' WHERE ID='\(idno)'"
                             let addSuccess = mainDB.executeUpdate(query, withArgumentsInArray: nil)
                             if(!addSuccess){
                                 print("Failed to add data to Avatar Table")
@@ -283,7 +284,19 @@ class Hair: UIViewController {
         }
         
     }
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "fromHair"
+        {
+            if let destinationVC = segue.destinationViewController as? DressingRoom2{
+                destinationVC.idno = idno
+                destinationVC.eyeImage = eyesview.image
+                destinationVC.hairImage = originalhair
+                destinationVC.clothesImage = clothesview.image
+                destinationVC.faceImage = faceview.image
+                
+            }
+        }
+    }
 }
 
 

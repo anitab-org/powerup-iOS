@@ -42,7 +42,6 @@ class CustomizeAvatar: UIViewController {
         customface.image = UIImage(named: "\(face[facecount]).png")
         customhair.image = UIImage(named: "\(hair[haircount]).png")
         
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -125,8 +124,6 @@ class CustomizeAvatar: UIViewController {
                 destinationVC.clothesImage = clothesview.image
                 destinationVC.faceImage = faceview.image
             }
-            
-            
         }
         print("This is printed when you reach Map from DR1!")
         
@@ -172,8 +169,6 @@ class CustomizeAvatar: UIViewController {
         
          let mainDB = FMDatabase(path: databasePath as String) 
         if mainDB.open(){
-            
-            //let query = "INSERT INTO Avatar (Face, Clothes, Hair, Eyes) VALUES ('brick_face', 'cloth1', 'hair10', 'grey_eyes')"
             
             let query = "INSERT INTO Avatar (Face, Clothes, Hair, Eyes) VALUES ('\(face[facecount])', '\(clothes[clothescount])', '\(hair[haircount])', '\(eyes[eyescount])')"
               let addSuccess = mainDB.executeUpdate(query, withArgumentsInArray: nil)

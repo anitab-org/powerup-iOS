@@ -8,6 +8,7 @@ import UIKit
 class Accessories: UIViewController {
 
     var points = 0
+    var idno = 0
     var databasePath = NSString()
     @IBOutlet weak var pointsLabel: UILabel!
     
@@ -73,7 +74,6 @@ class Accessories: UIViewController {
         hatsview.image = UIImage(named: "\(hats[0]).png")
         necklaceview.image = UIImage(named: "\(necklace[0]).png")
         
-        /****** Take points value from updated database- Table Score*****/
         //pointsLabel.text = "\(points)"
        
         let dirPaths =
@@ -122,7 +122,7 @@ class Accessories: UIViewController {
             {
                 necklaceLabel.text = nResults?.stringForColumn("Points")
             }
-            let p = "SELECT Points FROM Score Where ID=1"
+            let p = "SELECT Points FROM Score Where ID='\(idno)'"
             let presults:FMResultSet? = mainDB.executeQuery(p,
                                                             withArgumentsInArray: nil)
             
@@ -542,12 +542,12 @@ class Accessories: UIViewController {
         
         // opening the database and extracting content through suitable queries
         if mainDB.open(){
-            let p = "SELECT Points FROM Score Where ID=1"
+            let p = "SELECT Points FROM Score Where ID='\(idno)'"
             let presults:FMResultSet? = mainDB.executeQuery(p,
                                                             withArgumentsInArray: nil)
             
             if presults?.next() == true {
-                print("Selected Points entry from ID=1")
+                print("Selected Points entry")
                 let x = presults?.stringForColumn("Points")
                 let bagsRes = "SELECT Points FROM Accessories Where Name='\(handbags[handbagscount])'"
                 let bresults:FMResultSet? = mainDB.executeQuery(bagsRes,
@@ -563,7 +563,7 @@ class Accessories: UIViewController {
                     if(a >= b )
                     {
                         paidbagsLabel.hidden = false
-                        let query = "UPDATE Score SET Points='\(a!-b!)' WHERE ID=1"
+                        let query = "UPDATE Score SET Points='\(a!-b!)' WHERE ID='\(idno)'"
                         let addSuccess = mainDB.executeUpdate(query, withArgumentsInArray: nil)
                         if(!addSuccess){
                             print("Failed to add data to Avatar Table")
@@ -661,13 +661,13 @@ class Accessories: UIViewController {
             
             // opening the database and extracting content through suitable queries
             if mainDB.open(){
-                let p = "SELECT Points FROM Score Where ID=1"
+                let p = "SELECT Points FROM Score Where ID='\(idno)'"
                 
                 let presults:FMResultSet? = mainDB.executeQuery(p,
                                                                 withArgumentsInArray: nil)
                 
                 if presults?.next() == true {
-                    print("Selected Points entry from ID=1")
+                    print("Selected Points entry")
                     let x = presults?.stringForColumn("Points")
                     let bagsRes = "SELECT Points FROM Accessories Where Name='\(glasses[glassescount])'"
                     let bresults:FMResultSet? = mainDB.executeQuery(bagsRes,
@@ -683,7 +683,7 @@ class Accessories: UIViewController {
                         if(a >= b )
                         {
                             paidglassesLabel.hidden = false
-                            let query = "UPDATE Score SET Points='\(a!-b!)' WHERE ID=1"
+                            let query = "UPDATE Score SET Points='\(a!-b!)' WHERE ID='\(idno)'"
                             let addSuccess = mainDB.executeUpdate(query, withArgumentsInArray: nil)
                             if(!addSuccess){
                                 print("Failed to add data to Avatar Table")
@@ -778,13 +778,13 @@ class Accessories: UIViewController {
             
             // opening the database and extracting content through suitable queries
             if mainDB.open(){
-                let p = "SELECT Points FROM Score Where ID=1"
+                let p = "SELECT Points FROM Score Where ID='\(idno)'"
                 
                 let presults:FMResultSet? = mainDB.executeQuery(p,
                                                                 withArgumentsInArray: nil)
                 
                 if presults?.next() == true {
-                    print("Selected Points entry from ID=1")
+                    print("Selected Points entry")
                     let x = presults?.stringForColumn("Points")
                     let bagsRes = "SELECT Points FROM Accessories Where Name='\(hats[hatscount])'"
                     let bresults:FMResultSet? = mainDB.executeQuery(bagsRes,
@@ -800,7 +800,7 @@ class Accessories: UIViewController {
                         if(a >= b )
                         {
                             paidhatsLabel.hidden = false
-                            let query = "UPDATE Score SET Points='\(a!-b!)' WHERE ID=1"
+                            let query = "UPDATE Score SET Points='\(a!-b!)' WHERE ID='\(idno)'"
                             let addSuccess = mainDB.executeUpdate(query, withArgumentsInArray: nil)
                             if(!addSuccess){
                                 print("Failed to add data to Avatar Table")
@@ -899,13 +899,13 @@ class Accessories: UIViewController {
             
             // opening the database and extracting content through suitable queries
             if mainDB.open(){
-                let p = "SELECT Points FROM Score Where ID=1"
+                let p = "SELECT Points FROM Score Where ID='\(idno)'"
                 
                 let presults:FMResultSet? = mainDB.executeQuery(p,
                                                                 withArgumentsInArray: nil)
                 
                 if presults?.next() == true {
-                    print("Selected Points entry from ID=1")
+                    print("Selected Points entry")
                     let x = presults?.stringForColumn("Points")
                     let bagsRes = "SELECT Points FROM Accessories Where Name='\(necklace[necklacecount])'"
                     let bresults:FMResultSet? = mainDB.executeQuery(bagsRes,
@@ -921,7 +921,7 @@ class Accessories: UIViewController {
                         if(a >= b )
                         {
                             paidnecklaceLabel.hidden = false
-                            let query = "UPDATE Score SET Points='\(a!-b!)' WHERE ID=1"
+                            let query = "UPDATE Score SET Points='\(a!-b!)' WHERE ID='\(idno)'"
                             let addSuccess = mainDB.executeUpdate(query, withArgumentsInArray: nil)
                             if(!addSuccess){
                                 print("Failed to add data to Avatar Table")
@@ -971,5 +971,18 @@ class Accessories: UIViewController {
             mainDB.close()
         }
         
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "fromAccess"
+        {
+            if let destinationVC = segue.destinationViewController as? DressingRoom2{
+                destinationVC.idno = idno
+                destinationVC.eyeImage = eyesview.image
+                destinationVC.hairImage = hairview.image
+                destinationVC.clothesImage = clothesview.image
+                destinationVC.faceImage = faceview.image
+                
+            }
+        }
     }
 }

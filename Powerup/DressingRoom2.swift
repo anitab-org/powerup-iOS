@@ -9,6 +9,7 @@ class DressingRoom2: UIViewController {
     var databasePath = NSString()
     let defaults = NSUserDefaults.standardUserDefaults()
     var points = 0
+    var idno = 0
     var numberToDisplay = 0
       @IBOutlet weak var pointsLabel: UILabel!
     
@@ -80,7 +81,7 @@ class DressingRoom2: UIViewController {
             
             let mainDB = FMDatabase(path: databasePath as String)
             if mainDB.open(){
-                
+                /*
                 let query = "INSERT INTO Score (Points) VALUES ('\(points)')"
                 let addSuccess = mainDB.executeUpdate(query, withArgumentsInArray: nil)
                 if(!addSuccess){
@@ -109,7 +110,9 @@ class DressingRoom2: UIViewController {
                     print("Failure 2")
                     print(error?.localizedDescription)
                 }
-                let p = "SELECT Points FROM Score Where ID=1"
+ */
+                
+                let p = "SELECT Points FROM Score Where ID='\(idno)'"
                 let presults:FMResultSet? = mainDB.executeQuery(p,
                                                                 withArgumentsInArray: nil)
                 
@@ -142,6 +145,7 @@ class DressingRoom2: UIViewController {
         {
             if let destinationVC = segue.destinationViewController as? Accessories{
                 destinationVC.points = points
+                destinationVC.idno = idno
                 
                 destinationVC.eyeImage = eyesview.image
                 destinationVC.hairImage = hairview.image
@@ -153,6 +157,8 @@ class DressingRoom2: UIViewController {
         {
             if let destinationVC = segue.destinationViewController as? Clothes{
                 destinationVC.points = points
+                print("\(idno)")
+                destinationVC.idno = idno
                 
                 destinationVC.eyeImage = eyesview.image
                 destinationVC.hairImage = hairview.image
@@ -165,6 +171,7 @@ class DressingRoom2: UIViewController {
         {
             if let destinationVC = segue.destinationViewController as? Hair{
                 destinationVC.points = points
+                destinationVC.idno = idno
                 
                 destinationVC.eyeImage = eyesview.image
                 destinationVC.hairImage = hairview.image

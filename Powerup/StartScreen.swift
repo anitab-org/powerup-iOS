@@ -2,7 +2,6 @@
 //  StartScreen.swift
 //
 
-
 import UIKit
 
 class StartScreen: UIViewController {

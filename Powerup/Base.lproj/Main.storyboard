@@ -1378,6 +1378,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dressingroom_bgd" translatesAutoresizingMaskIntoConstraints="NO" id="2Jk-eO-nlf" customClass="Ha">
                                 <rect key="frame" x="0.0" y="55" width="320" height="504"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen6" translatesAutoresizingMaskIntoConstraints="NO" id="E4q-cm-fIn">
+                                <rect key="frame" x="11" y="370" width="102" height="43"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="karma_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Iu7-io-aCI">
                                 <rect key="frame" x="10" y="65" width="64" height="59"/>
                             </imageView>
@@ -1463,6 +1466,15 @@
                                 <rect key="frame" x="169" y="217" width="135" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6O-iE-XiR">
+                                <rect key="frame" x="41" y="377" width="57" height="30"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="O6n-IM-K4N" kind="push" identifier="fromHair" id="ExV-6d-97P"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1496,6 +1508,9 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dressingroom_bgd" translatesAutoresizingMaskIntoConstraints="NO" id="zu8-yr-nrs">
                                 <rect key="frame" x="0.0" y="55" width="320" height="504"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen6" translatesAutoresizingMaskIntoConstraints="NO" id="Yzt-aS-P7a">
+                                <rect key="frame" x="10" y="365" width="102" height="43"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="karma_icon" translatesAutoresizingMaskIntoConstraints="NO" id="si1-ts-0H5">
                                 <rect key="frame" x="10" y="65" width="64" height="59"/>
@@ -1582,6 +1597,15 @@
                                     <action selector="Clothes:" destination="5Sy-Jc-ysf" eventType="touchUpInside" id="e7s-TR-q6u"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfT-tN-X0T">
+                                <rect key="frame" x="36" y="372" width="57" height="30"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="O6n-IM-K4N" kind="push" identifier="fromCloth" id="5wI-aR-y9f"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1599,7 +1623,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qzo-E4-Zcc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2225" y="-2640"/>
+            <point key="canvasLocation" x="2318" y="-2742"/>
         </scene>
         <!--Accessories-->
         <scene sceneID="uGO-Kb-Jms">
@@ -1615,6 +1639,9 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dressingroom_bgd" translatesAutoresizingMaskIntoConstraints="NO" id="dpd-4J-5ix">
                                 <rect key="frame" x="0.0" y="55" width="320" height="513"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen6" translatesAutoresizingMaskIntoConstraints="NO" id="2DG-LI-riP">
+                                <rect key="frame" x="9" y="391" width="102" height="43"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="body" translatesAutoresizingMaskIntoConstraints="NO" id="qJ2-qI-6xp">
                                 <rect key="frame" x="7" y="129" width="105" height="194"/>
@@ -1827,6 +1854,15 @@
                                     <action selector="Glasses:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="CVZ-UJ-X28"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVF-C0-eRz">
+                                <rect key="frame" x="39" y="398" width="57" height="30"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="O6n-IM-K4N" kind="push" identifier="fromAccess" id="qmU-By-lOj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1857,7 +1893,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKe-Du-9T9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2423" y="-2099"/>
+            <point key="canvasLocation" x="2423" y="-2045"/>
         </scene>
         <!--Choices Fifth Screen-->
         <scene sceneID="QrI-AI-hwA">
@@ -2098,7 +2134,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen" translatesAutoresizingMaskIntoConstraints="NO" id="Be8-ZB-uyt">
-                                <rect key="frame" x="0.0" y="11" width="568" height="320"/>
+                                <rect key="frame" x="0.0" y="50" width="568" height="281"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="body" translatesAutoresizingMaskIntoConstraints="NO" id="ENu-Ax-WcL">
                                 <rect key="frame" x="85" y="64" width="105" height="193"/>
@@ -2149,14 +2185,8 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen7" translatesAutoresizingMaskIntoConstraints="NO" id="06L-8d-x15">
-                                <rect key="frame" x="0.0" y="24" width="562" height="65"/>
+                                <rect key="frame" x="0.0" y="50" width="562" height="55"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Points" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sui-gy-H7k">
-                                <rect key="frame" x="24" y="50" width="42" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Sample concluding text goes here concerning scenario and discussion topic with parents" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncj-rT-ty2">
                                 <rect key="frame" x="278" y="64" width="181" height="77"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2178,6 +2208,12 @@
                                     <segue destination="ujD-Mr-MgV" kind="push" identifier="toFirst" id="pLN-RO-Lff"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Points" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sui-gy-H7k">
+                                <rect key="frame" x="15" y="64" width="42" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -2361,14 +2397,15 @@
         <image name="powers" width="382" height="62"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pLN-RO-Lff"/>
-        <segue reference="MOD-Bo-uno"/>
-        <segue reference="QNH-AA-Zx0"/>
         <segue reference="3SD-2Q-hBE"/>
+        <segue reference="ExV-6d-97P"/>
         <segue reference="Pcl-29-Fre"/>
         <segue reference="Bqy-ss-HWE"/>
         <segue reference="3cG-51-Ykd"/>
         <segue reference="v73-P1-b3f"/>
+        <segue reference="pLN-RO-Lff"/>
+        <segue reference="MOD-Bo-uno"/>
+        <segue reference="QNH-AA-Zx0"/>
         <segue reference="Uzd-Dz-Up2"/>
     </inferredMetricsTieBreakers>
 </document>

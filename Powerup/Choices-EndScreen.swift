@@ -75,10 +75,18 @@ class Choices_EndScreen: UIViewController {
         if segue.identifier == "nextView"
         {
             if let destinationVC = segue.destinationViewController as? DressingRoom2{
-                //counter += 1
-                destinationVC.points = numberToDisplay
-                //destinationVC.numberToDisplay = counter
                 
+                destinationVC.points = numberToDisplay
+                
+                if(numberToDisplay == 0){
+                    destinationVC.idno = 1
+                }
+                else if(numberToDisplay == 10){
+                    destinationVC.idno = 2
+                }
+                else if(numberToDisplay == 20){
+                    destinationVC.idno = 3
+                }
                 destinationVC.eyeImage = eyesview.image
                 destinationVC.hairImage = hairview.image
                 destinationVC.clothesImage = clothesview.image
