@@ -20,7 +20,6 @@ class Choices_EndScreen: UIViewController {
     @IBOutlet weak var replay: UIButton!
     @IBOutlet weak var conclusionText: UITextView!
     @IBOutlet weak var pointsLabel: UILabel!
-    //@IBOutlet weak var mapScreen: UIButton!
     
     var counter = 0
     var numberToDisplay = 0
@@ -31,11 +30,11 @@ class Choices_EndScreen: UIViewController {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> Int {
-        return UIInterfaceOrientation.LandscapeRight.rawValue
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return [.Portrait]
+        //return UIInterfaceOrientation.LandscapeRight.rawValue
         
     }
-    
     
       override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,35 +57,36 @@ class Choices_EndScreen: UIViewController {
         
         
         // Suitable concluding remark is displayed
-        println("\(sampleText)")
-        if var check = conclusionText{
+        if conclusionText != nil{
             conclusionText.text = "\(sampleText)"
         }
         // Points also displayed according to line of communication
         pointsLabel.text = "\(numberToDisplay)"
-        //println("\(numberToDisplay)")
     }
 
     
 // Checking replay button functionality
     @IBAction func replayButton(sender: UIButton) {
-    println("Replay Button Pressed!!!!!!!!!")
+    print("Replay Button Pressed...")
     }
     
-   /*
-    @IBAction func mapScreenButton(sender: UIButton) {
-    }
-    */
     
-    // Conveying End of Scenario to Map Screen so that Level 1 can't be clicked again, value of counter copied to numberToDisplay field of MapScreen
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "nextView"
         {
             if let destinationVC = segue.destinationViewController as? DressingRoom2{
-                counter++
-                destinationVC.points = numberToDisplay
-                destinationVC.numberToDisplay = counter
                 
+                destinationVC.points = numberToDisplay
+                
+                if(numberToDisplay == 0){
+                    destinationVC.idno = 1
+                }
+                else if(numberToDisplay == 10){
+                    destinationVC.idno = 2
+                }
+                else if(numberToDisplay == 20){
+                    destinationVC.idno = 3
+                }
                 destinationVC.eyeImage = eyesview.image
                 destinationVC.hairImage = hairview.image
                 destinationVC.clothesImage = clothesview.image
@@ -97,10 +97,6 @@ class Choices_EndScreen: UIViewController {
         if segue.identifier == "toFirst"
         {
             if let destinationVC = segue.destinationViewController as? Choices_FirstScreen{
-                
-                //counter++
-                //destinationVC.points = numberToDisplay
-                //destinationVC.numberToDisplay = counter
                 
                 destinationVC.eyeImage = eyesview.image
                 destinationVC.hairImage = hairview.image

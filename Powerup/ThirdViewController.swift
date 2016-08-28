@@ -55,14 +55,14 @@ class ThirdViewController: UIViewController {
 
         
         // Fetching database content via FMDB wrapper
-        let filemgr = NSFileManager.defaultManager()
+        
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] as! String
+        let docsDir = dirPaths[0] 
         
-        databasePath = docsDir.stringByAppendingPathComponent(
+        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
             "mainDatabase.sqlite")
         
         

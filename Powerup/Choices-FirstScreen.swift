@@ -29,8 +29,8 @@ class Choices_FirstScreen: UIViewController {
         return false
     }
     
-    override func supportedInterfaceOrientations() -> Int {
-        return UIInterfaceOrientation.Portrait.rawValue
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return [.Portrait]
        }
    
     override func viewDidLoad() {
@@ -42,7 +42,7 @@ class Choices_FirstScreen: UIViewController {
         clothesview.image = clothesImage
         
         // Back Button of navigation controller hidden
-        self.navigationItem.setHidesBackButton(false, animated:true);
+        self.navigationItem.setHidesBackButton(true, animated:true);
         
         Question.selectable = false
         Question.editable = false
@@ -68,38 +68,41 @@ class Choices_FirstScreen: UIViewController {
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
         
-        let docsDir = dirPaths[0] as! String
+        let docsDir = dirPaths[0] 
         var error:NSError?
         
-        databasePath = docsDir.stringByAppendingPathComponent("Choices.sqlite")
+        databasePath = (docsDir as NSString).stringByAppendingPathComponent("Choices.sqlite")
         
        if filemgr.fileExistsAtPath(databasePath as String){
-            println("FOUND!!!!")
-        filemgr.removeItemAtPath(databasePath as String, error: &error)
+            print("FOUND!!!")
+            do {
+                try filemgr.removeItemAtPath(databasePath as String)
+            } catch let error1 as NSError {
+                error = error1
+            }
             
         }
 
         if let bundle_path = NSBundle.mainBundle().pathForResource("Choices", ofType: "sqlite"){
-        println("Test!!!!!!!!")
+        print("Test!")
             
-            if filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String, error: &error){
-                    println("Success!!!!!!!!")
+        do {
+            try filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String)
+                print("Success!!!")
+        } catch let error1 as NSError {
+            error = error1
+                print("Failure")
+            print(error?.localizedDescription)
             }
-                else{
-                    println("Failure")
-                println(error?.localizedDescription)
-                }
             }
         let mainDB = FMDatabase(path: databasePath as String)
         
         // Fetching required data from the database through suitable queries
         if mainDB.open(){
-            println("DB is open and running...")
-            
+            print("DB is open and running...")
             
             let question1 = "SELECT Text FROM Communication WHERE QID= 'A' AND AID='$'"
             let answer1 =   "SELECT Text FROM Communication WHERE QID='A' AND AID='A1'"
-            
             
             let qresults:FMResultSet? = mainDB.executeQuery(question1,
                 withArgumentsInArray: nil)
@@ -109,25 +112,21 @@ class Choices_FirstScreen: UIViewController {
             
             if qresults?.next() == true {
                 Question.text = qresults?.stringForColumn("Text")
-                
             }
             
             if aresults?.next() == true {
                 AnswerView.text = aresults?.stringForColumn("Text")
             }
-            
         }
         mainDB.close()
     
 }
     
     
-    
-    
     @IBAction func AnswerButton(sender: UIButton) {
     
-    
     }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "secondView"
         {
@@ -143,14 +142,5 @@ class Choices_FirstScreen: UIViewController {
     }
     
 }
-
-
-
-
-
-
-
-
-
 
 

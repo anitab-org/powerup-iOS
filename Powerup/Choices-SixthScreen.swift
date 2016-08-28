@@ -38,19 +38,17 @@ class Choices_SixthScreen: UIViewController {
         labelView.numberOfLines = 0
         
         // Accessing the database
-        let filemgr = NSFileManager.defaultManager()
+       
         let dirPaths =
         NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
             .UserDomainMask, true)
     
-        let docsDir = dirPaths[0] as! String
+        let docsDir = dirPaths[0] 
         
-        databasePath = docsDir.stringByAppendingPathComponent(
+        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
             "Choices.sqlite")
         
-        
         let mainDB = FMDatabase(path: databasePath as String)
-        
         
         if mainDB.open(){
             let comment1 = "SELECT Text FROM Communication WHERE QID='F' AND AID='$'"
@@ -61,24 +59,17 @@ class Choices_SixthScreen: UIViewController {
             let c2results:FMResultSet? = mainDB.executeQuery(comment2,
                 withArgumentsInArray: nil)
             
-            
-            
             if c1results?.next() == true {
                 labelView.text = c1results?.stringForColumn("Text")
                 
             }
             
             if c2results?.next() == true {
-                var a = c2results?.stringForColumn("Text")
+                let a = c2results?.stringForColumn("Text")
                 passString = passString + a!
             }
 
-            
-            
-            
         }
-        
-        
     
     }
 
@@ -92,7 +83,7 @@ class Choices_SixthScreen: UIViewController {
             if let destinationVC = segue.destinationViewController as? Choices_EndScreen{
                 
                 destinationVC.sampleText = passString
-                println("\(passString)")
+                print("\(passString)")
                 destinationVC.numberToDisplay = points
                 
                 destinationVC.eyeImage = eyeImage
