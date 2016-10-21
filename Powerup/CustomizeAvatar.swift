@@ -12,6 +12,7 @@ class CustomizeAvatar: UIViewController {
     @IBOutlet weak var customhair: UIImageView!
     @IBOutlet weak var customface: UIImageView!
     @IBOutlet weak var customeyes: UIImageView!
+    @IBOutlet weak var goHomeButton: UIButton!
     
     @IBOutlet weak var eyesview: UIImageView!
     var eyes = ["blue_eyes", "brown_eyes", "green_eyes","lightGreen_eyes","lightPink_eyes","grey_eyes","pink_eyes"]
@@ -46,7 +47,7 @@ class CustomizeAvatar: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-          }
+    }
     
    
     @IBAction func clothesR(_ sender: AnyObject) {
