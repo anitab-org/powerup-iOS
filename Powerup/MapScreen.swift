@@ -8,7 +8,7 @@ import SpriteKit
 
 class MapScreen: UIViewController {
    
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = UserDefaults.standard
     var eyeImage: UIImage!
     var faceImage: UIImage!
     var clothesImage: UIImage!
@@ -23,49 +23,49 @@ class MapScreen: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated:true);
 
         // setting the orientation to portrait
-        let value = UIInterfaceOrientation.Portrait.rawValue
-        UIDevice.currentDevice().setValue(value, forKey: "orientation")
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
         
     }
 
     //Level 2 Button: clickable
-    @IBAction func ClickableMap(sender: UIButton) {
+    @IBAction func ClickableMap(_ sender: UIButton) {
     
     }
     
     // logo button on top right corner clickable
-    @IBAction func logoButton(sender: UIButton) {
+    @IBAction func logoButton(_ sender: UIButton) {
     }
     
     //Level 1 Button
-    @IBAction func ChoicesClickableMap(sender: UIButton) {
+    @IBAction func ChoicesClickableMap(_ sender: UIButton) {
       
       // Testing condition if level 1 button pressed again after comming out of the scenario
         //if (numberToDisplay > 0)
-        x = defaults.integerForKey("backtomap")
+        x = defaults.integer(forKey: "backtomap")
         if (x > 0)
         {
             print("This action is not possible!! Kindly choose another level!!")
             
            //alert message popped up
-            let alert = UIAlertController(title: "MESSAGE!!!", message:"You have already played this scenario! Go try another level!!", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
-            self.presentViewController(alert, animated: true){}
+            let alert = UIAlertController(title: "MESSAGE!!!", message:"You have already played this scenario! Go try another level!!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in })
+            self.present(alert, animated: true){}
             
         }
             
             // condition for first time click - navigates to scenario
         else{
             
-            performSegueWithIdentifier("start1View", sender: self)
+            performSegue(withIdentifier: "start1View", sender: self)
         }
        
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "start1View"
         {
-            if let destinationVC = segue.destinationViewController as? Choices_FirstScreen  {
+            if let destinationVC = segue.destination as? Choices_FirstScreen  {
                 
               
                 destinationVC.eyeImage = eyeImage
@@ -76,7 +76,7 @@ class MapScreen: UIViewController {
         }
         if segue.identifier == "start2View"
         {
-            if let destinationVC = segue.destinationViewController as? ViewController  {
+            if let destinationVC = segue.destination as? ViewController  {
                 
                 destinationVC.eyeImage = eyeImage
                 destinationVC.hairImage = hairImage
