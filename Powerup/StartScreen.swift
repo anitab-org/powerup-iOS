@@ -34,6 +34,10 @@ class StartScreen: UIViewController {
         // Back Button of navigation controller is hidden on home screen
         self.navigationItem.setHidesBackButton(true, animated:true);
         
+        // setting the orientation to portrait
+        let value = UIInterfaceOrientation.Portrait.rawValue
+        UIDevice.currentDevice().setValue(value, forKey: "orientation")
+        
     }
     
     // Start button is clickable
