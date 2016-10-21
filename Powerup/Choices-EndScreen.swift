@@ -26,12 +26,12 @@ class Choices_EndScreen: UIViewController {
     var sampleText = ""
     
     // Orientation- setting it to landscape
-   override func shouldAutorotate() -> Bool {
+   override var shouldAutorotate : Bool {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return [.Portrait]
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return [.portrait]
         //return UIInterfaceOrientation.LandscapeRight.rawValue
         
     }
@@ -49,11 +49,11 @@ class Choices_EndScreen: UIViewController {
         
         // TextView borders and rounded corners
         conclusionText!.layer.borderWidth = 6
-        conclusionText!.layer.borderColor = UIColor.blackColor().CGColor
+        conclusionText!.layer.borderColor = UIColor.black.cgColor
         conclusionText!.layer.cornerRadius = 5
         
-        let value = UIInterfaceOrientation.LandscapeRight.rawValue
-        UIDevice.currentDevice().setValue(value, forKey: "orientation")
+        let value = UIInterfaceOrientation.landscapeRight.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
         
         
         // Suitable concluding remark is displayed
@@ -66,15 +66,15 @@ class Choices_EndScreen: UIViewController {
 
     
 // Checking replay button functionality
-    @IBAction func replayButton(sender: UIButton) {
+    @IBAction func replayButton(_ sender: UIButton) {
     print("Replay Button Pressed...")
     }
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "nextView"
         {
-            if let destinationVC = segue.destinationViewController as? DressingRoom2{
+            if let destinationVC = segue.destination as? DressingRoom2{
                 
                 destinationVC.points = numberToDisplay
                 
@@ -96,7 +96,7 @@ class Choices_EndScreen: UIViewController {
         }
         if segue.identifier == "toFirst"
         {
-            if let destinationVC = segue.destinationViewController as? Choices_FirstScreen{
+            if let destinationVC = segue.destination as? Choices_FirstScreen{
                 
                 destinationVC.eyeImage = eyesview.image
                 destinationVC.hairImage = hairview.image

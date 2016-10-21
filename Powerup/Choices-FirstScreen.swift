@@ -25,12 +25,12 @@ class Choices_FirstScreen: UIViewController {
     var databasePath = NSString()
     
     // Orientation - set to Portrait
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return false
     }
     
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return [.Portrait]
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        return [.portrait]
        }
    
     override func viewDidLoad() {
@@ -44,50 +44,50 @@ class Choices_FirstScreen: UIViewController {
         // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(true, animated:true);
         
-        Question.selectable = false
-        Question.editable = false
-        AnswerView.editable = false
-        AnswerView.selectable = false
+        Question.isSelectable = false
+        Question.isEditable = false
+        AnswerView.isEditable = false
+        AnswerView.isSelectable = false
         
         
         Question!.layer.borderWidth = 6
-        Question!.layer.borderColor = UIColor.blackColor().CGColor
+        Question!.layer.borderColor = UIColor.black.cgColor
         Question!.layer.cornerRadius = 5
         
         AnswerView!.layer.borderWidth = 6
-        AnswerView!.layer.borderColor = UIColor.blackColor().CGColor
+        AnswerView!.layer.borderColor = UIColor.black.cgColor
         AnswerView!.layer.cornerRadius = 5
         
-        let value = UIInterfaceOrientation.Portrait.rawValue
-        UIDevice.currentDevice().setValue(value, forKey: "orientation")
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
         
         
         // Accessing the Choices.sqlite database and getting its location
-        let filemgr = NSFileManager.defaultManager()
+        let filemgr = FileManager.default
         let dirPaths =
-        NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-            .UserDomainMask, true)
+        NSSearchPathForDirectoriesInDomains(.documentDirectory,
+            .userDomainMask, true)
         
         let docsDir = dirPaths[0] 
         var error:NSError?
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent("Choices.sqlite")
+        databasePath = (docsDir as NSString).appendingPathComponent("Choices.sqlite") as NSString
         
-       if filemgr.fileExistsAtPath(databasePath as String){
+       if filemgr.fileExists(atPath: databasePath as String){
             print("FOUND!!!")
             do {
-                try filemgr.removeItemAtPath(databasePath as String)
+                try filemgr.removeItem(atPath: databasePath as String)
             } catch let error1 as NSError {
                 error = error1
             }
             
         }
 
-        if let bundle_path = NSBundle.mainBundle().pathForResource("Choices", ofType: "sqlite"){
+        if let bundle_path = Bundle.main.path(forResource: "Choices", ofType: "sqlite"){
         print("Test!")
             
         do {
-            try filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String)
+            try filemgr.copyItem(atPath: bundle_path, toPath: databasePath as String)
                 print("Success!!!")
         } catch let error1 as NSError {
             error = error1
@@ -98,39 +98,39 @@ class Choices_FirstScreen: UIViewController {
         let mainDB = FMDatabase(path: databasePath as String)
         
         // Fetching required data from the database through suitable queries
-        if mainDB.open(){
+        if (mainDB?.open())!{
             print("DB is open and running...")
             
             let question1 = "SELECT Text FROM Communication WHERE QID= 'A' AND AID='$'"
             let answer1 =   "SELECT Text FROM Communication WHERE QID='A' AND AID='A1'"
             
-            let qresults:FMResultSet? = mainDB.executeQuery(question1,
-                withArgumentsInArray: nil)
+            let qresults:FMResultSet? = mainDB?.executeQuery(question1,
+                withArgumentsIn: nil)
             
-            let aresults:FMResultSet? = mainDB.executeQuery(answer1,
-                withArgumentsInArray: nil)
+            let aresults:FMResultSet? = mainDB?.executeQuery(answer1,
+                withArgumentsIn: nil)
             
             if qresults?.next() == true {
-                Question.text = qresults?.stringForColumn("Text")
+                Question.text = qresults?.string(forColumn: "Text")
             }
             
             if aresults?.next() == true {
-                AnswerView.text = aresults?.stringForColumn("Text")
+                AnswerView.text = aresults?.string(forColumn: "Text")
             }
         }
-        mainDB.close()
+        mainDB?.close()
     
 }
     
     
-    @IBAction func AnswerButton(sender: UIButton) {
+    @IBAction func AnswerButton(_ sender: UIButton) {
     
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "secondView"
         {
-            if let destinationVC = segue.destinationViewController as? Choices_SecondScreen  {
+            if let destinationVC = segue.destination as? Choices_SecondScreen  {
                 
                 destinationVC.eyeImage = eyesview.image
                 destinationVC.hairImage = hairview.image

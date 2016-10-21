@@ -34,76 +34,76 @@ class Scene7: UIViewController {
         // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(true, animated:true);
         
-        mar_text.editable = false
-        mar_text.selectable = false
+        mar_text.isEditable = false
+        mar_text.isSelectable = false
         
-       answerViewA.editable = false
-        answerViewA.selectable = false
+       answerViewA.isEditable = false
+        answerViewA.isSelectable = false
         
-        answerViewB.editable = false
-        answerViewB.selectable = false
+        answerViewB.isEditable = false
+        answerViewB.isSelectable = false
         
         mar_text!.layer.borderWidth = 6
-        mar_text!.layer.borderColor = UIColor.blackColor().CGColor
+        mar_text!.layer.borderColor = UIColor.black.cgColor
         mar_text!.layer.cornerRadius = 5
         
         answerViewA!.layer.borderWidth = 6
-        answerViewA!.layer.borderColor = UIColor.blackColor().CGColor
+        answerViewA!.layer.borderColor = UIColor.black.cgColor
         answerViewA!.layer.cornerRadius = 5
         
         answerViewB!.layer.borderWidth = 6
-        answerViewB!.layer.borderColor = UIColor.blackColor().CGColor
+        answerViewB!.layer.borderColor = UIColor.black.cgColor
         answerViewB!.layer.cornerRadius = 5
         
        // let filemgr = NSFileManager.defaultManager()
         let dirPaths =
-        NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-            .UserDomainMask, true)
+        NSSearchPathForDirectoriesInDomains(.documentDirectory,
+            .userDomainMask, true)
         
         let docsDir = dirPaths[0] 
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
-            "mainDatabase.sqlite")
+        databasePath = (docsDir as NSString).appendingPathComponent(
+            "mainDatabase.sqlite") as NSString
         
         
         let mainDB = FMDatabase(path: databasePath as String)
         
-        if mainDB.open(){
+        if (mainDB?.open())!{
             let question = "SELECT QDescription FROM Question Where QID=7"
             let Aoption = "SELECT ADescription FROM Answer WHERE AID=11"
             let Boption = "SELECT ADescription FROM Answer WHERE AID=12"
             
-            let qresults:FMResultSet? = mainDB.executeQuery(question,
-                withArgumentsInArray: nil)
+            let qresults:FMResultSet? = mainDB?.executeQuery(question,
+                withArgumentsIn: nil)
             
-            let aresults:FMResultSet? = mainDB.executeQuery(Aoption,
-                withArgumentsInArray: nil)
-            let bresults:FMResultSet? = mainDB.executeQuery(Boption,
-                withArgumentsInArray: nil)
+            let aresults:FMResultSet? = mainDB?.executeQuery(Aoption,
+                withArgumentsIn: nil)
+            let bresults:FMResultSet? = mainDB?.executeQuery(Boption,
+                withArgumentsIn: nil)
             
             
             if qresults?.next() == true
             {
-                mar_text.text = qresults?.stringForColumn("QDescription")
+                mar_text.text = qresults?.string(forColumn: "QDescription")
             }
             if aresults?.next() == true
             {
-                answerViewA.text = aresults?.stringForColumn("ADescription")
+                answerViewA.text = aresults?.string(forColumn: "ADescription")
                 
             }
             if bresults?.next() == true
             {
-                answerViewB.text = bresults?.stringForColumn("ADescription")
+                answerViewB.text = bresults?.string(forColumn: "ADescription")
                
             }
         }
-        mainDB.close()
+        mainDB?.close()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toScene27"
         {
-            if let destinationVC = segue.destinationViewController as? SecondViewController  {
+            if let destinationVC = segue.destination as? SecondViewController  {
                 
                 destinationVC.eyeImage = eyesview.image
                 destinationVC.hairImage = hairview.image
@@ -113,7 +113,7 @@ class Scene7: UIViewController {
         }
         if segue.identifier == "toScene67"
         {
-            if let destinationVC = segue.destinationViewController as? Scene6  {
+            if let destinationVC = segue.destination as? Scene6  {
                 
                 destinationVC.eyeImage = eyesview.image
                 destinationVC.hairImage = hairview.image

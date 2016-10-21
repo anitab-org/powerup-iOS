@@ -30,44 +30,44 @@ class Choices_FifthScreen: UIViewController {
         
         // Setting the label's border and making its corners rounded
         labelView!.layer.borderWidth = 6
-        labelView!.layer.borderColor = UIColor.blackColor().CGColor
+        labelView!.layer.borderColor = UIColor.black.cgColor
         labelView!.layer.cornerRadius = 5
     
         // Making content in the label to be word wrapped(and not in center)
-        labelView.lineBreakMode = .ByWordWrapping
+        labelView.lineBreakMode = .byWordWrapping
         labelView.numberOfLines = 0
         
        // Accessing the database
         
         let dirPaths =
-        NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-            .UserDomainMask, true)
+        NSSearchPathForDirectoriesInDomains(.documentDirectory,
+            .userDomainMask, true)
         
         let docsDir = dirPaths[0] 
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
-            "Choices.sqlite")
+        databasePath = (docsDir as NSString).appendingPathComponent(
+            "Choices.sqlite") as NSString
         
         
         let mainDB = FMDatabase(path: databasePath as String)
         
         
-        if mainDB.open(){
+        if (mainDB?.open())!{
             let comment1 = "SELECT Text FROM Communication WHERE QID='E' AND AID='$'"
             let comment2 = "SELECT Text FROM Communication WHERE QID='I' AND AID='$'"
             
             
-            let c1results:FMResultSet? = mainDB.executeQuery(comment1,
-                withArgumentsInArray: nil)
-            let c2results:FMResultSet? = mainDB.executeQuery(comment2,
-                withArgumentsInArray: nil)
+            let c1results:FMResultSet? = mainDB?.executeQuery(comment1,
+                withArgumentsIn: nil)
+            let c2results:FMResultSet? = mainDB?.executeQuery(comment2,
+                withArgumentsIn: nil)
             
             if c1results?.next() == true {
-                labelView.text = c1results?.stringForColumn("Text")
+                labelView.text = c1results?.string(forColumn: "Text")
                 
             }
             if c2results?.next() == true {
-                let a = c2results?.stringForColumn("Text")
+                let a = c2results?.string(forColumn: "Text")
                 passString = passString + a!
             }
 
@@ -81,14 +81,14 @@ class Choices_FifthScreen: UIViewController {
     
 
     
-    @IBAction func continueButton(sender: UIButton) {
+    @IBAction func continueButton(_ sender: UIButton) {
     }
 
     // Communicate to ending screen that aggressive mode of communication was chosen so that appropriate concluding mark can be displayed
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "aggressive"
         {
-            if let destinationVC = segue.destinationViewController as? Choices_EndScreen{
+            if let destinationVC = segue.destination as? Choices_EndScreen{
                 destinationVC.sampleText = passString
                 print("\(passString)")
                 destinationVC.numberToDisplay = points

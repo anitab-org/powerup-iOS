@@ -36,56 +36,56 @@ class SecondViewController: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated:true);
 
         S2Marcello!.layer.borderWidth = 6
-        S2Marcello!.layer.borderColor = UIColor.blackColor().CGColor
+        S2Marcello!.layer.borderColor = UIColor.black.cgColor
         S2Marcello!.layer.cornerRadius = 5
         
         S2Rosie!.layer.borderWidth = 6
-        S2Rosie!.layer.borderColor = UIColor.blackColor().CGColor
+        S2Rosie!.layer.borderColor = UIColor.black.cgColor
         S2Rosie!.layer.cornerRadius = 5
         
         
         //let filemgr = NSFileManager.defaultManager()
         let dirPaths =
-        NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-            .UserDomainMask, true)
+        NSSearchPathForDirectoriesInDomains(.documentDirectory,
+            .userDomainMask, true)
         
         let docsDir = dirPaths[0] 
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
-            "mainDatabase.sqlite")
+        databasePath = (docsDir as NSString).appendingPathComponent(
+            "mainDatabase.sqlite") as NSString
         
         
         let mainDB = FMDatabase(path: databasePath as String)
         
-        if mainDB.open() {
+        if (mainDB?.open())! {
             let question = "SELECT QDescription FROM Question Where QID=3"
             let answer = "SELECT ADescription FROM Answer WHERE AID=15"
             
-            let qresults:FMResultSet? = mainDB.executeQuery(question,
-                withArgumentsInArray: nil)
+            let qresults:FMResultSet? = mainDB?.executeQuery(question,
+                withArgumentsIn: nil)
             
-            let aresults:FMResultSet? = mainDB.executeQuery(answer,
-                withArgumentsInArray: nil)
+            let aresults:FMResultSet? = mainDB?.executeQuery(answer,
+                withArgumentsIn: nil)
             
             if qresults?.next() == true {
-                S2Marcello.text = qresults?.stringForColumn("QDescription")
+                S2Marcello.text = qresults?.string(forColumn: "QDescription")
             }
             
             if aresults?.next() == true{
-                S2Rosie.text = aresults?.stringForColumn("ADescription")
+                S2Rosie.text = aresults?.string(forColumn: "ADescription")
                 
             }
         }
-        mainDB.close()
+        mainDB?.close()
         
     }
 
     
     // Conveying End of Scenario to Map Screen so that Level 1 can't be clicked again, value of counter copied to numberToDisplay field of MapScreen
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "level2end"
         {
-            if let destinationVC = segue.destinationViewController as? MapScreen{
+            if let destinationVC = segue.destination as? MapScreen{
                 //counter++
                 
                 destinationVC.eyeImage = eyesview.image
