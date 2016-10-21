@@ -3,6 +3,26 @@
 //  Powerup
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l >= r
+  default:
+    return !(lhs < rhs)
+  }
+}
+
 
 class Hair: UIViewController {
     
@@ -33,8 +53,8 @@ class Hair: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        paidLabel.hidden = true
-        paidLabel.transform = CGAffineTransformMakeRotation(-45 * CGFloat(M_PI) / 180.0)
+        paidLabel.isHidden = true
+        paidLabel.transform = CGAffineTransform(rotationAngle: -45 * CGFloat(M_PI) / 180.0)
         eyesview.image = eyeImage
         clothesview.image = clothesImage
         faceview.image = faceImage
@@ -45,40 +65,40 @@ class Hair: UIViewController {
         //pointsLabel.text = "\(points)"
         
         let dirPaths =
-        NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-            .UserDomainMask, true)
+        NSSearchPathForDirectoriesInDomains(.documentDirectory,
+            .userDomainMask, true)
         
         let docsDir = dirPaths[0] 
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
-            "mainDatabase.sqlite")
+        databasePath = (docsDir as NSString).appendingPathComponent(
+            "mainDatabase.sqlite") as NSString
         
         let mainDB = FMDatabase(path: databasePath as String)
         
-        if mainDB.open(){
+        if (mainDB?.open())!{
             let hairRes = "SELECT Points FROM Hair Where Name='\(hair[0])'"
             
-            let hResults:FMResultSet? = mainDB.executeQuery(hairRes,
-                withArgumentsInArray: nil)
+            let hResults:FMResultSet? = mainDB?.executeQuery(hairRes,
+                withArgumentsIn: nil)
             
             if hResults?.next() == true
             {
-                hairLabel.text = hResults?.stringForColumn("Points")
+                hairLabel.text = hResults?.string(forColumn: "Points")
             }
             let p = "SELECT Points FROM Score Where ID='\(idno)'"
-            let presults:FMResultSet? = mainDB.executeQuery(p,
-                                                            withArgumentsInArray: nil)
+            let presults:FMResultSet? = mainDB?.executeQuery(p,
+                                                            withArgumentsIn: nil)
             
             if presults?.next() == true {
-                pointsLabel.text = presults?.stringForColumn("Points")
+                pointsLabel.text = presults?.string(forColumn: "Points")
             }
             
         }
-        mainDB.close()
+        mainDB?.close()
         
     }
     
-    @IBAction func hairR(sender: AnyObject) {
+    @IBAction func hairR(_ sender: AnyObject) {
         if(haircount + 1 < hairtotal){
             haircount += 1
         }
@@ -86,44 +106,44 @@ class Hair: UIViewController {
         customhair.image = UIImage(named: "\(hair[haircount]).png")
        
         let dirPaths =
-        NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-            .UserDomainMask, true)
+        NSSearchPathForDirectoriesInDomains(.documentDirectory,
+            .userDomainMask, true)
         
         let docsDir = dirPaths[0] 
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
-            "mainDatabase.sqlite")
+        databasePath = (docsDir as NSString).appendingPathComponent(
+            "mainDatabase.sqlite") as NSString
         
         let mainDB = FMDatabase(path: databasePath as String)
         
-        if mainDB.open(){
+        if (mainDB?.open())!{
             let hairRes = "SELECT Points FROM Hair Where Name='\(hair[haircount])'"
             let check = "SELECT Purchased FROM Hair Where Name='\(hair[haircount])'"
             
-            let hResults:FMResultSet? = mainDB.executeQuery(hairRes,
-                                                            withArgumentsInArray: nil)
-            let checkResults:FMResultSet? = mainDB.executeQuery(check,
-                                                                withArgumentsInArray: nil)
+            let hResults:FMResultSet? = mainDB?.executeQuery(hairRes,
+                                                            withArgumentsIn: nil)
+            let checkResults:FMResultSet? = mainDB?.executeQuery(check,
+                                                                withArgumentsIn: nil)
             if hResults?.next() == true
             {
-                hairLabel.text = hResults?.stringForColumn("Points")
+                hairLabel.text = hResults?.string(forColumn: "Points")
                 if checkResults?.next() == true{
-                    let x = checkResults?.stringForColumn("Purchased")
+                    let x = checkResults?.string(forColumn: "Purchased")
                     let test:Int? = Int(x!)
                     if(test == 1){
-                        paidLabel.hidden = false
+                        paidLabel.isHidden = false
                     }
                     else{
-                        paidLabel.hidden = true
+                        paidLabel.isHidden = true
                     }
                 }
             }
             
         }
-        mainDB.close()
+        mainDB?.close()
     }
     
-    @IBAction func hairL(sender: AnyObject) {
+    @IBAction func hairL(_ sender: AnyObject) {
         if(haircount > 0){
             haircount -= 1
         }
@@ -132,72 +152,72 @@ class Hair: UIViewController {
         customhair.image = UIImage(named: "\(hair[haircount]).png")
         
         let dirPaths =
-        NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-            .UserDomainMask, true)
+        NSSearchPathForDirectoriesInDomains(.documentDirectory,
+            .userDomainMask, true)
         
         let docsDir = dirPaths[0] 
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
-            "mainDatabase.sqlite")
+        databasePath = (docsDir as NSString).appendingPathComponent(
+            "mainDatabase.sqlite") as NSString
         
         let mainDB = FMDatabase(path: databasePath as String)
         
-        if mainDB.open(){
+        if (mainDB?.open())!{
             let hairRes = "SELECT Points FROM Hair Where Name='\(hair[haircount])'"
             let check = "SELECT Purchased FROM Hair Where Name='\(hair[haircount])'"
             
-            let hResults:FMResultSet? = mainDB.executeQuery(hairRes,
-                withArgumentsInArray: nil)
-            let checkResults:FMResultSet? = mainDB.executeQuery(check,
-                                                                withArgumentsInArray: nil)
+            let hResults:FMResultSet? = mainDB?.executeQuery(hairRes,
+                withArgumentsIn: nil)
+            let checkResults:FMResultSet? = mainDB?.executeQuery(check,
+                                                                withArgumentsIn: nil)
             
             if hResults?.next() == true
             {
-                hairLabel.text = hResults?.stringForColumn("Points")
+                hairLabel.text = hResults?.string(forColumn: "Points")
                 if checkResults?.next() == true{
-                    let x = checkResults?.stringForColumn("Purchased")
+                    let x = checkResults?.string(forColumn: "Purchased")
                     let test:Int? = Int(x!)
                     if(test == 1){
-                        paidLabel.hidden = false
+                        paidLabel.isHidden = false
                     }
                     else{
-                        paidLabel.hidden = true
+                        paidLabel.isHidden = true
                     }
                 }
             }
             
         }
-        mainDB.close()
+        mainDB?.close()
         }
     }
     
-    @IBAction func Hair(sender: UIButton) {
+    @IBAction func Hair(_ sender: UIButton) {
         if(haircount == -1){
             return
         }
-        let filemgr = NSFileManager.defaultManager()
+        let filemgr = FileManager.default
         let dirPaths =
-            NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-                                                .UserDomainMask, true)
+            NSSearchPathForDirectoriesInDomains(.documentDirectory,
+                                                .userDomainMask, true)
         
         let docsDir = dirPaths[0]
         var error: NSError?
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
-            "mainDatabase.sqlite")
+        databasePath = (docsDir as NSString).appendingPathComponent(
+            "mainDatabase.sqlite") as NSString
         
-        if filemgr.fileExistsAtPath(databasePath as String){
+        if filemgr.fileExists(atPath: databasePath as String){
             do {
-                try filemgr.removeItemAtPath(databasePath as String)
+                try filemgr.removeItem(atPath: databasePath as String)
             } catch let error1 as NSError {
                 error = error1
             }
             
         }
         
-        if let bundle_path = NSBundle.mainBundle().pathForResource("mainDatabase", ofType: "sqlite"){
+        if let bundle_path = Bundle.main.path(forResource: "mainDatabase", ofType: "sqlite"){
             do {
-                try filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String)
+                try filemgr.copyItem(atPath: bundle_path, toPath: databasePath as String)
             } catch let error1 as NSError {
                 error = error1
                 print("Failure")
@@ -206,35 +226,35 @@ class Hair: UIViewController {
             
             let mainDB = FMDatabase(path: databasePath as String)
             if mainDB == nil{
-                print("Error: \(mainDB.lastErrorMessage())")
+                print("Error: \(mainDB?.lastErrorMessage())")
             }
             
             // opening the database and extracting content through suitable queries
-            if mainDB.open(){
+            if (mainDB?.open())!{
                 let p = "SELECT Points FROM Score Where ID='\(idno)'"
-                let presults:FMResultSet? = mainDB.executeQuery(p,
-                                                                withArgumentsInArray: nil)
+                let presults:FMResultSet? = mainDB?.executeQuery(p,
+                                                                withArgumentsIn: nil)
                 
                 if presults?.next() == true {
                     print("Selected Points entry")
-                    let x = presults?.stringForColumn("Points")
+                    let x = presults?.string(forColumn: "Points")
                     let hairRes = "SELECT Points FROM Hair Where Name='\(hair[haircount])'"
-                    let hresults:FMResultSet? = mainDB.executeQuery(hairRes,
-                                                                    withArgumentsInArray: nil)
+                    let hresults:FMResultSet? = mainDB?.executeQuery(hairRes,
+                                                                    withArgumentsIn: nil)
                     print("x: \(x)")
                     
                     if hresults?.next() == true {
-                        let y = hresults?.stringForColumn("Points")
+                        let y = hresults?.string(forColumn: "Points")
                         print("y: \(y)")
                         let a:Int? = Int(x!)
                         let b:Int? = Int(y!)
                         
                         if(a >= b )
                         {
-                            paidLabel.hidden = false
+                            paidLabel.isHidden = false
                             let query = "UPDATE Score SET Points='\(a!-b!)' WHERE ID='\(idno)'"
-                            let addSuccess = mainDB.executeUpdate(query, withArgumentsInArray: nil)
-                            if(!addSuccess){
+                            let addSuccess = mainDB?.executeUpdate(query, withArgumentsIn: nil)
+                            if(!addSuccess!){
                                 print("Failed to add data to Avatar Table")
                             }
                             else
@@ -244,25 +264,25 @@ class Hair: UIViewController {
                             
                             pointsLabel.text = "\(a!-b!)"
                             let query2 = "UPDATE Hair SET Purchased=1 WHERE Name='\(hair[haircount])'"
-                            let success2 = mainDB.executeUpdate(query2, withArgumentsInArray: nil)
-                            if(!success2){
+                            let success2 = mainDB?.executeUpdate(query2, withArgumentsIn: nil)
+                            if(!success2!){
                                 print("Failed to update Purchased Attribute")
                             }
                             else{
                                 print("Success in updating purchased Attribute")
                             }
                             
-                            if filemgr.fileExistsAtPath(bundle_path){
+                            if filemgr.fileExists(atPath: bundle_path){
                                 print("About to del bundle file")
                                 do {
-                                    try filemgr.removeItemAtPath(bundle_path)
+                                    try filemgr.removeItem(atPath: bundle_path)
                                 } catch let error1 as NSError {
                                     error = error1
                                 }
                             }
                             
                             do {
-                                try filemgr.copyItemAtPath(databasePath as String, toPath: bundle_path)
+                                try filemgr.copyItem(atPath: databasePath as String, toPath: bundle_path)
                                 print("replaced bundle path contents")
                                 
                             } catch let error1 as NSError {
@@ -272,22 +292,22 @@ class Hair: UIViewController {
                             }
                         }
                         else{
-                            let alert = UIAlertController(title: "MESSAGE!!!", message:"You don't have sufficient Points to buy this!", preferredStyle: .Alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
-                            self.presentViewController(alert, animated: true){}
+                            let alert = UIAlertController(title: "MESSAGE!!!", message:"You don't have sufficient Points to buy this!", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in })
+                            self.present(alert, animated: true){}
                         }
                     }
                     
                 }
             }
-            mainDB.close()
+            mainDB?.close()
         }
         
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "fromHair"
         {
-            if let destinationVC = segue.destinationViewController as? DressingRoom2{
+            if let destinationVC = segue.destination as? DressingRoom2{
                 destinationVC.idno = idno
                 destinationVC.eyeImage = eyesview.image
                 destinationVC.hairImage = originalhair

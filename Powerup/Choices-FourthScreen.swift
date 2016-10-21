@@ -37,39 +37,39 @@ class Choices_FourthScreen: UIViewController {
         // Back Button of navigation controller hidden
         self.navigationItem.setHidesBackButton(true, animated:true);
         
-        Question.editable = false
-        Question.selectable = false
-        AnswerView2.editable = false
-        AnswerView2.selectable = false
+        Question.isEditable = false
+        Question.isSelectable = false
+        AnswerView2.isEditable = false
+        AnswerView2.isSelectable = false
         
         Question!.layer.borderWidth = 6
-        Question!.layer.borderColor = UIColor.blackColor().CGColor
+        Question!.layer.borderColor = UIColor.black.cgColor
         Question!.layer.cornerRadius = 5
         
         AnswerView1!.layer.borderWidth = 6
-        AnswerView1!.layer.borderColor = UIColor.blackColor().CGColor
+        AnswerView1!.layer.borderColor = UIColor.black.cgColor
         AnswerView1!.layer.cornerRadius = 5
         
         AnswerView2!.layer.borderWidth = 6
-        AnswerView2!.layer.borderColor = UIColor.blackColor().CGColor
+        AnswerView2!.layer.borderColor = UIColor.black.cgColor
         AnswerView2!.layer.cornerRadius = 5
         
         AnswerView3!.layer.borderWidth = 6
-        AnswerView3!.layer.borderColor = UIColor.blackColor().CGColor
+        AnswerView3!.layer.borderColor = UIColor.black.cgColor
         AnswerView3!.layer.cornerRadius = 5
         
         
-        let filemgr = NSFileManager.defaultManager()
+        let filemgr = FileManager.default
         let dirPaths =
-        NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-            .UserDomainMask, true)
+        NSSearchPathForDirectoriesInDomains(.documentDirectory,
+            .userDomainMask, true)
         
         let docsDir = dirPaths[0] 
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
-            "Choices.sqlite")
+        databasePath = (docsDir as NSString).appendingPathComponent(
+            "Choices.sqlite") as NSString
         
-        if filemgr.fileExistsAtPath(databasePath as String){
+        if filemgr.fileExists(atPath: databasePath as String){
             print("FOUND!!!!")
             
         }
@@ -77,11 +77,11 @@ class Choices_FourthScreen: UIViewController {
         
         let mainDB = FMDatabase(path: databasePath as String)
         if mainDB == nil{
-            print("Error: \(mainDB.lastErrorMessage())")
+            print("Error: \(mainDB?.lastErrorMessage())")
         }
         
         
-        if mainDB.open(){
+        if (mainDB?.open())!{
             
             
             let question4 = "SELECT Text FROM Communication WHERE QID='D' AND AID='$'"
@@ -90,29 +90,29 @@ class Choices_FourthScreen: UIViewController {
             let answer4c =  "SELECT Text FROM Communication WHERE QID='D' AND AID='D3'"
             
             
-            let qresults:FMResultSet? = mainDB.executeQuery(question4,
-                withArgumentsInArray: nil)
+            let qresults:FMResultSet? = mainDB?.executeQuery(question4,
+                withArgumentsIn: nil)
             
-            let aresults:FMResultSet? = mainDB.executeQuery(answer4a,
-                withArgumentsInArray: nil)
-            let bresults:FMResultSet? = mainDB.executeQuery(answer4b,
-                withArgumentsInArray: nil)
-            let cresults:FMResultSet? = mainDB.executeQuery(answer4c,
-                withArgumentsInArray: nil)
+            let aresults:FMResultSet? = mainDB?.executeQuery(answer4a,
+                withArgumentsIn: nil)
+            let bresults:FMResultSet? = mainDB?.executeQuery(answer4b,
+                withArgumentsIn: nil)
+            let cresults:FMResultSet? = mainDB?.executeQuery(answer4c,
+                withArgumentsIn: nil)
             
             
             if qresults?.next() == true {
-                Question.text = qresults?.stringForColumn("Text")
+                Question.text = qresults?.string(forColumn: "Text")
             }
             
             if aresults?.next() == true {
-                AnswerView1.text = aresults?.stringForColumn("Text")
+                AnswerView1.text = aresults?.string(forColumn: "Text")
             }
             if bresults?.next() == true {
-                AnswerView2.text = bresults?.stringForColumn("Text")
+                AnswerView2.text = bresults?.string(forColumn: "Text")
             }
             if cresults?.next() == true {
-                AnswerView3.text = cresults?.stringForColumn("Text")
+                AnswerView3.text = cresults?.string(forColumn: "Text")
             }
             
         }
@@ -122,25 +122,25 @@ class Choices_FourthScreen: UIViewController {
         
         
         
-        mainDB.close()
+        mainDB?.close()
         
         
     }
 
-    @IBAction func Answer1Button(sender: UIButton) {
+    @IBAction func Answer1Button(_ sender: UIButton) {
     }
    
-    @IBAction func Answer2Button(sender: UIButton) {
+    @IBAction func Answer2Button(_ sender: UIButton) {
     }
     
     
-    @IBAction func Answer3Button(sender: UIButton) {
+    @IBAction func Answer3Button(_ sender: UIButton) {
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toThree"
         {
-            if let destinationVC = segue.destinationViewController as? Choices_ThirdScreen  {
+            if let destinationVC = segue.destination as? Choices_ThirdScreen  {
                 
                 destinationVC.eyeImage = eyesview.image
                 destinationVC.hairImage = hairview.image
@@ -150,7 +150,7 @@ class Choices_FourthScreen: UIViewController {
         }
         if segue.identifier == "toSix"
         {
-            if let destinationVC = segue.destinationViewController as? Choices_SixthScreen  {
+            if let destinationVC = segue.destination as? Choices_SixthScreen  {
                 
                 destinationVC.eyeImage = eyesview.image
                 destinationVC.hairImage = hairview.image
@@ -160,7 +160,7 @@ class Choices_FourthScreen: UIViewController {
         }
         if segue.identifier == "toFive"
         {
-            if let destinationVC = segue.destinationViewController as? Choices_FifthScreen  {
+            if let destinationVC = segue.destination as? Choices_FifthScreen  {
                 
                 destinationVC.eyeImage = eyesview.image
                 destinationVC.hairImage = hairview.image

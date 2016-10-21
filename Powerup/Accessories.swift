@@ -4,6 +4,26 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+fileprivate func >= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l >= r
+  default:
+    return !(lhs < rhs)
+  }
+}
+
 
 class Accessories: UIViewController {
 
@@ -55,14 +75,14 @@ class Accessories: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        paidbagsLabel.hidden = true
-        paidbagsLabel.transform = CGAffineTransformMakeRotation(-45 * CGFloat(M_PI) / 180.0)
-        paidglassesLabel.hidden = true
-        paidglassesLabel.transform = CGAffineTransformMakeRotation(-45 * CGFloat(M_PI) / 180.0)
-        paidhatsLabel.hidden = true
-        paidhatsLabel.transform = CGAffineTransformMakeRotation(-45 * CGFloat(M_PI) / 180.0)
-        paidnecklaceLabel.hidden = true
-        paidnecklaceLabel.transform = CGAffineTransformMakeRotation(-45 * CGFloat(M_PI) / 180.0)
+        paidbagsLabel.isHidden = true
+        paidbagsLabel.transform = CGAffineTransform(rotationAngle: -45 * CGFloat(M_PI) / 180.0)
+        paidglassesLabel.isHidden = true
+        paidglassesLabel.transform = CGAffineTransform(rotationAngle: -45 * CGFloat(M_PI) / 180.0)
+        paidhatsLabel.isHidden = true
+        paidhatsLabel.transform = CGAffineTransform(rotationAngle: -45 * CGFloat(M_PI) / 180.0)
+        paidnecklaceLabel.isHidden = true
+        paidnecklaceLabel.transform = CGAffineTransform(rotationAngle: -45 * CGFloat(M_PI) / 180.0)
         
         eyesview.image = eyeImage
         hairview.image = hairImage
@@ -77,64 +97,64 @@ class Accessories: UIViewController {
         //pointsLabel.text = "\(points)"
        
         let dirPaths =
-        NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-            .UserDomainMask, true)
+        NSSearchPathForDirectoriesInDomains(.documentDirectory,
+            .userDomainMask, true)
         
         let docsDir = dirPaths[0]
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
-            "mainDatabase.sqlite")
+        databasePath = (docsDir as NSString).appendingPathComponent(
+            "mainDatabase.sqlite") as NSString
         
         let mainDB = FMDatabase(path: databasePath as String)
         
-        if mainDB.open(){
+        if (mainDB?.open())!{
             
             let bagsRes = "SELECT Points FROM Accessories Where Name='\(handbags[0])'"
             let glassesRes = "SELECT Points FROM Accessories Where Name='\(glasses[0])'"
             let hatsRes = "SELECT Points FROM Accessories Where Name='\(hats[0])'"
             let necklaceRes = "SELECT Points FROM Accessories Where Name='\(necklace[0])'"
             
-            let bResults:FMResultSet? = mainDB.executeQuery(bagsRes,
-                withArgumentsInArray: nil)
-            let gResults:FMResultSet? = mainDB.executeQuery(glassesRes,
-                withArgumentsInArray: nil)
-            let hResults:FMResultSet? = mainDB.executeQuery(hatsRes,
-                withArgumentsInArray: nil)
-            let nResults:FMResultSet? = mainDB.executeQuery(necklaceRes,
-                withArgumentsInArray: nil)
+            let bResults:FMResultSet? = mainDB?.executeQuery(bagsRes,
+                withArgumentsIn: nil)
+            let gResults:FMResultSet? = mainDB?.executeQuery(glassesRes,
+                withArgumentsIn: nil)
+            let hResults:FMResultSet? = mainDB?.executeQuery(hatsRes,
+                withArgumentsIn: nil)
+            let nResults:FMResultSet? = mainDB?.executeQuery(necklaceRes,
+                withArgumentsIn: nil)
             
             if bResults?.next() == true
             {
-                bagsLabel.text = bResults?.stringForColumn("Points")
+                bagsLabel.text = bResults?.string(forColumn: "Points")
             }
             
             if gResults?.next() == true
             {
-                glassesLabel.text = gResults?.stringForColumn("Points")
+                glassesLabel.text = gResults?.string(forColumn: "Points")
             }
             
             if hResults?.next() == true
             {
-                hatsLabel.text = hResults?.stringForColumn("Points")
+                hatsLabel.text = hResults?.string(forColumn: "Points")
             }
             
             if nResults?.next() == true
             {
-                necklaceLabel.text = nResults?.stringForColumn("Points")
+                necklaceLabel.text = nResults?.string(forColumn: "Points")
             }
             let p = "SELECT Points FROM Score Where ID='\(idno)'"
-            let presults:FMResultSet? = mainDB.executeQuery(p,
-                                                            withArgumentsInArray: nil)
+            let presults:FMResultSet? = mainDB?.executeQuery(p,
+                                                            withArgumentsIn: nil)
             
             if presults?.next() == true {
-                pointsLabel.text = presults?.stringForColumn("Points")
+                pointsLabel.text = presults?.string(forColumn: "Points")
             }
             
         }
-        mainDB.close()
+        mainDB?.close()
     }
 
-    @IBAction func handbagsR(sender: AnyObject) {
+    @IBAction func handbagsR(_ sender: AnyObject) {
         if(handbagscount + 1 < handbagstotal){
             handbagscount += 1
         }
@@ -142,46 +162,46 @@ class Accessories: UIViewController {
         customhandbags.image = UIImage(named: "\(handbags[handbagscount]).png")
        
         let dirPaths =
-        NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-            .UserDomainMask, true)
+        NSSearchPathForDirectoriesInDomains(.documentDirectory,
+            .userDomainMask, true)
         
         let docsDir = dirPaths[0]
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
-            "mainDatabase.sqlite")
+        databasePath = (docsDir as NSString).appendingPathComponent(
+            "mainDatabase.sqlite") as NSString
         
         let mainDB = FMDatabase(path: databasePath as String)
         
-        if mainDB.open(){
+        if (mainDB?.open())!{
             let bagsRes = "SELECT Points FROM Accessories Where Name='\(handbags[handbagscount])'"
             let check = "SELECT Purchased FROM Accessories Where Name='\(handbags[handbagscount])'"
-            let bResults:FMResultSet? = mainDB.executeQuery(bagsRes,
-                withArgumentsInArray: nil)
-            let checkResults:FMResultSet? = mainDB.executeQuery(check,
-                                                            withArgumentsInArray: nil)
+            let bResults:FMResultSet? = mainDB?.executeQuery(bagsRes,
+                withArgumentsIn: nil)
+            let checkResults:FMResultSet? = mainDB?.executeQuery(check,
+                                                            withArgumentsIn: nil)
             
             if bResults?.next() == true
             {
-                bagsLabel.text = bResults?.stringForColumn("Points")
+                bagsLabel.text = bResults?.string(forColumn: "Points")
                 if checkResults?.next() == true{
-                let x = checkResults?.stringForColumn("Purchased")
+                let x = checkResults?.string(forColumn: "Purchased")
                 let test:Int? = Int(x!)
                     if(test == 1){
-                        paidbagsLabel.hidden = false
+                        paidbagsLabel.isHidden = false
                     }
                     else{
-                        paidbagsLabel.hidden = true
+                        paidbagsLabel.isHidden = true
                     }
                     
                 }
 
             }
         }
-        mainDB.close()
+        mainDB?.close()
         
     }
     
-    @IBAction func handbagsL(sender: AnyObject) {
+    @IBAction func handbagsL(_ sender: AnyObject) {
         if(handbagscount > 0){
             handbagscount -= 1
         }
@@ -190,44 +210,44 @@ class Accessories: UIViewController {
         customhandbags.image = UIImage(named: "\(handbags[handbagscount]).png")
         
         let dirPaths =
-        NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-            .UserDomainMask, true)
+        NSSearchPathForDirectoriesInDomains(.documentDirectory,
+            .userDomainMask, true)
         
         let docsDir = dirPaths[0]
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
-            "mainDatabase.sqlite")
+        databasePath = (docsDir as NSString).appendingPathComponent(
+            "mainDatabase.sqlite") as NSString
         
         
         let mainDB = FMDatabase(path: databasePath as String)
         
-        if mainDB.open(){
+        if (mainDB?.open())!{
             let bagsRes = "SELECT Points FROM Accessories Where Name='\(handbags[handbagscount])'"
             let check = "SELECT Purchased FROM Accessories Where Name='\(handbags[handbagscount])'"
-            let bResults:FMResultSet? = mainDB.executeQuery(bagsRes,
-                withArgumentsInArray: nil)
-            let checkResults:FMResultSet? = mainDB.executeQuery(check,
-                                                                withArgumentsInArray: nil)
+            let bResults:FMResultSet? = mainDB?.executeQuery(bagsRes,
+                withArgumentsIn: nil)
+            let checkResults:FMResultSet? = mainDB?.executeQuery(check,
+                                                                withArgumentsIn: nil)
             if bResults?.next() == true
             {
-                bagsLabel.text = bResults?.stringForColumn("Points")
+                bagsLabel.text = bResults?.string(forColumn: "Points")
                 if checkResults?.next() == true{
-                    let x = checkResults?.stringForColumn("Purchased")
+                    let x = checkResults?.string(forColumn: "Purchased")
                     let test:Int? = Int(x!)
                     if(test == 1){
-                        paidbagsLabel.hidden = false
+                        paidbagsLabel.isHidden = false
                     }
                     else{
-                        paidbagsLabel.hidden = true
+                        paidbagsLabel.isHidden = true
                     }
                 }
             }
         }
-        mainDB.close()
+        mainDB?.close()
         }
     }
     
-    @IBAction func glassesR(sender: AnyObject) {
+    @IBAction func glassesR(_ sender: AnyObject) {
         
         if(glassescount + 1 < glassestotal){
             glassescount += 1
@@ -236,44 +256,44 @@ class Accessories: UIViewController {
         customglasses.image = UIImage(named: "\(glasses[glassescount]).png")
         
         let dirPaths =
-        NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-            .UserDomainMask, true)
+        NSSearchPathForDirectoriesInDomains(.documentDirectory,
+            .userDomainMask, true)
         
         let docsDir = dirPaths[0] 
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
-            "mainDatabase.sqlite")
+        databasePath = (docsDir as NSString).appendingPathComponent(
+            "mainDatabase.sqlite") as NSString
         
         
         let mainDB = FMDatabase(path: databasePath as String)
         
-        if mainDB.open(){
+        if (mainDB?.open())!{
             let glassesRes = "SELECT Points FROM Accessories Where Name='\(glasses[glassescount])'"
             let check = "SELECT Purchased FROM Accessories Where Name='\(glasses[glassescount])'"
-            let gResults:FMResultSet? = mainDB.executeQuery(glassesRes,
-                withArgumentsInArray: nil)
-            let checkResults:FMResultSet? = mainDB.executeQuery(check,
-                                                                withArgumentsInArray: nil)
+            let gResults:FMResultSet? = mainDB?.executeQuery(glassesRes,
+                withArgumentsIn: nil)
+            let checkResults:FMResultSet? = mainDB?.executeQuery(check,
+                                                                withArgumentsIn: nil)
 
             if gResults?.next() == true
             {
-                glassesLabel.text = gResults?.stringForColumn("Points")
+                glassesLabel.text = gResults?.string(forColumn: "Points")
                 if checkResults?.next() == true{
-                    let x = checkResults?.stringForColumn("Purchased")
+                    let x = checkResults?.string(forColumn: "Purchased")
                     let test:Int? = Int(x!)
                     if(test == 1){
-                        paidglassesLabel.hidden = false
+                        paidglassesLabel.isHidden = false
                     }
                     else{
-                        paidglassesLabel.hidden = true
+                        paidglassesLabel.isHidden = true
                     }
                 }
             }
         }
-        mainDB.close()
+        mainDB?.close()
         
     }
-    @IBAction func glassesL(sender: AnyObject) {
+    @IBAction func glassesL(_ sender: AnyObject) {
         if(glassescount > 0){
             glassescount -= 1
         }
@@ -282,43 +302,43 @@ class Accessories: UIViewController {
         customglasses.image = UIImage(named: "\(glasses[glassescount]).png")
         
         let dirPaths =
-        NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-            .UserDomainMask, true)
+        NSSearchPathForDirectoriesInDomains(.documentDirectory,
+            .userDomainMask, true)
         
         let docsDir = dirPaths[0] 
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
-            "mainDatabase.sqlite")
+        databasePath = (docsDir as NSString).appendingPathComponent(
+            "mainDatabase.sqlite") as NSString
         
         let mainDB = FMDatabase(path: databasePath as String)
         
-        if mainDB.open(){
+        if (mainDB?.open())!{
             let glassesRes = "SELECT Points FROM Accessories Where Name='\(glasses[glassescount])'"
             let check = "SELECT Purchased FROM Accessories Where Name='\(glasses[glassescount])'"
-            let gResults:FMResultSet? = mainDB.executeQuery(glassesRes,
-                withArgumentsInArray: nil)
-            let checkResults:FMResultSet? = mainDB.executeQuery(check,
-                                                                withArgumentsInArray: nil)
+            let gResults:FMResultSet? = mainDB?.executeQuery(glassesRes,
+                withArgumentsIn: nil)
+            let checkResults:FMResultSet? = mainDB?.executeQuery(check,
+                                                                withArgumentsIn: nil)
 
             if gResults?.next() == true
             {
-                glassesLabel.text = gResults?.stringForColumn("Points")
+                glassesLabel.text = gResults?.string(forColumn: "Points")
                 if checkResults?.next() == true{
-                    let x = checkResults?.stringForColumn("Purchased")
+                    let x = checkResults?.string(forColumn: "Purchased")
                     let test:Int? = Int(x!)
                     if(test == 1){
-                        paidglassesLabel.hidden = false
+                        paidglassesLabel.isHidden = false
                     }
                     else{
-                        paidglassesLabel.hidden = true
+                        paidglassesLabel.isHidden = true
                     }
                 }
             }
         }
-        mainDB.close()
+        mainDB?.close()
         }
     }
-    @IBAction func hatsR(sender: AnyObject) {
+    @IBAction func hatsR(_ sender: AnyObject) {
         if(hatscount + 1 < hatstotal){
             hatscount += 1
         }
@@ -326,45 +346,45 @@ class Accessories: UIViewController {
         customhats.image = UIImage(named: "\(hats[hatscount]).png")
        
         let dirPaths =
-        NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-            .UserDomainMask, true)
+        NSSearchPathForDirectoriesInDomains(.documentDirectory,
+            .userDomainMask, true)
         
         let docsDir = dirPaths[0] 
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
-            "mainDatabase.sqlite")
+        databasePath = (docsDir as NSString).appendingPathComponent(
+            "mainDatabase.sqlite") as NSString
         
         let mainDB = FMDatabase(path: databasePath as String)
         
-        if mainDB.open(){
+        if (mainDB?.open())!{
             let hatsRes = "SELECT Points FROM Accessories Where Name='\(hats[hatscount])'"
             let check = "SELECT Purchased FROM Accessories Where Name='\(hats[hatscount])'"
-            let hResults:FMResultSet? = mainDB.executeQuery(hatsRes,
-                withArgumentsInArray: nil)
-            let checkResults:FMResultSet? = mainDB.executeQuery(check,
-                                                                withArgumentsInArray: nil)
+            let hResults:FMResultSet? = mainDB?.executeQuery(hatsRes,
+                withArgumentsIn: nil)
+            let checkResults:FMResultSet? = mainDB?.executeQuery(check,
+                                                                withArgumentsIn: nil)
 
             if hResults?.next() == true
             {
-                hatsLabel.text = hResults?.stringForColumn("Points")
+                hatsLabel.text = hResults?.string(forColumn: "Points")
                 if checkResults?.next() == true{
-                    let x = checkResults?.stringForColumn("Purchased")
+                    let x = checkResults?.string(forColumn: "Purchased")
                     let test:Int? = Int(x!)
                     if(test == 1){
-                        paidhatsLabel.hidden = false
+                        paidhatsLabel.isHidden = false
                     }
                     else{
-                        paidhatsLabel.hidden = true
+                        paidhatsLabel.isHidden = true
                     }
                 }
             }
             
         }
-        mainDB.close()
+        mainDB?.close()
         
     }
     
-    @IBAction func hatsL(sender: AnyObject) {
+    @IBAction func hatsL(_ sender: AnyObject) {
         if(hatscount > 0){
             hatscount -= 1
         }
@@ -372,44 +392,44 @@ class Accessories: UIViewController {
         hatsview.image = UIImage(named: "\(hats[hatscount]).png")
         customhats.image = UIImage(named: "\(hats[hatscount]).png")
         let dirPaths =
-        NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-            .UserDomainMask, true)
+        NSSearchPathForDirectoriesInDomains(.documentDirectory,
+            .userDomainMask, true)
         
         let docsDir = dirPaths[0] 
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
-            "mainDatabase.sqlite")
+        databasePath = (docsDir as NSString).appendingPathComponent(
+            "mainDatabase.sqlite") as NSString
         
         let mainDB = FMDatabase(path: databasePath as String)
         
-        if mainDB.open(){
+        if (mainDB?.open())!{
             let hatsRes = "SELECT Points FROM Accessories Where Name='\(hats[hatscount])'"
             let check = "SELECT Purchased FROM Accessories Where Name='\(hats[hatscount])'"
-            let hResults:FMResultSet? = mainDB.executeQuery(hatsRes,
-                withArgumentsInArray: nil)
-            let checkResults:FMResultSet? = mainDB.executeQuery(check,
-                                                                withArgumentsInArray: nil)
+            let hResults:FMResultSet? = mainDB?.executeQuery(hatsRes,
+                withArgumentsIn: nil)
+            let checkResults:FMResultSet? = mainDB?.executeQuery(check,
+                                                                withArgumentsIn: nil)
 
             if hResults?.next() == true
             {
-                hatsLabel.text = hResults?.stringForColumn("Points")
+                hatsLabel.text = hResults?.string(forColumn: "Points")
                 if checkResults?.next() == true{
-                    let x = checkResults?.stringForColumn("Purchased")
+                    let x = checkResults?.string(forColumn: "Purchased")
                     let test:Int? = Int(x!)
                     if(test == 1){
-                        paidhatsLabel.hidden = false
+                        paidhatsLabel.isHidden = false
                     }
                     else{
-                        paidhatsLabel.hidden = true
+                        paidhatsLabel.isHidden = true
                     }
                 }
             }
             
         }
-        mainDB.close()
+        mainDB?.close()
     }
 }
-    @IBAction func necklaceR(sender: AnyObject) {
+    @IBAction func necklaceR(_ sender: AnyObject) {
         if(necklacecount + 1 <  necklacetotal){
             necklacecount += 1
         }
@@ -417,43 +437,43 @@ class Accessories: UIViewController {
         customnecklace.image = UIImage(named: "\(necklace[necklacecount]).png")
         
         let dirPaths =
-        NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-            .UserDomainMask, true)
+        NSSearchPathForDirectoriesInDomains(.documentDirectory,
+            .userDomainMask, true)
         
         let docsDir = dirPaths[0] 
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
-            "mainDatabase.sqlite")
+        databasePath = (docsDir as NSString).appendingPathComponent(
+            "mainDatabase.sqlite") as NSString
         
         let mainDB = FMDatabase(path: databasePath as String)
         
-        if mainDB.open(){
+        if (mainDB?.open())!{
             let necklaceRes = "SELECT Points FROM Accessories Where Name='\(necklace[necklacecount])'"
             let check = "SELECT Purchased FROM Accessories Where Name='\(necklace[necklacecount])'"
             
-            let nResults:FMResultSet? = mainDB.executeQuery(necklaceRes,
-                withArgumentsInArray: nil)
-            let checkResults:FMResultSet? = mainDB.executeQuery(check,
-                                                                withArgumentsInArray: nil)
+            let nResults:FMResultSet? = mainDB?.executeQuery(necklaceRes,
+                withArgumentsIn: nil)
+            let checkResults:FMResultSet? = mainDB?.executeQuery(check,
+                                                                withArgumentsIn: nil)
             if nResults?.next() == true
             {
-                necklaceLabel.text = nResults?.stringForColumn("Points")
+                necklaceLabel.text = nResults?.string(forColumn: "Points")
                 if checkResults?.next() == true{
-                    let x = checkResults?.stringForColumn("Purchased")
+                    let x = checkResults?.string(forColumn: "Purchased")
                     let test:Int? = Int(x!)
                     if(test == 1){
-                        paidnecklaceLabel.hidden = false
+                        paidnecklaceLabel.isHidden = false
                     }
                     else{
-                        paidnecklaceLabel.hidden = true
+                        paidnecklaceLabel.isHidden = true
                     }
                 }
             }
         }
-        mainDB.close()
+        mainDB?.close()
         
     }
-    @IBAction func necklaceL(sender: AnyObject) {
+    @IBAction func necklaceL(_ sender: AnyObject) {
         if(necklacecount > 0){
             necklacecount -= 1
         }
@@ -462,72 +482,72 @@ class Accessories: UIViewController {
         customnecklace.image = UIImage(named: "\(necklace[necklacecount]).png")
         
         let dirPaths =
-        NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-            .UserDomainMask, true)
+        NSSearchPathForDirectoriesInDomains(.documentDirectory,
+            .userDomainMask, true)
         
         let docsDir = dirPaths[0] 
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
-            "mainDatabase.sqlite")
+        databasePath = (docsDir as NSString).appendingPathComponent(
+            "mainDatabase.sqlite") as NSString
         
         let mainDB = FMDatabase(path: databasePath as String)
         
-        if mainDB.open(){
+        if (mainDB?.open())!{
             let necklaceRes = "SELECT Points FROM Accessories Where Name='\(necklace[necklacecount])'"
             let check = "SELECT Purchased FROM Accessories Where Name='\(necklace[necklacecount])'"
             
-            let nResults:FMResultSet? = mainDB.executeQuery(necklaceRes,
-                withArgumentsInArray: nil)
-            let checkResults:FMResultSet? = mainDB.executeQuery(check,
-                                                                withArgumentsInArray: nil)
+            let nResults:FMResultSet? = mainDB?.executeQuery(necklaceRes,
+                withArgumentsIn: nil)
+            let checkResults:FMResultSet? = mainDB?.executeQuery(check,
+                                                                withArgumentsIn: nil)
             if nResults?.next() == true
             {
-                necklaceLabel.text = nResults?.stringForColumn("Points")
+                necklaceLabel.text = nResults?.string(forColumn: "Points")
                 if checkResults?.next() == true{
-                    let x = checkResults?.stringForColumn("Purchased")
+                    let x = checkResults?.string(forColumn: "Purchased")
                     let test:Int? = Int(x!)
                     if(test == 1){
-                        paidnecklaceLabel.hidden = false
+                        paidnecklaceLabel.isHidden = false
                     }
                     else{
-                        paidnecklaceLabel.hidden = true
+                        paidnecklaceLabel.isHidden = true
                     }
                 }
             }
             
         }
-        mainDB.close()
+        mainDB?.close()
     }
 }
     
-    @IBAction func Bags(sender: UIButton) {
+    @IBAction func Bags(_ sender: UIButton) {
         if(handbagscount == -1){
             return
         }
-        let filemgr = NSFileManager.defaultManager()
+        let filemgr = FileManager.default
         let dirPaths =
-            NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-                                                .UserDomainMask, true)
+            NSSearchPathForDirectoriesInDomains(.documentDirectory,
+                                                .userDomainMask, true)
         
         let docsDir = dirPaths[0]
         var error: NSError?
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
-            "mainDatabase.sqlite")
+        databasePath = (docsDir as NSString).appendingPathComponent(
+            "mainDatabase.sqlite") as NSString
         
-        if filemgr.fileExistsAtPath(databasePath as String){
+        if filemgr.fileExists(atPath: databasePath as String){
             do {
-                try filemgr.removeItemAtPath(databasePath as String)
+                try filemgr.removeItem(atPath: databasePath as String)
             } catch let error1 as NSError {
                 error = error1
             }
             
         }
         
-        if let bundle_path = NSBundle.mainBundle().pathForResource("mainDatabase", ofType: "sqlite"){
+        if let bundle_path = Bundle.main.path(forResource: "mainDatabase", ofType: "sqlite"){
             //print("\(bundle_path)")
             do {
-                try filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String)
+                try filemgr.copyItem(atPath: bundle_path, toPath: databasePath as String)
                 //print("Success!!!")
             } catch let error1 as NSError {
                 error = error1
@@ -537,35 +557,35 @@ class Accessories: UIViewController {
         
         let mainDB = FMDatabase(path: databasePath as String)
         if mainDB == nil{
-            print("Error: \(mainDB.lastErrorMessage())")
+            print("Error: \(mainDB?.lastErrorMessage())")
         }
         
         // opening the database and extracting content through suitable queries
-        if mainDB.open(){
+        if (mainDB?.open())!{
             let p = "SELECT Points FROM Score Where ID='\(idno)'"
-            let presults:FMResultSet? = mainDB.executeQuery(p,
-                                                            withArgumentsInArray: nil)
+            let presults:FMResultSet? = mainDB?.executeQuery(p,
+                                                            withArgumentsIn: nil)
             
             if presults?.next() == true {
                 print("Selected Points entry")
-                let x = presults?.stringForColumn("Points")
+                let x = presults?.string(forColumn: "Points")
                 let bagsRes = "SELECT Points FROM Accessories Where Name='\(handbags[handbagscount])'"
-                let bresults:FMResultSet? = mainDB.executeQuery(bagsRes,
-                                                                withArgumentsInArray: nil)
+                let bresults:FMResultSet? = mainDB?.executeQuery(bagsRes,
+                                                                withArgumentsIn: nil)
                 print("x: \(x)")
                 
                 if bresults?.next() == true {
-                let y = bresults?.stringForColumn("Points")
+                let y = bresults?.string(forColumn: "Points")
                 print("y: \(y)")
                     let a:Int? = Int(x!)
                     let b:Int? = Int(y!)
                     
                     if(a >= b )
                     {
-                        paidbagsLabel.hidden = false
+                        paidbagsLabel.isHidden = false
                         let query = "UPDATE Score SET Points='\(a!-b!)' WHERE ID='\(idno)'"
-                        let addSuccess = mainDB.executeUpdate(query, withArgumentsInArray: nil)
-                        if(!addSuccess){
+                        let addSuccess = mainDB?.executeUpdate(query, withArgumentsIn: nil)
+                        if(!addSuccess!){
                             print("Failed to add data to Avatar Table")
                         }
                         else
@@ -574,25 +594,25 @@ class Accessories: UIViewController {
                         }
                         pointsLabel.text = "\(a!-b!)"
                     let query2 = "UPDATE Accessories SET Purchased=1 WHERE Name='\(handbags[handbagscount])'"
-                        let success2 = mainDB.executeUpdate(query2, withArgumentsInArray: nil)
-                        if(!success2){
+                        let success2 = mainDB?.executeUpdate(query2, withArgumentsIn: nil)
+                        if(!success2!){
                             print("Failed to update Purchased Attribute")
                         }
                         else{
                             print("Success in updating purchased Attribute")
                         }
                         
-                        if filemgr.fileExistsAtPath(bundle_path){
+                        if filemgr.fileExists(atPath: bundle_path){
                             print("About to del bundle file")
                             do {
-                                try filemgr.removeItemAtPath(bundle_path)
+                                try filemgr.removeItem(atPath: bundle_path)
                             } catch let error1 as NSError {
                                 error = error1
                             }
                         }
                         
                         do {
-                            try filemgr.copyItemAtPath(databasePath as String, toPath: bundle_path)
+                            try filemgr.copyItem(atPath: databasePath as String, toPath: bundle_path)
                             print("replaced bundle path contents")
                             
                         } catch let error1 as NSError {
@@ -602,50 +622,50 @@ class Accessories: UIViewController {
                         }
                     }
                     else{
-                        let alert = UIAlertController(title: "MESSAGE!!!", message:"You don't have sufficient Points to buy this!", preferredStyle: .Alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
-                        self.presentViewController(alert, animated: true){}
+                        let alert = UIAlertController(title: "MESSAGE!!!", message:"You don't have sufficient Points to buy this!", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in })
+                        self.present(alert, animated: true){}
                     }
                     }
                 
             }
             }
-            mainDB.close()
+            mainDB?.close()
          }
         }
     
     
-    @IBAction func Glasses(sender: UIButton) {
+    @IBAction func Glasses(_ sender: UIButton) {
         if(glassescount == -1){
             return
         }
-        let filemgr = NSFileManager.defaultManager()
+        let filemgr = FileManager.default
         let dirPaths =
-            NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-                                                .UserDomainMask, true)
+            NSSearchPathForDirectoriesInDomains(.documentDirectory,
+                                                .userDomainMask, true)
         
         let docsDir = dirPaths[0]
         var error: NSError?
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
-            "mainDatabase.sqlite")
+        databasePath = (docsDir as NSString).appendingPathComponent(
+            "mainDatabase.sqlite") as NSString
         
         
-        if filemgr.fileExistsAtPath(databasePath as String){
+        if filemgr.fileExists(atPath: databasePath as String){
             // print("FOUND!!!!")
             do {
-                try filemgr.removeItemAtPath(databasePath as String)
+                try filemgr.removeItem(atPath: databasePath as String)
             } catch let error1 as NSError {
                 error = error1
             }
             
         }
         
-        if let bundle_path = NSBundle.mainBundle().pathForResource("mainDatabase", ofType: "sqlite"){
+        if let bundle_path = Bundle.main.path(forResource: "mainDatabase", ofType: "sqlite"){
             //print("\(bundle_path)")
             
             do {
-                try filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String)
+                try filemgr.copyItem(atPath: bundle_path, toPath: databasePath as String)
                 //print("Success!!!")
             } catch let error1 as NSError {
                 error = error1
@@ -656,36 +676,36 @@ class Accessories: UIViewController {
             
             let mainDB = FMDatabase(path: databasePath as String)
             if mainDB == nil{
-                print("Error: \(mainDB.lastErrorMessage())")
+                print("Error: \(mainDB?.lastErrorMessage())")
             }
             
             // opening the database and extracting content through suitable queries
-            if mainDB.open(){
+            if (mainDB?.open())!{
                 let p = "SELECT Points FROM Score Where ID='\(idno)'"
                 
-                let presults:FMResultSet? = mainDB.executeQuery(p,
-                                                                withArgumentsInArray: nil)
+                let presults:FMResultSet? = mainDB?.executeQuery(p,
+                                                                withArgumentsIn: nil)
                 
                 if presults?.next() == true {
                     print("Selected Points entry")
-                    let x = presults?.stringForColumn("Points")
+                    let x = presults?.string(forColumn: "Points")
                     let bagsRes = "SELECT Points FROM Accessories Where Name='\(glasses[glassescount])'"
-                    let bresults:FMResultSet? = mainDB.executeQuery(bagsRes,
-                                                                    withArgumentsInArray: nil)
+                    let bresults:FMResultSet? = mainDB?.executeQuery(bagsRes,
+                                                                    withArgumentsIn: nil)
                     print("x: \(x)")
                     
                     if bresults?.next() == true {
-                        let y = bresults?.stringForColumn("Points")
+                        let y = bresults?.string(forColumn: "Points")
                         print("y: \(y)")
                         let a:Int? = Int(x!)
                         let b:Int? = Int(y!)
                         
                         if(a >= b )
                         {
-                            paidglassesLabel.hidden = false
+                            paidglassesLabel.isHidden = false
                             let query = "UPDATE Score SET Points='\(a!-b!)' WHERE ID='\(idno)'"
-                            let addSuccess = mainDB.executeUpdate(query, withArgumentsInArray: nil)
-                            if(!addSuccess){
+                            let addSuccess = mainDB?.executeUpdate(query, withArgumentsIn: nil)
+                            if(!addSuccess!){
                                 print("Failed to add data to Avatar Table")
                             }
                             else
@@ -694,25 +714,25 @@ class Accessories: UIViewController {
                             }
                             pointsLabel.text = "\(a!-b!)"
                             let query2 = "UPDATE Accessories SET Purchased=1 WHERE Name='\(glasses[glassescount])'"
-                            let success2 = mainDB.executeUpdate(query2, withArgumentsInArray: nil)
-                            if(!success2){
+                            let success2 = mainDB?.executeUpdate(query2, withArgumentsIn: nil)
+                            if(!success2!){
                                 print("Failed to update Purchased Attribute")
                             }
                             else{
                                 print("Success in updating purchased Attribute")
                             }
                             
-                            if filemgr.fileExistsAtPath(bundle_path){
+                            if filemgr.fileExists(atPath: bundle_path){
                                 print("About to del bundle file")
                                 do {
-                                    try filemgr.removeItemAtPath(bundle_path)
+                                    try filemgr.removeItem(atPath: bundle_path)
                                 } catch let error1 as NSError {
                                     error = error1
                                 }
                             }
                             
                             do {
-                                try filemgr.copyItemAtPath(databasePath as String, toPath: bundle_path)
+                                try filemgr.copyItem(atPath: databasePath as String, toPath: bundle_path)
                                 print("replaced bundle path contents")
                                 
                             } catch let error1 as NSError {
@@ -722,49 +742,49 @@ class Accessories: UIViewController {
                             }
                         }
                         else{
-                            let alert = UIAlertController(title: "MESSAGE!!!", message:"You don't have sufficient Points to buy this!", preferredStyle: .Alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
-                            self.presentViewController(alert, animated: true){}
+                            let alert = UIAlertController(title: "MESSAGE!!!", message:"You don't have sufficient Points to buy this!", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in })
+                            self.present(alert, animated: true){}
                         }
                     }
                     
                 }
             }
-            mainDB.close()
+            mainDB?.close()
         }
         
         
     }
-    @IBAction func Hats(sender: UIButton) {
+    @IBAction func Hats(_ sender: UIButton) {
         if(hatscount == -1){
             return
         }
         
-        let filemgr = NSFileManager.defaultManager()
+        let filemgr = FileManager.default
         let dirPaths =
-            NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-                                                .UserDomainMask, true)
+            NSSearchPathForDirectoriesInDomains(.documentDirectory,
+                                                .userDomainMask, true)
         
         let docsDir = dirPaths[0]
         var error: NSError?
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
-            "mainDatabase.sqlite")
+        databasePath = (docsDir as NSString).appendingPathComponent(
+            "mainDatabase.sqlite") as NSString
         
         
-        if filemgr.fileExistsAtPath(databasePath as String){
+        if filemgr.fileExists(atPath: databasePath as String){
             // print("FOUND!!!!")
             do {
-                try filemgr.removeItemAtPath(databasePath as String)
+                try filemgr.removeItem(atPath: databasePath as String)
             } catch let error1 as NSError {
                 error = error1
             }
             
         }
         
-        if let bundle_path = NSBundle.mainBundle().pathForResource("mainDatabase", ofType: "sqlite"){
+        if let bundle_path = Bundle.main.path(forResource: "mainDatabase", ofType: "sqlite"){
             do {
-                try filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String)
+                try filemgr.copyItem(atPath: bundle_path, toPath: databasePath as String)
             } catch let error1 as NSError {
                 error = error1
                 print("Failure")
@@ -773,36 +793,36 @@ class Accessories: UIViewController {
             
             let mainDB = FMDatabase(path: databasePath as String)
             if mainDB == nil{
-                print("Error: \(mainDB.lastErrorMessage())")
+                print("Error: \(mainDB?.lastErrorMessage())")
             }
             
             // opening the database and extracting content through suitable queries
-            if mainDB.open(){
+            if (mainDB?.open())!{
                 let p = "SELECT Points FROM Score Where ID='\(idno)'"
                 
-                let presults:FMResultSet? = mainDB.executeQuery(p,
-                                                                withArgumentsInArray: nil)
+                let presults:FMResultSet? = mainDB?.executeQuery(p,
+                                                                withArgumentsIn: nil)
                 
                 if presults?.next() == true {
                     print("Selected Points entry")
-                    let x = presults?.stringForColumn("Points")
+                    let x = presults?.string(forColumn: "Points")
                     let bagsRes = "SELECT Points FROM Accessories Where Name='\(hats[hatscount])'"
-                    let bresults:FMResultSet? = mainDB.executeQuery(bagsRes,
-                                                                    withArgumentsInArray: nil)
+                    let bresults:FMResultSet? = mainDB?.executeQuery(bagsRes,
+                                                                    withArgumentsIn: nil)
                     print("x: \(x)")
                     
                     if bresults?.next() == true {
-                        let y = bresults?.stringForColumn("Points")
+                        let y = bresults?.string(forColumn: "Points")
                         print("y: \(y)")
                         let a:Int? = Int(x!)
                         let b:Int? = Int(y!)
                         
                         if(a >= b )
                         {
-                            paidhatsLabel.hidden = false
+                            paidhatsLabel.isHidden = false
                             let query = "UPDATE Score SET Points='\(a!-b!)' WHERE ID='\(idno)'"
-                            let addSuccess = mainDB.executeUpdate(query, withArgumentsInArray: nil)
-                            if(!addSuccess){
+                            let addSuccess = mainDB?.executeUpdate(query, withArgumentsIn: nil)
+                            if(!addSuccess!){
                                 print("Failed to add data to Avatar Table")
                             }
                             else
@@ -811,25 +831,25 @@ class Accessories: UIViewController {
                             }
                             pointsLabel.text = "\(a!-b!)"
                             let query2 = "UPDATE Accessories SET Purchased=1 WHERE Name='\(hats[hatscount])'"
-                            let success2 = mainDB.executeUpdate(query2, withArgumentsInArray: nil)
-                            if(!success2){
+                            let success2 = mainDB?.executeUpdate(query2, withArgumentsIn: nil)
+                            if(!success2!){
                                 print("Failed to update Purchased Attribute")
                             }
                             else{
                                 print("Success in updating purchased Attribute")
                             }
                             
-                            if filemgr.fileExistsAtPath(bundle_path){
+                            if filemgr.fileExists(atPath: bundle_path){
                                 print("About to del bundle file")
                                 do {
-                                    try filemgr.removeItemAtPath(bundle_path)
+                                    try filemgr.removeItem(atPath: bundle_path)
                                 } catch let error1 as NSError {
                                     error = error1
                                 }
                             }
                             
                             do {
-                                try filemgr.copyItemAtPath(databasePath as String, toPath: bundle_path)
+                                try filemgr.copyItem(atPath: databasePath as String, toPath: bundle_path)
                                 print("replaced bundle path contents")
                                 
                             } catch let error1 as NSError {
@@ -839,50 +859,50 @@ class Accessories: UIViewController {
                             }
                         }
                         else{
-                            let alert = UIAlertController(title: "MESSAGE!!!", message:"You don't have sufficient Points to buy this!", preferredStyle: .Alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
-                            self.presentViewController(alert, animated: true){}
+                            let alert = UIAlertController(title: "MESSAGE!!!", message:"You don't have sufficient Points to buy this!", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in })
+                            self.present(alert, animated: true){}
                         }
                     }
                     
                 }
             }
-            mainDB.close()
+            mainDB?.close()
         }
         
         
     }
-    @IBAction func Necklace(sender: UIButton) {
+    @IBAction func Necklace(_ sender: UIButton) {
         if(necklacecount == -1){
             return
         }
-        let filemgr = NSFileManager.defaultManager()
+        let filemgr = FileManager.default
         let dirPaths =
-            NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-                                                .UserDomainMask, true)
+            NSSearchPathForDirectoriesInDomains(.documentDirectory,
+                                                .userDomainMask, true)
         
         let docsDir = dirPaths[0]
         var error: NSError?
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
-            "mainDatabase.sqlite")
+        databasePath = (docsDir as NSString).appendingPathComponent(
+            "mainDatabase.sqlite") as NSString
         
         
-        if filemgr.fileExistsAtPath(databasePath as String){
+        if filemgr.fileExists(atPath: databasePath as String){
             // print("FOUND!!!!")
             do {
-                try filemgr.removeItemAtPath(databasePath as String)
+                try filemgr.removeItem(atPath: databasePath as String)
             } catch let error1 as NSError {
                 error = error1
             }
             
         }
         
-        if let bundle_path = NSBundle.mainBundle().pathForResource("mainDatabase", ofType: "sqlite"){
+        if let bundle_path = Bundle.main.path(forResource: "mainDatabase", ofType: "sqlite"){
             //print("\(bundle_path)")
             
             do {
-                try filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String)
+                try filemgr.copyItem(atPath: bundle_path, toPath: databasePath as String)
                 //print("Success!!!")
             } catch let error1 as NSError {
                 error = error1
@@ -894,36 +914,36 @@ class Accessories: UIViewController {
             
             let mainDB = FMDatabase(path: databasePath as String)
             if mainDB == nil{
-                print("Error: \(mainDB.lastErrorMessage())")
+                print("Error: \(mainDB?.lastErrorMessage())")
             }
             
             // opening the database and extracting content through suitable queries
-            if mainDB.open(){
+            if (mainDB?.open())!{
                 let p = "SELECT Points FROM Score Where ID='\(idno)'"
                 
-                let presults:FMResultSet? = mainDB.executeQuery(p,
-                                                                withArgumentsInArray: nil)
+                let presults:FMResultSet? = mainDB?.executeQuery(p,
+                                                                withArgumentsIn: nil)
                 
                 if presults?.next() == true {
                     print("Selected Points entry")
-                    let x = presults?.stringForColumn("Points")
+                    let x = presults?.string(forColumn: "Points")
                     let bagsRes = "SELECT Points FROM Accessories Where Name='\(necklace[necklacecount])'"
-                    let bresults:FMResultSet? = mainDB.executeQuery(bagsRes,
-                                                                    withArgumentsInArray: nil)
+                    let bresults:FMResultSet? = mainDB?.executeQuery(bagsRes,
+                                                                    withArgumentsIn: nil)
                     print("x: \(x)")
                     
                     if bresults?.next() == true {
-                        let y = bresults?.stringForColumn("Points")
+                        let y = bresults?.string(forColumn: "Points")
                         print("y: \(y)")
                         let a:Int? = Int(x!)
                         let b:Int? = Int(y!)
                         
                         if(a >= b )
                         {
-                            paidnecklaceLabel.hidden = false
+                            paidnecklaceLabel.isHidden = false
                             let query = "UPDATE Score SET Points='\(a!-b!)' WHERE ID='\(idno)'"
-                            let addSuccess = mainDB.executeUpdate(query, withArgumentsInArray: nil)
-                            if(!addSuccess){
+                            let addSuccess = mainDB?.executeUpdate(query, withArgumentsIn: nil)
+                            if(!addSuccess!){
                                 print("Failed to add data to Avatar Table")
                             }
                             else
@@ -932,25 +952,25 @@ class Accessories: UIViewController {
                             }
                             pointsLabel.text = "\(a!-b!)"
                             let query2 = "UPDATE Accessories SET Purchased=1 WHERE Name='\(necklace[necklacecount])'"
-                            let success2 = mainDB.executeUpdate(query2, withArgumentsInArray: nil)
-                            if(!success2){
+                            let success2 = mainDB?.executeUpdate(query2, withArgumentsIn: nil)
+                            if(!success2!){
                                 print("Failed to update Purchased Attribute")
                             }
                             else{
                                 print("Success in updating purchased Attribute")
                             }
                             
-                            if filemgr.fileExistsAtPath(bundle_path){
+                            if filemgr.fileExists(atPath: bundle_path){
                                 print("About to del bundle file")
                                 do {
-                                    try filemgr.removeItemAtPath(bundle_path)
+                                    try filemgr.removeItem(atPath: bundle_path)
                                 } catch let error1 as NSError {
                                     error = error1
                                 }
                             }
                             
                             do {
-                                try filemgr.copyItemAtPath(databasePath as String, toPath: bundle_path)
+                                try filemgr.copyItem(atPath: databasePath as String, toPath: bundle_path)
                                 print("replaced bundle path contents")
                                 
                             } catch let error1 as NSError {
@@ -960,22 +980,22 @@ class Accessories: UIViewController {
                             }
                         }
                         else{
-                            let alert = UIAlertController(title: "MESSAGE!!!", message:"You don't have sufficient Points to buy this!", preferredStyle: .Alert)
-                            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in })
-                            self.presentViewController(alert, animated: true){}
+                            let alert = UIAlertController(title: "MESSAGE!!!", message:"You don't have sufficient Points to buy this!", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in })
+                            self.present(alert, animated: true){}
                         }
                     }
                     
                 }
             }
-            mainDB.close()
+            mainDB?.close()
         }
         
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "fromAccess"
         {
-            if let destinationVC = segue.destinationViewController as? DressingRoom2{
+            if let destinationVC = segue.destination as? DressingRoom2{
                 destinationVC.idno = idno
                 destinationVC.eyeImage = eyesview.image
                 destinationVC.hairImage = hairview.image

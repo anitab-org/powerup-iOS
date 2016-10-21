@@ -7,7 +7,7 @@ import UIKit
 class DressingRoom2: UIViewController {
     
     var databasePath = NSString()
-    let defaults = NSUserDefaults.standardUserDefaults()
+    let defaults = UserDefaults.standard
     var points = 0
     var idno = 0
     var numberToDisplay = 0
@@ -35,39 +35,39 @@ class DressingRoom2: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated:true);
         
         // setting the orientation to portrait
-        let value = UIInterfaceOrientation.Portrait.rawValue
-        UIDevice.currentDevice().setValue(value, forKey: "orientation")
+        let value = UIInterfaceOrientation.portrait.rawValue
+        UIDevice.current.setValue(value, forKey: "orientation")
         
         /***********Update points label from table Score- database**********/
         //pointsLabel.text = "\(points)"
        
-        let filemgr = NSFileManager.defaultManager()
+        let filemgr = FileManager.default
         let dirPaths =
-            NSSearchPathForDirectoriesInDomains(.DocumentDirectory,
-                                                .UserDomainMask, true)
+            NSSearchPathForDirectoriesInDomains(.documentDirectory,
+                                                .userDomainMask, true)
         
         let docsDir = dirPaths[0]
         var error: NSError?
         
-        databasePath = (docsDir as NSString).stringByAppendingPathComponent(
-            "mainDatabase.sqlite")
+        databasePath = (docsDir as NSString).appendingPathComponent(
+            "mainDatabase.sqlite") as NSString
         
         
-        if filemgr.fileExistsAtPath(databasePath as String){
+        if filemgr.fileExists(atPath: databasePath as String){
             print("FOUND!!!!")
             do {
-                try filemgr.removeItemAtPath(databasePath as String)
+                try filemgr.removeItem(atPath: databasePath as String)
             } catch let error1 as NSError {
                 error = error1
             }
         }
         
         
-        if let bundle_path = NSBundle.mainBundle().pathForResource("mainDatabase", ofType: "sqlite"){
+        if let bundle_path = Bundle.main.path(forResource: "mainDatabase", ofType: "sqlite"){
             print("Bundle path:\(bundle_path)")
             print(" ")
             do {
-                try filemgr.copyItemAtPath(bundle_path, toPath: databasePath as String)
+                try filemgr.copyItem(atPath: bundle_path, toPath: databasePath as String)
                 print("Success in copying from bundle to databasepath")
                 print("Database path: \(databasePath)")
                 print(" ")
@@ -80,7 +80,7 @@ class DressingRoom2: UIViewController {
             
             
             let mainDB = FMDatabase(path: databasePath as String)
-            if mainDB.open(){
+            if (mainDB?.open())!{
                 /*
                 let query = "INSERT INTO Score (Points) VALUES ('\(points)')"
                 let addSuccess = mainDB.executeUpdate(query, withArgumentsInArray: nil)
@@ -113,27 +113,27 @@ class DressingRoom2: UIViewController {
  */
                 
                 let p = "SELECT Points FROM Score Where ID='\(idno)'"
-                let presults:FMResultSet? = mainDB.executeQuery(p,
-                                                                withArgumentsInArray: nil)
+                let presults:FMResultSet? = mainDB?.executeQuery(p,
+                                                                withArgumentsIn: nil)
                 
                 if presults?.next() == true {
-                    pointsLabel.text = presults?.stringForColumn("Points")
+                    pointsLabel.text = presults?.string(forColumn: "Points")
                 }
             }
-            mainDB.close()
+            mainDB?.close()
         }
  
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "mapView"
         {
-            if let destinationVC = segue.destinationViewController as? MapScreen{
+            if let destinationVC = segue.destination as? MapScreen{
                 //destinationVC.numberToDisplay = numberToDisplay
                 
-                var x = defaults.integerForKey("backtomap")
+                var x = defaults.integer(forKey: "backtomap")
                 x += 1
-                defaults.setInteger(x, forKey: "backtomap")
+                defaults.set(x, forKey: "backtomap")
                 
                 destinationVC.eyeImage = eyesview.image
                 destinationVC.hairImage = hairview.image
@@ -143,7 +143,7 @@ class DressingRoom2: UIViewController {
         }
         if segue.identifier == "accessoriesView"
         {
-            if let destinationVC = segue.destinationViewController as? Accessories{
+            if let destinationVC = segue.destination as? Accessories{
                 destinationVC.points = points
                 destinationVC.idno = idno
                 
@@ -155,7 +155,7 @@ class DressingRoom2: UIViewController {
         }
         if segue.identifier == "clothesView"
         {
-            if let destinationVC = segue.destinationViewController as? Clothes{
+            if let destinationVC = segue.destination as? Clothes{
                 destinationVC.points = points
                 print("\(idno)")
                 destinationVC.idno = idno
@@ -169,7 +169,7 @@ class DressingRoom2: UIViewController {
         
         if segue.identifier == "hairView"
         {
-            if let destinationVC = segue.destinationViewController as? Hair{
+            if let destinationVC = segue.destination as? Hair{
                 destinationVC.points = points
                 destinationVC.idno = idno
                 
