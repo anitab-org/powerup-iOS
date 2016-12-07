@@ -275,8 +275,8 @@
                                     <segue destination="S65-lq-9jr" kind="push" id="PcE-6a-QDV"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Customize " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNE-rT-LrG">
-                                <rect key="frame" x="121" y="77" width="86" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dressing -Room 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNE-rT-LrG">
+                                <rect key="frame" x="121" y="77" width="136" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -300,7 +300,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KnS-W8-cZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="846" y="222"/>
+            <point key="canvasLocation" x="845.5" y="221.5"/>
         </scene>
         <!--Scene 1-->
         <scene sceneID="tne-QT-ifu">
@@ -2892,15 +2892,15 @@
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="pLN-RO-Lff"/>
-        <segue reference="Rew-bX-gDf"/>
         <segue reference="TBm-K2-dfS"/>
-        <segue reference="yAh-an-zaA"/>
-        <segue reference="3SD-2Q-hBE"/>
+        <segue reference="Rew-bX-gDf"/>
+        <segue reference="pLN-RO-Lff"/>
+        <segue reference="Uzd-Dz-Up2"/>
+        <segue reference="5KU-Z5-tO7"/>
+        <segue reference="PcE-6a-QDV"/>
+        <segue reference="TfY-gY-RXS"/>
         <segue reference="Bqy-ss-HWE"/>
         <segue reference="3cG-51-Ykd"/>
         <segue reference="v73-P1-b3f"/>
-        <segue reference="5KU-Z5-tO7"/>
-        <segue reference="Uzd-Dz-Up2"/>
     </inferredMetricsTieBreakers>
 </document>
