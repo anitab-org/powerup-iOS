@@ -16,6 +16,10 @@ class MapScreen: UIViewController {
     
     //var numberToDisplay = 0
     var x = 0
+    
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,9 +33,29 @@ class MapScreen: UIViewController {
     }
 
     //Level 2 Button: clickable
-    @IBAction func ClickableMap(_ sender: UIButton) {
-    
+    @IBAction func Level2Clickable(_ sender: UIButton) {
+        // Checks is the user has played Level or not befor coming to level 2
+        
+        x = defaults.integer(forKey: "backtomap")
+        if (x == 0)
+        {
+            print("This action is not possible!! Kindly choose another level!!")
+            
+            //alert message popped up
+            
+            let alert = UIAlertController(title: "MESSAGE!!!", message:"Finish Level-1 and come back later!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in })
+            self.present(alert, animated: true){}
+            
+        }
+            
+            // condition for first time click - navigates to scenario
+      else if (x > 0){
+            
+            performSegue(withIdentifier: "start2View", sender: self)
+        }
     }
+   
     
     // logo button on top right corner clickable
     @IBAction func logoButton(_ sender: UIButton) {
@@ -40,7 +64,7 @@ class MapScreen: UIViewController {
     //Level 1 Button
     @IBAction func ChoicesClickableMap(_ sender: UIButton) {
       
-      // Testing condition if level 1 button pressed again after comming out of the scenario
+      // Testing condition if level 1 button pressed again after coming out of the scenario
         //if (numberToDisplay > 0)
         x = defaults.integer(forKey: "backtomap")
         if (x > 0)
@@ -48,6 +72,7 @@ class MapScreen: UIViewController {
             print("This action is not possible!! Kindly choose another level!!")
             
            //alert message popped up
+           
             let alert = UIAlertController(title: "MESSAGE!!!", message:"You have already played this scenario! Go try another level!!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in })
             self.present(alert, animated: true){}
@@ -61,6 +86,12 @@ class MapScreen: UIViewController {
         }
        
     }
+   
+    
+   
+    
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "start1View"
