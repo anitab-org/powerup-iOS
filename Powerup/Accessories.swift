@@ -61,13 +61,13 @@ class Accessories: UIViewController {
     @IBOutlet weak var customhats: UIImageView!
     @IBOutlet weak var customnecklace: UIImageView!
     
-    var handbags = ["purse2", "purse3", "purse4", "purse1"]
+    var handbags = ["purse2", "purse3", "purse4", "purse1","purse5","purse6"]
     var glasses = ["glasses1", "glasses2", "glasses3"]
     var hats = ["hat1", "hat2", "hat4", "hat5"]
     var necklace = ["necklace1", "necklace2", "necklace3", "necklace4"]
     
     var necklacecount = -1, necklacetotal = 4
-    var handbagscount = -1, handbagstotal = 4
+    var handbagscount = -1, handbagstotal = 6
     var glassescount = -1, glassestotal = 3
     var hatscount = -1, hatstotal = 4
     
