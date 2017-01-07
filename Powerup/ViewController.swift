@@ -16,6 +16,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var hairview: UIImageView!
     @IBOutlet weak var faceview: UIImageView!
     @IBOutlet weak var clothesview: UIImageView!
+    // Created an IBOutlet for the imageview
+   
+    @IBOutlet weak var charBG: UIImageView!
+    
+    
     
     var eyeImage: UIImage!
     var faceImage: UIImage!
@@ -33,6 +38,15 @@ class ViewController: UIViewController {
         hairview.image = hairImage
         faceview.image = faceImage
         clothesview.image = clothesImage
+        if clothesview.image == nil {
+            charBG.image = UIImage(named: "endingscreen1")
+            
+        }
+        else{
+        charBG.image = UIImage(named: "body")
+        
+        }
+        
         
         // Hide back button of navigation controller
         self.navigationItem.setHidesBackButton(false, animated:true);
@@ -77,6 +91,8 @@ class ViewController: UIViewController {
             print("FOUND!!!!")
             do {
                 try filemgr.removeItem(atPath: databasePath as String)
+               
+                
             } catch let error1 as NSError {
                 error = error1
             }
@@ -88,6 +104,8 @@ class ViewController: UIViewController {
             
             do {
                 try filemgr.copyItem(atPath: bundle_path, toPath: databasePath as String)
+              
+                
                 print("Success!!!")
             } catch let error1 as NSError {
                 error = error1
@@ -100,7 +118,23 @@ class ViewController: UIViewController {
         let mainDB = FMDatabase(path: databasePath as String)
             if mainDB == nil{
                 print("Error: \(mainDB?.lastErrorMessage())")
+                
             }
+        
+       /* let result = mainDB?.executeQuery("SELECT COUNT(*) FROM myTable", withArgumentsInArray: [])
+        if result.next() {
+            let count = result.intForColumnIndex(0)
+            if count > 0 {
+                print("SomeData")
+            } else {
+                print("Empty Table")
+            }
+        } else {
+            print("Database error")
+        }
+        */
+
+        
         
         // opening the database and extracting content through suitable queries
            if (mainDB?.open())!{
@@ -119,7 +153,7 @@ class ViewController: UIViewController {
             
             if qresults?.next() == true {
                 mar_text.text = qresults?.string(forColumn: "QDescription")
-
+               
                 
             }
             
@@ -134,7 +168,9 @@ class ViewController: UIViewController {
             
         
         }
+        
         mainDB?.close()
+                
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
