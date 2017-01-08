@@ -46,9 +46,9 @@ class Hair: UIViewController {
     var originalhair: UIImage!
     var clothesImage: UIImage!
     
-    var hair = ["hair2", "hair3", "hair4", "hair5", "hair6", "hair7", "hair8", "hair9", "hair10", "hair11"]
+    var hair = ["hair2", "hair3", "hair4", "hair5", "hair6", "hair7", "hair8", "hair9", "hair10", "hair11","hair12","hair13"]
     var haircount = -1
-    var hairtotal = 10
+    var hairtotal = 12
     
     override func viewDidLoad() {
         super.viewDidLoad()
