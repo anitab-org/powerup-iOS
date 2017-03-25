@@ -107,9 +107,7 @@ class StartScreen: UIViewController {
     }
     
     @IBAction func NewUser(_ sender: UIButton) {
-        var c = defaults.integer(forKey: "newuser")
-        c += 1
-        defaults.set(c, forKey: "newuser")
+        
         
         var x = defaults.integer(forKey: "backtomap")
         x = 0

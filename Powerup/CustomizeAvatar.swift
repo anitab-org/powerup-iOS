@@ -8,11 +8,15 @@ import UIKit
 class CustomizeAvatar: UIViewController {
     
     var databasePath = NSString()
+    let defaults = UserDefaults.standard
     @IBOutlet weak var customclothes: UIImageView!
     @IBOutlet weak var customhair: UIImageView!
     @IBOutlet weak var customface: UIImageView!
     @IBOutlet weak var customeyes: UIImageView!
-    @IBOutlet weak var goHomeButton: UIButton!
+
+    @IBAction func goHomeButton(_ sender: Any) {
+        performSegue(withIdentifier: "avatar_to_home", sender: self)
+    }
     
     @IBOutlet weak var eyesview: UIImageView!
     var eyes = ["blue_eyes", "brown_eyes", "green_eyes","lightGreen_eyes","lightPink_eyes","grey_eyes","pink_eyes"]
@@ -33,6 +37,7 @@ class CustomizeAvatar: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.navigationItem.setHidesBackButton(true, animated:true);
         eyesview.image = UIImage(named: "\(eyes[eyescount]).png")
         hairview.image = UIImage(named: "\(hair[haircount]).png")
         clothesview.image = UIImage(named: "\(clothes[clothescount]).png")
@@ -119,6 +124,19 @@ class CustomizeAvatar: UIViewController {
         if segue.identifier == "firstMap"
         {
             if let destinationVC = segue.destination as? MapScreen  {
+                
+                destinationVC.eyeImage = eyesview.image
+                destinationVC.hairImage = hairview.image
+                destinationVC.clothesImage = clothesview.image
+                destinationVC.faceImage = faceview.image
+                //changing value of c indicating that a new user has been created
+                var c = defaults.integer(forKey: "newuser")
+                c += 1
+                defaults.set(c, forKey: "newuser")
+            }
+        }
+        if(segue.identifier=="avatar_to_home"){
+            if let destinationVC = segue.destination as? StartScreen  {
                 
                 destinationVC.eyeImage = eyesview.image
                 destinationVC.hairImage = hairview.image
