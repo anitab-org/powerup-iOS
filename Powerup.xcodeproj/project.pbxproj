@@ -294,7 +294,7 @@
 				TargetAttributes = {
 					2A0CA54E1B294C6B00ED8781 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = D96FAZJH3E;
+						DevelopmentTeam = ZCMSMN9JHA;
 						LastSwiftMigration = 0800;
 					};
 					2A0CA5631B294C6B00ED8781 = {
@@ -510,10 +510,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = ZCMSMN9JHA;
 				INFOPLIST_FILE = Powerup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Powerup1;
 				PRODUCT_NAME = Powerup;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Powerup-Bridging-Header.h";
@@ -530,10 +531,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = ZCMSMN9JHA;
 				INFOPLIST_FILE = Powerup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Powerup1;
 				PRODUCT_NAME = Powerup;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Powerup-Bridging-Header.h";
