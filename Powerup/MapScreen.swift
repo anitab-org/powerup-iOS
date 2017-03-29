@@ -34,7 +34,10 @@ class MapScreen: UIViewController {
     }
     
     // logo button on top right corner clickable
+  
     @IBAction func logoButton(_ sender: UIButton) {
+     performSegue(withIdentifier: "tostartscreen", sender: self)
+    
     }
     
     //Level 1 Button
@@ -77,6 +80,18 @@ class MapScreen: UIViewController {
         if segue.identifier == "start2View"
         {
             if let destinationVC = segue.destination as? ViewController  {
+                
+                destinationVC.eyeImage = eyeImage
+                destinationVC.hairImage = hairImage
+                destinationVC.clothesImage = clothesImage
+                destinationVC.faceImage = faceImage
+            }
+        }
+        
+        if segue.identifier == "tostartscreen"
+        {
+            if let destinationVC = segue.destination as? StartScreen  {
+                
                 
                 destinationVC.eyeImage = eyeImage
                 destinationVC.hairImage = hairImage
