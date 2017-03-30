@@ -17,15 +17,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var faceview: UIImageView!
     @IBOutlet weak var clothesview: UIImageView!
     
+    @IBOutlet weak var endingscreen1: UIImageView!
+   
+    
     var eyeImage: UIImage!
     var faceImage: UIImage!
     var clothesImage: UIImage!
     var hairImage: UIImage!
-
-    
+   
+   
     var databasePath = NSString()
     
-    
+    var defaultImage : UIImage! = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,7 +36,9 @@ class ViewController: UIViewController {
         hairview.image = hairImage
         faceview.image = faceImage
         clothesview.image = clothesImage
+    
         
+       
         // Hide back button of navigation controller
         self.navigationItem.setHidesBackButton(false, animated:true);
         
@@ -41,7 +46,7 @@ class ViewController: UIViewController {
         
         mar_text.isEditable = false
         mar_text.isSelectable = false
-        
+       
         
         // Borders and rounded corners for textfields and textviews
         mar_text!.layer.borderWidth = 6
@@ -76,6 +81,7 @@ class ViewController: UIViewController {
         if filemgr.fileExists(atPath: databasePath as String){
             print("FOUND!!!!")
             do {
+                
                 try filemgr.removeItem(atPath: databasePath as String)
             } catch let error1 as NSError {
                 error = error1
@@ -119,7 +125,7 @@ class ViewController: UIViewController {
             
             if qresults?.next() == true {
                 mar_text.text = qresults?.string(forColumn: "QDescription")
-
+         //      endingscreen1.image = nil
                 
             }
             
@@ -135,6 +141,7 @@ class ViewController: UIViewController {
         
         }
         mainDB?.close()
+        endingscreen1.image = defaultImage
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -146,7 +153,7 @@ class ViewController: UIViewController {
                 destinationVC.hairImage = hairview.image
                 destinationVC.clothesImage = clothesview.image
                 destinationVC.faceImage = faceview.image
-            }
+       }
         }
         if segue.identifier == "toScene3"
         {
@@ -156,6 +163,7 @@ class ViewController: UIViewController {
                 destinationVC.hairImage = hairview.image
                 destinationVC.clothesImage = clothesview.image
                 destinationVC.faceImage = faceview.image
+                
             }
         }
     }
