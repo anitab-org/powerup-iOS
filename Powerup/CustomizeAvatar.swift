@@ -51,16 +51,20 @@ class CustomizeAvatar: UIViewController {
     
    
     @IBAction func clothesR(_ sender: AnyObject) {
-        if(clothescount + 1 < clothestotal){
-            clothescount += 1
-        }
+        
+        
+        clothescount += 1
+        clothescount = clothescount%clothestotal
+        
         clothesview.image = UIImage(named: "\(clothes[clothescount]).png")
         customclothes.image = UIImage(named: "\(clothes[clothescount]).png")
     }
     
     @IBAction func clothesL(_ sender: AnyObject) {
-        if(clothescount > 0){
-            clothescount -= 1
+     
+        clothescount -= 1
+        if(clothescount == -1){
+            clothescount = clothestotal-1
         }
         clothesview.image = UIImage(named: "\(clothes[clothescount]).png")
         customclothes.image = UIImage(named: "\(clothes[clothescount]).png")
@@ -68,48 +72,57 @@ class CustomizeAvatar: UIViewController {
     
     @IBAction func hairR(_ sender: AnyObject) {
         
-        if(haircount + 1 < hairtotal){
-            haircount += 1
-        }
+      
+        haircount += 1
+        haircount = haircount%hairtotal
+        
         hairview.image = UIImage(named: "\(hair[haircount]).png")
         customhair.image = UIImage(named: "\(hair[haircount]).png")
         
         
     }
     @IBAction func hairL(_ sender: AnyObject) {
-        if(haircount > 0){
-            haircount -= 1
+        
+        haircount -= 1
+        if(haircount == -1){
+            haircount = hairtotal-1
         }
         hairview.image = UIImage(named: "\(hair[haircount]).png")
         customhair.image = UIImage(named: "\(hair[haircount]).png")
       
     }
     @IBAction func faceR(_ sender: AnyObject) {
-        if(facecount + 1 < facetotal){
-            facecount += 1
-        }
+     
+        facecount += 1
+        facecount = facecount%facetotal
+        
         faceview.image = UIImage(named: "\(face[facecount]).png")
         customface.image = UIImage(named: "\(face[facecount]).png")
     }
     
     @IBAction func faceL(_ sender: AnyObject) {
-        if(facecount  > 0){
-            facecount -= 1
+        
+        facecount -= 1
+        if(facecount == -1){
+            facecount = facetotal-1
         }
         faceview.image = UIImage(named: "\(face[facecount]).png")
         customface.image = UIImage(named: "\(face[facecount]).png")
     }
     
     @IBAction func eyesR(_ sender: AnyObject) {
-        if(eyescount + 1 < eyestotal){
-            eyescount += 1
-        }
+    
+        eyescount += 1
+        eyescount = eyescount%eyestotal
+        
         eyesview.image = UIImage(named: "\(eyes[eyescount]).png")
         customeyes.image = UIImage(named: "\(eyes[eyescount]).png")
     }
     @IBAction func eyesL(_ sender: AnyObject) {
-        if(eyescount  > 0){
-            eyescount -= 1
+        
+        eyescount -= 1
+        if(eyescount == -1){
+            eyescount = eyestotal-1
         }
         eyesview.image = UIImage(named: "\(eyes[eyescount]).png")
         customeyes.image = UIImage(named: "\(eyes[eyescount]).png")

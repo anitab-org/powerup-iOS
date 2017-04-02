@@ -294,7 +294,11 @@
 				TargetAttributes = {
 					2A0CA54E1B294C6B00ED8781 = {
 						CreatedOnToolsVersion = 6.3.2;
+<<<<<<< HEAD
 						DevelopmentTeam = SLQ5Y2KM5P;
+=======
+						DevelopmentTeam = YUWPSE2UN9;
+>>>>>>> 6ffe62db924e084194e90ee579351436f3760aff
 						LastSwiftMigration = 0800;
 					};
 					2A0CA5631B294C6B00ED8781 = {
@@ -510,7 +514,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = SLQ5Y2KM5P;
+=======
+				DEVELOPMENT_TEAM = YUWPSE2UN9;
+>>>>>>> 6ffe62db924e084194e90ee579351436f3760aff
 				INFOPLIST_FILE = Powerup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
@@ -531,7 +539,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+<<<<<<< HEAD
 				DEVELOPMENT_TEAM = SLQ5Y2KM5P;
+=======
+				DEVELOPMENT_TEAM = YUWPSE2UN9;
+>>>>>>> 6ffe62db924e084194e90ee579351436f3760aff
 				INFOPLIST_FILE = Powerup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
