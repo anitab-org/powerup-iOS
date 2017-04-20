@@ -2873,7 +2873,7 @@
         <!--Navigation Controller-->
         <scene sceneID="cD8-wF-rc7">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eFm-LF-3yb" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="eFm-LF-3yb" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zG6-F1-qcm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2928,15 +2928,15 @@
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="TBm-K2-dfS"/>
-        <segue reference="5Re-aB-cGk"/>
-        <segue reference="GnE-Ix-OZ8"/>
+        <segue reference="23j-Va-GOj"/>
+        <segue reference="Ck5-aV-1L2"/>
         <segue reference="XLD-my-7cR"/>
-        <segue reference="3SD-2Q-hBE"/>
-        <segue reference="Pcl-29-Fre"/>
         <segue reference="Bqy-ss-HWE"/>
         <segue reference="wIg-qb-dZP"/>
         <segue reference="VXk-Sx-JOj"/>
+        <segue reference="GnE-Ix-OZ8"/>
         <segue reference="QNH-AA-Zx0"/>
+        <segue reference="5Re-aB-cGk"/>
+        <segue reference="TBm-K2-dfS"/>
     </inferredMetricsTieBreakers>
 </document>
