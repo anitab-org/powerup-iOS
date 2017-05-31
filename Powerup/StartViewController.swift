@@ -1,46 +1,23 @@
-//
-//  StartScreen.swift
-//
-
 import UIKit
 
-class StartScreen: UIViewController {
+class StartViewController: UIViewController {
     
+    // MARK: Properties
     var databasePath = NSString()
     let defaults = UserDefaults.standard
     
+    // MARK: Views
     @IBOutlet weak var MiniGamesButton: UIButton!
     @IBOutlet weak var StartButton: UIButton!
     @IBOutlet weak var PowerUp: UITextView!
     
-    var eyeImage: UIImage!
-    var faceImage: UIImage!
-    var clothesImage: UIImage!
-    var hairImage: UIImage!
-    
-    // For orientation - set to Portrait
-    override var shouldAutorotate : Bool {
-        return false
-    }
-    
-    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
-        return [.portrait]
-        //return UIInterfaceOrientation.Portrait.rawValue
-    }
-    
+    // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Back Button of navigation controller is hidden on home screen
-        self.navigationItem.setHidesBackButton(true, animated:true);
-        
-        // setting the orientation to portrait
-        let value = UIInterfaceOrientation.portrait.rawValue
-        UIDevice.current.setValue(value, forKey: "orientation")
-        
     }
     
-    // Start button is clickable
+    // MARK: Actions
     @IBAction func Start(_ sender: UIButton) {
         let c = defaults.integer(forKey: "newuser")
         
@@ -50,6 +27,7 @@ class StartScreen: UIViewController {
             self.present(alert, animated: true){}
         }
         else{
+            /* commented for now, will reimplement after completing merging dressing room
             //let filemgr = NSFileManager.defaultManager()
             let dirPaths =
             NSSearchPathForDirectoriesInDomains(.documentDirectory,
@@ -100,8 +78,8 @@ class StartScreen: UIViewController {
                     eyeImage = UIImage(named: eRes!)
                 }
             }
-            mainDB?.close()
-            performSegue(withIdentifier: "startToMap", sender: self)
+            mainDB?.close() */
+            performSegue(withIdentifier: "toMapView", sender: self)
         }
         
     }
@@ -116,25 +94,22 @@ class StartScreen: UIViewController {
         defaults.set(x, forKey: "backtomap")
     }
     
-    // minigames not clickable
-    @IBAction func MiniGames(_ sender: UIButton) {
-        
-    }
+    // MARK: Segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "startToMap"
+        if segue.identifier == "toMapView"
         {
             let c = defaults.integer(forKey: "newuser")
             if (c > 0){
                 
-                if let destinationVC = segue.destination as? MapScreen{
-                    print("Passing data to Map from Start button!!")
-                    destinationVC.eyeImage = eyeImage
-                    destinationVC.hairImage = hairImage
-                    destinationVC.clothesImage = clothesImage
-                    destinationVC.faceImage = faceImage
+                if let destinationVC = segue.destination as? MapViewController{
+                    // to MapViewController
                 }
             }
         }
+    }
+    
+    @IBAction func unwindToStart(unwindSegue: UIStoryboardSegue) {
+        
     }
     
     

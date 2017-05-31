@@ -128,17 +128,14 @@ class DressingRoom2: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "mapView"
         {
-            if let destinationVC = segue.destination as? MapScreen{
+            if let destinationVC = segue.destination as? MapViewController{
                 //destinationVC.numberToDisplay = numberToDisplay
                 
                 var x = defaults.integer(forKey: "backtomap")
                 x += 1
                 defaults.set(x, forKey: "backtomap")
                 
-                destinationVC.eyeImage = eyesview.image
-                destinationVC.hairImage = hairview.image
-                destinationVC.clothesImage = clothesview.image
-                destinationVC.faceImage = faceview.image                
+                
             }
         }
         if segue.identifier == "accessoriesView"

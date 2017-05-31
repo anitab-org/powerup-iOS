@@ -131,12 +131,9 @@ class CustomizeAvatar: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "firstMap"
         {
-            if let destinationVC = segue.destination as? MapScreen  {
+            if let destinationVC = segue.destination as? MapViewController  {
                 
-                destinationVC.eyeImage = eyesview.image
-                destinationVC.hairImage = hairview.image
-                destinationVC.clothesImage = clothesview.image
-                destinationVC.faceImage = faceview.image
+
             }
         }
         print("This is printed when you reach Map from DR1!")
