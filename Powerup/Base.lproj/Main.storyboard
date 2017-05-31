@@ -286,7 +286,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KnS-W8-cZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="253" y="1111"/>
+            <point key="canvasLocation" x="253" y="1212"/>
         </scene>
         <!--ScenarioViewController-->
         <scene sceneID="tne-QT-ifu">
@@ -337,7 +337,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="DB0-dr-t97" userLabel="Choice 1 Button">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="DB0-dr-t97" userLabel="Choice 1 Button">
                                 <rect key="frame" x="141" y="328" width="203" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
@@ -349,7 +349,7 @@
                                     <action selector="choiceSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Gh-Af-VzS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="3AU-ec-fnI" userLabel="Choice 2 Button">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="3AU-ec-fnI" userLabel="Choice 2 Button">
                                 <rect key="frame" x="141" y="395" width="203" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
@@ -376,7 +376,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="kQW-7e-pth" userLabel="Choice 3 Button">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="kQW-7e-pth" userLabel="Choice 3 Button">
                                 <rect key="frame" x="141" y="466" width="203" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
@@ -406,21 +406,21 @@
                         <outlet property="eyesview" destination="YNR-wc-f3M" id="PaZ-WZ-V87"/>
                         <outlet property="faceview" destination="XhY-Lr-xm7" id="mdn-HA-Y3I"/>
                         <outlet property="hairview" destination="gKT-bd-oe7" id="WWN-5h-eAg"/>
-                        <outlet property="questionLabel" destination="vn8-s2-SmV" id="h4F-SL-Ma8"/>
+                        <outlet property="questionLabel" destination="vn8-s2-SmV" id="l0r-zj-TnY"/>
                         <outletCollection property="choiceButtons" destination="DB0-dr-t97" collectionClass="NSMutableArray" id="6mW-Bh-EuT"/>
                         <outletCollection property="choiceButtons" destination="3AU-ec-fnI" collectionClass="NSMutableArray" id="V6W-eL-Vnw"/>
                         <outletCollection property="choiceButtons" destination="kQW-7e-pth" collectionClass="NSMutableArray" id="1I0-8z-ymd"/>
-                        <segue destination="068-4x-alq" kind="modal" identifier="toMiniGame" id="DTD-eG-6ws"/>
+                        <segue destination="068-4x-alq" kind="push" identifier="toMiniGame" id="DTD-eG-6ws"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1250.5" y="304.5"/>
+            <point key="canvasLocation" x="1219" y="305"/>
         </scene>
         <!--MiniGameViewController-->
         <scene sceneID="b2Q-yH-u8Q">
             <objects>
-                <viewController id="068-4x-alq" userLabel="MiniGameViewController" sceneMemberID="viewController">
+                <viewController id="068-4x-alq" userLabel="MiniGameViewController" customClass="MiniGameViewController" customModule="Powerup" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OQl-AK-G6v"/>
                         <viewControllerLayoutGuide type="bottom" id="Zoo-83-BF5"/>
@@ -445,16 +445,17 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Kej-3M-rbU" kind="modal" id="Gx0-KE-SIM"/>
+                                    <segue destination="Kej-3M-rbU" kind="push" id="Gx0-KE-SIM"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Wzd-hp-C7v"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WKc-Ic-VMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1832" y="305"/>
+            <point key="canvasLocation" x="1718" y="305"/>
         </scene>
         <!--Dressing Room2-->
         <scene sceneID="4aw-as-YEB">
@@ -538,9 +539,6 @@
                                 <state key="normal">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <segue destination="S3c-uW-lpA" kind="push" identifier="mapView" id="3SD-2Q-hBE"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="weq-ye-D7t">
                                 <rect key="frame" x="187" y="186" width="91" height="30"/>
@@ -580,9 +578,6 @@
                                 <rect key="frame" x="260" y="58" width="60" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="goHome" image="logo"/>
-                                <connections>
-                                    <segue destination="S65-lq-9jr" kind="push" id="6dM-9t-Mjy"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -645,9 +640,6 @@
                                 <state key="normal" title="goHome" image="logo">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <segue destination="S65-lq-9jr" kind="push" id="pu8-1S-ok9"/>
-                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ageLabel" translatesAutoresizingMaskIntoConstraints="NO" id="7KE-6Q-cc3">
                                 <rect key="frame" x="16" y="451" width="77" height="51"/>
@@ -824,9 +816,6 @@
                                 <state key="normal" title="goHome" image="logo">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <segue destination="S65-lq-9jr" kind="push" id="6mc-gg-hmR"/>
-                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ageLabel" translatesAutoresizingMaskIntoConstraints="NO" id="1hU-1q-May">
                                 <rect key="frame" x="16" y="451" width="77" height="51"/>
@@ -1221,9 +1210,6 @@
                                 <rect key="frame" x="309" y="34" width="60" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="goHome" image="logo"/>
-                                <connections>
-                                    <segue destination="S65-lq-9jr" kind="push" id="pgi-uL-f4q"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1278,26 +1264,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="endingscreen" translatesAutoresizingMaskIntoConstraints="NO" id="Be8-ZB-uyt">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="endingscreen" translatesAutoresizingMaskIntoConstraints="NO" id="Be8-ZB-uyt" userLabel="Background Image">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="body" translatesAutoresizingMaskIntoConstraints="NO" id="ENu-Ax-WcL">
                                 <rect key="frame" x="85" y="64" width="105" height="193"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xk1-fN-zUM">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xk1-fN-zUM" userLabel="Hair View">
                                 <rect key="frame" x="93" y="113" width="91" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c2z-xp-HKe">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c2z-xp-HKe" userLabel="Eyes View">
                                 <rect key="frame" x="113" y="125" width="50" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen5" translatesAutoresizingMaskIntoConstraints="NO" id="w8S-2e-WTz">
-                                <rect key="frame" x="45" y="560" width="104" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen2" translatesAutoresizingMaskIntoConstraints="NO" id="5NB-Df-h2J">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen2" translatesAutoresizingMaskIntoConstraints="NO" id="5NB-Df-h2J" userLabel="Health and Power Text">
                                 <rect key="frame" x="96" y="437" width="182" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -1326,43 +1308,33 @@
                                 <color key="minimumTrackTintColor" red="0.55308964520000004" green="0.65654283810000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="thumbTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eA-5h-upJ" userLabel="Continue Button">
-                                <rect key="frame" x="221" y="566" width="57" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="AXo-70-yQg" kind="unwind" unwindAction="unwindToMapWithUnwindSegue:" id="6BW-Pa-97M"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen7" translatesAutoresizingMaskIntoConstraints="NO" id="06L-8d-x15">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen7" translatesAutoresizingMaskIntoConstraints="NO" id="06L-8d-x15" userLabel="Karma Frame">
                                 <rect key="frame" x="0.0" y="50" width="60" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Sample concluding text goes here concerning scenario and discussion topic with parents" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncj-rT-ty2">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Sample concluding text goes here concerning scenario and discussion topic with parents" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncj-rT-ty2" userLabel="Description Text">
                                 <rect key="frame" x="93" y="277" width="181" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fta-i7-a6o">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fta-i7-a6o" userLabel="Body View">
                                 <rect key="frame" x="113" y="157" width="48" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V0R-h8-iPz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V0R-h8-iPz" userLabel="Head View">
                                 <rect key="frame" x="89" y="94" width="96" height="97"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1l-IJ-eUn" userLabel="Replay Button">
-                                <rect key="frame" x="74" y="566" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1l-IJ-eUn" userLabel="Replay Button">
+                                <rect key="frame" x="33" y="568" width="139" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
+                                <state key="normal" image="endingscreen5">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="068-4x-alq" kind="modal" id="uUw-fC-Jbe"/>
+                                    <segue destination="AXo-70-yQg" kind="unwind" unwindAction="unwindToMiniGameWithUnwindSegue:" id="OuI-9a-yQR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltw-sU-vLk" userLabel="Home Button">
@@ -1373,17 +1345,23 @@
                                     <segue destination="AXo-70-yQg" kind="unwind" unwindAction="unwindToStartWithUnwindSegue:" id="56Q-VN-zF1"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Points" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sui-gy-H7k">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Points" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sui-gy-H7k" userLabel="Points Label">
                                 <rect key="frame" x="18" y="69" width="42" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen6" translatesAutoresizingMaskIntoConstraints="NO" id="zcq-Yl-jH2">
-                                <rect key="frame" x="197" y="560" width="102" height="43"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eA-5h-upJ" userLabel="Continue Button">
+                                <rect key="frame" x="185" y="568" width="139" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <state key="normal" image="endingscreen6">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="AXo-70-yQg" kind="unwind" unwindAction="unwindToMapWithUnwindSegue:" id="6BW-Pa-97M"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -1398,7 +1376,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kEs-g1-97C" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="AXo-70-yQg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2433" y="305"/>
+            <point key="canvasLocation" x="2213.5" y="304.5"/>
         </scene>
         <!--MapViewController-->
         <scene sceneID="8zi-ZT-9cM">
@@ -1425,7 +1403,6 @@
                                 </state>
                                 <connections>
                                     <action selector="scenarioSelected:" destination="S3c-uW-lpA" eventType="touchUpInside" id="OYE-o3-7By"/>
-                                    <segue destination="BYZ-38-t0r" kind="modal" identifier="toScenarioView" id="waJ-of-GEv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wu8-rw-HXZ" userLabel="Level 1 Button">
@@ -1440,22 +1417,26 @@
                                     <action selector="scenarioSelected:" destination="S3c-uW-lpA" eventType="touchUpInside" id="RJI-9H-BaJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQW-Ca-CzZ" userLabel="Home Button">
-                                <rect key="frame" x="314" y="28" width="61" height="84"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQW-Ca-CzZ" userLabel="Home Button">
+                                <rect key="frame" x="274" y="20" width="110" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="3H8-8I-QeS"/>
+                                    <constraint firstAttribute="height" constant="110" id="Pe5-Yf-Fpc"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="logo">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="homeButtonTouched:" destination="S3c-uW-lpA" eventType="touchUpInside" id="E8B-pp-hcS"/>
                                     <segue destination="QuD-Og-rFX" kind="unwind" unwindAction="unwindToStartWithUnwindSegue:" id="Htv-v8-oe5"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="bQW-Ca-CzZ" firstAttribute="leading" secondItem="tPY-8j-neT" secondAttribute="trailing" constant="-101" id="Hez-xA-Mfc"/>
                             <constraint firstItem="1Sr-V8-zvm" firstAttribute="top" secondItem="tPY-8j-neT" secondAttribute="bottom" id="Jlj-tY-ptq"/>
                             <constraint firstItem="tPY-8j-neT" firstAttribute="top" secondItem="a2t-1i-ibK" secondAttribute="bottom" id="QMJ-dZ-gRV"/>
+                            <constraint firstItem="bQW-Ca-CzZ" firstAttribute="top" secondItem="a2t-1i-ibK" secondAttribute="bottom" id="SqD-5F-fgY"/>
                             <constraint firstAttribute="trailing" secondItem="tPY-8j-neT" secondAttribute="trailing" id="ZP0-zC-i5Q"/>
                             <constraint firstItem="tPY-8j-neT" firstAttribute="leading" secondItem="qU0-tn-cF3" secondAttribute="leading" id="t76-5m-VBT"/>
                         </constraints>
@@ -1464,12 +1445,13 @@
                     <connections>
                         <outletCollection property="scenarioButtons" destination="Wu8-rw-HXZ" collectionClass="NSMutableArray" id="mdU-tg-1rK"/>
                         <outletCollection property="scenarioButtons" destination="Ywa-nu-uIK" collectionClass="NSMutableArray" id="abC-o4-et2"/>
+                        <segue destination="BYZ-38-t0r" kind="push" identifier="toScenarioView" id="mzp-Ek-ra4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OMF-eo-Ren" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QuD-Og-rFX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="742.5" y="304.5"/>
+            <point key="canvasLocation" x="741.5" y="304.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cD8-wF-rc7">
@@ -1528,9 +1510,8 @@
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Ck5-aV-1L2"/>
-        <segue reference="23j-Va-GOj"/>
-        <segue reference="DTD-eG-6ws"/>
+        <segue reference="TfY-gY-RXS"/>
+        <segue reference="PcE-6a-QDV"/>
         <segue reference="qmU-By-lOj"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -17,10 +17,6 @@ class MapViewController: UIViewController {
         performSegue(withIdentifier: "toScenarioView", sender: sender)
     }
     
-    @IBAction func homeButtonTouched(_ sender: UIButton) {
-        
-    }
-    
     // MARK: Segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toScenarioView" {

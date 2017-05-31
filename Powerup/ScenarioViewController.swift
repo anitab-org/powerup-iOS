@@ -31,10 +31,12 @@ class ScenarioViewController: UIViewController {
     @IBOutlet weak var clothesview: UIImageView!
     
     func resetQuestionAndChoices() {
-        // Hide all the Buttons for choices, will show them only if the query to Database is successful
+        // Hide question Label and all the Buttons for choices, will show them only if the query to Database is successful
         for choiceButton in choiceButtons {
             choiceButton.isHidden = true
         }
+        
+        questionLabel.isHidden = true
         
         // Clear the array storing the next senario IDs
         nextQuestionIDs.removeAll()
@@ -85,6 +87,7 @@ class ScenarioViewController: UIViewController {
             if questionQueryResults?.next() == true {
                 if let result = questionQueryResults?.string(forColumn: "QDescription") {
                     questionLabel.text = result
+                    questionLabel.isHidden = false
                 } else {
                     print("Error querying QDescription!")
                 }

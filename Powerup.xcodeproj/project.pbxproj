@@ -29,6 +29,7 @@
 		2AF82A901B4BA74A00307BED /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A891B4BA74A00307BED /* FMDatabaseQueue.m */; };
 		2AF82A911B4BA74A00307BED /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A8C1B4BA74A00307BED /* FMResultSet.m */; };
 		D95B03CC1EDE7470001DB858 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95B03CB1EDE7470001DB858 /* MapViewController.swift */; };
+		D95B03CE1EDEA680001DB858 /* MiniGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95B03CD1EDEA680001DB858 /* MiniGameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		2AF82A8B1B4BA74A00307BED /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = FMDB/FMResultSet.h; sourceTree = "<group>"; };
 		2AF82A8C1B4BA74A00307BED /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = FMDB/FMResultSet.m; sourceTree = "<group>"; };
 		D95B03CB1EDE7470001DB858 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		D95B03CD1EDEA680001DB858 /* MiniGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniGameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				2A0CA5541B294C6B00ED8781 /* AppDelegate.swift */,
 				2A0CA5561B294C6B00ED8781 /* ScenarioViewController.swift */,
 				2A0CA5581B294C6B00ED8781 /* Main.storyboard */,
+				D95B03CD1EDEA680001DB858 /* MiniGameViewController.swift */,
 				2AD5A1B31D1C473800CE0DF2 /* Clothes.swift */,
 				2A271E6C1D075CEC008B0689 /* CustomizeAvatar.swift */,
 				2A8D2E061D17CDF700154F98 /* Accessories.swift */,
@@ -324,6 +327,7 @@
 				2AD1A1E71B2B1ADA00BCA94D /* ModelManager.swift in Sources */,
 				2A0CA5551B294C6B00ED8781 /* AppDelegate.swift in Sources */,
 				2AF82A8E1B4BA74A00307BED /* FMDatabaseAdditions.m in Sources */,
+				D95B03CE1EDEA680001DB858 /* MiniGameViewController.swift in Sources */,
 				D95B03CC1EDE7470001DB858 /* MapViewController.swift in Sources */,
 				2A99DDB91D15DAB300ABEF45 /* DressingRoom2.swift in Sources */,
 			);
