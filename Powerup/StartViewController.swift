@@ -2,12 +2,7 @@ import UIKit
 
 class StartViewController: UIViewController {
     
-    // MARK: Properties
-    var databasePath = NSString()
-    let defaults = UserDefaults.standard
-    
     // MARK: Views
-    @IBOutlet weak var MiniGamesButton: UIButton!
     @IBOutlet weak var StartButton: UIButton!
     @IBOutlet weak var PowerUp: UITextView!
     
@@ -19,95 +14,19 @@ class StartViewController: UIViewController {
     
     // MARK: Actions
     @IBAction func Start(_ sender: UIButton) {
-        let c = defaults.integer(forKey: "newuser")
         
-        if(c == 0 ){
-            let alert = UIAlertController(title: "MESSAGE!!!", message:"Press New User First!!", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in })
-            self.present(alert, animated: true){}
-        }
-        else{
-            /* commented for now, will reimplement after completing merging dressing room
-            //let filemgr = NSFileManager.defaultManager()
-            let dirPaths =
-            NSSearchPathForDirectoriesInDomains(.documentDirectory,
-                .userDomainMask, true)
-            
-            let docsDir = dirPaths[0] 
-            
-            databasePath = (docsDir as NSString).appendingPathComponent(
-                "mainDatabase.sqlite") as NSString
-            
-            let mainDB = FMDatabase(path: databasePath as String)
-            
-            if (mainDB?.open())!{
-                let face = "SELECT Face FROM Avatar Where ID='\(c)'"
-                let clothes = "SELECT Clothes FROM Avatar WHERE ID='\(c)'"
-                let hair = "SELECT Hair FROM Avatar WHERE ID='\(c)'"
-                let eyes = "SELECT Eyes FROM Avatar WHERE ID='\(c)'"
-                
-                let fresults:FMResultSet? = mainDB?.executeQuery(face,
-                    withArgumentsIn: nil)
-                
-                let cresults:FMResultSet? = mainDB?.executeQuery(clothes,
-                    withArgumentsIn: nil)
-                let hresults:FMResultSet? = mainDB?.executeQuery(hair,
-                    withArgumentsIn: nil)
-                let eresults:FMResultSet? = mainDB?.executeQuery(eyes,
-                    withArgumentsIn: nil)
-                
-                
-                if fresults?.next() == true
-                {
-                    let fRes = fresults?.string(forColumn: "Face")
-                    faceImage = UIImage(named: fRes!)
-                }
-                if cresults?.next() == true
-                {
-                    let cRes = cresults?.string(forColumn: "Clothes")
-                    clothesImage = UIImage(named: cRes!)
-                }
-                if hresults?.next() == true
-                {
-                    let hRes = hresults?.string(forColumn: "Hair")
-                    hairImage = UIImage(named: hRes!)
-                }
-                if eresults?.next() == true
-                {
-                    let eRes = eresults?.string(forColumn: "Eyes")
-                    eyeImage = UIImage(named: eRes!)
-                }
-            }
-            mainDB?.close() */
+        // Check whether an avatar is created or not.
+        if let _ = UserDefaults.standard.dictionary(forKey: Customizables.avatarKey) {
             performSegue(withIdentifier: "toMapView", sender: self)
+        } else {
+            // Remind players to create an avatar first.
+            let alert = UIAlertController(title: "Warning", message: "You should create a new avatar first!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true)
         }
-        
-    }
-    
-    @IBAction func NewUser(_ sender: UIButton) {
-        var c = defaults.integer(forKey: "newuser")
-        c += 1
-        defaults.set(c, forKey: "newuser")
-        
-        var x = defaults.integer(forKey: "backtomap")
-        x = 0
-        defaults.set(x, forKey: "backtomap")
     }
     
     // MARK: Segues
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toMapView"
-        {
-            let c = defaults.integer(forKey: "newuser")
-            if (c > 0){
-                
-                if let destinationVC = segue.destination as? MapViewController{
-                    // to MapViewController
-                }
-            }
-        }
-    }
-    
     @IBAction func unwindToStart(unwindSegue: UIStoryboardSegue) {
         
     }
