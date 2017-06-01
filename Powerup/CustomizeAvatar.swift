@@ -23,9 +23,9 @@ class CustomizeAvatar: UIViewController {
     var facecount = 0
     var facetotal = 4
     @IBOutlet weak var hairview: UIImageView!
-    var hair = ["hair2", "hair3", "hair4", "hair5", "hair6", "hair7", "hair8", "hair9", "hair10", "hair11"]
+    var hair = ["hair2", "hair3", "hair4", "hair5", "hair6", "hair7", "hair8", "hair9", "hair10", "hair11","hair12","hair13"]
     var haircount = 0
-    var hairtotal = 10
+    var hairtotal = 12
     @IBOutlet weak var clothesview: UIImageView!
     var clothes = ["cloth1", "cloth2", "cloth3", "cloth4", "cloth5", "cloth6", "cloth7", "cloth8", "cloth9"]
     var clothescount = 0
