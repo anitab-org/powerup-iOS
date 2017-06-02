@@ -7,7 +7,6 @@ class CustomizeAvatarViewController: UIViewController {
     @IBOutlet weak var customHairView: UIImageView!
     @IBOutlet weak var customFaceView: UIImageView!
     @IBOutlet weak var customEyesView: UIImageView!
-
     
     @IBOutlet weak var eyesExhibitionView: UIImageView!
     @IBOutlet weak var faceExhibitionView: UIImageView!
@@ -114,7 +113,12 @@ class CustomizeAvatarViewController: UIViewController {
     
     @IBAction func continueButtonTouched(_ sender: UIButton) {
         // Save the current configuration to UserDefaults (Should be changed after Firebase integration)
-        let configuration = ["eyes": chosenEyesIndex, "hair": chosenHairIndex, "clothes": chosenClothesIndex, "face": chosenFaceIndex]
+        let configuration = [
+            "eyes": chosenEyesIndex,
+            "hair": chosenHairIndex,
+            "clothes": chosenClothesIndex,
+            "face": chosenFaceIndex,
+        ]
         UserDefaults.standard.set(configuration, forKey: Customizables.avatarKey)
         
         // Dismiss the modal VC

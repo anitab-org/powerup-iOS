@@ -2,17 +2,14 @@ import UIKit
 
 class ScenarioViewController: UIViewController {
     
+    //MARK: Properties
+    
     // current scenario, set by the MapViewController
     var scenarioID: Int = 0
     var questionID: Int = 1
     
     // the next question ID for each choices (if not an integer, the next scenario links to a mini game)
     var nextQuestionIDs = [String]()
-    
-    var eyeImage: UIImage!
-    var faceImage: UIImage!
-    var clothesImage: UIImage!
-    var hairImage: UIImage!
     
     var databasePath = NSString()
     
@@ -25,10 +22,14 @@ class ScenarioViewController: UIViewController {
     
     // ImageViews for avatar
     // These should be merged into a customized controller soon
-    @IBOutlet weak var eyesview: UIImageView!
-    @IBOutlet weak var hairview: UIImageView!
-    @IBOutlet weak var faceview: UIImageView!
-    @IBOutlet weak var clothesview: UIImageView!
+    @IBOutlet weak var eyesView: UIImageView!
+    @IBOutlet weak var hairView: UIImageView!
+    @IBOutlet weak var faceView: UIImageView!
+    @IBOutlet weak var clothesView: UIImageView!
+    @IBOutlet weak var necklaceView: UIImageView!
+    @IBOutlet weak var handbagView: UIImageView!
+    @IBOutlet weak var glassesView: UIImageView!
+    @IBOutlet weak var hatView: UIImageView!
     
     func resetQuestionAndChoices() {
         // Hide question Label and all the Buttons for choices, will show them only if the query to Database is successful
@@ -129,15 +130,12 @@ class ScenarioViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        eyesview.image = eyeImage
-        hairview.image = hairImage
-        faceview.image = faceImage
-        clothesview.image = clothesImage
+        // Configure the appearence of the avatar
+        Customizables.applyCustomizables(clothes: clothesView, face: faceView, hair: hairView, eyes: eyesView, handBag: handbagView, glasses: glassesView, necklace: necklaceView, hat: hatView)
         
         resetQuestionAndChoices()
         
         bgImage.image = UIImage(named: "endingscreen")
-
     }
     
     // MARK: Actions
