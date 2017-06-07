@@ -76,7 +76,7 @@ struct Customizables {
     
     /**
      Apply customized appearence to the avatar
-    **/
+    */
     static func applyCustomizables(clothes clothesView: UIImageView, face faceView: UIImageView, hair hairView: UIImageView, eyes eyesView: UIImageView, handBag handbagView: UIImageView, glasses glassesView: UIImageView, necklace necklaceView: UIImageView, hat hatView: UIImageView) {
         
         // Initialize avatar images
