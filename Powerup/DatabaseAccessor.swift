@@ -5,7 +5,9 @@ class DatabaseAccessor {
     // Database file name
     private let DatabaseName = "mainDatabase"
     private let DatabaseFileType = "sqlite"
-    private let avatarID = 1
+    
+    // TODO: Multiple avatars with different IDs.
+    let avatarID = 1
     
     // The instance of DatabaseAccessor
     private static var instance: DatabaseAccessor?
@@ -117,18 +119,18 @@ class DatabaseAccessor {
     /**
       Save the accessories, clothing, etc. in the database.
       
-      - Parameter: Face, clothes, hair, eyes, necklace, glasses, handbag, hat.
+      - Parameter: An avatar class
       - Return: A Bool indicating whether the save is successful.
     */
-    public func saveAvatar(faceIndex: Int, clothesIndex: Int, hairIndex: Int, eyesIndex: Int, necklaceIndex: Int?, glassesIndex: Int?, handbagIndex: Int?, hatIndex: Int?)  -> Bool{
+    public func saveAvatar(_ avatar: Avatar)  -> Bool{
         // Determine whether they are nil, if they are, set its string to "NULL"
-        let necklaceString = necklaceIndex == nil ? "NULL" : String(necklaceIndex! + 1)
-        let glassesString = glassesIndex == nil ? "NULL" : String(glassesIndex! + 1)
-        let handbagString = handbagIndex == nil ? "NULL" : String(handbagIndex! + 1)
-        let hatString = hatIndex == nil ? "NULL" : String(hatIndex! + 1)
+        let necklaceString = avatar.necklace == nil ? "NULL" : String(avatar.necklace!.id)
+        let glassesString = avatar.glasses == nil ? "NULL" : String(avatar.glasses!.id)
+        let handbagString = avatar.handbag == nil ? "NULL" : String(avatar.handbag!.id)
+        let hatString = avatar.hat == nil ? "NULL" : String(avatar.hat!.id)
         
         // Set the query string.
-        let queryString = "UPDATE Avatar SET Face=\(faceIndex + 1), Clothes=\(clothesIndex + 1), Hair=\(hairIndex + 1), Eyes=\(eyesIndex + 1), Necklace=" + necklaceString + ", Glasses=" + glassesString + ", Handbag=" + handbagString + ", Hat=" + hatString + " WHERE ID = \(avatarID)"
+        let queryString = "UPDATE Avatar SET Face=\(avatar.face.id), Clothes=\(avatar.clothes.id), Hair=\(avatar.hair.id), Eyes=\(avatar.eyes.id), Necklace=" + necklaceString + ", Glasses=" + glassesString + ", Handbag=" + handbagString + ", Hat=" + hatString + " WHERE ID = \(avatarID)"
         
         assert(mainDB != nil)
         
@@ -142,43 +144,53 @@ class DatabaseAccessor {
     }
     
     /**
-      Get the strings of accessories, clothing, etc. from the database.
+      Get the configured avatar from the database.
     
-      - Return: A dictionary of strings mapping accessorie name to (index, image string) tuple.
+      - Return: A configured avatar stored in database.
     */
-    public func getAvatar() -> [String: (Int, String)] {
+    public func getAvatar() -> Avatar {
         let queryString = "SELECT * FROM Avatar WHERE ID = \(avatarID)"
         let queryResults: FMResultSet? = mainDB?.executeQuery(queryString, withArgumentsIn: nil)
         
-        var result = [String: (Int,String)]()
+        var result = Avatar()
         
         // Get the results.
         if queryResults?.next() == true {
-            let queryTableNames = ["Face", "Clothes", "Hair", "Eyes", "Necklace", "Glasses", "Handbag", "Hat"]
             
-            for name in queryTableNames {
-                
-                // Necklace, Glasses, Handbag, Hat might be nil.
-                let accessoryID: Int? = (queryResults!.isNull(forColumn: name) ? nil : Int(queryResults!.int(forColumn: name)))
-                
-                // Skip if the avatar don't have the accessory.
-                if accessoryID == nil {
-                    continue
-                }
-                
-                let accessoryQueryString = "SELECT Name FROM " + name + " WHERE ID=\(accessoryID!)"
-                let accessoryQueryResults: FMResultSet? = mainDB?.executeQuery(accessoryQueryString, withArgumentsIn: nil)
-                
-                if accessoryQueryResults?.next() == true {
-                    // Configure the result dictionary.
-                    result[name] = ((accessoryID! - 1), accessoryQueryResults!.string(forColumn: "Name"))
-                    
-                } else {
-                    print("Error fetching accessory " + name)
-                }
-        
-            }
+            // Face
+            let faceID = Int(queryResults!.int(forColumn: "Face"))
+            let face = getAccessory(accessoryType: "Face", accessoryIndex: faceID)
             
+            // Clothes
+            let clothesID = Int(queryResults!.int(forColumn: "Clothes"))
+            let clothes = getAccessory(accessoryType: "Clothes", accessoryIndex: clothesID)
+            
+            // Hair
+            let hairID = Int(queryResults!.int(forColumn: "Hair"))
+            let hair = getAccessory(accessoryType: "Hair", accessoryIndex: hairID)
+            
+            // Eyes
+            let eyesID = Int(queryResults!.int(forColumn: "Eyes"))
+            let eyes = getAccessory(accessoryType: "Eyes", accessoryIndex: eyesID)
+            
+            // Necklace (optional)
+            let necklaceID: Int? = (queryResults!.isNull(forColumn: "Necklace") ? nil : Int(queryResults!.int(forColumn: "Necklace")))
+            let necklace: Accessory? = necklaceID == nil ? nil : getAccessory(accessoryType: "Necklace", accessoryIndex: necklaceID!)
+            
+            // Glasses (optional)
+            let glassesID: Int? = (queryResults!.isNull(forColumn: "Glasses") ? nil : Int(queryResults!.int(forColumn: "Glasses")))
+            let glasses: Accessory? = glassesID == nil ? nil : getAccessory(accessoryType: "Glasses", accessoryIndex: glassesID!)
+            
+            // Handbag (optional)
+            let handbagID: Int? = (queryResults!.isNull(forColumn: "Handbag") ? nil : Int(queryResults!.int(forColumn: "Handbag")))
+            let handbag: Accessory? = handbagID == nil ? nil : getAccessory(accessoryType: "Handbag", accessoryIndex: handbagID!)
+            
+            // Hat (optional)
+            let hatID: Int? = (queryResults!.isNull(forColumn: "Hat") ? nil : Int(queryResults!.int(forColumn: "Hat")))
+            let hat: Accessory? = hatID == nil ? nil : getAccessory(accessoryType: "Hat", accessoryIndex: hatID!)
+            
+            // Init avatar
+            result = Avatar(avatarID: avatarID, face: face, eyes: eyes, hair: hair, clothes: clothes, necklace: necklace, glasses: glasses, handbag: handbag, hat: hat)
             
         } else {
             print("Error fetching avatar data.")
@@ -188,18 +200,50 @@ class DatabaseAccessor {
     }
     
     /** 
-      Get accessory names in an array.
-      - Parameter: Accessory name.
-      - Return: An array containing the names of accessories in an array.
+      Get an array of accessories of a single type.
+      - Parameter: Accessory type (i.e. Hair, Face, etc.).
+      - Return: An array of accessories.
     */
-    public func getAccessoryArray(accessoryName: String) -> [String] {
-        let queryString = "SELECT * FROM " + accessoryName + " ORDER BY ID"
+    public func getAccessoryArray(accessoryType: String) -> [Accessory] {
+        let queryString = "SELECT * FROM " + accessoryType + " ORDER BY ID"
         let queryResults: FMResultSet? = mainDB?.executeQuery(queryString, withArgumentsIn: nil)
         
-        var result = [String]()
+        var result = [Accessory]()
         
         while queryResults?.next() == true {
-            result.append(queryResults!.string(forColumn: "Name"))
+            let accessoryID = Int(queryResults!.int(forColumn: "ID"))
+            let accessoryImageName = queryResults!.string(forColumn: "Name")
+            let accessoryPoints = Int(queryResults!.int(forColumn: "Points"))
+            let accessoryPurchased = queryResults!.bool(forColumn: "Purchased")
+            
+            let currAccessory = Accessory(type: accessoryType, id: accessoryID, imageName: accessoryImageName!, points: accessoryPoints, purchased: accessoryPurchased)
+            
+            result.append(currAccessory)
+        }
+        
+        return result
+    }
+    
+    /**
+      Get an accessory by a given accessory type and index.
+      - Parameter: index.
+      - Return: The corresponding accessories.
+    */
+    public func getAccessory(accessoryType: String, accessoryIndex: Int) -> Accessory {
+        let queryString = "SELECT * FROM " + accessoryType + " WHERE ID = \(accessoryIndex)"
+        let queryResults: FMResultSet? = mainDB?.executeQuery(queryString, withArgumentsIn: nil)
+        
+        var result: Accessory!
+        
+        if queryResults?.next() == true {
+            let accessoryID = Int(queryResults!.int(forColumn: "ID"))
+            let accessoryImageName = queryResults!.string(forColumn: "Name")
+            let accessoryPoints = Int(queryResults!.int(forColumn: "Points"))
+            let accessoryPurchased = queryResults!.bool(forColumn: "Purchased")
+            
+            result = Accessory(type: accessoryType, id: accessoryID, imageName: accessoryImageName!, points: accessoryPoints, purchased: accessoryPurchased)
+        } else {
+            print("Error fetching accessory from table " + accessoryType + ".")
         }
         
         return result
@@ -210,10 +254,10 @@ class DatabaseAccessor {
       - Parameter: Face, clothes, hair, eyes.
       - Return: Bool, indicating if creation is successful.
     */
-    public func createAvatar(faceIndex: Int, clothesIndex: Int, hairIndex: Int, eyesIndex: Int) -> Bool {
+    public func createAvatar(_ avatar: Avatar) -> Bool {
         // Avatar already exists, use update instead of insert.
         if avatarExists() {
-            guard saveAvatar(faceIndex: faceIndex, clothesIndex: clothesIndex, hairIndex: hairIndex, eyesIndex: eyesIndex, necklaceIndex: nil, glassesIndex: nil, handbagIndex: nil, hatIndex: nil) else {
+            guard saveAvatar(avatar) else {
                 print("Error saving avatar.")
                 return false
             }
@@ -221,7 +265,8 @@ class DatabaseAccessor {
             return true
         }
         
-        let queryString = "INSERT INTO Avatar (ID, Face, Clothes, Hair, Eyes, Necklace, Glasses, Handbag, Hat) VALUES (\(avatarID), \(faceIndex + 1), \(clothesIndex + 1), \(hairIndex + 1), \(eyesIndex + 1), NULL, NULL, NULL, NULL)"
+        // Necklace, glasses, handbag, hat are NULL because players cannot have those when creating new avatars.
+        let queryString = "INSERT INTO Avatar (ID, Face, Clothes, Hair, Eyes, Necklace, Glasses, Handbag, Hat) VALUES (\(avatarID), \(avatar.face.id), \(avatar.clothes.id), \(avatar.hair.id), \(avatar.eyes.id), NULL, NULL, NULL, NULL)"
         
         assert(mainDB != nil)
         

@@ -13,37 +13,18 @@ class ResultsViewController: UIViewController {
     @IBOutlet weak var hatView: UIImageView!
     
     // MARK: Functions
+    // Configures the accessories of the avatar.
     func configureAvatar() {
-        let avatarConfig = DatabaseAccessor.sharedInstance().getAvatar()
-        clothesView.image = UIImage(named: avatarConfig["Clothes"]!.1)
-        faceView.image = UIImage(named: avatarConfig["Face"]!.1)
-        hairView.image = UIImage(named: avatarConfig["Hair"]!.1)
-        eyesView.image = UIImage(named: avatarConfig["Eyes"]!.1)
+        let avatar = DatabaseAccessor.sharedInstance().getAvatar()
         
-        // Optional accessories
-        if let handbagName = avatarConfig["Handbag"]?.1 {
-            handbagView.image = UIImage(named: handbagName)
-        } else {
-            handbagView.isHidden = true
-        }
-        
-        if let glassesName = avatarConfig["Glasses"]?.1 {
-            glassesView.image = UIImage(named: glassesName)
-        } else {
-            glassesView.isHidden = true
-        }
-        
-        if let necklaceName = avatarConfig["Necklace"]?.1 {
-            necklaceView.image = UIImage(named: necklaceName)
-        } else {
-            necklaceView.isHidden = true
-        }
-        
-        if let hatName = avatarConfig["Hat"]?.1 {
-            hatView.image = UIImage(named: hatName)
-        } else {
-            hatView.isHidden = true
-        }
+        clothesView.image = avatar.clothes.image
+        faceView.image = avatar.face.image
+        hairView.image = avatar.hair.image
+        eyesView.image = avatar.eyes.image
+        handbagView.image = avatar.handbag?.image
+        glassesView.image = avatar.glasses?.image
+        hatView.image = avatar.hat?.image
+        necklaceView.image = avatar.necklace?.image
     }
     
     override func viewDidLoad() {

@@ -14,25 +14,22 @@ class CustomizeAvatarViewController: UIViewController {
     @IBOutlet weak var clothesExhibitionView: UIImageView!
     
     // MARK: Properties
-    var chosenClothesIndex = 0
-    var chosenFaceIndex = 0
-    var chosenHairIndex = 0
-    var chosenEyesIndex = 0
+    var avatar = Avatar()
     
-    var clothesImageNames = [String]()
-    var faceImageNames = [String]()
-    var hairImageNames = [String]()
-    var eyesImageNames = [String]()
+    var chosenClothesIndex = 0
+    var chosenEyesIndex = 0
+    var chosenHairIndex = 0
+    var chosenFaceIndex = 0
+    
+    // Get arrays of accessories.
+    let clothes = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Clothes")
+    let faces = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Face")
+    let hairs = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Hair")
+    let eyes = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Eyes")
 
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Fetch image names from database.
-        clothesImageNames = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryName: "Clothes")
-        faceImageNames = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryName: "Face")
-        hairImageNames = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryName: "Hair")
-        eyesImageNames = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryName: "Eyes")
         
         // Initialize the images of exhibition boxes and the avatar
         updateClothesImage()
@@ -42,81 +39,89 @@ class CustomizeAvatarViewController: UIViewController {
     }
     
     func updateClothesImage() {
-        let imageName = clothesImageNames[chosenClothesIndex]
-        clothesExhibitionView.image = UIImage(named: imageName)
-        customClothesView.image = UIImage(named: imageName)
+        avatar.clothes = clothes[chosenClothesIndex]
+        
+        let clothesImage = avatar.clothes.image
+        clothesExhibitionView.image = clothesImage
+        customClothesView.image = clothesImage
     }
     
     func updateEyesImage() {
-        let imageName = eyesImageNames[chosenEyesIndex]
-        eyesExhibitionView.image = UIImage(named: imageName)
-        customEyesView.image = UIImage(named: imageName)
+        avatar.eyes = eyes[chosenEyesIndex]
+        
+        let eyesImage = avatar.eyes.image
+        eyesExhibitionView.image = eyesImage
+        customEyesView.image = eyesImage
     }
     
     func updateHairImage() {
-        let imageName = hairImageNames[chosenHairIndex]
-        hairExhibitionView.image = UIImage(named: imageName)
-        customHairView.image = UIImage(named: imageName)
+        avatar.hair = hairs[chosenHairIndex]
+        
+        let hairImage = avatar.hair.image
+        hairExhibitionView.image = hairImage
+        customHairView.image = hairImage
     }
     
     func updateFaceImage() {
-        let imageName = faceImageNames[chosenFaceIndex]
-        faceExhibitionView.image = UIImage(named: imageName)
-        customFaceView.image = UIImage(named: imageName)
+        avatar.face = faces[chosenFaceIndex]
+        
+        let faceImage = avatar.face.image
+        faceExhibitionView.image = faceImage
+        customFaceView.image = faceImage
     }
     
     // MARK: Actions
     @IBAction func eyesLeftButtonTouched(_ sender: UIButton) {
-        let totalCount = eyesImageNames.count
+        let totalCount = eyes.count
         chosenEyesIndex = (chosenEyesIndex + totalCount - 1) % totalCount
         
         updateEyesImage()
     }
     
     @IBAction func eyesRightButtonTouched(_ sender: UIButton) {
-        let totalCount = eyesImageNames.count
+        let totalCount = eyes.count
         chosenEyesIndex = (chosenEyesIndex + 1) % totalCount
         
         updateEyesImage()
     }
     
     @IBAction func hairLeftButtonTouched(_ sender: UIButton) {
-        let totalCount = hairImageNames.count
+        let totalCount = hairs.count
         chosenHairIndex = (chosenHairIndex + totalCount - 1) % totalCount
         
         updateHairImage()
     }
     
     @IBAction func hairRightButtonTouched(_ sender: UIButton) {
-        let totalCount = hairImageNames.count
+        let totalCount = hairs.count
         chosenHairIndex = (chosenHairIndex + 1) % totalCount
         
         updateHairImage()
     }
     
     @IBAction func faceLeftButtonTouched(_ sender: UIButton) {
-        let totalCount = faceImageNames.count
+        let totalCount = faces.count
         chosenFaceIndex = (chosenFaceIndex + totalCount - 1) % totalCount
         
         updateFaceImage()
     }
     
     @IBAction func faceRightButtonTouched(_ sender: UIButton) {
-        let totalCount = faceImageNames.count
+        let totalCount = faces.count
         chosenFaceIndex = (chosenFaceIndex + 1) % totalCount
         
         updateFaceImage()
     }
     
     @IBAction func clothesLeftButtonTouched(_ sender: UIButton) {
-        let totalCount = clothesImageNames.count
+        let totalCount = clothes.count
         chosenClothesIndex = (chosenClothesIndex + totalCount - 1) % totalCount
         
         updateClothesImage()
     }
     
     @IBAction func clothesRightButtonTouched(_ sender: UIButton) {
-        let totalCount = clothesImageNames.count
+        let totalCount = clothes.count
         chosenClothesIndex = (chosenClothesIndex + 1) % totalCount
         
         updateClothesImage()
@@ -124,7 +129,7 @@ class CustomizeAvatarViewController: UIViewController {
     
     @IBAction func continueButtonTouched(_ sender: UIButton) {
         // Save the current configuration to database.
-        guard DatabaseAccessor.sharedInstance().createAvatar(faceIndex: chosenFaceIndex, clothesIndex: chosenClothesIndex, hairIndex: chosenHairIndex, eyesIndex: chosenEyesIndex) else {
+        guard DatabaseAccessor.sharedInstance().createAvatar(avatar) else {
             print("Failed saving avatar accessories to database.")
             return
         }

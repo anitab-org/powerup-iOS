@@ -4,30 +4,23 @@ class ShopViewController: UIViewController {
 
     // MARK: Properties
     // The indices of exhibition accessories.
-    var chosenBagIndex = 0
-    var chosenGlassesIndex = 0
-    var chosenHatIndex = 0
-    var chosenNecklaceIndex = 0
-    var chosenHairIndex = 0
-    var chosenClothesIndex = 0
+    var exhibitionBagIndex = 0
+    var exhibitionGlassesIndex = 0
+    var exhibitionHatIndex = 0
+    var exhibitionNecklaceIndex = 0
+    var exhibitionHairIndex = 0
+    var exhibitionClothesIndex = 0
     
-    // The indices of the accessories on the avatar.
-    var boughtBagIndex: Int? = nil
-    var boughtGlassesIndex: Int? = nil
-    var boughtHatIndex: Int? = nil
-    var boughtNecklaceIndex: Int? = nil
-    var boughtHairIndex = 0
-    var boughtClothesIndex = 0
-    var boughtEyesIndex = 0
-    var boughtFaceIndex = 0
+    // The displayed avatar.
+    var avatar = DatabaseAccessor.sharedInstance().getAvatar()
     
-    
-    var bagImageNames = [String]()
-    var glassesImageNames = [String]()
-    var hatImageNames = [String]()
-    var necklaceImageNames = [String]()
-    var hairImageNames = [String]()
-    var clothesImageNames = [String]()
+    // Array of accessories.
+    let handbags = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Handbag")
+    let glasses = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Glasses")
+    let hats = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Hat")
+    let necklaces = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Necklace")
+    let hairs = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Hair")
+    let clothes = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Clothes")
     
     // MARK: Views
     @IBOutlet weak var pointsLabel: UILabel!
@@ -62,263 +55,195 @@ class ShopViewController: UIViewController {
     @IBOutlet weak var avatarNecklaceView: UIImageView!
     
     // MARK: Functions
-    func configureAvatar() {
-        let avatarConfig = DatabaseAccessor.sharedInstance().getAvatar()
-        
-        // Clothes
-        let (clothesIndex, clothesName) = avatarConfig["Clothes"]!
-        avatarClothesView.image = UIImage(named: clothesName)
-        chosenClothesIndex = clothesIndex
-        boughtClothesIndex = clothesIndex
-        
-        // Face
-        let (faceIndex, faceName) = avatarConfig["Face"]!
-        avatarFaceView.image = UIImage(named: faceName)
-        boughtFaceIndex = faceIndex
-        
-        // Hair
-        let (hairIndex, hairName) = avatarConfig["Hair"]!
-        avatarHairView.image = UIImage(named: hairName)
-        chosenHairIndex = hairIndex
-        boughtHairIndex = hairIndex
-        
-        // Eyes
-        let (eyesIndex, eyesName) = avatarConfig["Eyes"]!
-        avatarEyesView.image = UIImage(named: eyesName)
-        boughtEyesIndex = eyesIndex
-        
-        // Optional accessories
-        // Handbag
-        if let (handbagIndex, handbagName) = avatarConfig["Handbag"] {
-            avatarHandbagView.image = UIImage(named: handbagName)
-            chosenBagIndex = handbagIndex
-            boughtBagIndex = handbagIndex
-        } else {
-            avatarHandbagView.image = nil
-        }
-        
-        // Glasses
-        if let (glassesIndex, glassesName) = avatarConfig["Glasses"] {
-            avatarGlassesView.image = UIImage(named: glassesName)
-            chosenGlassesIndex = glassesIndex
-            boughtGlassesIndex = glassesIndex
-        } else {
-            avatarGlassesView.image = nil
-        }
-        
-        // Necklace
-        if let (necklaceIndex, necklaceName) = avatarConfig["Necklace"] {
-            avatarNecklaceView.image = UIImage(named: necklaceName)
-            chosenNecklaceIndex = necklaceIndex
-            boughtNecklaceIndex = necklaceIndex
-        } else {
-            avatarNecklaceView.image = nil
-        }
-        
-        // Hat
-        if let (hatIndex, hatName) = avatarConfig["Hat"] {
-            avatarHatView.image = UIImage(named: hatName)
-            chosenHatIndex = hatIndex
-            boughtHatIndex = hatIndex
-        } else {
-            avatarHatView.image = nil
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureAvatar()
-        
-        // Fetch accessory names for database.
-        bagImageNames = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryName: "Handbag")
-        glassesImageNames = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryName: "Glasses")
-        hatImageNames = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryName: "Hat")
-        necklaceImageNames = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryName: "Necklace")
-        hairImageNames = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryName: "Hair")
-        clothesImageNames = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryName: "Clothes")
+        // Configure Image Views of Avatar Accessories.
+        avatarClothesView.image = avatar.clothes.image
+        avatarFaceView.image = avatar.face.image
+        avatarEyesView.image = avatar.eyes.image
+        avatarHairView.image = avatar.hair.image
+        avatarHandbagView.image = avatar.handbag?.image
+        avatarGlassesView.image = avatar.glasses?.image
+        avatarNecklaceView.image = avatar.necklace?.image
+        avatarHatView.image = avatar.hat?.image
         
         // Configure exhibition image.
-        exhibitionHandbag.image = UIImage(named: bagImageNames[chosenBagIndex])
-        exhibitionGlasses.image = UIImage(named: glassesImageNames[chosenGlassesIndex])
-        exhibitionHat.image = UIImage(named: hatImageNames[chosenHatIndex])
-        exhibitionNecklace.image = UIImage(named: necklaceImageNames[chosenHatIndex])
-        exhibitionHair.image = UIImage(named: hairImageNames[chosenHairIndex])
-        exhibitionClothes.image = UIImage(named: clothesImageNames[chosenClothesIndex])
+        exhibitionHandbag.image = handbags[exhibitionBagIndex].image
+        exhibitionGlasses.image = glasses[exhibitionGlassesIndex].image
+        exhibitionHat.image = hats[exhibitionHatIndex].image
+        exhibitionNecklace.image = necklaces[exhibitionNecklaceIndex].image
+        exhibitionHair.image = hairs[exhibitionHairIndex].image
+        exhibitionClothes.image = clothes[exhibitionClothesIndex].image
     }
 
     // MARK: Actions
     // Handbag
     @IBAction func handbagLeftButtonTouched(_ sender: UIButton) {
         // Update index
-        let totalCount = bagImageNames.count
-        chosenBagIndex = (chosenBagIndex + totalCount - 1) % totalCount
+        let totalCount = handbags.count
+        exhibitionBagIndex = (exhibitionBagIndex + totalCount - 1) % totalCount
         
         // Update exhibition image
-        exhibitionHandbag.image = UIImage(named: bagImageNames[chosenBagIndex])
+        exhibitionHandbag.image = handbags[exhibitionBagIndex].image
     }
     
     @IBAction func handbagRightButtonTouched(_ sender: UIButton) {
         // Update index
-        let totalCount = bagImageNames.count
-        chosenBagIndex = (chosenBagIndex + 1) % totalCount
+        let totalCount = handbags.count
+        exhibitionBagIndex = (exhibitionBagIndex + 1) % totalCount
         
         // Update exhibition image
-        exhibitionHandbag.image = UIImage(named: bagImageNames[chosenBagIndex])
+        exhibitionHandbag.image = handbags[exhibitionBagIndex].image
     }
     
     @IBAction func handbagBuyButtonTouched(_ sender: UIButton) {
         // TODO: Reduce Karma points
         
-        boughtBagIndex = chosenBagIndex
-        
         // Update avatar
-        avatarHandbagView.image = UIImage(named: bagImageNames[chosenBagIndex])
+        avatar.handbag = handbags[exhibitionBagIndex]
+        avatarHandbagView.image = avatar.handbag!.image
     }
     
     // Glasses
     @IBAction func glassesLeftButtonTouched(_ sender: UIButton) {
         // Update index
-        let totalCount = glassesImageNames.count
-        chosenGlassesIndex = (chosenGlassesIndex + totalCount - 1) % totalCount
+        let totalCount = glasses.count
+        exhibitionGlassesIndex = (exhibitionGlassesIndex + totalCount - 1) % totalCount
         
         // Update glasses image
-        exhibitionGlasses.image = UIImage(named: glassesImageNames[chosenGlassesIndex])
+        exhibitionGlasses.image = glasses[exhibitionGlassesIndex].image
     }
     
     @IBAction func glassesRightButtonTouched(_ sender: UIButton) {
         // Update index
-        let totalCount = glassesImageNames.count
-        chosenGlassesIndex = (chosenGlassesIndex + 1) % totalCount
+        let totalCount = glasses.count
+        exhibitionGlassesIndex = (exhibitionGlassesIndex + 1) % totalCount
         
         // Update glasses image
-        exhibitionGlasses.image = UIImage(named: glassesImageNames[chosenGlassesIndex])
+        exhibitionGlasses.image = glasses[exhibitionGlassesIndex].image
     }
     
     @IBAction func glassesBuyButtonTouched(_ sender: UIButton) {
         // TODO: Reduce Karma points
         
-        boughtGlassesIndex = chosenGlassesIndex
         
         // Update avatar
-        avatarGlassesView.image = UIImage(named: glassesImageNames[chosenGlassesIndex])
+        avatar.glasses = glasses[exhibitionGlassesIndex]
+        avatarGlassesView.image = avatar.glasses!.image
     }
     
     // Hat
     @IBAction func hatLeftButtonTouched(_ sender: UIButton) {
         // Update index
-        let totalCount = hatImageNames.count
-        chosenHatIndex = (chosenHatIndex + totalCount - 1) % totalCount
+        let totalCount = hats.count
+        exhibitionHatIndex = (exhibitionHatIndex + totalCount - 1) % totalCount
         
         // Update hat image
-        exhibitionHat.image = UIImage(named: hatImageNames[chosenHatIndex])
+        exhibitionHat.image = hats[exhibitionHatIndex].image
     }
     
     @IBAction func hatRightButtonTouched(_ sender: UIButton) {
         // Update index
-        let totalCount = hatImageNames.count
-        chosenHatIndex = (chosenHatIndex + 1) % totalCount
+        let totalCount = hats.count
+        exhibitionHatIndex = (exhibitionHatIndex + 1) % totalCount
         
         // Update hat image
-        exhibitionHat.image = UIImage(named: hatImageNames[chosenHatIndex])
+        exhibitionHat.image = hats[exhibitionHatIndex].image
     }
     
     @IBAction func hatBuyButtonTouched(_ sender: UIButton) {
         // TODO: Reduce Karma points
         
-        boughtHatIndex = chosenHatIndex
-        
         // Update avatar
-        avatarHatView.image = UIImage(named: hatImageNames[chosenHatIndex])
+        avatar.hat = hats[exhibitionHatIndex]
+        avatarHatView.image = avatar.hat!.image
     }
     
     // Necklace
     @IBAction func necklaceLeftButtonTouched(_ sender: UIButton) {
         // Update index
-        let totalCount = necklaceImageNames.count
-        chosenNecklaceIndex = (chosenNecklaceIndex + totalCount - 1) % totalCount
+        let totalCount = necklaces.count
+        exhibitionNecklaceIndex = (exhibitionNecklaceIndex + totalCount - 1) % totalCount
         
         // Update necklace image
-        exhibitionNecklace.image = UIImage(named: necklaceImageNames[chosenNecklaceIndex])
+        exhibitionNecklace.image = necklaces[exhibitionNecklaceIndex].image
     }
     
     @IBAction func necklaceRightButtonTouched(_ sender: UIButton) {
         // Update index
-        let totalCount = necklaceImageNames.count
-        chosenNecklaceIndex = (chosenNecklaceIndex + 1) % totalCount
+        let totalCount = necklaces.count
+        exhibitionNecklaceIndex = (exhibitionNecklaceIndex + 1) % totalCount
         
         // Update necklace image
-        exhibitionNecklace.image = UIImage(named: necklaceImageNames[chosenNecklaceIndex])
+        exhibitionNecklace.image = necklaces[exhibitionNecklaceIndex].image
     }
     
     @IBAction func necklaceBuyButtonTouched(_ sender: UIButton) {
         // TODO: Reduce Karma points
         
-        boughtNecklaceIndex = chosenNecklaceIndex
-        
         // Update avatar
-        avatarNecklaceView.image = UIImage(named: necklaceImageNames[chosenNecklaceIndex])
+        avatar.necklace = necklaces[exhibitionNecklaceIndex]
+        avatarNecklaceView.image = avatar.necklace!.image
     }
     
     // Hair
     @IBAction func hairLeftButtonTouched(_ sender: UIButton) {
         // Update index
-        let totalCount = hairImageNames.count
-        chosenHairIndex = (chosenHairIndex + totalCount - 1) % totalCount
+        let totalCount = hairs.count
+        exhibitionHairIndex = (exhibitionHairIndex + totalCount - 1) % totalCount
         
         // Update hair image
-        exhibitionHair.image = UIImage(named: hairImageNames[chosenHairIndex])
+        exhibitionHair.image = hairs[exhibitionHairIndex].image
     }
     
     @IBAction func hairRightButtonTouched(_ sender: UIButton) {
         // Update index
-        let totalCount = hairImageNames.count
-        chosenHairIndex = (chosenHairIndex + 1) % totalCount
+        let totalCount = hairs.count
+        exhibitionHairIndex = (exhibitionHairIndex + 1) % totalCount
         
         // Update hair image
-        exhibitionHair.image = UIImage(named: hairImageNames[chosenHairIndex])
+        exhibitionHair.image = hairs[exhibitionHairIndex].image
     }
     
     @IBAction func hairBuyButtonTouched(_ sender: UIButton) {
         // TODO: Reduce Karma points
         
-        boughtHairIndex = chosenHairIndex
-        
         // Update avatar
-        avatarHairView.image = UIImage(named: hairImageNames[chosenHairIndex])
+        avatar.hair = hairs[exhibitionHairIndex]
+        avatarHairView.image = avatar.hair.image
     }
     
     // Clothes
     @IBAction func clothesLeftButtonTouched(_ sender: UIButton) {
         // Update index
-        let totalCount = clothesImageNames.count
-        chosenClothesIndex = (chosenClothesIndex + totalCount - 1) % totalCount
+        let totalCount = clothes.count
+        exhibitionClothesIndex = (exhibitionClothesIndex + totalCount - 1) % totalCount
         
         // Update clothes
-        exhibitionClothes.image = UIImage(named: clothesImageNames[chosenClothesIndex])
+        exhibitionClothes.image = clothes[exhibitionClothesIndex].image
     }
     
     @IBAction func clothesRightButtonTouched(_ sender: UIButton) {
         // Update index
-        let totalCount = clothesImageNames.count
-        chosenClothesIndex = (chosenClothesIndex + 1) % totalCount
+        let totalCount = clothes.count
+        exhibitionClothesIndex = (exhibitionClothesIndex + 1) % totalCount
         
         // Update clothes
-        exhibitionClothes.image = UIImage(named: clothesImageNames[chosenClothesIndex])
+        exhibitionClothes.image = clothes[exhibitionClothesIndex].image
     }
     
     @IBAction func clothesBuyButtonTouched(_ sender: UIButton) {
         // TODO: Reduce Karm points
         
-        boughtClothesIndex = chosenClothesIndex
-        
         // Update avatar
-        avatarClothesView.image = UIImage(named: clothesImageNames[chosenClothesIndex])
+        avatar.clothes = clothes[exhibitionClothesIndex]
+        avatarClothesView.image = avatar.clothes.image
     }
     
     @IBAction func continueButtonTouched(_ sender: UIButton) {
         // Save configuration to database.
-        guard DatabaseAccessor.sharedInstance().saveAvatar(faceIndex: boughtFaceIndex, clothesIndex: boughtClothesIndex, hairIndex: boughtHairIndex, eyesIndex: boughtEyesIndex, necklaceIndex: boughtNecklaceIndex, glassesIndex: boughtGlassesIndex, handbagIndex: boughtBagIndex, hatIndex: boughtHatIndex) else {
+        guard DatabaseAccessor.sharedInstance().saveAvatar(avatar) else {
             print("Failed saving bought items to database.")
             return
         }

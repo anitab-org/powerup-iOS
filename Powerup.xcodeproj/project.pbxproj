@@ -33,6 +33,7 @@
 		D95B03CE1EDEA680001DB858 /* MiniGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95B03CD1EDEA680001DB858 /* MiniGameViewController.swift */; };
 		D969D26C1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D969D26B1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift */; };
 		D9D10A401EE130BD003584F4 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D10A3F1EE130BD003584F4 /* ResultsViewController.swift */; };
+		D9E190A61EE952CD00109F39 /* Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E190A51EE952CD00109F39 /* Accessory.swift */; };
 		D9FFC0E31EE91EE4000F3CA6 /* CustomizeAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FFC0E21EE91EE4000F3CA6 /* CustomizeAvatarViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,7 @@
 		D95B03CD1EDEA680001DB858 /* MiniGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniGameViewController.swift; sourceTree = "<group>"; };
 		D969D26B1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMResultSetNullCheckExtension.swift; sourceTree = "<group>"; };
 		D9D10A3F1EE130BD003584F4 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		D9E190A51EE952CD00109F39 /* Accessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accessory.swift; sourceTree = "<group>"; };
 		D9FFC0E21EE91EE4000F3CA6 /* CustomizeAvatarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizeAvatarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -230,6 +232,7 @@
 				D959CBCA1EE6481100C31753 /* Question.swift */,
 				D959CBCC1EE6489100C31753 /* Scenario.swift */,
 				D959CBCE1EE6491800C31753 /* Score.swift */,
+				D9E190A51EE952CD00109F39 /* Accessory.swift */,
 			);
 			name = "Data Models";
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 				2AD1A1E71B2B1ADA00BCA94D /* ModelManager.swift in Sources */,
 				D959CBD31EE64A3A00C31753 /* DatabaseAccessor.swift in Sources */,
 				2A0CA5551B294C6B00ED8781 /* AppDelegate.swift in Sources */,
+				D9E190A61EE952CD00109F39 /* Accessory.swift in Sources */,
 				2AF82A8E1B4BA74A00307BED /* FMDatabaseAdditions.m in Sources */,
 				D95B03CE1EDEA680001DB858 /* MiniGameViewController.swift in Sources */,
 				D95B03CC1EDE7470001DB858 /* MapViewController.swift in Sources */,
