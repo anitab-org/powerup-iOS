@@ -15,28 +15,22 @@ class ShopViewController: UIViewController {
     var avatar = DatabaseAccessor.sharedInstance().getAvatar()
     
     // Array of accessories.
-    let handbags = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Handbag")
-    let glasses = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Glasses")
-    let hats = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Hat")
-    let necklaces = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Necklace")
-    let hairs = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Hair")
-    let clothes = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Clothes")
+    var handbags = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Handbag")
+    var glasses = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Glasses")
+    var hats = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Hat")
+    var necklaces = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Necklace")
+    var hairs = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Hair")
+    var clothes = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Clothes")
     
     // MARK: Views
     @IBOutlet weak var pointsLabel: UILabel!
     
-    @IBOutlet weak var handbagLabel: UILabel!
     @IBOutlet weak var handbagPaidLabel: UILabel!
-    @IBOutlet weak var glassesLabel: UILabel!
     @IBOutlet weak var glassesPaidLabel: UILabel!
-    @IBOutlet weak var hatLabel: UILabel!
     @IBOutlet weak var hatPaidLabel: UILabel!
-    @IBOutlet weak var necklaceLabel: UILabel!
     @IBOutlet weak var necklacePaidLabel: UILabel!
     @IBOutlet weak var hairPaidLabel: UILabel!
-    @IBOutlet weak var hairLabel: UILabel!
     @IBOutlet weak var clothesPaidLabel: UILabel!
-    @IBOutlet weak var clothesLabel: UILabel!
     
     @IBOutlet weak var exhibitionHandbag: UIImageView!
     @IBOutlet weak var exhibitionGlasses: UIImageView!
@@ -68,13 +62,49 @@ class ShopViewController: UIViewController {
         avatarNecklaceView.image = avatar.necklace?.image
         avatarHatView.image = avatar.hat?.image
         
-        // Configure exhibition image.
-        exhibitionHandbag.image = handbags[exhibitionBagIndex].image
-        exhibitionGlasses.image = glasses[exhibitionGlassesIndex].image
-        exhibitionHat.image = hats[exhibitionHatIndex].image
-        exhibitionNecklace.image = necklaces[exhibitionNecklaceIndex].image
-        exhibitionHair.image = hairs[exhibitionHairIndex].image
-        exhibitionClothes.image = clothes[exhibitionClothesIndex].image
+        // Configure exhibition image and paid label.
+        updateHandbagExhibition()
+        updateHatExhibition()
+        updateGlassesExhibition()
+        updateNecklaceExhibition()
+        updateHairExhibition()
+        updateClothesExhibition()
+    }
+    
+    func updateHandbagExhibition() {
+        let handbag = handbags[exhibitionBagIndex]
+        exhibitionHandbag.image = handbag.image
+        handbagPaidLabel.isHidden = !handbag.purchased
+    }
+    
+    func updateGlassesExhibition() {
+        let glass = glasses[exhibitionGlassesIndex]
+        exhibitionGlasses.image = glass.image
+        glassesPaidLabel.isHidden = !glass.purchased
+    }
+    
+    func updateHatExhibition() {
+        let hat = hats[exhibitionHatIndex]
+        exhibitionHat.image = hat.image
+        hatPaidLabel.isHidden = !hat.purchased
+    }
+    
+    func updateNecklaceExhibition() {
+        let necklace = necklaces[exhibitionNecklaceIndex]
+        exhibitionNecklace.image = necklace.image
+        necklacePaidLabel.isHidden = !necklace.purchased
+    }
+    
+    func updateHairExhibition() {
+        let hair = hairs[exhibitionHairIndex]
+        exhibitionHair.image = hair.image
+        hairPaidLabel.isHidden = !hair.purchased
+    }
+    
+    func updateClothesExhibition() {
+        let cloth = clothes[exhibitionClothesIndex]
+        exhibitionClothes.image = cloth.image
+        clothesPaidLabel.isHidden = !cloth.purchased
     }
 
     // MARK: Actions
@@ -84,8 +114,7 @@ class ShopViewController: UIViewController {
         let totalCount = handbags.count
         exhibitionBagIndex = (exhibitionBagIndex + totalCount - 1) % totalCount
         
-        // Update exhibition image
-        exhibitionHandbag.image = handbags[exhibitionBagIndex].image
+        updateHandbagExhibition()
     }
     
     @IBAction func handbagRightButtonTouched(_ sender: UIButton) {
@@ -93,12 +122,18 @@ class ShopViewController: UIViewController {
         let totalCount = handbags.count
         exhibitionBagIndex = (exhibitionBagIndex + 1) % totalCount
         
-        // Update exhibition image
-        exhibitionHandbag.image = handbags[exhibitionBagIndex].image
+        updateHandbagExhibition()
     }
     
     @IBAction func handbagBuyButtonTouched(_ sender: UIButton) {
         // TODO: Reduce Karma points
+        
+        
+        // Set as paid
+        handbags[exhibitionBagIndex].purchased = true
+        handbagPaidLabel.isHidden = false
+        
+        // TODO: Record "purchased" in database.
         
         // Update avatar
         avatar.handbag = handbags[exhibitionBagIndex]
@@ -111,8 +146,7 @@ class ShopViewController: UIViewController {
         let totalCount = glasses.count
         exhibitionGlassesIndex = (exhibitionGlassesIndex + totalCount - 1) % totalCount
         
-        // Update glasses image
-        exhibitionGlasses.image = glasses[exhibitionGlassesIndex].image
+        updateGlassesExhibition()
     }
     
     @IBAction func glassesRightButtonTouched(_ sender: UIButton) {
@@ -120,13 +154,18 @@ class ShopViewController: UIViewController {
         let totalCount = glasses.count
         exhibitionGlassesIndex = (exhibitionGlassesIndex + 1) % totalCount
         
-        // Update glasses image
-        exhibitionGlasses.image = glasses[exhibitionGlassesIndex].image
+        updateGlassesExhibition()
     }
     
     @IBAction func glassesBuyButtonTouched(_ sender: UIButton) {
         // TODO: Reduce Karma points
         
+        
+        // Set as paid
+        glasses[exhibitionGlassesIndex].purchased = true
+        glassesPaidLabel.isHidden = false
+        
+        // TODO: save "purchased" to database.
         
         // Update avatar
         avatar.glasses = glasses[exhibitionGlassesIndex]
@@ -139,8 +178,7 @@ class ShopViewController: UIViewController {
         let totalCount = hats.count
         exhibitionHatIndex = (exhibitionHatIndex + totalCount - 1) % totalCount
         
-        // Update hat image
-        exhibitionHat.image = hats[exhibitionHatIndex].image
+        updateHatExhibition()
     }
     
     @IBAction func hatRightButtonTouched(_ sender: UIButton) {
@@ -148,12 +186,18 @@ class ShopViewController: UIViewController {
         let totalCount = hats.count
         exhibitionHatIndex = (exhibitionHatIndex + 1) % totalCount
         
-        // Update hat image
-        exhibitionHat.image = hats[exhibitionHatIndex].image
+        updateHatExhibition()
     }
     
     @IBAction func hatBuyButtonTouched(_ sender: UIButton) {
         // TODO: Reduce Karma points
+        
+        
+        // Set as paid
+        hats[exhibitionHatIndex].purchased = true
+        hatPaidLabel.isHidden = false
+        
+        // TODO: Save "purchased" to database.
         
         // Update avatar
         avatar.hat = hats[exhibitionHatIndex]
@@ -166,8 +210,7 @@ class ShopViewController: UIViewController {
         let totalCount = necklaces.count
         exhibitionNecklaceIndex = (exhibitionNecklaceIndex + totalCount - 1) % totalCount
         
-        // Update necklace image
-        exhibitionNecklace.image = necklaces[exhibitionNecklaceIndex].image
+        updateNecklaceExhibition()
     }
     
     @IBAction func necklaceRightButtonTouched(_ sender: UIButton) {
@@ -175,12 +218,16 @@ class ShopViewController: UIViewController {
         let totalCount = necklaces.count
         exhibitionNecklaceIndex = (exhibitionNecklaceIndex + 1) % totalCount
         
-        // Update necklace image
-        exhibitionNecklace.image = necklaces[exhibitionNecklaceIndex].image
+        updateNecklaceExhibition()
     }
     
     @IBAction func necklaceBuyButtonTouched(_ sender: UIButton) {
         // TODO: Reduce Karma points
+        
+        
+        // Set as paid
+        necklaces[exhibitionNecklaceIndex].purchased = true
+        necklacePaidLabel.isHidden = false
         
         // Update avatar
         avatar.necklace = necklaces[exhibitionNecklaceIndex]
@@ -193,8 +240,7 @@ class ShopViewController: UIViewController {
         let totalCount = hairs.count
         exhibitionHairIndex = (exhibitionHairIndex + totalCount - 1) % totalCount
         
-        // Update hair image
-        exhibitionHair.image = hairs[exhibitionHairIndex].image
+        updateHairExhibition()
     }
     
     @IBAction func hairRightButtonTouched(_ sender: UIButton) {
@@ -202,12 +248,16 @@ class ShopViewController: UIViewController {
         let totalCount = hairs.count
         exhibitionHairIndex = (exhibitionHairIndex + 1) % totalCount
         
-        // Update hair image
-        exhibitionHair.image = hairs[exhibitionHairIndex].image
+        updateHairExhibition()
     }
     
     @IBAction func hairBuyButtonTouched(_ sender: UIButton) {
         // TODO: Reduce Karma points
+        
+        
+        // Set as paid
+        hairs[exhibitionHairIndex].purchased = true
+        hairPaidLabel.isHidden = false
         
         // Update avatar
         avatar.hair = hairs[exhibitionHairIndex]
@@ -220,8 +270,7 @@ class ShopViewController: UIViewController {
         let totalCount = clothes.count
         exhibitionClothesIndex = (exhibitionClothesIndex + totalCount - 1) % totalCount
         
-        // Update clothes
-        exhibitionClothes.image = clothes[exhibitionClothesIndex].image
+        updateClothesExhibition()
     }
     
     @IBAction func clothesRightButtonTouched(_ sender: UIButton) {
@@ -229,12 +278,16 @@ class ShopViewController: UIViewController {
         let totalCount = clothes.count
         exhibitionClothesIndex = (exhibitionClothesIndex + 1) % totalCount
         
-        // Update clothes
-        exhibitionClothes.image = clothes[exhibitionClothesIndex].image
+        updateClothesExhibition()
     }
     
     @IBAction func clothesBuyButtonTouched(_ sender: UIButton) {
         // TODO: Reduce Karm points
+        
+        
+        // Set as paid
+        clothes[exhibitionClothesIndex].purchased = true
+        clothesPaidLabel.isHidden = false
         
         // Update avatar
         avatar.clothes = clothes[exhibitionClothesIndex]
@@ -244,7 +297,9 @@ class ShopViewController: UIViewController {
     @IBAction func continueButtonTouched(_ sender: UIButton) {
         // Save configuration to database.
         guard DatabaseAccessor.sharedInstance().saveAvatar(avatar) else {
-            print("Failed saving bought items to database.")
+            let failedAlert = UIAlertController(title: "Oops!", message: "Error saving your purchase, please try again!", preferredStyle: .alert)
+            present(failedAlert, animated: true, completion: nil)
+            
             return
         }
         

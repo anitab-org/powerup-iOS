@@ -55,6 +55,7 @@ class DatabaseAccessor {
         mainDB = FMDatabase(path: databasePath as String)
         
         if mainDB == nil || !((mainDB?.open())!) {
+            // TODO: Should handle this error.
             print("Error opening database.")
         }
         
@@ -84,6 +85,7 @@ class DatabaseAccessor {
         }
         
         if result.count == 0 {
+            // TODO: Should handle this error.
             print("Error fetching questions from database.")
         }
         
@@ -109,6 +111,7 @@ class DatabaseAccessor {
                 result.append(Answer(answerID: Int(answerID), questionID: Int(questionID), answerDescription: answerDescription, nextQuestionID: nextQuestionID, points: Int(points)))
                 
             } else {
+                // TODO: Should handle this error.
                 print("Error fetching query results for answers.")
             }
         }
@@ -193,6 +196,7 @@ class DatabaseAccessor {
             result = Avatar(avatarID: avatarID, face: face, eyes: eyes, hair: hair, clothes: clothes, necklace: necklace, glasses: glasses, handbag: handbag, hat: hat)
             
         } else {
+            // TODO: Should handle this error.
             print("Error fetching avatar data.")
         }
         
@@ -243,6 +247,7 @@ class DatabaseAccessor {
             
             result = Accessory(type: accessoryType, id: accessoryID, imageName: accessoryImageName!, points: accessoryPoints, purchased: accessoryPurchased)
         } else {
+            // TODO: Should handle this error.
             print("Error fetching accessory from table " + accessoryType + ".")
         }
         
