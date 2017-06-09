@@ -14,22 +14,21 @@
 		2A0CA55F1B294C6B00ED8781 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A0CA55D1B294C6B00ED8781 /* LaunchScreen.xib */; };
 		2A0CA56B1B294C6B00ED8781 /* PowerupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0CA56A1B294C6B00ED8781 /* PowerupTests.swift */; };
 		2A0CA5751B294C9200ED8781 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0CA5741B294C9200ED8781 /* libsqlite3.dylib */; };
-		2A271E6D1D075CEC008B0689 /* CustomizeAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A271E6C1D075CEC008B0689 /* CustomizeAvatar.swift */; };
+		2A271E6D1D075CEC008B0689 /* CustomizeAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A271E6C1D075CEC008B0689 /* CustomizeAvatarViewController.swift */; };
 		2A2A4DB71B373C5B00D50860 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A4DB61B373C5B00D50860 /* StartViewController.swift */; };
 		2A5B28371D3E6E6300308F78 /* mainDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */; };
-		2A8D2E071D17CDF700154F98 /* Accessories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8D2E061D17CDF700154F98 /* Accessories.swift */; };
-		2A99DDB91D15DAB300ABEF45 /* DressingRoom2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A99DDB81D15DAB300ABEF45 /* DressingRoom2.swift */; };
+		2A8D2E071D17CDF700154F98 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8D2E061D17CDF700154F98 /* ShopViewController.swift */; };
 		2AB2B8971D3B5B7C005663EB /* Choices.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2AAEE5391B482E4600885044 /* Choices.sqlite */; };
 		2AD1A1E71B2B1ADA00BCA94D /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1A1E61B2B1ADA00BCA94D /* ModelManager.swift */; };
-		2AD5A1B41D1C473800CE0DF2 /* Clothes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5A1B31D1C473800CE0DF2 /* Clothes.swift */; };
-		2AD5A1B61D1C521A00CE0DF2 /* Hair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5A1B51D1C521A00CE0DF2 /* Hair.swift */; };
 		2AF82A8D1B4BA74A00307BED /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A831B4BA74A00307BED /* FMDatabase.m */; };
 		2AF82A8E1B4BA74A00307BED /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A851B4BA74A00307BED /* FMDatabaseAdditions.m */; };
 		2AF82A8F1B4BA74A00307BED /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A871B4BA74A00307BED /* FMDatabasePool.m */; };
 		2AF82A901B4BA74A00307BED /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A891B4BA74A00307BED /* FMDatabaseQueue.m */; };
 		2AF82A911B4BA74A00307BED /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A8C1B4BA74A00307BED /* FMResultSet.m */; };
+		D93CC59E1EDFC8740080185B /* Customizables.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93CC59D1EDFC8740080185B /* Customizables.swift */; };
 		D95B03CC1EDE7470001DB858 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95B03CB1EDE7470001DB858 /* MapViewController.swift */; };
 		D95B03CE1EDEA680001DB858 /* MiniGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95B03CD1EDEA680001DB858 /* MiniGameViewController.swift */; };
+		D9D10A401EE130BD003584F4 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D10A3F1EE130BD003584F4 /* ResultsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,14 +67,11 @@
 		2A0CA5741B294C9200ED8781 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsqlite3.dylib; sourceTree = "<group>"; };
 		2A0CA5761B29E83500ED8781 /* Powerup-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Powerup-Bridging-Header.h"; sourceTree = "<group>"; };
 		2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = mainDatabase.sqlite; path = Scenarios/mainDatabase.sqlite; sourceTree = "<group>"; };
-		2A271E6C1D075CEC008B0689 /* CustomizeAvatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizeAvatar.swift; sourceTree = "<group>"; };
+		2A271E6C1D075CEC008B0689 /* CustomizeAvatarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizeAvatarViewController.swift; sourceTree = "<group>"; };
 		2A2A4DB61B373C5B00D50860 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
-		2A8D2E061D17CDF700154F98 /* Accessories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accessories.swift; sourceTree = "<group>"; };
-		2A99DDB81D15DAB300ABEF45 /* DressingRoom2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DressingRoom2.swift; sourceTree = "<group>"; };
+		2A8D2E061D17CDF700154F98 /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		2AAEE5391B482E4600885044 /* Choices.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = Choices.sqlite; path = Scenarios/Choices.sqlite; sourceTree = "<group>"; };
 		2AD1A1E61B2B1ADA00BCA94D /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
-		2AD5A1B31D1C473800CE0DF2 /* Clothes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clothes.swift; sourceTree = "<group>"; };
-		2AD5A1B51D1C521A00CE0DF2 /* Hair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hair.swift; sourceTree = "<group>"; };
 		2AF82A821B4BA74A00307BED /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = FMDB/FMDatabase.h; sourceTree = "<group>"; };
 		2AF82A831B4BA74A00307BED /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = FMDB/FMDatabase.m; sourceTree = "<group>"; };
 		2AF82A841B4BA74A00307BED /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = FMDB/FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -87,8 +83,10 @@
 		2AF82A8A1B4BA74A00307BED /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = FMDB/FMDB.h; sourceTree = "<group>"; };
 		2AF82A8B1B4BA74A00307BED /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = FMDB/FMResultSet.h; sourceTree = "<group>"; };
 		2AF82A8C1B4BA74A00307BED /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = FMDB/FMResultSet.m; sourceTree = "<group>"; };
+		D93CC59D1EDFC8740080185B /* Customizables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customizables.swift; sourceTree = "<group>"; };
 		D95B03CB1EDE7470001DB858 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D95B03CD1EDEA680001DB858 /* MiniGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniGameViewController.swift; sourceTree = "<group>"; };
+		D9D10A3F1EE130BD003584F4 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,20 +134,13 @@
 		2A0CA5511B294C6B00ED8781 /* Powerup */ = {
 			isa = PBXGroup;
 			children = (
-				D95B03CB1EDE7470001DB858 /* MapViewController.swift */,
+				D956495E1EDFB20A008D5675 /* View Controllers */,
 				2A0CA5541B294C6B00ED8781 /* AppDelegate.swift */,
-				2A0CA5561B294C6B00ED8781 /* ScenarioViewController.swift */,
 				2A0CA5581B294C6B00ED8781 /* Main.storyboard */,
-				D95B03CD1EDEA680001DB858 /* MiniGameViewController.swift */,
-				2AD5A1B31D1C473800CE0DF2 /* Clothes.swift */,
-				2A271E6C1D075CEC008B0689 /* CustomizeAvatar.swift */,
-				2A8D2E061D17CDF700154F98 /* Accessories.swift */,
-				2A99DDB81D15DAB300ABEF45 /* DressingRoom2.swift */,
-				2AD5A1B51D1C521A00CE0DF2 /* Hair.swift */,
+				D93CC59D1EDFC8740080185B /* Customizables.swift */,
 				2A0CA55B1B294C6B00ED8781 /* Images.xcassets */,
 				2A0CA55D1B294C6B00ED8781 /* LaunchScreen.xib */,
 				2A0CA5521B294C6B00ED8781 /* Supporting Files */,
-				2A2A4DB61B373C5B00D50860 /* StartViewController.swift */,
 			);
 			path = Powerup;
 			sourceTree = "<group>";
@@ -206,6 +197,20 @@
 			name = FMDB;
 			sourceTree = "<group>";
 		};
+		D956495E1EDFB20A008D5675 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2A8D2E061D17CDF700154F98 /* ShopViewController.swift */,
+				2A271E6C1D075CEC008B0689 /* CustomizeAvatarViewController.swift */,
+				D95B03CB1EDE7470001DB858 /* MapViewController.swift */,
+				2A0CA5561B294C6B00ED8781 /* ScenarioViewController.swift */,
+				D95B03CD1EDEA680001DB858 /* MiniGameViewController.swift */,
+				2A2A4DB61B373C5B00D50860 /* StartViewController.swift */,
+				D9D10A3F1EE130BD003584F4 /* ResultsViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -253,7 +258,7 @@
 			attributes = {
 				LastSwiftMigration = 0730;
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = Systers;
 				TargetAttributes = {
 					2A0CA54E1B294C6B00ED8781 = {
@@ -314,22 +319,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AD5A1B41D1C473800CE0DF2 /* Clothes.swift in Sources */,
-				2A271E6D1D075CEC008B0689 /* CustomizeAvatar.swift in Sources */,
+				2A271E6D1D075CEC008B0689 /* CustomizeAvatarViewController.swift in Sources */,
 				2A2A4DB71B373C5B00D50860 /* StartViewController.swift in Sources */,
-				2AD5A1B61D1C521A00CE0DF2 /* Hair.swift in Sources */,
 				2AF82A8D1B4BA74A00307BED /* FMDatabase.m in Sources */,
 				2A0CA5571B294C6B00ED8781 /* ScenarioViewController.swift in Sources */,
 				2AF82A901B4BA74A00307BED /* FMDatabaseQueue.m in Sources */,
 				2AF82A911B4BA74A00307BED /* FMResultSet.m in Sources */,
 				2AF82A8F1B4BA74A00307BED /* FMDatabasePool.m in Sources */,
-				2A8D2E071D17CDF700154F98 /* Accessories.swift in Sources */,
+				2A8D2E071D17CDF700154F98 /* ShopViewController.swift in Sources */,
+				D9D10A401EE130BD003584F4 /* ResultsViewController.swift in Sources */,
+				D93CC59E1EDFC8740080185B /* Customizables.swift in Sources */,
 				2AD1A1E71B2B1ADA00BCA94D /* ModelManager.swift in Sources */,
 				2A0CA5551B294C6B00ED8781 /* AppDelegate.swift in Sources */,
 				2AF82A8E1B4BA74A00307BED /* FMDatabaseAdditions.m in Sources */,
 				D95B03CE1EDEA680001DB858 /* MiniGameViewController.swift in Sources */,
 				D95B03CC1EDE7470001DB858 /* MapViewController.swift in Sources */,
-				2A99DDB91D15DAB300ABEF45 /* DressingRoom2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,8 +388,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -430,8 +436,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -450,6 +458,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
