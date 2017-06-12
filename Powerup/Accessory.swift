@@ -2,12 +2,21 @@
 import UIKit
 
 struct Accessory {
+    // The type of the accessory. (i.e. Hair, Glasses, etc.)
     var type: String
-    var id: Int
-    var image: UIImage?
-    var points: Int
-    var purchased: Bool
     
+    // Each accessory has a unique ID.
+    var id: Int
+    
+    // The image of the accessory.
+    var image: UIImage?
+    
+    // The price to buy the accessory.
+    var points: Int
+    
+    // Whether the accessory is purchased yet.
+    var purchased: Bool
+        
     init(type: String, id: Int, imageName: String, points: Int, purchased: Bool) {
         self.type = type
         self.id = id

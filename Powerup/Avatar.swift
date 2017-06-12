@@ -3,18 +3,18 @@
 struct Avatar {
     var id: Int
     
-    // Required features
+    // Required accessories.
     var face: Accessory
     var eyes: Accessory
     var hair: Accessory
     var clothes: Accessory
     
-    // Optional features
+    // Optional accessories (Should be bought at the store).
     var necklace: Accessory?
     var glasses: Accessory?
     var handbag: Accessory?
     var hat: Accessory?
-    
+
     init(avatarID: Int, face: Accessory, eyes: Accessory, hair: Accessory, clothes: Accessory, necklace: Accessory?, glasses: Accessory?, handbag: Accessory?, hat: Accessory?) {
         self.id = avatarID
         

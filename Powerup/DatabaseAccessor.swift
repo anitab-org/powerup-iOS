@@ -96,7 +96,7 @@ class DatabaseAccessor {
       Get the answers (choices) of a question from the database.
  
       - Parameter: The QuestionID.
-      - Return: An array of answers, sorted by their answerID. If failed, return nil
+      - Return: An array of answers, sorted by their answerID.
     */
     public func getAnswers(of questionID: Int) -> [Answer] {
         let queryString = "SELECT * FROM Answer WHERE QuestionID = \(questionID) ORDER BY AnswerID"
@@ -120,12 +120,12 @@ class DatabaseAccessor {
     }
     
     /**
-      Save the accessories, clothing, etc. in the database.
+      Save the accessories of the avatar in the database.
       
-      - Parameter: An avatar class
+      - Parameter: An avatar class.
       - Return: A Bool indicating whether the save is successful.
     */
-    public func saveAvatar(_ avatar: Avatar)  -> Bool{
+    public func saveAvatar(_ avatar: Avatar) -> Bool{
         // Determine whether they are nil, if they are, set its string to "NULL"
         let necklaceString = avatar.necklace == nil ? "NULL" : String(avatar.necklace!.id)
         let glassesString = avatar.glasses == nil ? "NULL" : String(avatar.glasses!.id)
@@ -147,9 +147,9 @@ class DatabaseAccessor {
     }
     
     /**
-      Get the configured avatar from the database.
+      Get the saved avatar from the database.
     
-      - Return: A configured avatar stored in database.
+      - Return: A saved avatar stored in database.
     */
     public func getAvatar() -> Avatar {
         let queryString = "SELECT * FROM Avatar WHERE ID = \(avatarID)"
@@ -204,7 +204,7 @@ class DatabaseAccessor {
     }
     
     /** 
-      Get an array of accessories of a single type.
+      Get an array of accessories of a type.
       - Parameter: Accessory type (i.e. Hair, Face, etc.).
       - Return: An array of accessories.
     */
@@ -257,7 +257,7 @@ class DatabaseAccessor {
     /**
       Create a new entry into the Avatar table.
       - Parameter: Face, clothes, hair, eyes.
-      - Return: Bool, indicating if creation is successful.
+      - Return: Bool, indicating whether the creation is successful.
     */
     public func createAvatar(_ avatar: Avatar) -> Bool {
         // Avatar already exists, use update instead of insert.
