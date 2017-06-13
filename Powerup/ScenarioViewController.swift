@@ -77,6 +77,8 @@ class ScenarioViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // TODO: Configure the image and name of the "Asker" avatar.
 
         configureAvatar()
         
@@ -104,13 +106,17 @@ class ScenarioViewController: UIViewController {
         }
         
         // Check if the next questionID is a valid integer, if not, it's the end of the scnario (entering a mini game)
-        if let nextQuestionID = Int(answers[selectedIndex].nextQuestionID) {
+        let nextQuestionID = answers[selectedIndex].nextQuestionID
+        if let nextQuestionIDInt = Int(nextQuestionID) {
             // Set the new question ID and reset the questions & choices
-            currQuestionID = nextQuestionID
+            currQuestionID = nextQuestionIDInt
             resetQuestionAndChoices()
-        } else {
-            // Perform modal segue to mini game scene
+        } else if nextQuestionID == "mini game" {
+            // Perform push segue to mini game scene
             performSegue(withIdentifier: "toMiniGame", sender: self)
+        } else {
+            // Perform push segue to result scene
+            performSegue(withIdentifier: "toEndScene", sender: self)
         }
         
     }

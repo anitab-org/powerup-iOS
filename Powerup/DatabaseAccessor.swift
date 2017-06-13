@@ -29,26 +29,20 @@ class DatabaseAccessor {
     // Private initializer to avoid instancing by other classes
     private init() {
         
-        // Opening database
+        // File directory.
         let fileManager = FileManager.default
-        let dirPaths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         
-        let docsDir = dirPaths[0]
-        let databasePath = (docsDir as NSString).appendingPathComponent(DatabaseName + "." + DatabaseFileType) as NSString
+        let databasePath = (dirPath as NSString).appendingPathComponent(DatabaseName + "." + DatabaseFileType) as NSString
         
-        if fileManager.fileExists(atPath: databasePath as String) {
-            do {
-                try fileManager.removeItem(atPath: databasePath as String)
-            } catch let error as NSError {
-                print(error)
-            }
-        }
-        
-        if let bundlePath = Bundle.main.path(forResource: DatabaseName, ofType: DatabaseFileType) {
-            do {
-                try fileManager.copyItem(atPath: bundlePath, toPath: databasePath as String)
-            } catch let error as NSError {
-                print(error)
+        // Database not existing, create one.
+        if !fileManager.fileExists(atPath: databasePath as String) {
+            if let bundlePath = Bundle.main.path(forResource: DatabaseName, ofType: DatabaseFileType) {
+                do {
+                    try fileManager.copyItem(atPath: bundlePath, toPath: databasePath as String)
+                } catch let error as NSError {
+                    print(error)
+                }
             }
         }
         
@@ -58,7 +52,6 @@ class DatabaseAccessor {
             // TODO: Should handle this error.
             print("Error opening database.")
         }
-        
         
     }
     
@@ -275,7 +268,7 @@ class DatabaseAccessor {
         
         assert(mainDB != nil)
         
-        guard mainDB!.executeStatements(queryString) else {
+        guard mainDB!.executeUpdate(queryString, withArgumentsIn: nil) else {
             print("Error creating avatar.")
             return false
         }
@@ -290,11 +283,12 @@ class DatabaseAccessor {
     public func avatarExists() -> Bool {
         let queryString = "SELECT * FROM Avatar WHERE ID = \(avatarID)"
         let queryResults: FMResultSet? = mainDB?.executeQuery(queryString, withArgumentsIn: nil)
+        
         return queryResults?.next() ?? false
     }
     
     /** Close database if it's opened */
-    public func closeDatabase () {
+    public func closeDatabase() {
         mainDB?.close()
     }
 }

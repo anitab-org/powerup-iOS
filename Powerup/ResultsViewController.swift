@@ -31,5 +31,7 @@ class ResultsViewController: UIViewController {
         super.viewDidLoad()
         
         configureAvatar()
+        
+        // TODO: Save the results in database.
     }
 }
