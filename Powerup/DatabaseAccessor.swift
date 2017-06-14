@@ -128,8 +128,6 @@ class DatabaseAccessor {
         // Set the query string.
         let queryString = "UPDATE Avatar SET Face=\(avatar.face.id), Clothes=\(avatar.clothes.id), Hair=\(avatar.hair.id), Eyes=\(avatar.eyes.id), Necklace=" + necklaceString + ", Glasses=" + glassesString + ", Handbag=" + handbagString + ", Hat=" + hatString + " WHERE ID = \(avatarID)"
         
-        assert(mainDB != nil)
-        
         // Execute update query.
         guard mainDB!.executeUpdate(queryString, withArgumentsIn: nil) else {
             print("Error updating database")
@@ -236,7 +234,7 @@ class DatabaseAccessor {
             let accessoryID = Int(queryResults!.int(forColumn: "ID"))
             let accessoryImageName = queryResults!.string(forColumn: "Name")
             let accessoryPoints = Int(queryResults!.int(forColumn: "Points"))
-            let accessoryPurchased = queryResults!.bool(forColumn: "Purchased")
+            let accessoryPurchased: Bool = Int(queryResults!.int(forColumn: "Purchased")) == 1
             
             result = Accessory(type: accessoryType, id: accessoryID, imageName: accessoryImageName!, points: accessoryPoints, purchased: accessoryPurchased)
         } else {
@@ -246,6 +244,22 @@ class DatabaseAccessor {
         
         return result
     }
+    
+    /**
+      Set the accessory as bought in the database.
+      - Parameter: The accessory intended to be saved.
+      - Return: Whether is save is successful or not.
+    */
+    public func boughtAccessory(accessory: Accessory) -> Bool {
+        let queryString = "UPDATE \(accessory.type) SET Purchased = 1 WHERE ID = \(accessory.id)"
+        
+        guard mainDB!.executeUpdate(queryString, withArgumentsIn: nil) else {
+            print("Error setting bought state in database.")
+            return false
+        }
+        
+        return true
+    }
 
     /**
       Create a new entry into the Avatar table.
@@ -253,10 +267,24 @@ class DatabaseAccessor {
       - Return: Bool, indicating whether the creation is successful.
     */
     public func createAvatar(_ avatar: Avatar) -> Bool {
+        
+        // Reset database (so the previous purchased accessories will be restored to unpurchased).
+        resetDatabase()
+        
         // Avatar already exists, use update instead of insert.
         if avatarExists() {
+            
+            // Update avatar
             guard saveAvatar(avatar) else {
                 print("Error saving avatar.")
+                return false
+            }
+            
+            // Reset scores.
+            let updateQuery = "UPDATE Score SET Strength = 0, Invisibility = 0, Healing = 0, Telepathy = 0, Points = 0 WHERE ID = \(avatarID)"
+            
+            guard mainDB!.executeUpdate(updateQuery, withArgumentsIn: nil) else {
+                print("Error updating score.")
                 return false
             }
             
@@ -266,10 +294,16 @@ class DatabaseAccessor {
         // Necklace, glasses, handbag, hat are NULL because players cannot have those when creating new avatars.
         let queryString = "INSERT INTO Avatar (ID, Face, Clothes, Hair, Eyes, Necklace, Glasses, Handbag, Hat) VALUES (\(avatarID), \(avatar.face.id), \(avatar.clothes.id), \(avatar.hair.id), \(avatar.eyes.id), NULL, NULL, NULL, NULL)"
         
-        assert(mainDB != nil)
-        
         guard mainDB!.executeUpdate(queryString, withArgumentsIn: nil) else {
             print("Error creating avatar.")
+            return false
+        }
+        
+        // Create an entry for score, storing the points and powers for the avatar.
+        let insertQuery = "INSERT INTO Score (ID, Strength, Invisibility, Healing, Telepathy, Points) VALUES (\(avatarID), 0, 0, 0, 0, 0)"
+        
+        guard mainDB!.executeUpdate(insertQuery, withArgumentsIn: nil) else {
+            print("Error inserting new score entry.")
             return false
         }
         
@@ -287,8 +321,85 @@ class DatabaseAccessor {
         return queryResults?.next() ?? false
     }
     
+    /**
+      Save the Karma points and the powers in the database.
+      - Parameter: The score intended to save.
+      - Return: Whether the save is successful.
+    */
+    public func saveScore(score: Score) -> Bool {
+        let queryString = "UPDATE Score SET Strength = \(score.strength), Invisibility = \(score.invisibility), Healing = \(score.healing), Telepathy = \(score.telepathy), Points = \(score.karmaPoints) WHERE ID = \(avatarID)"
+        
+        guard mainDB!.executeUpdate(queryString, withArgumentsIn: nil) else {
+            print("Error saving score.")
+            return false
+        }
+        
+        return true
+    }
+    
+    /**
+      Get the Karma points and the powers from the database.
+      - Return: The points and powers in a Score struct.
+    */
+    public func getScore() -> Score {
+        let queryString = "SELECT * FROM Score WHERE ID = \(avatarID)"
+        let queryResults: FMResultSet? = mainDB?.executeQuery(queryString, withArgumentsIn: nil)
+        
+        if queryResults?.next() == true {
+            let karmaPoint = Int(queryResults!.int(forColumn: "Points"))
+            let strength = Int(queryResults!.int(forColumn: "Strength"))
+            let invisibility = Int(queryResults!.int(forColumn: "Invisibility"))
+            let healing = Int(queryResults!.int(forColumn: "Healing"))
+            let telepathy = Int(queryResults!.int(forColumn: "Telepathy"))
+            
+            return Score(karmaPoints: karmaPoint, healing: healing, strength: strength, telepathy: telepathy, invisibility: invisibility)
+        }
+        
+        print("Error fetching score from database.")
+        return Score()
+    }
+    
     /** Close database if it's opened */
     public func closeDatabase() {
         mainDB?.close()
+    }
+    
+    /** Reset the data of the database. */
+    public func resetDatabase() {
+        
+        mainDB?.close()
+        
+        // File directory.
+        let fileManager = FileManager.default
+        let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        
+        let databasePath = (dirPath as NSString).appendingPathComponent(DatabaseName + "." + DatabaseFileType) as NSString
+        
+        // Check if the database exists
+        if fileManager.fileExists(atPath: databasePath as String) {
+            
+            // Remove the old database.
+            do {
+                try fileManager.removeItem(atPath: databasePath as String)
+            } catch let error as NSError {
+                print(error)
+            }
+            
+            // Replace the old database with a new one (from the app bundle).
+            if let bundlePath = Bundle.main.path(forResource: DatabaseName, ofType: DatabaseFileType) {
+                do {
+                    try fileManager.copyItem(atPath: bundlePath, toPath: databasePath as String)
+                } catch let error as NSError {
+                    print(error)
+                }
+            }
+        }
+        
+        mainDB = FMDatabase(path: databasePath as String)
+        
+        if mainDB == nil || !((mainDB?.open())!) {
+            // TODO: Should handle this error.
+            print("Error opening database.")
+        }
     }
 }

@@ -2,6 +2,9 @@ import UIKit
 
 class ResultsViewController: UIViewController {
     
+    // TODO: Should detemine how many Karma points will be given after each completion of scenario.
+    let karmaGain = 20
+    
     // MARK: Views
     @IBOutlet weak var eyesView: UIImageView!
     @IBOutlet weak var hairView: UIImageView!
@@ -11,6 +14,7 @@ class ResultsViewController: UIViewController {
     @IBOutlet weak var handbagView: UIImageView!
     @IBOutlet weak var glassesView: UIImageView!
     @IBOutlet weak var hatView: UIImageView!
+    @IBOutlet weak var karmaPointsLabel: UILabel!
     
     // MARK: Functions
     // Configures the accessories of the avatar.
@@ -32,6 +36,22 @@ class ResultsViewController: UIViewController {
         
         configureAvatar()
         
-        // TODO: Save the results in database.
+        // Save the karma gains in database.
+        let newScore = DatabaseAccessor.sharedInstance().getScore() + Score(karmaPoints: karmaGain)
+        guard DatabaseAccessor.sharedInstance().saveScore(score: newScore) else {
+            print("Error saving karma points to database.")
+            return
+        }
+        
+        // Update karma points label.
+        karmaPointsLabel.text = String(newScore.karmaPoints)
+        
+        // Notify the players of the karma gain with a pop-up.
+        let notification = UIAlertController(title: "Hooray!", message: "You gained \(karmaGain) Karma points!", preferredStyle: .alert)
+        notification.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(notification, animated: true, completion: nil)
+        
+        // TODO: Save the completion of scenarios in the database.
+        
     }
 }
