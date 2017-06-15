@@ -10,6 +10,7 @@ class ScenarioViewController: UIViewController {
     // Questions ([questionID : question]) for the scenario
     var questions = [Int:Question]()
     var currQuestionID: Int = -1
+    var toMiniGameIndex: Int = 0
     
     // Answers for the question
     var answers = [Answer]()
@@ -108,12 +109,18 @@ class ScenarioViewController: UIViewController {
         // Check if the next questionID is a valid integer, if not, it's the end of the scnario (entering a mini game)
         let nextQuestionID = answers[selectedIndex].nextQuestionID
         if let nextQuestionIDInt = Int(nextQuestionID) {
-            // Set the new question ID and reset the questions & choices
-            currQuestionID = nextQuestionIDInt
-            resetQuestionAndChoices()
-        } else if nextQuestionID == "mini game" {
-            // Perform push segue to mini game scene
-            performSegue(withIdentifier: "toMiniGame", sender: self)
+            
+            if nextQuestionIDInt > 0 {
+                // Set the new question ID and reset the questions & choices
+                currQuestionID = nextQuestionIDInt
+                resetQuestionAndChoices()
+                
+            } else {
+                // Negative nextQuestion indicates mini game transitions
+                toMiniGameIndex = nextQuestionIDInt
+                performSegue(withIdentifier: "toMiniGame", sender: self)
+            }
+            
         } else {
             // Perform push segue to result scene
             performSegue(withIdentifier: "toEndScene", sender: self)
@@ -124,6 +131,9 @@ class ScenarioViewController: UIViewController {
     // MARK: Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // prepare for MiniGameViewController
+        if let miniGameVC = segue.destination as? MiniGameViewController {
+            miniGameVC.gameIndex = toMiniGameIndex
+        }
     }
     
 

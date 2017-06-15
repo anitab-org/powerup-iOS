@@ -25,13 +25,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="lq3-AT-Fhu">
                                 <rect key="frame" x="0.0" y="20" width="736" height="394"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="7HO-YQ-J0u">
-                                <rect key="frame" x="314" y="148" width="109" height="102"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S80-hG-Bup">
-                                <rect key="frame" x="197" y="274" width="121" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S80-hG-Bup">
+                                <rect key="frame" x="157.66666666666669" y="269.66666666666669" width="200.00000000000006" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="7ZX-ir-Q5d"/>
+                                    <constraint firstAttribute="width" constant="200" id="ePL-Ag-pIF"/>
+                                </constraints>
                                 <state key="normal" image="buttons">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -39,9 +38,12 @@
                                     <action selector="Start:" destination="S65-lq-9jr" eventType="touchUpInside" id="fIF-Th-UQv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jE-f7-7E2" userLabel="New User Button">
-                                <rect key="frame" x="438" y="274" width="121" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jE-f7-7E2" userLabel="New User Button">
+                                <rect key="frame" x="383" y="269.66666666666669" width="200" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="7qO-0g-JYJ"/>
+                                    <constraint firstAttribute="height" constant="75" id="DpG-QH-vgh"/>
+                                </constraints>
                                 <state key="normal" image="buttons 3">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -49,19 +51,33 @@
                                     <action selector="newAvatarButtonTouched:" destination="S65-lq-9jr" eventType="touchUpInside" id="koN-4B-seu"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" fixedFrame="YES" editable="NO" text="PowerUp" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKT-5A-duS" userLabel="Power Up Title">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" editable="NO" text="PowerUp" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKT-5A-duS" userLabel="Power Up Title">
                                 <rect key="frame" x="253" y="57" width="231" height="83"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="231" id="XgS-TX-tt0"/>
+                                    <constraint firstAttribute="height" constant="83" id="bbv-eN-0j4"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="76"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert"/>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="7HO-YQ-J0u">
+                                <rect key="frame" x="311.66666666666669" y="156" width="113" height="102"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="AKT-5A-duS" firstAttribute="centerX" secondItem="Gv1-Un-5xq" secondAttribute="centerX" id="2UM-Wc-YFU"/>
+                            <constraint firstItem="0jE-f7-7E2" firstAttribute="centerY" secondItem="Gv1-Un-5xq" secondAttribute="centerY" constant="100" id="4qj-O5-rsU"/>
+                            <constraint firstItem="AKT-5A-duS" firstAttribute="top" secondItem="UuV-o1-Bd9" secondAttribute="bottom" constant="37" id="5GF-fR-BBu"/>
+                            <constraint firstItem="7HO-YQ-J0u" firstAttribute="centerX" secondItem="Gv1-Un-5xq" secondAttribute="centerX" id="9H7-0x-Lm2"/>
                             <constraint firstItem="lq3-AT-Fhu" firstAttribute="top" secondItem="UuV-o1-Bd9" secondAttribute="bottom" id="FaX-V4-6yU"/>
+                            <constraint firstItem="S80-hG-Bup" firstAttribute="centerY" secondItem="Gv1-Un-5xq" secondAttribute="centerY" constant="100" id="d8f-V7-Ucm"/>
+                            <constraint firstItem="7HO-YQ-J0u" firstAttribute="centerY" secondItem="Gv1-Un-5xq" secondAttribute="centerY" id="iDG-fO-FWx"/>
+                            <constraint firstItem="0jE-f7-7E2" firstAttribute="centerX" secondItem="Gv1-Un-5xq" secondAttribute="centerX" constant="115" id="l3q-rI-AYW"/>
                             <constraint firstItem="crB-5J-nEd" firstAttribute="top" secondItem="lq3-AT-Fhu" secondAttribute="bottom" id="phr-m3-EDy"/>
                             <constraint firstItem="lq3-AT-Fhu" firstAttribute="leading" secondItem="Gv1-Un-5xq" secondAttribute="leading" id="teQ-PX-rqE"/>
+                            <constraint firstItem="S80-hG-Bup" firstAttribute="centerX" secondItem="Gv1-Un-5xq" secondAttribute="centerX" constant="-110" id="uaB-Ef-nCJ"/>
                             <constraint firstAttribute="trailing" secondItem="lq3-AT-Fhu" secondAttribute="trailing" id="yFN-b4-Mer"/>
                         </constraints>
                     </view>
@@ -433,33 +449,12 @@
             <objects>
                 <viewController id="068-4x-alq" userLabel="MiniGameViewController" customClass="MiniGameViewController" customModule="Powerup" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="OQl-AK-G6v"/>
-                        <viewControllerLayoutGuide type="bottom" id="Zoo-83-BF5"/>
+                        <viewControllerLayoutGuide type="top" id="8yn-YN-bQt"/>
+                        <viewControllerLayoutGuide type="bottom" id="nnS-Sa-imG"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="q9O-3s-eXS">
+                    <view key="view" contentMode="scaleToFill" id="Jie-UC-Hrv" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mini Game Place Holder View" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8Q-r6-Cm8">
-                                <rect key="frame" x="162" y="54" width="343" height="104"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3uG-4V-Wts">
-                                <rect key="frame" x="271" y="252" width="125" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.55226291699999996" green="1" blue="0.67648041400000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="End Game">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="Kej-3M-rbU" kind="push" id="Gx0-KE-SIM"/>
-                                </connections>
-                            </button>
-                        </subviews>
+                        <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Wzd-hp-C7v"/>
@@ -1110,17 +1105,6 @@
                                     <action selector="scenarioSelected:" destination="S3c-uW-lpA" eventType="touchUpInside" id="kJ1-gd-fd8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltX-vo-k1n">
-                                <rect key="frame" x="307" y="219" width="123" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Shop Scenario">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="scenarioSelected:" destination="S3c-uW-lpA" eventType="touchUpInside" id="dhF-hD-J1Y"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zf-M3-jE6">
                                 <rect key="frame" x="502" y="301" width="158" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1130,6 +1114,17 @@
                                 </state>
                                 <connections>
                                     <action selector="scenarioSelected:" destination="S3c-uW-lpA" eventType="touchUpInside" id="SiT-13-sHv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltX-vo-k1n">
+                                <rect key="frame" x="307" y="301" width="123" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Phone Scenario">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="scenarioSelected:" destination="S3c-uW-lpA" eventType="touchUpInside" id="dhF-hD-J1Y"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1211,7 +1206,4 @@
         <simulatedOrientationMetrics key="orientation" orientation="landscapeRight"/>
         <simulatedScreenMetrics key="destination" type="retina5_5.fullscreen"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="0it-aH-Xs8"/>
-    </inferredMetricsTieBreakers>
 </document>
