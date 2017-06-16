@@ -12,15 +12,15 @@ class ShopViewController: UIViewController {
     var exhibitionClothesIndex = 0
     
     // The displayed avatar.
-    var avatar = DatabaseAccessor.sharedInstance().getAvatar()
+    var avatar = DatabaseAccessor.sharedInstance.getAvatar()
     
     // Array of accessories.
-    var handbags = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Handbag")
-    var glasses = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Glasses")
-    var hats = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Hat")
-    var necklaces = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Necklace")
-    var hairs = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Hair")
-    var clothes = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Clothes")
+    var handbags = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Handbag")
+    var glasses = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Glasses")
+    var hats = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Hat")
+    var necklaces = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Necklace")
+    var hairs = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Hair")
+    var clothes = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Clothes")
     
     // MARK: Views
     @IBOutlet weak var pointsLabel: UILabel!
@@ -296,7 +296,7 @@ class ShopViewController: UIViewController {
     
     @IBAction func continueButtonTouched(_ sender: UIButton) {
         // Save configuration to database.
-        guard DatabaseAccessor.sharedInstance().saveAvatar(avatar) else {
+        guard DatabaseAccessor.sharedInstance.saveAvatar(avatar) else {
             let failedAlert = UIAlertController(title: "Oops!", message: "Error saving your purchase, please try again!", preferredStyle: .alert)
             present(failedAlert, animated: true, completion: nil)
             

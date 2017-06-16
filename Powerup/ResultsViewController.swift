@@ -15,7 +15,7 @@ class ResultsViewController: UIViewController {
     // MARK: Functions
     // Configures the accessories of the avatar.
     func configureAvatar() {
-        let avatar = DatabaseAccessor.sharedInstance().getAvatar()
+        let avatar = DatabaseAccessor.sharedInstance.getAvatar()
         
         clothesView.image = avatar.clothes.image
         faceView.image = avatar.face.image
