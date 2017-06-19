@@ -17,6 +17,6 @@ struct Accessory {
     }
     
     init(type: String) {
-        self = DatabaseAccessor.sharedInstance().getAccessory(accessoryType: type, accessoryIndex: 1)
+        self = DatabaseAccessor.sharedInstance.getAccessory(accessoryType: type, accessoryIndex: 1)
     }
 }

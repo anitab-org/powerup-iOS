@@ -30,7 +30,7 @@ struct Avatar {
     }
     
     init() {
-        self.id = DatabaseAccessor.sharedInstance().avatarID
+        self.id = DatabaseAccessor.sharedInstance.avatarID
         
         self.face = Accessory(type: "Face")
         self.eyes = Accessory(type: "Eyes")
