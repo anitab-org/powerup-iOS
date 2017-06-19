@@ -17,13 +17,26 @@ class MinesweeperGameScene: SKScene {
     let boxEnlargingKey = "enlarge"
     let boxShrinkingKey = "shrink"
     let boxDarkening = SKAction.colorize(with: UIColor(white: 0.6, alpha: 0.8), colorBlendFactor: 1.0, duration: 0.2)
-    let fadeInDuration = 1.0
+    let fadeInAction = SKAction.fadeIn(withDuration: 0.8)
+    let fadeOutAction = SKAction.fadeOut(withDuration: 0.8)
+    let buttonWaitDuration = 0.5
     
     // These are relative to the size of the view, so they can be applied to different screen sizes.
     let gridOffsetXRelativeToWidth = 0.31
     let gridOffsetYRelativeToHeight = 0.0822
     let gridSpacingRelativeToWidth = 0.0125
     let boxSizeRelativeToWidth = 0.084
+    let uiElementMargin = 0.17
+    
+    // Offset the text in y direction so that it appears in the center of the button.
+    let buttonTextOffsetY = -7.0
+    
+    let buttonTextFontSize = CGFloat(18)
+    let buttonStrokeWidth = CGFloat(3)
+    let descriptionTitleFontSize = CGFloat(24)
+    let descriptionFontSize = CGFloat(16)
+    let fontName = "Montserrat-Bold"
+    
     
     // These are the actual sizing and positioning, will be calculated in init()
     let boxSize: Double
@@ -31,16 +44,30 @@ class MinesweeperGameScene: SKScene {
     let gridOffsetY: Double
     let gridSpacing: Double
     
+    // Nodes and textures.
     let backgroundImage = SKSpriteNode(imageNamed: "minesweeper_background")
     let resultBanner = SKSpriteNode()
     let successBannerTexture = SKTexture(imageNamed: "success_banner")
     let failureBannerTexture = SKTexture(imageNamed: "failure_banner")
+    let descriptionBanner = SKSpriteNode()
+    let descriptionTitleNode = SKSpriteNode(color: UIColor.white, size: CGSize(width: 120.0, height: 40.0))
+    
+    let uiColor = UIColor(colorLiteralRed: 42.0 / 255.0, green: 203.0 / 255.0, blue: 211.0 / 255.0, alpha: 1.0)
+    
+    // TODO: Configure the description text after each round.
+    let descriptionTitleText = SKLabelNode(text: "Contraception Method")
+    let descriptionText = SKLabelNode(text: "Detailed description on the contraception method goes here...")
+    
+    // TODO: Replace the temporary sprite.
+    let continueButton = SKShapeNode(rectOf: CGSize(width: 120.0, height: 40.0), cornerRadius: 20.0)
+    let continueButtonText = SKLabelNode(text: "Continue")
     
     // Layer index, aka. zPosition.
     let backgroundLayer = CGFloat(-0.1)
     let gridLayer = CGFloat(0.1)
-    let resultBannerLayer = CGFloat(0.2)
-    let resultButtonLayer = CGFloat(0.3)
+    let bannerLayer = CGFloat(0.2)
+    let uiLayer = CGFloat(0.3)
+    let uiTextLayer = CGFloat(0.4)
     
     // MARK: Properties
     // Holding each boxes
@@ -57,14 +84,55 @@ class MinesweeperGameScene: SKScene {
         
         // Positioning and sizing background image.
         backgroundImage.size = size
-        backgroundImage.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        backgroundImage.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
         backgroundImage.zPosition = backgroundLayer
         
         // Positioning and sizing result banner.
         resultBanner.size = size
-        resultBanner.position = CGPoint(x: size.width / 2, y: size.height / 2)
-        resultBanner.zPosition = resultBannerLayer
+        resultBanner.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
+        resultBanner.zPosition = bannerLayer
         resultBanner.isHidden = true
+        
+        // Description Banner
+        descriptionBanner.size = size
+        descriptionBanner.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
+        descriptionBanner.zPosition = bannerLayer
+        descriptionBanner.color = UIColor.white
+        descriptionBanner.isHidden = true
+        
+        // Description Banner Label
+        descriptionText.position = CGPoint.zero
+        descriptionText.fontSize = descriptionFontSize
+        descriptionText.fontName = fontName
+        descriptionText.zPosition = uiLayer
+        descriptionText.fontColor = uiColor
+        descriptionBanner.addChild(descriptionText)
+        
+        // Description Banner Title Label
+        descriptionTitleNode.position = CGPoint(x: 0.0, y: size.height * CGFloat(1.0 - uiElementMargin) - size.height / 2.0)
+        descriptionTitleNode.zPosition = bannerLayer
+        descriptionTitleText.position = CGPoint.zero
+        descriptionTitleText.fontName = fontName
+        descriptionTitleText.fontSize = descriptionTitleFontSize
+        descriptionTitleText.zPosition = uiLayer
+        descriptionTitleText.fontColor = uiColor
+        descriptionTitleNode.addChild(descriptionTitleText)
+        descriptionBanner.addChild(descriptionTitleNode)
+        
+        // Positioning continue button (Should be replaced by the redesigned button sprite once it is completed).
+        continueButton.position = CGPoint(x: size.width / 2.0, y: size.height * CGFloat(uiElementMargin))
+        continueButtonText.position = CGPoint(x: 0.0, y: buttonTextOffsetY)
+        continueButtonText.fontName = fontName
+        continueButtonText.fontSize = buttonTextFontSize
+        continueButtonText.zPosition = uiLayer
+        continueButton.fillColor = UIColor.white
+        continueButton.lineWidth = buttonStrokeWidth
+        continueButton.strokeColor = uiColor
+        continueButton.isHidden = true
+        
+        continueButtonText.fontColor = uiColor
+        continueButton.addChild(continueButtonText)
+        continueButton.zPosition = uiLayer
         
         // Calcuate positioning and sizing according to the size of the view.
         boxSize = Double(size.width) * boxSizeRelativeToWidth
@@ -94,6 +162,7 @@ class MinesweeperGameScene: SKScene {
         newRound()
     }
     
+    
     // MARK: Functions
     
     // For initializing the nodes of the game.
@@ -103,8 +172,12 @@ class MinesweeperGameScene: SKScene {
         // Add background image.
         addChild(backgroundImage)
         
-        // Add result banner.
+        // Add banners.
         addChild(resultBanner)
+        addChild(descriptionBanner)
+        
+        // Add continue button.
+        addChild(continueButton)
         
         // Add boxes.
         for gridX in gameGrid {
@@ -139,6 +212,12 @@ class MinesweeperGameScene: SKScene {
                 
                 // Set whether it is a "success" box or a "failure" box.
                 gameGrid[x][y].isCorrect = correctBoxes.popLast()!
+                
+                // Turn to back side.
+                gameGrid[x][y].changedSide(toFront: false)
+                
+                // Reset color.
+                gameGrid[x][y].color = UIColor.white
             }
         }
         
@@ -175,8 +254,8 @@ class MinesweeperGameScene: SKScene {
         resultBanner.isHidden = false
         
         let waitAction = SKAction.wait(forDuration: showAllBoxesInterval)
-        let fadeInAction = SKAction.fadeIn(withDuration: fadeInDuration)
         let bannerAnimation = SKAction.sequence([fadeInAction, waitAction])
+        let buttonWaitAction = SKAction.wait(forDuration: buttonWaitDuration)
         
         // Fade in banner.
         resultBanner.run(bannerAnimation) {
@@ -190,23 +269,50 @@ class MinesweeperGameScene: SKScene {
                     // Darkens the color and flip the box.
                     currBox.run(self.boxDarkening) {
                         currBox.changedSide(toFront: true)
+                        
                     }
                 }
             }
+            
+            // Continue button.
+            self.continueButton.alpha = 0.0
+            self.continueButton.isHidden = false
+            self.continueButton.run(SKAction.sequence([buttonWaitAction, self.fadeInAction]))
         }
         
-        
-
     }
     
+    // Called when "continue button" is pressed under the "result banner".
     func showDescription() {
         
+        // Fade out result banner.
+        resultBanner.run(fadeOutAction) {
+            self.resultBanner.isHidden = true
+        }
+        
+        // Fade in description banner.
+        descriptionBanner.isHidden = false
+        descriptionBanner.alpha = 0.0
+        descriptionBanner.run(fadeInAction) {
+            
+            // Fade in continue button.
+            self.continueButton.alpha = 0.0
+            self.continueButton.isHidden = false
+            self.continueButton.run(self.fadeInAction)
+        }
+    }
+    
+    // Called when "continue button" is pressed under the "description banner".
+    func hideDescription() {
+        
+        // Fade out description banner.
+        descriptionBanner.run(fadeOutAction) {
+            self.descriptionBanner.isHidden = true
+        }
     }
     
     // MARK: Touch inputs.
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // Avoid interacting the same box multiple times.
-        if boxSelected { return }
         
         // Only the first touch is effective.
         guard let touch = touches.first else {
@@ -214,7 +320,24 @@ class MinesweeperGameScene: SKScene {
         }
         
         let location = touch.location(in: self)
-        if let guessingBox = atPoint(location) as? GuessingBox {
+        
+        // Continue button pressed.
+        if !continueButton.isHidden && continueButton.contains(location) {
+            
+            // Hide button. Avoid multiple touches.
+            continueButton.isHidden = true
+            
+            // Check if it is the button of "result banner" or "description banner".
+            if !resultBanner.isHidden {
+                showDescription()
+            } else {
+                newRound()
+                hideDescription()
+            }
+        }
+        
+        // Guessing box selected, and no box is selected yet.
+        if let guessingBox = atPoint(location) as? GuessingBox, !boxSelected {
             currBox = guessingBox
             
             // Perform animation.
@@ -224,8 +347,6 @@ class MinesweeperGameScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // Avoid interacting the same box multiple times.
-        if boxSelected { return }
         
         // Only the first touch is effective.
         guard let touch = touches.first else {
@@ -233,7 +354,9 @@ class MinesweeperGameScene: SKScene {
         }
         
         let location = touch.location(in: self)
-        if let guessingBox = atPoint(location) as? GuessingBox, guessingBox == currBox {
+        
+        // Guessing box selected, equals to the current selected box, and no box is selected yet.
+        if let guessingBox = atPoint(location) as? GuessingBox, guessingBox == currBox, !boxSelected {
             selectBox(box: guessingBox)
         } else if let box = currBox {
             

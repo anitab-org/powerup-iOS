@@ -23,6 +23,7 @@
 		2AF82A8F1B4BA74A00307BED /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A871B4BA74A00307BED /* FMDatabasePool.m */; };
 		2AF82A901B4BA74A00307BED /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A891B4BA74A00307BED /* FMDatabaseQueue.m */; };
 		2AF82A911B4BA74A00307BED /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A8C1B4BA74A00307BED /* FMResultSet.m */; };
+		D9381DB11EF773B2000AC2B5 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D9381DB01EF773B2000AC2B5 /* Montserrat-Bold.otf */; };
 		D959CBC71EE6430E00C31753 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D959CBC61EE6430E00C31753 /* Answer.swift */; };
 		D959CBC91EE643F400C31753 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D959CBC81EE643F400C31753 /* Avatar.swift */; };
 		D959CBCB1EE6481100C31753 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = D959CBCA1EE6481100C31753 /* Question.swift */; };
@@ -90,6 +91,7 @@
 		2AF82A8A1B4BA74A00307BED /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = FMDB/FMDB.h; sourceTree = "<group>"; };
 		2AF82A8B1B4BA74A00307BED /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = FMDB/FMResultSet.h; sourceTree = "<group>"; };
 		2AF82A8C1B4BA74A00307BED /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = FMDB/FMResultSet.m; sourceTree = "<group>"; };
+		D9381DB01EF773B2000AC2B5 /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
 		D959CBC61EE6430E00C31753 /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		D959CBC81EE643F400C31753 /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		D959CBCA1EE6481100C31753 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 		2A0CA5511B294C6B00ED8781 /* Powerup */ = {
 			isa = PBXGroup;
 			children = (
+				D9381DB21EF773B9000AC2B5 /* Font */,
 				D9AAA9C71EF25E2700287A79 /* Extentions */,
 				D9AAA99E1EF21C3D00287A79 /* Mine Sweeping Game */,
 				D959CBD21EE64A3A00C31753 /* DatabaseAccessor.swift */,
@@ -215,6 +218,14 @@
 				2AF82A8B1B4BA74A00307BED /* FMResultSet.h */,
 			);
 			name = FMDB;
+			sourceTree = "<group>";
+		};
+		D9381DB21EF773B9000AC2B5 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				D9381DB01EF773B2000AC2B5 /* Montserrat-Bold.otf */,
+			);
+			name = Font;
 			sourceTree = "<group>";
 		};
 		D956495E1EDFB20A008D5675 /* View Controllers */ = {
@@ -348,6 +359,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9381DB11EF773B2000AC2B5 /* Montserrat-Bold.otf in Resources */,
 				2A5B28371D3E6E6300308F78 /* mainDatabase.sqlite in Resources */,
 				2A0CA55A1B294C6B00ED8781 /* Main.storyboard in Resources */,
 				2A0CA55F1B294C6B00ED8781 /* LaunchScreen.xib in Resources */,
@@ -533,6 +545,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = YUWPSE2UN9;
 				INFOPLIST_FILE = Powerup/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
@@ -554,6 +567,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = YUWPSE2UN9;
 				INFOPLIST_FILE = Powerup/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
