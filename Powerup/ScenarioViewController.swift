@@ -6,12 +6,13 @@ class ScenarioViewController: UIViewController {
     
     // current scenario, set by the MapViewController
     var scenarioID: Int = 0
-    var questionID: Int = 1
+
+    // Questions ([questionID : question]) for the scenario
+    var questions = [Int:Question]()
+    var currQuestionID: Int = -1
     
-    // the next question ID for each choices (if not an integer, the next scenario links to a mini game)
-    var nextQuestionIDs = [String]()
-    
-    var databasePath = NSString()
+    // Answers for the question
+    var answers = [Answer]()
     
     //MARK: Views
     @IBOutlet weak var bgImage: UIImageView!
@@ -37,101 +38,57 @@ class ScenarioViewController: UIViewController {
             choiceButton.isHidden = true
         }
         
-        questionLabel.isHidden = true
+        // Configure question description
+        questionLabel.text = questions[currQuestionID]?.questionDescription
         
-        // Clear the array storing the next senario IDs
-        nextQuestionIDs.removeAll()
+        // Fetch answers from database
+        answers = DatabaseAccessor.sharedInstance.getAnswers(of: currQuestionID)
         
-        
-        // Fetching database content via FMDB wrapper
-        // This section should be replaced by accessing the database singleton
-        let filemgr = FileManager.default
-        let dirPaths =
-            NSSearchPathForDirectoriesInDomains(.documentDirectory,
-                                                .userDomainMask, true)
-        
-        let docsDir = dirPaths[0]
-        databasePath = (docsDir as NSString).appendingPathComponent(
-            "mainDatabase.sqlite") as NSString
-        
-        
-        if filemgr.fileExists(atPath: databasePath as String){
-            do {
-                try filemgr.removeItem(atPath: databasePath as String)
-            } catch let error as NSError {
-                print(error)
-            }
-            
+        // No answers left, reveal "continue" button to go to mini game
+        if answers.count == 0 {
+            answers.append(Answer(answerID: -1, questionID: -1, answerDescription: "Continue", nextQuestionID: "$", points: 0))
         }
         
-        if let bundle_path = Bundle.main.path(forResource: "mainDatabase", ofType: "sqlite") {
+        // Configure answer buttons
+        for (index, answer) in answers.enumerated() {
+            let button = choiceButtons[index]
             
-            do {
-                try filemgr.copyItem(atPath: bundle_path, toPath: databasePath as String)
-            } catch let error as NSError {
-                print(error)
-            }
+            // Configure title texts of buttons
+            button.setTitle(answer.answerDescription, for: .normal)
+            
+            // Show buttons
+            button.isHidden = false
         }
-        
-        
-        let mainDB = FMDatabase(path: databasePath as String)
-        if mainDB == nil{
-            print("Error opening database")
-        }
-        
-        if (mainDB?.open())!{
-            // Query the question text
-            let questionQuery = "SELECT QDescription FROM Question WHERE ScenarioID = \(scenarioID) AND QID = \(questionID)"
-            let questionQueryResults: FMResultSet? = mainDB?.executeQuery(questionQuery, withArgumentsIn: nil)
-            
-            // Set the question text
-            if questionQueryResults?.next() == true {
-                if let result = questionQueryResults?.string(forColumn: "QDescription") {
-                    questionLabel.text = result
-                    questionLabel.isHidden = false
-                } else {
-                    print("Error querying QDescription!")
-                }
-            }
-            
-            // Query the texts for choices
-            var choiceIndex = 0
-            let choiceQuery = "SELECT * FROM Answer WHERE ScenarioID = \(scenarioID) AND QID = \(questionID) ORDER BY AID"
-            let choiceResults: FMResultSet? = mainDB?.executeQuery(choiceQuery, withArgumentsIn: nil)
-            
-            // Loop through all the results of choices
-            while choiceResults?.next() == true {
-                // Configure the text for the Label
-                if let result = choiceResults?.string(forColumn: "ADescription") {
-                    choiceButtons[choiceIndex].setTitle(result, for: .normal)
-                } else {
-                    print("Error querying ADescription!")
-                }
-                
-                
-                // Record the next scenario ID for this choice
-                if let result = choiceResults?.string(forColumn: "NextQID") {
-                    nextQuestionIDs.append(result)
-                } else {
-                    print("Error querying NextQID!")
-                }
-                
-                
-                // Show the Button
-                choiceButtons[choiceIndex].isHidden = false
-                
-                choiceIndex += 1
-            }
-            
-        }
-        mainDB?.close()
+    }
+    
+    // Configures the accessories of the avatar.
+    func configureAvatar() {
+        let avatar = DatabaseAccessor.sharedInstance.getAvatar()
+    
+        clothesView.image = avatar.clothes.image
+        faceView.image = avatar.face.image
+        hairView.image = avatar.hair.image
+        eyesView.image = avatar.eyes.image
+        handbagView.image = avatar.handbag?.image
+        glassesView.image = avatar.glasses?.image
+        hatView.image = avatar.hat?.image
+        necklaceView.image = avatar.necklace?.image
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        configureAvatar()
         
-        // Configure the appearence of the avatar
-        Customizables.applyCustomizables(clothes: clothesView, face: faceView, hair: hairView, eyes: eyesView, handBag: handbagView, glasses: glassesView, necklace: necklaceView, hat: hatView)
+        // Fetch questions from database
+        questions = DatabaseAccessor.sharedInstance.getQuestions(of: scenarioID)
+        
+        // Configure the initial question (which has the smallest key)
+        if let initQuestionID = (questions.min {a, b in a.key < b.key}?.key) {
+            currQuestionID = initQuestionID
+        } else {
+            print("Error initializing the first question.")
+        }
         
         resetQuestionAndChoices()
         
@@ -147,9 +104,9 @@ class ScenarioViewController: UIViewController {
         }
         
         // Check if the next questionID is a valid integer, if not, it's the end of the scnario (entering a mini game)
-        if let nextQuestionID = Int(nextQuestionIDs[selectedIndex]) {
+        if let nextQuestionID = Int(answers[selectedIndex].nextQuestionID) {
             // Set the new question ID and reset the questions & choices
-            questionID = nextQuestionID
+            currQuestionID = nextQuestionID
             resetQuestionAndChoices()
         } else {
             // Perform modal segue to mini game scene
