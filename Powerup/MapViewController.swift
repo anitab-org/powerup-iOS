@@ -2,9 +2,6 @@ import UIKit
 
 class MapViewController: UIViewController {
     
-    // MARK: Views
-    @IBOutlet var scenarioButtons: Array<UIButton>!
-    
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,21 +17,14 @@ class MapViewController: UIViewController {
     // MARK: Segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toScenarioView" {
-            if let destinationVC = segue.destination as? ScenarioViewController {
-                if let senderButton = sender as? UIButton {
-                    
-                    // Check which scenario is chosen
-                    var targetScenario = 0
-                    while senderButton != scenarioButtons[targetScenario] {
-                        targetScenario += 1
-                    }
-                    
-                    // Offset the scnarioID by 1 (since scenarioID starts with 1)
-                    destinationVC.scenarioID = targetScenario + 1
-                    
-                } else {
-                    print("Error selecting scenario")
-                }
+            if let senderButton = sender as? UIButton, let destinationVC = segue.destination as? ScenarioViewController {
+                
+                // The scenario ID is stored in the tag of the button.
+                destinationVC.scenarioID = senderButton.tag
+                
+                
+            } else {
+                print("Error selecting sceanrio.")
             }
         }
     }

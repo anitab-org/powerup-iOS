@@ -3,18 +3,18 @@
 struct Avatar {
     var id: Int
     
-    // Required features
+    // Required accessories.
     var face: Accessory
     var eyes: Accessory
     var hair: Accessory
     var clothes: Accessory
     
-    // Optional features
+    // Optional accessories (Should be bought at the store).
     var necklace: Accessory?
     var glasses: Accessory?
     var handbag: Accessory?
     var hat: Accessory?
-    
+
     init(avatarID: Int, face: Accessory, eyes: Accessory, hair: Accessory, clothes: Accessory, necklace: Accessory?, glasses: Accessory?, handbag: Accessory?, hat: Accessory?) {
         self.id = avatarID
         
@@ -32,10 +32,10 @@ struct Avatar {
     init() {
         self.id = DatabaseAccessor.sharedInstance.avatarID
         
-        self.face = Accessory(type: "Face")
-        self.eyes = Accessory(type: "Eyes")
-        self.hair = Accessory(type: "Hair")
-        self.clothes = Accessory(type: "Clothes")
+        self.face = Accessory(type: .face)
+        self.eyes = Accessory(type: .eyes)
+        self.hair = Accessory(type: .hair)
+        self.clothes = Accessory(type: .clothes)
         
         self.necklace = nil
         self.glasses = nil

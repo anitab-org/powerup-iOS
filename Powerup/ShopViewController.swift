@@ -15,12 +15,12 @@ class ShopViewController: UIViewController {
     var avatar = DatabaseAccessor.sharedInstance.getAvatar()
     
     // Array of accessories.
-    var handbags = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Handbag")
-    var glasses = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Glasses")
-    var hats = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Hat")
-    var necklaces = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Necklace")
-    var hairs = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Hair")
-    var clothes = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Clothes")
+    var handbags = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .handbag)
+    var glasses = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .glasses)
+    var hats = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .hat)
+    var necklaces = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .necklace)
+    var hairs = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .hair)
+    var clothes = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .clothes)
     
     // MARK: Views
     @IBOutlet weak var pointsLabel: UILabel!
@@ -38,7 +38,14 @@ class ShopViewController: UIViewController {
     @IBOutlet weak var exhibitionNecklace: UIImageView!
     @IBOutlet weak var exhibitionHair: UIImageView!
     @IBOutlet weak var exhibitionClothes: UIImageView!
-
+    
+    @IBOutlet weak var handbagPriceLabel: UILabel!
+    @IBOutlet weak var hatPriceLabel: UILabel!
+    @IBOutlet weak var glassesPriceLabel: UILabel!
+    @IBOutlet weak var necklacePriceLabel: UILabel!
+    @IBOutlet weak var hairPriceLabel: UILabel!
+    @IBOutlet weak var clothesPriceLabel: UILabel!
+    
     @IBOutlet weak var avatarEyesView: UIImageView!
     @IBOutlet weak var avatarHairView: UIImageView!
     @IBOutlet weak var avatarFaceView: UIImageView!
@@ -51,6 +58,10 @@ class ShopViewController: UIViewController {
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set Karma points
+        let score = DatabaseAccessor.sharedInstance.getScore()
+        pointsLabel.text = String(score.karmaPoints)
         
         // Configure Image Views of Avatar Accessories.
         avatarClothesView.image = avatar.clothes.image
@@ -75,36 +86,75 @@ class ShopViewController: UIViewController {
         let handbag = handbags[exhibitionBagIndex]
         exhibitionHandbag.image = handbag.image
         handbagPaidLabel.isHidden = !handbag.purchased
+        handbagPriceLabel.text = "\(handbag.points)$"
     }
     
     func updateGlassesExhibition() {
         let glass = glasses[exhibitionGlassesIndex]
         exhibitionGlasses.image = glass.image
         glassesPaidLabel.isHidden = !glass.purchased
+        glassesPriceLabel.text = "\(glass.points)$"
     }
     
     func updateHatExhibition() {
         let hat = hats[exhibitionHatIndex]
         exhibitionHat.image = hat.image
         hatPaidLabel.isHidden = !hat.purchased
+        hatPriceLabel.text = "\(hat.points)$"
     }
     
     func updateNecklaceExhibition() {
         let necklace = necklaces[exhibitionNecklaceIndex]
         exhibitionNecklace.image = necklace.image
         necklacePaidLabel.isHidden = !necklace.purchased
+        necklacePriceLabel.text = "\(necklace.points)$"
     }
     
     func updateHairExhibition() {
         let hair = hairs[exhibitionHairIndex]
         exhibitionHair.image = hair.image
         hairPaidLabel.isHidden = !hair.purchased
+        hairPriceLabel.text = "\(hair.points)$"
     }
     
     func updateClothesExhibition() {
         let cloth = clothes[exhibitionClothesIndex]
         exhibitionClothes.image = cloth.image
         clothesPaidLabel.isHidden = !cloth.purchased
+        clothesPriceLabel.text = "\(cloth.points)$"
+    }
+    
+    func reducePointsAndSaveBoughtToDatabase(accessory: Accessory) {
+        let newScore = DatabaseAccessor.sharedInstance.getScore() - Score(karmaPoints: accessory.points)
+        
+        // Update points label.
+        pointsLabel.text = String(newScore.karmaPoints)
+        
+        // Reduce points.
+        guard DatabaseAccessor.sharedInstance.saveScore(score: newScore) else {
+            print("Error reducing points.")
+            return
+        }
+        
+        // Set as purchased.
+        guard DatabaseAccessor.sharedInstance.boughtAccessory(accessory: accessory) else {
+            print("Error buying accessory.")
+            return
+        }
+    }
+    
+    func haveEnoughPointsToBuy(accessoryPrice: Int) -> Bool {
+        
+        // Show alert dialog if players are trying to buy items they can't afford.
+        if DatabaseAccessor.sharedInstance.getScore().karmaPoints < accessoryPrice {
+            let alertDialog = UIAlertController(title: "Oops!", message: "You don't have enough points to buy that!", preferredStyle: .alert)
+            alertDialog.addAction(UIAlertAction(title: "Alright", style: .default))
+            self.present(alertDialog, animated: true, completion: nil)
+            
+            return false
+        }
+        
+        return true
     }
 
     // MARK: Actions
@@ -126,18 +176,27 @@ class ShopViewController: UIViewController {
     }
     
     @IBAction func handbagBuyButtonTouched(_ sender: UIButton) {
-        // TODO: Reduce Karma points
         
-        
-        // Set as paid
-        handbags[exhibitionBagIndex].purchased = true
-        handbagPaidLabel.isHidden = false
-        
-        // TODO: Record "purchased" in database.
-        
-        // Update avatar
-        avatar.handbag = handbags[exhibitionBagIndex]
-        avatarHandbagView.image = avatar.handbag!.image
+        // Already bought.
+        if handbags[exhibitionBagIndex].purchased {
+            
+            // Update avatar
+            avatar.handbag = handbags[exhibitionBagIndex]
+            avatarHandbagView.image = avatar.handbag!.image
+            
+        } else if haveEnoughPointsToBuy(accessoryPrice: handbags[exhibitionBagIndex].points) {
+            
+            // Set as paid
+            handbags[exhibitionBagIndex].purchased = true
+            handbagPaidLabel.isHidden = false
+            
+            // Record "purchased" in database.
+            reducePointsAndSaveBoughtToDatabase(accessory: handbags[exhibitionBagIndex])
+            
+            // Update avatar
+            avatar.handbag = handbags[exhibitionBagIndex]
+            avatarHandbagView.image = avatar.handbag!.image
+        }
     }
     
     // Glasses
@@ -158,18 +217,26 @@ class ShopViewController: UIViewController {
     }
     
     @IBAction func glassesBuyButtonTouched(_ sender: UIButton) {
-        // TODO: Reduce Karma points
         
-        
-        // Set as paid
-        glasses[exhibitionGlassesIndex].purchased = true
-        glassesPaidLabel.isHidden = false
-        
-        // TODO: save "purchased" to database.
-        
-        // Update avatar
-        avatar.glasses = glasses[exhibitionGlassesIndex]
-        avatarGlassesView.image = avatar.glasses!.image
+        // Already bought.
+        if glasses[exhibitionGlassesIndex].purchased {
+            
+            // Update avatar
+            avatar.glasses = glasses[exhibitionGlassesIndex]
+            avatarGlassesView.image = avatar.glasses!.image
+            
+        } else if haveEnoughPointsToBuy(accessoryPrice: glasses[exhibitionGlassesIndex].points) {
+            // Set as paid
+            glasses[exhibitionGlassesIndex].purchased = true
+            glassesPaidLabel.isHidden = false
+            
+            // Save "purchased" to database.
+            reducePointsAndSaveBoughtToDatabase(accessory: glasses[exhibitionGlassesIndex])
+            
+            // Update avatar
+            avatar.glasses = glasses[exhibitionGlassesIndex]
+            avatarGlassesView.image = avatar.glasses!.image
+        }
     }
     
     // Hat
@@ -190,18 +257,28 @@ class ShopViewController: UIViewController {
     }
     
     @IBAction func hatBuyButtonTouched(_ sender: UIButton) {
-        // TODO: Reduce Karma points
         
+        // Already bought.
+        if hats[exhibitionHatIndex].purchased {
+            
+            // Update avatar
+            avatar.hat = hats[exhibitionHatIndex]
+            avatarHatView.image = avatar.hat!.image
+            
+        } else if haveEnoughPointsToBuy(accessoryPrice: hats[exhibitionHatIndex].points) {
+            
+            // Set as paid
+            hats[exhibitionHatIndex].purchased = true
+            hatPaidLabel.isHidden = false
+            
+            // Save "purchased" to database.
+            reducePointsAndSaveBoughtToDatabase(accessory: hats[exhibitionHatIndex])
+            
+            // Update avatar
+            avatar.hat = hats[exhibitionHatIndex]
+            avatarHatView.image = avatar.hat!.image
+        }
         
-        // Set as paid
-        hats[exhibitionHatIndex].purchased = true
-        hatPaidLabel.isHidden = false
-        
-        // TODO: Save "purchased" to database.
-        
-        // Update avatar
-        avatar.hat = hats[exhibitionHatIndex]
-        avatarHatView.image = avatar.hat!.image
     }
     
     // Necklace
@@ -222,16 +299,28 @@ class ShopViewController: UIViewController {
     }
     
     @IBAction func necklaceBuyButtonTouched(_ sender: UIButton) {
-        // TODO: Reduce Karma points
         
+        // Already bought.
+        if necklaces[exhibitionNecklaceIndex].purchased {
+            
+            // Update avatar
+            avatar.necklace = necklaces[exhibitionNecklaceIndex]
+            avatarNecklaceView.image = avatar.necklace!.image
+            
+        } else if haveEnoughPointsToBuy(accessoryPrice: necklaces[exhibitionNecklaceIndex].points) {
+            
+            // Set as paid
+            necklaces[exhibitionNecklaceIndex].purchased = true
+            necklacePaidLabel.isHidden = false
+            
+            // Save "purchased" to database.
+            reducePointsAndSaveBoughtToDatabase(accessory: necklaces[exhibitionNecklaceIndex])
+            
+            // Update avatar
+            avatar.necklace = necklaces[exhibitionNecklaceIndex]
+            avatarNecklaceView.image = avatar.necklace!.image
+        }
         
-        // Set as paid
-        necklaces[exhibitionNecklaceIndex].purchased = true
-        necklacePaidLabel.isHidden = false
-        
-        // Update avatar
-        avatar.necklace = necklaces[exhibitionNecklaceIndex]
-        avatarNecklaceView.image = avatar.necklace!.image
     }
     
     // Hair
@@ -252,16 +341,28 @@ class ShopViewController: UIViewController {
     }
     
     @IBAction func hairBuyButtonTouched(_ sender: UIButton) {
-        // TODO: Reduce Karma points
         
+        // Already bought.
+        if hairs[exhibitionHairIndex].purchased {
+            
+            // Update avatar
+            avatar.hair = hairs[exhibitionHairIndex]
+            avatarHairView.image = avatar.hair.image
+            
+        } else if haveEnoughPointsToBuy(accessoryPrice: hairs[exhibitionHairIndex].points) {
+            
+            // Set as paid
+            hairs[exhibitionHairIndex].purchased = true
+            hairPaidLabel.isHidden = false
+            
+            // Set "purchased" to database.
+            reducePointsAndSaveBoughtToDatabase(accessory: hairs[exhibitionHairIndex])
+            
+            // Update avatar
+            avatar.hair = hairs[exhibitionHairIndex]
+            avatarHairView.image = avatar.hair.image
+        }
         
-        // Set as paid
-        hairs[exhibitionHairIndex].purchased = true
-        hairPaidLabel.isHidden = false
-        
-        // Update avatar
-        avatar.hair = hairs[exhibitionHairIndex]
-        avatarHairView.image = avatar.hair.image
     }
     
     // Clothes
@@ -282,22 +383,33 @@ class ShopViewController: UIViewController {
     }
     
     @IBAction func clothesBuyButtonTouched(_ sender: UIButton) {
-        // TODO: Reduce Karm points
         
-        
-        // Set as paid
-        clothes[exhibitionClothesIndex].purchased = true
-        clothesPaidLabel.isHidden = false
-        
-        // Update avatar
-        avatar.clothes = clothes[exhibitionClothesIndex]
-        avatarClothesView.image = avatar.clothes.image
+        // Already bought.
+        if clothes[exhibitionClothesIndex].purchased {
+            
+            // Update avatar
+            avatar.clothes = clothes[exhibitionClothesIndex]
+            avatarClothesView.image = avatar.clothes.image
+            
+        } else if haveEnoughPointsToBuy(accessoryPrice: clothes[exhibitionClothesIndex].points) {
+            // Set as paid
+            clothes[exhibitionClothesIndex].purchased = true
+            clothesPaidLabel.isHidden = false
+            
+            // Set "purchased" to database.
+            reducePointsAndSaveBoughtToDatabase(accessory: clothes[exhibitionClothesIndex])
+            
+            // Update avatar
+            avatar.clothes = clothes[exhibitionClothesIndex]
+            avatarClothesView.image = avatar.clothes.image
+        }
     }
     
     @IBAction func continueButtonTouched(_ sender: UIButton) {
         // Save configuration to database.
         guard DatabaseAccessor.sharedInstance.saveAvatar(avatar) else {
             let failedAlert = UIAlertController(title: "Oops!", message: "Error saving your purchase, please try again!", preferredStyle: .alert)
+            failedAlert.addAction(UIAlertAction(title: "OK", style: .default))
             present(failedAlert, animated: true, completion: nil)
             
             return
