@@ -10,21 +10,10 @@ class DatabaseAccessor {
     let avatarID = 1
     
     // The instance of DatabaseAccessor
-    private static var instance: DatabaseAccessor?
+    static let sharedInstance = DatabaseAccessor()
     
     // The instance of the SQLite database
     private var mainDB: FMDatabase?
-    
-    /** Access the instance throught this method. */
-    public static func sharedInstance() -> DatabaseAccessor {
-        
-        // Database & instance not initialized yet
-        if instance == nil {
-            instance = DatabaseAccessor()
-        }
-        
-        return instance!
-    }
     
     // Private initializer to avoid instancing by other classes
     private init() {

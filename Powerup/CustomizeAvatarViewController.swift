@@ -21,11 +21,11 @@ class CustomizeAvatarViewController: UIViewController {
     var chosenHairIndex = 0
     var chosenFaceIndex = 0
     
-    // Get arrays of "bought" accessories.
-    let clothes = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Clothes").filter({a in return a.purchased})
-    let hairs = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Hair").filter({a in return a.purchased})
-    let faces = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Face").filter({a in return a.purchased})
-    let eyes = DatabaseAccessor.sharedInstance().getAccessoryArray(accessoryType: "Eyes").filter({a in return a.purchased})
+    // Get arrays of accessories.
+    let clothes = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Clothes").filter({a in return a.purchased})
+    let faces = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Face").filter({a in return a.purchased})
+    let hairs = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Hair").filter({a in return a.purchased})
+    let eyes = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Eyes").filter({a in return a.purchased})
 
     // MARK: Functions
     override func viewDidLoad() {
@@ -129,7 +129,7 @@ class CustomizeAvatarViewController: UIViewController {
     
     @IBAction func continueButtonTouched(_ sender: UIButton) {
         // Save the current configuration to database.
-        guard DatabaseAccessor.sharedInstance().createAvatar(avatar) else {
+        guard DatabaseAccessor.sharedInstance.createAvatar(avatar) else {
             print("Failed saving avatar accessories to database.")
             return
         }
