@@ -60,7 +60,10 @@ class MinesweeperGameScene: SKScene {
     
     // TODO: Replace the temporary sprite.
     let continueButton = SKShapeNode(rectOf: CGSize(width: 120.0, height: 40.0), cornerRadius: 20.0)
-    let continueButtonText = SKLabelNode(text: "Continue")
+    var continueButtonText = SKLabelNode()
+    let continueText = "Continue"
+    let nextRoundText = "Next Round"
+    let endGameText = "End Game"
     
     // Layer index, aka. zPosition.
     let backgroundLayer = CGFloat(-0.1)
@@ -70,6 +73,11 @@ class MinesweeperGameScene: SKScene {
     let uiTextLayer = CGFloat(0.4)
     
     // MARK: Properties
+    
+    // Keep a reference to the view controller for end game transition.
+    // (This is assigned in the MiniGameViewController class.)
+    var viewController: MiniGameViewController!
+    
     // Holding each boxes
     var gameGrid: [[GuessingBox]] = []
     var roundCount = 0
@@ -274,8 +282,9 @@ class MinesweeperGameScene: SKScene {
                 }
             }
             
-            // Continue button.
+            // Continue button. Change text and fade in.
             self.continueButton.alpha = 0.0
+            self.continueButtonText.text = self.continueText
             self.continueButton.isHidden = false
             self.continueButton.run(SKAction.sequence([buttonWaitAction, self.fadeInAction]))
         }
@@ -295,8 +304,9 @@ class MinesweeperGameScene: SKScene {
         descriptionBanner.alpha = 0.0
         descriptionBanner.run(fadeInAction) {
             
-            // Fade in continue button.
+            // Fade in "next round" or "end game" button.
             self.continueButton.alpha = 0.0
+            self.continueButtonText.text = self.roundCount == self.totalRoundsPerGameSession ? self.endGameText : self.nextRoundText
             self.continueButton.isHidden = false
             self.continueButton.run(self.fadeInAction)
         }
@@ -311,7 +321,7 @@ class MinesweeperGameScene: SKScene {
         }
     }
     
-    // MARK: Touch inputs.
+    // MARK: Touch inputs
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         // Only the first touch is effective.
@@ -329,10 +339,15 @@ class MinesweeperGameScene: SKScene {
             
             // Check if it is the button of "result banner" or "description banner".
             if !resultBanner.isHidden {
+                // Button in the result banner. Show description when tapped.
                 showDescription()
-            } else {
+            } else if roundCount < totalRoundsPerGameSession {
+                // Not the last round, hide description banner and start a new round.
                 newRound()
                 hideDescription()
+            } else {
+                // End game.
+                viewController.endGame()
             }
         }
         

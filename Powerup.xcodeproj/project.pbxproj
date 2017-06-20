@@ -155,7 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				D9381DB21EF773B9000AC2B5 /* Font */,
-				D9AAA9C71EF25E2700287A79 /* Extentions */,
+				D9AAA9C71EF25E2700287A79 /* Extensions */,
 				D9AAA99E1EF21C3D00287A79 /* Mine Sweeping Game */,
 				D959CBD21EE64A3A00C31753 /* DatabaseAccessor.swift */,
 				D959CBC51EE642BE00C31753 /* Data Models */,
@@ -264,13 +264,13 @@
 			name = "Mine Sweeping Game";
 			sourceTree = "<group>";
 		};
-		D9AAA9C71EF25E2700287A79 /* Extentions */ = {
+		D9AAA9C71EF25E2700287A79 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				D9AAA9C81EF25E4600287A79 /* ShuffleArrayExtension.swift */,
 				D969D26B1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift */,
 			);
-			name = Extentions;
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

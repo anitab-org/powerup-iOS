@@ -7,8 +7,6 @@ class MiniGameViewController: UIViewController {
     // Will be assigned in the previous VC (ScenarioViewController).
     var gameIndex: Int = 0
     
-    
-    
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +19,9 @@ class MiniGameViewController: UIViewController {
             
         // Mine Sweeper
         case -1:
-            gameScene = MinesweeperGameScene(size: view.bounds.size)
+            let minesweeperGame = MinesweeperGameScene(size: view.bounds.size)
+            minesweeperGame.viewController = self
+            gameScene = minesweeperGame
         default:
             print("Unknown mini game.")
         }
@@ -36,6 +36,11 @@ class MiniGameViewController: UIViewController {
     // Hide status bar.
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    // Called by the mini game.
+    func endGame() {
+        performSegue(withIdentifier: "toResultScene", sender: self)
     }
     
     // MARK: Segues
