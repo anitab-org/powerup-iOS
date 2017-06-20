@@ -37,8 +37,8 @@ class ResultsViewController: UIViewController {
         configureAvatar()
         
         // Save the karma gains in database.
-        let newScore = DatabaseAccessor.sharedInstance().getScore() + Score(karmaPoints: karmaGain)
-        guard DatabaseAccessor.sharedInstance().saveScore(score: newScore) else {
+        let newScore = DatabaseAccessor.sharedInstance.getScore() + Score(karmaPoints: karmaGain)
+        guard DatabaseAccessor.sharedInstance.saveScore(score: newScore) else {
             print("Error saving karma points to database.")
             return
         }
