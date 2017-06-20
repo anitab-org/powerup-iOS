@@ -43,7 +43,7 @@ class ScenarioViewController: UIViewController {
         questionLabel.text = questions[currQuestionID]?.questionDescription
         
         // Fetch answers from database
-        answers = DatabaseAccessor.sharedInstance().getAnswers(of: currQuestionID)
+        answers = DatabaseAccessor.sharedInstance.getAnswers(of: currQuestionID)
         
         // No answers left, reveal "continue" button to go to mini game
         if answers.count == 0 {
@@ -64,8 +64,8 @@ class ScenarioViewController: UIViewController {
     
     // Configures the accessories of the avatar.
     func configureAvatar() {
-        let avatar = DatabaseAccessor.sharedInstance().getAvatar()
-        
+        let avatar = DatabaseAccessor.sharedInstance.getAvatar()
+    
         clothesView.image = avatar.clothes.image
         faceView.image = avatar.face.image
         hairView.image = avatar.hair.image
@@ -84,7 +84,7 @@ class ScenarioViewController: UIViewController {
         configureAvatar()
         
         // Fetch questions from database
-        questions = DatabaseAccessor.sharedInstance().getQuestions(of: scenarioID)
+        questions = DatabaseAccessor.sharedInstance.getQuestions(of: scenarioID)
         
         // Configure the initial question (which has the smallest key)
         if let initQuestionID = (questions.min {a, b in a.key < b.key}?.key) {

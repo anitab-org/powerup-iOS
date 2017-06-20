@@ -16,7 +16,7 @@ class StartViewController: UIViewController {
     @IBAction func Start(_ sender: UIButton) {
         
         // Check whether an avatar is created or not.
-        if DatabaseAccessor.sharedInstance().avatarExists() {
+        if DatabaseAccessor.sharedInstance.avatarExists() {
             performSegue(withIdentifier: "toMapView", sender: self)
         } else {
             // Remind players to create an avatar first.
