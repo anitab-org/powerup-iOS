@@ -28,7 +28,7 @@ class StartViewController: UIViewController {
     
     @IBAction func newAvatarButtonTouched(_ sender: UIButton) {
         // If previous avatar exists, warns the player that previous data will be lost.
-        if DatabaseAccessor.sharedInstance().avatarExists() {
+        if DatabaseAccessor.sharedInstance.avatarExists() {
             let alert = UIAlertController(title: "Warning", message: "Sure you want to create a new avatar? Previous data will be lost!", preferredStyle: .alert)
             let okButton = UIAlertAction(title: "Create New Avatar", style: .destructive, handler: {(action) -> Void in self.performSegue(withIdentifier: "toNewAvatar", sender: self)})
             let cancelButton = UIAlertAction(title: "Cancel", style: .cancel)

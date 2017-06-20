@@ -15,12 +15,12 @@ class ShopViewController: UIViewController {
     var avatar = DatabaseAccessor.sharedInstance.getAvatar()
     
     // Array of accessories.
-    var handbags = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Handbag")
-    var glasses = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Glasses")
-    var hats = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Hat")
-    var necklaces = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Necklace")
-    var hairs = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Hair")
-    var clothes = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Clothes")
+    var handbags = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .handbag)
+    var glasses = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .glasses)
+    var hats = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .hat)
+    var necklaces = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .necklace)
+    var hairs = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .hair)
+    var clothes = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .clothes)
     
     // MARK: Views
     @IBOutlet weak var pointsLabel: UILabel!
@@ -60,7 +60,7 @@ class ShopViewController: UIViewController {
         super.viewDidLoad()
         
         // Set Karma points
-        let score = DatabaseAccessor.sharedInstance().getScore()
+        let score = DatabaseAccessor.sharedInstance.getScore()
         pointsLabel.text = String(score.karmaPoints)
         
         // Configure Image Views of Avatar Accessories.
@@ -125,19 +125,19 @@ class ShopViewController: UIViewController {
     }
     
     func reducePointsAndSaveBoughtToDatabase(accessory: Accessory) {
-        let newScore = DatabaseAccessor.sharedInstance().getScore() - Score(karmaPoints: accessory.points)
+        let newScore = DatabaseAccessor.sharedInstance.getScore() - Score(karmaPoints: accessory.points)
         
         // Update points label.
         pointsLabel.text = String(newScore.karmaPoints)
         
         // Reduce points.
-        guard DatabaseAccessor.sharedInstance().saveScore(score: newScore) else {
+        guard DatabaseAccessor.sharedInstance.saveScore(score: newScore) else {
             print("Error reducing points.")
             return
         }
         
         // Set as purchased.
-        guard DatabaseAccessor.sharedInstance().boughtAccessory(accessory: accessory) else {
+        guard DatabaseAccessor.sharedInstance.boughtAccessory(accessory: accessory) else {
             print("Error buying accessory.")
             return
         }
@@ -146,7 +146,7 @@ class ShopViewController: UIViewController {
     func haveEnoughPointsToBuy(accessoryPrice: Int) -> Bool {
         
         // Show alert dialog if players are trying to buy items they can't afford.
-        if DatabaseAccessor.sharedInstance().getScore().karmaPoints < accessoryPrice {
+        if DatabaseAccessor.sharedInstance.getScore().karmaPoints < accessoryPrice {
             let alertDialog = UIAlertController(title: "Oops!", message: "You don't have enough points to buy that!", preferredStyle: .alert)
             alertDialog.addAction(UIAlertAction(title: "Alright", style: .default))
             self.present(alertDialog, animated: true, completion: nil)

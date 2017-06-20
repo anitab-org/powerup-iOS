@@ -115,7 +115,7 @@ class DatabaseAccessor {
         let hatString = avatar.hat == nil ? "NULL" : String(avatar.hat!.id)
         
         // Set the query string.
-        let queryString = "UPDATE Avatar SET Face=\(avatar.face.id), Clothes=\(avatar.clothes.id), Hair=\(avatar.hair.id), Eyes=\(avatar.eyes.id), Necklace=" + necklaceString + ", Glasses=" + glassesString + ", Handbag=" + handbagString + ", Hat=" + hatString + " WHERE ID = \(avatarID)"
+        let queryString = "UPDATE Avatar SET \(AccessoryType.face.rawValue)=\(avatar.face.id), \(AccessoryType.clothes.rawValue)=\(avatar.clothes.id), \(AccessoryType.hair.rawValue)=\(avatar.hair.id), \(AccessoryType.eyes.rawValue)=\(avatar.eyes.id), \(AccessoryType.necklace.rawValue)=" + necklaceString + ", \(AccessoryType.glasses.rawValue)=" + glassesString + ", \(AccessoryType.handbag.rawValue)=" + handbagString + ", \(AccessoryType.hat.rawValue)=" + hatString + " WHERE ID = \(avatarID)"
         
         // Execute update query.
         guard mainDB!.executeUpdate(queryString, withArgumentsIn: nil) else {
@@ -141,36 +141,36 @@ class DatabaseAccessor {
         if queryResults?.next() == true {
             
             // Face
-            let faceID = Int(queryResults!.int(forColumn: "Face"))
-            let face = getAccessory(accessoryType: "Face", accessoryIndex: faceID)
+            let faceID = Int(queryResults!.int(forColumn: AccessoryType.face.rawValue))
+            let face = getAccessory(accessoryType: .face, accessoryIndex: faceID)
             
             // Clothes
-            let clothesID = Int(queryResults!.int(forColumn: "Clothes"))
-            let clothes = getAccessory(accessoryType: "Clothes", accessoryIndex: clothesID)
+            let clothesID = Int(queryResults!.int(forColumn: AccessoryType.clothes.rawValue))
+            let clothes = getAccessory(accessoryType: .clothes, accessoryIndex: clothesID)
             
             // Hair
-            let hairID = Int(queryResults!.int(forColumn: "Hair"))
-            let hair = getAccessory(accessoryType: "Hair", accessoryIndex: hairID)
+            let hairID = Int(queryResults!.int(forColumn: AccessoryType.hair.rawValue))
+            let hair = getAccessory(accessoryType: .hair, accessoryIndex: hairID)
             
             // Eyes
-            let eyesID = Int(queryResults!.int(forColumn: "Eyes"))
-            let eyes = getAccessory(accessoryType: "Eyes", accessoryIndex: eyesID)
+            let eyesID = Int(queryResults!.int(forColumn: AccessoryType.eyes.rawValue))
+            let eyes = getAccessory(accessoryType: .eyes, accessoryIndex: eyesID)
             
             // Necklace (optional)
-            let necklaceID: Int? = (queryResults!.isNull(forColumn: "Necklace") ? nil : Int(queryResults!.int(forColumn: "Necklace")))
-            let necklace: Accessory? = necklaceID == nil ? nil : getAccessory(accessoryType: "Necklace", accessoryIndex: necklaceID!)
+            let necklaceID: Int? = (queryResults!.isNull(forColumn: AccessoryType.necklace.rawValue) ? nil : Int(queryResults!.int(forColumn: AccessoryType.necklace.rawValue)))
+            let necklace: Accessory? = necklaceID == nil ? nil : getAccessory(accessoryType: .necklace, accessoryIndex: necklaceID!)
             
             // Glasses (optional)
-            let glassesID: Int? = (queryResults!.isNull(forColumn: "Glasses") ? nil : Int(queryResults!.int(forColumn: "Glasses")))
-            let glasses: Accessory? = glassesID == nil ? nil : getAccessory(accessoryType: "Glasses", accessoryIndex: glassesID!)
+            let glassesID: Int? = (queryResults!.isNull(forColumn: AccessoryType.glasses.rawValue) ? nil : Int(queryResults!.int(forColumn: AccessoryType.glasses.rawValue)))
+            let glasses: Accessory? = glassesID == nil ? nil : getAccessory(accessoryType: .glasses, accessoryIndex: glassesID!)
             
             // Handbag (optional)
-            let handbagID: Int? = (queryResults!.isNull(forColumn: "Handbag") ? nil : Int(queryResults!.int(forColumn: "Handbag")))
-            let handbag: Accessory? = handbagID == nil ? nil : getAccessory(accessoryType: "Handbag", accessoryIndex: handbagID!)
+            let handbagID: Int? = (queryResults!.isNull(forColumn: AccessoryType.handbag.rawValue) ? nil : Int(queryResults!.int(forColumn: AccessoryType.handbag.rawValue)))
+            let handbag: Accessory? = handbagID == nil ? nil : getAccessory(accessoryType: .handbag, accessoryIndex: handbagID!)
             
             // Hat (optional)
-            let hatID: Int? = (queryResults!.isNull(forColumn: "Hat") ? nil : Int(queryResults!.int(forColumn: "Hat")))
-            let hat: Accessory? = hatID == nil ? nil : getAccessory(accessoryType: "Hat", accessoryIndex: hatID!)
+            let hatID: Int? = (queryResults!.isNull(forColumn: AccessoryType.hat.rawValue) ? nil : Int(queryResults!.int(forColumn: AccessoryType.hat.rawValue)))
+            let hat: Accessory? = hatID == nil ? nil : getAccessory(accessoryType: .hat, accessoryIndex: hatID!)
             
             // Init avatar
             result = Avatar(avatarID: avatarID, face: face, eyes: eyes, hair: hair, clothes: clothes, necklace: necklace, glasses: glasses, handbag: handbag, hat: hat)
@@ -188,8 +188,8 @@ class DatabaseAccessor {
       - Parameter: Accessory type (i.e. Hair, Face, etc.).
       - Return: An array of accessories.
     */
-    public func getAccessoryArray(accessoryType: String) -> [Accessory] {
-        let queryString = "SELECT * FROM " + accessoryType + " ORDER BY ID"
+    public func getAccessoryArray(accessoryType: AccessoryType) -> [Accessory] {
+        let queryString = "SELECT * FROM " + accessoryType.rawValue + " ORDER BY ID"
         let queryResults: FMResultSet? = mainDB?.executeQuery(queryString, withArgumentsIn: nil)
         
         var result = [Accessory]()
@@ -213,8 +213,8 @@ class DatabaseAccessor {
       - Parameter: index.
       - Return: The corresponding accessories.
     */
-    public func getAccessory(accessoryType: String, accessoryIndex: Int) -> Accessory {
-        let queryString = "SELECT * FROM " + accessoryType + " WHERE ID = \(accessoryIndex)"
+    public func getAccessory(accessoryType: AccessoryType, accessoryIndex: Int) -> Accessory {
+        let queryString = "SELECT * FROM " + accessoryType.rawValue + " WHERE ID = \(accessoryIndex)"
         let queryResults: FMResultSet? = mainDB?.executeQuery(queryString, withArgumentsIn: nil)
         
         var result: Accessory!
@@ -228,7 +228,7 @@ class DatabaseAccessor {
             result = Accessory(type: accessoryType, id: accessoryID, imageName: accessoryImageName!, points: accessoryPoints, purchased: accessoryPurchased)
         } else {
             // TODO: Should handle this error.
-            print("Error fetching accessory from table " + accessoryType + ".")
+            print("Error fetching accessory from table " + accessoryType.rawValue + ".")
         }
         
         return result
@@ -240,7 +240,7 @@ class DatabaseAccessor {
       - Return: Whether is save is successful or not.
     */
     public func boughtAccessory(accessory: Accessory) -> Bool {
-        let queryString = "UPDATE \(accessory.type) SET Purchased = 1 WHERE ID = \(accessory.id)"
+        let queryString = "UPDATE \(accessory.type.rawValue) SET Purchased = 1 WHERE ID = \(accessory.id)"
         
         guard mainDB!.executeUpdate(queryString, withArgumentsIn: nil) else {
             print("Error setting bought state in database.")

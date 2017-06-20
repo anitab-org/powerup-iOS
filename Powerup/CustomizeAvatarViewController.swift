@@ -22,10 +22,10 @@ class CustomizeAvatarViewController: UIViewController {
     var chosenFaceIndex = 0
     
     // Get arrays of accessories.
-    let clothes = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Clothes").filter({a in return a.purchased})
-    let faces = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Face").filter({a in return a.purchased})
-    let hairs = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Hair").filter({a in return a.purchased})
-    let eyes = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: "Eyes").filter({a in return a.purchased})
+    let clothes = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .clothes).filter({a in return a.purchased})
+    let faces = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .face).filter({a in return a.purchased})
+    let hairs = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .hair).filter({a in return a.purchased})
+    let eyes = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .eyes).filter({a in return a.purchased})
 
     // MARK: Functions
     override func viewDidLoad() {
