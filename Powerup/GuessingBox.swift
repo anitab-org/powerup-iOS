@@ -16,6 +16,7 @@ class GuessingBox: SKSpriteNode {
     var xOfGrid: Int
     var yOfGrid: Int
     
+    var onFrontSide: Bool = false
     var isCorrect: Bool
     
     // MARK: Constructors
@@ -32,18 +33,24 @@ class GuessingBox: SKSpriteNode {
     }
     
     // MARK: Functions
-    /** Flip the box with flipping animation */
-    func flip(toFront: Bool, scaleX: CGFloat, completion: @escaping () -> ()) {
+    /**
+      Flip the box with flipping animation
+      - Parameter: The ending scaleX of the flip animation.
+     */
+    func flip(scaleX: CGFloat, completion: @escaping () -> ()) {
         // Animated
         let firstHalfFlip = SKAction.scaleX(to: 0.0, duration: flipDuration / 2.0)
         let secondHalfFlip = SKAction.scaleX(to: scaleX, duration: flipDuration / 2.0)
         
-        if toFront {
+        onFrontSide = !onFrontSide
+        if onFrontSide {
+            // Flip to front.
             self.run(firstHalfFlip) {
                 self.texture = self.isCorrect ? self.successTexture : self.failureTexture
                 self.run(secondHalfFlip, completion: completion)
             }
         } else {
+            // Flip to back.
             self.run(firstHalfFlip) {
                 self.texture = self.backsideTexture
                 self.run(secondHalfFlip, completion: completion)
@@ -51,9 +58,11 @@ class GuessingBox: SKSpriteNode {
         }
     }
     
-    /** Change side without animation */
-    func changedSide(toFront: Bool) {
-        if toFront {
+    /** Change side without animation, could be used to reset the box. */
+    func changeSide() {
+        
+        onFrontSide = !onFrontSide
+        if onFrontSide {
             self.texture = self.isCorrect ? self.successTexture : self.failureTexture
         } else {
             self.texture = self.backsideTexture

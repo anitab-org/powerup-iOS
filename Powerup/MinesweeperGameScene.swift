@@ -2,16 +2,25 @@ import SpriteKit
 
 class MinesweeperGameScene: SKScene {
     
-    // TODO: Move the contraception data to database.
-    let possiblityPercentageEachRound = [40.5, 85.0, 90.4, 80.4, 11.5]
+    // Make it as an array, so it is easy to add new entries.
+    let possiblityPercentages = [90.0]
     
     // MARK: Game Constants
     let gridSizeCount = 5
-    let totalRoundsPerGameSession = 5
+    
+    // How many boxes could be selected each round.
+    let selectionMaxCount = 5
+    
+    // Colors of game UIs.
+    let uiColor = UIColor(colorLiteralRed: 42.0 / 255.0, green: 203.0 / 255.0, blue: 211.0 / 255.0, alpha: 1.0)
+    let textColor = UIColor(colorLiteralRed: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
+    let prosTextColor = UIColor(colorLiteralRed: 105.0 / 255.0, green: 255.0 / 255.0, blue: 97.0 / 255.0, alpha: 1.0)
+    let consTextColor = UIColor(colorLiteralRed: 255.0 / 255.0, green: 105.0 / 255.0, blue: 105.0 / 255.0, alpha: 1.0)
     
     // Animation constants.
     let boxEnlargingScale = CGFloat(1.2)
     let boxEnlargingDuration = 0.25
+    let buttonWaitDuration = 0.5
     let boxFlipInterval = 0.2
     let showAllBoxesInterval = 0.3
     let boxEnlargingKey = "enlarge"
@@ -19,23 +28,36 @@ class MinesweeperGameScene: SKScene {
     let boxDarkening = SKAction.colorize(with: UIColor(white: 0.6, alpha: 0.8), colorBlendFactor: 1.0, duration: 0.2)
     let fadeInAction = SKAction.fadeIn(withDuration: 0.8)
     let fadeOutAction = SKAction.fadeOut(withDuration: 0.8)
-    let buttonWaitDuration = 0.5
+    let scoreTextPopScale = CGFloat(1.2)
+    let scoreTextPopDuraion = 0.25
     
     // These are relative to the size of the view, so they can be applied to different screen sizes.
     let gridOffsetXRelativeToWidth = 0.31
     let gridOffsetYRelativeToHeight = 0.0822
     let gridSpacingRelativeToWidth = 0.0125
     let boxSizeRelativeToWidth = 0.084
-    let uiElementMargin = 0.17
+    
+    let continueButtonBottomMargin = 0.08
+    let continueButtonHeightRelativeToSceneHeight = 0.2
+    let continueButtonAspectRatio = 2.783
+    
+    let prosDescriptionPosYRelativeToHeight = 0.77
+    let consDescriptionPosYRelativeToHeight = 0.33
+    let descriptionTextPosXReleativeToWidth = 0.53
     
     // Offset the text in y direction so that it appears in the center of the button.
     let buttonTextOffsetY = -7.0
+    let scoreTextOffsetX = 10.0
+    let scoreTextOffsetY = 25.0
     
+    // Fonts.
+    let scoreTextFontSize = CGFloat(20)
     let buttonTextFontSize = CGFloat(18)
-    let buttonStrokeWidth = CGFloat(3)
     let descriptionTitleFontSize = CGFloat(24)
-    let descriptionFontSize = CGFloat(16)
+    let descriptionFontSize = CGFloat(20)
     let fontName = "Montserrat-Bold"
+    
+    let buttonStrokeWidth = CGFloat(3)
     
     
     // These are the actual sizing and positioning, will be calculated in init()
@@ -44,26 +66,29 @@ class MinesweeperGameScene: SKScene {
     let gridOffsetY: Double
     let gridSpacing: Double
     
-    // Nodes and textures.
+    // Sprite nodes
     let backgroundImage = SKSpriteNode(imageNamed: "minesweeper_background")
     let resultBanner = SKSpriteNode()
+    let descriptionBanner = SKSpriteNode(imageNamed: "minesweeper_pros_cons_banner")
+    let continueButton = SKSpriteNode(imageNamed: "continue_button")
+    
+    // Label wrapper nodes
+    let scoreLabelNode = SKNode()
+    let prosLabelNode = SKNode()
+    let consLabelNode = SKNode()
+    
+    // Label nodes
+    let scoreLabel = SKLabelNode()
+    let prosLabel = SKLabelNode(text: "Pros text goes here...")
+    let consLabel = SKLabelNode(text: "Cons text goes here...")
+    
+    // Textures
     let successBannerTexture = SKTexture(imageNamed: "success_banner")
     let failureBannerTexture = SKTexture(imageNamed: "failure_banner")
-    let descriptionBanner = SKSpriteNode()
-    let descriptionTitleNode = SKSpriteNode(color: UIColor.white, size: CGSize(width: 120.0, height: 40.0))
-    
-    let uiColor = UIColor(colorLiteralRed: 42.0 / 255.0, green: 203.0 / 255.0, blue: 211.0 / 255.0, alpha: 1.0)
-    
-    // TODO: Configure the description text after each round.
-    let descriptionTitleText = SKLabelNode(text: "Contraception Method")
-    let descriptionText = SKLabelNode(text: "Detailed description on the contraception method goes here...")
     
     // TODO: Replace the temporary sprite.
-    let continueButton = SKShapeNode(rectOf: CGSize(width: 120.0, height: 40.0), cornerRadius: 20.0)
-    var continueButtonText = SKLabelNode()
-    let continueText = "Continue"
-    let nextRoundText = "Next Round"
     let endGameText = "End Game"
+    let scoreTextPrefix = "Score: "
     
     // Layer index, aka. zPosition.
     let backgroundLayer = CGFloat(-0.1)
@@ -84,6 +109,12 @@ class MinesweeperGameScene: SKScene {
     
     var currBox: GuessingBox? = nil
     
+    // Score. +1 if a successful box is chosen. +0 if a failed box is chosen.
+    var score = 0
+    
+    // Selected box count.
+    var selectedBoxes = 0
+    
     // Avoid player interaction with boxes when they are animating.
     var boxSelected: Bool = false
     
@@ -103,44 +134,52 @@ class MinesweeperGameScene: SKScene {
         
         // Description Banner
         descriptionBanner.size = size
-        descriptionBanner.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
+        descriptionBanner.anchorPoint = CGPoint.zero
+        descriptionBanner.position = CGPoint.zero
         descriptionBanner.zPosition = bannerLayer
-        descriptionBanner.color = UIColor.white
         descriptionBanner.isHidden = true
         
-        // Description Banner Label
-        descriptionText.position = CGPoint.zero
-        descriptionText.fontSize = descriptionFontSize
-        descriptionText.fontName = fontName
-        descriptionText.zPosition = uiLayer
-        descriptionText.fontColor = uiColor
-        descriptionBanner.addChild(descriptionText)
+        // Score text
+        scoreLabelNode.position = CGPoint(x: Double(size.width) - scoreTextOffsetX, y: Double(size.height) - scoreTextOffsetY)
+        scoreLabelNode.zPosition = bannerLayer
+        scoreLabel.position = CGPoint.zero
+        scoreLabel.fontName = fontName
+        scoreLabel.fontSize = scoreTextFontSize
+        scoreLabel.zPosition = uiLayer
+        scoreLabel.fontColor = uiColor
+        scoreLabel.horizontalAlignmentMode = .right
+        scoreLabelNode.addChild(scoreLabel)
         
-        // Description Banner Title Label
-        descriptionTitleNode.position = CGPoint(x: 0.0, y: size.height * CGFloat(1.0 - uiElementMargin) - size.height / 2.0)
-        descriptionTitleNode.zPosition = bannerLayer
-        descriptionTitleText.position = CGPoint.zero
-        descriptionTitleText.fontName = fontName
-        descriptionTitleText.fontSize = descriptionTitleFontSize
-        descriptionTitleText.zPosition = uiLayer
-        descriptionTitleText.fontColor = uiColor
-        descriptionTitleNode.addChild(descriptionTitleText)
-        descriptionBanner.addChild(descriptionTitleNode)
-        
-        // Positioning continue button (Should be replaced by the redesigned button sprite once it is completed).
-        continueButton.position = CGPoint(x: size.width / 2.0, y: size.height * CGFloat(uiElementMargin))
-        continueButtonText.position = CGPoint(x: 0.0, y: buttonTextOffsetY)
-        continueButtonText.fontName = fontName
-        continueButtonText.fontSize = buttonTextFontSize
-        continueButtonText.zPosition = uiLayer
-        continueButton.fillColor = UIColor.white
-        continueButton.lineWidth = buttonStrokeWidth
-        continueButton.strokeColor = uiColor
+        // Continue button
+        continueButton.anchorPoint = CGPoint(x: 1.0, y: 0.0)
+        continueButton.size = CGSize(width: CGFloat(continueButtonAspectRatio * continueButtonHeightRelativeToSceneHeight) * size.height, height: size.height * CGFloat(continueButtonHeightRelativeToSceneHeight))
+        continueButton.position = CGPoint(x: size.width, y: size.height * CGFloat(continueButtonBottomMargin))
+        continueButton.zPosition = uiLayer
         continueButton.isHidden = true
         
-        continueButtonText.fontColor = uiColor
-        continueButton.addChild(continueButtonText)
-        continueButton.zPosition = uiLayer
+        // Pros label.
+        prosLabelNode.position = CGPoint(x: Double(size.width) * descriptionTextPosXReleativeToWidth, y: Double(size.height) * prosDescriptionPosYRelativeToHeight)
+        prosLabelNode.zPosition = bannerLayer
+        prosLabel.position = CGPoint.zero
+        prosLabel.horizontalAlignmentMode = .left
+        prosLabel.fontName = fontName
+        prosLabel.fontSize = descriptionFontSize
+        prosLabel.fontColor = prosTextColor
+        prosLabel.zPosition = uiLayer
+        prosLabelNode.addChild(prosLabel)
+        descriptionBanner.addChild(prosLabelNode)
+        
+        // Cons label.
+        consLabelNode.position = CGPoint(x: Double(size.width) * descriptionTextPosXReleativeToWidth, y: Double(size.height) * consDescriptionPosYRelativeToHeight)
+        consLabelNode.zPosition = bannerLayer
+        consLabel.position = CGPoint.zero
+        consLabel.horizontalAlignmentMode = .left
+        consLabel.fontName = fontName
+        consLabel.fontSize = descriptionFontSize
+        consLabel.fontColor = consTextColor
+        consLabel.zPosition = uiLayer
+        consLabelNode.addChild(consLabel)
+        descriptionBanner.addChild(consLabelNode)
         
         // Calcuate positioning and sizing according to the size of the view.
         boxSize = Double(size.width) * boxSizeRelativeToWidth
@@ -184,6 +223,10 @@ class MinesweeperGameScene: SKScene {
         addChild(resultBanner)
         addChild(descriptionBanner)
         
+        // Add score label.
+        scoreLabel.text = scoreTextPrefix + String(score)
+        addChild(scoreLabelNode)
+        
         // Add continue button.
         addChild(continueButton)
         
@@ -200,7 +243,10 @@ class MinesweeperGameScene: SKScene {
       - Parameter: The possibility of the contrceptive method in percentage.
     */
     func newRound() {
-        let possibility = possiblityPercentageEachRound[roundCount]
+        let possibility = possiblityPercentages[roundCount]
+        
+        // Reset selected box count.
+        selectedBoxes = 0
         
         // Successful boxes, grounded to an interger.
         let totalBoxCount = gridSizeCount * gridSizeCount
@@ -218,14 +264,18 @@ class MinesweeperGameScene: SKScene {
         for x in 0..<gridSizeCount {
             for y in 0..<gridSizeCount {
                 
+                let currBox = gameGrid[x][y]
+                
                 // Set whether it is a "success" box or a "failure" box.
-                gameGrid[x][y].isCorrect = correctBoxes.popLast()!
+                currBox.isCorrect = correctBoxes.popLast()!
                 
                 // Turn to back side.
-                gameGrid[x][y].changedSide(toFront: false)
+                if currBox.onFrontSide {
+                    currBox.changeSide()
+                }
                 
                 // Reset color.
-                gameGrid[x][y].color = UIColor.white
+                currBox.color = UIColor.white
             }
         }
         
@@ -235,27 +285,46 @@ class MinesweeperGameScene: SKScene {
     
     func selectBox(box: GuessingBox) {
         boxSelected = true
+        
+        selectedBoxes += 1
 
         // Animations.
         let scaleBackAction = SKAction.scale(to: 1.0, duration: self.boxEnlargingDuration)
         let waitAction = SKAction.wait(forDuration: boxFlipInterval)
         let scaleBackAndWait = SKAction.sequence([scaleBackAction, waitAction])
         
-        box.flip(toFront: true, scaleX: boxEnlargingScale) {
+        box.flip(scaleX: boxEnlargingScale) {
             
             // Scale the box back to the original scale.
             box.run(scaleBackAndWait) {
                 
-                // Show all the results
+                // Check if the round should end.
+                if !box.isCorrect {
+                    // A failure box is chosen.
+                    self.showAllResults(isSuccessful: false)
+                } else {
+                    // Update score. (With a pop animation)
+                    self.scoreLabel.setScale(self.scoreTextPopScale)
+                    self.score += 1
+                    self.scoreLabel.text = self.scoreTextPrefix + String(self.score)
+                    self.scoreLabel.run(SKAction.scale(to: 1.0, duration: self.scoreTextPopDuraion))
+                    
+                    // Check if max selection count is reached.
+                    if self.selectedBoxes == self.selectionMaxCount {
+                        self.showAllResults(isSuccessful: true)
+                    } else {
+                        // Reset boxSelected flag so that player could continue to select the next box.
+                        self.boxSelected = false
+                    }
+                }
                 
-                self.showAllResults(isSuccessful: box.isCorrect, selectedBox: box)
             }
         }
         
         currBox = nil
     }
     
-    func showAllResults(isSuccessful: Bool, selectedBox: GuessingBox) {
+    func showAllResults(isSuccessful: Bool) {
         // Show result banner.
         resultBanner.texture = isSuccessful ? successBannerTexture : failureBannerTexture
         resultBanner.alpha = 0.0
@@ -272,11 +341,11 @@ class MinesweeperGameScene: SKScene {
                     let currBox = self.gameGrid[x][y]
                     
                     // Don't darken the selected box.
-                    if selectedBox == currBox { continue }
+                    if currBox.onFrontSide { continue }
                     
                     // Darkens the color and flip the box.
                     currBox.run(self.boxDarkening) {
-                        currBox.changedSide(toFront: true)
+                        currBox.changeSide()
                         
                     }
                 }
@@ -284,7 +353,6 @@ class MinesweeperGameScene: SKScene {
             
             // Continue button. Change text and fade in.
             self.continueButton.alpha = 0.0
-            self.continueButtonText.text = self.continueText
             self.continueButton.isHidden = false
             self.continueButton.run(SKAction.sequence([buttonWaitAction, self.fadeInAction]))
         }
@@ -306,7 +374,6 @@ class MinesweeperGameScene: SKScene {
             
             // Fade in "next round" or "end game" button.
             self.continueButton.alpha = 0.0
-            self.continueButtonText.text = self.roundCount == self.totalRoundsPerGameSession ? self.endGameText : self.nextRoundText
             self.continueButton.isHidden = false
             self.continueButton.run(self.fadeInAction)
         }
@@ -341,7 +408,7 @@ class MinesweeperGameScene: SKScene {
             if !resultBanner.isHidden {
                 // Button in the result banner. Show description when tapped.
                 showDescription()
-            } else if roundCount < totalRoundsPerGameSession {
+            } else if roundCount < possiblityPercentages.count {
                 // Not the last round, hide description banner and start a new round.
                 newRound()
                 hideDescription()
@@ -351,8 +418,8 @@ class MinesweeperGameScene: SKScene {
             }
         }
         
-        // Guessing box selected, and no box is selected yet.
-        if let guessingBox = atPoint(location) as? GuessingBox, !boxSelected {
+        // Guessing box selected, not animating, and not selected yet.
+        if let guessingBox = atPoint(location) as? GuessingBox, !boxSelected, !guessingBox.onFrontSide {
             currBox = guessingBox
             
             // Perform animation.
