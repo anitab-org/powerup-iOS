@@ -11,6 +11,7 @@ enum AccessoryType: String {
     case handbag = "Handbag"
     case hat = "Hat"
     case glasses = "Glasses"
+    case unknown = ""
 }
 
 struct Accessory {
@@ -39,6 +40,14 @@ struct Accessory {
     }
     
     init(type: AccessoryType) {
-        self = DatabaseAccessor.sharedInstance.getAccessory(accessoryType: type, accessoryIndex: 1)
+        do {
+            self = try DatabaseAccessor.sharedInstance.getAccessory(accessoryType: type, accessoryIndex: 1)
+        } catch _ {
+            self.type = .unknown
+            self.id = 0
+            self.image = nil
+            self.points = 0
+            self.purchased = false
+        }
     }
 }
