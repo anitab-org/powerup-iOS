@@ -132,7 +132,7 @@ class ScenarioViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // prepare for MiniGameViewController
         if let miniGameVC = segue.destination as? MiniGameViewController {
-            miniGameVC.gameIndex = toMiniGameIndex
+            miniGameVC.gameIndex = MiniGameIndex(rawValue: toMiniGameIndex) ?? .unknown
         }
     }
     
