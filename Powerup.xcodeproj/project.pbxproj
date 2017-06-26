@@ -23,6 +23,7 @@
 		2AF82A8F1B4BA74A00307BED /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A871B4BA74A00307BED /* FMDatabasePool.m */; };
 		2AF82A901B4BA74A00307BED /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A891B4BA74A00307BED /* FMDatabaseQueue.m */; };
 		2AF82A911B4BA74A00307BED /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A8C1B4BA74A00307BED /* FMResultSet.m */; };
+		D9381DB11EF773B2000AC2B5 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D9381DB01EF773B2000AC2B5 /* Montserrat-Bold.otf */; };
 		D959CBC71EE6430E00C31753 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D959CBC61EE6430E00C31753 /* Answer.swift */; };
 		D959CBC91EE643F400C31753 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D959CBC81EE643F400C31753 /* Avatar.swift */; };
 		D959CBCB1EE6481100C31753 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = D959CBCA1EE6481100C31753 /* Question.swift */; };
@@ -32,6 +33,9 @@
 		D95B03CC1EDE7470001DB858 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95B03CB1EDE7470001DB858 /* MapViewController.swift */; };
 		D95B03CE1EDEA680001DB858 /* MiniGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95B03CD1EDEA680001DB858 /* MiniGameViewController.swift */; };
 		D969D26C1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D969D26B1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift */; };
+		D9AAA9C41EF2335F00287A79 /* MinesweeperGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AAA9C31EF2335F00287A79 /* MinesweeperGameScene.swift */; };
+		D9AAA9C61EF2481900287A79 /* GuessingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AAA9C51EF2481900287A79 /* GuessingBox.swift */; };
+		D9AAA9C91EF25E4600287A79 /* ShuffleArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AAA9C81EF25E4600287A79 /* ShuffleArrayExtension.swift */; };
 		D9D10A401EE130BD003584F4 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D10A3F1EE130BD003584F4 /* ResultsViewController.swift */; };
 		D9E190A61EE952CD00109F39 /* Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E190A51EE952CD00109F39 /* Accessory.swift */; };
 		D9FFC0E31EE91EE4000F3CA6 /* CustomizeAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FFC0E21EE91EE4000F3CA6 /* CustomizeAvatarViewController.swift */; };
@@ -87,6 +91,7 @@
 		2AF82A8A1B4BA74A00307BED /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = FMDB/FMDB.h; sourceTree = "<group>"; };
 		2AF82A8B1B4BA74A00307BED /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = FMDB/FMResultSet.h; sourceTree = "<group>"; };
 		2AF82A8C1B4BA74A00307BED /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = FMDB/FMResultSet.m; sourceTree = "<group>"; };
+		D9381DB01EF773B2000AC2B5 /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
 		D959CBC61EE6430E00C31753 /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		D959CBC81EE643F400C31753 /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		D959CBCA1EE6481100C31753 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -96,6 +101,9 @@
 		D95B03CB1EDE7470001DB858 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D95B03CD1EDEA680001DB858 /* MiniGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniGameViewController.swift; sourceTree = "<group>"; };
 		D969D26B1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMResultSetNullCheckExtension.swift; sourceTree = "<group>"; };
+		D9AAA9C31EF2335F00287A79 /* MinesweeperGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperGameScene.swift; sourceTree = "<group>"; };
+		D9AAA9C51EF2481900287A79 /* GuessingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessingBox.swift; sourceTree = "<group>"; };
+		D9AAA9C81EF25E4600287A79 /* ShuffleArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShuffleArrayExtension.swift; path = ../ShuffleArrayExtension.swift; sourceTree = "<group>"; };
 		D9D10A3F1EE130BD003584F4 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		D9E190A51EE952CD00109F39 /* Accessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accessory.swift; sourceTree = "<group>"; };
 		D9FFC0E21EE91EE4000F3CA6 /* CustomizeAvatarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizeAvatarViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +154,9 @@
 		2A0CA5511B294C6B00ED8781 /* Powerup */ = {
 			isa = PBXGroup;
 			children = (
+				D9381DB21EF773B9000AC2B5 /* Font */,
+				D9AAA9C71EF25E2700287A79 /* Extensions */,
+				D9AAA99E1EF21C3D00287A79 /* Mine Sweeper Game */,
 				D959CBD21EE64A3A00C31753 /* DatabaseAccessor.swift */,
 				D959CBC51EE642BE00C31753 /* Data Models */,
 				D956495E1EDFB20A008D5675 /* View Controllers */,
@@ -154,7 +165,6 @@
 				2A0CA55B1B294C6B00ED8781 /* Images.xcassets */,
 				2A0CA55D1B294C6B00ED8781 /* LaunchScreen.xib */,
 				2A0CA5521B294C6B00ED8781 /* Supporting Files */,
-				D969D26B1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift */,
 			);
 			path = Powerup;
 			sourceTree = "<group>";
@@ -210,6 +220,14 @@
 			name = FMDB;
 			sourceTree = "<group>";
 		};
+		D9381DB21EF773B9000AC2B5 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				D9381DB01EF773B2000AC2B5 /* Montserrat-Bold.otf */,
+			);
+			name = Font;
+			sourceTree = "<group>";
+		};
 		D956495E1EDFB20A008D5675 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +253,24 @@
 				D9E190A51EE952CD00109F39 /* Accessory.swift */,
 			);
 			name = "Data Models";
+			sourceTree = "<group>";
+		};
+		D9AAA99E1EF21C3D00287A79 /* Mine Sweeper Game */ = {
+			isa = PBXGroup;
+			children = (
+				D9AAA9C31EF2335F00287A79 /* MinesweeperGameScene.swift */,
+				D9AAA9C51EF2481900287A79 /* GuessingBox.swift */,
+			);
+			name = "Mine Sweeper Game";
+			sourceTree = "<group>";
+		};
+		D9AAA9C71EF25E2700287A79 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D9AAA9C81EF25E4600287A79 /* ShuffleArrayExtension.swift */,
+				D969D26B1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +359,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9381DB11EF773B2000AC2B5 /* Montserrat-Bold.otf in Resources */,
 				2A5B28371D3E6E6300308F78 /* mainDatabase.sqlite in Resources */,
 				2A0CA55A1B294C6B00ED8781 /* Main.storyboard in Resources */,
 				2A0CA55F1B294C6B00ED8781 /* LaunchScreen.xib in Resources */,
@@ -354,6 +391,7 @@
 				2AF82A8F1B4BA74A00307BED /* FMDatabasePool.m in Sources */,
 				D959CBC71EE6430E00C31753 /* Answer.swift in Sources */,
 				2A8D2E071D17CDF700154F98 /* ShopViewController.swift in Sources */,
+				D9AAA9C61EF2481900287A79 /* GuessingBox.swift in Sources */,
 				D9D10A401EE130BD003584F4 /* ResultsViewController.swift in Sources */,
 				D959CBCD1EE6489100C31753 /* Scenario.swift in Sources */,
 				D969D26C1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift in Sources */,
@@ -366,6 +404,8 @@
 				2AF82A8E1B4BA74A00307BED /* FMDatabaseAdditions.m in Sources */,
 				D95B03CE1EDEA680001DB858 /* MiniGameViewController.swift in Sources */,
 				D95B03CC1EDE7470001DB858 /* MapViewController.swift in Sources */,
+				D9AAA9C91EF25E4600287A79 /* ShuffleArrayExtension.swift in Sources */,
+				D9AAA9C41EF2335F00287A79 /* MinesweeperGameScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +545,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = YUWPSE2UN9;
 				INFOPLIST_FILE = Powerup/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
@@ -526,6 +567,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = YUWPSE2UN9;
 				INFOPLIST_FILE = Powerup/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
