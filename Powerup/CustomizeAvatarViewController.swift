@@ -132,8 +132,10 @@ class CustomizeAvatarViewController: UIViewController {
         do {
             try DatabaseAccessor.sharedInstance.createAvatar(avatar)
         } catch _ {
-            let alert = UIAlertController(title: "Warning", message: "Failed to save avatar, please try again!", preferredStyle: .alert)
-            let okButton = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            let alert = UIAlertController(title: "Warning", message: "Failed to save avatar, please retry this action. If that doesn't help, try restaring or reinstalling the app.", preferredStyle: .alert)
+            
+            // Dismiss the modal VC (so the app is back to Start View) when Ok Button is pressed.
+            let okButton = UIAlertAction(title: "OK", style: .cancel, handler: {action in self.dismiss(animated: true, completion: nil)})
             alert.addAction(okButton)
             self.present(alert, animated: true, completion: nil)
             

@@ -65,7 +65,7 @@ class ShopViewController: UIViewController {
             score = try DatabaseAccessor.sharedInstance.getScore()
             avatar = try DatabaseAccessor.sharedInstance.getAvatar()
         } catch _ {
-            let alert = UIAlertController(title: "Warning", message: "Error fetching avatar and score data, please retry.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Warning", message: "Error fetching avatar and score data, please retry this action. If that doesn't help, try restarting or reinstalling the app.", preferredStyle: .alert)
             
             // Exit shop when ok button is pressed.
             let okButton = UIAlertAction(title: "OK", style: .default, handler: {action in self.dismiss(animated: true, completion: nil)})
@@ -168,7 +168,7 @@ class ShopViewController: UIViewController {
     }
     
     func presentBuyingErrorDiaologue() {
-        let alert = UIAlertController(title: "Warning", message: "Error purchasing item, please retry.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Warning", message: "Error purchasing item, please retry this action. If that doesn't help, try restarting or reinstalling the app.", preferredStyle: .alert)
         let okButton = UIAlertAction(title: "OK", style: .default)
         alert.addAction(okButton)
         self.present(alert, animated: true, completion: nil)
@@ -463,7 +463,7 @@ class ShopViewController: UIViewController {
             // Save configuration to database.
             try DatabaseAccessor.sharedInstance.saveAvatar(avatar)
         } catch _ {
-            let failedAlert = UIAlertController(title: "Oops!", message: "Error saving your purchase, please try again!", preferredStyle: .alert)
+            let failedAlert = UIAlertController(title: "Oops!", message: "Error saving your purchase, please retry this action. If that doesn't help, try restring or reinstalling the app.", preferredStyle: .alert)
             failedAlert.addAction(UIAlertAction(title: "OK", style: .default))
             present(failedAlert, animated: true, completion: nil)
             
