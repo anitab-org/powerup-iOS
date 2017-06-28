@@ -18,3 +18,4 @@ Links to the Documentation:
 [Part 1](https://docs.google.com/document/d/1WkhcVrUs-B_vlCBknNPYqxqc7_7wVrBF2pV0bKu_EiQ/edit?usp=sharing)    
 [Part 2](https://docs.google.com/document/d/1N_-zmmjPn6D1H6wTdF4z66mFGT3af_FWbfGvLKkeY1w/edit?usp=sharing)    
 
+![](https://travis-ci.org/systers/MovingHelper.svg?branch=GSoC17)
