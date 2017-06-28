@@ -12,7 +12,6 @@
 		2A0CA55A1B294C6B00ED8781 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A0CA5581B294C6B00ED8781 /* Main.storyboard */; };
 		2A0CA55C1B294C6B00ED8781 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A0CA55B1B294C6B00ED8781 /* Images.xcassets */; };
 		2A0CA55F1B294C6B00ED8781 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A0CA55D1B294C6B00ED8781 /* LaunchScreen.xib */; };
-		2A0CA56B1B294C6B00ED8781 /* PowerupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0CA56A1B294C6B00ED8781 /* PowerupTests.swift */; };
 		2A0CA5751B294C9200ED8781 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0CA5741B294C9200ED8781 /* libsqlite3.dylib */; };
 		2A2A4DB71B373C5B00D50860 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A4DB61B373C5B00D50860 /* StartViewController.swift */; };
 		2A5B28371D3E6E6300308F78 /* mainDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */; };
@@ -38,6 +37,8 @@
 		D9AAA9C61EF2481900287A79 /* GuessingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AAA9C51EF2481900287A79 /* GuessingBox.swift */; };
 		D9AAA9C91EF25E4600287A79 /* ShuffleArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AAA9C81EF25E4600287A79 /* ShuffleArrayExtension.swift */; };
 		D9D10A401EE130BD003584F4 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D10A3F1EE130BD003584F4 /* ResultsViewController.swift */; };
+		D9DD913E1F0363DF009DE3B5 /* ModelClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DD913D1F0363DF009DE3B5 /* ModelClassTests.swift */; };
+		D9DD91401F0368D0009DE3B5 /* DatabaseAccessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DD913F1F0368D0009DE3B5 /* DatabaseAccessorTests.swift */; };
 		D9E190A61EE952CD00109F39 /* Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E190A51EE952CD00109F39 /* Accessory.swift */; };
 		D9FFC0E31EE91EE4000F3CA6 /* CustomizeAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FFC0E21EE91EE4000F3CA6 /* CustomizeAvatarViewController.swift */; };
 /* End PBXBuildFile section */
@@ -74,7 +75,6 @@
 		2A0CA55E1B294C6B00ED8781 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		2A0CA5641B294C6B00ED8781 /* PowerupTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PowerupTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A0CA5691B294C6B00ED8781 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2A0CA56A1B294C6B00ED8781 /* PowerupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerupTests.swift; sourceTree = "<group>"; };
 		2A0CA5741B294C9200ED8781 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsqlite3.dylib; sourceTree = "<group>"; };
 		2A0CA5761B29E83500ED8781 /* Powerup-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Powerup-Bridging-Header.h"; sourceTree = "<group>"; };
 		2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = mainDatabase.sqlite; path = Scenarios/mainDatabase.sqlite; sourceTree = "<group>"; };
@@ -107,6 +107,8 @@
 		D9AAA9C51EF2481900287A79 /* GuessingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessingBox.swift; sourceTree = "<group>"; };
 		D9AAA9C81EF25E4600287A79 /* ShuffleArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShuffleArrayExtension.swift; path = ../ShuffleArrayExtension.swift; sourceTree = "<group>"; };
 		D9D10A3F1EE130BD003584F4 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		D9DD913D1F0363DF009DE3B5 /* ModelClassTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelClassTests.swift; sourceTree = "<group>"; };
+		D9DD913F1F0368D0009DE3B5 /* DatabaseAccessorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseAccessorTests.swift; sourceTree = "<group>"; };
 		D9E190A51EE952CD00109F39 /* Accessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accessory.swift; sourceTree = "<group>"; };
 		D9FFC0E21EE91EE4000F3CA6 /* CustomizeAvatarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizeAvatarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -182,8 +184,9 @@
 		2A0CA5671B294C6B00ED8781 /* PowerupTests */ = {
 			isa = PBXGroup;
 			children = (
+				D9DD913F1F0368D0009DE3B5 /* DatabaseAccessorTests.swift */,
+				D9DD913D1F0363DF009DE3B5 /* ModelClassTests.swift */,
 				D9970C7B1F00998300960B52 /* MinesweeperTests.swift */,
-				2A0CA56A1B294C6B00ED8781 /* PowerupTests.swift */,
 				2A0CA5681B294C6B00ED8781 /* Supporting Files */,
 			);
 			path = PowerupTests;
@@ -416,8 +419,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9DD913E1F0363DF009DE3B5 /* ModelClassTests.swift in Sources */,
+				D9DD91401F0368D0009DE3B5 /* DatabaseAccessorTests.swift in Sources */,
 				D9970C7C1F00998300960B52 /* MinesweeperTests.swift in Sources */,
-				2A0CA56B1B294C6B00ED8781 /* PowerupTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
