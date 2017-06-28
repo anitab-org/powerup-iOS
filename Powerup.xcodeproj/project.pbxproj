@@ -156,7 +156,7 @@
 			children = (
 				D9381DB21EF773B9000AC2B5 /* Font */,
 				D9AAA9C71EF25E2700287A79 /* Extensions */,
-				D9AAA99E1EF21C3D00287A79 /* Mine Sweeping Game */,
+				D9AAA99E1EF21C3D00287A79 /* Mine Sweeper Game */,
 				D959CBD21EE64A3A00C31753 /* DatabaseAccessor.swift */,
 				D959CBC51EE642BE00C31753 /* Data Models */,
 				D956495E1EDFB20A008D5675 /* View Controllers */,
@@ -255,13 +255,13 @@
 			name = "Data Models";
 			sourceTree = "<group>";
 		};
-		D9AAA99E1EF21C3D00287A79 /* Mine Sweeping Game */ = {
+		D9AAA99E1EF21C3D00287A79 /* Mine Sweeper Game */ = {
 			isa = PBXGroup;
 			children = (
 				D9AAA9C31EF2335F00287A79 /* MinesweeperGameScene.swift */,
 				D9AAA9C51EF2481900287A79 /* GuessingBox.swift */,
 			);
-			name = "Mine Sweeping Game";
+			name = "Mine Sweeper Game";
 			sourceTree = "<group>";
 		};
 		D9AAA9C71EF25E2700287A79 /* Extensions */ = {
@@ -545,7 +545,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = YUWPSE2UN9;
 				INFOPLIST_FILE = Powerup/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
@@ -567,7 +567,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = YUWPSE2UN9;
 				INFOPLIST_FILE = Powerup/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
