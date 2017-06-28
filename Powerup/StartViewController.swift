@@ -10,6 +10,20 @@ class StartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Check if the database is initialized yet. If no, initialize it.
+        if !DatabaseAccessor.sharedInstance.databaseIsInitialized() {
+            do {
+                try DatabaseAccessor.sharedInstance.initializeDatabase()
+            } catch _ {
+                let alert = UIAlertController(title: "Warning", message: "Error initializing user data, please restart the app.", preferredStyle: .alert)
+                
+                // Quit app when ok button is clicked.
+                let okButton = UIAlertAction(title: "OK", style: .destructive, handler: {action in exit(1)})
+                
+                alert.addAction(okButton)
+                self.present(alert, animated: true)
+            }
+        }
     }
     
     // MARK: Actions

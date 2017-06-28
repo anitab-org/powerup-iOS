@@ -1,5 +1,10 @@
-/** This is a singleton class for acessing SQLite Database. */
+enum DatabaseError: Error {
+    case databaseInitFailed
+    case databaseQueryFailed
+    case databaseUpdateFailed
+}
 
+/** This is a singleton class for acessing SQLite Database. */
 class DatabaseAccessor {
     
     // Database file name
@@ -16,8 +21,12 @@ class DatabaseAccessor {
     private var mainDB: FMDatabase?
     
     // Private initializer to avoid instancing by other classes
-    private init() {
-        
+    private init() {}
+    
+    /**
+      Open and initialize the database. Should be called once the app starts.
+     */
+    public func initializeDatabase() throws {
         // File directory.
         let fileManager = FileManager.default
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
@@ -27,21 +36,15 @@ class DatabaseAccessor {
         // Database not existing, create one.
         if !fileManager.fileExists(atPath: databasePath as String) {
             if let bundlePath = Bundle.main.path(forResource: DatabaseName, ofType: DatabaseFileType) {
-                do {
-                    try fileManager.copyItem(atPath: bundlePath, toPath: databasePath as String)
-                } catch let error as NSError {
-                    print(error)
-                }
+                try fileManager.copyItem(atPath: bundlePath, toPath: databasePath as String)
             }
         }
         
         mainDB = FMDatabase(path: databasePath as String)
         
         if mainDB == nil || !((mainDB?.open())!) {
-            // TODO: Should handle this error.
-            print("Error opening database.")
+            throw DatabaseError.databaseInitFailed
         }
-        
     }
     
     /**
@@ -50,7 +53,7 @@ class DatabaseAccessor {
       - Parameter: The scenario ID.
       - Return: A dictionary of [QuestionID -> Question].
     */
-    public func getQuestions(of scenarioID: Int) -> [Int:Question] {
+    public func getQuestions(of scenarioID: Int) throws -> [Int:Question] {
         let queryString = "SELECT * FROM Question WHERE ScenarioID = \(scenarioID)"
         let queryResults: FMResultSet? = mainDB?.executeQuery(queryString, withArgumentsIn: nil)
         
@@ -62,13 +65,8 @@ class DatabaseAccessor {
                 
                 result[Int(questionID)] = Question(questionID: Int(questionID), questionDescription: questionDescription, scenarioID: Int(scenarioID))
             } else {
-                print("Error fetching query results for questions.")
+                throw DatabaseError.databaseQueryFailed
             }
-        }
-        
-        if result.count == 0 {
-            // TODO: Should handle this error.
-            print("Error fetching questions from database.")
         }
         
         return result
@@ -80,7 +78,7 @@ class DatabaseAccessor {
       - Parameter: The QuestionID.
       - Return: An array of answers, sorted by their answerID.
     */
-    public func getAnswers(of questionID: Int) -> [Answer] {
+    public func getAnswers(of questionID: Int) throws -> [Answer] {
         let queryString = "SELECT * FROM Answer WHERE QuestionID = \(questionID) ORDER BY AnswerID"
         let queryResults: FMResultSet? = mainDB?.executeQuery(queryString, withArgumentsIn: nil)
         
@@ -93,8 +91,7 @@ class DatabaseAccessor {
                 result.append(Answer(answerID: Int(answerID), questionID: Int(questionID), answerDescription: answerDescription, nextQuestionID: nextQuestionID, points: Int(points)))
                 
             } else {
-                // TODO: Should handle this error.
-                print("Error fetching query results for answers.")
+                throw DatabaseError.databaseQueryFailed
             }
         }
         
@@ -105,9 +102,8 @@ class DatabaseAccessor {
       Save the accessories of the avatar in the database.
       
       - Parameter: An avatar class.
-      - Return: A Bool indicating whether the save is successful.
     */
-    public func saveAvatar(_ avatar: Avatar) -> Bool{
+    public func saveAvatar(_ avatar: Avatar) throws {
         // Determine whether they are nil, if they are, set its string to "NULL"
         let necklaceString = avatar.necklace == nil ? "NULL" : String(avatar.necklace!.id)
         let glassesString = avatar.glasses == nil ? "NULL" : String(avatar.glasses!.id)
@@ -119,11 +115,8 @@ class DatabaseAccessor {
         
         // Execute update query.
         guard mainDB!.executeUpdate(queryString, withArgumentsIn: nil) else {
-            print("Error updating database")
-            return false
+            throw DatabaseError.databaseUpdateFailed
         }
-        
-        return true
     }
     
     /**
@@ -131,7 +124,7 @@ class DatabaseAccessor {
     
       - Return: A saved avatar stored in database.
     */
-    public func getAvatar() -> Avatar {
+    public func getAvatar() throws -> Avatar {
         let queryString = "SELECT * FROM Avatar WHERE ID = \(avatarID)"
         let queryResults: FMResultSet? = mainDB?.executeQuery(queryString, withArgumentsIn: nil)
         
@@ -142,42 +135,41 @@ class DatabaseAccessor {
             
             // Face
             let faceID = Int(queryResults!.int(forColumn: AccessoryType.face.rawValue))
-            let face = getAccessory(accessoryType: .face, accessoryIndex: faceID)
+            let face = try getAccessory(accessoryType: .face, accessoryIndex: faceID)
             
             // Clothes
             let clothesID = Int(queryResults!.int(forColumn: AccessoryType.clothes.rawValue))
-            let clothes = getAccessory(accessoryType: .clothes, accessoryIndex: clothesID)
+            let clothes = try getAccessory(accessoryType: .clothes, accessoryIndex: clothesID)
             
             // Hair
             let hairID = Int(queryResults!.int(forColumn: AccessoryType.hair.rawValue))
-            let hair = getAccessory(accessoryType: .hair, accessoryIndex: hairID)
+            let hair = try getAccessory(accessoryType: .hair, accessoryIndex: hairID)
             
             // Eyes
             let eyesID = Int(queryResults!.int(forColumn: AccessoryType.eyes.rawValue))
-            let eyes = getAccessory(accessoryType: .eyes, accessoryIndex: eyesID)
+            let eyes = try getAccessory(accessoryType: .eyes, accessoryIndex: eyesID)
             
             // Necklace (optional)
             let necklaceID: Int? = (queryResults!.isNull(forColumn: AccessoryType.necklace.rawValue) ? nil : Int(queryResults!.int(forColumn: AccessoryType.necklace.rawValue)))
-            let necklace: Accessory? = necklaceID == nil ? nil : getAccessory(accessoryType: .necklace, accessoryIndex: necklaceID!)
+            let necklace: Accessory? = necklaceID == nil ? nil : try getAccessory(accessoryType: .necklace, accessoryIndex: necklaceID!)
             
             // Glasses (optional)
             let glassesID: Int? = (queryResults!.isNull(forColumn: AccessoryType.glasses.rawValue) ? nil : Int(queryResults!.int(forColumn: AccessoryType.glasses.rawValue)))
-            let glasses: Accessory? = glassesID == nil ? nil : getAccessory(accessoryType: .glasses, accessoryIndex: glassesID!)
+            let glasses: Accessory? = glassesID == nil ? nil : try getAccessory(accessoryType: .glasses, accessoryIndex: glassesID!)
             
             // Handbag (optional)
             let handbagID: Int? = (queryResults!.isNull(forColumn: AccessoryType.handbag.rawValue) ? nil : Int(queryResults!.int(forColumn: AccessoryType.handbag.rawValue)))
-            let handbag: Accessory? = handbagID == nil ? nil : getAccessory(accessoryType: .handbag, accessoryIndex: handbagID!)
+            let handbag: Accessory? = handbagID == nil ? nil : try getAccessory(accessoryType: .handbag, accessoryIndex: handbagID!)
             
             // Hat (optional)
             let hatID: Int? = (queryResults!.isNull(forColumn: AccessoryType.hat.rawValue) ? nil : Int(queryResults!.int(forColumn: AccessoryType.hat.rawValue)))
-            let hat: Accessory? = hatID == nil ? nil : getAccessory(accessoryType: .hat, accessoryIndex: hatID!)
+            let hat: Accessory? = hatID == nil ? nil : try getAccessory(accessoryType: .hat, accessoryIndex: hatID!)
             
             // Init avatar
             result = Avatar(avatarID: avatarID, face: face, eyes: eyes, hair: hair, clothes: clothes, necklace: necklace, glasses: glasses, handbag: handbag, hat: hat)
             
         } else {
-            // TODO: Should handle this error.
-            print("Error fetching avatar data.")
+            throw DatabaseError.databaseQueryFailed
         }
         
         return result
@@ -213,7 +205,7 @@ class DatabaseAccessor {
       - Parameter: index.
       - Return: The corresponding accessories.
     */
-    public func getAccessory(accessoryType: AccessoryType, accessoryIndex: Int) -> Accessory {
+    public func getAccessory(accessoryType: AccessoryType, accessoryIndex: Int) throws -> Accessory {
         let queryString = "SELECT * FROM " + accessoryType.rawValue + " WHERE ID = \(accessoryIndex)"
         let queryResults: FMResultSet? = mainDB?.executeQuery(queryString, withArgumentsIn: nil)
         
@@ -227,8 +219,7 @@ class DatabaseAccessor {
             
             result = Accessory(type: accessoryType, id: accessoryID, imageName: accessoryImageName!, points: accessoryPoints, purchased: accessoryPurchased)
         } else {
-            // TODO: Should handle this error.
-            print("Error fetching accessory from table " + accessoryType.rawValue + ".")
+            throw DatabaseError.databaseQueryFailed
         }
         
         return result
@@ -237,66 +228,53 @@ class DatabaseAccessor {
     /**
       Set the accessory as bought in the database.
       - Parameter: The accessory intended to be saved.
-      - Return: Whether is save is successful or not.
     */
-    public func boughtAccessory(accessory: Accessory) -> Bool {
+    public func boughtAccessory(accessory: Accessory) throws {
         let queryString = "UPDATE \(accessory.type.rawValue) SET Purchased = 1 WHERE ID = \(accessory.id)"
         
         guard mainDB!.executeUpdate(queryString, withArgumentsIn: nil) else {
-            print("Error setting bought state in database.")
-            return false
+            throw DatabaseError.databaseUpdateFailed
         }
-        
-        return true
     }
 
     /**
       Create a new entry into the Avatar table.
       - Parameter: Face, clothes, hair, eyes.
-      - Return: Bool, indicating whether the creation is successful.
     */
-    public func createAvatar(_ avatar: Avatar) -> Bool {
+    public func createAvatar(_ avatar: Avatar) throws {
         
         // Reset database (so the previous purchased accessories will be restored to unpurchased).
-        resetDatabase()
+        try resetDatabase()
         
         // Avatar already exists, use update instead of insert.
         if avatarExists() {
             
             // Update avatar
-            guard saveAvatar(avatar) else {
-                print("Error saving avatar.")
-                return false
-            }
+            try saveAvatar(avatar)
             
             // Reset scores.
             let updateQuery = "UPDATE Score SET Strength = 0, Invisibility = 0, Healing = 0, Telepathy = 0, Points = 0 WHERE ID = \(avatarID)"
             
             guard mainDB!.executeUpdate(updateQuery, withArgumentsIn: nil) else {
-                print("Error updating score.")
-                return false
+                throw DatabaseError.databaseUpdateFailed
             }
             
-            return true
+            return
         }
         
         // Necklace, glasses, handbag, hat are NULL because players cannot have those when creating new avatars.
         let queryString = "INSERT INTO Avatar (ID, Face, Clothes, Hair, Eyes, Necklace, Glasses, Handbag, Hat) VALUES (\(avatarID), \(avatar.face.id), \(avatar.clothes.id), \(avatar.hair.id), \(avatar.eyes.id), NULL, NULL, NULL, NULL)"
         
         guard mainDB!.executeUpdate(queryString, withArgumentsIn: nil) else {
-            print("Error creating avatar.")
-            return false
+            throw DatabaseError.databaseUpdateFailed
         }
         
         // Create an entry for score, storing the points and powers for the avatar.
         let insertQuery = "INSERT INTO Score (ID, Strength, Invisibility, Healing, Telepathy, Points) VALUES (\(avatarID), 0, 0, 0, 0, 0)"
         
         guard mainDB!.executeUpdate(insertQuery, withArgumentsIn: nil) else {
-            print("Error inserting new score entry.")
-            return false
+            throw DatabaseError.databaseUpdateFailed
         }
-        
-        return true
     }
     
     /**
@@ -313,24 +291,20 @@ class DatabaseAccessor {
     /**
       Save the Karma points and the powers in the database.
       - Parameter: The score intended to save.
-      - Return: Whether the save is successful.
     */
-    public func saveScore(score: Score) -> Bool {
+    public func saveScore(score: Score) throws {
         let queryString = "UPDATE Score SET Strength = \(score.strength), Invisibility = \(score.invisibility), Healing = \(score.healing), Telepathy = \(score.telepathy), Points = \(score.karmaPoints) WHERE ID = \(avatarID)"
         
         guard mainDB!.executeUpdate(queryString, withArgumentsIn: nil) else {
-            print("Error saving score.")
-            return false
+            throw DatabaseError.databaseUpdateFailed
         }
-        
-        return true
     }
     
     /**
       Get the Karma points and the powers from the database.
       - Return: The points and powers in a Score struct.
     */
-    public func getScore() -> Score {
+    public func getScore() throws -> Score {
         let queryString = "SELECT * FROM Score WHERE ID = \(avatarID)"
         let queryResults: FMResultSet? = mainDB?.executeQuery(queryString, withArgumentsIn: nil)
         
@@ -342,10 +316,9 @@ class DatabaseAccessor {
             let telepathy = Int(queryResults!.int(forColumn: "Telepathy"))
             
             return Score(karmaPoints: karmaPoint, healing: healing, strength: strength, telepathy: telepathy, invisibility: invisibility)
+        } else {
+            throw DatabaseError.databaseQueryFailed
         }
-        
-        print("Error fetching score from database.")
-        return Score()
     }
     
     /** Close database if it's opened */
@@ -353,8 +326,13 @@ class DatabaseAccessor {
         mainDB?.close()
     }
     
+    /** Return if the database is initialized. */
+    public func databaseIsInitialized() -> Bool {
+        return mainDB != nil
+    }
+    
     /** Reset the data of the database. */
-    public func resetDatabase() {
+    public func resetDatabase() throws {
         
         mainDB?.close()
         
@@ -387,8 +365,7 @@ class DatabaseAccessor {
         mainDB = FMDatabase(path: databasePath as String)
         
         if mainDB == nil || !((mainDB?.open())!) {
-            // TODO: Should handle this error.
-            print("Error opening database.")
+            throw DatabaseError.databaseInitFailed
         }
     }
 }
