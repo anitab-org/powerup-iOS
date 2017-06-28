@@ -1,11 +1,18 @@
 import UIKit
 import SpriteKit
 
+enum MiniGameIndex: Int {
+    case unknown = 0
+    case minesweeper = -1
+    case swimToDrawn = -2
+    case catchIt = -3
+}
+
 class MiniGameViewController: UIViewController {
     
     // MARK: Properties
     // Will be assigned in the previous VC (ScenarioViewController).
-    var gameIndex: Int = 0
+    var gameIndex: MiniGameIndex = .unknown
     
     // MARK: Functions
     override func viewDidLoad() {
@@ -18,7 +25,7 @@ class MiniGameViewController: UIViewController {
         switch (gameIndex) {
             
         // Mine Sweeper
-        case -1:
+        case .minesweeper:
             let minesweeperGame = MinesweeperGameScene(size: view.bounds.size)
             minesweeperGame.viewController = self
             gameScene = minesweeperGame
@@ -27,8 +34,6 @@ class MiniGameViewController: UIViewController {
         }
         
         gameScene.scaleMode = .resizeFill
-        skView.showsFPS = true
-        skView.showsNodeCount = true
         skView.ignoresSiblingOrder = true
         skView.presentScene(gameScene)
     }
