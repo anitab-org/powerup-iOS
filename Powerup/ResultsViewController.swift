@@ -5,6 +5,9 @@ class ResultsViewController: UIViewController {
     // TODO: Should detemine how many Karma points will be given after each completion of scenario.
     let karmaGain = 20
     
+    // MARK: Properties
+    var dataSource: DataSource
+    
     // MARK: Views
     @IBOutlet weak var eyesView: UIImageView!
     @IBOutlet weak var hairView: UIImageView!
@@ -16,13 +19,35 @@ class ResultsViewController: UIViewController {
     @IBOutlet weak var hatView: UIImageView!
     @IBOutlet weak var karmaPointsLabel: UILabel!
     
+    // MARK: Constructor
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        // Set the data source to the database singleton.
+        dataSource = DatabaseAccessor.sharedInstance
+        
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        // Set the data source to the database singleton.
+        dataSource = DatabaseAccessor.sharedInstance
+        
+        super.init(coder: aDecoder)
+    }
+    
+    // For inserting mocking data for database.
+    init(dataSource: DataSource) {
+        self.dataSource = dataSource
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
     // MARK: Functions
     // Configures the accessories of the avatar.
     func configureAvatar() {
         let avatar: Avatar!
         
         do {
-            avatar = try DatabaseAccessor.sharedInstance.getAvatar()
+            avatar = try dataSource.getAvatar()
         } catch _ {
             // Cannot load customized avatar, just use the default one.
             avatar = Avatar()
@@ -46,8 +71,8 @@ class ResultsViewController: UIViewController {
         // Save the karma gains in database.
         let newScore: Score!
         do {
-            newScore = try DatabaseAccessor.sharedInstance.getScore() + Score(karmaPoints: karmaGain)
-            try DatabaseAccessor.sharedInstance.saveScore(score: newScore)
+            newScore = try dataSource.getScore() + Score(karmaPoints: karmaGain)
+            try dataSource.saveScore(score: newScore)
         } catch _ {
             // If the saving failed, show an alert dialogue.
             let alert = UIAlertController(title: "Warning", message: "Error saving Karma points.", preferredStyle: .alert)

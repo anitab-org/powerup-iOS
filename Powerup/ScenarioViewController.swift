@@ -3,6 +3,7 @@ import UIKit
 class ScenarioViewController: UIViewController {
     
     //MARK: Properties
+    var dataSource: DataSource
     
     // current scenario, set by the MapViewController
     var scenarioID: Int = 0
@@ -33,6 +34,29 @@ class ScenarioViewController: UIViewController {
     @IBOutlet weak var glassesView: UIImageView!
     @IBOutlet weak var hatView: UIImageView!
     
+    // MARK: Constructors
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        // Set the data source to the database singleton.
+        dataSource = DatabaseAccessor.sharedInstance
+        
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        // Set the data source to the database singleton.
+        dataSource = DatabaseAccessor.sharedInstance
+        
+        super.init(coder: aDecoder)
+    }
+    
+    // For mocking data source for testing.
+    init(dataSource: DataSource) {
+        self.dataSource = dataSource
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    // MARK: Functions
     func resetQuestionAndChoices() {
         // Hide question Label and all the Buttons for choices, will show them only if the query to Database is successful
         for choiceButton in choiceButtons {
@@ -44,7 +68,7 @@ class ScenarioViewController: UIViewController {
         
         // Fetch answers from database
         do {
-            try answers = DatabaseAccessor.sharedInstance.getAnswers(of: currQuestionID)
+            try answers = dataSource.getAnswers(of: currQuestionID)
         } catch _ {
             // Unwind back to map view if cound't fetch choices from database.
             let alert = UIAlertController(title: "Warning", message: "Error loading the choices. Please try again!", preferredStyle: .alert)
@@ -79,7 +103,7 @@ class ScenarioViewController: UIViewController {
         let avatar: Avatar!
         
         do {
-            avatar = try DatabaseAccessor.sharedInstance.getAvatar()
+            avatar = try dataSource.getAvatar()
         } catch _ {
             // Unwind back to map view if cound't fetch avatar from database.
             let alert = UIAlertController(title: "Warning", message: "Error loading the avatar. Please try again!", preferredStyle: .alert)
@@ -110,7 +134,7 @@ class ScenarioViewController: UIViewController {
         
         // Fetch questions from database
         do {
-            questions = try DatabaseAccessor.sharedInstance.getQuestions(of: scenarioID)
+            questions = try dataSource.getQuestions(of: scenarioID)
         } catch _ {
             
             // Unwind back to map view if cound't fetch questions from database.

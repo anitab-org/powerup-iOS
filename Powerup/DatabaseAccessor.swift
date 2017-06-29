@@ -5,7 +5,7 @@ enum DatabaseError: Error {
 }
 
 /** This is a singleton class for acessing SQLite Database. */
-class DatabaseAccessor {
+class DatabaseAccessor: DataSource {
     
     // Database file name
     private let DatabaseName = "mainDatabase"
@@ -14,11 +14,11 @@ class DatabaseAccessor {
     // TODO: Multiple avatars with different IDs.
     let avatarID = 1
     
-    // The instance of DatabaseAccessor
-    static let sharedInstance = DatabaseAccessor()
-    
     // The instance of the SQLite database
     private var mainDB: FMDatabase?
+    
+    // The instance of DatabaseAccessor
+    static let sharedInstance = DatabaseAccessor()
     
     // Private initializer to avoid instancing by other classes
     private init() {}

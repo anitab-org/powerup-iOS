@@ -16,20 +16,50 @@ class CustomizeAvatarViewController: UIViewController {
     // MARK: Properties
     var avatar = Avatar()
     
+    var dataSource: DataSource
+    
     var chosenClothesIndex = 0
     var chosenEyesIndex = 0
     var chosenHairIndex = 0
     var chosenFaceIndex = 0
     
     // Get arrays of accessories.
-    let clothes = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .clothes).filter({a in return a.purchased})
-    let faces = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .face).filter({a in return a.purchased})
-    let hairs = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .hair).filter({a in return a.purchased})
-    let eyes = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .eyes).filter({a in return a.purchased})
+    var clothes: [Accessory]!
+    var faces: [Accessory]!
+    var hairs: [Accessory]!
+    var eyes: [Accessory]!
+    
+    // MARK: Constructors
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        // Set the data source to the database singleton.
+        dataSource = DatabaseAccessor.sharedInstance
+        
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        // Set the data source to the database singleton.
+        dataSource = DatabaseAccessor.sharedInstance
+        
+        super.init(coder: aDecoder)
+    }
+    
+    // For inserting mocking data source for tests.
+    init(dataSource: DataSource) {
+        self.dataSource = dataSource
+        
+        super.init(nibName: nil, bundle: nil)
+    }
     
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Initialize the accessory arrays.
+        clothes = dataSource.getAccessoryArray(accessoryType: .clothes).filter({a in return a.purchased})
+        hairs = dataSource.getAccessoryArray(accessoryType: .hair).filter({a in return a.purchased})
+        faces = dataSource.getAccessoryArray(accessoryType: .face).filter({a in return a.purchased})
+        eyes = dataSource.getAccessoryArray(accessoryType: .eyes).filter({a in return a.purchased})
         
         // Initialize the images of exhibition boxes and the avatar
         updateClothesImage()
@@ -130,7 +160,7 @@ class CustomizeAvatarViewController: UIViewController {
     @IBAction func continueButtonTouched(_ sender: UIButton) {
         // Save the current configuration to database.
         do {
-            try DatabaseAccessor.sharedInstance.createAvatar(avatar)
+            try dataSource.createAvatar(avatar)
         } catch _ {
             let alert = UIAlertController(title: "Warning", message: "Failed to save avatar, please retry this action. If that doesn't help, try restaring or reinstalling the app.", preferredStyle: .alert)
             

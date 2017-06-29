@@ -22,6 +22,7 @@
 		2AF82A8F1B4BA74A00307BED /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A871B4BA74A00307BED /* FMDatabasePool.m */; };
 		2AF82A901B4BA74A00307BED /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A891B4BA74A00307BED /* FMDatabaseQueue.m */; };
 		2AF82A911B4BA74A00307BED /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A8C1B4BA74A00307BED /* FMResultSet.m */; };
+		D910FF191F04AB3200C444DA /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF181F04AB3200C444DA /* DataSource.swift */; };
 		D9381DB11EF773B2000AC2B5 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D9381DB01EF773B2000AC2B5 /* Montserrat-Bold.otf */; };
 		D959CBC71EE6430E00C31753 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D959CBC61EE6430E00C31753 /* Answer.swift */; };
 		D959CBC91EE643F400C31753 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D959CBC81EE643F400C31753 /* Avatar.swift */; };
@@ -38,7 +39,6 @@
 		D9AAA9C91EF25E4600287A79 /* ShuffleArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AAA9C81EF25E4600287A79 /* ShuffleArrayExtension.swift */; };
 		D9D10A401EE130BD003584F4 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D10A3F1EE130BD003584F4 /* ResultsViewController.swift */; };
 		D9DD913E1F0363DF009DE3B5 /* ModelClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DD913D1F0363DF009DE3B5 /* ModelClassTests.swift */; };
-		D9DD91401F0368D0009DE3B5 /* DatabaseAccessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DD913F1F0368D0009DE3B5 /* DatabaseAccessorTests.swift */; };
 		D9E190A61EE952CD00109F39 /* Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E190A51EE952CD00109F39 /* Accessory.swift */; };
 		D9FFC0E31EE91EE4000F3CA6 /* CustomizeAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FFC0E21EE91EE4000F3CA6 /* CustomizeAvatarViewController.swift */; };
 /* End PBXBuildFile section */
@@ -92,6 +92,7 @@
 		2AF82A8A1B4BA74A00307BED /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = FMDB/FMDB.h; sourceTree = "<group>"; };
 		2AF82A8B1B4BA74A00307BED /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = FMDB/FMResultSet.h; sourceTree = "<group>"; };
 		2AF82A8C1B4BA74A00307BED /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = FMDB/FMResultSet.m; sourceTree = "<group>"; };
+		D910FF181F04AB3200C444DA /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		D9381DB01EF773B2000AC2B5 /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
 		D959CBC61EE6430E00C31753 /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		D959CBC81EE643F400C31753 /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
@@ -108,7 +109,6 @@
 		D9AAA9C81EF25E4600287A79 /* ShuffleArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShuffleArrayExtension.swift; path = ../ShuffleArrayExtension.swift; sourceTree = "<group>"; };
 		D9D10A3F1EE130BD003584F4 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		D9DD913D1F0363DF009DE3B5 /* ModelClassTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelClassTests.swift; sourceTree = "<group>"; };
-		D9DD913F1F0368D0009DE3B5 /* DatabaseAccessorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseAccessorTests.swift; sourceTree = "<group>"; };
 		D9E190A51EE952CD00109F39 /* Accessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accessory.swift; sourceTree = "<group>"; };
 		D9FFC0E21EE91EE4000F3CA6 /* CustomizeAvatarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizeAvatarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +158,7 @@
 		2A0CA5511B294C6B00ED8781 /* Powerup */ = {
 			isa = PBXGroup;
 			children = (
+				D910FF171F04AB1900C444DA /* Protocols */,
 				D9381DB21EF773B9000AC2B5 /* Font */,
 				D9AAA9C71EF25E2700287A79 /* Extensions */,
 				D9AAA99E1EF21C3D00287A79 /* Mine Sweeper Game */,
@@ -184,7 +185,6 @@
 		2A0CA5671B294C6B00ED8781 /* PowerupTests */ = {
 			isa = PBXGroup;
 			children = (
-				D9DD913F1F0368D0009DE3B5 /* DatabaseAccessorTests.swift */,
 				D9DD913D1F0363DF009DE3B5 /* ModelClassTests.swift */,
 				D9970C7B1F00998300960B52 /* MinesweeperTests.swift */,
 				2A0CA5681B294C6B00ED8781 /* Supporting Files */,
@@ -226,6 +226,14 @@
 			name = FMDB;
 			sourceTree = "<group>";
 		};
+		D910FF171F04AB1900C444DA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D910FF181F04AB3200C444DA /* DataSource.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		D9381DB21EF773B9000AC2B5 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,12 +245,12 @@
 		D956495E1EDFB20A008D5675 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2A2A4DB61B373C5B00D50860 /* StartViewController.swift */,
 				2A8D2E061D17CDF700154F98 /* ShopViewController.swift */,
 				D9FFC0E21EE91EE4000F3CA6 /* CustomizeAvatarViewController.swift */,
 				D95B03CB1EDE7470001DB858 /* MapViewController.swift */,
 				2A0CA5561B294C6B00ED8781 /* ScenarioViewController.swift */,
 				D95B03CD1EDEA680001DB858 /* MiniGameViewController.swift */,
-				2A2A4DB61B373C5B00D50860 /* StartViewController.swift */,
 				D9D10A3F1EE130BD003584F4 /* ResultsViewController.swift */,
 			);
 			name = "View Controllers";
@@ -403,6 +411,7 @@
 				D969D26C1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift in Sources */,
 				D959CBCF1EE6491800C31753 /* Score.swift in Sources */,
 				D9FFC0E31EE91EE4000F3CA6 /* CustomizeAvatarViewController.swift in Sources */,
+				D910FF191F04AB3200C444DA /* DataSource.swift in Sources */,
 				2AD1A1E71B2B1ADA00BCA94D /* ModelManager.swift in Sources */,
 				D959CBD31EE64A3A00C31753 /* DatabaseAccessor.swift in Sources */,
 				2A0CA5551B294C6B00ED8781 /* AppDelegate.swift in Sources */,
@@ -420,7 +429,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9DD913E1F0363DF009DE3B5 /* ModelClassTests.swift in Sources */,
-				D9DD91401F0368D0009DE3B5 /* DatabaseAccessorTests.swift in Sources */,
 				D9970C7C1F00998300960B52 /* MinesweeperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -556,6 +564,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Powerup;
 				PROVISIONING_PROFILE = "";
@@ -591,12 +600,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				GCC_PREPROCESSOR_DEFINITIONS = (
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
 					"DEBUG=1",
-					"$(inherited)",
+					"TEST=1",
 				);
 				INFOPLIST_FILE = PowerupTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = PowerupTests;
 				SWIFT_VERSION = 3.0;
@@ -610,6 +621,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = PowerupTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = PowerupTests;
 				SWIFT_VERSION = 3.0;
