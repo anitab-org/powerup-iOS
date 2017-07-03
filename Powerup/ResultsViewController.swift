@@ -6,7 +6,7 @@ class ResultsViewController: UIViewController {
     let karmaGain = 20
     
     // MARK: Properties
-    var dataSource: DataSource
+    var dataSource: DataSource = DatabaseAccessor.sharedInstance
     
     // MARK: Views
     @IBOutlet weak var eyesView: UIImageView!
@@ -18,28 +18,6 @@ class ResultsViewController: UIViewController {
     @IBOutlet weak var glassesView: UIImageView!
     @IBOutlet weak var hatView: UIImageView!
     @IBOutlet weak var karmaPointsLabel: UILabel!
-    
-    // MARK: Constructor
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        // Set the data source to the database singleton.
-        dataSource = DatabaseAccessor.sharedInstance
-        
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        // Set the data source to the database singleton.
-        dataSource = DatabaseAccessor.sharedInstance
-        
-        super.init(coder: aDecoder)
-    }
-    
-    // For inserting mocking data for database.
-    init(dataSource: DataSource) {
-        self.dataSource = dataSource
-        
-        super.init(nibName: nil, bundle: nil)
-    }
     
     // MARK: Functions
     // Configures the accessories of the avatar.
@@ -63,11 +41,7 @@ class ResultsViewController: UIViewController {
         necklaceView.image = avatar.necklace?.image
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        configureAvatar()
-        
+    func gainKarmaPoints() {
         // Save the karma gains in database.
         let newScore: Score!
         do {
@@ -89,6 +63,14 @@ class ResultsViewController: UIViewController {
         let notification = UIAlertController(title: "Hooray!", message: "You gained \(karmaGain) Karma points!", preferredStyle: .alert)
         notification.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(notification, animated: true, completion: nil)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        configureAvatar()
+        
+        gainKarmaPoints()
         
         // TODO: Save the completion of scenarios in the database.
         

@@ -23,6 +23,10 @@
 		2AF82A901B4BA74A00307BED /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A891B4BA74A00307BED /* FMDatabaseQueue.m */; };
 		2AF82A911B4BA74A00307BED /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A8C1B4BA74A00307BED /* FMResultSet.m */; };
 		D910FF191F04AB3200C444DA /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF181F04AB3200C444DA /* DataSource.swift */; };
+		D910FF1F1F04DD4F00C444DA /* ResultViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF1E1F04DD4F00C444DA /* ResultViewControllerTests.swift */; };
+		D910FF211F05E22400C444DA /* ScenarioViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF201F05E22400C444DA /* ScenarioViewControllerTests.swift */; };
+		D910FF231F05FF5E00C444DA /* CustomizeAvatarViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF221F05FF5E00C444DA /* CustomizeAvatarViewControllerTests.swift */; };
+		D910FF251F06304F00C444DA /* DatabaseAccessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF241F06304F00C444DA /* DatabaseAccessorTests.swift */; };
 		D9381DB11EF773B2000AC2B5 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D9381DB01EF773B2000AC2B5 /* Montserrat-Bold.otf */; };
 		D959CBC71EE6430E00C31753 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D959CBC61EE6430E00C31753 /* Answer.swift */; };
 		D959CBC91EE643F400C31753 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D959CBC81EE643F400C31753 /* Avatar.swift */; };
@@ -93,6 +97,10 @@
 		2AF82A8B1B4BA74A00307BED /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = FMDB/FMResultSet.h; sourceTree = "<group>"; };
 		2AF82A8C1B4BA74A00307BED /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = FMDB/FMResultSet.m; sourceTree = "<group>"; };
 		D910FF181F04AB3200C444DA /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		D910FF1E1F04DD4F00C444DA /* ResultViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewControllerTests.swift; sourceTree = "<group>"; };
+		D910FF201F05E22400C444DA /* ScenarioViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioViewControllerTests.swift; sourceTree = "<group>"; };
+		D910FF221F05FF5E00C444DA /* CustomizeAvatarViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizeAvatarViewControllerTests.swift; sourceTree = "<group>"; };
+		D910FF241F06304F00C444DA /* DatabaseAccessorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseAccessorTests.swift; sourceTree = "<group>"; };
 		D9381DB01EF773B2000AC2B5 /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
 		D959CBC61EE6430E00C31753 /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		D959CBC81EE643F400C31753 /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
@@ -158,10 +166,10 @@
 		2A0CA5511B294C6B00ED8781 /* Powerup */ = {
 			isa = PBXGroup;
 			children = (
-				D910FF171F04AB1900C444DA /* Protocols */,
 				D9381DB21EF773B9000AC2B5 /* Font */,
 				D9AAA9C71EF25E2700287A79 /* Extensions */,
 				D9AAA99E1EF21C3D00287A79 /* Mine Sweeper Game */,
+				D910FF181F04AB3200C444DA /* DataSource.swift */,
 				D959CBD21EE64A3A00C31753 /* DatabaseAccessor.swift */,
 				D959CBC51EE642BE00C31753 /* Data Models */,
 				D956495E1EDFB20A008D5675 /* View Controllers */,
@@ -185,6 +193,10 @@
 		2A0CA5671B294C6B00ED8781 /* PowerupTests */ = {
 			isa = PBXGroup;
 			children = (
+				D910FF241F06304F00C444DA /* DatabaseAccessorTests.swift */,
+				D910FF221F05FF5E00C444DA /* CustomizeAvatarViewControllerTests.swift */,
+				D910FF201F05E22400C444DA /* ScenarioViewControllerTests.swift */,
+				D910FF1E1F04DD4F00C444DA /* ResultViewControllerTests.swift */,
 				D9DD913D1F0363DF009DE3B5 /* ModelClassTests.swift */,
 				D9970C7B1F00998300960B52 /* MinesweeperTests.swift */,
 				2A0CA5681B294C6B00ED8781 /* Supporting Files */,
@@ -224,14 +236,6 @@
 				2AF82A8B1B4BA74A00307BED /* FMResultSet.h */,
 			);
 			name = FMDB;
-			sourceTree = "<group>";
-		};
-		D910FF171F04AB1900C444DA /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				D910FF181F04AB3200C444DA /* DataSource.swift */,
-			);
-			name = Protocols;
 			sourceTree = "<group>";
 		};
 		D9381DB21EF773B9000AC2B5 /* Font */ = {
@@ -428,7 +432,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D910FF231F05FF5E00C444DA /* CustomizeAvatarViewControllerTests.swift in Sources */,
+				D910FF251F06304F00C444DA /* DatabaseAccessorTests.swift in Sources */,
 				D9DD913E1F0363DF009DE3B5 /* ModelClassTests.swift in Sources */,
+				D910FF1F1F04DD4F00C444DA /* ResultViewControllerTests.swift in Sources */,
+				D910FF211F05E22400C444DA /* ScenarioViewControllerTests.swift in Sources */,
 				D9970C7C1F00998300960B52 /* MinesweeperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

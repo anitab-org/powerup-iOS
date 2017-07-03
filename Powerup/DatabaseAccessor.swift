@@ -8,8 +8,9 @@ enum DatabaseError: Error {
 class DatabaseAccessor: DataSource {
     
     // Database file name
-    private let DatabaseName = "mainDatabase"
-    private let DatabaseFileType = "sqlite"
+    var databaseNameInFile = "mainDatabase"
+    let databaseNameInBundle = "mainDatabase"
+    let DatabaseFileType = "sqlite"
     
     // TODO: Multiple avatars with different IDs.
     let avatarID = 1
@@ -21,21 +22,21 @@ class DatabaseAccessor: DataSource {
     static let sharedInstance = DatabaseAccessor()
     
     // Private initializer to avoid instancing by other classes
-    private init() {}
+    private override init() {}
     
     /**
       Open and initialize the database. Should be called once the app starts.
      */
-    public func initializeDatabase() throws {
+    public override func initializeDatabase() throws {
         // File directory.
         let fileManager = FileManager.default
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         
-        let databasePath = (dirPath as NSString).appendingPathComponent(DatabaseName + "." + DatabaseFileType) as NSString
+        let databasePath = (dirPath as NSString).appendingPathComponent(databaseNameInFile + "." + DatabaseFileType) as NSString
         
         // Database not existing, create one.
         if !fileManager.fileExists(atPath: databasePath as String) {
-            if let bundlePath = Bundle.main.path(forResource: DatabaseName, ofType: DatabaseFileType) {
+            if let bundlePath = Bundle.main.path(forResource: databaseNameInBundle, ofType: DatabaseFileType) {
                 try fileManager.copyItem(atPath: bundlePath, toPath: databasePath as String)
             }
         }
@@ -53,7 +54,7 @@ class DatabaseAccessor: DataSource {
       - Parameter: The scenario ID.
       - Return: A dictionary of [QuestionID -> Question].
     */
-    public func getQuestions(of scenarioID: Int) throws -> [Int:Question] {
+    public override func getQuestions(of scenarioID: Int) throws -> [Int:Question] {
         let queryString = "SELECT * FROM Question WHERE ScenarioID = \(scenarioID)"
         let queryResults: FMResultSet? = mainDB?.executeQuery(queryString, withArgumentsIn: nil)
         
@@ -78,7 +79,7 @@ class DatabaseAccessor: DataSource {
       - Parameter: The QuestionID.
       - Return: An array of answers, sorted by their answerID.
     */
-    public func getAnswers(of questionID: Int) throws -> [Answer] {
+    public override func getAnswers(of questionID: Int) throws -> [Answer] {
         let queryString = "SELECT * FROM Answer WHERE QuestionID = \(questionID) ORDER BY AnswerID"
         let queryResults: FMResultSet? = mainDB?.executeQuery(queryString, withArgumentsIn: nil)
         
@@ -103,7 +104,7 @@ class DatabaseAccessor: DataSource {
       
       - Parameter: An avatar class.
     */
-    public func saveAvatar(_ avatar: Avatar) throws {
+    public override func saveAvatar(_ avatar: Avatar) throws {
         // Determine whether they are nil, if they are, set its string to "NULL"
         let necklaceString = avatar.necklace == nil ? "NULL" : String(avatar.necklace!.id)
         let glassesString = avatar.glasses == nil ? "NULL" : String(avatar.glasses!.id)
@@ -124,7 +125,7 @@ class DatabaseAccessor: DataSource {
     
       - Return: A saved avatar stored in database.
     */
-    public func getAvatar() throws -> Avatar {
+    public override func getAvatar() throws -> Avatar {
         let queryString = "SELECT * FROM Avatar WHERE ID = \(avatarID)"
         let queryResults: FMResultSet? = mainDB?.executeQuery(queryString, withArgumentsIn: nil)
         
@@ -180,7 +181,7 @@ class DatabaseAccessor: DataSource {
       - Parameter: Accessory type (i.e. Hair, Face, etc.).
       - Return: An array of accessories.
     */
-    public func getAccessoryArray(accessoryType: AccessoryType) -> [Accessory] {
+    public override func getAccessoryArray(accessoryType: AccessoryType) -> [Accessory] {
         let queryString = "SELECT * FROM " + accessoryType.rawValue + " ORDER BY ID"
         let queryResults: FMResultSet? = mainDB?.executeQuery(queryString, withArgumentsIn: nil)
         
@@ -205,7 +206,7 @@ class DatabaseAccessor: DataSource {
       - Parameter: index.
       - Return: The corresponding accessories.
     */
-    public func getAccessory(accessoryType: AccessoryType, accessoryIndex: Int) throws -> Accessory {
+    public override func getAccessory(accessoryType: AccessoryType, accessoryIndex: Int) throws -> Accessory {
         let queryString = "SELECT * FROM " + accessoryType.rawValue + " WHERE ID = \(accessoryIndex)"
         let queryResults: FMResultSet? = mainDB?.executeQuery(queryString, withArgumentsIn: nil)
         
@@ -229,7 +230,7 @@ class DatabaseAccessor: DataSource {
       Set the accessory as bought in the database.
       - Parameter: The accessory intended to be saved.
     */
-    public func boughtAccessory(accessory: Accessory) throws {
+    public override func boughtAccessory(accessory: Accessory) throws {
         let queryString = "UPDATE \(accessory.type.rawValue) SET Purchased = 1 WHERE ID = \(accessory.id)"
         
         guard mainDB!.executeUpdate(queryString, withArgumentsIn: nil) else {
@@ -241,7 +242,7 @@ class DatabaseAccessor: DataSource {
       Create a new entry into the Avatar table.
       - Parameter: Face, clothes, hair, eyes.
     */
-    public func createAvatar(_ avatar: Avatar) throws {
+    public override func createAvatar(_ avatar: Avatar) throws {
         
         // Reset database (so the previous purchased accessories will be restored to unpurchased).
         try resetDatabase()
@@ -281,7 +282,7 @@ class DatabaseAccessor: DataSource {
       Check if an avatar is already created.
       - Return: Bool, true if there exist an avatar.
     */
-    public func avatarExists() -> Bool {
+    public override func avatarExists() -> Bool {
         let queryString = "SELECT * FROM Avatar WHERE ID = \(avatarID)"
         let queryResults: FMResultSet? = mainDB?.executeQuery(queryString, withArgumentsIn: nil)
         
@@ -292,7 +293,7 @@ class DatabaseAccessor: DataSource {
       Save the Karma points and the powers in the database.
       - Parameter: The score intended to save.
     */
-    public func saveScore(score: Score) throws {
+    public override func saveScore(score: Score) throws {
         let queryString = "UPDATE Score SET Strength = \(score.strength), Invisibility = \(score.invisibility), Healing = \(score.healing), Telepathy = \(score.telepathy), Points = \(score.karmaPoints) WHERE ID = \(avatarID)"
         
         guard mainDB!.executeUpdate(queryString, withArgumentsIn: nil) else {
@@ -304,7 +305,7 @@ class DatabaseAccessor: DataSource {
       Get the Karma points and the powers from the database.
       - Return: The points and powers in a Score struct.
     */
-    public func getScore() throws -> Score {
+    public override func getScore() throws -> Score {
         let queryString = "SELECT * FROM Score WHERE ID = \(avatarID)"
         let queryResults: FMResultSet? = mainDB?.executeQuery(queryString, withArgumentsIn: nil)
         
@@ -322,17 +323,17 @@ class DatabaseAccessor: DataSource {
     }
     
     /** Close database if it's opened */
-    public func closeDatabase() {
+    public override func closeDatabase() {
         mainDB?.close()
     }
     
     /** Return if the database is initialized. */
-    public func databaseIsInitialized() -> Bool {
+    public override func databaseIsInitialized() -> Bool {
         return mainDB != nil
     }
     
     /** Reset the data of the database. */
-    public func resetDatabase() throws {
+    public override func resetDatabase() throws {
         
         mainDB?.close()
         
@@ -340,7 +341,7 @@ class DatabaseAccessor: DataSource {
         let fileManager = FileManager.default
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         
-        let databasePath = (dirPath as NSString).appendingPathComponent(DatabaseName + "." + DatabaseFileType) as NSString
+        let databasePath = (dirPath as NSString).appendingPathComponent(databaseNameInFile + "." + DatabaseFileType) as NSString
         
         // Check if the database exists
         if fileManager.fileExists(atPath: databasePath as String) {
@@ -353,7 +354,7 @@ class DatabaseAccessor: DataSource {
             }
             
             // Replace the old database with a new one (from the app bundle).
-            if let bundlePath = Bundle.main.path(forResource: DatabaseName, ofType: DatabaseFileType) {
+            if let bundlePath = Bundle.main.path(forResource: databaseNameInBundle, ofType: DatabaseFileType) {
                 do {
                     try fileManager.copyItem(atPath: bundlePath, toPath: databasePath as String)
                 } catch let error as NSError {

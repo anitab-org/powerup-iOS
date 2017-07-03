@@ -3,7 +3,7 @@ import UIKit
 class ScenarioViewController: UIViewController {
     
     //MARK: Properties
-    var dataSource: DataSource
+    var dataSource: DataSource = DatabaseAccessor.sharedInstance
     
     // current scenario, set by the MapViewController
     var scenarioID: Int = 0
@@ -34,28 +34,6 @@ class ScenarioViewController: UIViewController {
     @IBOutlet weak var glassesView: UIImageView!
     @IBOutlet weak var hatView: UIImageView!
     
-    // MARK: Constructors
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        // Set the data source to the database singleton.
-        dataSource = DatabaseAccessor.sharedInstance
-        
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        // Set the data source to the database singleton.
-        dataSource = DatabaseAccessor.sharedInstance
-        
-        super.init(coder: aDecoder)
-    }
-    
-    // For mocking data source for testing.
-    init(dataSource: DataSource) {
-        self.dataSource = dataSource
-        
-        super.init(nibName: nil, bundle: nil)
-    }
-    
     // MARK: Functions
     func resetQuestionAndChoices() {
         // Hide question Label and all the Buttons for choices, will show them only if the query to Database is successful
@@ -81,7 +59,7 @@ class ScenarioViewController: UIViewController {
         }
         
         
-        // No answers left, reveal "continue" button to go to mini game
+        // No answers left, reveal "continue" button to go to result view controller.
         if answers.count == 0 {
             answers.append(Answer(answerID: -1, questionID: -1, answerDescription: "Continue", nextQuestionID: "$", points: 0))
         }
@@ -132,11 +110,18 @@ class ScenarioViewController: UIViewController {
 
         configureAvatar()
         
+        initializeQuestions()
+        
+        resetQuestionAndChoices()
+        
+        bgImage.image = UIImage(named: "endingscreen")
+    }
+    
+    func initializeQuestions() {
         // Fetch questions from database
         do {
             questions = try dataSource.getQuestions(of: scenarioID)
         } catch _ {
-            
             // Unwind back to map view if cound't fetch questions from database.
             let alert = UIAlertController(title: "Warning", message: "Error loading the scenario. Please try again!", preferredStyle: .alert)
             let okButton = UIAlertAction(title: "OK", style: .default, handler: {action in self.performSegue(withIdentifier: "unwindToMap", sender: self)})
@@ -147,15 +132,10 @@ class ScenarioViewController: UIViewController {
             return
         }
         
-        
         // Configure the initial question (which has the smallest key)
         if let initQuestionID = (questions.min {a, b in a.key < b.key}?.key) {
             currQuestionID = initQuestionID
         }
-        
-        resetQuestionAndChoices()
-        
-        bgImage.image = UIImage(named: "endingscreen")
     }
     
     // MARK: Actions

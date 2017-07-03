@@ -16,7 +16,7 @@ class CustomizeAvatarViewController: UIViewController {
     // MARK: Properties
     var avatar = Avatar()
     
-    var dataSource: DataSource
+    var dataSource: DataSource = DatabaseAccessor.sharedInstance
     
     var chosenClothesIndex = 0
     var chosenEyesIndex = 0
@@ -29,43 +29,24 @@ class CustomizeAvatarViewController: UIViewController {
     var hairs: [Accessory]!
     var eyes: [Accessory]!
     
-    // MARK: Constructors
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        // Set the data source to the database singleton.
-        dataSource = DatabaseAccessor.sharedInstance
-        
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        // Set the data source to the database singleton.
-        dataSource = DatabaseAccessor.sharedInstance
-        
-        super.init(coder: aDecoder)
-    }
-    
-    // For inserting mocking data source for tests.
-    init(dataSource: DataSource) {
-        self.dataSource = dataSource
-        
-        super.init(nibName: nil, bundle: nil)
-    }
-    
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Initialize the accessory arrays.
-        clothes = dataSource.getAccessoryArray(accessoryType: .clothes).filter({a in return a.purchased})
-        hairs = dataSource.getAccessoryArray(accessoryType: .hair).filter({a in return a.purchased})
-        faces = dataSource.getAccessoryArray(accessoryType: .face).filter({a in return a.purchased})
-        eyes = dataSource.getAccessoryArray(accessoryType: .eyes).filter({a in return a.purchased})
+        initializeAccessoryArrays()
         
         // Initialize the images of exhibition boxes and the avatar
         updateClothesImage()
         updateEyesImage()
         updateHairImage()
         updateFaceImage()
+    }
+    
+    func initializeAccessoryArrays() {
+        clothes = dataSource.getAccessoryArray(accessoryType: .clothes).filter({a in return a.purchased})
+        hairs = dataSource.getAccessoryArray(accessoryType: .hair).filter({a in return a.purchased})
+        faces = dataSource.getAccessoryArray(accessoryType: .face).filter({a in return a.purchased})
+        eyes = dataSource.getAccessoryArray(accessoryType: .eyes).filter({a in return a.purchased})
     }
     
     func updateClothesImage() {

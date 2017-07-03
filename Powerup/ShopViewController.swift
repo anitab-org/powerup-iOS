@@ -3,7 +3,7 @@ import UIKit
 class ShopViewController: UIViewController {
 
     // MARK: Properties
-    var dataSource: DataSource
+    var dataSource: DataSource = DatabaseAccessor.sharedInstance
     
     // The indices of exhibition accessories.
     var exhibitionBagIndex = 0
@@ -56,28 +56,6 @@ class ShopViewController: UIViewController {
     @IBOutlet weak var avatarGlassesView: UIImageView!
     @IBOutlet weak var avatarHatView: UIImageView!
     @IBOutlet weak var avatarNecklaceView: UIImageView!
-    
-    // MARK: Constructor
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        // Set the singleton as the data source.
-        dataSource = DatabaseAccessor.sharedInstance
-        
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        // Set the singleton as the data source.
-        dataSource = DatabaseAccessor.sharedInstance
-        
-        super.init(coder: aDecoder)
-    }
-    
-    // Initializer for tests to insert mock data source.
-    init(dataSource: DataSource) {
-        self.dataSource = DatabaseAccessor.sharedInstance
-        
-        super.init(nibName: nil, bundle: nil)
-    }
     
     // MARK: Functions
     override func viewDidLoad() {
