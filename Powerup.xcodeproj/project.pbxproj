@@ -38,6 +38,7 @@
 		D95B03CE1EDEA680001DB858 /* MiniGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95B03CD1EDEA680001DB858 /* MiniGameViewController.swift */; };
 		D969D26C1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D969D26B1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift */; };
 		D9970C7C1F00998300960B52 /* MinesweeperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9970C7B1F00998300960B52 /* MinesweeperTests.swift */; };
+		D9A1572E1F0A205200B3A51B /* DatabaseEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A1572D1F0A205200B3A51B /* DatabaseEntryTests.swift */; };
 		D9AAA9C41EF2335F00287A79 /* MinesweeperGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AAA9C31EF2335F00287A79 /* MinesweeperGameScene.swift */; };
 		D9AAA9C61EF2481900287A79 /* GuessingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AAA9C51EF2481900287A79 /* GuessingBox.swift */; };
 		D9AAA9C91EF25E4600287A79 /* ShuffleArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AAA9C81EF25E4600287A79 /* ShuffleArrayExtension.swift */; };
@@ -112,6 +113,7 @@
 		D95B03CD1EDEA680001DB858 /* MiniGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniGameViewController.swift; sourceTree = "<group>"; };
 		D969D26B1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMResultSetNullCheckExtension.swift; sourceTree = "<group>"; };
 		D9970C7B1F00998300960B52 /* MinesweeperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperTests.swift; sourceTree = "<group>"; };
+		D9A1572D1F0A205200B3A51B /* DatabaseEntryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseEntryTests.swift; sourceTree = "<group>"; };
 		D9AAA9C31EF2335F00287A79 /* MinesweeperGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperGameScene.swift; sourceTree = "<group>"; };
 		D9AAA9C51EF2481900287A79 /* GuessingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessingBox.swift; sourceTree = "<group>"; };
 		D9AAA9C81EF25E4600287A79 /* ShuffleArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShuffleArrayExtension.swift; path = ../ShuffleArrayExtension.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 		2A0CA5671B294C6B00ED8781 /* PowerupTests */ = {
 			isa = PBXGroup;
 			children = (
+				D9A1572D1F0A205200B3A51B /* DatabaseEntryTests.swift */,
 				D910FF241F06304F00C444DA /* DatabaseAccessorTests.swift */,
 				D910FF221F05FF5E00C444DA /* CustomizeAvatarViewControllerTests.swift */,
 				D910FF201F05E22400C444DA /* ScenarioViewControllerTests.swift */,
@@ -432,6 +435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9A1572E1F0A205200B3A51B /* DatabaseEntryTests.swift in Sources */,
 				D910FF231F05FF5E00C444DA /* CustomizeAvatarViewControllerTests.swift in Sources */,
 				D910FF251F06304F00C444DA /* DatabaseAccessorTests.swift in Sources */,
 				D9DD913E1F0363DF009DE3B5 /* ModelClassTests.swift in Sources */,
