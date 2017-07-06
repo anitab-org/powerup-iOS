@@ -15,8 +15,7 @@ class ScenarioViewController: UIViewController {
     // Answers for the question
     var answers = [Answer]()
     
-    //MARK: Views
-    @IBOutlet weak var bgImage: UIImageView!
+    // MARK: Views
     
     // Question Label and Choice Buttons
     @IBOutlet weak var questionLabel: UILabel!
@@ -94,8 +93,6 @@ class ScenarioViewController: UIViewController {
         }
         
         resetQuestionAndChoices()
-        
-        bgImage.image = UIImage(named: "endingscreen")
     }
     
     // MARK: Actions
