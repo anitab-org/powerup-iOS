@@ -26,7 +26,7 @@ class CustomizeAvatarViewController: UIViewController {
     let faces = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .face).filter({a in return a.purchased})
     let hairs = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .hair).filter({a in return a.purchased})
     let eyes = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .eyes).filter({a in return a.purchased})
-
+    
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,8 +129,16 @@ class CustomizeAvatarViewController: UIViewController {
     
     @IBAction func continueButtonTouched(_ sender: UIButton) {
         // Save the current configuration to database.
-        guard DatabaseAccessor.sharedInstance.createAvatar(avatar) else {
-            print("Failed saving avatar accessories to database.")
+        do {
+            try DatabaseAccessor.sharedInstance.createAvatar(avatar)
+        } catch _ {
+            let alert = UIAlertController(title: "Warning", message: "Failed to save avatar, please retry this action. If that doesn't help, try restaring or reinstalling the app.", preferredStyle: .alert)
+            
+            // Dismiss the modal VC (so the app is back to Start View) when Ok Button is pressed.
+            let okButton = UIAlertAction(title: "OK", style: .cancel, handler: {action in self.dismiss(animated: true, completion: nil)})
+            alert.addAction(okButton)
+            self.present(alert, animated: true, completion: nil)
+            
             return
         }
         

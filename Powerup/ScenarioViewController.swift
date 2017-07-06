@@ -43,7 +43,19 @@ class ScenarioViewController: UIViewController {
         questionLabel.text = questions[currQuestionID]?.questionDescription
         
         // Fetch answers from database
-        answers = DatabaseAccessor.sharedInstance.getAnswers(of: currQuestionID)
+        do {
+            try answers = DatabaseAccessor.sharedInstance.getAnswers(of: currQuestionID)
+        } catch _ {
+            // Unwind back to map view if cound't fetch choices from database.
+            let alert = UIAlertController(title: "Warning", message: "Error loading the choices. Please try again!", preferredStyle: .alert)
+            let okButton = UIAlertAction(title: "OK", style: .default, handler: {action in self.performSegue(withIdentifier: "unwindToMap", sender: self)})
+            alert.addAction(okButton)
+            
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
+        
         
         // No answers left, reveal "continue" button to go to mini game
         if answers.count == 0 {
@@ -64,7 +76,20 @@ class ScenarioViewController: UIViewController {
     
     // Configures the accessories of the avatar.
     func configureAvatar() {
-        let avatar = DatabaseAccessor.sharedInstance.getAvatar()
+        let avatar: Avatar!
+        
+        do {
+            avatar = try DatabaseAccessor.sharedInstance.getAvatar()
+        } catch _ {
+            // Unwind back to map view if cound't fetch avatar from database.
+            let alert = UIAlertController(title: "Warning", message: "Error loading the avatar. Please try again!", preferredStyle: .alert)
+            let okButton = UIAlertAction(title: "OK", style: .default, handler: {action in self.performSegue(withIdentifier: "unwindToMap", sender: self)})
+            alert.addAction(okButton)
+            
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
     
         clothesView.image = avatar.clothes.image
         faceView.image = avatar.face.image
@@ -84,13 +109,24 @@ class ScenarioViewController: UIViewController {
         configureAvatar()
         
         // Fetch questions from database
-        questions = DatabaseAccessor.sharedInstance.getQuestions(of: scenarioID)
+        do {
+            questions = try DatabaseAccessor.sharedInstance.getQuestions(of: scenarioID)
+        } catch _ {
+            
+            // Unwind back to map view if cound't fetch questions from database.
+            let alert = UIAlertController(title: "Warning", message: "Error loading the scenario. Please try again!", preferredStyle: .alert)
+            let okButton = UIAlertAction(title: "OK", style: .default, handler: {action in self.performSegue(withIdentifier: "unwindToMap", sender: self)})
+            alert.addAction(okButton)
+            
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
+        
         
         // Configure the initial question (which has the smallest key)
         if let initQuestionID = (questions.min {a, b in a.key < b.key}?.key) {
             currQuestionID = initQuestionID
-        } else {
-            print("Error initializing the first question.")
         }
         
         resetQuestionAndChoices()

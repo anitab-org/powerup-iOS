@@ -19,7 +19,14 @@ class ResultsViewController: UIViewController {
     // MARK: Functions
     // Configures the accessories of the avatar.
     func configureAvatar() {
-        let avatar = DatabaseAccessor.sharedInstance.getAvatar()
+        let avatar: Avatar!
+        
+        do {
+            avatar = try DatabaseAccessor.sharedInstance.getAvatar()
+        } catch _ {
+            // Cannot load customized avatar, just use the default one.
+            avatar = Avatar()
+        }
         
         clothesView.image = avatar.clothes.image
         faceView.image = avatar.face.image
@@ -37,9 +44,16 @@ class ResultsViewController: UIViewController {
         configureAvatar()
         
         // Save the karma gains in database.
-        let newScore = DatabaseAccessor.sharedInstance.getScore() + Score(karmaPoints: karmaGain)
-        guard DatabaseAccessor.sharedInstance.saveScore(score: newScore) else {
-            print("Error saving karma points to database.")
+        let newScore: Score!
+        do {
+            newScore = try DatabaseAccessor.sharedInstance.getScore() + Score(karmaPoints: karmaGain)
+            try DatabaseAccessor.sharedInstance.saveScore(score: newScore)
+        } catch _ {
+            // If the saving failed, show an alert dialogue.
+            let alert = UIAlertController(title: "Warning", message: "Error saving Karma points.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true, completion: nil)
+            
             return
         }
         
