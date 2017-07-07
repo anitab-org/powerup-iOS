@@ -4,7 +4,7 @@ import SpriteKit
 enum MiniGameIndex: Int {
     case unknown = 0
     case minesweeper = -1
-    case swimToDrawn = -2
+    case sinkToSwim = -2
     case catchIt = -3
 }
 
@@ -29,6 +29,13 @@ class MiniGameViewController: UIViewController {
             let minesweeperGame = MinesweeperGameScene(size: view.bounds.size)
             minesweeperGame.viewController = self
             gameScene = minesweeperGame
+            
+        // Sink to Swim Game
+        case .sinkToSwim:
+            let sinkToSwimGame = SinkToSwimGameScene(size: view.bounds.size)
+            sinkToSwimGame.viewController = self
+            gameScene = sinkToSwimGame
+        
         default:
             print("Unknown mini game.")
         }
