@@ -499,7 +499,7 @@ class ShopViewController: UIViewController {
         }
         
         // Alert the player that the purchase couldn't be reverted.
-        let cannotRevertAlert = UIAlertController(title: "Warning", message: "Sure you want to purchase this outfit? You will be spending \(totalCost)$ and the purchase couldn't be reverted.", preferredStyle: .alert)
+        let cannotRevertAlert = UIAlertController(title: "Warning", message: "Are you sure you want to purchase these items? You will be spending $\(totalCost) and the purchase can't be reverted.", preferredStyle: .alert)
         let cancelButton = UIAlertAction(title: "Maybe not", style: .cancel)
         let purchaseButton = UIAlertAction(title: "Purchase", style: .default, handler: {action in
             
