@@ -1,0 +1,6 @@
+language: objective-c
+osx_image: xcode8.3
+xcode_project: Powerup.xcodeproj
+xcode_scheme: Powerup
+xcode_sdk: iphonesimulator10.3
+script: xcodebuild -project Powerup.xcodeproj -scheme Powerup -sdk iphonesimulator10.3 -destination 'platform=iOS Simulator,OS=9.1,name=iPhone 6'  -configuration Debug build test

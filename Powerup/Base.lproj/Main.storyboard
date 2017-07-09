@@ -442,9 +442,11 @@
                         <outletCollection property="choiceButtons" destination="500-p5-neQ" collectionClass="NSMutableArray" id="XbT-p5-7Bi"/>
                         <segue destination="068-4x-alq" kind="push" identifier="toMiniGame" id="DTD-eG-6ws"/>
                         <segue destination="Kej-3M-rbU" kind="push" identifier="toEndScene" id="0it-aH-Xs8"/>
+                        <segue destination="tRn-hQ-WhV" kind="unwind" identifier="unwindToMap" unwindAction="unwindToMapWithUnwindSegue:" id="pJw-HQ-eLH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="tRn-hQ-WhV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1992" y="305"/>
         </scene>

@@ -12,7 +12,7 @@ class ShopViewController: UIViewController {
     var exhibitionClothesIndex = 0
     
     // The displayed avatar.
-    var avatar = DatabaseAccessor.sharedInstance.getAvatar()
+    var avatar: Avatar!
     
     // Array of accessories.
     var handbags = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .handbag)
@@ -59,8 +59,24 @@ class ShopViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Fetch avatar and score from database.
+        let score: Score!
+        do {
+            score = try DatabaseAccessor.sharedInstance.getScore()
+            avatar = try DatabaseAccessor.sharedInstance.getAvatar()
+        } catch _ {
+            let alert = UIAlertController(title: "Warning", message: "Error fetching avatar and score data, please retry this action. If that doesn't help, try restarting or reinstalling the app.", preferredStyle: .alert)
+            
+            // Exit shop when ok button is pressed.
+            let okButton = UIAlertAction(title: "OK", style: .default, handler: {action in self.dismiss(animated: true, completion: nil)})
+            alert.addAction(okButton)
+            
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
+        
         // Set Karma points
-        let score = DatabaseAccessor.sharedInstance.getScore()
         pointsLabel.text = String(score.karmaPoints)
         
         // Configure Image Views of Avatar Accessories.
@@ -124,29 +140,23 @@ class ShopViewController: UIViewController {
         clothesPriceLabel.text = "\(cloth.points)$"
     }
     
-    func reducePointsAndSaveBoughtToDatabase(accessory: Accessory) {
-        let newScore = DatabaseAccessor.sharedInstance.getScore() - Score(karmaPoints: accessory.points)
+    func reducePointsAndSaveBoughtToDatabase(accessory: Accessory) throws {
+        let newScore = try DatabaseAccessor.sharedInstance.getScore() - Score(karmaPoints: accessory.points)
         
         // Update points label.
         pointsLabel.text = String(newScore.karmaPoints)
         
         // Reduce points.
-        guard DatabaseAccessor.sharedInstance.saveScore(score: newScore) else {
-            print("Error reducing points.")
-            return
-        }
+        try DatabaseAccessor.sharedInstance.saveScore(score: newScore)
         
         // Set as purchased.
-        guard DatabaseAccessor.sharedInstance.boughtAccessory(accessory: accessory) else {
-            print("Error buying accessory.")
-            return
-        }
+        try DatabaseAccessor.sharedInstance.boughtAccessory(accessory: accessory)
     }
     
-    func haveEnoughPointsToBuy(accessoryPrice: Int) -> Bool {
+    func haveEnoughPointsToBuy(accessoryPrice: Int) throws -> Bool {
         
         // Show alert dialog if players are trying to buy items they can't afford.
-        if DatabaseAccessor.sharedInstance.getScore().karmaPoints < accessoryPrice {
+        if try DatabaseAccessor.sharedInstance.getScore().karmaPoints < accessoryPrice {
             let alertDialog = UIAlertController(title: "Oops!", message: "You don't have enough points to buy that!", preferredStyle: .alert)
             alertDialog.addAction(UIAlertAction(title: "Alright", style: .default))
             self.present(alertDialog, animated: true, completion: nil)
@@ -155,6 +165,13 @@ class ShopViewController: UIViewController {
         }
         
         return true
+    }
+    
+    func presentBuyingErrorDiaologue() {
+        let alert = UIAlertController(title: "Warning", message: "Error purchasing item, please retry this action. If that doesn't help, try restarting or reinstalling the app.", preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
     }
 
     // MARK: Actions
@@ -184,18 +201,24 @@ class ShopViewController: UIViewController {
             avatar.handbag = handbags[exhibitionBagIndex]
             avatarHandbagView.image = avatar.handbag!.image
             
-        } else if haveEnoughPointsToBuy(accessoryPrice: handbags[exhibitionBagIndex].points) {
-            
-            // Set as paid
-            handbags[exhibitionBagIndex].purchased = true
-            handbagPaidLabel.isHidden = false
-            
-            // Record "purchased" in database.
-            reducePointsAndSaveBoughtToDatabase(accessory: handbags[exhibitionBagIndex])
-            
-            // Update avatar
-            avatar.handbag = handbags[exhibitionBagIndex]
-            avatarHandbagView.image = avatar.handbag!.image
+        } else {
+            do {
+                if try haveEnoughPointsToBuy(accessoryPrice: handbags[exhibitionBagIndex].points) {
+                    
+                    // Record "purchased" in database.
+                    try reducePointsAndSaveBoughtToDatabase(accessory: handbags[exhibitionBagIndex])
+                    
+                    // Set as paid
+                    handbags[exhibitionBagIndex].purchased = true
+                    handbagPaidLabel.isHidden = false
+                    
+                    // Update avatar
+                    avatar.handbag = handbags[exhibitionBagIndex]
+                    avatarHandbagView.image = avatar.handbag!.image
+                }
+            } catch _ {
+                presentBuyingErrorDiaologue()
+            }
         }
     }
     
@@ -225,17 +248,24 @@ class ShopViewController: UIViewController {
             avatar.glasses = glasses[exhibitionGlassesIndex]
             avatarGlassesView.image = avatar.glasses!.image
             
-        } else if haveEnoughPointsToBuy(accessoryPrice: glasses[exhibitionGlassesIndex].points) {
-            // Set as paid
-            glasses[exhibitionGlassesIndex].purchased = true
-            glassesPaidLabel.isHidden = false
-            
-            // Save "purchased" to database.
-            reducePointsAndSaveBoughtToDatabase(accessory: glasses[exhibitionGlassesIndex])
-            
-            // Update avatar
-            avatar.glasses = glasses[exhibitionGlassesIndex]
-            avatarGlassesView.image = avatar.glasses!.image
+        } else {
+            do {
+                if try haveEnoughPointsToBuy(accessoryPrice: glasses[exhibitionGlassesIndex].points) {
+                    
+                    // Record "purchased" in database.
+                    try reducePointsAndSaveBoughtToDatabase(accessory: glasses[exhibitionGlassesIndex])
+                    
+                    // Set as paid
+                    glasses[exhibitionGlassesIndex].purchased = true
+                    glassesPaidLabel.isHidden = false
+                    
+                    // Update avatar
+                    avatar.glasses = glasses[exhibitionGlassesIndex]
+                    avatarGlassesView.image = avatar.glasses!.image
+                }
+            } catch _ {
+                presentBuyingErrorDiaologue()
+            }
         }
     }
     
@@ -265,18 +295,24 @@ class ShopViewController: UIViewController {
             avatar.hat = hats[exhibitionHatIndex]
             avatarHatView.image = avatar.hat!.image
             
-        } else if haveEnoughPointsToBuy(accessoryPrice: hats[exhibitionHatIndex].points) {
-            
-            // Set as paid
-            hats[exhibitionHatIndex].purchased = true
-            hatPaidLabel.isHidden = false
-            
-            // Save "purchased" to database.
-            reducePointsAndSaveBoughtToDatabase(accessory: hats[exhibitionHatIndex])
-            
-            // Update avatar
-            avatar.hat = hats[exhibitionHatIndex]
-            avatarHatView.image = avatar.hat!.image
+        } else {
+            do {
+                if try haveEnoughPointsToBuy(accessoryPrice: hats[exhibitionHatIndex].points) {
+                    
+                    // Set as paid
+                    hats[exhibitionHatIndex].purchased = true
+                    hatPaidLabel.isHidden = false
+                    
+                    // Save "purchased" to database.
+                    try reducePointsAndSaveBoughtToDatabase(accessory: hats[exhibitionHatIndex])
+                    
+                    // Update avatar
+                    avatar.hat = hats[exhibitionHatIndex]
+                    avatarHatView.image = avatar.hat!.image
+                }
+            } catch _ {
+                presentBuyingErrorDiaologue()
+            }
         }
         
     }
@@ -307,18 +343,24 @@ class ShopViewController: UIViewController {
             avatar.necklace = necklaces[exhibitionNecklaceIndex]
             avatarNecklaceView.image = avatar.necklace!.image
             
-        } else if haveEnoughPointsToBuy(accessoryPrice: necklaces[exhibitionNecklaceIndex].points) {
-            
-            // Set as paid
-            necklaces[exhibitionNecklaceIndex].purchased = true
-            necklacePaidLabel.isHidden = false
-            
-            // Save "purchased" to database.
-            reducePointsAndSaveBoughtToDatabase(accessory: necklaces[exhibitionNecklaceIndex])
-            
-            // Update avatar
-            avatar.necklace = necklaces[exhibitionNecklaceIndex]
-            avatarNecklaceView.image = avatar.necklace!.image
+        } else {
+            do {
+                if try haveEnoughPointsToBuy(accessoryPrice: necklaces[exhibitionNecklaceIndex].points) {
+                    
+                    // Set as paid
+                    necklaces[exhibitionNecklaceIndex].purchased = true
+                    necklacePaidLabel.isHidden = false
+                    
+                    // Save "purchased" to database.
+                    try reducePointsAndSaveBoughtToDatabase(accessory: necklaces[exhibitionNecklaceIndex])
+                    
+                    // Update avatar
+                    avatar.necklace = necklaces[exhibitionNecklaceIndex]
+                    avatarNecklaceView.image = avatar.necklace!.image
+                }
+            } catch _ {
+                presentBuyingErrorDiaologue()
+            }
         }
         
     }
@@ -349,20 +391,25 @@ class ShopViewController: UIViewController {
             avatar.hair = hairs[exhibitionHairIndex]
             avatarHairView.image = avatar.hair.image
             
-        } else if haveEnoughPointsToBuy(accessoryPrice: hairs[exhibitionHairIndex].points) {
-            
-            // Set as paid
-            hairs[exhibitionHairIndex].purchased = true
-            hairPaidLabel.isHidden = false
-            
-            // Set "purchased" to database.
-            reducePointsAndSaveBoughtToDatabase(accessory: hairs[exhibitionHairIndex])
-            
-            // Update avatar
-            avatar.hair = hairs[exhibitionHairIndex]
-            avatarHairView.image = avatar.hair.image
+        } else {
+            do {
+                if try haveEnoughPointsToBuy(accessoryPrice: hairs[exhibitionHairIndex].points) {
+                    
+                    // Set as paid
+                    hairs[exhibitionHairIndex].purchased = true
+                    hairPaidLabel.isHidden = false
+                    
+                    // Set "purchased" to database.
+                    try reducePointsAndSaveBoughtToDatabase(accessory: hairs[exhibitionHairIndex])
+                    
+                    // Update avatar
+                    avatar.hair = hairs[exhibitionHairIndex]
+                    avatarHairView.image = avatar.hair.image
+                }
+            } catch _ {
+                presentBuyingErrorDiaologue()
+            }
         }
-        
     }
     
     // Clothes
@@ -391,24 +438,32 @@ class ShopViewController: UIViewController {
             avatar.clothes = clothes[exhibitionClothesIndex]
             avatarClothesView.image = avatar.clothes.image
             
-        } else if haveEnoughPointsToBuy(accessoryPrice: clothes[exhibitionClothesIndex].points) {
-            // Set as paid
-            clothes[exhibitionClothesIndex].purchased = true
-            clothesPaidLabel.isHidden = false
-            
-            // Set "purchased" to database.
-            reducePointsAndSaveBoughtToDatabase(accessory: clothes[exhibitionClothesIndex])
-            
-            // Update avatar
-            avatar.clothes = clothes[exhibitionClothesIndex]
-            avatarClothesView.image = avatar.clothes.image
+        } else {
+            do {
+                if try haveEnoughPointsToBuy(accessoryPrice: clothes[exhibitionClothesIndex].points) {
+                    // Set as paid
+                    clothes[exhibitionClothesIndex].purchased = true
+                    clothesPaidLabel.isHidden = false
+                    
+                    // Set "purchased" to database.
+                    try reducePointsAndSaveBoughtToDatabase(accessory: clothes[exhibitionClothesIndex])
+                    
+                    // Update avatar
+                    avatar.clothes = clothes[exhibitionClothesIndex]
+                    avatarClothesView.image = avatar.clothes.image
+                }
+            } catch _ {
+                presentBuyingErrorDiaologue()
+            }
         }
     }
     
     @IBAction func continueButtonTouched(_ sender: UIButton) {
-        // Save configuration to database.
-        guard DatabaseAccessor.sharedInstance.saveAvatar(avatar) else {
-            let failedAlert = UIAlertController(title: "Oops!", message: "Error saving your purchase, please try again!", preferredStyle: .alert)
+        do {
+            // Save configuration to database.
+            try DatabaseAccessor.sharedInstance.saveAvatar(avatar)
+        } catch _ {
+            let failedAlert = UIAlertController(title: "Oops!", message: "Error saving your purchase, please retry this action. If that doesn't help, try restring or reinstalling the app.", preferredStyle: .alert)
             failedAlert.addAction(UIAlertAction(title: "OK", style: .default))
             present(failedAlert, animated: true, completion: nil)
             
