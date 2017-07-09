@@ -107,20 +107,4 @@ class SKMultilineLabel: SKNode {
         
         labelHeight = lineCount * leading
     }
-    
-    /** Fade in the labels and perform completion closure afterwards. */
-    func fadeIn(duration: Double) {
-        let animation = SKAction.fadeIn(withDuration: duration)
-        
-        for label in labels {
-            label.run(animation)
-        }
-    }
-    
-    /** Set alpha for all the labels */
-    func setAlphaTo(_ alpha: CGFloat) {
-        for label in labels {
-            label.alpha = alpha
-        }
-    }
 }
