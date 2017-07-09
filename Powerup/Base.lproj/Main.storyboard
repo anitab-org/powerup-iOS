@@ -323,7 +323,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marcello" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6u7-zE-DVc">
-                                <rect key="frame" x="501.5" y="255.5" width="88" height="24.5"/>
+                                <rect key="frame" x="502" y="255.5" width="88" height="24.5"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -921,10 +921,6 @@
                                 <rect key="frame" x="113" y="125" width="50" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="endingscreen2" translatesAutoresizingMaskIntoConstraints="NO" id="5NB-Df-h2J" userLabel="Health and Power Text">
-                                <rect key="frame" x="96" y="437" width="182" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="endingscreen7" translatesAutoresizingMaskIntoConstraints="NO" id="06L-8d-x15" userLabel="Karma Frame">
                                 <rect key="frame" x="10" y="30" width="65" height="60"/>
                                 <constraints>
@@ -1169,7 +1165,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="eFm-LF-3yb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zG6-F1-qcm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zG6-F1-qcm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1185,18 +1181,17 @@
     </scenes>
     <resources>
         <image name="Marco" width="612" height="792"/>
-        <image name="PowerUp-Map" width="2560" height="1440"/>
-        <image name="ability_bars" width="1187" height="247"/>
+        <image name="PowerUp-Map" width="1024" height="576"/>
+        <image name="ability_bars" width="438" height="75"/>
         <image name="background" width="1028" height="584"/>
         <image name="buttons" width="259" height="103"/>
         <image name="buttons 3" width="227" height="88"/>
-        <image name="class_room_background" width="2560" height="1440"/>
+        <image name="class_room_background" width="1024" height="576"/>
         <image name="cloth1" width="185" height="326"/>
         <image name="cloth5" width="185" height="326"/>
         <image name="clothesbox" width="300" height="300"/>
-        <image name="continue_button" width="952" height="342"/>
-        <image name="dressingroom_bgd" width="2560" height="1440"/>
-        <image name="endingscreen2" width="247" height="40"/>
+        <image name="continue_button" width="380" height="136"/>
+        <image name="dressingroom_bgd" width="1024" height="576"/>
         <image name="endingscreen7" width="112" height="82"/>
         <image name="eyesbox" width="300" height="300"/>
         <image name="facebox" width="300" height="300"/>
