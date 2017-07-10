@@ -9,6 +9,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Bold.otf">
+            <string>Montserrat-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Start View Controller-->
         <scene sceneID="bOj-Fm-Fh1">
@@ -789,17 +794,19 @@
                                     <action selector="clothesLeftButtonTouched:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="AL7-51-Fxb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVF-C0-eRz" userLabel="Continue Button">
-                                <rect key="frame" x="263.5" y="290" width="140" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gVF-C0-eRz" userLabel="Purchase Button">
+                                <rect key="frame" x="156" y="310" width="155" height="40"/>
+                                <color key="backgroundColor" red="0.6321850712435233" green="0.5386316849914311" blue="0.17616545430521974" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="PO4-yo-AX3"/>
-                                    <constraint firstAttribute="height" constant="50" id="sPF-0S-W2t"/>
+                                    <constraint firstAttribute="width" constant="155" id="PO4-yo-AX3"/>
+                                    <constraint firstAttribute="height" constant="40" id="sPF-0S-W2t"/>
                                 </constraints>
-                                <state key="normal" image="endingscreen6">
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
+                                <state key="normal" title="Purchase">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="continueButtonTouched:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="R6g-D3-5JV"/>
+                                    <action selector="purchaseButtonTouched:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="94l-fK-SGK"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ax-nQ-4qw" userLabel="Handbag price Label">
@@ -844,19 +851,44 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhZ-QP-edB" userLabel="Revert Button">
+                                <rect key="frame" x="406" y="310" width="155" height="40"/>
+                                <color key="backgroundColor" red="0.6321850712435233" green="0.5386316849914311" blue="0.17616545430521974" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1xb-GR-yOz"/>
+                                    <constraint firstAttribute="width" constant="155" id="TKn-uU-WQ5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
+                                <state key="normal" title="Revert">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="revertButtonTouched:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="mr8-wk-zem"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Cost: 0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Up7-Du-r44" userLabel="Total Cost Label">
+                                <rect key="frame" x="275" y="30" width="118" height="21"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="9IW-7K-Gls" firstAttribute="centerX" secondItem="1WZ-w5-9yF" secondAttribute="centerX" id="1zj-nD-nGo"/>
                             <constraint firstItem="1WZ-w5-9yF" firstAttribute="leading" secondItem="k8w-Nb-jCO" secondAttribute="leading" constant="10" id="BXb-XN-xOi"/>
+                            <constraint firstItem="Up7-Du-r44" firstAttribute="top" secondItem="C1p-vc-PYe" secondAttribute="bottom" constant="10" id="EcM-U5-FLv"/>
                             <constraint firstItem="35U-NA-5dW" firstAttribute="top" secondItem="dpd-4J-5ix" secondAttribute="bottom" id="F59-U3-8T4"/>
-                            <constraint firstItem="35U-NA-5dW" firstAttribute="top" secondItem="gVF-C0-eRz" secondAttribute="bottom" constant="35" id="FcH-hM-dg9"/>
+                            <constraint firstItem="35U-NA-5dW" firstAttribute="top" secondItem="nhZ-QP-edB" secondAttribute="bottom" constant="25" id="F75-JD-d3x"/>
+                            <constraint firstItem="35U-NA-5dW" firstAttribute="top" secondItem="gVF-C0-eRz" secondAttribute="bottom" constant="25" id="FcH-hM-dg9"/>
                             <constraint firstItem="1WZ-w5-9yF" firstAttribute="top" secondItem="C1p-vc-PYe" secondAttribute="bottom" constant="10" id="Gh5-c7-urN"/>
-                            <constraint firstItem="gVF-C0-eRz" firstAttribute="centerX" secondItem="k8w-Nb-jCO" secondAttribute="centerX" id="Ndw-CX-flz"/>
+                            <constraint firstItem="gVF-C0-eRz" firstAttribute="centerX" secondItem="k8w-Nb-jCO" secondAttribute="centerX" constant="-100" id="Ndw-CX-flz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DHw-1J-Sgi" secondAttribute="trailing" constant="10" id="SFN-QU-KeH"/>
+                            <constraint firstItem="Up7-Du-r44" firstAttribute="centerX" secondItem="k8w-Nb-jCO" secondAttribute="centerX" id="WiP-Z1-yM3"/>
                             <constraint firstAttribute="trailing" secondItem="dpd-4J-5ix" secondAttribute="trailing" id="Xqe-lv-jvl"/>
                             <constraint firstItem="9IW-7K-Gls" firstAttribute="baseline" secondItem="1WZ-w5-9yF" secondAttribute="baseline" constant="-12" id="ZMg-V1-KAc"/>
                             <constraint firstItem="DHw-1J-Sgi" firstAttribute="top" secondItem="C1p-vc-PYe" secondAttribute="bottom" constant="10" id="djL-v9-PaQ"/>
+                            <constraint firstItem="nhZ-QP-edB" firstAttribute="centerX" secondItem="k8w-Nb-jCO" secondAttribute="centerX" constant="150" id="hNa-oH-g6A"/>
                             <constraint firstItem="dpd-4J-5ix" firstAttribute="top" secondItem="C1p-vc-PYe" secondAttribute="bottom" id="wiQ-iN-zee"/>
                             <constraint firstItem="dpd-4J-5ix" firstAttribute="leading" secondItem="k8w-Nb-jCO" secondAttribute="leading" id="zBI-gr-IyB"/>
                         </constraints>
@@ -890,6 +922,7 @@
                         <outlet property="necklacePaidLabel" destination="YdK-1N-moW" id="CSe-9G-wmU"/>
                         <outlet property="necklacePriceLabel" destination="vMW-wR-ix9" id="BZf-3e-MZL"/>
                         <outlet property="pointsLabel" destination="9IW-7K-Gls" id="lm7-Xg-smx"/>
+                        <outlet property="totalCostLabel" destination="Up7-Du-r44" id="qWu-00-nzD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKe-Du-9T9" userLabel="First Responder" sceneMemberID="firstResponder"/>
