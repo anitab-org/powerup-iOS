@@ -17,6 +17,7 @@ class SinkToSwimGameScene: SKScene {
     ]
     
     // MARK: Constants
+    let sinkingSpeedRelativeToGauge = 0.03
     
     // Sprite Positioning and sizing (relative to the size of game scene).
     // Water Gauge
@@ -28,8 +29,11 @@ class SinkToSwimGameScene: SKScene {
     // Avatar Boat
     let avatarBoatWidth = 0.32
     let avatarBoatHeight = 0.59
-    let avatarBoatPosY = 0.5
+    let avatarBoatPosY = 0.45
     let avatarBoatPosX = 0.33
+    
+    // This pos Y will be in sync with the pointer of the water gauge.
+    let avatarBoatPosYToPointer = 0.5
     
     // Score Label
     let scoreLabelPosX = 0.73
@@ -42,16 +46,22 @@ class SinkToSwimGameScene: SKScene {
     let questionBoxPosX = 0.75
     
     // The following four are relative to question box.
-    let trueButtonWidth = 0.4
+    let trueButtonWidth = 0.38
     let trueButtonHeight = 0.17
     let trueButtonPosY = -0.4
-    let trueButtonPosX = -0.24
+    let trueButtonPosX = -0.3
     
     // The following four are relative to question box.
-    let falseButtonWidth = 0.46
+    let falseButtonWidth = 0.43
     let falseButtonHeight = 0.17
     let falseButtonPosY = -0.4
-    let falseButtonPosX = 0.24
+    let falseButtonPosX = 0.28
+    
+    // The following four are relative to question box.
+    let dontKnowButtonWidth = 0.1
+    let dontKnowButtonHeight = 0.17
+    let dontKnowButtonPosY = -0.4
+    let dontKnowButtonPosX = -0.03
     
     // The following four are relative to question box.
     let questionLabelWidth = 0.84
@@ -65,7 +75,7 @@ class SinkToSwimGameScene: SKScene {
     
     // The following two are relative to Water Gauge.
     let waterGaugePointerPosX = 0.2
-    let waterGaugePointerPosY = -0.1
+    let waterGaugePointerPosY = 0.4
     
     // Timer Box
     let timerWidth = 0.25
@@ -85,10 +95,10 @@ class SinkToSwimGameScene: SKScene {
     
     
     // The unit of water gauge (The pointer will increase this unit whenever a correct answer is chosen). This is relative to the height of Water Gauge.
-    let waterGaugeUnit = 0.145
+    let waterGaugeUnit = 0.13
     
     let waterGaugeMaxUnit = 0.42
-    let waterGuageMinUnit = -0.4
+    let waterGaugeMinUnit = -0.4
     
     // Maximum timer count.
     let maxTimerCount = 40.0
@@ -113,6 +123,7 @@ class SinkToSwimGameScene: SKScene {
     let questionBoxSprite = SKSpriteNode(imageNamed: "sink_to_swim_true_false_box")
     let trueButton = SKSpriteNode()
     let falseButton = SKSpriteNode()
+    let dontKnowButton = SKSpriteNode()
     let correctWrongSprite = SKSpriteNode()
     
     // Textures
@@ -141,6 +152,7 @@ class SinkToSwimGameScene: SKScene {
     let questionFadeInTime = 0.3
     let questionFadeOutTime = 0.2
     let correctWrongSpriteStayTime = 0.5
+    let boatRaiseDuration = 0.4
     
     // MARK: Properties
     var questionLabel: SKMultilineLabel!
@@ -163,8 +175,13 @@ class SinkToSwimGameScene: SKScene {
     // Current timer.
     var timer = 0.0
     
-    // Start time of the game.
-    var startTimestamp: Double? = nil
+    // Disable buttons and update function if the game is over.
+    var isGameOver = false
+    
+    // Timestamp of the previous frame.
+    var timestamp: Double? = nil
+    
+    var raisingBoat = false
     
     // Keep a reference to the view controller for end game transition. (This is assigned in the MiniGameViewController class).
     var viewController: MiniGameViewController!
@@ -218,6 +235,12 @@ class SinkToSwimGameScene: SKScene {
         falseButton.zPosition = uiLayer
         falseButton.color = UIColor.clear
         
+        questionBoxSprite.addChild(dontKnowButton)
+        dontKnowButton.size = CGSize(width: questionBoxSprite.size.width * CGFloat(dontKnowButtonWidth), height: questionBoxSprite.size.height * CGFloat(dontKnowButtonHeight))
+        dontKnowButton.position = CGPoint(x: questionBoxSprite.size.width * CGFloat(dontKnowButtonPosX), y: questionBoxSprite.size.height * CGFloat(dontKnowButtonPosY))
+        dontKnowButton.zPosition = uiLayer
+        dontKnowButton.color = UIColor.clear
+        
         // Positioning question label.
         questionLabel = SKMultilineLabel(text: "", labelWidth: Int(CGFloat(questionLabelWidth) * questionBoxSprite.size.width), pos: CGPoint.zero, fontName: fontName, fontSize: questionFontSize, fontColor: textColor,leading: questionLabelLeading)
         questionLabel.zPosition = uiTextLayer
@@ -261,7 +284,6 @@ class SinkToSwimGameScene: SKScene {
         correctWrongSprite.position = CGPoint(x: questionBoxSprite.size.width * CGFloat(correctWrongIconPosX), y: questionBoxSprite.size.height * CGFloat(correctWrongIconPosY))
         correctWrongSprite.zPosition = frontLayer
         questionBoxSprite.addChild(correctWrongSprite)
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -303,17 +325,68 @@ class SinkToSwimGameScene: SKScene {
     // Being called every frame.
     override func update(_ currentTime: TimeInterval) {
         
-        // The first frame of the game. Initialize startTimestamp.
-        if startTimestamp == nil {
-            startTimestamp = currentTime
+        if isGameOver { return }
+        
+        // The first frame of the game. Initialize timestamp.
+        if timestamp == nil {
+            timestamp = currentTime
             return
         } else {
+            let timePassed = currentTime - timestamp!
+            timestamp! = currentTime
+            
+            // Update water pointer.
+            var waterPointerNewPosY: Double
+            if raisingBoat {
+                // Raise the boat.
+                
+                // Raising speed is equal to (water gauge unit / question transition animation time).
+                let raisingSpeed = waterGaugeUnit * Double(waterGaugeSprite.size.height) / (questionFadeInTime + questionFadeOutTime + correctWrongSpriteStayTime)
+                
+                waterPointerNewPosY = Double(waterGaugePointerSprite.position.y) + timePassed * raisingSpeed
+            } else {
+                // Drown the boat.
+                waterPointerNewPosY = Double(waterGaugePointerSprite.position.y) - timePassed * sinkingSpeedRelativeToGauge * Double(waterGaugeSprite.size.height)
+            }
+            
+            // Set the position of the pointer. Ensure that the pointer won't go out of the gauge using min(max(value, lower), upper).
+            let minPosY = CGFloat(waterGaugeMinUnit) * waterGaugeSprite.size.height
+            let maxPosY = CGFloat(waterGaugeMaxUnit) * waterGaugeSprite.size.height
+            waterGaugePointerSprite.position = CGPoint(x: waterGaugePointerSprite.position.x, y: min(max(CGFloat(waterPointerNewPosY), minPosY), maxPosY))
+            
+            // Update avatar according to the pointer.
+            updateAvatarBoatAccordingToWaterPointer()
+            
+            // If the new posY goes below the min y-position, game over.
+            if waterPointerNewPosY < Double(waterGaugeSprite.size.height) * waterGaugeMinUnit {
+                gameOver(drowned: true)
+                return
+            }
+            
             // Update timer.
-            timer = currentTime - startTimestamp!
+            timer += timePassed
             
             // Update timer text. (Only shows the integer).
             timerLabel.text = String(Int(timer))
+            
+            // If the timer reaches its max, game over.
+            if timer > maxTimerCount {
+                gameOver(drowned: false)
+                return
+            }
         }
+    }
+    
+    // Transition to game over scene. Determine the game is success by whether the boat is drowned or not.
+    func gameOver(drowned: Bool) {
+        isGameOver = true
+    }
+    
+    // Update the y-position of the avatar boat according to the water pointer.
+    func updateAvatarBoatAccordingToWaterPointer() {
+        let pointerGlobalPosY = waterGaugePointerSprite.convert(CGPoint.zero, to: self).y
+        
+        avatarBoatSprite.position = CGPoint(x: avatarBoatSprite.position.x, y: pointerGlobalPosY - avatarBoatSprite.size.height * CGFloat(avatarBoatPosYToPointer))
     }
     
     // Fade-in the next question.
@@ -326,7 +399,9 @@ class SinkToSwimGameScene: SKScene {
         // Fade-in the questions.
         questionLabel.alpha = 0.0
         questionLabel.isHidden = false
-        questionLabel.run(SKAction.fadeIn(withDuration: questionFadeInTime))
+        questionLabel.run(SKAction.fadeIn(withDuration: questionFadeInTime)) {
+            self.raisingBoat = false
+        }
         
         // Set questionPresented to true (so that the true/false buttons could be pressed).
         questionPresented = true
@@ -334,17 +409,23 @@ class SinkToSwimGameScene: SKScene {
         questionPresentTimestamp = timer
     }
     
-    // Reveal the correct answer, update score, update boat position.
-    func answerChosen(choice: Bool) {
+    // Reveal the correct answer, update score, update boat position. If Dont Know Button is pressed, choice is passed as nil.
+    func answerChosen(choice: Bool?) {
         
-        let isCorrect = questions[currQuestion].correctAnswer == choice
-        
-        // Update score.
-        let timeDifference = timer - questionPresentTimestamp
-        calculateAndUpdateScore(timeDifference: timeDifference, isCorrect: isCorrect)
-        
-        // Show the wrong / correct icon.
-        correctWrongSprite.texture = isCorrect ? correctIconTexture : wrongIconTexture
+        // True/False Button is pressed.
+        if choice != nil {
+            let isCorrect = questions[currQuestion].correctAnswer == choice
+            
+            // Update score.
+            let timeDifference = timer - questionPresentTimestamp
+            calculateAndUpdateScore(timeDifference: timeDifference, isCorrect: isCorrect)
+            
+            // Show the wrong / correct icon.
+            correctWrongSprite.texture = isCorrect ? correctIconTexture : wrongIconTexture
+            
+            // If the answer if correct, raise the boat (until the next question is presented).
+            raisingBoat = isCorrect
+        }
         
         // Wait a certain amount of time, fade out the text. and transition to the next question.
         self.run(SKAction.wait(forDuration: correctWrongSpriteStayTime)) {
@@ -382,6 +463,10 @@ class SinkToSwimGameScene: SKScene {
         guard let touch = touches.first else { return }
         
         let location = touch.location(in: questionBoxSprite)
+        
+        // Disable true/false/dont know buttons if the game is over.
+        if isGameOver { return }
+        
         if trueButton.contains(location) {
             // True Button is tapped.
             answerChosen(choice: true)
@@ -391,6 +476,12 @@ class SinkToSwimGameScene: SKScene {
         } else if falseButton.contains(location) {
             // False Button is tapped.
             answerChosen(choice: false)
+            
+            // Prevent multiple touches.
+            questionPresented = false
+        } else if dontKnowButton.contains(location) {
+            // Dont Know Button is tapped.
+            answerChosen(choice: nil)
             
             // Prevent multiple touches.
             questionPresented = false
