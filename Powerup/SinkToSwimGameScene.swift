@@ -17,7 +17,7 @@ class SinkToSwimGameScene: SKScene {
     ]
     
     // MARK: Constants
-    let sinkingSpeedRelativeToGauge = 0.03
+    let sinkingSpeedRelativeToGauge = 0.025
     
     // Sprite Positioning and sizing (relative to the size of game scene).
     // Water Gauge
@@ -93,15 +93,22 @@ class SinkToSwimGameScene: SKScene {
     let correctWrongIconPosY = 0.1
     let correctWrongIconPosX = 0.0
     
+    // End scene labels.
+    let endSceneTitleLabelPosX = 0.0
+    let endSceneTitleLabelPosY = 0.1
+    let endSceneScoreLabelPosX = 0.0
+    let endSceneScoreLabelPosY = -0.1
+    
+    // Continue button.
+    let continueButtonBottomMargin = 0.08
+    let continueButtonHeightRelativeToSceneHeight = 0.15
+    let continueButtonAspectRatio = 2.783
     
     // The unit of water gauge (The pointer will increase this unit whenever a correct answer is chosen). This is relative to the height of Water Gauge.
     let waterGaugeUnit = 0.13
     
     let waterGaugeMaxUnit = 0.42
     let waterGaugeMinUnit = -0.4
-    
-    // Maximum timer count.
-    let maxTimerCount = 40.0
     
     // Colors
     let textColor = UIColor(colorLiteralRed: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
@@ -112,6 +119,7 @@ class SinkToSwimGameScene: SKScene {
     let questionFontSize = CGFloat(18)
     let scoreFontSize = CGFloat(22)
     let timerFontSize = CGFloat(17)
+    let titleFontSize = CGFloat(40)
     
     // Sprite nodes
     let backgroundSprite = SKSpriteNode(imageNamed: "sink_to_swim_background")
@@ -125,6 +133,8 @@ class SinkToSwimGameScene: SKScene {
     let falseButton = SKSpriteNode()
     let dontKnowButton = SKSpriteNode()
     let correctWrongSprite = SKSpriteNode()
+    let endSceneSprite = SKSpriteNode()
+    let continueButton = SKSpriteNode(imageNamed: "continue_button")
     
     // Textures
     let correctIconTexture = SKTexture(imageNamed: "sink_to_swim_correct_icon")
@@ -133,12 +143,17 @@ class SinkToSwimGameScene: SKScene {
     // Labels
     let scoreLabel = SKLabelNode()
     let timerLabel = SKLabelNode()
+    let endSceneTitleLabel = SKLabelNode()
+    let endSceneScoreLabel = SKLabelNode()
     
     // Label wrapper nodes (For better control & positioning).
     let scoreLabelWrapper = SKNode()
     let timerLabelWrapper = SKNode()
+    let endSceneTitleLabelWrapper = SKNode()
+    let endSceneScoreLabelWrapper = SKNode()
     
     let scoreLabelPrefix = "Score: "
+    let endSceneTitleLabelText = "Game Over"
     
     // Layers (zPosition)
     let backgroundLayer = CGFloat(-0.1)
@@ -147,21 +162,23 @@ class SinkToSwimGameScene: SKScene {
     let uiLayer = CGFloat(0.3)
     let uiTextLayer = CGFloat(0.4)
     let frontLayer = CGFloat(0.5)
+    let endSceneLayer = CGFloat(1.5)
     
     // Animations
     let questionFadeInTime = 0.3
     let questionFadeOutTime = 0.2
     let correctWrongSpriteStayTime = 0.5
     let boatRaiseDuration = 0.4
+    let boatRotateAngle = 20.0
+    let boatRotateDuration = 4.0
+    let endScenePauseDuration = 1.0
+    let endSceneFadeInDuration = 1.0
     
     // MARK: Properties
     var questionLabel: SKMultilineLabel!
     
     // Only when the question is presented can the player choose the answer.
     var questionPresented = false
-    
-    // The time when the question is presented.
-    var questionPresentTimestamp = 0.0
     
     // Index of the current water level.
     var currWaterLevel: Int!
@@ -170,10 +187,10 @@ class SinkToSwimGameScene: SKScene {
     var currQuestion = -1
     
     // Current score.
-    var score = 0.0
+    var score = 0
     
-    // Current timer.
-    var timer = 0.0
+    // Current timer (Start counting down from this value).
+    var timer = 40
     
     // Disable buttons and update function if the game is over.
     var isGameOver = false
@@ -182,6 +199,9 @@ class SinkToSwimGameScene: SKScene {
     var timestamp: Double? = nil
     
     var raisingBoat = false
+    
+    // Continue button is only interactable after the ending scene is fully faded in.
+    var continueButtonInteractable = false
     
     // Keep a reference to the view controller for end game transition. (This is assigned in the MiniGameViewController class).
     var viewController: MiniGameViewController!
@@ -284,6 +304,47 @@ class SinkToSwimGameScene: SKScene {
         correctWrongSprite.position = CGPoint(x: questionBoxSprite.size.width * CGFloat(correctWrongIconPosX), y: questionBoxSprite.size.height * CGFloat(correctWrongIconPosY))
         correctWrongSprite.zPosition = frontLayer
         questionBoxSprite.addChild(correctWrongSprite)
+        
+        // End scene.
+        endSceneSprite.size = CGSize(width: gameWidth, height: gameHeight)
+        endSceneSprite.position = CGPoint(x: gameWidth / 2.0, y: gameHeight / 2.0)
+        endSceneSprite.color = UIColor.white
+        endSceneSprite.zPosition = endSceneLayer
+        
+        // End scene labels.
+        endSceneSprite.addChild(endSceneTitleLabelWrapper)
+        endSceneTitleLabelWrapper.position = CGPoint(x: gameWidth * endSceneTitleLabelPosX, y: gameHeight * endSceneTitleLabelPosY)
+        endSceneTitleLabelWrapper.zPosition = uiTextLayer
+        endSceneTitleLabelWrapper.addChild(endSceneTitleLabel)
+        
+        endSceneTitleLabel.fontName = fontName
+        endSceneTitleLabel.fontColor = textColor
+        endSceneTitleLabel.fontSize = titleFontSize
+        endSceneTitleLabel.text = endSceneTitleLabelText
+        endSceneTitleLabel.horizontalAlignmentMode = .center
+        endSceneTitleLabel.verticalAlignmentMode = .center
+        
+        endSceneSprite.addChild(endSceneScoreLabelWrapper)
+        endSceneScoreLabelWrapper.position = CGPoint(x: gameWidth * endSceneScoreLabelPosX, y: gameHeight * endSceneScoreLabelPosY)
+        endSceneScoreLabelWrapper.zPosition = uiTextLayer
+        endSceneScoreLabelWrapper.addChild(endSceneScoreLabel)
+        
+        endSceneScoreLabel.fontName = fontName
+        endSceneScoreLabel.fontColor = textColor
+        endSceneScoreLabel.fontSize = scoreFontSize
+        endSceneScoreLabel.text = scoreLabelPrefix
+        endSceneScoreLabel.horizontalAlignmentMode = .center
+        endSceneScoreLabel.verticalAlignmentMode = .center
+        
+        // End scene continue button.
+        endSceneSprite.addChild(continueButton)
+        continueButton.anchorPoint = CGPoint(x: 1.0, y: 0.0)
+        continueButton.size = CGSize(width: continueButtonAspectRatio * continueButtonHeightRelativeToSceneHeight * gameHeight, height: gameHeight * continueButtonHeightRelativeToSceneHeight)
+        continueButton.position = CGPoint(x: gameWidth / 2.0, y: gameHeight * (-0.5 + continueButtonBottomMargin))
+        continueButton.zPosition = uiLayer
+        
+        // Hide end scene.
+        endSceneSprite.isHidden = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -315,15 +376,32 @@ class SinkToSwimGameScene: SKScene {
         // Add score label.
         addChild(scoreLabelWrapper)
         
+        // Add end scene.
+        addChild(endSceneSprite)
+        
         // Shuffle the questions.
         questions.shuffle()
         
         // Start the game by showing the first question.
         showNextQuestion()
+        
+        // Start the wobbling animation of the boat.
+        startBoatWobblingAnimation()
+        
+        // Start the timer.
+        let timerTickAction = SKAction.sequence([SKAction.wait(forDuration: 1.0), SKAction.run({self.tickTimer()})])
+        run(SKAction.repeatForever(timerTickAction), withKey: "timer_tick")
     }
     
     // Being called every frame.
     override func update(_ currentTime: TimeInterval) {
+        
+        // Check if timer reaches zero.
+        if timer <= 0 {
+            
+            // Game over.
+            gameOver(drowned: false)
+        }
         
         if isGameOver { return }
         
@@ -362,24 +440,49 @@ class SinkToSwimGameScene: SKScene {
                 gameOver(drowned: true)
                 return
             }
-            
-            // Update timer.
-            timer += timePassed
-            
-            // Update timer text. (Only shows the integer).
-            timerLabel.text = String(Int(timer))
-            
-            // If the timer reaches its max, game over.
-            if timer > maxTimerCount {
-                gameOver(drowned: false)
-                return
-            }
         }
     }
     
-    // Transition to game over scene. Determine the game is success by whether the boat is drowned or not.
+    // Tick the timer.
+    func tickTimer() {
+        timer -= 1
+        timerLabel.text = String(self.timer)
+    }
+    
+    // Start animating the boat.
+    func startBoatWobblingAnimation() {
+        let deg2rad = .pi / 180.0
+        
+        let clockwiseRotation = SKAction.rotate(byAngle: CGFloat(-boatRotateAngle * deg2rad), duration: boatRotateDuration / 4.0)
+        let counterclockwiseRotation = SKAction.rotate(byAngle: CGFloat(boatRotateAngle * deg2rad), duration: boatRotateDuration / 4.0)
+        
+        // Tilt to the right -> back to upstraight -> tilt to the left -> back to upstraight.
+        let wobblingAnimation = SKAction.sequence([clockwiseRotation, counterclockwiseRotation, counterclockwiseRotation, clockwiseRotation])
+        
+        // Repeat the animation pattern forever.
+        avatarBoatSprite.run(SKAction.repeatForever(wobblingAnimation))
+    }
+    
+    // Transition to game over scene. Determine the game is successful by whether the boat is drowned or not. (currently, the result is the same whether the game is successful or not. Just keep the "drowned" parameter so that future changes could be done easily.)
     func gameOver(drowned: Bool) {
         isGameOver = true
+        
+        // Stop the timer ticking animation.
+        removeAction(forKey: "timer_tick")
+        
+        // Pause for some time.
+        run(SKAction.wait(forDuration: endScenePauseDuration)) {
+            
+            // Set the score label in ending scene.
+            self.scoreLabel.text = self.scoreLabelPrefix + String(self.score)
+            
+            // Fade in ending scene.
+            self.endSceneSprite.alpha = 0.0
+            self.endSceneSprite.isHidden = false
+            self.endSceneSprite.run(SKAction.fadeIn(withDuration: self.endSceneFadeInDuration)) {
+                self.continueButtonInteractable = true
+            }
+        }
     }
     
     // Update the y-position of the avatar boat according to the water pointer.
@@ -405,8 +508,6 @@ class SinkToSwimGameScene: SKScene {
         
         // Set questionPresented to true (so that the true/false buttons could be pressed).
         questionPresented = true
-        
-        questionPresentTimestamp = timer
     }
     
     // Reveal the correct answer, update score, update boat position. If Dont Know Button is pressed, choice is passed as nil.
@@ -417,8 +518,10 @@ class SinkToSwimGameScene: SKScene {
             let isCorrect = questions[currQuestion].correctAnswer == choice
             
             // Update score.
-            let timeDifference = timer - questionPresentTimestamp
-            calculateAndUpdateScore(timeDifference: timeDifference, isCorrect: isCorrect)
+            if isCorrect {
+                score += 1
+            }
+            scoreLabel.text = scoreLabelPrefix + String(score)
             
             // Show the wrong / correct icon.
             correctWrongSprite.texture = isCorrect ? correctIconTexture : wrongIconTexture
@@ -445,27 +548,29 @@ class SinkToSwimGameScene: SKScene {
         }
     }
     
-    // The formula for score is: (answering time - question presenting time) + ( 1 if correct, -1 if wrong).
-    func calculateAndUpdateScore(timeDifference: Double, isCorrect: Bool) {
-        score += timeDifference + (isCorrect ? 1.0 : -1.0)
-        
-        // Show score text (only the integer part).
-        scoreLabel.text = scoreLabelPrefix + String(Int(score.rounded()))
-    }
-    
     // MARK: Touch Inputs
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        // Only when the question is presented can the player choose the answer.
-        if !questionPresented { return }
         
         // Only the first touch is effective.
         guard let touch = touches.first else { return }
         
+        if isGameOver {
+            
+            // Check if continue button is tapped.
+            if continueButtonInteractable && continueButton.contains(touch.location(in: endSceneSprite)) {
+                
+                // End game.
+                viewController.endGame()
+            }
+            
+            // Disable true/false/dont know buttons if the game is over.
+            return
+        }
+        
         let location = touch.location(in: questionBoxSprite)
         
-        // Disable true/false/dont know buttons if the game is over.
-        if isGameOver { return }
+        // Only when the question is presented can the player choose the answer.
+        if !questionPresented { return }
         
         if trueButton.contains(location) {
             // True Button is tapped.
