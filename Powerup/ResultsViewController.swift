@@ -5,7 +5,11 @@ class ResultsViewController: UIViewController {
     // TODO: Should detemine how many Karma points will be given after each completion of scenario.
     let karmaGain = 20
     
+    // The background image. being set by either mini game view or scenario view.
+    var backgroundImage: UIImage? = nil
+    
     // MARK: Views
+    @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var eyesView: UIImageView!
     @IBOutlet weak var hairView: UIImageView!
     @IBOutlet weak var faceView: UIImageView!
@@ -40,6 +44,9 @@ class ResultsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Configure background image.
+        backgroundImageView.image = backgroundImage
         
         configureAvatar()
         
