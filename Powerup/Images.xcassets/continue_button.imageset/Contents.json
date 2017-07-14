@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "minesweeper continue 3 button.png",
+      "filename" : "continue button.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "minesweeper continue 3 button-1.png",
+      "filename" : "continue button-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "minesweeper continue 3 button-2.png",
+      "filename" : "continue button-2.png",
       "scale" : "3x"
     }
   ],
