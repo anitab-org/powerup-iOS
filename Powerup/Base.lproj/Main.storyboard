@@ -310,7 +310,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Marco" translatesAutoresizingMaskIntoConstraints="NO" id="tml-7e-idc">
-                                <rect key="frame" x="467" y="0.0" width="150" height="280"/>
+                                <rect key="frame" x="467" y="-19" width="150" height="280"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="280" id="1wp-C5-hdd"/>
                                     <constraint firstAttribute="width" constant="150" id="h3S-S2-N9W"/>
@@ -324,54 +324,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marcello" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6u7-zE-DVc">
-                                <rect key="frame" x="501.5" y="255.5" width="88" height="24.5"/>
+                                <rect key="frame" x="498" y="270.5" width="88" height="24.5"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="3AU-ec-fnI" userLabel="Choice 2 Button">
-                                <rect key="frame" x="141" y="199" width="348" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="15"/>
-                                <state key="normal" title="Choice 2">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="choiceSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sHP-iI-PRo"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hair2" translatesAutoresizingMaskIntoConstraints="NO" id="gKT-bd-oe7" userLabel="Avatar Hair Image">
                                 <rect key="frame" x="44" y="124" width="96" height="97"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="kQW-7e-pth" userLabel="Choice 3 Button">
-                                <rect key="frame" x="141" y="247" width="348" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="15"/>
-                                <state key="normal" title="Choice 3">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="choiceSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z4C-Gt-rR7"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="500-p5-neQ" userLabel="Choice 4 Button">
-                                <rect key="frame" x="141" y="293" width="348" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="15"/>
-                                <state key="normal" title="Choice 4">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="choiceSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ksc-7b-MKe"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="purse2" translatesAutoresizingMaskIntoConstraints="NO" id="rnS-gP-YZL" userLabel="Avatar Handbag Image">
                                 <rect key="frame" x="55" y="205" width="38" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -388,42 +349,90 @@
                                 <rect key="frame" x="49" y="118" width="89" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left_dialogue" translatesAutoresizingMaskIntoConstraints="NO" id="u8N-gt-KTy">
+                                <rect key="frame" x="191.5" y="35" width="283.5" height="159.5"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vn8-s2-SmV" userLabel="Question Label">
-                                <rect key="frame" x="215" y="30" width="222" height="101"/>
-                                <color key="backgroundColor" red="0.55226291700578689" green="1" blue="0.67648041399783065" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="222" id="Fs5-C5-Udy"/>
-                                    <constraint firstAttribute="height" constant="101" id="ysA-2a-jz2"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="15"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="225" y="72.5" width="184" height="95.5"/>
+                                <color key="backgroundColor" red="0.55226291700578689" green="1" blue="0.67648041399783065" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="14"/>
+                                <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="DB0-dr-t97" userLabel="Choice 1 Button">
-                                <rect key="frame" x="141" y="153" width="348" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="15"/>
-                                <state key="normal" title="Choice 1">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="choiceSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Gh-Af-VzS"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right_dialogue" translatesAutoresizingMaskIntoConstraints="NO" id="Xn7-bj-CGu">
+                                <rect key="frame" x="158.5" y="200.5" width="283.5" height="159.5"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0Uo-Ea-Ofl" userLabel="Choices Stack View">
+                                <rect key="frame" x="198.5" y="205.5" width="227.5" height="143.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="DB0-dr-t97" userLabel="Choice 1 Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="227.5" height="36"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="12"/>
+                                        <state key="normal" title="Choice 1">
+                                            <color key="titleColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="choiceSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Gh-Af-VzS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="3AU-ec-fnI" userLabel="Choice 2 Button">
+                                        <rect key="frame" x="0.0" y="36" width="227.5" height="36"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="12"/>
+                                        <state key="normal" title="Choice 2">
+                                            <color key="titleColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="choiceSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sHP-iI-PRo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="kQW-7e-pth" userLabel="Choice 3 Button">
+                                        <rect key="frame" x="0.0" y="72" width="227.5" height="35.5"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="12"/>
+                                        <state key="normal" title="Choice 3">
+                                            <color key="titleColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="choiceSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z4C-Gt-rR7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="500-p5-neQ" userLabel="Choice 4 Button">
+                                        <rect key="frame" x="0.0" y="107.5" width="227.5" height="36"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="12"/>
+                                        <state key="normal" title="Choice 4">
+                                            <color key="titleColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="choiceSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ksc-7b-MKe"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="u8N-gt-KTy" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.425" id="2br-Us-QB7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DY8-Xk-Z48" secondAttribute="trailing" id="3gF-IK-keB"/>
-                            <constraint firstItem="6u7-zE-DVc" firstAttribute="baseline" secondItem="tml-7e-idc" secondAttribute="baseline" constant="-4.3333333333333144" id="8K1-tH-XGc"/>
+                            <constraint firstItem="0Uo-Ea-Ofl" firstAttribute="width" secondItem="Xn7-bj-CGu" secondAttribute="width" multiplier="0.8" id="6jQ-Bb-6Je"/>
                             <constraint firstItem="DY8-Xk-Z48" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="DlY-6x-lHS"/>
-                            <constraint firstItem="tml-7e-idc" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="UuN-tJ-jSp"/>
+                            <constraint firstItem="u8N-gt-KTy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="IDC-NM-JhA"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Xn7-bj-CGu" secondAttribute="bottom" constant="15" id="Ihj-oi-CgA"/>
+                            <constraint firstItem="u8N-gt-KTy" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.425" id="Ral-qt-gCK"/>
+                            <constraint firstItem="u8N-gt-KTy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TTg-10-bGD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tml-7e-idc" secondAttribute="trailing" constant="30" id="XiM-eJ-ye2"/>
-                            <constraint firstItem="6u7-zE-DVc" firstAttribute="centerX" secondItem="tml-7e-idc" secondAttribute="centerX" constant="3" id="aEZ-Df-Zop"/>
+                            <constraint firstItem="vn8-s2-SmV" firstAttribute="height" secondItem="u8N-gt-KTy" secondAttribute="height" multiplier="0.6" id="Ys9-17-eDl"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="DY8-Xk-Z48" secondAttribute="bottom" id="d8j-yH-adg"/>
-                            <constraint firstItem="tml-7e-idc" firstAttribute="leading" secondItem="vn8-s2-SmV" secondAttribute="trailing" constant="30" id="gWF-dD-AA6"/>
-                            <constraint firstItem="vn8-s2-SmV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="k0x-qy-9oz"/>
+                            <constraint firstItem="6u7-zE-DVc" firstAttribute="top" secondItem="tml-7e-idc" secondAttribute="bottom" constant="10" id="e9k-F9-thW"/>
+                            <constraint firstItem="6u7-zE-DVc" firstAttribute="centerX" secondItem="tml-7e-idc" secondAttribute="centerX" id="kDd-z9-INh"/>
+                            <constraint firstItem="Xn7-bj-CGu" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.425" id="m1E-QE-Ksy"/>
+                            <constraint firstItem="Xn7-bj-CGu" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.425" id="nKc-Sf-b6P"/>
+                            <constraint firstItem="vn8-s2-SmV" firstAttribute="centerX" secondItem="u8N-gt-KTy" secondAttribute="centerX" multiplier="0.95" id="nSS-MO-8hh"/>
+                            <constraint firstItem="0Uo-Ea-Ofl" firstAttribute="height" secondItem="Xn7-bj-CGu" secondAttribute="height" multiplier="0.9" id="ql3-ny-XVf"/>
+                            <constraint firstItem="vn8-s2-SmV" firstAttribute="width" secondItem="u8N-gt-KTy" secondAttribute="width" multiplier="0.65" id="rSA-d5-7UZ"/>
+                            <constraint firstItem="vn8-s2-SmV" firstAttribute="centerY" secondItem="u8N-gt-KTy" secondAttribute="centerY" multiplier="1.05" id="tMD-q5-x4C"/>
+                            <constraint firstItem="0Uo-Ea-Ofl" firstAttribute="centerX" secondItem="Xn7-bj-CGu" secondAttribute="centerX" multiplier="1.04" id="tSN-YC-7hI"/>
+                            <constraint firstItem="Xn7-bj-CGu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="0.9" id="vUM-Uk-xoQ"/>
                             <constraint firstItem="DY8-Xk-Z48" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="vo3-Xh-zGI"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6u7-zE-DVc" secondAttribute="bottom" constant="80" id="vzD-ch-b2N"/>
+                            <constraint firstItem="0Uo-Ea-Ofl" firstAttribute="centerY" secondItem="Xn7-bj-CGu" secondAttribute="centerY" multiplier="0.99" id="xin-Wh-FAn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Scene 1" id="cG0-Qh-xW1"/>
@@ -438,10 +447,10 @@
                         <outlet property="hatView" destination="Q24-mV-m27" id="oTk-fG-Gbv"/>
                         <outlet property="necklaceView" destination="Fga-rm-Ong" id="w4H-lc-hRX"/>
                         <outlet property="questionLabel" destination="vn8-s2-SmV" id="l0r-zj-TnY"/>
-                        <outletCollection property="choiceButtons" destination="DB0-dr-t97" collectionClass="NSMutableArray" id="6mW-Bh-EuT"/>
                         <outletCollection property="choiceButtons" destination="3AU-ec-fnI" collectionClass="NSMutableArray" id="V6W-eL-Vnw"/>
                         <outletCollection property="choiceButtons" destination="kQW-7e-pth" collectionClass="NSMutableArray" id="1I0-8z-ymd"/>
                         <outletCollection property="choiceButtons" destination="500-p5-neQ" collectionClass="NSMutableArray" id="XbT-p5-7Bi"/>
+                        <outletCollection property="choiceButtons" destination="DB0-dr-t97" collectionClass="NSMutableArray" id="6mW-Bh-EuT"/>
                         <segue destination="068-4x-alq" kind="push" identifier="toMiniGame" id="DTD-eG-6ws"/>
                         <segue destination="Kej-3M-rbU" kind="push" identifier="toEndScene" id="0it-aH-Xs8"/>
                         <segue destination="tRn-hQ-WhV" kind="unwind" identifier="unwindToMap" unwindAction="unwindToMapWithUnwindSegue:" id="pJw-HQ-eLH"/>
@@ -642,12 +651,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHw-1J-Sgi" userLabel="Home Button">
-                                <rect key="frame" x="577" y="30" width="60" height="60"/>
+                                <rect key="frame" x="592" y="25" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="6mf-if-sOM"/>
-                                    <constraint firstAttribute="height" constant="60" id="ZwM-3O-uj1"/>
+                                    <constraint firstAttribute="width" constant="50" id="6mf-if-sOM"/>
+                                    <constraint firstAttribute="height" constant="50" id="ZwM-3O-uj1"/>
                                 </constraints>
-                                <state key="normal" title="goHome" image="logo"/>
+                                <state key="normal" title="goHome" image="home_button"/>
                                 <connections>
                                     <action selector="homeButtonTouched:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="5a5-QJ-5F0"/>
                                 </connections>
@@ -853,7 +862,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Cost: 0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Up7-Du-r44" userLabel="Total Cost Label">
                                 <rect key="frame" x="275" y="30" width="118" height="21"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="karma_star" translatesAutoresizingMaskIntoConstraints="NO" id="24j-Zk-rSY" userLabel="Karma Motif">
@@ -882,11 +891,11 @@
                             <constraint firstItem="35U-NA-5dW" firstAttribute="top" secondItem="gVF-C0-eRz" secondAttribute="bottom" constant="25" id="FcH-hM-dg9"/>
                             <constraint firstItem="9IW-7K-Gls" firstAttribute="leading" secondItem="24j-Zk-rSY" secondAttribute="trailing" constant="10" id="Ky5-lS-022"/>
                             <constraint firstItem="gVF-C0-eRz" firstAttribute="centerX" secondItem="k8w-Nb-jCO" secondAttribute="centerX" constant="-100" id="Ndw-CX-flz"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="DHw-1J-Sgi" secondAttribute="trailing" constant="10" id="SFN-QU-KeH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DHw-1J-Sgi" secondAttribute="trailing" constant="5" id="SFN-QU-KeH"/>
                             <constraint firstItem="Up7-Du-r44" firstAttribute="centerX" secondItem="k8w-Nb-jCO" secondAttribute="centerX" id="WiP-Z1-yM3"/>
                             <constraint firstAttribute="trailing" secondItem="dpd-4J-5ix" secondAttribute="trailing" id="Xqe-lv-jvl"/>
                             <constraint firstItem="24j-Zk-rSY" firstAttribute="leading" secondItem="k8w-Nb-jCO" secondAttribute="leading" constant="10" id="dHE-79-elj"/>
-                            <constraint firstItem="DHw-1J-Sgi" firstAttribute="top" secondItem="C1p-vc-PYe" secondAttribute="bottom" constant="10" id="djL-v9-PaQ"/>
+                            <constraint firstItem="DHw-1J-Sgi" firstAttribute="top" secondItem="C1p-vc-PYe" secondAttribute="bottom" constant="5" id="djL-v9-PaQ"/>
                             <constraint firstItem="nhZ-QP-edB" firstAttribute="centerX" secondItem="k8w-Nb-jCO" secondAttribute="centerX" constant="150" id="hNa-oH-g6A"/>
                             <constraint firstItem="9IW-7K-Gls" firstAttribute="centerY" secondItem="24j-Zk-rSY" secondAttribute="centerY" id="heN-wV-mry"/>
                             <constraint firstItem="24j-Zk-rSY" firstAttribute="top" secondItem="C1p-vc-PYe" secondAttribute="bottom" constant="10" id="rvt-Sz-stl"/>
@@ -969,12 +978,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltw-sU-vLk" userLabel="Home Button">
-                                <rect key="frame" x="597" y="30" width="60" height="60"/>
+                                <rect key="frame" x="602" y="25" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="YsO-f8-Edm"/>
-                                    <constraint firstAttribute="width" constant="60" id="gWF-gg-DzG"/>
+                                    <constraint firstAttribute="height" constant="50" id="YsO-f8-Edm"/>
+                                    <constraint firstAttribute="width" constant="50" id="gWF-gg-DzG"/>
                                 </constraints>
-                                <state key="normal" title="goHome" image="logo"/>
+                                <state key="normal" title="goHome" image="home_button"/>
                                 <connections>
                                     <segue destination="AXo-70-yQg" kind="unwind" unwindAction="unwindToStartWithUnwindSegue:" id="56Q-VN-zF1"/>
                                 </connections>
@@ -1015,7 +1024,7 @@
                                     <constraint firstAttribute="height" constant="75" id="zdJ-PW-Q7N"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.1854884923" green="0.7976176143" blue="0.82913279529999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ability_bars" translatesAutoresizingMaskIntoConstraints="NO" id="ihg-L6-Pqb">
@@ -1039,7 +1048,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="j4y-Z7-O5g" firstAttribute="top" secondItem="9eA-5h-upJ" secondAttribute="bottom" constant="55" id="3gB-HS-dcz"/>
-                            <constraint firstItem="ltw-sU-vLk" firstAttribute="top" secondItem="niI-hx-Uj2" secondAttribute="bottom" constant="10" id="A4s-ea-qBe"/>
+                            <constraint firstItem="ltw-sU-vLk" firstAttribute="top" secondItem="niI-hx-Uj2" secondAttribute="bottom" constant="5" id="A4s-ea-qBe"/>
                             <constraint firstItem="ceu-KN-STh" firstAttribute="centerY" secondItem="5cF-Xa-Kzb" secondAttribute="centerY" id="Cn0-BX-Xj9"/>
                             <constraint firstItem="ceu-KN-STh" firstAttribute="centerX" secondItem="5cF-Xa-Kzb" secondAttribute="centerX" id="E1y-J3-4ea"/>
                             <constraint firstAttribute="trailing" secondItem="9eA-5h-upJ" secondAttribute="trailing" id="HMe-is-WUa"/>
@@ -1048,7 +1057,7 @@
                             <constraint firstItem="Be8-ZB-uyt" firstAttribute="top" secondItem="niI-hx-Uj2" secondAttribute="bottom" id="Pab-Rm-KFC"/>
                             <constraint firstItem="06L-8d-x15" firstAttribute="leading" secondItem="5cF-Xa-Kzb" secondAttribute="leading" constant="10" id="Q3O-NQ-H9e"/>
                             <constraint firstItem="Sui-gy-H7k" firstAttribute="centerY" secondItem="06L-8d-x15" secondAttribute="centerY" id="WVy-O3-5cj"/>
-                            <constraint firstItem="ltw-sU-vLk" firstAttribute="trailing" secondItem="5cF-Xa-Kzb" secondAttribute="trailingMargin" constant="10" id="Y2f-qD-tBR"/>
+                            <constraint firstItem="ltw-sU-vLk" firstAttribute="trailing" secondItem="5cF-Xa-Kzb" secondAttribute="trailingMargin" constant="5" id="Y2f-qD-tBR"/>
                             <constraint firstAttribute="trailing" secondItem="Be8-ZB-uyt" secondAttribute="trailing" id="fNw-M8-vNI"/>
                             <constraint firstItem="j4y-Z7-O5g" firstAttribute="top" secondItem="Be8-ZB-uyt" secondAttribute="bottom" id="ftf-af-57d"/>
                             <constraint firstItem="Sui-gy-H7k" firstAttribute="leading" secondItem="06L-8d-x15" secondAttribute="trailing" constant="10" id="hMS-Hw-y3z"/>
@@ -1110,14 +1119,14 @@
                                     <action selector="scenarioSelected:" destination="S3c-uW-lpA" eventType="touchUpInside" id="RJI-9H-BaJ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQW-Ca-CzZ" userLabel="Home Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQW-Ca-CzZ" userLabel="Home Button">
                                 <rect key="frame" x="612" y="25" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="3H8-8I-QeS"/>
                                     <constraint firstAttribute="height" constant="50" id="Pe5-Yf-Fpc"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="logo">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="home_button">
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="QuD-Og-rFX" kind="unwind" unwindAction="unwindToStartWithUnwindSegue:" id="Htv-v8-oe5"/>
@@ -1234,7 +1243,9 @@
         <image name="handbagsbox" width="300" height="300"/>
         <image name="hat1" width="223" height="198"/>
         <image name="hatsbox" width="300" height="300"/>
+        <image name="home_button" width="210" height="195"/>
         <image name="karma_star" width="61" height="54"/>
+        <image name="left_dialogue" width="297" height="178"/>
         <image name="logo" width="113" height="102"/>
         <image name="necklace1" width="112" height="142"/>
         <image name="necklacebox" width="300" height="300"/>
@@ -1242,6 +1253,7 @@
         <image name="pink_eyes" width="230" height="94"/>
         <image name="purse1" width="225" height="225"/>
         <image name="purse2" width="144" height="125"/>
+        <image name="right_dialogue" width="299" height="178"/>
         <image name="shop_background" width="1024" height="576"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -1250,6 +1262,6 @@
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="HHh-kx-uKw"/>
+        <segue reference="0it-aH-Xs8"/>
     </inferredMetricsTieBreakers>
 </document>

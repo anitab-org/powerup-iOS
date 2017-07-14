@@ -70,7 +70,7 @@ class ScenarioViewController: UIViewController {
             let button = choiceButtons[index]
             
             // Configure title texts of buttons
-            button.setTitle(answer.answerDescription, for: .normal)
+            button.setTitle(String(index + 1) + ". " + answer.answerDescription, for: .normal)
             
             // Show buttons
             button.isHidden = false

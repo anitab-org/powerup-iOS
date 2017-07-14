@@ -9,7 +9,7 @@ class MapViewController: UIViewController {
         nil,
         nil,
         nil,
-        "class_room_background",
+        "dressingroom_bgd",
         "hospital_background",
         "library_background"
     ]
