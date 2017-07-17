@@ -101,7 +101,7 @@
         <!--Customize Avatar View Controller-->
         <scene sceneID="zcc-y7-lCe">
             <objects>
-                <viewController id="vCf-Jb-qhY" customClass="CustomizeAvatarViewController" customModule="Powerup" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Customize Avatar View Controller" id="vCf-Jb-qhY" customClass="CustomizeAvatarViewController" customModule="Powerup" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nLu-Qc-m2d"/>
                         <viewControllerLayoutGuide type="bottom" id="lW9-er-4kz"/>
@@ -284,7 +284,7 @@
         <!--ScenarioViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="ScenarioViewController" customClass="ScenarioViewController" customModule="Powerup" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Scenario View Controller" id="BYZ-38-t0r" userLabel="ScenarioViewController" customClass="ScenarioViewController" customModule="Powerup" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -931,7 +931,7 @@
         <!--Results View Controller-->
         <scene sceneID="7iy-JJ-2EY">
             <objects>
-                <viewController id="Kej-3M-rbU" customClass="ResultsViewController" customModule="Powerup" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Result View Controller" id="Kej-3M-rbU" customClass="ResultsViewController" customModule="Powerup" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="niI-hx-Uj2"/>
                         <viewControllerLayoutGuide type="bottom" id="j4y-Z7-O5g"/>

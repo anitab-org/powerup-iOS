@@ -3,6 +3,7 @@ import UIKit
 class ScenarioViewController: UIViewController {
     
     //MARK: Properties
+    var dataSource: DataSource = DatabaseAccessor.sharedInstance
     
     // current scenario, set by the MapViewController
     var scenarioID: Int = 0
@@ -32,6 +33,7 @@ class ScenarioViewController: UIViewController {
     @IBOutlet weak var glassesView: UIImageView!
     @IBOutlet weak var hatView: UIImageView!
     
+    // MARK: Functions
     func resetQuestionAndChoices() {
         // Hide question Label and all the Buttons for choices, will show them only if the query to Database is successful
         for choiceButton in choiceButtons {
@@ -43,7 +45,7 @@ class ScenarioViewController: UIViewController {
         
         // Fetch answers from database
         do {
-            try answers = DatabaseAccessor.sharedInstance.getAnswers(of: currQuestionID)
+            try answers = dataSource.getAnswers(of: currQuestionID)
         } catch _ {
             // Unwind back to map view if cound't fetch choices from database.
             let alert = UIAlertController(title: "Warning", message: "Error loading the choices. Please try again!", preferredStyle: .alert)
@@ -56,7 +58,7 @@ class ScenarioViewController: UIViewController {
         }
         
         
-        // No answers left, reveal "continue" button to go to mini game
+        // No answers left, reveal "continue" button to go to result view controller.
         if answers.count == 0 {
             answers.append(Answer(answerID: -1, questionID: -1, answerDescription: "Continue", nextQuestionID: "$", points: 0))
         }
@@ -78,7 +80,7 @@ class ScenarioViewController: UIViewController {
         let avatar: Avatar!
         
         do {
-            avatar = try DatabaseAccessor.sharedInstance.getAvatar()
+            avatar = try dataSource.getAvatar()
         } catch _ {
             // Unwind back to map view if cound't fetch avatar from database.
             let alert = UIAlertController(title: "Warning", message: "Error loading the avatar. Please try again!", preferredStyle: .alert)
@@ -107,11 +109,16 @@ class ScenarioViewController: UIViewController {
 
         configureAvatar()
         
+        initializeQuestions()
+        
+        resetQuestionAndChoices()
+    }
+    
+    func initializeQuestions() {
         // Fetch questions from database
         do {
-            questions = try DatabaseAccessor.sharedInstance.getQuestions(of: scenarioID)
+            questions = try dataSource.getQuestions(of: scenarioID)
         } catch _ {
-            
             // Unwind back to map view if cound't fetch questions from database.
             let alert = UIAlertController(title: "Warning", message: "Error loading the scenario. Please try again!", preferredStyle: .alert)
             let okButton = UIAlertAction(title: "OK", style: .default, handler: {action in self.performSegue(withIdentifier: "unwindToMap", sender: self)})
@@ -122,12 +129,11 @@ class ScenarioViewController: UIViewController {
             return
         }
         
-        
         // Configure the initial question (which has the smallest key)
         if let initQuestionID = (questions.min {a, b in a.key < b.key}?.key) {
             currQuestionID = initQuestionID
         }
-        
+
         resetQuestionAndChoices()
     }
     

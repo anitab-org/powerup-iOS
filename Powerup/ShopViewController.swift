@@ -3,6 +3,8 @@ import UIKit
 class ShopViewController: UIViewController {
     
     // MARK: Properties
+    var dataSource: DataSource = DatabaseAccessor.sharedInstance
+    
     // The indices of exhibition accessories.
     var exhibitionBagIndex = 0
     var exhibitionGlassesIndex = 0
@@ -24,12 +26,12 @@ class ShopViewController: UIViewController {
     var originalAvatar: Avatar!
     
     // Array of accessories.
-    var handbags = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .handbag)
-    var glasses = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .glasses)
-    var hats = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .hat)
-    var necklaces = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .necklace)
-    var hairs = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .hair)
-    var clothes = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .clothes)
+    var handbags: [Accessory]!
+    var glasses: [Accessory]!
+    var hats: [Accessory]!
+    var necklaces: [Accessory]!
+    var hairs: [Accessory]!
+    var clothes: [Accessory]!
     
     // MARK: Views
     @IBOutlet weak var pointsLabel: UILabel!
@@ -69,10 +71,18 @@ class ShopViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Fetch the accessory arrays from the database.
+        handbags = dataSource.getAccessoryArray(accessoryType: .handbag)
+        glasses = dataSource.getAccessoryArray(accessoryType: .glasses)
+        hats = dataSource.getAccessoryArray(accessoryType: .hat)
+        necklaces = dataSource.getAccessoryArray(accessoryType: .necklace)
+        hairs = dataSource.getAccessoryArray(accessoryType: .hair)
+        clothes = dataSource.getAccessoryArray(accessoryType: .clothes)
+        
         // Fetch avatar and score from database.
         do {
-            score = try DatabaseAccessor.sharedInstance.getScore()
-            avatar = try DatabaseAccessor.sharedInstance.getAvatar()
+            score = try dataSource.getScore()
+            avatar = try dataSource.getAvatar()
         } catch _ {
             let alert = UIAlertController(title: "Warning", message: "Error fetching avatar and score data, please retry this action. If that doesn't help, try restarting or reinstalling the app.", preferredStyle: .alert)
             
@@ -153,22 +163,22 @@ class ShopViewController: UIViewController {
     }
     
     func reducePointsAndSaveBoughtToDatabase(accessory: Accessory) throws {
-        let newScore = try DatabaseAccessor.sharedInstance.getScore() - Score(karmaPoints: accessory.points)
+        let newScore = try dataSource.getScore() - Score(karmaPoints: accessory.points)
         
         // Update points label.
         pointsLabel.text = String(newScore.karmaPoints)
         
         // Reduce points.
-        try DatabaseAccessor.sharedInstance.saveScore(score: newScore)
+        try dataSource.saveScore(score: newScore)
         
         // Set as purchased.
-        try DatabaseAccessor.sharedInstance.boughtAccessory(accessory: accessory)
+        try dataSource.boughtAccessory(accessory: accessory)
     }
     
     func haveEnoughPointsToBuy(accessoryPrice: Int) throws -> Bool {
         
         // Show alert dialog if players are trying to buy items they can't afford.
-        if try DatabaseAccessor.sharedInstance.getScore().karmaPoints < accessoryPrice {
+        if try dataSource.getScore().karmaPoints < accessoryPrice {
             let alertDialog = UIAlertController(title: "Oops!", message: "You don't have enough points to buy that!", preferredStyle: .alert)
             alertDialog.addAction(UIAlertAction(title: "Alright", style: .default))
             self.present(alertDialog, animated: true, completion: nil)
