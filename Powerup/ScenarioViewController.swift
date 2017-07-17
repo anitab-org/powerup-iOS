@@ -16,8 +16,7 @@ class ScenarioViewController: UIViewController {
     // Answers for the question
     var answers = [Answer]()
     
-    //MARK: Views
-    @IBOutlet weak var bgImage: UIImageView!
+    // MARK: Views
     
     // Question Label and Choice Buttons
     @IBOutlet weak var questionLabel: UILabel!
@@ -113,8 +112,6 @@ class ScenarioViewController: UIViewController {
         initializeQuestions()
         
         resetQuestionAndChoices()
-        
-        bgImage.image = UIImage(named: "endingscreen")
     }
     
     func initializeQuestions() {
@@ -136,6 +133,8 @@ class ScenarioViewController: UIViewController {
         if let initQuestionID = (questions.min {a, b in a.key < b.key}?.key) {
             currQuestionID = initQuestionID
         }
+
+        resetQuestionAndChoices()
     }
     
     // MARK: Actions
