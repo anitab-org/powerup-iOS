@@ -24,7 +24,7 @@ class ResultViewControllerTests: XCTestCase {
     }
     
     override func setUp() {
-        resultViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "Result View Controller") as! ResultsViewController
+        resultViewController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "Results View Controller") as! ResultsViewController
         resultViewController.loadView()
         
         super.setUp()
