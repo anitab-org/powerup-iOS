@@ -6,9 +6,13 @@ class ResultsViewController: UIViewController {
     let karmaGain = 20
     
     // MARK: Properties
+    // The background image. being set by either mini game view or scenario view.
+    var backgroundImage: UIImage? = nil
+
     var dataSource: DataSource = DatabaseAccessor.sharedInstance
     
     // MARK: Views
+    @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var eyesView: UIImageView!
     @IBOutlet weak var hairView: UIImageView!
     @IBOutlet weak var faceView: UIImageView!
@@ -41,6 +45,20 @@ class ResultsViewController: UIViewController {
         necklaceView.image = avatar.necklace?.image
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Configure background image.
+        backgroundImageView.image = backgroundImage
+        
+        configureAvatar()
+        
+        gainKarmaPoints()
+        
+        // TODO: Save the completion of scenarios in the database.
+    }
+    
+
     func gainKarmaPoints() {
         // Save the karma gains in database.
         let newScore: Score!
@@ -63,16 +81,5 @@ class ResultsViewController: UIViewController {
         let notification = UIAlertController(title: "Hooray!", message: "You gained \(karmaGain) Karma points!", preferredStyle: .alert)
         notification.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(notification, animated: true, completion: nil)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        configureAvatar()
-        
-        gainKarmaPoints()
-        
-        // TODO: Save the completion of scenarios in the database.
-        
     }
 }
