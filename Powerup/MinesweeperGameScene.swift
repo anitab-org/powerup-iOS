@@ -3,7 +3,7 @@ import SpriteKit
 class MinesweeperGameScene: SKScene {
     
     // Make it as an array, so it is easy to add new entries.
-    let possiblityPercentages = [90.0]
+    var possiblityPercentages = [90.0]
     
     // MARK: Game Constants
     let gridSizeCount = 5

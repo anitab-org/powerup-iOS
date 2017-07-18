@@ -5,6 +5,9 @@ class ResultsViewController: UIViewController {
     // TODO: Should detemine how many Karma points will be given after each completion of scenario.
     let karmaGain = 20
     
+    // MARK: Properties
+    var dataSource: DataSource = DatabaseAccessor.sharedInstance
+    
     // MARK: Views
     @IBOutlet weak var eyesView: UIImageView!
     @IBOutlet weak var hairView: UIImageView!
@@ -22,7 +25,7 @@ class ResultsViewController: UIViewController {
         let avatar: Avatar!
         
         do {
-            avatar = try DatabaseAccessor.sharedInstance.getAvatar()
+            avatar = try dataSource.getAvatar()
         } catch _ {
             // Cannot load customized avatar, just use the default one.
             avatar = Avatar()
@@ -38,16 +41,12 @@ class ResultsViewController: UIViewController {
         necklaceView.image = avatar.necklace?.image
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        configureAvatar()
-        
+    func gainKarmaPoints() {
         // Save the karma gains in database.
         let newScore: Score!
         do {
-            newScore = try DatabaseAccessor.sharedInstance.getScore() + Score(karmaPoints: karmaGain)
-            try DatabaseAccessor.sharedInstance.saveScore(score: newScore)
+            newScore = try dataSource.getScore() + Score(karmaPoints: karmaGain)
+            try dataSource.saveScore(score: newScore)
         } catch _ {
             // If the saving failed, show an alert dialogue.
             let alert = UIAlertController(title: "Warning", message: "Error saving Karma points.", preferredStyle: .alert)
@@ -64,6 +63,14 @@ class ResultsViewController: UIViewController {
         let notification = UIAlertController(title: "Hooray!", message: "You gained \(karmaGain) Karma points!", preferredStyle: .alert)
         notification.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(notification, animated: true, completion: nil)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        configureAvatar()
+        
+        gainKarmaPoints()
         
         // TODO: Save the completion of scenarios in the database.
         

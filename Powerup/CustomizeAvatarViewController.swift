@@ -16,26 +16,37 @@ class CustomizeAvatarViewController: UIViewController {
     // MARK: Properties
     var avatar = Avatar()
     
+    var dataSource: DataSource = DatabaseAccessor.sharedInstance
+    
     var chosenClothesIndex = 0
     var chosenEyesIndex = 0
     var chosenHairIndex = 0
     var chosenFaceIndex = 0
     
     // Get arrays of accessories.
-    let clothes = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .clothes).filter({a in return a.purchased})
-    let faces = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .face).filter({a in return a.purchased})
-    let hairs = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .hair).filter({a in return a.purchased})
-    let eyes = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .eyes).filter({a in return a.purchased})
+    var clothes: [Accessory]!
+    var faces: [Accessory]!
+    var hairs: [Accessory]!
+    var eyes: [Accessory]!
     
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        initializeAccessoryArrays()
         
         // Initialize the images of exhibition boxes and the avatar
         updateClothesImage()
         updateEyesImage()
         updateHairImage()
         updateFaceImage()
+    }
+    
+    func initializeAccessoryArrays() {
+        clothes = dataSource.getAccessoryArray(accessoryType: .clothes).filter({a in return a.purchased})
+        hairs = dataSource.getAccessoryArray(accessoryType: .hair).filter({a in return a.purchased})
+        faces = dataSource.getAccessoryArray(accessoryType: .face).filter({a in return a.purchased})
+        eyes = dataSource.getAccessoryArray(accessoryType: .eyes).filter({a in return a.purchased})
     }
     
     func updateClothesImage() {
@@ -130,7 +141,7 @@ class CustomizeAvatarViewController: UIViewController {
     @IBAction func continueButtonTouched(_ sender: UIButton) {
         // Save the current configuration to database.
         do {
-            try DatabaseAccessor.sharedInstance.createAvatar(avatar)
+            try dataSource.createAvatar(avatar)
         } catch _ {
             let alert = UIAlertController(title: "Warning", message: "Failed to save avatar, please retry this action. If that doesn't help, try restaring or reinstalling the app.", preferredStyle: .alert)
             
