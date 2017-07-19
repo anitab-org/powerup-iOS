@@ -5,8 +5,11 @@ class ScenarioViewController: UIViewController {
     //MARK: Properties
     var dataSource: DataSource = DatabaseAccessor.sharedInstance
     
-    // current scenario, set by the MapViewController
+    // current scenario, set by MapViewController
     var scenarioID: Int = 0
+    
+    // The background image of the view, set by MapViewController.
+    var backgroundImage: UIImage? = nil
 
     // Questions ([questionID : question]) for the scenario
     var questions = [Int:Question]()
@@ -17,6 +20,7 @@ class ScenarioViewController: UIViewController {
     var answers = [Answer]()
     
     // MARK: Views
+    @IBOutlet weak var backgroundImageView: UIImageView!
     
     // Question Label and Choice Buttons
     @IBOutlet weak var questionLabel: UILabel!
@@ -68,7 +72,7 @@ class ScenarioViewController: UIViewController {
             let button = choiceButtons[index]
             
             // Configure title texts of buttons
-            button.setTitle(answer.answerDescription, for: .normal)
+            button.setTitle(String(index + 1) + ". " + answer.answerDescription, for: .normal)
             
             // Show buttons
             button.isHidden = false
@@ -106,6 +110,9 @@ class ScenarioViewController: UIViewController {
         super.viewDidLoad()
         
         // TODO: Configure the image and name of the "Asker" avatar.
+        
+        // Configure background image.
+        backgroundImageView.image = backgroundImage
 
         configureAvatar()
         
@@ -172,6 +179,12 @@ class ScenarioViewController: UIViewController {
         // prepare for MiniGameViewController
         if let miniGameVC = segue.destination as? MiniGameViewController {
             miniGameVC.gameIndex = MiniGameIndex(rawValue: toMiniGameIndex) ?? .unknown
+            
+            // Pass the background image to minigame view controller so that results view controller knows which background image to display.
+            miniGameVC.scenarioBackgroundImage = backgroundImage
+        } else if let resultsVC = segue.destination as? ResultsViewController {
+            // Set the background image of results view controller.
+            resultsVC.backgroundImage = backgroundImage
         }
     }
     
