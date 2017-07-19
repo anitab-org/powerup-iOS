@@ -474,7 +474,7 @@ class SinkToSwimGameScene: SKScene {
         run(SKAction.wait(forDuration: endScenePauseDuration)) {
             
             // Set the score label in ending scene.
-            self.scoreLabel.text = self.scoreLabelPrefix + String(self.score)
+            self.endSceneScoreLabel.text = self.scoreLabelPrefix + String(self.score)
             
             // Fade in ending scene.
             self.endSceneSprite.alpha = 0.0
