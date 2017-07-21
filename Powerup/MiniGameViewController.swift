@@ -5,7 +5,7 @@ enum MiniGameIndex: Int {
     case unknown = 0
     case minesweeper = -1
     case swimToDrawn = -2
-    case catchIt = -3
+    case vocabMatching = -3
 }
 
 class MiniGameViewController: UIViewController {
@@ -33,6 +33,12 @@ class MiniGameViewController: UIViewController {
             let minesweeperGame = MinesweeperGameScene(size: view.bounds.size)
             minesweeperGame.viewController = self
             gameScene = minesweeperGame
+        
+        // Vocab Matching
+        case .vocabMatching:
+            let vocabMatchingGame = VocabMatchingGameScene(size: view.bounds.size)
+            vocabMatchingGame.viewController = self
+            gameScene = vocabMatchingGame
         default:
             print("Unknown mini game.")
         }

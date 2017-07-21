@@ -45,6 +45,9 @@
 		D9D10A401EE130BD003584F4 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D10A3F1EE130BD003584F4 /* ResultsViewController.swift */; };
 		D9DD913E1F0363DF009DE3B5 /* ModelClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DD913D1F0363DF009DE3B5 /* ModelClassTests.swift */; };
 		D9E190A61EE952CD00109F39 /* Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E190A51EE952CD00109F39 /* Accessory.swift */; };
+		D9E74B791F1F149400A42B7E /* VocabMatchingGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E74B781F1F149400A42B7E /* VocabMatchingGameScene.swift */; };
+		D9E74B7B1F1F14ED00A42B7E /* VocabMatchingClipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E74B7A1F1F14ED00A42B7E /* VocabMatchingClipboard.swift */; };
+		D9E74B7F1F1F1AF800A42B7E /* VocabMatchingTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E74B7E1F1F1AF800A42B7E /* VocabMatchingTile.swift */; };
 		D9FFC0E31EE91EE4000F3CA6 /* CustomizeAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FFC0E21EE91EE4000F3CA6 /* CustomizeAvatarViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +123,9 @@
 		D9D10A3F1EE130BD003584F4 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		D9DD913D1F0363DF009DE3B5 /* ModelClassTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelClassTests.swift; sourceTree = "<group>"; };
 		D9E190A51EE952CD00109F39 /* Accessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accessory.swift; sourceTree = "<group>"; };
+		D9E74B781F1F149400A42B7E /* VocabMatchingGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabMatchingGameScene.swift; sourceTree = "<group>"; };
+		D9E74B7A1F1F14ED00A42B7E /* VocabMatchingClipboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabMatchingClipboard.swift; sourceTree = "<group>"; };
+		D9E74B7E1F1F1AF800A42B7E /* VocabMatchingTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabMatchingTile.swift; sourceTree = "<group>"; };
 		D9FFC0E21EE91EE4000F3CA6 /* CustomizeAvatarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizeAvatarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,6 +176,7 @@
 			children = (
 				D9381DB21EF773B9000AC2B5 /* Font */,
 				D9AAA9C71EF25E2700287A79 /* Extensions */,
+				D9E74B771F1F145900A42B7E /* Vocab Matching Game */,
 				D9AAA99E1EF21C3D00287A79 /* Mine Sweeper Game */,
 				D910FF181F04AB3200C444DA /* DataSource.swift */,
 				D959CBD21EE64A3A00C31753 /* DatabaseAccessor.swift */,
@@ -294,6 +301,16 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		D9E74B771F1F145900A42B7E /* Vocab Matching Game */ = {
+			isa = PBXGroup;
+			children = (
+				D9E74B781F1F149400A42B7E /* VocabMatchingGameScene.swift */,
+				D9E74B7A1F1F14ED00A42B7E /* VocabMatchingClipboard.swift */,
+				D9E74B7E1F1F1AF800A42B7E /* VocabMatchingTile.swift */,
+			);
+			name = "Vocab Matching Game";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -403,6 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A2A4DB71B373C5B00D50860 /* StartViewController.swift in Sources */,
+				D9E74B7B1F1F14ED00A42B7E /* VocabMatchingClipboard.swift in Sources */,
 				2AF82A8D1B4BA74A00307BED /* FMDatabase.m in Sources */,
 				D959CBCB1EE6481100C31753 /* Question.swift in Sources */,
 				D959CBC91EE643F400C31753 /* Avatar.swift in Sources */,
@@ -424,6 +442,8 @@
 				2A0CA5551B294C6B00ED8781 /* AppDelegate.swift in Sources */,
 				D9E190A61EE952CD00109F39 /* Accessory.swift in Sources */,
 				2AF82A8E1B4BA74A00307BED /* FMDatabaseAdditions.m in Sources */,
+				D9E74B791F1F149400A42B7E /* VocabMatchingGameScene.swift in Sources */,
+				D9E74B7F1F1F1AF800A42B7E /* VocabMatchingTile.swift in Sources */,
 				D95B03CE1EDEA680001DB858 /* MiniGameViewController.swift in Sources */,
 				D95B03CC1EDE7470001DB858 /* MapViewController.swift in Sources */,
 				D9AAA9C91EF25E4600287A79 /* ShuffleArrayExtension.swift in Sources */,
