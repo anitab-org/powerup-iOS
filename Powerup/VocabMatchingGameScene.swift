@@ -21,9 +21,13 @@ class VocabMatchingGameScene: SKScene {
     
     // Sizing and position of the nodes (They are relative to the width and height of the game scene.)
     // Score Box
-    let scoreBoxSpriteWidth = 0.19
-    let scoreBoxSpriteHeight = 0.295
-    let scoreBoxSpritePosY = 0.81
+    let scoreBoxSpriteWidth = 0.09
+    let scoreBoxSpriteHeight = 0.15
+    let scoreBoxSpritePosY = 0.9
+    
+    // The following two is relative to the score box.
+    let scoreLabelPosX = 0.4
+    let scoreLabelPosY = -0.1
     
     // The positionY of each lane. (That is, the posY of tiles and clipboards.)
     let lanePositionsY = [0.173, 0.495, 0.828]
@@ -41,6 +45,11 @@ class VocabMatchingGameScene: SKScene {
     // Sprite Nodes
     let scoreBoxSprite = SKSpriteNode(imageNamed: "vocabmatching_scorebox")
     let backgroundSprite = SKSpriteNode(imageNamed: "vocabmatching_background")
+    let endSceneSprite = SKSpriteNode()
+    
+    // Label Nodes & Label Wrapper Node
+    let scoreLabelWrapper = SKNode()
+    let scoreLabel = SKLabelNode()
     
     // Textures
     let tileTexture = SKTexture(imageNamed: "vocabmatching_tile")
@@ -60,6 +69,7 @@ class VocabMatchingGameScene: SKScene {
     
     // Font size
     let clipboardFontSize = CGFloat(14)
+    let scoreFontSize = CGFloat(16)
     
     // If there are too many (longTextDef) characters in the string of the pad, shrink it.
     let clipboardLongTextFontSize = CGFloat(10)
@@ -85,6 +95,8 @@ class VocabMatchingGameScene: SKScene {
     
     // Cannot perform another swap if some clipboards are currently swapping.
     var isSwapping = false
+    
+    var score: Int = 0
     
     // MARK: Constructors
     override init(size: CGSize) {
@@ -135,6 +147,18 @@ class VocabMatchingGameScene: SKScene {
         // Shuffle the array so the elements are in random order.
         tiles.shuffle()
         
+        // Score Label
+        scoreBoxSprite.addChild(scoreLabelWrapper)
+        scoreLabelWrapper.position = CGPoint(x: Double(scoreBoxSprite.size.width) * scoreLabelPosX, y: Double(scoreBoxSprite.size.height) * scoreLabelPosY)
+        scoreLabelWrapper.addChild(scoreLabel)
+        scoreLabel.horizontalAlignmentMode = .center
+        scoreLabel.verticalAlignmentMode = .center
+        scoreLabel.zPosition = uiTextLayer
+        scoreLabel.fontName = fontName
+        scoreLabel.fontColor = fontColor
+        scoreLabel.fontSize = scoreFontSize
+        scoreLabel.text = "0"
+        
         super.init(size: size)
     }
     
@@ -176,7 +200,32 @@ class VocabMatchingGameScene: SKScene {
         // Move the tile to the clipboards.
         let destination = CGPoint(x: size.width * CGFloat(tileTouchesClipboardPosX), y: nextTile.position.y)
         let action = SKAction.move(to: destination, duration: timeForTileToReachClipboard)
-        nextTile.run(action)
+        nextTile.run(action) {
+            // Check if the tile and the clipboard matches.
+            self.checkIfMatches()
+        }
+    }
+    
+    // Check if the tile and the clipboard matches. If so, increment score. Then start the next round.
+    func checkIfMatches() {
+        let tileLane = tiles[currRound].laneNumber
+        if tiles[currRound].matchingID == clipboards[tileLane].matchingID {
+            // Is a match. Increment score.
+            score += 1
+            scoreLabel.text = String(score)
+        }
+        
+        // Remove the current tile.
+        tiles[currRound].removeFromParent()
+        
+        // If it is not the last round, spawn next tile.
+        if currRound + 1 < lanePositionsY.count {
+            spawnNextTile()
+        } else {
+            // TODO: End game scene.
+            print("End Game")
+        }
+        
     }
     
     // After dragging and dropping a clipboard, check which lane is closer, and snap it to the lane and swap the positions. If it isn't dragged to the other lanes, no swapping will be performed, just snap it back to its original lane.
