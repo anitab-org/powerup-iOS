@@ -4,8 +4,13 @@ import SpriteKit
 enum MiniGameIndex: Int {
     case unknown = 0
     case minesweeper = -1
+<<<<<<< HEAD
     case swimToDrawn = -2
     case vocabMatching = -3
+=======
+    case sinkToSwim = -2
+    case catchIt = -3
+>>>>>>> systers/GSoC17
 }
 
 class MiniGameViewController: UIViewController {
@@ -39,6 +44,13 @@ class MiniGameViewController: UIViewController {
             let vocabMatchingGame = VocabMatchingGameScene(size: view.bounds.size)
             vocabMatchingGame.viewController = self
             gameScene = vocabMatchingGame
+            
+        // Sink to Swim Game
+        case .sinkToSwim:
+            let sinkToSwimGame = SinkToSwimGameScene(size: view.bounds.size)
+            sinkToSwimGame.viewController = self
+            gameScene = sinkToSwimGame
+        
         default:
             print("Unknown mini game.")
         }
