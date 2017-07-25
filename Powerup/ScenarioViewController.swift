@@ -140,8 +140,6 @@ class ScenarioViewController: UIViewController {
         if let initQuestionID = (questions.min {a, b in a.key < b.key}?.key) {
             currQuestionID = initQuestionID
         }
-
-        resetQuestionAndChoices()
     }
     
     // MARK: Actions
@@ -188,5 +186,10 @@ class ScenarioViewController: UIViewController {
         }
     }
     
-
+    // Replay the scenario.
+    @IBAction func unwindToScenario(unwindSegue: UIStoryboardSegue) {
+        initializeQuestions()
+        
+        resetQuestionAndChoices()
+    }
 }
