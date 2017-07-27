@@ -3,10 +3,10 @@ import SpriteKit
 class VocabMatchingGameScene: SKScene {
     // TODO: Store the information of each round in the database.
     // Matching ID, Texture name.
-    let tilesEachRound = [
+    let tileTypes = [
         (0, "vocabmatching_tile_lingerie"),
         (1, "vocabmatching_tile_pimple"),
-        (2, "vocabmatching_tile_pad")
+        (2, "vocabmatching_tile_pad"),
     ]
     
     // Matching ID, description Text.
@@ -17,7 +17,10 @@ class VocabMatchingGameScene: SKScene {
     ]
     
     // MARK: Constants
-    let timeForTileToReachClipboard = 10.0
+    let timeForTileToReachClipboard = 12.0
+    let totalRounds = 5
+    let tilesPerRound = 2
+    let timeBetweenTileSpawns = 2.5
     
     // Sizing and position of the nodes (They are relative to the width and height of the game scene.)
     // Score Box
@@ -33,7 +36,7 @@ class VocabMatchingGameScene: SKScene {
     let lanePositionsY = [0.173, 0.495, 0.828]
     
     // Tile
-    let tileSpriteSizeRelativeToWidth = 0.16
+    let tileSpriteSizeRelativeToWidth = 0.14
     let tileSpriteSpawnPosX = 0.0
     let tileTouchesClipboardPosX = 0.7
     
@@ -42,14 +45,30 @@ class VocabMatchingGameScene: SKScene {
     let clipboardSpriteHeight = 0.29
     let clipboardSpritePosX = 0.855
     
+    // Continue button
+    let continueButtonBottomMargin = 0.08
+    let continueButtonHeightRelativeToSceneHeight = 0.15
+    let continueButtonAspectRatio = 2.783
+    
+    // End scene labels
+    let endSceneTitleLabelPosX = 0.0
+    let endSceneTitleLabelPosY = 0.1
+    let endSceneScoreLabelPosX = 0.0
+    let endSceneScoreLabelPosY = -0.1
+    
     // Sprite Nodes
     let scoreBoxSprite = SKSpriteNode(imageNamed: "vocabmatching_scorebox")
     let backgroundSprite = SKSpriteNode(imageNamed: "vocabmatching_background")
     let endSceneSprite = SKSpriteNode()
+    let continueButton = SKSpriteNode(imageNamed: "continue_button")
     
     // Label Nodes & Label Wrapper Node
     let scoreLabelWrapper = SKNode()
+    let endSceneTitleLabelWrapper = SKNode()
+    let endSceneScoreLabelWrapper = SKNode()
     let scoreLabel = SKLabelNode()
+    let endSceneTitleLabel = SKLabelNode()
+    let endSceneScoreLabel = SKLabelNode()
     
     // Textures
     let tileTexture = SKTexture(imageNamed: "vocabmatching_tile")
@@ -62,6 +81,7 @@ class VocabMatchingGameScene: SKScene {
     let tileLayer = CGFloat(0.4)
     let uiLayer = CGFloat(0.5)
     let uiTextLayer = CGFloat(0.6)
+    let endSceneLayer = CGFloat(1.5)
     
     // Fonts
     let fontName = "Montserrat-Bold"
@@ -70,6 +90,7 @@ class VocabMatchingGameScene: SKScene {
     // Font size
     let clipboardFontSize = CGFloat(14)
     let scoreFontSize = CGFloat(16)
+    let endSceneTitleFontSize = CGFloat(20)
     
     // If there are too many (longTextDef) characters in the string of the pad, shrink it.
     let clipboardLongTextFontSize = CGFloat(10)
@@ -77,13 +98,15 @@ class VocabMatchingGameScene: SKScene {
     
     // Animations
     let swappingAnimationDuration = 0.2
+    let endSceneFadeInAnimationDuration = 0.5
+    
+    // Strings
+    let endSceneTitleLabelText = "Game Over"
+    let scoreLabelPrefix = "Score: "
     
     // MARK: Properties
     // The clipboards which could be swapped.
     var clipboards: [VocabMatchingClipboard]
-    
-    // Tiles prepared to be spawned.
-    var tiles: [VocabMatchingTile]
     
     var currRound: Int = -1
     
@@ -96,7 +119,13 @@ class VocabMatchingGameScene: SKScene {
     // Cannot perform another swap if some clipboards are currently swapping.
     var isSwapping = false
     
+    var isContinueButtonInteractable = false
+    
     var score: Int = 0
+    
+    // Avoid spawning the same type / same lane in a row.
+    var lastTileTypeIndex = -1
+    var lastTileLaneNumber = -1
     
     // MARK: Constructors
     override init(size: CGSize) {
@@ -136,17 +165,6 @@ class VocabMatchingGameScene: SKScene {
             clipboards.append(currClipboard)
         }
         
-        // Initialize tile array.
-        tiles = [VocabMatchingTile]()
-        for (matchingID, textureName) in tilesEachRound {
-            let currTile = VocabMatchingTile(matchingID: matchingID, textureName: textureName, size: CGSize(width: gameWidth * tileSpriteSizeRelativeToWidth, height: gameWidth * tileSpriteSizeRelativeToWidth))
-            currTile.zPosition = tileLayer
-            tiles.append(currTile)
-        }
-        
-        // Shuffle the array so the elements are in random order.
-        tiles.shuffle()
-        
         // Score Label
         scoreBoxSprite.addChild(scoreLabelWrapper)
         scoreLabelWrapper.position = CGPoint(x: Double(scoreBoxSprite.size.width) * scoreLabelPosX, y: Double(scoreBoxSprite.size.height) * scoreLabelPosY)
@@ -158,6 +176,47 @@ class VocabMatchingGameScene: SKScene {
         scoreLabel.fontColor = fontColor
         scoreLabel.fontSize = scoreFontSize
         scoreLabel.text = "0"
+        
+        // Sizing and positioning ending scene.
+        endSceneSprite.size = CGSize(width: size.width, height: size.height)
+        endSceneSprite.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
+        endSceneSprite.color = UIColor.white
+        endSceneSprite.zPosition = endSceneLayer
+        
+        // End scene labels.
+        endSceneSprite.addChild(endSceneTitleLabelWrapper)
+        endSceneTitleLabelWrapper.position = CGPoint(x: gameWidth * endSceneTitleLabelPosX, y: gameHeight * endSceneTitleLabelPosY)
+        endSceneTitleLabelWrapper.zPosition = uiTextLayer
+        endSceneTitleLabelWrapper.addChild(endSceneTitleLabel)
+        
+        endSceneTitleLabel.fontName = fontName
+        endSceneTitleLabel.fontColor = fontColor
+        endSceneTitleLabel.fontSize = endSceneTitleFontSize
+        endSceneTitleLabel.text = endSceneTitleLabelText
+        endSceneTitleLabel.horizontalAlignmentMode = .center
+        endSceneTitleLabel.verticalAlignmentMode = .center
+        
+        endSceneSprite.addChild(endSceneScoreLabelWrapper)
+        endSceneScoreLabelWrapper.position = CGPoint(x: gameWidth * endSceneScoreLabelPosX, y: gameHeight * endSceneScoreLabelPosY)
+        endSceneScoreLabelWrapper.zPosition = uiTextLayer
+        endSceneScoreLabelWrapper.addChild(endSceneScoreLabel)
+        
+        endSceneScoreLabel.fontName = fontName
+        endSceneScoreLabel.fontColor = fontColor
+        endSceneScoreLabel.fontSize = scoreFontSize
+        endSceneScoreLabel.text = scoreLabelPrefix
+        endSceneScoreLabel.horizontalAlignmentMode = .center
+        endSceneScoreLabel.verticalAlignmentMode = .center
+        
+        // End scene continue button.
+        endSceneSprite.addChild(continueButton)
+        continueButton.anchorPoint = CGPoint(x: 1.0, y: 0.0)
+        continueButton.size = CGSize(width: continueButtonAspectRatio * continueButtonHeightRelativeToSceneHeight * gameHeight, height: gameHeight * continueButtonHeightRelativeToSceneHeight)
+        continueButton.position = CGPoint(x: gameWidth / 2.0, y: gameHeight * (-0.5 + continueButtonBottomMargin))
+        continueButton.zPosition = uiLayer
+        
+        // Hide end scene.
+        endSceneSprite.isHidden = true
         
         super.init(size: size)
     }
@@ -181,51 +240,94 @@ class VocabMatchingGameScene: SKScene {
         // Add scorebox.
         addChild(scoreBoxSprite)
         
-        // Start the game (spawn the first tile).
-        spawnNextTile()
+        // Add end scene.
+        addChild(endSceneSprite)
+        
+        // Start the game.
+        nextRound()
+    }
+    
+    // Spawn tiles for the next round.
+    func nextRound() {
+        currRound += 1
+        
+        var actionSequence = [SKAction]()
+        
+        for _ in 0..<tilesPerRound {
+            // Tile spawn.
+            actionSequence.append(SKAction.run({self.spawnNextTile()}))
+            
+            // Delay time.
+            actionSequence.append(SKAction.wait(forDuration: timeBetweenTileSpawns))
+        }
+        
+        // Delay time to next round.
+        actionSequence.append(SKAction.wait(forDuration: timeForTileToReachClipboard - timeBetweenTileSpawns))
+        
+        // Run action.
+        run(SKAction.sequence(actionSequence)) {
+            
+            // If it is not the last round, spawn next tile.
+            if self.currRound + 1 < self.totalRounds {
+                self.nextRound()
+            } else {
+                // Fade in end scene.
+                self.endSceneSprite.alpha = 0.0
+                self.endSceneSprite.isHidden = false
+                self.endSceneScoreLabel.text = self.scoreLabelPrefix + String(self.score)
+                self.endSceneSprite.run(SKAction.fadeIn(withDuration: self.endSceneFadeInAnimationDuration)) {
+                    self.isContinueButtonInteractable = true
+                }
+            }
+        }
     }
     
     // Spawn the next tile and moving it towards clipboards.
     func spawnNextTile() {
-        currRound += 1
+        // Randomize tile spawn. (Avoid spawning the same type / lane in a row)
+        var tileTypeIndex: Int
+        repeat {
+            tileTypeIndex = Int(arc4random_uniform(UInt32(tileTypes.count)))
+        } while tileTypeIndex == lastTileTypeIndex
         
-        let nextTile = tiles[currRound]
+        var laneNumber: Int
+        repeat {
+            laneNumber = Int(arc4random_uniform(UInt32(lanePositionsY.count)))
+        } while laneNumber == lastTileLaneNumber
         
-        // Spawn in a random lane.
-        nextTile.laneNumber = Int(arc4random_uniform(UInt32(lanePositionsY.count)))
+        lastTileTypeIndex = tileTypeIndex
+        lastTileLaneNumber = laneNumber
         
-        nextTile.position = CGPoint(x: Double(size.width) * tileSpriteSpawnPosX, y: Double(size.height) * lanePositionsY[nextTile.laneNumber])
-        addChild(nextTile)
+        let tileType = tileTypes[tileTypeIndex]
         
-        // Move the tile to the clipboards.
-        let destination = CGPoint(x: size.width * CGFloat(tileTouchesClipboardPosX), y: nextTile.position.y)
-        let action = SKAction.move(to: destination, duration: timeForTileToReachClipboard)
-        nextTile.run(action) {
-            // Check if the tile and the clipboard matches.
-            self.checkIfMatches()
+        // Configure tile.
+        let currTile = VocabMatchingTile(matchingID: tileType.0, textureName: tileType.1, size: CGSize(width: Double(size.width) * tileSpriteSizeRelativeToWidth, height: Double(size.width) * tileSpriteSizeRelativeToWidth))
+        currTile.laneNumber = laneNumber
+        
+        // Positioning
+        currTile.position = CGPoint(x: Double(size.width) * tileSpriteSpawnPosX, y: Double(size.height) * lanePositionsY[laneNumber])
+        currTile.zPosition = tileLayer
+        addChild(currTile)
+        
+        // Spawn and move the tile.
+        let destination = CGPoint(x: size.width * CGFloat(tileTouchesClipboardPosX), y: currTile.position.y)
+        let moveAction = SKAction.move(to: destination, duration: timeForTileToReachClipboard)
+        currTile.run(moveAction) {
+            self.checkIfMatches(tile: currTile)
         }
     }
     
     // Check if the tile and the clipboard matches. If so, increment score. Then start the next round.
-    func checkIfMatches() {
-        let tileLane = tiles[currRound].laneNumber
-        if tiles[currRound].matchingID == clipboards[tileLane].matchingID {
+    func checkIfMatches(tile: VocabMatchingTile) {
+        let tileLane = tile.laneNumber
+        if tile.matchingID == clipboards[tileLane].matchingID {
             // Is a match. Increment score.
             score += 1
             scoreLabel.text = String(score)
         }
         
         // Remove the current tile.
-        tiles[currRound].removeFromParent()
-        
-        // If it is not the last round, spawn next tile.
-        if currRound + 1 < lanePositionsY.count {
-            spawnNextTile()
-        } else {
-            // TODO: End game scene.
-            print("End Game")
-        }
-        
+        tile.removeFromParent()
     }
     
     // After dragging and dropping a clipboard, check which lane is closer, and snap it to the lane and swap the positions. If it isn't dragged to the other lanes, no swapping will be performed, just snap it back to its original lane.
@@ -292,6 +394,14 @@ class VocabMatchingGameScene: SKScene {
         
         // Only the first touch is effective.
         guard let touch = touches.first else { return }
+        
+        // Check if the end game continue button is pressed.
+        if isContinueButtonInteractable && continueButton.contains(touch.location(in: endSceneSprite)) {
+            // End the game, transition to result view controller.
+            viewController.endGame()
+            
+            return
+        }
         
         let location = touch.location(in: self)
         
