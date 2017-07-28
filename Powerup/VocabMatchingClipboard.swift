@@ -37,9 +37,4 @@ class VocabMatchingClipboard: SKSpriteNode {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) not implemented.")
     }
-    
-    // MARK: Function
-    func swapPosition(with: VocabMatchingClipboard) {
-        
-    }
 }

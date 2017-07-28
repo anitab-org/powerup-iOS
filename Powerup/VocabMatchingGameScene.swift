@@ -32,9 +32,6 @@ class VocabMatchingGameScene: SKScene {
     let scoreLabelPosX = 0.4
     let scoreLabelPosY = -0.1
     
-    // The positionY of each lane. (That is, the posY of tiles and clipboards.)
-    let lanePositionsY = [0.173, 0.495, 0.828]
-    
     // Tile
     let tileSpriteSizeRelativeToWidth = 0.14
     let tileSpriteSpawnPosX = 0.0
@@ -105,6 +102,9 @@ class VocabMatchingGameScene: SKScene {
     let scoreLabelPrefix = "Score: "
     
     // MARK: Properties
+    // The positionY of each lane. (That is, the posY of tiles and clipboards.)
+    var lanePositionsY = [0.173, 0.495, 0.828]
+    
     // The clipboards which could be swapped.
     var clipboards: [VocabMatchingClipboard]
     
@@ -247,8 +247,8 @@ class VocabMatchingGameScene: SKScene {
         nextRound()
     }
     
-    // Spawn tiles for the next round.
-    func nextRound() {
+    // Spawn tiles for the next round. Completion closure is for unit tests.
+    func nextRound(completion: (()->())? = nil) {
         currRound += 1
         
         var actionSequence = [SKAction]()
@@ -279,6 +279,8 @@ class VocabMatchingGameScene: SKScene {
                     self.isContinueButtonInteractable = true
                 }
             }
+            
+            if completion != nil { completion!() }
         }
     }
     
@@ -330,8 +332,8 @@ class VocabMatchingGameScene: SKScene {
         tile.removeFromParent()
     }
     
-    // After dragging and dropping a clipboard, check which lane is closer, and snap it to the lane and swap the positions. If it isn't dragged to the other lanes, no swapping will be performed, just snap it back to its original lane.
-    func snapClipboardToClosestLane(droppedClipboard: VocabMatchingClipboard, dropLocationPosY: Double) {
+    // After dragging and dropping a clipboard, check which lane is closer, and snap it to the lane and swap the positions. If it isn't dragged to the other lanes, no swapping will be performed, just snap it back to its original lane. The completion closure is for unit testing.
+    func snapClipboardToClosestLane(droppedClipboard: VocabMatchingClipboard, dropLocationPosY: Double, completion: (()->())? = nil) {
         // Check which clipboard is being dragged.
         var clipboardIndex = 0
         while clipboards[clipboardIndex] != droppedClipboard {
@@ -359,6 +361,8 @@ class VocabMatchingGameScene: SKScene {
             let snappingAnimation = SKAction.move(to: snappingDestination, duration: swappingAnimationDuration)
             droppedClipboard.run(snappingAnimation) {
                 self.isSwapping = false
+                
+                if completion != nil { completion!() }
             }
         } else {
             // Swap with the clipboard on the other lane.
@@ -383,6 +387,8 @@ class VocabMatchingGameScene: SKScene {
                 
                 // Set the z position back.
                 droppedClipboard.zPosition = self.clipboardLayer
+                
+                if completion != nil { completion!() }
             }
         }
     }

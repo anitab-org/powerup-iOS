@@ -51,6 +51,7 @@
 		D9E74B791F1F149400A42B7E /* VocabMatchingGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E74B781F1F149400A42B7E /* VocabMatchingGameScene.swift */; };
 		D9E74B7B1F1F14ED00A42B7E /* VocabMatchingClipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E74B7A1F1F14ED00A42B7E /* VocabMatchingClipboard.swift */; };
 		D9E74B7F1F1F1AF800A42B7E /* VocabMatchingTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E74B7E1F1F1AF800A42B7E /* VocabMatchingTile.swift */; };
+		D9EEC4551F2A1A230037C745 /* VocabMatchingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EEC4541F2A1A230037C745 /* VocabMatchingTests.swift */; };
 		D9FFC0E31EE91EE4000F3CA6 /* CustomizeAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FFC0E21EE91EE4000F3CA6 /* CustomizeAvatarViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +133,7 @@
 		D9E74B781F1F149400A42B7E /* VocabMatchingGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabMatchingGameScene.swift; sourceTree = "<group>"; };
 		D9E74B7A1F1F14ED00A42B7E /* VocabMatchingClipboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabMatchingClipboard.swift; sourceTree = "<group>"; };
 		D9E74B7E1F1F1AF800A42B7E /* VocabMatchingTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabMatchingTile.swift; sourceTree = "<group>"; };
+		D9EEC4541F2A1A230037C745 /* VocabMatchingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabMatchingTests.swift; sourceTree = "<group>"; };
 		D9FFC0E21EE91EE4000F3CA6 /* CustomizeAvatarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizeAvatarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -210,6 +212,7 @@
 		2A0CA5671B294C6B00ED8781 /* PowerupTests */ = {
 			isa = PBXGroup;
 			children = (
+				D9EEC4541F2A1A230037C745 /* VocabMatchingTests.swift */,
 				D9A1572D1F0A205200B3A51B /* DatabaseEntryTests.swift */,
 				D910FF241F06304F00C444DA /* DatabaseAccessorTests.swift */,
 				D910FF221F05FF5E00C444DA /* CustomizeAvatarViewControllerTests.swift */,
@@ -479,6 +482,7 @@
 				D910FF231F05FF5E00C444DA /* CustomizeAvatarViewControllerTests.swift in Sources */,
 				D910FF251F06304F00C444DA /* DatabaseAccessorTests.swift in Sources */,
 				D9DD913E1F0363DF009DE3B5 /* ModelClassTests.swift in Sources */,
+				D9EEC4551F2A1A230037C745 /* VocabMatchingTests.swift in Sources */,
 				D910FF1F1F04DD4F00C444DA /* ResultViewControllerTests.swift in Sources */,
 				D910FF211F05E22400C444DA /* ScenarioViewControllerTests.swift in Sources */,
 				D9970C7C1F00998300960B52 /* MinesweeperTests.swift in Sources */,
