@@ -17,10 +17,10 @@ class VocabMatchingGameScene: SKScene {
     ]
     
     // MARK: Constants
-    let timeForTileToReachClipboard = 12.0
+    let timeForTileToReachClipboard = 6.0
     let totalRounds = 5
     let tilesPerRound = 2
-    let timeBetweenTileSpawns = 2.5
+    let timeBetweenTileSpawns = 2.0
     
     // Sizing and position of the nodes (They are relative to the width and height of the game scene.)
     // Score Box
@@ -70,6 +70,8 @@ class VocabMatchingGameScene: SKScene {
     // Textures
     let tileTexture = SKTexture(imageNamed: "vocabmatching_tile")
     let clipboardTexture = SKTexture(imageNamed: "vocabmatching_clipboard")
+    let clipboardCorrectTexture = SKTexture(imageNamed: "vocabmatching_clipboard_green")
+    let clipboardWrongTexture = SKTexture(imageNamed: "vocabmatching_clipboard_red")
     
     // Layers (zPosition)
     let backgroundLayer = CGFloat(-0.1)
@@ -96,6 +98,7 @@ class VocabMatchingGameScene: SKScene {
     // Animations
     let swappingAnimationDuration = 0.2
     let endSceneFadeInAnimationDuration = 0.5
+    let clipboardStarBlinkAnimationDuration = 0.3
     
     // Strings
     let endSceneTitleLabelText = "Game Over"
@@ -322,10 +325,23 @@ class VocabMatchingGameScene: SKScene {
     // Check if the tile and the clipboard matches. If so, increment score. Then start the next round.
     func checkIfMatches(tile: VocabMatchingTile) {
         let tileLane = tile.laneNumber
-        if tile.matchingID == clipboards[tileLane].matchingID {
+        let clipboardAtLane = clipboards[tileLane]
+        if tile.matchingID == clipboardAtLane.matchingID {
             // Is a match. Increment score.
             score += 1
             scoreLabel.text = String(score)
+            
+            // Blink the star of the clipboard to green.
+            clipboardAtLane.texture = clipboardCorrectTexture
+            clipboardAtLane.run(SKAction.wait(forDuration: clipboardStarBlinkAnimationDuration)) {
+                clipboardAtLane.texture = self.clipboardTexture
+            }
+        } else {
+            // Not a match, blink the star of the clipboard to red.
+            clipboardAtLane.texture = clipboardWrongTexture
+            clipboardAtLane.run(SKAction.wait(forDuration: clipboardStarBlinkAnimationDuration)) {
+                clipboardAtLane.texture = self.clipboardTexture
+            }
         }
         
         // Remove the current tile.
