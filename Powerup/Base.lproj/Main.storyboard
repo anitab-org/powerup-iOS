@@ -70,7 +70,7 @@
                     <connections>
                         <outlet property="StartButton" destination="S80-hG-Bup" id="BUd-iF-8Dk"/>
                         <segue destination="S3c-uW-lpA" kind="push" identifier="toMapView" id="Ck5-aV-1L2"/>
-                        <segue destination="vCf-Jb-qhY" kind="modal" identifier="toNewAvatar" id="NfY-xP-4UP"/>
+                        <segue destination="vCf-Jb-qhY" kind="push" identifier="toNewAvatar" id="NfY-xP-4UP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5D-0F-CHK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -254,11 +254,14 @@
                         <outlet property="eyesExhibitionView" destination="pYj-SH-Ka6" id="x6t-QS-6Hv"/>
                         <outlet property="faceExhibitionView" destination="kqg-Mf-bYN" id="oqY-Se-Fpd"/>
                         <outlet property="hairExhibitionView" destination="VDB-d3-DiJ" id="22e-kW-RXo"/>
+                        <segue destination="S3c-uW-lpA" kind="push" identifier="toMapScene" id="Vcg-vV-Did"/>
+                        <segue destination="CP2-u9-bQu" kind="unwind" identifier="unwindToStartScene" unwindAction="unwindToStartWithUnwindSegue:" id="hIc-T8-YB3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KnS-W8-cZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="CP2-u9-bQu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-42" y="831"/>
+            <point key="canvasLocation" x="276" y="831"/>
         </scene>
         <!--ScenarioViewController-->
         <scene sceneID="tne-QT-ifu">
@@ -302,7 +305,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marcello" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6u7-zE-DVc">
-                                <rect key="frame" x="498.5" y="270.5" width="88" height="24.5"/>
+                                <rect key="frame" x="498" y="270.5" width="88" height="24.5"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -437,7 +440,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="tRn-hQ-WhV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1992" y="305"/>
+            <point key="canvasLocation" x="2258" y="304"/>
         </scene>
         <!--MiniGameViewController-->
         <scene sceneID="b2Q-yH-u8Q">
@@ -459,7 +462,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WKc-Ic-VMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1517" y="831"/>
+            <point key="canvasLocation" x="2012" y="831"/>
         </scene>
         <!--Shop View Controller-->
         <scene sceneID="uGO-Kb-Jms">
@@ -915,7 +918,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKe-Du-9T9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="741" y="831"/>
+            <point key="canvasLocation" x="1286" y="831"/>
         </scene>
         <!--Results View Controller-->
         <scene sceneID="7iy-JJ-2EY">
@@ -1061,7 +1064,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kEs-g1-97C" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="AXo-70-yQg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2473.5" y="830.5"/>
+            <point key="canvasLocation" x="2742" y="831"/>
         </scene>
         <!--MapViewController-->
         <scene sceneID="8zi-ZT-9cM">
@@ -1178,7 +1181,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OMF-eo-Ren" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QuD-Og-rFX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="740.5" y="303.5"/>
+            <point key="canvasLocation" x="952" y="304"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cD8-wF-rc7">
@@ -1239,6 +1242,7 @@
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="0it-aH-Xs8"/>
+        <segue reference="Vcg-vV-Did"/>
+        <segue reference="HHh-kx-uKw"/>
     </inferredMetricsTieBreakers>
 </document>

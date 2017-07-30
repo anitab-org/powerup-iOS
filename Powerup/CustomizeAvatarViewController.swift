@@ -81,6 +81,26 @@ class CustomizeAvatarViewController: UIViewController {
         customFaceView.image = faceImage
     }
     
+    /** Save the avatar to the database. If successful, return true. Otherwise, return false. */
+    func saveAvatar() -> Bool {
+        do {
+            try dataSource.createAvatar(avatar)
+        } catch _ {
+            let alert = UIAlertController(title: "Warning", message: "Failed to save avatar, please retry this action. If that doesn't help, try restaring or reinstalling the app.", preferredStyle: .alert)
+            
+            // Unwind to Start View when Ok Button is pressed.
+            let okButton = UIAlertAction(title: "OK", style: .cancel, handler: {action in
+                self.performSegue(withIdentifier: "unwindToStartScene", sender: self)
+            })
+            alert.addAction(okButton)
+            self.present(alert, animated: true, completion: nil)
+            
+            return false
+        }
+        
+        return true
+    }
+    
     // MARK: Actions
     @IBAction func eyesLeftButtonTouched(_ sender: UIButton) {
         let totalCount = eyes.count
@@ -139,22 +159,10 @@ class CustomizeAvatarViewController: UIViewController {
     }
     
     @IBAction func continueButtonTouched(_ sender: UIButton) {
-        // Save the current configuration to database.
-        do {
-            try dataSource.createAvatar(avatar)
-        } catch _ {
-            let alert = UIAlertController(title: "Warning", message: "Failed to save avatar, please retry this action. If that doesn't help, try restaring or reinstalling the app.", preferredStyle: .alert)
-            
-            // Dismiss the modal VC (so the app is back to Start View) when Ok Button is pressed.
-            let okButton = UIAlertAction(title: "OK", style: .cancel, handler: {action in self.dismiss(animated: true, completion: nil)})
-            alert.addAction(okButton)
-            self.present(alert, animated: true, completion: nil)
-            
-            return
+        if saveAvatar() {
+            // Perform Push segue to map scene.
+            performSegue(withIdentifier: "toMapScene", sender: self)
         }
-        
-        // Dismiss the modal VC
-        self.dismiss(animated: true, completion: nil)
     }
 
 }
