@@ -36,6 +36,7 @@
 		D959CBD31EE64A3A00C31753 /* DatabaseAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D959CBD21EE64A3A00C31753 /* DatabaseAccessor.swift */; };
 		D95B03CC1EDE7470001DB858 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95B03CB1EDE7470001DB858 /* MapViewController.swift */; };
 		D95B03CE1EDEA680001DB858 /* MiniGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95B03CD1EDEA680001DB858 /* MiniGameViewController.swift */; };
+		D96944AF1F2EE97900FBE0E4 /* SKTutorialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96944AE1F2EE97900FBE0E4 /* SKTutorialScene.swift */; };
 		D969D26C1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D969D26B1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift */; };
 		D984D3011F0F598C0006270D /* SinkToSwimGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D984D3001F0F598C0006270D /* SinkToSwimGameScene.swift */; };
 		D984D3031F0F59A40006270D /* SinkToSwimQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D984D3021F0F59A40006270D /* SinkToSwimQuestion.swift */; };
@@ -118,6 +119,7 @@
 		D959CBD21EE64A3A00C31753 /* DatabaseAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseAccessor.swift; sourceTree = "<group>"; };
 		D95B03CB1EDE7470001DB858 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D95B03CD1EDEA680001DB858 /* MiniGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniGameViewController.swift; sourceTree = "<group>"; };
+		D96944AE1F2EE97900FBE0E4 /* SKTutorialScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SKTutorialScene.swift; path = ../SKTutorialScene.swift; sourceTree = "<group>"; };
 		D969D26B1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMResultSetNullCheckExtension.swift; sourceTree = "<group>"; };
 		D984D3001F0F598C0006270D /* SinkToSwimGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinkToSwimGameScene.swift; sourceTree = "<group>"; };
 		D984D3021F0F59A40006270D /* SinkToSwimQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinkToSwimQuestion.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				D9E74B771F1F145900A42B7E /* Vocab Matching Game */,
 				D9AAA99E1EF21C3D00287A79 /* Mine Sweeper Game */,
 				D984D2FF1F0F596E0006270D /* Sink to Swim Game */,
+				D96944AE1F2EE97900FBE0E4 /* SKTutorialScene.swift */,
 				D910FF181F04AB3200C444DA /* DataSource.swift */,
 				D959CBD21EE64A3A00C31753 /* DatabaseAccessor.swift */,
 				D984D3041F0F59BA0006270D /* SKMultilineLabel.swift */,
@@ -442,6 +445,7 @@
 				2A2A4DB71B373C5B00D50860 /* StartViewController.swift in Sources */,
 				D9E74B7B1F1F14ED00A42B7E /* VocabMatchingClipboard.swift in Sources */,
 				2AF82A8D1B4BA74A00307BED /* FMDatabase.m in Sources */,
+				D96944AF1F2EE97900FBE0E4 /* SKTutorialScene.swift in Sources */,
 				D984D3051F0F59BA0006270D /* SKMultilineLabel.swift in Sources */,
 				D959CBCB1EE6481100C31753 /* Question.swift in Sources */,
 				D959CBC91EE643F400C31753 /* Avatar.swift in Sources */,
