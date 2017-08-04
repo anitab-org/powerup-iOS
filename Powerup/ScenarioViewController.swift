@@ -183,6 +183,9 @@ class ScenarioViewController: UIViewController {
         } else if let resultsVC = segue.destination as? ResultsViewController {
             // Set the background image of results view controller.
             resultsVC.backgroundImage = backgroundImage
+            
+            // Set the scenarioID.
+            resultsVC.completedScenarioID = scenarioID
         }
     }
     

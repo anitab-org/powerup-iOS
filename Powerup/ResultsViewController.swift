@@ -6,6 +6,9 @@ class ResultsViewController: UIViewController {
     let karmaGain = 20
     
     // MARK: Properties
+    // This will be set in the ScenarioViewController.
+    var completedScenarioID: Int = -1
+    
     // The background image. being set by either mini game view or scenario view.
     var backgroundImage: UIImage? = nil
 
@@ -55,7 +58,7 @@ class ResultsViewController: UIViewController {
         
         gainKarmaPoints()
         
-        // TODO: Save the completion of scenarios in the database.
+        saveScenarioAndUnlockNextScenario()
     }
     
 
@@ -81,5 +84,32 @@ class ResultsViewController: UIViewController {
         let notification = UIAlertController(title: "Hooray!", message: "You gained \(karmaGain) Karma points!", preferredStyle: .alert)
         notification.addAction(UIAlertAction(title: "OK", style: .default))
         self.present(notification, animated: true, completion: nil)
+    }
+    
+    func saveScenarioAndUnlockNextScenario() {
+        do {
+            // Get the current scenario.
+            var currScenario = try dataSource.getScenario(of: completedScenarioID)
+            
+            currScenario.completed = true
+            
+            // Save the updated scenario back to database.
+            try dataSource.saveScenario(currScenario)
+            
+            // Get the next scenario.
+            var nextScenario = try dataSource.getScenario(of: currScenario.nextScenarioID)
+
+            nextScenario.unlocked = true
+            
+            // Save the updated (next) scenario back to database.
+            try dataSource.saveScenario(nextScenario)
+            
+        } catch _ {
+            let alert = UIAlertController(title: "Warning", message: "Error saving scenario completion.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
     }
 }
