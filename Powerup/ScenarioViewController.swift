@@ -180,6 +180,7 @@ class ScenarioViewController: UIViewController {
             
             // Pass the background image to minigame view controller so that results view controller knows which background image to display.
             miniGameVC.scenarioBackgroundImage = backgroundImage
+            miniGameVC.completedScenarioID = scenarioID
         } else if let resultsVC = segue.destination as? ResultsViewController {
             // Set the background image of results view controller.
             resultsVC.backgroundImage = backgroundImage
