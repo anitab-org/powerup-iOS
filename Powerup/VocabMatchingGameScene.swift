@@ -17,6 +17,7 @@ class VocabMatchingGameScene: SKScene {
     
     // MARK: Constants
     let timeForTileToReachClipboard = 6.0
+    let delayTimeToNextRound = 0.25
     let totalRounds = 5
     let tilesPerRound = 3
     let timeBetweenTileSpawns = 2.0
@@ -259,7 +260,7 @@ class VocabMatchingGameScene: SKScene {
         }
         
         // Delay time to next round.
-        actionSequence.append(SKAction.wait(forDuration: timeForTileToReachClipboard - timeBetweenTileSpawns))
+        actionSequence.append(SKAction.wait(forDuration: timeForTileToReachClipboard - timeBetweenTileSpawns + delayTimeToNextRound))
         
         // Run action.
         run(SKAction.sequence(actionSequence)) {
