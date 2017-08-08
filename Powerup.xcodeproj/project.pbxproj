@@ -48,6 +48,7 @@
 		D9D10A401EE130BD003584F4 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D10A3F1EE130BD003584F4 /* ResultsViewController.swift */; };
 		D9DD913E1F0363DF009DE3B5 /* ModelClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DD913D1F0363DF009DE3B5 /* ModelClassTests.swift */; };
 		D9E190A61EE952CD00109F39 /* Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E190A51EE952CD00109F39 /* Accessory.swift */; };
+		D9E922E71F1C9FFA0091D8BB /* SinkToSwimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E922E61F1C9FFA0091D8BB /* SinkToSwimTests.swift */; };
 		D9FFC0E31EE91EE4000F3CA6 /* CustomizeAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FFC0E21EE91EE4000F3CA6 /* CustomizeAvatarViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +127,7 @@
 		D9D10A3F1EE130BD003584F4 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		D9DD913D1F0363DF009DE3B5 /* ModelClassTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelClassTests.swift; sourceTree = "<group>"; };
 		D9E190A51EE952CD00109F39 /* Accessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accessory.swift; sourceTree = "<group>"; };
+		D9E922E61F1C9FFA0091D8BB /* SinkToSwimTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinkToSwimTests.swift; sourceTree = "<group>"; };
 		D9FFC0E21EE91EE4000F3CA6 /* CustomizeAvatarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizeAvatarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,6 +205,7 @@
 		2A0CA5671B294C6B00ED8781 /* PowerupTests */ = {
 			isa = PBXGroup;
 			children = (
+				D9E922E61F1C9FFA0091D8BB /* SinkToSwimTests.swift */,
 				D9A1572D1F0A205200B3A51B /* DatabaseEntryTests.swift */,
 				D910FF241F06304F00C444DA /* DatabaseAccessorTests.swift */,
 				D910FF221F05FF5E00C444DA /* CustomizeAvatarViewControllerTests.swift */,
@@ -368,7 +371,7 @@
 					};
 					2A0CA5631B294C6B00ED8781 = {
 						CreatedOnToolsVersion = 6.3.2;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 						TestTargetID = 2A0CA54E1B294C6B00ED8781;
 					};
 				};
@@ -455,6 +458,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9E922E71F1C9FFA0091D8BB /* SinkToSwimTests.swift in Sources */,
 				D9A1572E1F0A205200B3A51B /* DatabaseEntryTests.swift in Sources */,
 				D910FF231F05FF5E00C444DA /* CustomizeAvatarViewControllerTests.swift in Sources */,
 				D910FF251F06304F00C444DA /* DatabaseAccessorTests.swift in Sources */,
@@ -642,6 +646,7 @@
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = PowerupTests;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Powerup.app/Powerup";
 			};
@@ -651,6 +656,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = PowerupTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "";
