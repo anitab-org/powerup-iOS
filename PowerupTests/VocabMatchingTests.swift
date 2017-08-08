@@ -26,7 +26,7 @@ class VocabMatchingTests: XCTestCase {
             VocabMatchingClipboard(texture: nil, size: CGSize.zero, matchingID: 1, description: "")
         ]
         vocabMatchingGame.score = 0
-        let testingTile = VocabMatchingTile(matchingID: 2, textureName: "", size: CGSize.zero)
+        let testingTile = VocabMatchingTile(matchingID: 2, textureName: "", descriptionText: "", size: CGSize.zero)
         testingTile.laneNumber = 0
         
         // When

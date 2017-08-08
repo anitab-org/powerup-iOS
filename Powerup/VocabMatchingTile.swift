@@ -10,9 +10,13 @@ class VocabMatchingTile: SKSpriteNode {
     // Which lane is the tile currently on.
     var laneNumber: Int = -1
     
+    // The description shown on the corresponding clipboard.
+    var descriptionText: String
+    
     // MARK: Constructors
-    init(matchingID: Int, textureName: String, size: CGSize) {
+    init(matchingID: Int, textureName: String, descriptionText: String, size: CGSize) {
         self.matchingID = matchingID
+        self.descriptionText = descriptionText
         super.init(texture: SKTexture(imageNamed: textureName), color: UIColor.clear, size: size)
     }
     
