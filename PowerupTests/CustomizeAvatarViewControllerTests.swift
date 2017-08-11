@@ -106,7 +106,7 @@ class CustomizeAvatarViewControllerTests: XCTestCase {
         customizeAvatarViewController.hairRightButtonTouched(UIButton())
         
         // Press continue button (save avatar).
-        customizeAvatarViewController.continueButtonTouched(UIButton())
+        XCTAssertTrue(customizeAvatarViewController.saveAvatar())
         
         // Then (Check if the correct accessory id is configured and saved).
         XCTAssertEqual(mockData.createdAvatar!.clothes.id, 3)
