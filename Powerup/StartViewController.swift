@@ -37,8 +37,10 @@ class StartViewController: UIViewController {
             performSegue(withIdentifier: "toMapView", sender: self)
         } else {
             // Remind players to create an avatar first.
-            let alert = UIAlertController(title: "Warning", message: "You should create a new avatar first!", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            let alert = UIAlertController(title: "Warning", message: "Create your avatar to start the game!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in
+                self.performSegue(withIdentifier: "toNewAvatar", sender: self)
+            }))
             self.present(alert, animated: true)
         }
     }
@@ -46,7 +48,7 @@ class StartViewController: UIViewController {
     @IBAction func newAvatarButtonTouched(_ sender: UIButton) {
         // If previous avatar exists, warns the player that previous data will be lost.
         if dataSource.avatarExists() {
-            let alert = UIAlertController(title: "Warning", message: "Sure you want to create a new avatar? Previous data will be lost!", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Are you sure?", message: "If you start a new game, previous data and all Karma points will be lost!", preferredStyle: .alert)
             let okButton = UIAlertAction(title: "Create New Avatar", style: .destructive, handler: {(action) -> Void in self.performSegue(withIdentifier: "toNewAvatar", sender: self)})
             let cancelButton = UIAlertAction(title: "Cancel", style: .cancel)
             

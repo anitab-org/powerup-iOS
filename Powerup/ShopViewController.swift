@@ -122,6 +122,9 @@ class ShopViewController: UIViewController {
                     
                     // Hide display image.
                     displayImages[remainingIndex].image = nil
+                    
+                    // Disable buttons.
+                    purchaseButtons[remainingIndex].isEnabled = false
                 }
                 
                 break
@@ -134,6 +137,9 @@ class ShopViewController: UIViewController {
             
             // Configure the price label.
             priceLabels[boxIndex].text = String(currItem.points)
+            
+            // Enable buttons.
+            purchaseButtons[boxIndex].isEnabled = true
             
             // Show checkmark if bought.
             purchasedCheckmark[boxIndex].isHidden = !currItem.purchased
