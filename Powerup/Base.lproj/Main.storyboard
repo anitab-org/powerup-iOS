@@ -291,7 +291,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Marco" translatesAutoresizingMaskIntoConstraints="NO" id="tml-7e-idc">
-                                <rect key="frame" x="467" y="-19" width="150" height="280"/>
+                                <rect key="frame" x="487" y="-19" width="150" height="280"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="280" id="1wp-C5-hdd"/>
                                     <constraint firstAttribute="width" constant="150" id="h3S-S2-N9W"/>
@@ -330,95 +330,80 @@
                                 <rect key="frame" x="49" y="118" width="89" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left_dialogue" translatesAutoresizingMaskIntoConstraints="NO" id="u8N-gt-KTy">
-                                <rect key="frame" x="191.5" y="35" width="283.5" height="159.5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left_dialogue_2" translatesAutoresizingMaskIntoConstraints="NO" id="u8N-gt-KTy">
+                                <rect key="frame" x="242" y="35" width="283.5" height="159.5"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vn8-s2-SmV" userLabel="Question Label">
-                                <rect key="frame" x="225" y="72.5" width="184" height="95.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vn8-s2-SmV" userLabel="Question Label">
+                                <rect key="frame" x="260.5" y="44.5" width="227" height="140.5"/>
                                 <color key="backgroundColor" red="0.55226291700578689" green="1" blue="0.67648041399783065" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="15"/>
                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right_dialogue" translatesAutoresizingMaskIntoConstraints="NO" id="Xn7-bj-CGu">
-                                <rect key="frame" x="158.5" y="200.5" width="283.5" height="159.5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right_dialogue_2" translatesAutoresizingMaskIntoConstraints="NO" id="Xn7-bj-CGu">
+                                <rect key="frame" x="141.5" y="200.5" width="283.5" height="159.5"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0Uo-Ea-Ofl" userLabel="Choices Stack View">
-                                <rect key="frame" x="198.5" y="205.5" width="227.5" height="143.5"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="DB0-dr-t97" userLabel="Choice 1 Button">
-                                        <rect key="frame" x="0.0" y="0.0" width="227.5" height="36"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="12"/>
-                                        <state key="normal" title="Choice 1">
-                                            <color key="titleColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="choiceSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Gh-Af-VzS"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="3AU-ec-fnI" userLabel="Choice 2 Button">
-                                        <rect key="frame" x="0.0" y="36" width="227.5" height="36"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="12"/>
-                                        <state key="normal" title="Choice 2">
-                                            <color key="titleColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="choiceSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sHP-iI-PRo"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="kQW-7e-pth" userLabel="Choice 3 Button">
-                                        <rect key="frame" x="0.0" y="72" width="227.5" height="35.5"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="12"/>
-                                        <state key="normal" title="Choice 3">
-                                            <color key="titleColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="choiceSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z4C-Gt-rR7"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="500-p5-neQ" userLabel="Choice 4 Button">
-                                        <rect key="frame" x="0.0" y="107.5" width="227.5" height="36"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="12"/>
-                                        <state key="normal" title="Choice 4">
-                                            <color key="titleColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="choiceSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ksc-7b-MKe"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IYV-Xb-1w3">
+                                <rect key="frame" x="181.5" y="204.5" width="240.5" height="151.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="separatorInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="JR9-C4-9RX" rowHeight="40" style="IBUITableViewCellStyleDefault" id="HQ3-2f-iQG">
+                                        <rect key="frame" x="0.0" y="28" width="241" height="40"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HQ3-2f-iQG" id="Jww-8q-mUw">
+                                            <rect key="frame" x="0.0" y="0.0" width="240.5" height="39.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Sample Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JR9-C4-9RX">
+                                                    <rect key="frame" x="15" y="0.0" width="210.5" height="39.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="14"/>
+                                                    <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="u8N-gt-KTy" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.425" id="2br-Us-QB7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DY8-Xk-Z48" secondAttribute="trailing" id="3gF-IK-keB"/>
-                            <constraint firstItem="0Uo-Ea-Ofl" firstAttribute="width" secondItem="Xn7-bj-CGu" secondAttribute="width" multiplier="0.8" id="6jQ-Bb-6Je"/>
                             <constraint firstItem="DY8-Xk-Z48" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="DlY-6x-lHS"/>
                             <constraint firstItem="u8N-gt-KTy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="15" id="IDC-NM-JhA"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Xn7-bj-CGu" secondAttribute="bottom" constant="15" id="Ihj-oi-CgA"/>
                             <constraint firstItem="u8N-gt-KTy" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.425" id="Ral-qt-gCK"/>
-                            <constraint firstItem="u8N-gt-KTy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TTg-10-bGD"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="tml-7e-idc" secondAttribute="trailing" constant="30" id="XiM-eJ-ye2"/>
-                            <constraint firstItem="vn8-s2-SmV" firstAttribute="height" secondItem="u8N-gt-KTy" secondAttribute="height" multiplier="0.6" id="Ys9-17-eDl"/>
+                            <constraint firstItem="IYV-Xb-1w3" firstAttribute="centerX" secondItem="Xn7-bj-CGu" secondAttribute="centerX" multiplier="1.066" id="TT6-Tc-36g"/>
+                            <constraint firstItem="u8N-gt-KTy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="1.15" id="TTg-10-bGD"/>
+                            <constraint firstItem="IYV-Xb-1w3" firstAttribute="centerY" secondItem="Xn7-bj-CGu" secondAttribute="centerY" id="VrA-YD-m0k"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tml-7e-idc" secondAttribute="trailing" constant="10" id="XiM-eJ-ye2"/>
+                            <constraint firstItem="vn8-s2-SmV" firstAttribute="height" secondItem="u8N-gt-KTy" secondAttribute="height" multiplier="0.88" id="Ys9-17-eDl"/>
+                            <constraint firstItem="IYV-Xb-1w3" firstAttribute="height" secondItem="Xn7-bj-CGu" secondAttribute="height" multiplier="0.95" id="bbO-kY-b7N"/>
+                            <constraint firstItem="IYV-Xb-1w3" firstAttribute="width" secondItem="Xn7-bj-CGu" secondAttribute="width" multiplier="0.85" id="bsK-X6-kvg"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="DY8-Xk-Z48" secondAttribute="bottom" id="d8j-yH-adg"/>
                             <constraint firstItem="6u7-zE-DVc" firstAttribute="top" secondItem="tml-7e-idc" secondAttribute="bottom" constant="10" id="e9k-F9-thW"/>
                             <constraint firstItem="6u7-zE-DVc" firstAttribute="centerX" secondItem="tml-7e-idc" secondAttribute="centerX" id="kDd-z9-INh"/>
                             <constraint firstItem="Xn7-bj-CGu" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.425" id="m1E-QE-Ksy"/>
                             <constraint firstItem="Xn7-bj-CGu" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.425" id="nKc-Sf-b6P"/>
-                            <constraint firstItem="vn8-s2-SmV" firstAttribute="centerX" secondItem="u8N-gt-KTy" secondAttribute="centerX" multiplier="0.95" id="nSS-MO-8hh"/>
-                            <constraint firstItem="0Uo-Ea-Ofl" firstAttribute="height" secondItem="Xn7-bj-CGu" secondAttribute="height" multiplier="0.9" id="ql3-ny-XVf"/>
-                            <constraint firstItem="vn8-s2-SmV" firstAttribute="width" secondItem="u8N-gt-KTy" secondAttribute="width" multiplier="0.65" id="rSA-d5-7UZ"/>
-                            <constraint firstItem="vn8-s2-SmV" firstAttribute="centerY" secondItem="u8N-gt-KTy" secondAttribute="centerY" multiplier="1.05" id="tMD-q5-x4C"/>
-                            <constraint firstItem="0Uo-Ea-Ofl" firstAttribute="centerX" secondItem="Xn7-bj-CGu" secondAttribute="centerX" multiplier="1.04" id="tSN-YC-7hI"/>
-                            <constraint firstItem="Xn7-bj-CGu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="0.9" id="vUM-Uk-xoQ"/>
+                            <constraint firstItem="vn8-s2-SmV" firstAttribute="centerX" secondItem="u8N-gt-KTy" secondAttribute="centerX" multiplier="0.975" id="nSS-MO-8hh"/>
+                            <constraint firstItem="vn8-s2-SmV" firstAttribute="width" secondItem="u8N-gt-KTy" secondAttribute="width" multiplier="0.8" id="rSA-d5-7UZ"/>
+                            <constraint firstItem="vn8-s2-SmV" firstAttribute="centerY" secondItem="u8N-gt-KTy" secondAttribute="centerY" id="tMD-q5-x4C"/>
+                            <constraint firstItem="Xn7-bj-CGu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="0.85" id="vUM-Uk-xoQ"/>
                             <constraint firstItem="DY8-Xk-Z48" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="vo3-Xh-zGI"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6u7-zE-DVc" secondAttribute="bottom" constant="80" id="vzD-ch-b2N"/>
-                            <constraint firstItem="0Uo-Ea-Ofl" firstAttribute="centerY" secondItem="Xn7-bj-CGu" secondAttribute="centerY" multiplier="0.99" id="xin-Wh-FAn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Scene 1" id="cG0-Qh-xW1"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="DY8-Xk-Z48" id="tVK-Mb-wz7"/>
+                        <outlet property="choicesTableView" destination="IYV-Xb-1w3" id="K1l-Bn-L3a"/>
                         <outlet property="clothesView" destination="Bn8-vS-jOB" id="3vn-ZJ-BmG"/>
                         <outlet property="eyesView" destination="YNR-wc-f3M" id="9K2-HN-hJ4"/>
                         <outlet property="faceView" destination="XhY-Lr-xm7" id="wfG-z6-Sea"/>
@@ -428,10 +413,6 @@
                         <outlet property="hatView" destination="Q24-mV-m27" id="oTk-fG-Gbv"/>
                         <outlet property="necklaceView" destination="Fga-rm-Ong" id="w4H-lc-hRX"/>
                         <outlet property="questionLabel" destination="vn8-s2-SmV" id="l0r-zj-TnY"/>
-                        <outletCollection property="choiceButtons" destination="3AU-ec-fnI" collectionClass="NSMutableArray" id="V6W-eL-Vnw"/>
-                        <outletCollection property="choiceButtons" destination="kQW-7e-pth" collectionClass="NSMutableArray" id="1I0-8z-ymd"/>
-                        <outletCollection property="choiceButtons" destination="500-p5-neQ" collectionClass="NSMutableArray" id="XbT-p5-7Bi"/>
-                        <outletCollection property="choiceButtons" destination="DB0-dr-t97" collectionClass="NSMutableArray" id="6mW-Bh-EuT"/>
                         <segue destination="068-4x-alq" kind="push" identifier="toMiniGame" id="DTD-eG-6ws"/>
                         <segue destination="Kej-3M-rbU" kind="push" identifier="toEndScene" id="0it-aH-Xs8"/>
                         <segue destination="tRn-hQ-WhV" kind="unwind" identifier="unwindToMap" unwindAction="unwindToMapWithUnwindSegue:" id="pJw-HQ-eLH"/>
@@ -841,7 +822,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Cost: 0$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Up7-Du-r44" userLabel="Total Cost Label">
-                                <rect key="frame" x="275" y="30" width="118" height="21"/>
+                                <rect key="frame" x="274.5" y="30" width="118" height="21"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1262,7 +1243,7 @@
         <image name="purse1" width="225" height="225"/>
         <image name="purse2" width="144" height="125"/>
         <image name="replay_button" width="254" height="54"/>
-        <image name="right_dialogue" width="299" height="178"/>
+        <image name="right_dialogue_2" width="297" height="178"/>
         <image name="shop_background" width="1024" height="576"/>
         <image name="start_scene" width="1024" height="576"/>
     </resources>

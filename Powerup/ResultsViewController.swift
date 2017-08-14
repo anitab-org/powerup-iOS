@@ -56,7 +56,23 @@ class ResultsViewController: UIViewController {
         
         configureAvatar()
         
-        gainKarmaPoints()
+        // Configure score.
+        do {
+            let score = try dataSource.getScore()
+            karmaPointsLabel.text = String(score.karmaPoints)
+        } catch _ {
+            // If the saving failed, show an alert dialogue.
+            let alert = UIAlertController(title: "Warning", message: "Error loading Karma points.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
+        
+        // Notify the players of the karma gain with a pop-up.
+        let notification = UIAlertController(title: "Hooray!", message: "You gained \(karmaGain) Karma points!", preferredStyle: .alert)
+        notification.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in self.gainKarmaPoints()}))
+        self.present(notification, animated: true, completion: nil)
         
         saveScenarioAndUnlockNextScenario()
     }
@@ -79,11 +95,6 @@ class ResultsViewController: UIViewController {
         
         // Update karma points label.
         karmaPointsLabel.text = String(newScore.karmaPoints)
-        
-        // Notify the players of the karma gain with a pop-up.
-        let notification = UIAlertController(title: "Hooray!", message: "You gained \(karmaGain) Karma points!", preferredStyle: .alert)
-        notification.addAction(UIAlertAction(title: "OK", style: .default))
-        self.present(notification, animated: true, completion: nil)
     }
     
     func saveScenarioAndUnlockNextScenario() {
