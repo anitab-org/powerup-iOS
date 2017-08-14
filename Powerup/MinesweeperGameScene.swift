@@ -8,6 +8,12 @@ class MinesweeperGameScene: SKScene {
     // MARK: Game Constants
     let gridSizeCount = 5
     
+    let tutorialSceneImages = [
+        "minesweeper_tutorial_1",
+        "minesweeper_tutorial_2",
+        "minesweeper_tutorial_3"
+    ]
+    
     // How many boxes could be selected each round.
     let selectionMaxCount = 5
     
@@ -96,8 +102,10 @@ class MinesweeperGameScene: SKScene {
     let bannerLayer = CGFloat(0.2)
     let uiLayer = CGFloat(0.3)
     let uiTextLayer = CGFloat(0.4)
+    let tutorialSceneLayer = CGFloat(5)
     
     // MARK: Properties
+    var tutorialScene: SKTutorialScene!
     
     // Keep a reference to the view controller for end game transition.
     // (This is assigned in the MiniGameViewController class.)
@@ -117,6 +125,9 @@ class MinesweeperGameScene: SKScene {
     
     // Avoid player interaction with boxes when they are animating.
     var boxSelected: Bool = false
+    
+    // Avoid player interaction with boxes when the game is in tutorial scene.
+    var inTutorial = true
     
     // MARK: Constructor
     override init(size: CGSize) {
@@ -204,9 +215,6 @@ class MinesweeperGameScene: SKScene {
                 gameGrid[x].append(newBox)
             }
         }
-        
-        // Start the first round.
-        newRound()
     }
     
     
@@ -236,6 +244,15 @@ class MinesweeperGameScene: SKScene {
                 addChild(box)
             }
         }
+        
+        // Show tutorial scene. After that, start the game.
+        tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
+            self.newRound()
+            self.inTutorial = false
+        }
+        tutorialScene.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
+        tutorialScene.zPosition = tutorialSceneLayer
+        addChild(tutorialScene)
     }
     
     /**
@@ -390,6 +407,7 @@ class MinesweeperGameScene: SKScene {
     
     // MARK: Touch inputs
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if inTutorial { return }
         
         // Only the first touch is effective.
         guard let touch = touches.first else {
@@ -429,6 +447,7 @@ class MinesweeperGameScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if inTutorial { return }
         
         // Only the first touch is effective.
         guard let touch = touches.first else {

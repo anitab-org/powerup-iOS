@@ -117,6 +117,7 @@ class SinkToSwimTests: XCTestCase {
     func testBoatSinkRaise() {
         // Given (Sinking)
         sinkToSwimGame.raisingBoat = false
+        sinkToSwimGame.inTutorial = false
         
         var boatOriginalPositionY = sinkToSwimGame.avatarBoatSprite.position.y
         
@@ -149,6 +150,7 @@ class SinkToSwimTests: XCTestCase {
     func testTimerReachesZeroGameOver() {
         // Given
         sinkToSwimGame.timer = 0
+        sinkToSwimGame.inTutorial = false
         
         // When (Update an arbitrary interval.)
         sinkToSwimGame.update(1.0)
@@ -161,6 +163,7 @@ class SinkToSwimTests: XCTestCase {
     func testPointerDropGameOver() {
         // Given (arbitrary x pos, y pos at the bottom of the gauge.)
         sinkToSwimGame.waterGaugePointerSprite.position = CGPoint(x: 0.0, y: sinkToSwimGame.waterGaugeMinUnit * Double(sinkToSwimGame.waterGaugeSprite.size.height))
+        sinkToSwimGame.inTutorial = false
         
         // When (Update arbitrary intervals.)
         sinkToSwimGame.update(1.0)

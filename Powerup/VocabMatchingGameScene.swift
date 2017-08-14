@@ -22,6 +22,9 @@ class VocabMatchingGameScene: SKScene {
     let tilesPerRound = 2
     let timeBetweenTileSpawns = 2.0
     
+    // Tutorial Scene images.
+    let tutorialSceneImages = ["vocabmatching_tutorial_1", "vocabmatching_tutorial_2"]
+    
     // Sizing and position of the nodes (They are relative to the width and height of the game scene.)
     // Score Box
     let scoreBoxSpriteWidth = 0.09
@@ -81,6 +84,7 @@ class VocabMatchingGameScene: SKScene {
     let uiLayer = CGFloat(0.5)
     let uiTextLayer = CGFloat(0.6)
     let endSceneLayer = CGFloat(1.5)
+    let tutorialSceneLayer = CGFloat(5)
     
     // Fonts
     let fontName = "Montserrat-Bold"
@@ -105,6 +109,8 @@ class VocabMatchingGameScene: SKScene {
     let scoreLabelPrefix = "Score: "
     
     // MARK: Properties
+    var tutorialScene: SKTutorialScene!
+    
     // The positionY of each lane. (That is, the posY of tiles and clipboards.)
     var lanePositionsY = [0.173, 0.495, 0.828]
     
@@ -246,8 +252,13 @@ class VocabMatchingGameScene: SKScene {
         // Add end scene.
         addChild(endSceneSprite)
         
-        // Start the game.
-        nextRound()
+        // Show tutorial scene. After that, start the game.
+        tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
+            self.nextRound()
+        }
+        tutorialScene.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
+        tutorialScene.zPosition = tutorialSceneLayer
+        addChild(tutorialScene)
     }
     
     // Spawn tiles for the next round. Completion closure is for unit tests.
