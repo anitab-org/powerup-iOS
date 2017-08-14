@@ -12,6 +12,8 @@ class DataSource {
     func avatarExists() -> Bool { return false }
     func saveScore(score: Score) throws {}
     func getScore() throws -> Score { return Score() }
+    func getScenario(of id: Int) throws -> Scenario { return Scenario() }
+    func saveScenario(_ scenario: Scenario) throws {}
     func databaseIsInitialized() -> Bool { return false }
     func closeDatabase() {}
     func resetDatabase() throws {}

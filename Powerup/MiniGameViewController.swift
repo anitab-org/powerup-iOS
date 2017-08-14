@@ -11,6 +11,7 @@ enum MiniGameIndex: Int {
 class MiniGameViewController: UIViewController {
     
     // MARK: Properties
+    var completedScenarioID: Int = -1
     
     // Keep a reference of the background image so that result scene could use it. (This is being assigned by ScenarioViewController).
     var scenarioBackgroundImage: UIImage? = nil
@@ -71,6 +72,7 @@ class MiniGameViewController: UIViewController {
             
             // Set the background image of ResultsViewController.
             resultVC.backgroundImage = scenarioBackgroundImage
+            resultVC.completedScenarioID = completedScenarioID
         }
     }
     

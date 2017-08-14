@@ -134,27 +134,6 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    // MARK: Segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // prepare for MiniGameViewController
-        if let miniGameVC = segue.destination as? MiniGameViewController {
-            miniGameVC.gameIndex = MiniGameIndex(rawValue: toMiniGameIndex) ?? .unknown
-            
-            // Pass the background image to minigame view controller so that results view controller knows which background image to display.
-            miniGameVC.scenarioBackgroundImage = backgroundImage
-        } else if let resultsVC = segue.destination as? ResultsViewController {
-            // Set the background image of results view controller.
-            resultsVC.backgroundImage = backgroundImage
-        }
-    }
-    
-    // Replay the scenario.
-    @IBAction func unwindToScenario(unwindSegue: UIStoryboardSegue) {
-        initializeQuestions()
-        
-        resetQuestionAndChoices()
-    }
-    
     // MARK: UITableViewDataSourceDelegate
     // How many cells are there.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -192,5 +171,31 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
             // Perform push segue to result scene
             performSegue(withIdentifier: "toEndScene", sender: self)
         }
+        
+    }
+    
+    // MARK: Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // prepare for MiniGameViewController
+        if let miniGameVC = segue.destination as? MiniGameViewController {
+            miniGameVC.gameIndex = MiniGameIndex(rawValue: toMiniGameIndex) ?? .unknown
+            
+            // Pass the background image to minigame view controller so that results view controller knows which background image to display.
+            miniGameVC.scenarioBackgroundImage = backgroundImage
+            miniGameVC.completedScenarioID = scenarioID
+        } else if let resultsVC = segue.destination as? ResultsViewController {
+            // Set the background image of results view controller.
+            resultsVC.backgroundImage = backgroundImage
+            
+            // Set the scenarioID.
+            resultsVC.completedScenarioID = scenarioID
+        }
+    }
+    
+    // Replay the scenario.
+    @IBAction func unwindToScenario(unwindSegue: UIStoryboardSegue) {
+        initializeQuestions()
+        
+        resetQuestionAndChoices()
     }
 }

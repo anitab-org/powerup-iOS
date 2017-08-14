@@ -322,6 +322,40 @@ class DatabaseAccessor: DataSource {
         }
     }
     
+    /** Get the scenario from the database by its ID. This could be used to check if a scenario is completed yet.
+        - Return: The scenario in a Scenario struct.
+    */
+    public override func getScenario(of id: Int) throws -> Scenario {
+        let queryString = "SELECT * FROM Scenario WHERE ID = \(id)"
+        let queryResults: FMResultSet? = mainDB?.executeQuery(queryString, withArgumentsIn: nil)
+        
+        var result = Scenario()
+        
+        if queryResults?.next() == true {
+            result.id = id
+            result.name = queryResults!.string(forColumn: "name")
+            result.timestamp = Int(queryResults!.int(forColumn: "timestamp"))
+            result.asker = queryResults!.string(forColumn: "asker")
+            result.firstQuestionID = Int(queryResults!.int(forColumn: "firstQID"))
+            result.unlocked = Int(queryResults!.int(forColumn: "unlocked")) == 1
+            result.completed = Int(queryResults!.int(forColumn: "completed")) == 1
+            result.nextScenarioID = Int(queryResults!.int(forColumn: "nextScenarioID"))
+        } else {
+            throw DatabaseError.databaseQueryFailed
+        }
+        
+        return result
+    }
+    
+    /** Save the scenario by its ID to the database. */
+    public override func saveScenario(_ scenario: Scenario) throws {
+        let queryString = "UPDATE Scenario SET ID = \(scenario.id), name = '\(scenario.name)', timestamp = \(scenario.timestamp), asker = '\(scenario.asker)', firstQID = \(scenario.firstQuestionID), unlocked = \(scenario.unlocked ? 1 : 0), completed = \(scenario.completed ? 1 : 0), nextScenarioID = \(scenario.nextScenarioID) WHERE ID = \(scenario.id)"
+        
+        guard mainDB!.executeUpdate(queryString, withArgumentsIn: nil) else {
+            throw DatabaseError.databaseUpdateFailed
+        }
+    }
+    
     /** Close database if it's opened */
     public override func closeDatabase() {
         mainDB?.close()
