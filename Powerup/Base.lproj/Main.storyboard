@@ -351,7 +351,7 @@
                                 <inset key="separatorInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" textLabel="JR9-C4-9RX" rowHeight="40" style="IBUITableViewCellStyleDefault" id="HQ3-2f-iQG">
-                                        <rect key="frame" x="0.0" y="28" width="241" height="40"/>
+                                        <rect key="frame" x="0.0" y="28" width="240.5" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HQ3-2f-iQG" id="Jww-8q-mUw">
                                             <rect key="frame" x="0.0" y="0.0" width="240.5" height="39.5"/>
@@ -1054,7 +1054,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PowerUp-Map" translatesAutoresizingMaskIntoConstraints="NO" id="tPY-8j-neT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_background" translatesAutoresizingMaskIntoConstraints="NO" id="tPY-8j-neT">
+                                <rect key="frame" x="0.0" y="20" width="667" height="355"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_school" translatesAutoresizingMaskIntoConstraints="NO" id="voa-Rz-4F0" userLabel="map_school">
+                                <rect key="frame" x="0.0" y="20" width="667" height="355"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_hospital" translatesAutoresizingMaskIntoConstraints="NO" id="Fmy-iT-ufw">
+                                <rect key="frame" x="0.0" y="20" width="667" height="355"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_library" translatesAutoresizingMaskIntoConstraints="NO" id="ZEg-pi-KP9">
                                 <rect key="frame" x="0.0" y="20" width="667" height="355"/>
                             </imageView>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ywa-nu-uIK" userLabel="Hospital Scenario Button">
@@ -1100,7 +1109,7 @@
                                     <segue destination="Ayb-3h-vA7" kind="modal" id="11c-aR-Qgq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9k-wY-tNO">
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9k-wY-tNO" userLabel="Home Scenario Button">
                                 <rect key="frame" x="20" y="169" width="100" height="142"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.92477746660000004" green="1" blue="0.97109429339999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1109,7 +1118,7 @@
                                     <action selector="scenarioSelected:" destination="S3c-uW-lpA" eventType="touchUpInside" id="kJ1-gd-fd8"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zf-M3-jE6">
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zf-M3-jE6" userLabel="Library Scenario Button">
                                 <rect key="frame" x="467" y="187.5" width="180" height="177.5"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.92477746660000004" green="1" blue="0.97109429339999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1122,8 +1131,11 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="b9k-wY-tNO" firstAttribute="top" secondItem="tPY-8j-neT" secondAttribute="bottom" multiplier="0.45" id="1oG-K0-pc4"/>
+                            <constraint firstItem="Fmy-iT-ufw" firstAttribute="height" secondItem="tPY-8j-neT" secondAttribute="height" id="31b-ST-Itn"/>
                             <constraint firstItem="b9k-wY-tNO" firstAttribute="height" secondItem="tPY-8j-neT" secondAttribute="height" multiplier="0.4" id="3yD-ZN-4xm"/>
                             <constraint firstItem="Wu8-rw-HXZ" firstAttribute="leading" secondItem="tPY-8j-neT" secondAttribute="trailing" multiplier="0.045" constant="8" symbolic="YES" id="8Ws-f0-fc3"/>
+                            <constraint firstItem="ZEg-pi-KP9" firstAttribute="width" secondItem="tPY-8j-neT" secondAttribute="width" id="8ns-PQ-cke"/>
+                            <constraint firstItem="Fmy-iT-ufw" firstAttribute="centerX" secondItem="tPY-8j-neT" secondAttribute="centerX" id="9eG-mb-MZP"/>
                             <constraint firstItem="bQW-Ca-CzZ" firstAttribute="top" secondItem="a2t-1i-ibK" secondAttribute="bottom" constant="5" id="Brr-JA-TGg"/>
                             <constraint firstItem="Wu8-rw-HXZ" firstAttribute="top" secondItem="tPY-8j-neT" secondAttribute="bottom" multiplier="0.07" id="Cdr-nl-FIo"/>
                             <constraint firstItem="571-Oe-vdt" firstAttribute="top" secondItem="tPY-8j-neT" secondAttribute="bottom" multiplier="0.25" id="IhJ-2P-Ocz"/>
@@ -1132,9 +1144,13 @@
                             <constraint firstItem="Wu8-rw-HXZ" firstAttribute="height" secondItem="tPY-8j-neT" secondAttribute="height" multiplier="0.35" id="KgZ-4L-GaX"/>
                             <constraint firstItem="Ywa-nu-uIK" firstAttribute="width" secondItem="tPY-8j-neT" secondAttribute="width" multiplier="0.22" id="NlP-Wo-uFv"/>
                             <constraint firstItem="tPY-8j-neT" firstAttribute="top" secondItem="a2t-1i-ibK" secondAttribute="bottom" id="QMJ-dZ-gRV"/>
+                            <constraint firstItem="ZEg-pi-KP9" firstAttribute="centerY" secondItem="tPY-8j-neT" secondAttribute="centerY" id="TGg-6A-tyw"/>
+                            <constraint firstItem="voa-Rz-4F0" firstAttribute="centerX" secondItem="tPY-8j-neT" secondAttribute="centerX" id="TVe-VT-tdJ"/>
+                            <constraint firstItem="voa-Rz-4F0" firstAttribute="centerY" secondItem="tPY-8j-neT" secondAttribute="centerY" id="YPK-d9-N3h"/>
                             <constraint firstAttribute="trailing" secondItem="tPY-8j-neT" secondAttribute="trailing" id="ZP0-zC-i5Q"/>
                             <constraint firstItem="b9k-wY-tNO" firstAttribute="leading" secondItem="tPY-8j-neT" secondAttribute="trailing" multiplier="0.03" id="cNF-AK-697"/>
                             <constraint firstItem="Ywa-nu-uIK" firstAttribute="height" secondItem="tPY-8j-neT" secondAttribute="height" multiplier="0.35" id="e9e-tR-vIS"/>
+                            <constraint firstItem="Fmy-iT-ufw" firstAttribute="width" secondItem="tPY-8j-neT" secondAttribute="width" id="eYt-FY-mq7"/>
                             <constraint firstItem="Ywa-nu-uIK" firstAttribute="top" secondItem="tPY-8j-neT" secondAttribute="top" multiplier="1.2" id="fRD-PY-tPC"/>
                             <constraint firstItem="5zf-M3-jE6" firstAttribute="top" secondItem="tPY-8j-neT" secondAttribute="bottom" multiplier="0.5" id="hqv-cc-dfA"/>
                             <constraint firstItem="Wu8-rw-HXZ" firstAttribute="width" secondItem="tPY-8j-neT" secondAttribute="width" multiplier="0.3" id="i50-Bc-EcL"/>
@@ -1142,29 +1158,40 @@
                             <constraint firstAttribute="trailing" secondItem="bQW-Ca-CzZ" secondAttribute="trailing" constant="5" id="l8B-hE-E3U"/>
                             <constraint firstItem="571-Oe-vdt" firstAttribute="leading" secondItem="tPY-8j-neT" secondAttribute="trailing" multiplier="0.38" id="nn5-gf-nwK"/>
                             <constraint firstItem="5zf-M3-jE6" firstAttribute="leading" secondItem="tPY-8j-neT" secondAttribute="trailing" multiplier="0.7" id="p2S-Zb-bMC"/>
+                            <constraint firstItem="voa-Rz-4F0" firstAttribute="height" secondItem="tPY-8j-neT" secondAttribute="height" id="qYM-5C-pai"/>
+                            <constraint firstItem="ZEg-pi-KP9" firstAttribute="centerX" secondItem="tPY-8j-neT" secondAttribute="centerX" id="rCL-ba-Lc2"/>
                             <constraint firstItem="5zf-M3-jE6" firstAttribute="width" secondItem="tPY-8j-neT" secondAttribute="width" multiplier="0.27" id="rEp-Z8-th6"/>
                             <constraint firstItem="b9k-wY-tNO" firstAttribute="width" secondItem="tPY-8j-neT" secondAttribute="width" multiplier="0.15" id="sBl-Cr-Waf"/>
                             <constraint firstItem="tPY-8j-neT" firstAttribute="leading" secondItem="qU0-tn-cF3" secondAttribute="leading" id="t76-5m-VBT"/>
                             <constraint firstItem="5zf-M3-jE6" firstAttribute="height" secondItem="tPY-8j-neT" secondAttribute="height" multiplier="0.5" id="uK7-Ao-pCV"/>
+                            <constraint firstItem="Fmy-iT-ufw" firstAttribute="centerY" secondItem="tPY-8j-neT" secondAttribute="centerY" id="ueX-HO-LDJ"/>
+                            <constraint firstItem="ZEg-pi-KP9" firstAttribute="height" secondItem="tPY-8j-neT" secondAttribute="height" id="we1-Lk-rY6"/>
+                            <constraint firstItem="voa-Rz-4F0" firstAttribute="width" secondItem="tPY-8j-neT" secondAttribute="width" id="xvv-Rk-sWn"/>
                             <constraint firstItem="Ywa-nu-uIK" firstAttribute="leading" secondItem="tPY-8j-neT" secondAttribute="trailing" multiplier="0.7" id="yKW-Sx-C55"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jFe-nm-wls"/>
                     <connections>
+                        <outletCollection property="scenarioButtons" destination="Wu8-rw-HXZ" collectionClass="NSMutableArray" id="ZWe-gZ-h7z"/>
+                        <outletCollection property="scenarioButtons" destination="Ywa-nu-uIK" collectionClass="NSMutableArray" id="veT-DS-nxw"/>
+                        <outletCollection property="scenarioButtons" destination="5zf-M3-jE6" collectionClass="NSMutableArray" id="9q5-T5-KIY"/>
+                        <outletCollection property="scenarioImages" destination="voa-Rz-4F0" collectionClass="NSMutableArray" id="CBg-Ad-dYK"/>
+                        <outletCollection property="scenarioImages" destination="Fmy-iT-ufw" collectionClass="NSMutableArray" id="PZ9-jB-B8c"/>
+                        <outletCollection property="scenarioImages" destination="ZEg-pi-KP9" collectionClass="NSMutableArray" id="aA8-Se-gqc"/>
                         <segue destination="BYZ-38-t0r" kind="push" identifier="toScenarioView" id="mzp-Ek-ra4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OMF-eo-Ren" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QuD-Og-rFX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="952" y="304"/>
+            <point key="canvasLocation" x="951.5" y="303.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cD8-wF-rc7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="eFm-LF-3yb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zG6-F1-qcm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zG6-F1-qcm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1180,7 +1207,6 @@
     </scenes>
     <resources>
         <image name="Marco" width="612" height="792"/>
-        <image name="PowerUp-Map" width="1024" height="576"/>
         <image name="class_room_background" width="1024" height="576"/>
         <image name="cloth1" width="185" height="326"/>
         <image name="clothesbox" width="300" height="300"/>
@@ -1196,15 +1222,19 @@
         <image name="home_button" width="210" height="195"/>
         <image name="karma_star" width="61" height="54"/>
         <image name="left_arrow" width="38" height="38"/>
-        <image name="left_dialogue" width="297" height="178"/>
+        <image name="left_dialogue_2" width="298" height="178"/>
+        <image name="map_background" width="1024" height="576"/>
         <image name="map_button" width="254" height="54"/>
+        <image name="map_hospital" width="409" height="230"/>
+        <image name="map_library" width="1024" height="576"/>
+        <image name="map_school" width="1024" height="576"/>
         <image name="necklace1" width="112" height="142"/>
         <image name="orange_face" width="422" height="148"/>
         <image name="purchased_checkmark" width="97" height="82"/>
         <image name="purse2" width="144" height="125"/>
         <image name="replay_button" width="254" height="54"/>
         <image name="right_arrow" width="38" height="38"/>
-        <image name="right_dialogue" width="299" height="178"/>
+        <image name="right_dialogue_2" width="297" height="178"/>
         <image name="scenario_complete_scene" width="1024" height="576"/>
         <image name="shop_available_box" width="146" height="198"/>
         <image name="shop_background" width="1024" height="576"/>
@@ -1217,7 +1247,7 @@
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Vcg-vV-Did"/>
-        <segue reference="0it-aH-Xs8"/>
+        <segue reference="Ck5-aV-1L2"/>
+        <segue reference="HHh-kx-uKw"/>
     </inferredMetricsTieBreakers>
 </document>

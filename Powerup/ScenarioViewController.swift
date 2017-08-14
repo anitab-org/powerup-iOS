@@ -134,7 +134,6 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    // MARK: Segue
     // MARK: UITableViewDataSourceDelegate
     // How many cells are there.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -183,6 +182,10 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
             
             // Pass the background image to minigame view controller so that results view controller knows which background image to display.
             miniGameVC.scenarioBackgroundImage = backgroundImage
+            miniGameVC.completedScenarioID = scenarioID
+        } else if let resultsVC = segue.destination as? ResultsViewController {
+            // Set the scenarioID.
+            resultsVC.completedScenarioID = scenarioID
         }
     }
     

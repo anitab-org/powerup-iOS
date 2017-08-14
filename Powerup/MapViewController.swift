@@ -9,15 +9,53 @@ class MapViewController: UIViewController {
         nil,
         nil,
         nil,
-        "dressingroom_bgd",
+        "home_background",
         "hospital_background",
         "library_background"
     ]
+    
+    // MARK: Properties
+    var dataSource: DataSource = DatabaseAccessor.sharedInstance
+    
+    // MARK: Views
+    @IBOutlet var scenarioButtons: Array<UIButton>!
+    @IBOutlet var scenarioImages: Array<UIImageView>!
     
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        unlockScenarios()
+    }
+    
+    func unlockScenarios() {
+        
+        // Check which scenarios are unlocked.
+        for (index, button) in scenarioButtons.enumerated() {
+            let scenarioID = button.tag
+            
+            // Query database, see if the scenario is unlocked.
+            var currScenario: Scenario
+            do {
+                currScenario = try dataSource.getScenario(of: scenarioID)
+            } catch _ {
+                let alert = UIAlertController(title: "Warning", message: "Error loading scenarios, please and try again, if this error still occurs, try restarting the app.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true, completion: nil)
+                
+                return
+            }
+            
+            if !currScenario.unlocked {
+                // Lock the building.
+                button.isHidden = true
+                scenarioImages[index].isHidden = true
+            } else {
+                // Unlock the building.
+                button.isHidden = false
+                scenarioImages[index].isHidden = false
+            }
+        }
     }
     
     // MARK: Actions
@@ -46,6 +84,6 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func unwindToMap(unwindSegue: UIStoryboardSegue) {
-        
+        unlockScenarios()
     }
 }
