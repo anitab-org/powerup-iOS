@@ -5,57 +5,17 @@ class ResultsViewController: UIViewController {
     // TODO: Should detemine how many Karma points will be given after each completion of scenario.
     let karmaGain = 20
     
-    // MARK: Properties
-    // The background image. being set by either mini game view or scenario view.
-    var backgroundImage: UIImage? = nil
-
-    var dataSource: DataSource = DatabaseAccessor.sharedInstance
-    
     // MARK: Views
-    @IBOutlet weak var backgroundImageView: UIImageView!
-    @IBOutlet weak var eyesView: UIImageView!
-    @IBOutlet weak var hairView: UIImageView!
-    @IBOutlet weak var faceView: UIImageView!
-    @IBOutlet weak var clothesView: UIImageView!
-    @IBOutlet weak var necklaceView: UIImageView!
-    @IBOutlet weak var handbagView: UIImageView!
-    @IBOutlet weak var glassesView: UIImageView!
-    @IBOutlet weak var hatView: UIImageView!
     @IBOutlet weak var karmaPointsLabel: UILabel!
     
-    // MARK: Functions
-    // Configures the accessories of the avatar.
-    func configureAvatar() {
-        let avatar: Avatar!
-        
-        do {
-            avatar = try dataSource.getAvatar()
-        } catch _ {
-            // Cannot load customized avatar, just use the default one.
-            avatar = Avatar()
-        }
-        
-        clothesView.image = avatar.clothes.image
-        faceView.image = avatar.face.image
-        hairView.image = avatar.hair.image
-        eyesView.image = avatar.eyes.image
-        handbagView.image = avatar.handbag?.image
-        glassesView.image = avatar.glasses?.image
-        hatView.image = avatar.hat?.image
-        necklaceView.image = avatar.necklace?.image
-    }
+    // MARK: Properties
+    var dataSource: DataSource = DatabaseAccessor.sharedInstance
     
+    // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Configure background image.
-        backgroundImageView.image = backgroundImage
-        
-        configureAvatar()
-        
         gainKarmaPoints()
-        
-        // TODO: Save the completion of scenarios in the database.
     }
     
 
