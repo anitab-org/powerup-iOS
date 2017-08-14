@@ -55,7 +55,7 @@ class ScenarioViewControllerTests: XCTestCase {
     }
     
     /**
-      - Test that the transition of questions to questions by choice button selection is correct.
+      - Test that the transition of questions to questions by choices selection is correct.
     */
     func testAnswerSelection() {
         // Given
@@ -80,12 +80,12 @@ class ScenarioViewControllerTests: XCTestCase {
         scenarioViewController.initializeQuestions()
         scenarioViewController.resetQuestionAndChoices()
         
-        let choiceButton = scenarioViewController.choiceButtons[0]
+        let choiceTable = scenarioViewController.choicesTableView!
         let questionLabel = scenarioViewController.questionLabel
         
         // When
-        // Button selected in the first question.
-        scenarioViewController.choiceSelected(choiceButton)
+        // Cell (choice) selected in the first question.
+        scenarioViewController.tableView(choiceTable, didSelectRowAt: IndexPath(row: 0, section: 0))
         
         // Then
         // Question description is correct.
@@ -93,7 +93,7 @@ class ScenarioViewControllerTests: XCTestCase {
         
         // When
         for _ in 0..<2 {
-            scenarioViewController.choiceSelected(choiceButton)
+            scenarioViewController.tableView(choiceTable, didSelectRowAt: IndexPath(row: 0, section: 0))
         }
         
         // Then
