@@ -1,6 +1,6 @@
 import UIKit
 
-class ScenarioViewController: UIViewController {
+class ScenarioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: Properties
     var dataSource: DataSource = DatabaseAccessor.sharedInstance
@@ -21,10 +21,10 @@ class ScenarioViewController: UIViewController {
     
     // MARK: Views
     @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var choicesTableView: UITableView!
     
     // Question Label and Choice Buttons
     @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet var choiceButtons: Array<UIButton>!
     
     // ImageViews for avatar
     // These should be merged into a customized controller soon
@@ -39,10 +39,7 @@ class ScenarioViewController: UIViewController {
     
     // MARK: Functions
     func resetQuestionAndChoices() {
-        // Hide question Label and all the Buttons for choices, will show them only if the query to Database is successful
-        for choiceButton in choiceButtons {
-            choiceButton.isHidden = true
-        }
+        
         
         // Configure question description
         questionLabel.text = questions[currQuestionID]?.questionDescription
@@ -67,16 +64,8 @@ class ScenarioViewController: UIViewController {
             answers.append(Answer(answerID: -1, questionID: -1, answerDescription: "Continue", nextQuestionID: "$", points: 0))
         }
         
-        // Configure answer buttons
-        for (index, answer) in answers.enumerated() {
-            let button = choiceButtons[index]
-            
-            // Configure title texts of buttons
-            button.setTitle(String(index + 1) + ". " + answer.answerDescription, for: .normal)
-            
-            // Show buttons
-            button.isHidden = false
-        }
+        // Reload the table.
+        choicesTableView.reloadData()
     }
     
     // Configures the accessories of the avatar.
@@ -108,6 +97,9 @@ class ScenarioViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        choicesTableView.delegate = self
+        choicesTableView.dataSource = self
         
         // TODO: Configure the image and name of the "Asker" avatar.
         
@@ -142,13 +134,24 @@ class ScenarioViewController: UIViewController {
         }
     }
     
-    // MARK: Actions
-    @IBAction func choiceSelected(_ sender: UIButton) {
-        // Check which button is selected
-        var selectedIndex = 0
-        while sender != choiceButtons[selectedIndex] {
-            selectedIndex += 1
-        }
+    // MARK: Segue
+    // MARK: UITableViewDataSourceDelegate
+    // How many cells are there.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return answers.count
+    }
+    
+    // Configure the cells (choices) of the table.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.textLabel?.text = answers[indexPath.row].answerDescription
+        return cell
+    }
+    
+    // MARK: UITableViewDelegate
+    // Selected a cell (choice).
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedIndex = indexPath.row
         
         // Check if the next questionID is a valid integer, if not, it's the end of the scnario (entering a mini game)
         let nextQuestionID = answers[selectedIndex].nextQuestionID

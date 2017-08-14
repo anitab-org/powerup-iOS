@@ -14,7 +14,7 @@ class ResultsViewController: UIViewController {
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         gainKarmaPoints()
     }
     
@@ -36,10 +36,5 @@ class ResultsViewController: UIViewController {
         
         // Update karma points label.
         karmaPointsLabel.text = String(newScore.karmaPoints)
-        
-        // Notify the players of the karma gain with a pop-up.
-        let notification = UIAlertController(title: "Hooray!", message: "You gained \(karmaGain) Karma points!", preferredStyle: .alert)
-        notification.addAction(UIAlertAction(title: "OK", style: .default))
-        self.present(notification, animated: true, completion: nil)
     }
 }
