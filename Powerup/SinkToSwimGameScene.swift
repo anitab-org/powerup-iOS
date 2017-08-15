@@ -118,6 +118,8 @@ class SinkToSwimGameScene: SKScene {
     let waterGaugeMaxUnit = 0.42
     let waterGaugeMinUnit = -0.4
     
+    let PointerToBoatRatio = 0.5
+    
     // Colors
     let textColor = UIColor(colorLiteralRed: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
     let correctColor = UIColor(colorLiteralRed: 105.0 / 255.0, green: 255.0 / 255.0, blue: 109.0 / 255.0, alpha: 1.0)
@@ -451,6 +453,7 @@ class SinkToSwimGameScene: SKScene {
             
             // Update water pointer.
             var waterPointerNewPosY: Double
+            var avatarBoatNewPosY: Double
             if raisingBoat {
                 // Raise the boat.
                 
@@ -458,21 +461,35 @@ class SinkToSwimGameScene: SKScene {
                 let raisingSpeed = waterGaugeUnit * Double(waterGaugeSprite.size.height) / (questionFadeInTime + questionFadeOutTime + correctWrongSpriteStayTime)
                 
                 waterPointerNewPosY = Double(waterGaugePointerSprite.position.y) + timePassed * raisingSpeed
+                
+                avatarBoatNewPosY = Double(avatarBoatSprite.position.y) + timePassed * raisingSpeed * PointerToBoatRatio
             } else {
                 // Drown the boat.
                 waterPointerNewPosY = Double(waterGaugePointerSprite.position.y) - timePassed * sinkingSpeedRelativeToGauge * Double(waterGaugeSprite.size.height)
+                
+                avatarBoatNewPosY = Double(avatarBoatSprite.position.y) - timePassed * sinkingSpeedRelativeToGauge * Double(waterGaugeSprite.size.height) * PointerToBoatRatio
             }
             
-            // Set the position of the pointer. Ensure that the pointer won't go out of the gauge using min(max(value, lower), upper).
-            let minPosY = CGFloat(waterGaugeMinUnit) * waterGaugeSprite.size.height
-            let maxPosY = CGFloat(waterGaugeMaxUnit) * waterGaugeSprite.size.height
-            waterGaugePointerSprite.position = CGPoint(x: waterGaugePointerSprite.position.x, y: min(max(CGFloat(waterPointerNewPosY), minPosY), maxPosY))
+            // Set the position of the pointer. Ensure that the pointer won't go out of the gauge.
+            let minPosY = waterGaugeMinUnit * Double(waterGaugeSprite.size.height)
+            let maxPosY = waterGaugeMaxUnit * Double(waterGaugeSprite.size.height)
+            var ending = false
             
-            // Update avatar according to the pointer.
-            updateAvatarBoatAccordingToWaterPointer()
+            if waterPointerNewPosY < minPosY {
+                waterPointerNewPosY = minPosY
+                ending = true
+            } else if waterPointerNewPosY > maxPosY {
+                waterPointerNewPosY = maxPosY
+            } else {
+                // Update the position of the boat.
+                avatarBoatSprite.position = CGPoint(x: Double(avatarBoatSprite.position.x), y: avatarBoatNewPosY)
+            }
+            
+            // Update the position of the pointer.
+            waterGaugePointerSprite.position = CGPoint(x: Double(waterGaugePointerSprite.position.x), y: waterPointerNewPosY)
             
             // If the new posY goes below the min y-position, game over.
-            if waterPointerNewPosY < Double(waterGaugeSprite.size.height) * waterGaugeMinUnit {
+            if ending {
                 gameOver(drowned: true)
                 return
             }
@@ -521,13 +538,6 @@ class SinkToSwimGameScene: SKScene {
                 self.continueButtonInteractable = true
             }
         }
-    }
-    
-    // Update the y-position of the avatar boat according to the water pointer.
-    func updateAvatarBoatAccordingToWaterPointer() {
-        let pointerGlobalPosY = waterGaugePointerSprite.convert(CGPoint.zero, to: self).y
-        
-        avatarBoatSprite.position = CGPoint(x: avatarBoatSprite.position.x, y: pointerGlobalPosY - avatarBoatSprite.size.height * CGFloat(avatarBoatPosYToPointer))
     }
     
     // Fade-in the next question.

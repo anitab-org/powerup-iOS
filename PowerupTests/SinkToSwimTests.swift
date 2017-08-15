@@ -129,8 +129,8 @@ class SinkToSwimTests: XCTestCase {
         sinkToSwimGame.update(10.0)
         sinkToSwimGame.update(15.0)
         
-        // Then
-        XCTAssert(sinkToSwimGame.avatarBoatSprite.position.y < boatOriginalPositionY)
+        // Then (The boat should be less or equal to the original position. The equal condition occurs when it already reaches the lowest position.)
+        XCTAssert(sinkToSwimGame.avatarBoatSprite.position.y <= boatOriginalPositionY)
 
         
         // Given (Raising)
@@ -142,8 +142,8 @@ class SinkToSwimTests: XCTestCase {
         sinkToSwimGame.update(23.0)
         sinkToSwimGame.update(30.0)
         
-        // Then
-        XCTAssert(sinkToSwimGame.avatarBoatSprite.position.y > boatOriginalPositionY)
+        // Then (The boat should be higher or equal to the original position. The equal condition occurs when it already reaches the highest position.)
+        XCTAssert(sinkToSwimGame.avatarBoatSprite.position.y >= boatOriginalPositionY)
     }
     
     /** Test that the game ends when timer reaches 0 */
