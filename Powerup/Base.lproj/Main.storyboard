@@ -93,134 +93,18 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dressingroom_bgd" translatesAutoresizingMaskIntoConstraints="NO" id="acu-mp-gO5" userLabel="Background Image">
                                 <rect key="frame" x="0.0" y="20" width="667" height="355"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Xa-mf-lH7" userLabel="Face Image">
-                                <rect key="frame" x="280" y="202" width="91" height="43"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar_skin_01" translatesAutoresizingMaskIntoConstraints="NO" id="6Xa-mf-lH7" userLabel="Face Image">
+                                <rect key="frame" x="279" y="179" width="91" height="173"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FxG-LX-wOY" userLabel="Eyes Image">
-                                <rect key="frame" x="300" y="214" width="50" height="26"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar_eyes_01" translatesAutoresizingMaskIntoConstraints="NO" id="FxG-LX-wOY" userLabel="Eyes Image">
+                                <rect key="frame" x="279" y="179" width="91" height="173"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8IZ-CD-HcB" userLabel="Hair Image">
-                                <rect key="frame" x="276" y="183" width="96" height="97"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar_hair_01" translatesAutoresizingMaskIntoConstraints="NO" id="8IZ-CD-HcB" userLabel="Hair Image">
+                                <rect key="frame" x="279" y="179" width="91" height="173"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Q4-PA-meK" userLabel="Clothes Image">
-                                <rect key="frame" x="300" y="246" width="48" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="facebox" translatesAutoresizingMaskIntoConstraints="NO" id="hPL-Pm-bL5" userLabel="Face Box Image">
-                                <rect key="frame" x="511" y="75" width="90" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hairbox" translatesAutoresizingMaskIntoConstraints="NO" id="YGd-ho-oF6" userLabel="Hair Box Image">
-                                <rect key="frame" x="362" y="75" width="90" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="eyesbox" translatesAutoresizingMaskIntoConstraints="NO" id="V2n-a5-9yi" userLabel="Eyes Box Image">
-                                <rect key="frame" x="50" y="71" width="90" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtQ-TS-ZBo" userLabel="Eyes Left Button">
-                                <rect key="frame" x="56" y="146" width="19" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="eyesLeftButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="3J4-hE-3fY"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIF-aS-j9q" userLabel="Eyes Right Button">
-                                <rect key="frame" x="117" y="146" width="19" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="eyesRightButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="wrB-fn-Z6U"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pYj-SH-Ka6" userLabel="Eyes Exhibition Image">
-                                <rect key="frame" x="70" y="109" width="51" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="clothesbox" translatesAutoresizingMaskIntoConstraints="NO" id="KzC-h7-aeh" userLabel="Clothes Box Image">
-                                <rect key="frame" x="205" y="71" width="90" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VDB-d3-DiJ" userLabel="Hair Exhibition Image">
-                                <rect key="frame" x="369" y="98" width="74" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8jK-xa-sXn" userLabel="Clothes Exhibition Image">
-                                <rect key="frame" x="226" y="91" width="49" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kqg-Mf-bYN" userLabel="Face Exhibition Image">
-                                <rect key="frame" x="517" y="104" width="80" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNy-UE-xYX" userLabel="Hair Left Button">
-                                <rect key="frame" x="374" y="150" width="19" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="hairLeftButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="F7w-bv-bhQ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyl-s9-vop" userLabel="Hair Right Button">
-                                <rect key="frame" x="424" y="150" width="27" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="hairRightButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="Dob-hW-7jN"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5OM-SX-h1L" userLabel="Face Left Button">
-                                <rect key="frame" x="517" y="150" width="19" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="faceLeftButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="Iux-3K-Aj1"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXn-oU-okg" userLabel="Face Right Button">
-                                <rect key="frame" x="578" y="155" width="19" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="faceRightButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="bcK-jL-EZS"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3b-dN-rVC" userLabel="Clothes Left Button">
-                                <rect key="frame" x="212" y="146" width="19" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="clothesLeftButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="gIA-B0-dKx"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Flf-Ud-C6K" userLabel="Clothes Right Button">
-                                <rect key="frame" x="267" y="146" width="27" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="clothesRightButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="ufM-eD-HdI"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nJ-HE-yPQ" userLabel="Continue Button">
                                 <rect key="frame" x="528" y="260" width="139" height="50"/>
                                 <constraints>
@@ -234,27 +118,220 @@
                                     <action selector="continueButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="qYM-Yl-zAI"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="we5-9v-c2u">
+                                <rect key="frame" x="16.5" y="103.5" width="634" height="37.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wf5-AA-gq4" userLabel="Skin">
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="37.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ags-IQ-Dxd">
+                                                <rect key="frame" x="49.5" y="8" width="41" height="22"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
+                                                <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5OM-SX-h1L" userLabel="Face Left Button">
+                                                <rect key="frame" x="9.5" y="4" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="Zyp-vB-H6C"/>
+                                                    <constraint firstAttribute="width" constant="30" id="way-JE-qBB"/>
+                                                </constraints>
+                                                <state key="normal" image="left_arrow">
+                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="faceLeftButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="Iux-3K-Aj1"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXn-oU-okg" userLabel="Face Right Button">
+                                                <rect key="frame" x="100.5" y="4" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="K7B-Fu-Fpw"/>
+                                                    <constraint firstAttribute="height" constant="30" id="LRI-bl-NoW"/>
+                                                </constraints>
+                                                <state key="normal" image="right_arrow">
+                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="faceRightButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="bcK-jL-EZS"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Ags-IQ-Dxd" firstAttribute="centerY" secondItem="wf5-AA-gq4" secondAttribute="centerY" id="412-Rp-Hib"/>
+                                            <constraint firstItem="5OM-SX-h1L" firstAttribute="trailing" secondItem="Ags-IQ-Dxd" secondAttribute="leading" constant="-10" id="QhP-B4-xCO"/>
+                                            <constraint firstItem="Ags-IQ-Dxd" firstAttribute="centerX" secondItem="wf5-AA-gq4" secondAttribute="centerX" id="Ysh-5a-mWV"/>
+                                            <constraint firstItem="5OM-SX-h1L" firstAttribute="centerY" secondItem="wf5-AA-gq4" secondAttribute="centerY" id="jEX-fp-qBK"/>
+                                            <constraint firstItem="SXn-oU-okg" firstAttribute="centerY" secondItem="wf5-AA-gq4" secondAttribute="centerY" id="rAi-7n-SzO"/>
+                                            <constraint firstItem="SXn-oU-okg" firstAttribute="leading" secondItem="Ags-IQ-Dxd" secondAttribute="trailing" constant="10" id="un7-hQ-df6"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWe-BM-6YC" userLabel="Eyes">
+                                        <rect key="frame" x="165" y="0.0" width="139.5" height="37.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eyes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbt-qX-ypc">
+                                                <rect key="frame" x="47.5" y="7.5" width="43" height="22"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
+                                                <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtQ-TS-ZBo" userLabel="Eyes Left Button">
+                                                <rect key="frame" x="7.5" y="4" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="P1v-OZ-uFq"/>
+                                                    <constraint firstAttribute="height" constant="30" id="oZZ-P2-2z0"/>
+                                                </constraints>
+                                                <state key="normal" image="left_arrow">
+                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="eyesLeftButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="3J4-hE-3fY"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIF-aS-j9q" userLabel="Eyes Right Button">
+                                                <rect key="frame" x="100.5" y="4" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="mLC-Lb-QHK"/>
+                                                    <constraint firstAttribute="width" constant="30" id="uSJ-hy-1d9"/>
+                                                </constraints>
+                                                <state key="normal" image="right_arrow">
+                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="eyesRightButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="wrB-fn-Z6U"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="Zbt-qX-ypc" firstAttribute="centerX" secondItem="eWe-BM-6YC" secondAttribute="centerX" id="0E4-2g-JJB"/>
+                                            <constraint firstItem="oIF-aS-j9q" firstAttribute="centerY" secondItem="eWe-BM-6YC" secondAttribute="centerY" id="DaB-rd-nuR"/>
+                                            <constraint firstItem="Zbt-qX-ypc" firstAttribute="centerY" secondItem="eWe-BM-6YC" secondAttribute="centerY" id="Zhm-O7-YzK"/>
+                                            <constraint firstItem="CtQ-TS-ZBo" firstAttribute="centerY" secondItem="eWe-BM-6YC" secondAttribute="centerY" id="enV-WZ-l23"/>
+                                            <constraint firstItem="oIF-aS-j9q" firstAttribute="leading" secondItem="Zbt-qX-ypc" secondAttribute="trailing" constant="10" id="u1s-01-0sV"/>
+                                            <constraint firstItem="CtQ-TS-ZBo" firstAttribute="trailing" secondItem="Zbt-qX-ypc" secondAttribute="leading" constant="-10" id="x0N-4O-qj2"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="26l-58-ibl" userLabel="Clothes">
+                                        <rect key="frame" x="329.5" y="0.0" width="140" height="37.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3b-dN-rVC" userLabel="Clothes Left Button">
+                                                <rect key="frame" x="-1.5" y="4" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="WmM-6r-3rJ"/>
+                                                    <constraint firstAttribute="height" constant="30" id="aNO-qA-fKd"/>
+                                                </constraints>
+                                                <state key="normal" image="left_arrow">
+                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clothesLeftButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="gIA-B0-dKx"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Flf-Ud-C6K" userLabel="Clothes Right Button">
+                                                <rect key="frame" x="111" y="4" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="0cn-0Z-DSq"/>
+                                                    <constraint firstAttribute="height" constant="30" id="TJc-28-bfP"/>
+                                                </constraints>
+                                                <state key="normal" image="right_arrow">
+                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clothesRightButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="ufM-eD-HdI"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clothes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5p4-KD-Db0">
+                                                <rect key="frame" x="38.5" y="8.5" width="62.5" height="20"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="16"/>
+                                                <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="p3b-dN-rVC" firstAttribute="trailing" secondItem="5p4-KD-Db0" secondAttribute="leading" constant="-10" id="7dS-Pm-yKa"/>
+                                            <constraint firstItem="Flf-Ud-C6K" firstAttribute="leading" secondItem="5p4-KD-Db0" secondAttribute="trailing" constant="10" id="NrI-e3-m1p"/>
+                                            <constraint firstItem="5p4-KD-Db0" firstAttribute="centerY" secondItem="26l-58-ibl" secondAttribute="centerY" id="ZEB-l7-w9t"/>
+                                            <constraint firstItem="p3b-dN-rVC" firstAttribute="centerY" secondItem="26l-58-ibl" secondAttribute="centerY" id="jrs-yU-3cm"/>
+                                            <constraint firstItem="Flf-Ud-C6K" firstAttribute="centerY" secondItem="26l-58-ibl" secondAttribute="centerY" id="pdD-dw-KNB"/>
+                                            <constraint firstItem="5p4-KD-Db0" firstAttribute="centerX" secondItem="26l-58-ibl" secondAttribute="centerX" id="vdm-UB-oxj"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9L-wy-h7f" userLabel="Hair">
+                                        <rect key="frame" x="494.5" y="0.0" width="139.5" height="37.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNy-UE-xYX" userLabel="Hair Left Button">
+                                                <rect key="frame" x="10" y="4" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="MlT-Ul-m63"/>
+                                                    <constraint firstAttribute="height" constant="30" id="Uf4-WZ-xep"/>
+                                                </constraints>
+                                                <state key="normal" image="left_arrow">
+                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="hairLeftButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="F7w-bv-bhQ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyl-s9-vop" userLabel="Hair Right Button">
+                                                <rect key="frame" x="98.5" y="4" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="Apd-eB-ZjF"/>
+                                                    <constraint firstAttribute="width" constant="30" id="a2h-7a-dhx"/>
+                                                </constraints>
+                                                <state key="normal" image="right_arrow">
+                                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="hairRightButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="Dob-hW-7jN"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hair" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kg-9a-CDD">
+                                                <rect key="frame" x="48" y="8" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
+                                                <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="xyl-s9-vop" firstAttribute="leading" secondItem="4kg-9a-CDD" secondAttribute="trailing" constant="10" id="DvS-w6-gso"/>
+                                            <constraint firstItem="4kg-9a-CDD" firstAttribute="centerY" secondItem="N9L-wy-h7f" secondAttribute="centerY" id="ihz-e1-fog"/>
+                                            <constraint firstItem="RNy-UE-xYX" firstAttribute="trailing" secondItem="4kg-9a-CDD" secondAttribute="leading" constant="-10" id="j2J-B7-TEA"/>
+                                            <constraint firstItem="xyl-s9-vop" firstAttribute="centerY" secondItem="N9L-wy-h7f" secondAttribute="centerY" id="jOo-2W-D6c"/>
+                                            <constraint firstItem="RNy-UE-xYX" firstAttribute="centerY" secondItem="N9L-wy-h7f" secondAttribute="centerY" id="plW-BN-2fh"/>
+                                            <constraint firstItem="4kg-9a-CDD" firstAttribute="centerX" secondItem="N9L-wy-h7f" secondAttribute="centerX" id="qdB-mx-aNs"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Q4-PA-meK" userLabel="Clothes Image">
+                                <rect key="frame" x="198" y="252" width="48" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="we5-9v-c2u" firstAttribute="centerX" secondItem="8Iq-DJ-45h" secondAttribute="centerX" id="HJx-0Y-iYQ"/>
                             <constraint firstItem="acu-mp-gO5" firstAttribute="top" secondItem="nLu-Qc-m2d" secondAttribute="bottom" id="HZM-zs-otC"/>
+                            <constraint firstItem="we5-9v-c2u" firstAttribute="height" secondItem="8Iq-DJ-45h" secondAttribute="height" multiplier="0.1" id="JRv-Xt-dTc"/>
                             <constraint firstAttribute="trailing" secondItem="acu-mp-gO5" secondAttribute="trailing" id="N3U-yx-Tyq"/>
+                            <constraint firstItem="we5-9v-c2u" firstAttribute="centerY" secondItem="8Iq-DJ-45h" secondAttribute="centerY" multiplier="0.65" id="QNa-Fx-wVy"/>
                             <constraint firstItem="acu-mp-gO5" firstAttribute="leading" secondItem="8Iq-DJ-45h" secondAttribute="leading" id="d03-qA-Ezk"/>
                             <constraint firstItem="lW9-er-4kz" firstAttribute="top" secondItem="acu-mp-gO5" secondAttribute="bottom" id="h1r-kc-hCA"/>
                             <constraint firstItem="lW9-er-4kz" firstAttribute="top" secondItem="9nJ-HE-yPQ" secondAttribute="bottom" constant="65" id="hVp-9Y-L3c"/>
                             <constraint firstAttribute="trailing" secondItem="9nJ-HE-yPQ" secondAttribute="trailing" id="jf4-x1-jAB"/>
+                            <constraint firstItem="we5-9v-c2u" firstAttribute="width" secondItem="8Iq-DJ-45h" secondAttribute="width" multiplier="0.95" id="pme-9T-bqi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Wzb-7i-Gda"/>
                     <connections>
-                        <outlet property="clothesExhibitionView" destination="8jK-xa-sXn" id="Kom-s5-tg9"/>
                         <outlet property="customClothesView" destination="8Q4-PA-meK" id="SBT-J2-vyK"/>
                         <outlet property="customEyesView" destination="FxG-LX-wOY" id="Fl4-vd-QSV"/>
                         <outlet property="customFaceView" destination="6Xa-mf-lH7" id="WBb-DI-6SV"/>
                         <outlet property="customHairView" destination="8IZ-CD-HcB" id="G3l-kZ-11Q"/>
-                        <outlet property="eyesExhibitionView" destination="pYj-SH-Ka6" id="x6t-QS-6Hv"/>
-                        <outlet property="faceExhibitionView" destination="kqg-Mf-bYN" id="oqY-Se-Fpd"/>
-                        <outlet property="hairExhibitionView" destination="VDB-d3-DiJ" id="22e-kW-RXo"/>
                         <segue destination="S3c-uW-lpA" kind="push" identifier="toMapScene" id="Vcg-vV-Did"/>
                         <segue destination="CP2-u9-bQu" kind="unwind" identifier="unwindToStartScene" unwindAction="unwindToStartWithUnwindSegue:" id="hIc-T8-YB3"/>
                     </connections>
@@ -262,7 +339,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KnS-W8-cZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="CP2-u9-bQu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="276" y="831"/>
+            <point key="canvasLocation" x="223.5" y="851.5"/>
         </scene>
         <!--ScenarioViewController-->
         <scene sceneID="tne-QT-ifu">
@@ -279,16 +356,16 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="class_room_background" translatesAutoresizingMaskIntoConstraints="NO" id="DY8-Xk-Z48" userLabel="Background Image">
                                 <rect key="frame" x="20" y="20" width="627" height="355"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="orange_face" translatesAutoresizingMaskIntoConstraints="NO" id="XhY-Lr-xm7" userLabel="Avatar Face Image">
-                                <rect key="frame" x="48" y="143" width="91" height="43"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar_skin_01" translatesAutoresizingMaskIntoConstraints="NO" id="XhY-Lr-xm7" userLabel="Avatar Face Image">
+                                <rect key="frame" x="40" y="170" width="103" height="205"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="green_eyes" translatesAutoresizingMaskIntoConstraints="NO" id="YNR-wc-f3M" userLabel="Avatar Eyes Image">
-                                <rect key="frame" x="68" y="155" width="50" height="26"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar_eyes_01" translatesAutoresizingMaskIntoConstraints="NO" id="YNR-wc-f3M" userLabel="Avatar Eyes Image">
+                                <rect key="frame" x="40" y="170" width="103" height="205"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cloth1" translatesAutoresizingMaskIntoConstraints="NO" id="Bn8-vS-jOB" userLabel="Avatar Clothes Image">
-                                <rect key="frame" x="68" y="187" width="48" height="100"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bn8-vS-jOB" userLabel="Avatar Clothes Image">
+                                <rect key="frame" x="105" y="229" width="54" height="113"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Marco" translatesAutoresizingMaskIntoConstraints="NO" id="tml-7e-idc">
@@ -298,37 +375,26 @@
                                     <constraint firstAttribute="width" constant="150" id="h3S-S2-N9W"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rosie" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWU-MI-DIX">
-                                <rect key="frame" x="68" y="286" width="62" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marcello" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6u7-zE-DVc">
                                 <rect key="frame" x="518.5" y="270.5" width="88" height="24.5"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hair2" translatesAutoresizingMaskIntoConstraints="NO" id="gKT-bd-oe7" userLabel="Avatar Hair Image">
-                                <rect key="frame" x="44" y="124" width="96" height="97"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar_hair_01" translatesAutoresizingMaskIntoConstraints="NO" id="gKT-bd-oe7" userLabel="Avatar Hair Image">
+                                <rect key="frame" x="40" y="170" width="103" height="205"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="purse2" translatesAutoresizingMaskIntoConstraints="NO" id="rnS-gP-YZL" userLabel="Avatar Handbag Image">
-                                <rect key="frame" x="55" y="205" width="38" height="50"/>
+                                <rect key="frame" x="33" y="320" width="38" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="glasses1" translatesAutoresizingMaskIntoConstraints="NO" id="mYc-8S-eIt" userLabel="Avatar Glasses Image">
-                                <rect key="frame" x="55" y="148" width="75" height="33"/>
+                                <rect key="frame" x="70" y="210" width="55" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="necklace1" translatesAutoresizingMaskIntoConstraints="NO" id="Fga-rm-Ong" userLabel="Avatar Necklace Image">
-                                <rect key="frame" x="78" y="186" width="31" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hat1" translatesAutoresizingMaskIntoConstraints="NO" id="Q24-mV-m27" userLabel="Avatar Hat Image">
-                                <rect key="frame" x="49" y="118" width="89" height="44"/>
+                                <rect key="frame" x="77" y="255" width="31" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left_dialogue_2" translatesAutoresizingMaskIntoConstraints="NO" id="u8N-gt-KTy">
@@ -373,6 +439,10 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hat1" translatesAutoresizingMaskIntoConstraints="NO" id="Q24-mV-m27" userLabel="Avatar Hat Image">
+                                <rect key="frame" x="58" y="170" width="69" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="u8N-gt-KTy" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.425" id="2br-Us-QB7"/>
@@ -422,7 +492,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="tRn-hQ-WhV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2258" y="304"/>
+            <point key="canvasLocation" x="2257.5" y="303.5"/>
         </scene>
         <!--MiniGameViewController-->
         <scene sceneID="b2Q-yH-u8Q">
@@ -504,7 +574,7 @@
                                                         <rect key="frame" x="0.0" y="0.5" width="100" height="126.5"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ph2-7Y-YUB" userLabel="Display Image 1">
-                                                        <rect key="frame" x="11" y="30" width="75" height="54"/>
+                                                        <rect key="frame" x="25" y="30" width="51" height="61"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xOn-ZP-O4p" userLabel="Price Label 1">
@@ -553,7 +623,7 @@
                                                         <rect key="frame" x="0.0" y="0.5" width="100" height="126.5"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zvb-F1-HLk" userLabel="Display Image 2">
-                                                        <rect key="frame" x="11" y="30" width="75" height="54"/>
+                                                        <rect key="frame" x="25" y="30" width="50" height="61"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cL-Bv-cLy" userLabel="Price Label 2">
@@ -602,7 +672,7 @@
                                                         <rect key="frame" x="0.0" y="0.5" width="100" height="126.5"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Srn-Qj-2cy" userLabel="Display Image 3">
-                                                        <rect key="frame" x="11" y="30" width="75" height="54"/>
+                                                        <rect key="frame" x="25" y="30" width="50" height="62"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bih-0W-rIU" userLabel="Price Label 3">
@@ -656,7 +726,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="126.5"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="06b-l4-D6S" userLabel="Display Image 4">
-                                                        <rect key="frame" x="11" y="30" width="75" height="55"/>
+                                                        <rect key="frame" x="25" y="30" width="51" height="63"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqL-nh-FT0" userLabel="Price Label 4">
@@ -705,7 +775,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="126.5"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i4t-Ti-nZx" userLabel="Display Image 5">
-                                                        <rect key="frame" x="11" y="30" width="75" height="55"/>
+                                                        <rect key="frame" x="25" y="30" width="50" height="63"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Bg-q0-Dxb" userLabel="Price Label 5">
@@ -754,7 +824,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="126.5"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rZL-NX-JXV" userLabel="Display Image 6">
-                                                        <rect key="frame" x="11" y="30" width="75" height="55"/>
+                                                        <rect key="frame" x="25" y="30" width="50" height="63"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpl-51-ETr" userLabel="Price Label 6">
@@ -841,35 +911,35 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jVn-Wg-s1z" userLabel="Avatar Clothes Image">
-                                <rect key="frame" x="38" y="234" width="48" height="100"/>
+                                <rect key="frame" x="118" y="258" width="48" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CIU-OA-hhU" userLabel="Avatar Handbag Image">
-                                <rect key="frame" x="21" y="268" width="38" height="50"/>
+                                <rect key="frame" x="15" y="283" width="38" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I8o-vm-tkl" userLabel="Avatar Face Image">
-                                <rect key="frame" x="18" y="190" width="91" height="43"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar_skin_01" translatesAutoresizingMaskIntoConstraints="NO" id="I8o-vm-tkl" userLabel="Avatar Face Image">
+                                <rect key="frame" x="19" y="151" width="91" height="174"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W3g-zf-VmM" userLabel="Avatar Eyes Image">
-                                <rect key="frame" x="38" y="202" width="50" height="26"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar_eyes_01" translatesAutoresizingMaskIntoConstraints="NO" id="W3g-zf-VmM" userLabel="Avatar Eyes Image">
+                                <rect key="frame" x="19" y="151" width="91" height="174"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YdH-c5-srP" userLabel="Avatar Hair Image">
-                                <rect key="frame" x="14" y="171" width="96" height="97"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RtV-CI-HS3" userLabel="Avatar Hat Image">
-                                <rect key="frame" x="18" y="159" width="89" height="44"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar_hair_01" translatesAutoresizingMaskIntoConstraints="NO" id="YdH-c5-srP" userLabel="Avatar Hair Image">
+                                <rect key="frame" x="19" y="151" width="92" height="174"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wEI-40-d18" userLabel="Avatar Necklace Image">
-                                <rect key="frame" x="45" y="233" width="31" height="35"/>
+                                <rect key="frame" x="51" y="224" width="31" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kzc-jB-9Hv" userLabel="Avatar Glasses Image">
-                                <rect key="frame" x="24" y="194" width="75" height="33"/>
+                                <rect key="frame" x="48" y="187" width="44" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RtV-CI-HS3" userLabel="Avatar Hat Image">
+                                <rect key="frame" x="31" y="148" width="70" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -957,7 +1027,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKe-Du-9T9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044" y="852"/>
+            <point key="canvasLocation" x="1043.5" y="851.5"/>
         </scene>
         <!--Results View Controller-->
         <scene sceneID="7iy-JJ-2EY">
@@ -1191,7 +1261,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="eFm-LF-3yb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zG6-F1-qcm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zG6-F1-qcm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1207,17 +1277,13 @@
     </scenes>
     <resources>
         <image name="Marco" width="612" height="792"/>
+        <image name="avatar_eyes_01" width="744" height="1440"/>
+        <image name="avatar_hair_01" width="744" height="1440"/>
+        <image name="avatar_skin_01" width="744" height="1440"/>
         <image name="class_room_background" width="1024" height="576"/>
-        <image name="cloth1" width="185" height="326"/>
-        <image name="clothesbox" width="300" height="300"/>
         <image name="continue_button" width="380" height="136"/>
         <image name="dressingroom_bgd" width="1024" height="576"/>
-        <image name="eyesbox" width="300" height="300"/>
-        <image name="facebox" width="300" height="300"/>
         <image name="glasses1" width="596" height="220"/>
-        <image name="green_eyes" width="230" height="94"/>
-        <image name="hair2" width="470" height="341"/>
-        <image name="hairbox" width="300" height="300"/>
         <image name="hat1" width="223" height="198"/>
         <image name="home_button" width="210" height="195"/>
         <image name="karma_star" width="61" height="54"/>
@@ -1229,7 +1295,6 @@
         <image name="map_library" width="1024" height="576"/>
         <image name="map_school" width="1024" height="576"/>
         <image name="necklace1" width="112" height="142"/>
-        <image name="orange_face" width="422" height="148"/>
         <image name="purchased_checkmark" width="97" height="82"/>
         <image name="purse2" width="144" height="125"/>
         <image name="replay_button" width="254" height="54"/>
@@ -1247,7 +1312,7 @@
         <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Ck5-aV-1L2"/>
-        <segue reference="HHh-kx-uKw"/>
+        <segue reference="Vcg-vV-Did"/>
+        <segue reference="0it-aH-Xs8"/>
     </inferredMetricsTieBreakers>
 </document>

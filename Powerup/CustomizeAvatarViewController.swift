@@ -8,11 +8,6 @@ class CustomizeAvatarViewController: UIViewController {
     @IBOutlet weak var customFaceView: UIImageView!
     @IBOutlet weak var customEyesView: UIImageView!
     
-    @IBOutlet weak var eyesExhibitionView: UIImageView!
-    @IBOutlet weak var faceExhibitionView: UIImageView!
-    @IBOutlet weak var hairExhibitionView: UIImageView!
-    @IBOutlet weak var clothesExhibitionView: UIImageView!
-    
     // MARK: Properties
     var avatar = Avatar()
     
@@ -53,7 +48,6 @@ class CustomizeAvatarViewController: UIViewController {
         avatar.clothes = clothes[chosenClothesIndex]
         
         let clothesImage = avatar.clothes.image
-        clothesExhibitionView.image = clothesImage
         customClothesView.image = clothesImage
     }
     
@@ -61,7 +55,6 @@ class CustomizeAvatarViewController: UIViewController {
         avatar.eyes = eyes[chosenEyesIndex]
         
         let eyesImage = avatar.eyes.image
-        eyesExhibitionView.image = eyesImage
         customEyesView.image = eyesImage
     }
     
@@ -69,7 +62,6 @@ class CustomizeAvatarViewController: UIViewController {
         avatar.hair = hairs[chosenHairIndex]
         
         let hairImage = avatar.hair.image
-        hairExhibitionView.image = hairImage
         customHairView.image = hairImage
     }
     
@@ -77,7 +69,6 @@ class CustomizeAvatarViewController: UIViewController {
         avatar.face = faces[chosenFaceIndex]
         
         let faceImage = avatar.face.image
-        faceExhibitionView.image = faceImage
         customFaceView.image = faceImage
     }
     
