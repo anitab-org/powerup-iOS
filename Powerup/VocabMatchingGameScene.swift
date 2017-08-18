@@ -4,23 +4,26 @@ class VocabMatchingGameScene: SKScene {
     // TODO: Store the information of each round in the database.
     // Matching ID, Texture name.
     let tileTypes = [
-        (0, "vocabmatching_tile_lingerie"),
-        (1, "vocabmatching_tile_pimple"),
-        (2, "vocabmatching_tile_pad"),
-    ]
-    
-    // Matching ID, description Text.
-    let clipboardEachRound = [
-        (0, "Lingerie"),
-        (1, "Pimple"),
-        (2, "Sanitary Pad")
+        (0, "vocabmatching_tile_lingerie", "Lingerie"),
+        (1, "vocabmatching_tile_pimple", "Pimple"),
+        (2, "vocabmatching_tile_pad", "Sanitary Pad"),
+        (3, "vocabmatching_tile_cramping", "Cramping"),
+        (4, "vocabmatching_tile_skinny", "Skinny"),
+        (5, "vocabmatching_tile_deodorant", "Deodorant"),
+        (6, "vocabmatching_tile_fat", "Fat"),
+        (7, "vocabmatching_tile_tampon", "Tampon"),
+        (8, "vocabmatching_tile_depression", "Depression")
     ]
     
     // MARK: Constants
     let timeForTileToReachClipboard = 6.0
+    let delayTimeToNextRound = 0.25
     let totalRounds = 5
-    let tilesPerRound = 2
+    let tilesPerRound = 3
     let timeBetweenTileSpawns = 2.0
+    
+    // Tutorial Scene images.
+    let tutorialSceneImages = ["vocabmatching_tutorial_1", "vocabmatching_tutorial_2"]
     
     // Sizing and position of the nodes (They are relative to the width and height of the game scene.)
     // Score Box
@@ -81,6 +84,7 @@ class VocabMatchingGameScene: SKScene {
     let uiLayer = CGFloat(0.5)
     let uiTextLayer = CGFloat(0.6)
     let endSceneLayer = CGFloat(1.5)
+    let tutorialSceneLayer = CGFloat(5)
     
     // Fonts
     let fontName = "Montserrat-Bold"
@@ -105,6 +109,8 @@ class VocabMatchingGameScene: SKScene {
     let scoreLabelPrefix = "Score: "
     
     // MARK: Properties
+    var tutorialScene: SKTutorialScene!
+    
     // The positionY of each lane. (That is, the posY of tiles and clipboards.)
     var lanePositionsY = [0.173, 0.495, 0.828]
     
@@ -126,10 +132,6 @@ class VocabMatchingGameScene: SKScene {
     
     var score: Int = 0
     
-    // Avoid spawning the same type / same lane in a row.
-    var lastTileTypeIndex = -1
-    var lastTileLaneNumber = -1
-    
     // MARK: Constructors
     override init(size: CGSize) {
         let gameWidth = Double(size.width)
@@ -150,16 +152,11 @@ class VocabMatchingGameScene: SKScene {
         // Initialize the clipboards.
         clipboards = [VocabMatchingClipboard]()
         for index in 0..<lanePositionsY.count {
-            let currClipboard = VocabMatchingClipboard(texture: clipboardTexture, size: CGSize(width: gameWidth * clipboardSpriteWidth, height: gameHeight * clipboardSpriteHeight), matchingID: clipboardEachRound[index].0, description: clipboardEachRound[index].1)
+            let currClipboard = VocabMatchingClipboard(texture: clipboardTexture, size: CGSize(width: gameWidth * clipboardSpriteWidth, height: gameHeight * clipboardSpriteHeight), matchingID: -1, description: "")
             
             // Configure font.
             currClipboard.descriptionLabel.fontName = fontName
             currClipboard.descriptionLabel.fontColor = fontColor
-            if currClipboard.descriptionLabel.text!.characters.count >= clipboardLongTextDef {
-                currClipboard.descriptionLabel.fontSize = clipboardLongTextFontSize
-            } else {
-                currClipboard.descriptionLabel.fontSize = clipboardFontSize
-            }
             
             // Positioning
             currClipboard.position = CGPoint(x: gameWidth * clipboardSpritePosX, y: gameHeight * lanePositionsY[index])
@@ -246,26 +243,35 @@ class VocabMatchingGameScene: SKScene {
         // Add end scene.
         addChild(endSceneSprite)
         
-        // Start the game.
-        nextRound()
+        // Show tutorial scene. After that, start the game.
+        tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
+            self.nextRound()
+        }
+        tutorialScene.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
+        tutorialScene.zPosition = tutorialSceneLayer
+        addChild(tutorialScene)
     }
     
     // Spawn tiles for the next round. Completion closure is for unit tests.
     func nextRound(completion: (()->())? = nil) {
         currRound += 1
         
-        var actionSequence = [SKAction]()
+        let tilesToSpawn = getRandomizedTilesForRound()
         
-        for _ in 0..<tilesPerRound {
+        configureClipboardsForNewRound(tiles: tilesToSpawn)
+        
+        // Configure the spawning actions.
+        var actionSequence = [SKAction]()
+        for tile in tilesToSpawn {
             // Tile spawn.
-            actionSequence.append(SKAction.run({self.spawnNextTile()}))
+            actionSequence.append(SKAction.run({self.spawnNextTile(tile: tile)}))
             
             // Delay time.
             actionSequence.append(SKAction.wait(forDuration: timeBetweenTileSpawns))
         }
         
         // Delay time to next round.
-        actionSequence.append(SKAction.wait(forDuration: timeForTileToReachClipboard - timeBetweenTileSpawns))
+        actionSequence.append(SKAction.wait(forDuration: timeForTileToReachClipboard - timeBetweenTileSpawns + delayTimeToNextRound))
         
         // Run action.
         run(SKAction.sequence(actionSequence)) {
@@ -287,39 +293,80 @@ class VocabMatchingGameScene: SKScene {
         }
     }
     
-    // Spawn the next tile and moving it towards clipboards.
-    func spawnNextTile() {
-        // Randomize tile spawn. (Avoid spawning the same type / lane in a row)
-        var tileTypeIndex: Int
-        repeat {
-            tileTypeIndex = Int(arc4random_uniform(UInt32(tileTypes.count)))
-        } while tileTypeIndex == lastTileTypeIndex
+    // Get an array of randomized tiles for the new round.
+    func getRandomizedTilesForRound() -> [VocabMatchingTile] {
+        var tilesToSpawn = [VocabMatchingTile]()
         
-        var laneNumber: Int
-        repeat {
-            laneNumber = Int(arc4random_uniform(UInt32(lanePositionsY.count)))
-        } while laneNumber == lastTileLaneNumber
+        // Randomize the spawning tiles for this round (tile icon & lane number).
+        var randomizedTiles = tileTypes
+        randomizedTiles.shuffle()
         
-        lastTileTypeIndex = tileTypeIndex
-        lastTileLaneNumber = laneNumber
-        
-        let tileType = tileTypes[tileTypeIndex]
+        var laneNumbers = getRandomLaneNumbers()
         
         // Configure tile.
-        let currTile = VocabMatchingTile(matchingID: tileType.0, textureName: tileType.1, size: CGSize(width: Double(size.width) * tileSpriteSizeRelativeToWidth, height: Double(size.width) * tileSpriteSizeRelativeToWidth))
-        currTile.laneNumber = laneNumber
-        
-        // Positioning
-        currTile.position = CGPoint(x: Double(size.width) * tileSpriteSpawnPosX, y: Double(size.height) * lanePositionsY[laneNumber])
-        currTile.zPosition = tileLayer
-        addChild(currTile)
-        
-        // Spawn and move the tile.
-        let destination = CGPoint(x: size.width * CGFloat(tileTouchesClipboardPosX), y: currTile.position.y)
-        let moveAction = SKAction.move(to: destination, duration: timeForTileToReachClipboard)
-        currTile.run(moveAction) {
-            self.checkIfMatches(tile: currTile)
+        for index in 0..<tilesPerRound {
+            let tileType = randomizedTiles[index]
+            
+            let currTile = VocabMatchingTile(matchingID: tileType.0, textureName: tileType.1, descriptionText: tileType.2, size: CGSize(width: Double(size.width) * tileSpriteSizeRelativeToWidth, height: Double(size.width) * tileSpriteSizeRelativeToWidth))
+            currTile.laneNumber = laneNumbers[index]
+            
+            // Positioning
+            currTile.position = CGPoint(x: Double(size.width) * tileSpriteSpawnPosX, y: Double(size.height) * lanePositionsY[laneNumbers[index]])
+            currTile.zPosition = tileLayer
+            
+            tilesToSpawn.append(currTile)
         }
+        
+        return tilesToSpawn
+    }
+    
+    // Configure the clipboards for a new round.
+    func configureClipboardsForNewRound(tiles: [VocabMatchingTile]) {
+        var laneNumbers = getRandomLaneNumbers()
+        
+        // Configure the clipboards so that the tiles would have a match.
+        for (index, tile) in tiles.enumerated() {
+            let randomClipboard = clipboards[laneNumbers[index]]
+            
+            randomClipboard.descriptionLabel.text = tile.descriptionText
+            randomClipboard.matchingID = tile.matchingID
+            
+            // Shrink text size if the string is too long.
+            if randomClipboard.descriptionLabel.text!.characters.count >= clipboardLongTextDef {
+                randomClipboard.descriptionLabel.fontSize = clipboardLongTextFontSize
+            } else {
+                randomClipboard.descriptionLabel.fontSize = clipboardFontSize
+            }
+        }
+        
+        // Configure the rest of the clipboards. Note that if total lane numbers equal to tiles per round, this would not be run.
+        for index in tiles.count..<laneNumbers.count {
+            clipboards[index].matchingID = -1
+            clipboards[index].descriptionLabel.text = ""
+        }
+    }
+    
+    // Get randomized lane numbers in an array.
+    func getRandomLaneNumbers() -> [Int] {
+        var laneNumbers = [Int]()
+        for index in 0..<lanePositionsY.count {
+            laneNumbers.append(index)
+        }
+        laneNumbers.shuffle()
+        
+        return laneNumbers
+    }
+    
+    // Spawn the next tile and moving it towards clipboards.
+    func spawnNextTile(tile: VocabMatchingTile) {
+        // Spawn and move the tile.
+        let destination = CGPoint(x: size.width * CGFloat(tileTouchesClipboardPosX), y: tile.position.y)
+        let moveAction = SKAction.move(to: destination, duration: timeForTileToReachClipboard)
+        tile.run(moveAction) {
+            self.checkIfMatches(tile: tile)
+        }
+        
+        addChild(tile)
     }
     
     // Check if the tile and the clipboard matches. If so, increment score. Then start the next round.

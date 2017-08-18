@@ -19,6 +19,12 @@ class SinkToSwimGameScene: SKScene {
     // MARK: Constants
     let sinkingSpeedRelativeToGauge = 0.025
     
+    let tutorialSceneImages = [
+        "sink_to_swim_tutorial_1",
+        "sink_to_swim_tutorial_2",
+        "sink_to_swim_tutorial_3"
+    ]
+    
     // Sprite Positioning and sizing (relative to the size of game scene).
     // Water Gauge
     let waterGaugeWidth = 0.04
@@ -94,10 +100,12 @@ class SinkToSwimGameScene: SKScene {
     let correctWrongIconPosX = 0.0
     
     // End scene labels.
-    let endSceneTitleLabelPosX = 0.0
-    let endSceneTitleLabelPosY = 0.1
-    let endSceneScoreLabelPosX = 0.0
-    let endSceneScoreLabelPosY = -0.1
+    let endSceneCorrectLabelPosX = -0.01
+    let endSceneCorrectLabelPosY = -0.06
+    let endSceneWrongLabelPosX = 0.3
+    let endSceneWrongLabelPosY = -0.06
+    let endSceneScoreLabelPosX = -0.37
+    let endSceneScoreLabelPosY = -0.12
     
     // Continue button.
     let continueButtonBottomMargin = 0.08
@@ -110,8 +118,12 @@ class SinkToSwimGameScene: SKScene {
     let waterGaugeMaxUnit = 0.42
     let waterGaugeMinUnit = -0.4
     
+    let PointerToBoatRatio = 0.5
+    
     // Colors
     let textColor = UIColor(colorLiteralRed: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
+    let correctColor = UIColor(colorLiteralRed: 105.0 / 255.0, green: 255.0 / 255.0, blue: 109.0 / 255.0, alpha: 1.0)
+    let wrongColor = UIColor(colorLiteralRed: 255.0 / 255.0, green: 105.0 / 255.0, blue: 105.0 / 255.0, alpha: 1.0)
     let scoreTextColor = UIColor.white
     
     // Fonts
@@ -119,7 +131,8 @@ class SinkToSwimGameScene: SKScene {
     let questionFontSize = CGFloat(18)
     let scoreFontSize = CGFloat(22)
     let timerFontSize = CGFloat(17)
-    let titleFontSize = CGFloat(40)
+    let endSceneCountFontSize = CGFloat(55)
+    let endSceneScoreFontSize = CGFloat(80)
     
     // Sprite nodes
     let backgroundSprite = SKSpriteNode(imageNamed: "sink_to_swim_background")
@@ -133,7 +146,7 @@ class SinkToSwimGameScene: SKScene {
     let falseButton = SKSpriteNode()
     let dontKnowButton = SKSpriteNode()
     let correctWrongSprite = SKSpriteNode()
-    let endSceneSprite = SKSpriteNode()
+    let endSceneSprite = SKSpriteNode(imageNamed: "sink_to_swim_end_scene")
     let continueButton = SKSpriteNode(imageNamed: "continue_button")
     
     // Textures
@@ -143,17 +156,18 @@ class SinkToSwimGameScene: SKScene {
     // Labels
     let scoreLabel = SKLabelNode()
     let timerLabel = SKLabelNode()
-    let endSceneTitleLabel = SKLabelNode()
     let endSceneScoreLabel = SKLabelNode()
+    let endSceneCorrectCountLabel = SKLabelNode()
+    let endSceneWrongCountLabel = SKLabelNode()
     
     // Label wrapper nodes (For better control & positioning).
     let scoreLabelWrapper = SKNode()
     let timerLabelWrapper = SKNode()
-    let endSceneTitleLabelWrapper = SKNode()
     let endSceneScoreLabelWrapper = SKNode()
+    let endSceneCorrectCountLabelWrapper = SKNode()
+    let endSceneWrongCountLabelWrapper = SKNode()
     
     let scoreLabelPrefix = "Score: "
-    let endSceneTitleLabelText = "Game Over"
     
     // Layers (zPosition)
     let backgroundLayer = CGFloat(-0.1)
@@ -163,6 +177,7 @@ class SinkToSwimGameScene: SKScene {
     let uiTextLayer = CGFloat(0.4)
     let frontLayer = CGFloat(0.5)
     let endSceneLayer = CGFloat(1.5)
+    let tutorialSceneLayer = CGFloat(5)
     
     // Animations
     let questionFadeInTime = 0.3
@@ -176,6 +191,7 @@ class SinkToSwimGameScene: SKScene {
     
     // MARK: Properties
     var questionLabel: SKMultilineLabel!
+    var tutorialScene: SKTutorialScene!
     
     // Only when the question is presented can the player choose the answer.
     var questionPresented = false
@@ -188,6 +204,7 @@ class SinkToSwimGameScene: SKScene {
     
     // Current score.
     var score = 0
+    var wrongCount = 0
     
     // Current timer (Start counting down from this value).
     var timer = 40
@@ -199,6 +216,9 @@ class SinkToSwimGameScene: SKScene {
     var timestamp: Double? = nil
     
     var raisingBoat = false
+    
+    // To avoid sinking the boat while the game is in tutorial scene.
+    var inTutorial = true
     
     // Continue button is only interactable after the ending scene is fully faded in.
     var continueButtonInteractable = false
@@ -308,22 +328,34 @@ class SinkToSwimGameScene: SKScene {
         // End scene.
         endSceneSprite.size = CGSize(width: gameWidth, height: gameHeight)
         endSceneSprite.position = CGPoint(x: gameWidth / 2.0, y: gameHeight / 2.0)
-        endSceneSprite.color = UIColor.white
         endSceneSprite.zPosition = endSceneLayer
         
         // End scene labels.
-        endSceneSprite.addChild(endSceneTitleLabelWrapper)
-        endSceneTitleLabelWrapper.position = CGPoint(x: gameWidth * endSceneTitleLabelPosX, y: gameHeight * endSceneTitleLabelPosY)
-        endSceneTitleLabelWrapper.zPosition = uiTextLayer
-        endSceneTitleLabelWrapper.addChild(endSceneTitleLabel)
+        // Correct count label.
+        endSceneSprite.addChild(endSceneCorrectCountLabelWrapper)
+        endSceneCorrectCountLabelWrapper.position = CGPoint(x: gameWidth * endSceneCorrectLabelPosX, y: gameHeight * endSceneCorrectLabelPosY)
+        endSceneCorrectCountLabelWrapper.zPosition = uiTextLayer
+        endSceneCorrectCountLabelWrapper.addChild(endSceneCorrectCountLabel)
         
-        endSceneTitleLabel.fontName = fontName
-        endSceneTitleLabel.fontColor = textColor
-        endSceneTitleLabel.fontSize = titleFontSize
-        endSceneTitleLabel.text = endSceneTitleLabelText
-        endSceneTitleLabel.horizontalAlignmentMode = .center
-        endSceneTitleLabel.verticalAlignmentMode = .center
+        endSceneCorrectCountLabel.fontName = fontName
+        endSceneCorrectCountLabel.fontColor = correctColor
+        endSceneCorrectCountLabel.fontSize = endSceneCountFontSize
+        endSceneCorrectCountLabel.horizontalAlignmentMode = .center
+        endSceneCorrectCountLabel.verticalAlignmentMode = .center
         
+        // Wrong count label.
+        endSceneSprite.addChild(endSceneWrongCountLabelWrapper)
+        endSceneWrongCountLabelWrapper.position = CGPoint(x: gameWidth * endSceneWrongLabelPosX, y: gameHeight * endSceneWrongLabelPosY)
+        endSceneWrongCountLabelWrapper.zPosition = uiTextLayer
+        endSceneWrongCountLabelWrapper.addChild(endSceneWrongCountLabel)
+        
+        endSceneWrongCountLabel.fontName = fontName
+        endSceneWrongCountLabel.fontColor = wrongColor
+        endSceneWrongCountLabel.fontSize = endSceneCountFontSize
+        endSceneWrongCountLabel.horizontalAlignmentMode = .center
+        endSceneWrongCountLabel.verticalAlignmentMode = .center
+        
+        // Score label.
         endSceneSprite.addChild(endSceneScoreLabelWrapper)
         endSceneScoreLabelWrapper.position = CGPoint(x: gameWidth * endSceneScoreLabelPosX, y: gameHeight * endSceneScoreLabelPosY)
         endSceneScoreLabelWrapper.zPosition = uiTextLayer
@@ -331,8 +363,7 @@ class SinkToSwimGameScene: SKScene {
         
         endSceneScoreLabel.fontName = fontName
         endSceneScoreLabel.fontColor = textColor
-        endSceneScoreLabel.fontSize = scoreFontSize
-        endSceneScoreLabel.text = scoreLabelPrefix
+        endSceneScoreLabel.fontSize = endSceneScoreFontSize
         endSceneScoreLabel.horizontalAlignmentMode = .center
         endSceneScoreLabel.verticalAlignmentMode = .center
         
@@ -388,13 +419,20 @@ class SinkToSwimGameScene: SKScene {
         // Start the wobbling animation of the boat.
         startBoatWobblingAnimation()
         
-        // Start the timer.
-        let timerTickAction = SKAction.sequence([SKAction.wait(forDuration: 1.0), SKAction.run({self.tickTimer()})])
-        run(SKAction.repeatForever(timerTickAction), withKey: "timer_tick")
+        // Show tutorial scene. After that, start the game (aka start the timer).
+        tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
+            let timerTickAction = SKAction.sequence([SKAction.wait(forDuration: 1.0), SKAction.run({self.tickTimer()})])
+            self.run(SKAction.repeatForever(timerTickAction), withKey: "timer_tick")
+            self.inTutorial = false
+        }
+        tutorialScene.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
+        tutorialScene.zPosition = tutorialSceneLayer
+        addChild(tutorialScene)
     }
     
     // Being called every frame.
     override func update(_ currentTime: TimeInterval) {
+        if inTutorial { return }
         
         // Check if timer reaches zero.
         if timer <= 0 {
@@ -415,6 +453,7 @@ class SinkToSwimGameScene: SKScene {
             
             // Update water pointer.
             var waterPointerNewPosY: Double
+            var avatarBoatNewPosY: Double
             if raisingBoat {
                 // Raise the boat.
                 
@@ -422,21 +461,35 @@ class SinkToSwimGameScene: SKScene {
                 let raisingSpeed = waterGaugeUnit * Double(waterGaugeSprite.size.height) / (questionFadeInTime + questionFadeOutTime + correctWrongSpriteStayTime)
                 
                 waterPointerNewPosY = Double(waterGaugePointerSprite.position.y) + timePassed * raisingSpeed
+                
+                avatarBoatNewPosY = Double(avatarBoatSprite.position.y) + timePassed * raisingSpeed * PointerToBoatRatio
             } else {
                 // Drown the boat.
                 waterPointerNewPosY = Double(waterGaugePointerSprite.position.y) - timePassed * sinkingSpeedRelativeToGauge * Double(waterGaugeSprite.size.height)
+                
+                avatarBoatNewPosY = Double(avatarBoatSprite.position.y) - timePassed * sinkingSpeedRelativeToGauge * Double(waterGaugeSprite.size.height) * PointerToBoatRatio
             }
             
-            // Set the position of the pointer. Ensure that the pointer won't go out of the gauge using min(max(value, lower), upper).
-            let minPosY = CGFloat(waterGaugeMinUnit) * waterGaugeSprite.size.height
-            let maxPosY = CGFloat(waterGaugeMaxUnit) * waterGaugeSprite.size.height
-            waterGaugePointerSprite.position = CGPoint(x: waterGaugePointerSprite.position.x, y: min(max(CGFloat(waterPointerNewPosY), minPosY), maxPosY))
+            // Set the position of the pointer. Ensure that the pointer won't go out of the gauge.
+            let minPosY = waterGaugeMinUnit * Double(waterGaugeSprite.size.height)
+            let maxPosY = waterGaugeMaxUnit * Double(waterGaugeSprite.size.height)
+            var ending = false
             
-            // Update avatar according to the pointer.
-            updateAvatarBoatAccordingToWaterPointer()
+            if waterPointerNewPosY < minPosY {
+                waterPointerNewPosY = minPosY
+                ending = true
+            } else if waterPointerNewPosY > maxPosY {
+                waterPointerNewPosY = maxPosY
+            } else {
+                // Update the position of the boat.
+                avatarBoatSprite.position = CGPoint(x: Double(avatarBoatSprite.position.x), y: avatarBoatNewPosY)
+            }
+            
+            // Update the position of the pointer.
+            waterGaugePointerSprite.position = CGPoint(x: Double(waterGaugePointerSprite.position.x), y: waterPointerNewPosY)
             
             // If the new posY goes below the min y-position, game over.
-            if waterPointerNewPosY < Double(waterGaugeSprite.size.height) * waterGaugeMinUnit {
+            if ending {
                 gameOver(drowned: true)
                 return
             }
@@ -473,8 +526,10 @@ class SinkToSwimGameScene: SKScene {
         // Pause for some time.
         run(SKAction.wait(forDuration: endScenePauseDuration)) {
             
-            // Set the score label in ending scene.
-            self.endSceneScoreLabel.text = self.scoreLabelPrefix + String(self.score)
+            // Set the score label, correct counts, and wrong counts.
+            self.endSceneScoreLabel.text = String(self.score)
+            self.endSceneCorrectCountLabel.text = String(self.score)
+            self.endSceneWrongCountLabel.text = String(self.wrongCount)
             
             // Fade in ending scene.
             self.endSceneSprite.alpha = 0.0
@@ -483,13 +538,6 @@ class SinkToSwimGameScene: SKScene {
                 self.continueButtonInteractable = true
             }
         }
-    }
-    
-    // Update the y-position of the avatar boat according to the water pointer.
-    func updateAvatarBoatAccordingToWaterPointer() {
-        let pointerGlobalPosY = waterGaugePointerSprite.convert(CGPoint.zero, to: self).y
-        
-        avatarBoatSprite.position = CGPoint(x: avatarBoatSprite.position.x, y: pointerGlobalPosY - avatarBoatSprite.size.height * CGFloat(avatarBoatPosYToPointer))
     }
     
     // Fade-in the next question.
@@ -520,6 +568,8 @@ class SinkToSwimGameScene: SKScene {
             // Update score.
             if isCorrect {
                 score += 1
+            } else {
+                wrongCount += 1
             }
             scoreLabel.text = scoreLabelPrefix + String(score)
             
@@ -543,6 +593,9 @@ class SinkToSwimGameScene: SKScene {
                 // Check if there're still questions, if so, show the next question.
                 if self.currQuestion < self.questions.count - 1 {
                     self.showNextQuestion()
+                } else {
+                    // If no question is left, the game is over.
+                    self.gameOver(drowned: false)
                 }
             }
         }
@@ -550,6 +603,7 @@ class SinkToSwimGameScene: SKScene {
     
     // MARK: Touch Inputs
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if inTutorial { return }
         
         // Only the first touch is effective.
         guard let touch = touches.first else { return }
