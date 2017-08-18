@@ -1,20 +1,16 @@
 import UIKit
 
 class ShopViewController: UIViewController {
+    // MARK: Constants
+    let displayBoxCount = 6
+    let greyOutBoxImageName = "shop_unavailable_box"
+    let boxImageName = "shop_available_box"
     
     // MARK: Properties
     var dataSource: DataSource = DatabaseAccessor.sharedInstance
     
-    // The indices of exhibition accessories.
-    var exhibitionBagIndex = 0
-    var exhibitionGlassesIndex = 0
-    var exhibitionHatIndex = 0
-    var exhibitionNecklaceIndex = 0
-    var exhibitionHairIndex = 0
-    var exhibitionClothesIndex = 0
-    
-    // The total cost of the accessories worn (excluding the purchased ones).
-    var totalCost = 0
+    // The index of the first exhibition accessory.
+    var firstAccessoryIndex = 0
     
     // The score of the avatar.
     var score: Score!
@@ -22,41 +18,18 @@ class ShopViewController: UIViewController {
     // The displayed avatar.
     var avatar: Avatar!
     
-    // For reverting.
-    var originalAvatar: Avatar!
-    
     // Array of accessories.
-    var handbags: [Accessory]!
-    var glasses: [Accessory]!
-    var hats: [Accessory]!
-    var necklaces: [Accessory]!
     var hairs: [Accessory]!
     var clothes: [Accessory]!
     
+    // Handbags, Glasses, Hats, Necklaces.
+    var accessories: [Accessory]!
+    
+    // Currently displaying array.
+    var currDisplayingArray: [Accessory]!
+    
     // MARK: Views
     @IBOutlet weak var pointsLabel: UILabel!
-    @IBOutlet weak var totalCostLabel: UILabel!
-    
-    @IBOutlet weak var handbagPaidLabel: UILabel!
-    @IBOutlet weak var glassesPaidLabel: UILabel!
-    @IBOutlet weak var hatPaidLabel: UILabel!
-    @IBOutlet weak var necklacePaidLabel: UILabel!
-    @IBOutlet weak var hairPaidLabel: UILabel!
-    @IBOutlet weak var clothesPaidLabel: UILabel!
-    
-    @IBOutlet weak var exhibitionHandbag: UIImageView!
-    @IBOutlet weak var exhibitionGlasses: UIImageView!
-    @IBOutlet weak var exhibitionHat: UIImageView!
-    @IBOutlet weak var exhibitionNecklace: UIImageView!
-    @IBOutlet weak var exhibitionHair: UIImageView!
-    @IBOutlet weak var exhibitionClothes: UIImageView!
-    
-    @IBOutlet weak var handbagPriceLabel: UILabel!
-    @IBOutlet weak var hatPriceLabel: UILabel!
-    @IBOutlet weak var glassesPriceLabel: UILabel!
-    @IBOutlet weak var necklacePriceLabel: UILabel!
-    @IBOutlet weak var hairPriceLabel: UILabel!
-    @IBOutlet weak var clothesPriceLabel: UILabel!
     
     @IBOutlet weak var avatarEyesView: UIImageView!
     @IBOutlet weak var avatarHairView: UIImageView!
@@ -67,15 +40,26 @@ class ShopViewController: UIViewController {
     @IBOutlet weak var avatarHatView: UIImageView!
     @IBOutlet weak var avatarNecklaceView: UIImageView!
     
+    // Display Boxes
+    @IBOutlet var displayBoxes: Array<UIImageView>!
+    @IBOutlet var priceLabels: Array<UILabel>!
+    @IBOutlet var purchaseButtons: Array<UIButton>!
+    @IBOutlet var purchasedCheckmark: Array<UIImageView>!
+    @IBOutlet var displayImages: Array<UIImageView>!
+    
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var prevButton: UIButton!
+    
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Fetch the accessory arrays from the database.
-        handbags = dataSource.getAccessoryArray(accessoryType: .handbag)
-        glasses = dataSource.getAccessoryArray(accessoryType: .glasses)
-        hats = dataSource.getAccessoryArray(accessoryType: .hat)
-        necklaces = dataSource.getAccessoryArray(accessoryType: .necklace)
+        accessories = dataSource.getAccessoryArray(accessoryType: .handbag)
+        accessories.append(contentsOf: dataSource.getAccessoryArray(accessoryType: .glasses))
+        accessories.append(contentsOf: dataSource.getAccessoryArray(accessoryType: .hat))
+        accessories.append(contentsOf: dataSource.getAccessoryArray(accessoryType: .necklace))
+        
         hairs = dataSource.getAccessoryArray(accessoryType: .hair)
         clothes = dataSource.getAccessoryArray(accessoryType: .clothes)
         
@@ -95,71 +79,78 @@ class ShopViewController: UIViewController {
             return
         }
         
-        // Save the original avatar for reverting.
-        originalAvatar = avatar
-        
         // Set Karma points
         pointsLabel.text = String(score.karmaPoints)
         
-        // Configure Image Views of Avatar Accessories.
-        avatarClothesView.image = avatar.clothes.image
-        avatarFaceView.image = avatar.face.image
-        avatarEyesView.image = avatar.eyes.image
-        avatarHairView.image = avatar.hair.image
-        avatarHandbagView.image = avatar.handbag?.image
-        avatarGlassesView.image = avatar.glasses?.image
-        avatarNecklaceView.image = avatar.necklace?.image
-        avatarHatView.image = avatar.hat?.image
+        updateAvatarImageView()
         
-        // Configure exhibition image and paid label.
-        updateHandbagExhibition()
-        updateHatExhibition()
-        updateGlassesExhibition()
-        updateNecklaceExhibition()
-        updateHairExhibition()
-        updateClothesExhibition()
+        // Configure the exhibition box for hairs (default).
+        currDisplayingArray = hairs
+        updateExhibition()
+        
     }
     
-    func updateHandbagExhibition() {
-        let handbag = handbags[exhibitionBagIndex]
-        exhibitionHandbag.image = handbag.image
-        handbagPaidLabel.isHidden = !handbag.purchased
-        handbagPriceLabel.text = "\(handbag.points)$"
-    }
-    
-    func updateGlassesExhibition() {
-        let glass = glasses[exhibitionGlassesIndex]
-        exhibitionGlasses.image = glass.image
-        glassesPaidLabel.isHidden = !glass.purchased
-        glassesPriceLabel.text = "\(glass.points)$"
-    }
-    
-    func updateHatExhibition() {
-        let hat = hats[exhibitionHatIndex]
-        exhibitionHat.image = hat.image
-        hatPaidLabel.isHidden = !hat.purchased
-        hatPriceLabel.text = "\(hat.points)$"
-    }
-    
-    func updateNecklaceExhibition() {
-        let necklace = necklaces[exhibitionNecklaceIndex]
-        exhibitionNecklace.image = necklace.image
-        necklacePaidLabel.isHidden = !necklace.purchased
-        necklacePriceLabel.text = "\(necklace.points)$"
-    }
-    
-    func updateHairExhibition() {
-        let hair = hairs[exhibitionHairIndex]
-        exhibitionHair.image = hair.image
-        hairPaidLabel.isHidden = !hair.purchased
-        hairPriceLabel.text = "\(hair.points)$"
-    }
-    
-    func updateClothesExhibition() {
-        let cloth = clothes[exhibitionClothesIndex]
-        exhibitionClothes.image = cloth.image
-        clothesPaidLabel.isHidden = !cloth.purchased
-        clothesPriceLabel.text = "\(cloth.points)$"
+    // Update the display boxes by a certain type of accessory and a start index.
+    func updateExhibition() {
+        // Hide prev button if startIndex is 0.
+        if firstAccessoryIndex == 0 {
+            prevButton.isHidden = true
+        } else {
+            prevButton.isHidden = false
+        }
+        
+        // Hide next button if no more elements are left to show.
+        if firstAccessoryIndex + displayBoxCount >= currDisplayingArray.count {
+            nextButton.isHidden = true
+        } else {
+            nextButton.isHidden = false
+        }
+        
+        // Loop through each display box and configure it.
+        for boxIndex in 0..<displayBoxCount {
+            // Not enough accessories.
+            if (firstAccessoryIndex + boxIndex) >= currDisplayingArray.count {
+                for remainingIndex in boxIndex..<displayBoxCount {
+                    // Grey out the box.
+                    displayBoxes[remainingIndex].image = UIImage(named: greyOutBoxImageName)
+                    
+                    // Price Label
+                    priceLabels[remainingIndex].text = "-"
+                    
+                    // Hide check mark.
+                    purchasedCheckmark[remainingIndex].isHidden = true
+                    
+                    // Hide display image.
+                    displayImages[remainingIndex].image = nil
+                    
+                    // Disable buttons.
+                    purchaseButtons[remainingIndex].isEnabled = false
+                }
+                
+                break
+            }
+            
+            let currItem = currDisplayingArray[boxIndex + firstAccessoryIndex]
+            
+            // Configure the display image.
+            displayImages[boxIndex].image = currItem.image
+            
+            // Configure the price label.
+            priceLabels[boxIndex].text = String(currItem.points)
+            
+            // Enable buttons.
+            purchaseButtons[boxIndex].isEnabled = true
+            
+            // Show checkmark if bought.
+            purchasedCheckmark[boxIndex].isHidden = !currItem.purchased
+            
+            // If the item isn't bought and it is unaffordable, grey out the box.
+            if !currItem.purchased && currItem.points > score.karmaPoints {
+                displayBoxes[boxIndex].image = UIImage(named: greyOutBoxImageName)
+            } else {
+                displayBoxes[boxIndex].image = UIImage(named: boxImageName)
+            }
+        }
     }
     
     func reducePointsAndSaveBoughtToDatabase(accessory: Accessory) throws {
@@ -175,12 +166,12 @@ class ShopViewController: UIViewController {
         try dataSource.boughtAccessory(accessory: accessory)
     }
     
-    func haveEnoughPointsToBuy(accessoryPrice: Int) throws -> Bool {
+    func haveEnoughPointsToBuy(accessoryPrice: Int) -> Bool {
         
         // Show alert dialog if players are trying to buy items they can't afford.
-        if try dataSource.getScore().karmaPoints < accessoryPrice {
+        if score.karmaPoints < accessoryPrice {
             let alertDialog = UIAlertController(title: "Oops!", message: "You don't have enough points to buy that!", preferredStyle: .alert)
-            alertDialog.addAction(UIAlertAction(title: "Alright", style: .default))
+            alertDialog.addAction(UIAlertAction(title: "OK", style: .default))
             self.present(alertDialog, animated: true, completion: nil)
             
             return false
@@ -196,404 +187,133 @@ class ShopViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func updateTotalCostLabel() {
-        totalCostLabel.text = "Total Cost: \(totalCost)$"
+    func updateAvatarImageView() {
+        avatarHairView.image = avatar.hair.image
+        avatarFaceView.image = avatar.face.image
+        avatarEyesView.image = avatar.eyes.image
+        avatarClothesView.image = avatar.clothes.image
+        avatarNecklaceView.image = avatar.necklace?.image
+        avatarGlassesView.image = avatar.glasses?.image
+        avatarHandbagView.image = avatar.handbag?.image
+        avatarHatView.image = avatar.hat?.image
     }
 
     // MARK: Actions
-    // Handbag
-    @IBAction func handbagLeftButtonTouched(_ sender: UIButton) {
-        // Update index
-        let totalCount = handbags.count
-        exhibitionBagIndex = (exhibitionBagIndex + totalCount - 1) % totalCount
-        
-        updateHandbagExhibition()
+    @IBAction func nextButtonTouched(_ sender: UIButton) {
+        firstAccessoryIndex += displayBoxCount
+        updateExhibition()
     }
     
-    @IBAction func handbagRightButtonTouched(_ sender: UIButton) {
-        // Update index
-        let totalCount = handbags.count
-        exhibitionBagIndex = (exhibitionBagIndex + 1) % totalCount
-        
-        updateHandbagExhibition()
+    @IBAction func prevButtonTouched(_ sender: UIButton) {
+        firstAccessoryIndex -= displayBoxCount
+        updateExhibition()
     }
     
-    @IBAction func handbagBuyButtonTouched(_ sender: UIButton) {
+    // Touched the "buy" button of a display box.
+    @IBAction func purchaseItem(_ sender: UIButton) {
+        // Get the index of the purchased item by the tag of UIButton.
+        let boxIndex = sender.tag
         
-        let handbagChosen = handbags[exhibitionBagIndex]
+        let itemChosen = currDisplayingArray[boxIndex + firstAccessoryIndex]
         
         // Check if already worn.
-        if avatar.handbag != nil && handbagChosen.id == avatar.handbag!.id {
+        if avatar.getAccessoryByType(itemChosen.type) != nil && itemChosen.id == avatar.getAccessoryByType(itemChosen.type)!.id {
             
             // If already worn, unwear it.
-            avatar.handbag = nil
-            avatarHandbagView.image = nil
-            
-            // Deduct the price from the total cost if it isn't purchased yet.
-            if !handbagChosen.purchased {
-                totalCost -= handbagChosen.points
-            }
-            
+            avatar.setAccessoryByType(itemChosen.type, accessory: nil)
+            updateAvatarImageView()
         } else {
             // Not worn yet.
             
-            // Deduct the price of previous worn accessory from the total cost if it isn't purchased.
-            if avatar.handbag != nil && !avatar.handbag!.purchased {
-                totalCost -= avatar.handbag!.points
-            }
-            
-            // Wear it.
-            avatar.handbag = handbagChosen
-            avatarHandbagView.image = handbagChosen.image
-            
-            // Add the price to the total cost if it isn't purchased yet.
-            if !handbagChosen.purchased {
-                totalCost += handbagChosen.points
-            }
-        }
-        
-        updateTotalCostLabel()
-    }
-    
-    // Glasses
-    @IBAction func glassesLeftButtonTouched(_ sender: UIButton) {
-        // Update index
-        let totalCount = glasses.count
-        exhibitionGlassesIndex = (exhibitionGlassesIndex + totalCount - 1) % totalCount
-        
-        updateGlassesExhibition()
-    }
-    
-    @IBAction func glassesRightButtonTouched(_ sender: UIButton) {
-        // Update index
-        let totalCount = glasses.count
-        exhibitionGlassesIndex = (exhibitionGlassesIndex + 1) % totalCount
-        
-        updateGlassesExhibition()
-    }
-    
-    @IBAction func glassesBuyButtonTouched(_ sender: UIButton) {
-        
-        let glassesChosen = glasses[exhibitionGlassesIndex]
-        
-        // Check if already worn.
-        if avatar.glasses != nil && glassesChosen.id == avatar.glasses!.id {
-            
-            // If already worn, unwear it.
-            avatar.glasses = nil
-            avatarGlassesView.image = nil
-            
-            // Deduct the price from the total cost if it isn't purchased yet.
-            if !glassesChosen.purchased {
-                totalCost -= glassesChosen.points
-            }
-            
-        } else {
-            // Not worn yet.
-            
-            // Deduct the price of previous worn accessory from the total cost if it isn't purchased.
-            if avatar.glasses != nil && !avatar.glasses!.purchased {
-                totalCost -= avatar.glasses!.points
-            }
-            
-            // Wear it.
-            avatar.glasses = glassesChosen
-            avatarGlassesView.image = glassesChosen.image
-            
-            // Add the price to the total cost if it isn't purchased yet.
-            if !glassesChosen.purchased {
-                totalCost += glassesChosen.points
+            // Buy the accessory if it isn't purchased yet.
+            if !itemChosen.purchased {
+                
+                if haveEnoughPointsToBuy(accessoryPrice: itemChosen.points) {
+                    // If have enough points, buy the item.
+                    // Alert the player that the purchase couldn't be reverted.
+                    let cannotRevertAlert = UIAlertController(title: "Warning", message: "Are you sure you want to purchase these items? You will be spending $\(itemChosen.points) and the purchase can't be reverted.", preferredStyle: .alert)
+                    let cancelButton = UIAlertAction(title: "Maybe not", style: .cancel)
+                    let purchaseButton = UIAlertAction(title: "Purchase", style: .default, handler: {action in
+                        
+                        // Save the purchased data into the database.
+                        do {
+                            // Set the accessories as purchased.
+                            try self.dataSource.boughtAccessory(accessory: itemChosen)
+                            
+                            // Reduce Karma Points.
+                            self.score.karmaPoints -= itemChosen.points
+                            try self.dataSource.saveScore(score: self.score)
+                        } catch _ {
+                            let failedAlert = UIAlertController(title: "Oops!", message: "Error saving your purchase, please retry this action. If that doesn't help, try restarting or reinstalling the app.", preferredStyle: .alert)
+                            failedAlert.addAction(UIAlertAction(title: "OK", style: .default))
+                            self.present(failedAlert, animated: true, completion: nil)
+                            
+                            return
+                        }
+                        
+                        // Purchase successful.
+                        
+                        // Reconfigure display boxes.
+                        self.currDisplayingArray[boxIndex + self.firstAccessoryIndex].purchased = true
+                        self.updateExhibition()
+                        
+                        // Update point label
+                        self.pointsLabel.text = String(self.score.karmaPoints)
+                        
+                        // Wear it.
+                        self.avatar.setAccessoryByType(itemChosen.type, accessory: itemChosen)
+                        self.updateAvatarImageView()
+                        
+                        // Show purchase successful dialogue.
+                        let successfulDiologue = UIAlertController(title: "Yay!", message: "The purchase is successful!", preferredStyle: .alert)
+                        let confirmButton = UIAlertAction(title: "OK", style: .default)
+                        successfulDiologue.addAction(confirmButton)
+                        self.present(successfulDiologue, animated: true, completion: nil)
+                    })
+                    
+                    cannotRevertAlert.addAction(cancelButton)
+                    cannotRevertAlert.addAction(purchaseButton)
+                    present(cannotRevertAlert, animated: true, completion: nil)
+                }
+            } else {
+                // Already purchased, wear it.
+                avatar.setAccessoryByType(itemChosen.type, accessory: itemChosen)
+                updateAvatarImageView()
             }
         }
-        
-        updateTotalCostLabel()
     }
     
-    // Hat
-    @IBAction func hatLeftButtonTouched(_ sender: UIButton) {
-        // Update index
-        let totalCount = hats.count
-        exhibitionHatIndex = (exhibitionHatIndex + totalCount - 1) % totalCount
-        
-        updateHatExhibition()
+    @IBAction func hairCategoryChosen(_ sender: UIButton) {
+        currDisplayingArray = hairs
+        firstAccessoryIndex = 0
+        updateExhibition()
     }
     
-    @IBAction func hatRightButtonTouched(_ sender: UIButton) {
-        // Update index
-        let totalCount = hats.count
-        exhibitionHatIndex = (exhibitionHatIndex + 1) % totalCount
-        
-        updateHatExhibition()
+    @IBAction func clothesCategoryChosen(_ sender: UIButton) {
+        currDisplayingArray = clothes
+        firstAccessoryIndex = 0
+        updateExhibition()
     }
     
-    @IBAction func hatBuyButtonTouched(_ sender: UIButton) {
-        
-        let hatChosen = hats[exhibitionHatIndex]
-        
-        // Check if already worn.
-        if avatar.hat != nil && hatChosen.id == avatar.hat!.id {
-            
-            // If already worn, unwear it.
-            avatar.hat = nil
-            avatarHatView.image = nil
-            
-            // Deduct the price from the total cost if it isn't purchased yet.
-            if !hatChosen.purchased {
-                totalCost -= hatChosen.points
-            }
-            
-        } else {
-            // Not worn yet.
-            
-            // Deduct the price of previous worn accessory from the total cost if it isn't purchased.
-            if avatar.hat != nil && !avatar.hat!.purchased {
-                totalCost -= avatar.hat!.points
-            }
-            
-            // Wear it.
-            avatar.hat = hatChosen
-            avatarHatView.image = hatChosen.image
-            
-            // Add the price to the total cost if it isn't purchased yet.
-            if !hatChosen.purchased {
-                totalCost += hatChosen.points
-            }
-        }
-        
-        updateTotalCostLabel()
-        
+    @IBAction func accessoryCategoryChosen(_ sender: UIButton) {
+        currDisplayingArray = accessories
+        firstAccessoryIndex = 0
+        updateExhibition()
     }
     
-    // Necklace
-    @IBAction func necklaceLeftButtonTouched(_ sender: UIButton) {
-        // Update index
-        let totalCount = necklaces.count
-        exhibitionNecklaceIndex = (exhibitionNecklaceIndex + totalCount - 1) % totalCount
-        
-        updateNecklaceExhibition()
-    }
-    
-    @IBAction func necklaceRightButtonTouched(_ sender: UIButton) {
-        // Update index
-        let totalCount = necklaces.count
-        exhibitionNecklaceIndex = (exhibitionNecklaceIndex + 1) % totalCount
-        
-        updateNecklaceExhibition()
-    }
-    
-    @IBAction func necklaceBuyButtonTouched(_ sender: UIButton) {
-        
-        let necklaceChosen = necklaces[exhibitionNecklaceIndex]
-        
-        // Check if already worn.
-        if avatar.necklace != nil && necklaceChosen.id == avatar.necklace!.id {
-            
-            // If already worn, unwear it.
-            avatar.necklace = nil
-            avatarNecklaceView.image = nil
-            
-            // Deduct the price from the total cost if it isn't purchased yet.
-            if !necklaceChosen.purchased {
-                totalCost -= necklaceChosen.points
-            }
-            
-        } else {
-            // Not worn yet.
-            
-            // Deduct the price of previous worn accessory from the total cost if it isn't purchased.
-            if avatar.necklace != nil && !avatar.necklace!.purchased {
-                totalCost -= avatar.necklace!.points
-            }
-            
-            // Wear it.
-            avatar.necklace = necklaceChosen
-            avatarNecklaceView.image = necklaceChosen.image
-            
-            // Add the price to the total cost if it isn't purchased yet.
-            if !necklaceChosen.purchased {
-                totalCost += necklaceChosen.points
-            }
-        }
-        
-        updateTotalCostLabel()
-        
-    }
-    
-    // Hair
-    @IBAction func hairLeftButtonTouched(_ sender: UIButton) {
-        // Update index
-        let totalCount = hairs.count
-        exhibitionHairIndex = (exhibitionHairIndex + totalCount - 1) % totalCount
-        
-        updateHairExhibition()
-    }
-    
-    @IBAction func hairRightButtonTouched(_ sender: UIButton) {
-        // Update index
-        let totalCount = hairs.count
-        exhibitionHairIndex = (exhibitionHairIndex + 1) % totalCount
-        
-        updateHairExhibition()
-    }
-    
-    @IBAction func hairBuyButtonTouched(_ sender: UIButton) {
-        
-        let hairChosen = hairs[exhibitionHairIndex]
-        
-        // (Hair can't be unworn)
-            
-        // Deduct the price of previous worn accessory from the total cost if it isn't purchased yet.
-        totalCost -= avatar.hair.purchased ? 0 : avatar.hair.points
-            
-        // Wear it.
-        avatar.hair = hairChosen
-        avatarHairView.image = hairChosen.image
-            
-        // Add the price to the total cost if it isn't purchased yet.
-        if !hairChosen.purchased {
-            totalCost += hairChosen.points
-        }
-        
-        updateTotalCostLabel()
-    }
-    
-    // Clothes
-    @IBAction func clothesLeftButtonTouched(_ sender: UIButton) {
-        // Update index
-        let totalCount = clothes.count
-        exhibitionClothesIndex = (exhibitionClothesIndex + totalCount - 1) % totalCount
-        
-        updateClothesExhibition()
-    }
-    
-    @IBAction func clothesRightButtonTouched(_ sender: UIButton) {
-        // Update index
-        let totalCount = clothes.count
-        exhibitionClothesIndex = (exhibitionClothesIndex + 1) % totalCount
-        
-        updateClothesExhibition()
-    }
-    
-    @IBAction func clothesBuyButtonTouched(_ sender: UIButton) {
-        
-        let clothesChosen = clothes[exhibitionClothesIndex]
-        
-        // (Clothes can't be unworn)
-        
-        // Deduct the price of previous worn accessory from the total cost if it isn't purchased yet.
-        totalCost -= avatar.clothes.purchased ? 0 : avatar.clothes.points
-        
-        // Wear it.
-        avatar.clothes = clothesChosen
-        avatarClothesView.image = clothesChosen.image
-        
-        // Add the price to the total cost if it isn't purchased yet.
-        if !clothesChosen.purchased {
-            totalCost += clothesChosen.points
-        }
-        
-        updateTotalCostLabel()
-    }
-    
-    @IBAction func purchaseButtonTouched(_ sender: UIButton) {
-        
-        if totalCost > score.karmaPoints {
-            
-            // Karma points not enough.
-            let notEnoughAlert = UIAlertController(title: "Oops!", message: "You don't have enough Karma points to purchase this outfit!", preferredStyle: .alert)
-            let okButton = UIAlertAction(title: "Alright", style: .default)
-            notEnoughAlert.addAction(okButton)
-            present(notEnoughAlert, animated: true, completion: nil)
+    @IBAction func homeButtonTouched(_ sender: UIButton) {
+        // Save and quit.
+        do {
+            // Save the avatar.
+            try self.dataSource.saveAvatar(self.avatar)
+        } catch _ {
+            let failedAlert = UIAlertController(title: "Oops!", message: "Error saving the avatar, please retry this action. If that doesn't help, try restarting or reinstalling the app.", preferredStyle: .alert)
+            failedAlert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(failedAlert, animated: true, completion: nil)
             
             return
         }
         
-        // Alert the player that the purchase couldn't be reverted.
-        let cannotRevertAlert = UIAlertController(title: "Warning", message: "Are you sure you want to purchase these items? You will be spending $\(totalCost) and the purchase can't be reverted.", preferredStyle: .alert)
-        let cancelButton = UIAlertAction(title: "Maybe not", style: .cancel)
-        let purchaseButton = UIAlertAction(title: "Purchase", style: .default, handler: {action in
-            
-            // Save the purchased data into the database.
-            do {
-                // Set the accessories as purchased.
-                // Required accessories.
-                try DatabaseAccessor.sharedInstance.boughtAccessory(accessory: self.avatar.clothes)
-                try DatabaseAccessor.sharedInstance.boughtAccessory(accessory: self.avatar.hair)
-                
-                // Optional accessories.
-                if let hat = self.avatar.hat {
-                    try DatabaseAccessor.sharedInstance.boughtAccessory(accessory: hat)
-                }
-                
-                if let necklace = self.avatar.necklace {
-                    try DatabaseAccessor.sharedInstance.boughtAccessory(accessory: necklace)
-                }
-                
-                if let glass = self.avatar.glasses {
-                    try DatabaseAccessor.sharedInstance.boughtAccessory(accessory: glass)
-                }
-                
-                if let handbag = self.avatar.handbag {
-                    try DatabaseAccessor.sharedInstance.boughtAccessory(accessory: handbag)
-                }
-                
-                // Reduce Karma Points.
-                self.score.karmaPoints -= self.totalCost
-                try DatabaseAccessor.sharedInstance.saveScore(score: self.score)
-                
-                // Save the avatar.
-                try DatabaseAccessor.sharedInstance.saveAvatar(self.avatar)
-                
-            } catch _ {
-                let failedAlert = UIAlertController(title: "Oops!", message: "Error saving your purchase, please retry this action. If that doesn't help, try restarting or reinstalling the app.", preferredStyle: .alert)
-                failedAlert.addAction(UIAlertAction(title: "OK", style: .default))
-                self.present(failedAlert, animated: true, completion: nil)
-                
-                return
-            }
-            
-            // Purchase successful.
-            let successfulDiologue = UIAlertController(title: "Yay!", message: "The purchase is successful!", preferredStyle: .alert)
-            
-            // Dismiss the VC (Transition to Map View) when Confirm Button is pressed.
-            let confirmButton = UIAlertAction(title: "OK", style: .default, handler: {action in self.dismiss(animated: true, completion: nil)})
-            
-            successfulDiologue.addAction(confirmButton)
-            self.present(successfulDiologue, animated: true, completion: nil)
-        })
-        
-        cannotRevertAlert.addAction(cancelButton)
-        cannotRevertAlert.addAction(purchaseButton)
-        present(cannotRevertAlert, animated: true, completion: nil)
-    }
-    
-    @IBAction func revertButtonTouched(_ sender: UIButton) {
-        let alertDialogue = UIAlertController(title: "Warning", message: "Sure you want to revert the previous avatar? Your selections will be discarded.", preferredStyle: .alert)
-        let maybeNotButton = UIAlertAction(title: "Maybe Not", style: .cancel)
-        let revertButton = UIAlertAction(title: "Revert", style: .destructive, handler: {(action) in
-            
-            // Reset the avatar to the original one.
-            self.avatar = self.originalAvatar
-            
-            // Update the images.
-            self.avatarHandbagView.image = self.avatar.handbag?.image
-            self.avatarHatView.image = self.avatar.hat?.image
-            self.avatarGlassesView.image = self.avatar.glasses?.image
-            self.avatarNecklaceView.image = self.avatar.necklace?.image
-            self.avatarClothesView.image = self.avatar.clothes.image
-            self.avatarHairView.image = self.avatar.hair.image
-            
-            // Reset total cost.
-            self.totalCost = 0
-            self.updateTotalCostLabel()
-        })
-        alertDialogue.addAction(maybeNotButton)
-        alertDialogue.addAction(revertButton)
-        present(alertDialogue, animated: true, completion: nil)
-    }
-    
-    @IBAction func homeButtonTouched(_ sender: UIButton) {
-        // Quit without saving
         self.dismiss(animated: true, completion: nil)
     }
 }

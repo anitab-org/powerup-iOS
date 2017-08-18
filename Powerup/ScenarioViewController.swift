@@ -184,9 +184,6 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
             miniGameVC.scenarioBackgroundImage = backgroundImage
             miniGameVC.completedScenarioID = scenarioID
         } else if let resultsVC = segue.destination as? ResultsViewController {
-            // Set the background image of results view controller.
-            resultsVC.backgroundImage = backgroundImage
-            
             // Set the scenarioID.
             resultsVC.completedScenarioID = scenarioID
         }

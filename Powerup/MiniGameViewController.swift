@@ -69,9 +69,6 @@ class MiniGameViewController: UIViewController {
     // MARK: Segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let resultVC = segue.destination as? ResultsViewController {
-            
-            // Set the background image of ResultsViewController.
-            resultVC.backgroundImage = scenarioBackgroundImage
             resultVC.completedScenarioID = completedScenarioID
         }
     }
