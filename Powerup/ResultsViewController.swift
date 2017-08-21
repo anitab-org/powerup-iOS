@@ -8,17 +8,21 @@ class ResultsViewController: UIViewController {
     // MARK: Properties
     // This will be set in the ScenarioViewController.
     var completedScenarioID: Int = -1
-    
+    var completedScenarioName: String = ""
 
     var dataSource: DataSource = DatabaseAccessor.sharedInstance
     
     // MARK: Views
     @IBOutlet weak var karmaPointsLabel: UILabel!
+    @IBOutlet weak var scenarioName: UILabel!
     
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Configure scenario name.
+        scenarioName.text = "Current Scenario: " + completedScenarioName
+        
         // Configure score.
         do {
             let score = try dataSource.getScore()

@@ -15,6 +15,7 @@ class MiniGameViewController: UIViewController {
     
     // Keep a reference of the background image so that result scene could use it. (This is being assigned by ScenarioViewController).
     var scenarioBackgroundImage: UIImage? = nil
+    var scenarioName: String = ""
     
     // Will be assigned in the previous VC (ScenarioViewController).
     var gameIndex: MiniGameIndex = .unknown
@@ -70,6 +71,7 @@ class MiniGameViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let resultVC = segue.destination as? ResultsViewController {
             resultVC.completedScenarioID = completedScenarioID
+            resultVC.completedScenarioName = scenarioName
         }
     }
     

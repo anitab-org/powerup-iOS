@@ -43,6 +43,7 @@ class ShopViewController: UIViewController {
     // Display Boxes
     @IBOutlet var displayBoxes: Array<UIImageView>!
     @IBOutlet var priceLabels: Array<UILabel>!
+    @IBOutlet var buttonTexts: Array<UILabel>!
     @IBOutlet var purchaseButtons: Array<UIButton>!
     @IBOutlet var purchasedCheckmark: Array<UIImageView>!
     @IBOutlet var displayImages: Array<UIImageView>!
@@ -123,6 +124,9 @@ class ShopViewController: UIViewController {
                     // Hide display image.
                     displayImages[remainingIndex].image = nil
                     
+                    // Hide button text.
+                    buttonTexts[remainingIndex].text = ""
+                    
                     // Disable buttons.
                     purchaseButtons[remainingIndex].isEnabled = false
                 }
@@ -135,18 +139,22 @@ class ShopViewController: UIViewController {
             // Configure the display image.
             displayImages[boxIndex].image = currItem.image
             
-            // Configure the price label.
-            priceLabels[boxIndex].text = String(currItem.points)
-            
             // Enable buttons.
             purchaseButtons[boxIndex].isEnabled = true
             
             // Show checkmark if bought.
             purchasedCheckmark[boxIndex].isHidden = !currItem.purchased
             
+            // Change button text according to "item bought".
+            buttonTexts[boxIndex].text = currItem.purchased ? "SELECT" : "BUY"
+            
+            // Configure the price label.
+            priceLabels[boxIndex].text = currItem.purchased ? "-" : String(currItem.points)
+            
             // If the item isn't bought and it is unaffordable, grey out the box.
             if !currItem.purchased && currItem.points > score.karmaPoints {
                 displayBoxes[boxIndex].image = UIImage(named: greyOutBoxImageName)
+                buttonTexts[boxIndex].text = ""
             } else {
                 displayBoxes[boxIndex].image = UIImage(named: boxImageName)
             }

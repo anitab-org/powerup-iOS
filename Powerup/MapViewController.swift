@@ -16,6 +16,7 @@ class MapViewController: UIViewController {
     
     // MARK: Properties
     var dataSource: DataSource = DatabaseAccessor.sharedInstance
+    var selectedScenarioName = ""
     
     // MARK: Views
     @IBOutlet var scenarioButtons: Array<UIButton>!
@@ -60,8 +61,28 @@ class MapViewController: UIViewController {
     
     // MARK: Actions
     @IBAction func scenarioSelected(_ sender: UIButton) {
-        // Go to the corresponding scenario
-        performSegue(withIdentifier: "toScenarioView", sender: sender)
+        // Get the scenario.
+        var selectedScenario: Scenario
+        do {
+            selectedScenario = try dataSource.getScenario(of: sender.tag)
+        } catch _ {
+            let alert = UIAlertController(title: "Warning", message: "Error loading scenarios, please and try again, if this error still occurs, try restarting the app.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
+        
+        // If completed, go to completed view.
+        if selectedScenario.completed {
+            performSegue(withIdentifier: "toCompletedView", sender: sender)
+        } else {
+            // Configure the selected scenario name.
+            selectedScenarioName = selectedScenario.name
+            
+            // Go to the corresponding scenario
+            performSegue(withIdentifier: "toScenarioView", sender: sender)
+        }
     }
     
     // MARK: Segues
@@ -73,6 +94,9 @@ class MapViewController: UIViewController {
                 
                 // The scenario ID is stored in the tag of the button.
                 destinationVC.scenarioID = scenarioID
+                
+                // The scenario name.
+                destinationVC.scenarioName = selectedScenarioName
                 
                 // Set the background image.
                 destinationVC.backgroundImage = UIImage(named: backgroundImages[scenarioID] ?? "")

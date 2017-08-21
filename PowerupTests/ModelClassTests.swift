@@ -44,8 +44,8 @@ class ModelClassTests: XCTestCase {
     */
     func testAccessoryImages() {
         // Given
-        let clothesImageName = "cloth1"
-        let hairImageName = "hair2"
+        let clothesImageName = "avatar_clothes_01"
+        let hairImageName = "avatar_hair_01"
         
         // When
         // Only the imageName member is of interest in this test.
