@@ -36,10 +36,24 @@ class ResultsViewController: UIViewController {
             return
         }
         
-        // Notify the players of the karma gain with a pop-up.
-        let notification = UIAlertController(title: "Hooray!", message: "You gained \(karmaGain) Karma points!", preferredStyle: .alert)
-        notification.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in self.gainKarmaPoints()}))
-        self.present(notification, animated: true, completion: nil)
+        // No Karma gain if the scenario is completed.
+        do {
+            
+            if !(try dataSource.getScenario(of: completedScenarioID)).completed {
+                
+                // Notify the players of the karma gain with a pop-up.
+                let notification = UIAlertController(title: "Hooray!", message: "You gained \(karmaGain) Karma points!", preferredStyle: .alert)
+                notification.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in self.gainKarmaPoints()}))
+                self.present(notification, animated: true, completion: nil)
+            }
+            
+        } catch _ {
+            let alert = UIAlertController(title: "Warning", message: "Error fetching scenario data from database.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
         
         saveScenarioAndUnlockNextScenario()
     }
