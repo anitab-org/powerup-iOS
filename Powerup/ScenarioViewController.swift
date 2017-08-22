@@ -2,11 +2,12 @@ import UIKit
 
 class ScenarioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    //MARK: Properties
+    // MARK: Properties
     var dataSource: DataSource = DatabaseAccessor.sharedInstance
     
     // current scenario, set by MapViewController
     var scenarioID: Int = 0
+    var scenarioName: String = ""
     
     // The background image of the view, set by MapViewController.
     var backgroundImage: UIImage? = nil
@@ -21,6 +22,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     
     // MARK: Views
     @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var scenarioNameLabel: UILabel!
     @IBOutlet weak var choicesTableView: UITableView!
     
     // Question Label and Choice Buttons
@@ -103,6 +105,9 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         
         // TODO: Configure the image and name of the "Asker" avatar.
         
+        // Configure scenario name.
+        scenarioNameLabel.text = scenarioName
+        
         // Configure background image.
         backgroundImageView.image = backgroundImage
 
@@ -183,9 +188,11 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
             // Pass the background image to minigame view controller so that results view controller knows which background image to display.
             miniGameVC.scenarioBackgroundImage = backgroundImage
             miniGameVC.completedScenarioID = scenarioID
+            miniGameVC.scenarioName = scenarioName
         } else if let resultsVC = segue.destination as? ResultsViewController {
             // Set the scenarioID.
             resultsVC.completedScenarioID = scenarioID
+            resultsVC.completedScenarioName = scenarioName
         }
     }
     

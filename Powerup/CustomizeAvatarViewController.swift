@@ -7,11 +7,9 @@ class CustomizeAvatarViewController: UIViewController {
     @IBOutlet weak var customHairView: UIImageView!
     @IBOutlet weak var customFaceView: UIImageView!
     @IBOutlet weak var customEyesView: UIImageView!
-    
-    @IBOutlet weak var eyesExhibitionView: UIImageView!
-    @IBOutlet weak var faceExhibitionView: UIImageView!
-    @IBOutlet weak var hairExhibitionView: UIImageView!
-    @IBOutlet weak var clothesExhibitionView: UIImageView!
+    @IBOutlet weak var confirmLabel: UILabel!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var selectionView: UIStackView!
     
     // MARK: Properties
     var avatar = Avatar()
@@ -29,9 +27,14 @@ class CustomizeAvatarViewController: UIViewController {
     var hairs: [Accessory]!
     var eyes: [Accessory]!
     
+    var confirming = false
+    
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        backButton.isHidden = true
+        confirmLabel.isHidden = true
         
         initializeAccessoryArrays()
         
@@ -53,7 +56,6 @@ class CustomizeAvatarViewController: UIViewController {
         avatar.clothes = clothes[chosenClothesIndex]
         
         let clothesImage = avatar.clothes.image
-        clothesExhibitionView.image = clothesImage
         customClothesView.image = clothesImage
     }
     
@@ -61,7 +63,6 @@ class CustomizeAvatarViewController: UIViewController {
         avatar.eyes = eyes[chosenEyesIndex]
         
         let eyesImage = avatar.eyes.image
-        eyesExhibitionView.image = eyesImage
         customEyesView.image = eyesImage
     }
     
@@ -69,7 +70,6 @@ class CustomizeAvatarViewController: UIViewController {
         avatar.hair = hairs[chosenHairIndex]
         
         let hairImage = avatar.hair.image
-        hairExhibitionView.image = hairImage
         customHairView.image = hairImage
     }
     
@@ -77,7 +77,6 @@ class CustomizeAvatarViewController: UIViewController {
         avatar.face = faces[chosenFaceIndex]
         
         let faceImage = avatar.face.image
-        faceExhibitionView.image = faceImage
         customFaceView.image = faceImage
     }
     
@@ -159,10 +158,31 @@ class CustomizeAvatarViewController: UIViewController {
     }
     
     @IBAction func continueButtonTouched(_ sender: UIButton) {
-        if saveAvatar() {
-            // Perform Push segue to map scene.
-            performSegue(withIdentifier: "toMapScene", sender: self)
+        if confirming {
+            if saveAvatar() {
+                // Perform Push segue to map scene.
+                performSegue(withIdentifier: "toMapScene", sender: self)
+            }
+        } else {
+            // Hide selection bar.
+            selectionView.isHidden = true
+            
+            // Show back button & confirming text.
+            backButton.isHidden = false
+            confirmLabel.isHidden = false
+            
+            confirming = true
         }
     }
 
+    @IBAction func backButtonTouched(_ sender: UIButton) {
+        // Hide back button & confirming text.
+        backButton.isHidden = true
+        confirmLabel.isHidden = true
+        
+        // Show selection bar.
+        selectionView.isHidden = false
+        
+        confirming = false
+    }
 }

@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "home button temp.png",
+      "filename" : "home button starless.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "home button temp-1.png",
+      "filename" : "home button starless-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "home button temp-2.png",
+      "filename" : "home button starless-2.png",
       "scale" : "3x"
     }
   ],
