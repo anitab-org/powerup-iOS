@@ -137,7 +137,7 @@ class ShopViewController: UIViewController {
             let currItem = currDisplayingArray[boxIndex + firstAccessoryIndex]
             
             // Configure the display image.
-            displayImages[boxIndex].image = currItem.image
+            displayImages[boxIndex].image = currItem.displayImage
             
             // Enable buttons.
             purchaseButtons[boxIndex].isEnabled = true
