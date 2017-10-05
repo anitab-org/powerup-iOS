@@ -11,6 +11,15 @@ class CustomizeAvatarViewController: UIViewController {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var selectionView: UIStackView!
     
+    @IBOutlet weak var clothesRightButton: UIButton!
+    @IBOutlet weak var clothesLeftButton: UIButton!
+    @IBOutlet weak var faceLeftButton: UIButton!
+    @IBOutlet weak var faceRightButton: UIButton!
+    @IBOutlet weak var eyesLeftButton: UIButton!
+    @IBOutlet weak var hairLeftButton: UIButton!
+    @IBOutlet weak var eyesRightButton: UIButton!
+    @IBOutlet weak var hairRightButton: UIButton!
+    
     // MARK: Properties
     var avatar = Avatar()
     
@@ -43,6 +52,8 @@ class CustomizeAvatarViewController: UIViewController {
         updateEyesImage()
         updateHairImage()
         updateFaceImage()
+        
+        setSelectionButtons()
     }
     
     func initializeAccessoryArrays() {
@@ -184,5 +195,42 @@ class CustomizeAvatarViewController: UIViewController {
         selectionView.isHidden = false
         
         confirming = false
+    }
+    
+    func setSelectionButtons(){
+        // left and right buttons should be disabled if there is only one item to be selected
+        if(clothes.count > 1){
+            self.clothesLeftButton.isEnabled = true
+            self.clothesRightButton.isEnabled = true
+        }else{
+            self.clothesLeftButton.isEnabled = false
+            self.clothesRightButton.isEnabled = false
+        }
+        
+        
+        if(eyes.count > 1){
+            self.eyesLeftButton.isEnabled = true
+            self.eyesRightButton.isEnabled = true
+        }else{
+            self.eyesLeftButton.isEnabled = false
+            self.eyesRightButton.isEnabled = false
+        }
+        
+        if(hairs.count > 1){
+            self.hairLeftButton.isEnabled = true
+            self.hairRightButton.isEnabled = true
+        }else{
+            self.hairLeftButton.isEnabled = false
+            self.hairRightButton.isEnabled = false
+        }
+        
+        if(faces.count >= 1){
+            self.faceLeftButton.isEnabled = true
+            self.faceRightButton.isEnabled = true
+        }else{
+            self.faceLeftButton.isEnabled = false
+            self.faceRightButton.isEnabled = false
+        }
+        
     }
 }
