@@ -7,14 +7,23 @@ class CustomizeAvatarViewController: UIViewController {
     @IBOutlet weak var customHairView: UIImageView!
     @IBOutlet weak var customFaceView: UIImageView!
     @IBOutlet weak var customEyesView: UIImageView!
+    @IBOutlet weak var confirmLabel: UILabel!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var selectionView: UIStackView!
     
-    @IBOutlet weak var eyesExhibitionView: UIImageView!
-    @IBOutlet weak var faceExhibitionView: UIImageView!
-    @IBOutlet weak var hairExhibitionView: UIImageView!
-    @IBOutlet weak var clothesExhibitionView: UIImageView!
+    @IBOutlet weak var clothesRightButton: UIButton!
+    @IBOutlet weak var clothesLeftButton: UIButton!
+    @IBOutlet weak var faceLeftButton: UIButton!
+    @IBOutlet weak var faceRightButton: UIButton!
+    @IBOutlet weak var eyesLeftButton: UIButton!
+    @IBOutlet weak var hairLeftButton: UIButton!
+    @IBOutlet weak var eyesRightButton: UIButton!
+    @IBOutlet weak var hairRightButton: UIButton!
     
     // MARK: Properties
     var avatar = Avatar()
+    
+    var dataSource: DataSource = DatabaseAccessor.sharedInstance
     
     var chosenClothesIndex = 0
     var chosenEyesIndex = 0
@@ -22,27 +31,42 @@ class CustomizeAvatarViewController: UIViewController {
     var chosenFaceIndex = 0
     
     // Get arrays of accessories.
-    let clothes = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .clothes).filter({a in return a.purchased})
-    let faces = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .face).filter({a in return a.purchased})
-    let hairs = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .hair).filter({a in return a.purchased})
-    let eyes = DatabaseAccessor.sharedInstance.getAccessoryArray(accessoryType: .eyes).filter({a in return a.purchased})
-
+    var clothes: [Accessory]!
+    var faces: [Accessory]!
+    var hairs: [Accessory]!
+    var eyes: [Accessory]!
+    
+    var confirming = false
+    
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        backButton.isHidden = true
+        confirmLabel.isHidden = true
+        
+        initializeAccessoryArrays()
         
         // Initialize the images of exhibition boxes and the avatar
         updateClothesImage()
         updateEyesImage()
         updateHairImage()
         updateFaceImage()
+        
+        setSelectionButtons()
+    }
+    
+    func initializeAccessoryArrays() {
+        clothes = dataSource.getAccessoryArray(accessoryType: .clothes).filter({a in return a.purchased})
+        hairs = dataSource.getAccessoryArray(accessoryType: .hair).filter({a in return a.purchased})
+        faces = dataSource.getAccessoryArray(accessoryType: .face).filter({a in return a.purchased})
+        eyes = dataSource.getAccessoryArray(accessoryType: .eyes).filter({a in return a.purchased})
     }
     
     func updateClothesImage() {
         avatar.clothes = clothes[chosenClothesIndex]
         
         let clothesImage = avatar.clothes.image
-        clothesExhibitionView.image = clothesImage
         customClothesView.image = clothesImage
     }
     
@@ -50,7 +74,6 @@ class CustomizeAvatarViewController: UIViewController {
         avatar.eyes = eyes[chosenEyesIndex]
         
         let eyesImage = avatar.eyes.image
-        eyesExhibitionView.image = eyesImage
         customEyesView.image = eyesImage
     }
     
@@ -58,7 +81,6 @@ class CustomizeAvatarViewController: UIViewController {
         avatar.hair = hairs[chosenHairIndex]
         
         let hairImage = avatar.hair.image
-        hairExhibitionView.image = hairImage
         customHairView.image = hairImage
     }
     
@@ -66,8 +88,27 @@ class CustomizeAvatarViewController: UIViewController {
         avatar.face = faces[chosenFaceIndex]
         
         let faceImage = avatar.face.image
-        faceExhibitionView.image = faceImage
         customFaceView.image = faceImage
+    }
+    
+    /** Save the avatar to the database. If successful, return true. Otherwise, return false. */
+    func saveAvatar() -> Bool {
+        do {
+            try dataSource.createAvatar(avatar)
+        } catch _ {
+            let alert = UIAlertController(title: "Warning", message: "Failed to save avatar, please retry this action. If that doesn't help, try restaring or reinstalling the app.", preferredStyle: .alert)
+            
+            // Unwind to Start View when Ok Button is pressed.
+            let okButton = UIAlertAction(title: "OK", style: .cancel, handler: {action in
+                self.performSegue(withIdentifier: "unwindToStartScene", sender: self)
+            })
+            alert.addAction(okButton)
+            self.present(alert, animated: true, completion: nil)
+            
+            return false
+        }
+        
+        return true
     }
     
     // MARK: Actions
@@ -128,14 +169,68 @@ class CustomizeAvatarViewController: UIViewController {
     }
     
     @IBAction func continueButtonTouched(_ sender: UIButton) {
-        // Save the current configuration to database.
-        guard DatabaseAccessor.sharedInstance.createAvatar(avatar) else {
-            print("Failed saving avatar accessories to database.")
-            return
+        if confirming {
+            if saveAvatar() {
+                // Perform Push segue to map scene.
+                performSegue(withIdentifier: "toMapScene", sender: self)
+            }
+        } else {
+            // Hide selection bar.
+            selectionView.isHidden = true
+            
+            // Show back button & confirming text.
+            backButton.isHidden = false
+            confirmLabel.isHidden = false
+            
+            confirming = true
         }
-        
-        // Dismiss the modal VC
-        self.dismiss(animated: true, completion: nil)
     }
 
+    @IBAction func backButtonTouched(_ sender: UIButton) {
+        // Hide back button & confirming text.
+        backButton.isHidden = true
+        confirmLabel.isHidden = true
+        
+        // Show selection bar.
+        selectionView.isHidden = false
+        
+        confirming = false
+    }
+    
+    func setSelectionButtons(){
+        // left and right buttons should be disabled if there is only one item to be selected
+        if(clothes.count > 1){
+            self.clothesLeftButton.isEnabled = true
+            self.clothesRightButton.isEnabled = true
+        }else{
+            self.clothesLeftButton.isEnabled = false
+            self.clothesRightButton.isEnabled = false
+        }
+        
+        
+        if(eyes.count > 1){
+            self.eyesLeftButton.isEnabled = true
+            self.eyesRightButton.isEnabled = true
+        }else{
+            self.eyesLeftButton.isEnabled = false
+            self.eyesRightButton.isEnabled = false
+        }
+        
+        if(hairs.count > 1){
+            self.hairLeftButton.isEnabled = true
+            self.hairRightButton.isEnabled = true
+        }else{
+            self.hairLeftButton.isEnabled = false
+            self.hairRightButton.isEnabled = false
+        }
+        
+        if(faces.count >= 1){
+            self.faceLeftButton.isEnabled = true
+            self.faceRightButton.isEnabled = true
+        }else{
+            self.faceLeftButton.isEnabled = false
+            self.faceRightButton.isEnabled = false
+        }
+        
+    }
 }

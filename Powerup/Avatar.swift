@@ -42,4 +42,57 @@ struct Avatar {
         self.handbag = nil
         self.hat = nil
     }
+    
+    // A convenient way to get the avatar's accessory by its type.
+    func getAccessoryByType(_ type: AccessoryType) -> Accessory? {
+        switch type {
+        case .face:
+            return face
+        case .eyes:
+            return eyes
+        case .hair:
+            return hair
+        case .clothes:
+            return clothes
+        case .necklace:
+            return necklace
+        case .glasses:
+            return glasses
+        case .handbag:
+            return handbag
+        case .hat:
+            return hat
+        default:
+            return nil
+        }
+    }
+    
+    // A convenient way to set the avatar's accessory by its type.
+    mutating func setAccessoryByType(_ type: AccessoryType, accessory: Accessory?) {
+        switch type {
+        // These accessories can't be set the nil.
+        case .face:
+            if accessory == nil { return }
+            face = accessory!
+        case .eyes:
+            if accessory == nil { return }
+            eyes = accessory!
+        case .hair:
+            if accessory == nil { return }
+            hair = accessory!
+        case .clothes:
+            if accessory == nil { return }
+            clothes = accessory!
+        
+        case .necklace:
+            necklace = accessory
+        case .glasses:
+            glasses = accessory
+        case .handbag:
+            handbag = accessory
+        case .hat:
+            hat = accessory
+        default: break
+        }
+    }
 }

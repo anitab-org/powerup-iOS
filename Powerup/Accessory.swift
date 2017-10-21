@@ -11,6 +11,7 @@ enum AccessoryType: String {
     case handbag = "Handbag"
     case hat = "Hat"
     case glasses = "Glasses"
+    case unknown = ""
 }
 
 struct Accessory {
@@ -24,6 +25,9 @@ struct Accessory {
     // The image of the accessory.
     var image: UIImage?
     
+    // The image shown in Shop Scene boxes.
+    var displayImage: UIImage?
+    
     // The price to buy the accessory.
     var points: Int
     
@@ -36,9 +40,23 @@ struct Accessory {
         self.image = UIImage(named: imageName)
         self.points = points
         self.purchased = purchased
+        
+        // Set display image. Avatar image is prefixed with "avatar_", display image is prefixed with "display_", so we have to substring from '_' and prefix it with "display".
+        let fromIndex = imageName.characters.count >= 6 ? imageName.index(imageName.startIndex, offsetBy: 6) : imageName.startIndex
+        let displayName = "display" + imageName.substring(from: fromIndex)
+        self.displayImage = UIImage(named: displayName)
     }
     
     init(type: AccessoryType) {
-        self = DatabaseAccessor.sharedInstance.getAccessory(accessoryType: type, accessoryIndex: 1)
+        do {
+            self = try DatabaseAccessor.sharedInstance.getAccessory(accessoryType: type, accessoryIndex: 1)
+        } catch _ {
+            self.type = .unknown
+            self.id = 0
+            self.image = nil
+            self.displayImage = nil
+            self.points = 0
+            self.purchased = false
+        }
     }
 }
