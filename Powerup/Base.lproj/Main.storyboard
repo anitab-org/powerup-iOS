@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="eFm-LF-3yb">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="eFm-LF-3yb">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -203,16 +203,16 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
                                 <rect key="frame" x="17" y="104" width="634" height="37"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wf5-AA-gq4" userLabel="Skin">
-                                        <rect key="frame" x="0.0" y="1" width="139" height="37"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="140" height="37"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ags-IQ-Dxd">
-                                                <rect key="frame" x="49" y="9" width="41" height="22"/>
+                                                <rect key="frame" x="48.5" y="7.5" width="41" height="22"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5OM-SX-h1L" userLabel="Face Left Button">
-                                                <rect key="frame" x="9" y="5" width="30" height="30"/>
+                                                <rect key="frame" x="8.5" y="3.5" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="Zyp-vB-H6C"/>
                                                     <constraint firstAttribute="width" constant="30" id="way-JE-qBB"/>
@@ -225,7 +225,7 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXn-oU-okg" userLabel="Face Right Button">
-                                                <rect key="frame" x="100" y="5" width="30" height="30"/>
+                                                <rect key="frame" x="99.5" y="3.5" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="K7B-Fu-Fpw"/>
                                                     <constraint firstAttribute="height" constant="30" id="LRI-bl-NoW"/>
@@ -249,16 +249,16 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWe-BM-6YC" userLabel="Eyes">
-                                        <rect key="frame" x="164" y="1" width="140" height="37"/>
+                                        <rect key="frame" x="165" y="0.0" width="139.5" height="37"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eyes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbt-qX-ypc">
-                                                <rect key="frame" x="48" y="8" width="43" height="22"/>
+                                                <rect key="frame" x="47.5" y="8" width="43" height="22"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtQ-TS-ZBo" userLabel="Eyes Left Button">
-                                                <rect key="frame" x="8" y="5" width="30" height="30"/>
+                                                <rect key="frame" x="7.5" y="3.5" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="P1v-OZ-uFq"/>
                                                     <constraint firstAttribute="height" constant="30" id="oZZ-P2-2z0"/>
@@ -271,7 +271,7 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIF-aS-j9q" userLabel="Eyes Right Button">
-                                                <rect key="frame" x="101" y="5" width="30" height="30"/>
+                                                <rect key="frame" x="100.5" y="3.5" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="mLC-Lb-QHK"/>
                                                     <constraint firstAttribute="width" constant="30" id="uSJ-hy-1d9"/>
@@ -295,10 +295,10 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="26l-58-ibl" userLabel="Clothes">
-                                        <rect key="frame" x="329" y="1" width="140" height="37"/>
+                                        <rect key="frame" x="329.5" y="0.0" width="140" height="37"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3b-dN-rVC" userLabel="Clothes Left Button">
-                                                <rect key="frame" x="-2" y="5" width="30" height="30"/>
+                                                <rect key="frame" x="-1.5" y="3.5" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="WmM-6r-3rJ"/>
                                                     <constraint firstAttribute="height" constant="30" id="aNO-qA-fKd"/>
@@ -311,7 +311,7 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Flf-Ud-C6K" userLabel="Clothes Right Button">
-                                                <rect key="frame" x="111" y="5" width="30" height="30"/>
+                                                <rect key="frame" x="111" y="3.5" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="0cn-0Z-DSq"/>
                                                     <constraint firstAttribute="height" constant="30" id="TJc-28-bfP"/>
@@ -324,7 +324,7 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clothes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5p4-KD-Db0">
-                                                <rect key="frame" x="38" y="9" width="63" height="20"/>
+                                                <rect key="frame" x="38.5" y="9" width="62.5" height="20"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="16"/>
                                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -341,10 +341,10 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9L-wy-h7f" userLabel="Hair">
-                                        <rect key="frame" x="494" y="1" width="140" height="37"/>
+                                        <rect key="frame" x="494.5" y="0.0" width="139.5" height="37"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNy-UE-xYX" userLabel="Hair Left Button">
-                                                <rect key="frame" x="9" y="5" width="30" height="30"/>
+                                                <rect key="frame" x="10" y="3.5" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="30" id="MlT-Ul-m63"/>
                                                     <constraint firstAttribute="height" constant="30" id="Uf4-WZ-xep"/>
@@ -357,7 +357,7 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyl-s9-vop" userLabel="Hair Right Button">
-                                                <rect key="frame" x="98" y="5" width="30" height="30"/>
+                                                <rect key="frame" x="98.5" y="3.5" width="30" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="Apd-eB-ZjF"/>
                                                     <constraint firstAttribute="width" constant="30" id="a2h-7a-dhx"/>
@@ -531,11 +531,11 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
                                         <rect key="frame" x="0.0" y="28" width="240.5" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HQ3-2f-iQG" id="Jww-8q-mUw">
-                                            <rect key="frame" x="0.0" y="0.0" width="240.5" height="39"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240.5" height="39.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Sample Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JR9-C4-9RX">
-                                                    <rect key="frame" x="15" y="0.0" width="210.5" height="39"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Sample Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="JR9-C4-9RX">
+                                                    <rect key="frame" x="15" y="0.0" width="210.5" height="39.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="14"/>
@@ -672,7 +672,7 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9IW-7K-Gls" userLabel="Karma Points Label">
-                                <rect key="frame" x="75" y="26" width="22.5" height="23.5"/>
+                                <rect key="frame" x="75" y="25.5" width="25" height="24.5"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -706,7 +706,7 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SELECT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UT3-0Z-0jd" userLabel="Button Text">
-                                                        <rect key="frame" x="25" y="93.5" width="48.5" height="15.5"/>
+                                                        <rect key="frame" x="24" y="94" width="50.5" height="16"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.38039215686274508" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -763,7 +763,7 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hB-Cx-GvA" userLabel="Button Text">
-                                                        <rect key="frame" x="30.5" y="93.5" width="36.5" height="15.5"/>
+                                                        <rect key="frame" x="28" y="94" width="41.5" height="16"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -827,7 +827,7 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJd-dk-a8M" userLabel="Button Text">
-                                                        <rect key="frame" x="30.5" y="93.5" width="36.5" height="15.5"/>
+                                                        <rect key="frame" x="28" y="94" width="41.5" height="16"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -889,7 +889,7 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4J-mj-DPt" userLabel="Button Text">
-                                                        <rect key="frame" x="31" y="93.5" width="36.5" height="15.5"/>
+                                                        <rect key="frame" x="28.5" y="94" width="41.5" height="16"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -946,7 +946,7 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6uT-um-xmX" userLabel="Button Text">
-                                                        <rect key="frame" x="30.5" y="93.5" width="36.5" height="15.5"/>
+                                                        <rect key="frame" x="28" y="94" width="41.5" height="16"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -1003,7 +1003,7 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQo-Hs-1Vo" userLabel="Button Text">
-                                                        <rect key="frame" x="30.5" y="93.5" width="36.5" height="15.5"/>
+                                                        <rect key="frame" x="28" y="94" width="41.5" height="16"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -1515,7 +1515,7 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="eFm-LF-3yb" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zG6-F1-qcm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="zG6-F1-qcm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
