@@ -5,15 +5,15 @@ class SKTutorialScene: SKSpriteNode {
     // MARK: Properties
     
     // The tutorial image sequence.
-    var imageSequence: [SKTexture]
+    @objc var imageSequence: [SKTexture]
     
-    var currIndex = 0
+    @objc var currIndex = 0
     
     // This closure will automatically be run after the last image.
-    var startGameFunc: () -> Void
+    @objc var startGameFunc: () -> Void
     
     // MARK: Functions
-    func nextImage() {
+    @objc func nextImage() {
         currIndex += 1
         
         // Update the texture (image).
@@ -21,7 +21,7 @@ class SKTutorialScene: SKSpriteNode {
     }
     
     // MARK: Constructors
-    init(namedImages: [String], size: CGSize, startGameFunc: @escaping () -> Void) {
+    @objc init(namedImages: [String], size: CGSize, startGameFunc: @escaping () -> Void) {
         // Initialize the image sequence.
         imageSequence = [SKTexture]()
         for namedImage in namedImages {

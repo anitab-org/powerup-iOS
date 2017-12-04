@@ -3,12 +3,12 @@ import UIKit
 class ResultsViewController: UIViewController {
     
     // TODO: Should detemine how many Karma points will be given after each completion of scenario.
-    let karmaGain = 20
+    @objc let karmaGain = 20
     
     // MARK: Properties
     // This will be set in the ScenarioViewController.
-    var completedScenarioID: Int = -1
-    var completedScenarioName: String = ""
+    @objc var completedScenarioID: Int = -1
+    @objc var completedScenarioName: String = ""
 
     var dataSource: DataSource = DatabaseAccessor.sharedInstance
     
@@ -59,7 +59,7 @@ class ResultsViewController: UIViewController {
     }
     
 
-    func gainKarmaPoints() {
+    @objc func gainKarmaPoints() {
         // Save the karma gains in database.
         let newScore: Score!
         do {
@@ -78,7 +78,7 @@ class ResultsViewController: UIViewController {
         karmaPointsLabel.text = String(newScore.karmaPoints)
     }
     
-    func saveScenarioAndUnlockNextScenario() {
+    @objc func saveScenarioAndUnlockNextScenario() {
         do {
             // Get the current scenario.
             var currScenario = try dataSource.getScenario(of: completedScenarioID)

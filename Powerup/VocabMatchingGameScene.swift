@@ -16,121 +16,121 @@ class VocabMatchingGameScene: SKScene {
     ]
     
     // MARK: Constants
-    let timeForTileToReachClipboard = 6.0
-    let delayTimeToNextRound = 0.25
-    let totalRounds = 5
-    let tilesPerRound = 3
-    let timeBetweenTileSpawns = 2.0
+    @objc let timeForTileToReachClipboard = 6.0
+    @objc let delayTimeToNextRound = 0.25
+    @objc let totalRounds = 5
+    @objc let tilesPerRound = 3
+    @objc let timeBetweenTileSpawns = 2.0
     
     // Tutorial Scene images.
-    let tutorialSceneImages = ["vocabmatching_tutorial_1", "vocabmatching_tutorial_2"]
+    @objc let tutorialSceneImages = ["vocabmatching_tutorial_1", "vocabmatching_tutorial_2"]
     
     // Sizing and position of the nodes (They are relative to the width and height of the game scene.)
     // Score Box
-    let scoreBoxSpriteWidth = 0.09
-    let scoreBoxSpriteHeight = 0.15
-    let scoreBoxSpritePosY = 0.9
+    @objc let scoreBoxSpriteWidth = 0.09
+    @objc let scoreBoxSpriteHeight = 0.15
+    @objc let scoreBoxSpritePosY = 0.9
     
     // The following two is relative to the score box.
-    let scoreLabelPosX = 0.4
-    let scoreLabelPosY = -0.1
+    @objc let scoreLabelPosX = 0.4
+    @objc let scoreLabelPosY = -0.1
     
     // Tile
-    let tileSpriteSizeRelativeToWidth = 0.14
-    let tileSpriteSpawnPosX = 0.0
-    let tileTouchesClipboardPosX = 0.7
+    @objc let tileSpriteSizeRelativeToWidth = 0.14
+    @objc let tileSpriteSpawnPosX = 0.0
+    @objc let tileTouchesClipboardPosX = 0.7
     
     // Clipboard
-    let clipboardSpriteWidth = 0.24
-    let clipboardSpriteHeight = 0.29
-    let clipboardSpritePosX = 0.855
+    @objc let clipboardSpriteWidth = 0.24
+    @objc let clipboardSpriteHeight = 0.29
+    @objc let clipboardSpritePosX = 0.855
     
     // Continue button
-    let continueButtonBottomMargin = 0.08
-    let continueButtonHeightRelativeToSceneHeight = 0.15
-    let continueButtonAspectRatio = 2.783
+    @objc let continueButtonBottomMargin = 0.08
+    @objc let continueButtonHeightRelativeToSceneHeight = 0.15
+    @objc let continueButtonAspectRatio = 2.783
     
     // End scene labels
-    let endSceneTitleLabelPosX = 0.0
-    let endSceneTitleLabelPosY = 0.1
-    let endSceneScoreLabelPosX = 0.0
-    let endSceneScoreLabelPosY = -0.1
+    @objc let endSceneTitleLabelPosX = 0.0
+    @objc let endSceneTitleLabelPosY = 0.1
+    @objc let endSceneScoreLabelPosX = 0.0
+    @objc let endSceneScoreLabelPosY = -0.1
     
     // Sprite Nodes
-    let scoreBoxSprite = SKSpriteNode(imageNamed: "vocabmatching_scorebox")
-    let backgroundSprite = SKSpriteNode(imageNamed: "vocabmatching_background")
-    let endSceneSprite = SKSpriteNode()
-    let continueButton = SKSpriteNode(imageNamed: "continue_button")
+    @objc let scoreBoxSprite = SKSpriteNode(imageNamed: "vocabmatching_scorebox")
+    @objc let backgroundSprite = SKSpriteNode(imageNamed: "vocabmatching_background")
+    @objc let endSceneSprite = SKSpriteNode()
+    @objc let continueButton = SKSpriteNode(imageNamed: "continue_button")
     
     // Label Nodes & Label Wrapper Node
-    let scoreLabelWrapper = SKNode()
-    let endSceneTitleLabelWrapper = SKNode()
-    let endSceneScoreLabelWrapper = SKNode()
-    let scoreLabel = SKLabelNode()
-    let endSceneTitleLabel = SKLabelNode()
-    let endSceneScoreLabel = SKLabelNode()
+    @objc let scoreLabelWrapper = SKNode()
+    @objc let endSceneTitleLabelWrapper = SKNode()
+    @objc let endSceneScoreLabelWrapper = SKNode()
+    @objc let scoreLabel = SKLabelNode()
+    @objc let endSceneTitleLabel = SKLabelNode()
+    @objc let endSceneScoreLabel = SKLabelNode()
     
     // Textures
-    let tileTexture = SKTexture(imageNamed: "vocabmatching_tile")
-    let clipboardTexture = SKTexture(imageNamed: "vocabmatching_clipboard")
-    let clipboardCorrectTexture = SKTexture(imageNamed: "vocabmatching_clipboard_green")
-    let clipboardWrongTexture = SKTexture(imageNamed: "vocabmatching_clipboard_red")
+    @objc let tileTexture = SKTexture(imageNamed: "vocabmatching_tile")
+    @objc let clipboardTexture = SKTexture(imageNamed: "vocabmatching_clipboard")
+    @objc let clipboardCorrectTexture = SKTexture(imageNamed: "vocabmatching_clipboard_green")
+    @objc let clipboardWrongTexture = SKTexture(imageNamed: "vocabmatching_clipboard_red")
     
     // Layers (zPosition)
-    let backgroundLayer = CGFloat(-0.1)
-    let clipboardLayer = CGFloat(0.2)
-    let clipboardDraggingLayer = CGFloat(0.3)
-    let tileLayer = CGFloat(0.4)
-    let uiLayer = CGFloat(0.5)
-    let uiTextLayer = CGFloat(0.6)
-    let endSceneLayer = CGFloat(1.5)
-    let tutorialSceneLayer = CGFloat(5)
+    @objc let backgroundLayer = CGFloat(-0.1)
+    @objc let clipboardLayer = CGFloat(0.2)
+    @objc let clipboardDraggingLayer = CGFloat(0.3)
+    @objc let tileLayer = CGFloat(0.4)
+    @objc let uiLayer = CGFloat(0.5)
+    @objc let uiTextLayer = CGFloat(0.6)
+    @objc let endSceneLayer = CGFloat(1.5)
+    @objc let tutorialSceneLayer = CGFloat(5)
     
     // Fonts
-    let fontName = "Montserrat-Bold"
-    let fontColor = UIColor(colorLiteralRed: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
+    @objc let fontName = "Montserrat-Bold"
+    @objc let fontColor = UIColor(red: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
     
     // Font size
-    let clipboardFontSize = CGFloat(14)
-    let scoreFontSize = CGFloat(16)
-    let endSceneTitleFontSize = CGFloat(20)
+    @objc let clipboardFontSize = CGFloat(14)
+    @objc let scoreFontSize = CGFloat(16)
+    @objc let endSceneTitleFontSize = CGFloat(20)
     
     // If there are too many (longTextDef) characters in the string of the pad, shrink it.
-    let clipboardLongTextFontSize = CGFloat(10)
-    let clipboardLongTextDef = 12
+    @objc let clipboardLongTextFontSize = CGFloat(10)
+    @objc let clipboardLongTextDef = 12
     
     // Animations
-    let swappingAnimationDuration = 0.2
-    let endSceneFadeInAnimationDuration = 0.5
-    let clipboardStarBlinkAnimationDuration = 0.3
+    @objc let swappingAnimationDuration = 0.2
+    @objc let endSceneFadeInAnimationDuration = 0.5
+    @objc let clipboardStarBlinkAnimationDuration = 0.3
     
     // Strings
-    let endSceneTitleLabelText = "Game Over"
-    let scoreLabelPrefix = "Score: "
+    @objc let endSceneTitleLabelText = "Game Over"
+    @objc let scoreLabelPrefix = "Score: "
     
     // MARK: Properties
-    var tutorialScene: SKTutorialScene!
+    @objc var tutorialScene: SKTutorialScene!
     
     // The positionY of each lane. (That is, the posY of tiles and clipboards.)
-    var lanePositionsY = [0.173, 0.495, 0.828]
+    @objc var lanePositionsY = [0.173, 0.495, 0.828]
     
     // The clipboards which could be swapped.
-    var clipboards: [VocabMatchingClipboard]
+    @objc var clipboards: [VocabMatchingClipboard]
     
-    var currRound: Int = -1
+    @objc var currRound: Int = -1
     
     // Keep a reference to the mini game view controller for end game transition.
-    var viewController: MiniGameViewController!
+    @objc var viewController: MiniGameViewController!
     
     // The clipboard currently being dragged.
-    var clipboardDragged: VocabMatchingClipboard? = nil
+    @objc var clipboardDragged: VocabMatchingClipboard? = nil
     
     // Cannot perform another swap if some clipboards are currently swapping.
-    var isSwapping = false
+    @objc var isSwapping = false
     
-    var isContinueButtonInteractable = false
+    @objc var isContinueButtonInteractable = false
     
-    var score: Int = 0
+    @objc var score: Int = 0
     
     // MARK: Constructors
     override init(size: CGSize) {
@@ -253,7 +253,7 @@ class VocabMatchingGameScene: SKScene {
     }
     
     // Spawn tiles for the next round. Completion closure is for unit tests.
-    func nextRound(completion: (()->())? = nil) {
+    @objc func nextRound(completion: (()->())? = nil) {
         currRound += 1
         
         let tilesToSpawn = getRandomizedTilesForRound()
@@ -294,7 +294,7 @@ class VocabMatchingGameScene: SKScene {
     }
     
     // Get an array of randomized tiles for the new round.
-    func getRandomizedTilesForRound() -> [VocabMatchingTile] {
+    @objc func getRandomizedTilesForRound() -> [VocabMatchingTile] {
         var tilesToSpawn = [VocabMatchingTile]()
         
         // Randomize the spawning tiles for this round (tile icon & lane number).
@@ -321,7 +321,7 @@ class VocabMatchingGameScene: SKScene {
     }
     
     // Configure the clipboards for a new round.
-    func configureClipboardsForNewRound(tiles: [VocabMatchingTile]) {
+    @objc func configureClipboardsForNewRound(tiles: [VocabMatchingTile]) {
         var laneNumbers = getRandomLaneNumbers()
         
         // Configure the clipboards so that the tiles would have a match.
@@ -347,7 +347,7 @@ class VocabMatchingGameScene: SKScene {
     }
     
     // Get randomized lane numbers in an array.
-    func getRandomLaneNumbers() -> [Int] {
+    @objc func getRandomLaneNumbers() -> [Int] {
         var laneNumbers = [Int]()
         for index in 0..<lanePositionsY.count {
             laneNumbers.append(index)
@@ -358,7 +358,7 @@ class VocabMatchingGameScene: SKScene {
     }
     
     // Spawn the next tile and moving it towards clipboards.
-    func spawnNextTile(tile: VocabMatchingTile) {
+    @objc func spawnNextTile(tile: VocabMatchingTile) {
         // Spawn and move the tile.
         let destination = CGPoint(x: size.width * CGFloat(tileTouchesClipboardPosX), y: tile.position.y)
         let moveAction = SKAction.move(to: destination, duration: timeForTileToReachClipboard)
@@ -370,7 +370,7 @@ class VocabMatchingGameScene: SKScene {
     }
     
     // Check if the tile and the clipboard matches. If so, increment score. Then start the next round.
-    func checkIfMatches(tile: VocabMatchingTile) {
+    @objc func checkIfMatches(tile: VocabMatchingTile) {
         let tileLane = tile.laneNumber
         let clipboardAtLane = clipboards[tileLane]
         if tile.matchingID == clipboardAtLane.matchingID {
@@ -396,7 +396,7 @@ class VocabMatchingGameScene: SKScene {
     }
     
     // After dragging and dropping a clipboard, check which lane is closer, and snap it to the lane and swap the positions. If it isn't dragged to the other lanes, no swapping will be performed, just snap it back to its original lane. The completion closure is for unit testing.
-    func snapClipboardToClosestLane(droppedClipboard: VocabMatchingClipboard, dropLocationPosY: Double, completion: (()->())? = nil) {
+    @objc func snapClipboardToClosestLane(droppedClipboard: VocabMatchingClipboard, dropLocationPosY: Double, completion: (()->())? = nil) {
         // Check which clipboard is being dragged.
         var clipboardIndex = 0
         while clipboards[clipboardIndex] != droppedClipboard {

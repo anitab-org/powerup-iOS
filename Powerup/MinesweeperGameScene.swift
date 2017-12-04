@@ -3,131 +3,131 @@ import SpriteKit
 class MinesweeperGameScene: SKScene {
     
     // Make it as an array, so it is easy to add new entries.
-    var possiblityPercentages = [90.0]
+    @objc var possiblityPercentages = [90.0]
     
     // MARK: Game Constants
-    let gridSizeCount = 5
+    @objc let gridSizeCount = 5
     
-    let tutorialSceneImages = [
+    @objc let tutorialSceneImages = [
         "minesweeper_tutorial_1",
         "minesweeper_tutorial_2",
         "minesweeper_tutorial_3"
     ]
     
     // How many boxes could be selected each round.
-    let selectionMaxCount = 5
+    @objc let selectionMaxCount = 5
     
     // Colors of game UIs.
-    let uiColor = UIColor(colorLiteralRed: 42.0 / 255.0, green: 203.0 / 255.0, blue: 211.0 / 255.0, alpha: 1.0)
-    let textColor = UIColor(colorLiteralRed: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
-    let prosTextColor = UIColor(colorLiteralRed: 105.0 / 255.0, green: 255.0 / 255.0, blue: 97.0 / 255.0, alpha: 1.0)
-    let consTextColor = UIColor(colorLiteralRed: 255.0 / 255.0, green: 105.0 / 255.0, blue: 105.0 / 255.0, alpha: 1.0)
+    @objc let uiColor = UIColor(red: 42.0 / 255.0, green: 203.0 / 255.0, blue: 211.0 / 255.0, alpha: 1.0)
+    @objc let textColor = UIColor(red: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
+    @objc let prosTextColor = UIColor(red: 105.0 / 255.0, green: 255.0 / 255.0, blue: 97.0 / 255.0, alpha: 1.0)
+    @objc let consTextColor = UIColor(red: 255.0 / 255.0, green: 105.0 / 255.0, blue: 105.0 / 255.0, alpha: 1.0)
     
     // Animation constants.
-    let boxEnlargingScale = CGFloat(1.2)
-    let boxEnlargingDuration = 0.25
-    let buttonWaitDuration = 0.5
-    let boxFlipInterval = 0.2
-    let showAllBoxesInterval = 0.3
-    let boxEnlargingKey = "enlarge"
-    let boxShrinkingKey = "shrink"
-    let boxDarkening = SKAction.colorize(with: UIColor(white: 0.6, alpha: 0.8), colorBlendFactor: 1.0, duration: 0.2)
-    let fadeInAction = SKAction.fadeIn(withDuration: 0.8)
-    let fadeOutAction = SKAction.fadeOut(withDuration: 0.8)
-    let scoreTextPopScale = CGFloat(1.2)
-    let scoreTextPopDuraion = 0.25
+    @objc let boxEnlargingScale = CGFloat(1.2)
+    @objc let boxEnlargingDuration = 0.25
+    @objc let buttonWaitDuration = 0.5
+    @objc let boxFlipInterval = 0.2
+    @objc let showAllBoxesInterval = 0.3
+    @objc let boxEnlargingKey = "enlarge"
+    @objc let boxShrinkingKey = "shrink"
+    @objc let boxDarkening = SKAction.colorize(with: UIColor(white: 0.6, alpha: 0.8), colorBlendFactor: 1.0, duration: 0.2)
+    @objc let fadeInAction = SKAction.fadeIn(withDuration: 0.8)
+    @objc let fadeOutAction = SKAction.fadeOut(withDuration: 0.8)
+    @objc let scoreTextPopScale = CGFloat(1.2)
+    @objc let scoreTextPopDuraion = 0.25
     
     // These are relative to the size of the view, so they can be applied to different screen sizes.
-    let gridOffsetXRelativeToWidth = 0.31
-    let gridOffsetYRelativeToHeight = 0.0822
-    let gridSpacingRelativeToWidth = 0.0125
-    let boxSizeRelativeToWidth = 0.084
+    @objc let gridOffsetXRelativeToWidth = 0.31
+    @objc let gridOffsetYRelativeToHeight = 0.0822
+    @objc let gridSpacingRelativeToWidth = 0.0125
+    @objc let boxSizeRelativeToWidth = 0.084
     
-    let continueButtonBottomMargin = 0.08
-    let continueButtonHeightRelativeToSceneHeight = 0.2
-    let continueButtonAspectRatio = 2.783
+    @objc let continueButtonBottomMargin = 0.08
+    @objc let continueButtonHeightRelativeToSceneHeight = 0.2
+    @objc let continueButtonAspectRatio = 2.783
     
-    let prosDescriptionPosYRelativeToHeight = 0.77
-    let consDescriptionPosYRelativeToHeight = 0.33
-    let descriptionTextPosXReleativeToWidth = 0.53
+    @objc let prosDescriptionPosYRelativeToHeight = 0.77
+    @objc let consDescriptionPosYRelativeToHeight = 0.33
+    @objc let descriptionTextPosXReleativeToWidth = 0.53
     
     // Offset the text in y direction so that it appears in the center of the button.
-    let buttonTextOffsetY = -7.0
-    let scoreTextOffsetX = 10.0
-    let scoreTextOffsetY = 25.0
+    @objc let buttonTextOffsetY = -7.0
+    @objc let scoreTextOffsetX = 10.0
+    @objc let scoreTextOffsetY = 25.0
     
     // Fonts.
-    let scoreTextFontSize = CGFloat(20)
-    let buttonTextFontSize = CGFloat(18)
-    let descriptionTitleFontSize = CGFloat(24)
-    let descriptionFontSize = CGFloat(20)
-    let fontName = "Montserrat-Bold"
+    @objc let scoreTextFontSize = CGFloat(20)
+    @objc let buttonTextFontSize = CGFloat(18)
+    @objc let descriptionTitleFontSize = CGFloat(24)
+    @objc let descriptionFontSize = CGFloat(20)
+    @objc let fontName = "Montserrat-Bold"
     
-    let buttonStrokeWidth = CGFloat(3)
+    @objc let buttonStrokeWidth = CGFloat(3)
     
     
     // These are the actual sizing and positioning, will be calculated in init()
-    let boxSize: Double
-    let gridOffsetX: Double
-    let gridOffsetY: Double
-    let gridSpacing: Double
+    @objc let boxSize: Double
+    @objc let gridOffsetX: Double
+    @objc let gridOffsetY: Double
+    @objc let gridSpacing: Double
     
     // Sprite nodes
-    let backgroundImage = SKSpriteNode(imageNamed: "minesweeper_background")
-    let resultBanner = SKSpriteNode()
-    let descriptionBanner = SKSpriteNode(imageNamed: "minesweeper_pros_cons_banner")
-    let continueButton = SKSpriteNode(imageNamed: "continue_button")
+    @objc let backgroundImage = SKSpriteNode(imageNamed: "minesweeper_background")
+    @objc let resultBanner = SKSpriteNode()
+    @objc let descriptionBanner = SKSpriteNode(imageNamed: "minesweeper_pros_cons_banner")
+    @objc let continueButton = SKSpriteNode(imageNamed: "continue_button")
     
     // Label wrapper nodes
-    let scoreLabelNode = SKNode()
-    let prosLabelNode = SKNode()
-    let consLabelNode = SKNode()
+    @objc let scoreLabelNode = SKNode()
+    @objc let prosLabelNode = SKNode()
+    @objc let consLabelNode = SKNode()
     
     // Label nodes
-    let scoreLabel = SKLabelNode()
-    let prosLabel = SKLabelNode(text: "Pros text goes here...")
-    let consLabel = SKLabelNode(text: "Cons text goes here...")
+    @objc let scoreLabel = SKLabelNode()
+    @objc let prosLabel = SKLabelNode(text: "Pros text goes here...")
+    @objc let consLabel = SKLabelNode(text: "Cons text goes here...")
     
     // Textures
-    let successBannerTexture = SKTexture(imageNamed: "success_banner")
-    let failureBannerTexture = SKTexture(imageNamed: "failure_banner")
+    @objc let successBannerTexture = SKTexture(imageNamed: "success_banner")
+    @objc let failureBannerTexture = SKTexture(imageNamed: "failure_banner")
     
     // TODO: Replace the temporary sprite.
-    let endGameText = "End Game"
-    let scoreTextPrefix = "Score: "
+    @objc let endGameText = "End Game"
+    @objc let scoreTextPrefix = "Score: "
     
     // Layer index, aka. zPosition.
-    let backgroundLayer = CGFloat(-0.1)
-    let gridLayer = CGFloat(0.1)
-    let bannerLayer = CGFloat(0.2)
-    let uiLayer = CGFloat(0.3)
-    let uiTextLayer = CGFloat(0.4)
-    let tutorialSceneLayer = CGFloat(5)
+    @objc let backgroundLayer = CGFloat(-0.1)
+    @objc let gridLayer = CGFloat(0.1)
+    @objc let bannerLayer = CGFloat(0.2)
+    @objc let uiLayer = CGFloat(0.3)
+    @objc let uiTextLayer = CGFloat(0.4)
+    @objc let tutorialSceneLayer = CGFloat(5)
     
     // MARK: Properties
-    var tutorialScene: SKTutorialScene!
+    @objc var tutorialScene: SKTutorialScene!
     
     // Keep a reference to the view controller for end game transition.
     // (This is assigned in the MiniGameViewController class.)
-    var viewController: MiniGameViewController!
+    @objc var viewController: MiniGameViewController!
     
     // Holding each boxes
-    var gameGrid: [[GuessingBox]] = []
-    var roundCount = 0
+    @objc var gameGrid: [[GuessingBox]] = []
+    @objc var roundCount = 0
     
-    var currBox: GuessingBox? = nil
+    @objc var currBox: GuessingBox? = nil
     
     // Score. +1 if a successful box is chosen. +0 if a failed box is chosen.
-    var score = 0
+    @objc var score = 0
     
     // Selected box count.
-    var selectedBoxes = 0
+    @objc var selectedBoxes = 0
     
     // Avoid player interaction with boxes when they are animating.
-    var boxSelected: Bool = false
+    @objc var boxSelected: Bool = false
     
     // Avoid player interaction with boxes when the game is in tutorial scene.
-    var inTutorial = true
+    @objc var inTutorial = true
     
     // MARK: Constructor
     override init(size: CGSize) {
@@ -259,7 +259,7 @@ class MinesweeperGameScene: SKScene {
       Reset the grid for a new round.
       - Parameter: The possibility of the contrceptive method in percentage.
     */
-    func newRound() {
+    @objc func newRound() {
         let possibility = possiblityPercentages[roundCount]
         
         // Reset selected box count.
@@ -300,7 +300,7 @@ class MinesweeperGameScene: SKScene {
         boxSelected = false
     }
     
-    func selectBox(box: GuessingBox) {
+    @objc func selectBox(box: GuessingBox) {
         boxSelected = true
         
         selectedBoxes += 1
@@ -341,7 +341,7 @@ class MinesweeperGameScene: SKScene {
         currBox = nil
     }
     
-    func showAllResults(isSuccessful: Bool) {
+    @objc func showAllResults(isSuccessful: Bool) {
         // Show result banner.
         resultBanner.texture = isSuccessful ? successBannerTexture : failureBannerTexture
         resultBanner.alpha = 0.0
@@ -377,7 +377,7 @@ class MinesweeperGameScene: SKScene {
     }
     
     // Called when "continue button" is pressed under the "result banner".
-    func showDescription() {
+    @objc func showDescription() {
         
         // Fade out result banner.
         resultBanner.run(fadeOutAction) {
@@ -397,7 +397,7 @@ class MinesweeperGameScene: SKScene {
     }
     
     // Called when "continue button" is pressed under the "description banner".
-    func hideDescription() {
+    @objc func hideDescription() {
         
         // Fade out description banner.
         descriptionBanner.run(fadeOutAction) {

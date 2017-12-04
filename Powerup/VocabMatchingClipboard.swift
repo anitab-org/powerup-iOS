@@ -4,22 +4,22 @@ import SpriteKit
 class VocabMatchingClipboard: SKSpriteNode {
     
     // MARK: Constant
-    let descriptionTextPosX = 0.19
-    let descriptionTextPosY = -0.1
+    @objc let descriptionTextPosX = 0.19
+    @objc let descriptionTextPosY = -0.1
     
     // MARK: Properties
     // The correct tile for this clipboard will have the same matching id.
-    var matchingID: Int
+    @objc var matchingID: Int
     
     // Description text
-    let descriptionLabel = SKLabelNode()
+    @objc let descriptionLabel = SKLabelNode()
     
     // Wrapper node for the text.
-    let descriptionWrapperNode = SKNode()
-    let textLayer = CGFloat(0.01)
+    @objc let descriptionWrapperNode = SKNode()
+    @objc let textLayer = CGFloat(0.01)
     
     // MARK: Constructors
-    init(texture: SKTexture?, size: CGSize, matchingID: Int, description: String) {
+    @objc init(texture: SKTexture?, size: CGSize, matchingID: Int, description: String) {
         self.matchingID = matchingID
         
         super.init(texture: texture, color: UIColor.clear, size: size)

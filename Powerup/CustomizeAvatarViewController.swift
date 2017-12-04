@@ -25,10 +25,10 @@ class CustomizeAvatarViewController: UIViewController {
     
     var dataSource: DataSource = DatabaseAccessor.sharedInstance
     
-    var chosenClothesIndex = 0
-    var chosenEyesIndex = 0
-    var chosenHairIndex = 0
-    var chosenFaceIndex = 0
+    @objc var chosenClothesIndex = 0
+    @objc var chosenEyesIndex = 0
+    @objc var chosenHairIndex = 0
+    @objc var chosenFaceIndex = 0
     
     // Get arrays of accessories.
     var clothes: [Accessory]!
@@ -36,7 +36,7 @@ class CustomizeAvatarViewController: UIViewController {
     var hairs: [Accessory]!
     var eyes: [Accessory]!
     
-    var confirming = false
+    @objc var confirming = false
     
     // MARK: Functions
     override func viewDidLoad() {
@@ -56,35 +56,35 @@ class CustomizeAvatarViewController: UIViewController {
         setSelectionButtons()
     }
     
-    func initializeAccessoryArrays() {
+    @objc func initializeAccessoryArrays() {
         clothes = dataSource.getAccessoryArray(accessoryType: .clothes).filter({a in return a.purchased})
         hairs = dataSource.getAccessoryArray(accessoryType: .hair).filter({a in return a.purchased})
         faces = dataSource.getAccessoryArray(accessoryType: .face).filter({a in return a.purchased})
         eyes = dataSource.getAccessoryArray(accessoryType: .eyes).filter({a in return a.purchased})
     }
     
-    func updateClothesImage() {
+    @objc func updateClothesImage() {
         avatar.clothes = clothes[chosenClothesIndex]
         
         let clothesImage = avatar.clothes.image
         customClothesView.image = clothesImage
     }
     
-    func updateEyesImage() {
+    @objc func updateEyesImage() {
         avatar.eyes = eyes[chosenEyesIndex]
         
         let eyesImage = avatar.eyes.image
         customEyesView.image = eyesImage
     }
     
-    func updateHairImage() {
+    @objc func updateHairImage() {
         avatar.hair = hairs[chosenHairIndex]
         
         let hairImage = avatar.hair.image
         customHairView.image = hairImage
     }
     
-    func updateFaceImage() {
+    @objc func updateFaceImage() {
         avatar.face = faces[chosenFaceIndex]
         
         let faceImage = avatar.face.image
@@ -92,7 +92,7 @@ class CustomizeAvatarViewController: UIViewController {
     }
     
     /** Save the avatar to the database. If successful, return true. Otherwise, return false. */
-    func saveAvatar() -> Bool {
+    @objc func saveAvatar() -> Bool {
         do {
             try dataSource.createAvatar(avatar)
         } catch _ {
@@ -197,7 +197,7 @@ class CustomizeAvatarViewController: UIViewController {
         confirming = false
     }
     
-    func setSelectionButtons(){
+    @objc func setSelectionButtons(){
         // left and right buttons should be disabled if there is only one item to be selected
         if(clothes.count > 1){
             self.clothesLeftButton.isEnabled = true

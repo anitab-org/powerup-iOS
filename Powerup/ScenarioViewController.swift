@@ -6,16 +6,16 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     var dataSource: DataSource = DatabaseAccessor.sharedInstance
     
     // current scenario, set by MapViewController
-    var scenarioID: Int = 0
-    var scenarioName: String = ""
+    @objc var scenarioID: Int = 0
+    @objc var scenarioName: String = ""
     
     // The background image of the view, set by MapViewController.
-    var backgroundImage: UIImage? = nil
+    @objc var backgroundImage: UIImage? = nil
 
     // Questions ([questionID : question]) for the scenario
     var questions = [Int:Question]()
-    var currQuestionID: Int = -1
-    var toMiniGameIndex: Int = 0
+    @objc var currQuestionID: Int = -1
+    @objc var toMiniGameIndex: Int = 0
     
     // Answers for the question
     var answers = [Answer]()
@@ -40,7 +40,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var hatView: UIImageView!
     
     // MARK: Functions
-    func resetQuestionAndChoices() {
+    @objc func resetQuestionAndChoices() {
         
         
         // Configure question description
@@ -71,7 +71,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     // Configures the accessories of the avatar.
-    func configureAvatar() {
+    @objc func configureAvatar() {
         let avatar: Avatar!
         
         do {
@@ -118,7 +118,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         resetQuestionAndChoices()
     }
     
-    func initializeQuestions() {
+    @objc func initializeQuestions() {
         // Fetch questions from database
         do {
             questions = try dataSource.getQuestions(of: scenarioID)
