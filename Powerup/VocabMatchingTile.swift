@@ -5,16 +5,16 @@ class VocabMatchingTile: SKSpriteNode {
     
     // MARK: Properties
     // The correct clipboard for this tile will have the same matching id.
-    var matchingID: Int
+    @objc var matchingID: Int
     
     // Which lane is the tile currently on.
-    var laneNumber: Int = -1
+    @objc var laneNumber: Int = -1
     
     // The description shown on the corresponding clipboard.
-    var descriptionText: String
+    @objc var descriptionText: String
     
     // MARK: Constructors
-    init(matchingID: Int, textureName: String, descriptionText: String, size: CGSize) {
+    @objc init(matchingID: Int, textureName: String, descriptionText: String, size: CGSize) {
         self.matchingID = matchingID
         self.descriptionText = descriptionText
         super.init(texture: SKTexture(imageNamed: textureName), color: UIColor.clear, size: size)

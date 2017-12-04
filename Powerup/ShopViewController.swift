@@ -2,15 +2,15 @@ import UIKit
 
 class ShopViewController: UIViewController {
     // MARK: Constants
-    let displayBoxCount = 6
-    let greyOutBoxImageName = "shop_unavailable_box"
-    let boxImageName = "shop_available_box"
+    @objc let displayBoxCount = 6
+    @objc let greyOutBoxImageName = "shop_unavailable_box"
+    @objc let boxImageName = "shop_available_box"
     
     // MARK: Properties
     var dataSource: DataSource = DatabaseAccessor.sharedInstance
     
     // The index of the first exhibition accessory.
-    var firstAccessoryIndex = 0
+    @objc var firstAccessoryIndex = 0
     
     // The score of the avatar.
     var score: Score!
@@ -92,7 +92,7 @@ class ShopViewController: UIViewController {
     }
     
     // Update the display boxes by a certain type of accessory and a start index.
-    func updateExhibition() {
+    @objc func updateExhibition() {
         // Hide prev button if startIndex is 0.
         if firstAccessoryIndex == 0 {
             prevButton.isHidden = true
@@ -174,7 +174,7 @@ class ShopViewController: UIViewController {
         try dataSource.boughtAccessory(accessory: accessory)
     }
     
-    func haveEnoughPointsToBuy(accessoryPrice: Int) -> Bool {
+    @objc func haveEnoughPointsToBuy(accessoryPrice: Int) -> Bool {
         
         // Show alert dialog if players are trying to buy items they can't afford.
         if score.karmaPoints < accessoryPrice {
@@ -188,14 +188,14 @@ class ShopViewController: UIViewController {
         return true
     }
     
-    func presentBuyingErrorDiaologue() {
+    @objc func presentBuyingErrorDiaologue() {
         let alert = UIAlertController(title: "Warning", message: "Error purchasing item, please retry this action. If that doesn't help, try restarting or reinstalling the app.", preferredStyle: .alert)
         let okButton = UIAlertAction(title: "OK", style: .default)
         alert.addAction(okButton)
         self.present(alert, animated: true, completion: nil)
     }
     
-    func updateAvatarImageView() {
+    @objc func updateAvatarImageView() {
         avatarHairView.image = avatar.hair.image
         avatarFaceView.image = avatar.face.image
         avatarEyesView.image = avatar.eyes.image

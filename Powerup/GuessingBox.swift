@@ -5,22 +5,22 @@ import SpriteKit
 class GuessingBox: SKSpriteNode {
     
     // MARK: Constants
-    let backsideTexture = SKTexture(imageNamed: "minesweeper_yellowstar_box")
-    let failureTexture = SKTexture(imageNamed: "minesweeper_redstar_box")
-    let successTexture = SKTexture(imageNamed: "minesweeper_greenstar_box")
+    @objc let backsideTexture = SKTexture(imageNamed: "minesweeper_yellowstar_box")
+    @objc let failureTexture = SKTexture(imageNamed: "minesweeper_redstar_box")
+    @objc let successTexture = SKTexture(imageNamed: "minesweeper_greenstar_box")
     
     // Animation constants.
-    let flipDuration = 0.6
+    @objc let flipDuration = 0.6
     
     // MARK: Properties
-    var xOfGrid: Int
-    var yOfGrid: Int
+    @objc var xOfGrid: Int
+    @objc var yOfGrid: Int
     
-    var onFrontSide: Bool = false
-    var isCorrect: Bool
+    @objc var onFrontSide: Bool = false
+    @objc var isCorrect: Bool
     
     // MARK: Constructors
-    init(xOfGrid: Int, yOfGrid: Int, isCorrect: Bool, size: CGSize) {
+    @objc init(xOfGrid: Int, yOfGrid: Int, isCorrect: Bool, size: CGSize) {
         self.xOfGrid = xOfGrid
         self.yOfGrid = yOfGrid
         self.isCorrect = isCorrect
@@ -37,7 +37,7 @@ class GuessingBox: SKSpriteNode {
       Flip the box with flipping animation
       - Parameter: The ending scaleX of the flip animation.
      */
-    func flip(scaleX: CGFloat, completion: @escaping () -> ()) {
+    @objc func flip(scaleX: CGFloat, completion: @escaping () -> ()) {
         // Animated
         let firstHalfFlip = SKAction.scaleX(to: 0.0, duration: flipDuration / 2.0)
         let secondHalfFlip = SKAction.scaleX(to: scaleX, duration: flipDuration / 2.0)
@@ -59,7 +59,7 @@ class GuessingBox: SKSpriteNode {
     }
     
     /** Change side without animation, could be used to reset the box. */
-    func changeSide() {
+    @objc func changeSide() {
         
         onFrontSide = !onFrontSide
         if onFrontSide {

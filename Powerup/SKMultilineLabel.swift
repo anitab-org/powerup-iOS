@@ -10,17 +10,17 @@ import SpriteKit
 class SKMultilineLabel: SKNode {
     
     // MARK: Properties
-    var labelWidth: Int { didSet {update()} }
-    var labelHeight: Int = 0
-    var text: String { didSet { update() } }
-    var fontName: String { didSet { update() } }
-    var fontSize: CGFloat { didSet { update() } }
-    var pos: CGPoint { didSet { update() } }
-    var fontColor: UIColor { didSet { update() } }
-    var leading: Int { didSet { update() } }
-    var alignment: SKLabelHorizontalAlignmentMode { didSet { update() } }
+    @objc var labelWidth: Int { didSet {update()} }
+    @objc var labelHeight: Int = 0
+    @objc var text: String { didSet { update() } }
+    @objc var fontName: String { didSet { update() } }
+    @objc var fontSize: CGFloat { didSet { update() } }
+    @objc var pos: CGPoint { didSet { update() } }
+    @objc var fontColor: UIColor { didSet { update() } }
+    @objc var leading: Int { didSet { update() } }
+    @objc var alignment: SKLabelHorizontalAlignmentMode { didSet { update() } }
     
-    var labels: [SKLabelNode] = []
+    @objc var labels: [SKLabelNode] = []
     
     // MARK: Constructor
     init(text: String, labelWidth: Int, pos: CGPoint, fontName: String, fontSize: CGFloat, fontColor: UIColor, leading: Int? = nil, alignment: SKLabelHorizontalAlignmentMode = .center) {
@@ -43,7 +43,7 @@ class SKMultilineLabel: SKNode {
     }
     
     // MARK: Functions
-    func update() {
+    @objc func update() {
         if (labels.count>0) {
             for label in labels {
                 label.removeFromParent()

@@ -11,11 +11,11 @@ enum MiniGameIndex: Int {
 class MiniGameViewController: UIViewController {
     
     // MARK: Properties
-    var completedScenarioID: Int = -1
+    @objc var completedScenarioID: Int = -1
     
     // Keep a reference of the background image so that result scene could use it. (This is being assigned by ScenarioViewController).
-    var scenarioBackgroundImage: UIImage? = nil
-    var scenarioName: String = ""
+    @objc var scenarioBackgroundImage: UIImage? = nil
+    @objc var scenarioName: String = ""
     
     // Will be assigned in the previous VC (ScenarioViewController).
     var gameIndex: MiniGameIndex = .unknown
@@ -63,7 +63,7 @@ class MiniGameViewController: UIViewController {
     }
     
     // Called by the mini game.
-    func endGame() {
+    @objc func endGame() {
         performSegue(withIdentifier: "toResultScene", sender: self)
     }
     

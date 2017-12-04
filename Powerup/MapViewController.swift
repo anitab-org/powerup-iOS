@@ -16,7 +16,7 @@ class MapViewController: UIViewController {
     
     // MARK: Properties
     var dataSource: DataSource = DatabaseAccessor.sharedInstance
-    var selectedScenarioName = ""
+    @objc var selectedScenarioName = ""
     
     // MARK: Views
     @IBOutlet var scenarioButtons: Array<UIButton>!
@@ -29,7 +29,7 @@ class MapViewController: UIViewController {
         unlockScenarios()
     }
     
-    func unlockScenarios() {
+    @objc func unlockScenarios() {
         
         // Check which scenarios are unlocked.
         for (index, button) in scenarioButtons.enumerated() {

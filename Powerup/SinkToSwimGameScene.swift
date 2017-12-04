@@ -17,9 +17,9 @@ class SinkToSwimGameScene: SKScene {
     ]
     
     // MARK: Constants
-    let sinkingSpeedRelativeToGauge = 0.025
+    @objc let sinkingSpeedRelativeToGauge = 0.025
     
-    let tutorialSceneImages = [
+    @objc let tutorialSceneImages = [
         "sink_to_swim_tutorial_1",
         "sink_to_swim_tutorial_2",
         "sink_to_swim_tutorial_3"
@@ -27,204 +27,204 @@ class SinkToSwimGameScene: SKScene {
     
     // Sprite Positioning and sizing (relative to the size of game scene).
     // Water Gauge
-    let waterGaugeWidth = 0.04
-    let waterGaugeHeight = 0.9
-    let waterGaugePosY = 0.5
-    let waterGaugePosX = 0.075
+    @objc let waterGaugeWidth = 0.04
+    @objc let waterGaugeHeight = 0.9
+    @objc let waterGaugePosY = 0.5
+    @objc let waterGaugePosX = 0.075
     
     // Avatar Boat
-    let avatarBoatWidth = 0.32
-    let avatarBoatHeight = 0.59
-    let avatarBoatPosY = 0.45
-    let avatarBoatPosX = 0.33
+    @objc let avatarBoatWidth = 0.32
+    @objc let avatarBoatHeight = 0.59
+    @objc let avatarBoatPosY = 0.45
+    @objc let avatarBoatPosX = 0.33
     
     // This pos Y will be in sync with the pointer of the water gauge.
-    let avatarBoatPosYToPointer = 0.5
+    @objc let avatarBoatPosYToPointer = 0.5
     
     // Score Label
-    let scoreLabelPosX = 0.73
-    let scoreLabelPosY = 0.08
+    @objc let scoreLabelPosX = 0.73
+    @objc let scoreLabelPosY = 0.08
     
     // Question and True/False Box
-    let questionBoxWidth = 0.38
-    let questionBoxHeight = 0.635
-    let questionBoxPosY = 0.46
-    let questionBoxPosX = 0.75
+    @objc let questionBoxWidth = 0.38
+    @objc let questionBoxHeight = 0.635
+    @objc let questionBoxPosY = 0.46
+    @objc let questionBoxPosX = 0.75
     
     // The following four are relative to question box.
-    let trueButtonWidth = 0.38
-    let trueButtonHeight = 0.17
-    let trueButtonPosY = -0.4
-    let trueButtonPosX = -0.3
+    @objc let trueButtonWidth = 0.38
+    @objc let trueButtonHeight = 0.17
+    @objc let trueButtonPosY = -0.4
+    @objc let trueButtonPosX = -0.3
     
     // The following four are relative to question box.
-    let falseButtonWidth = 0.43
-    let falseButtonHeight = 0.17
-    let falseButtonPosY = -0.4
-    let falseButtonPosX = 0.28
+    @objc let falseButtonWidth = 0.43
+    @objc let falseButtonHeight = 0.17
+    @objc let falseButtonPosY = -0.4
+    @objc let falseButtonPosX = 0.28
     
     // The following four are relative to question box.
-    let dontKnowButtonWidth = 0.1
-    let dontKnowButtonHeight = 0.17
-    let dontKnowButtonPosY = -0.4
-    let dontKnowButtonPosX = -0.03
+    @objc let dontKnowButtonWidth = 0.1
+    @objc let dontKnowButtonHeight = 0.17
+    @objc let dontKnowButtonPosY = -0.4
+    @objc let dontKnowButtonPosX = -0.03
     
     // The following four are relative to question box.
-    let questionLabelWidth = 0.84
-    let questionLabelPosY = 0.4
-    let questionLabelPosX = -0.02
-    let questionLabelLeading = 25
+    @objc let questionLabelWidth = 0.84
+    @objc let questionLabelPosY = 0.4
+    @objc let questionLabelPosX = -0.02
+    @objc let questionLabelLeading = 25
     
     // Water Gauge Pointer
-    let waterGaugePointerWidth = 0.1
-    let waterGaugePointerHeight = 0.065
+    @objc let waterGaugePointerWidth = 0.1
+    @objc let waterGaugePointerHeight = 0.065
     
     // The following two are relative to Water Gauge.
-    let waterGaugePointerPosX = 0.2
-    let waterGaugePointerPosY = 0.4
+    @objc let waterGaugePointerPosX = 0.2
+    @objc let waterGaugePointerPosY = 0.4
     
     // Timer Box
-    let timerWidth = 0.25
-    let timerHeight = 0.08
-    let timerPosY = 0.88
-    let timerPosX = 0.75
+    @objc let timerWidth = 0.25
+    @objc let timerHeight = 0.08
+    @objc let timerPosY = 0.88
+    @objc let timerPosX = 0.75
     
     // The following two are relative to Timer Box.
-    let timerLabelPosX = 0.15
-    let timerLabelPosY = 0.01
+    @objc let timerLabelPosX = 0.15
+    @objc let timerLabelPosY = 0.01
     
     // Correct/Wrong Icon. (Relative to Question Box)
-    let correctWrongIconWidth = 0.55
-    let correctWrongIconHeight = 0.53
-    let correctWrongIconPosY = 0.1
-    let correctWrongIconPosX = 0.0
+    @objc let correctWrongIconWidth = 0.55
+    @objc let correctWrongIconHeight = 0.53
+    @objc let correctWrongIconPosY = 0.1
+    @objc let correctWrongIconPosX = 0.0
     
     // End scene labels.
-    let endSceneCorrectLabelPosX = -0.01
-    let endSceneCorrectLabelPosY = -0.06
-    let endSceneWrongLabelPosX = 0.3
-    let endSceneWrongLabelPosY = -0.06
-    let endSceneScoreLabelPosX = -0.37
-    let endSceneScoreLabelPosY = -0.12
+    @objc let endSceneCorrectLabelPosX = -0.01
+    @objc let endSceneCorrectLabelPosY = -0.06
+    @objc let endSceneWrongLabelPosX = 0.3
+    @objc let endSceneWrongLabelPosY = -0.06
+    @objc let endSceneScoreLabelPosX = -0.37
+    @objc let endSceneScoreLabelPosY = -0.12
     
     // Continue button.
-    let continueButtonBottomMargin = 0.08
-    let continueButtonHeightRelativeToSceneHeight = 0.15
-    let continueButtonAspectRatio = 2.783
+    @objc let continueButtonBottomMargin = 0.08
+    @objc let continueButtonHeightRelativeToSceneHeight = 0.15
+    @objc let continueButtonAspectRatio = 2.783
     
     // The unit of water gauge (The pointer will increase this unit whenever a correct answer is chosen). This is relative to the height of Water Gauge.
-    let waterGaugeUnit = 0.13
+    @objc let waterGaugeUnit = 0.13
     
-    let waterGaugeMaxUnit = 0.42
-    let waterGaugeMinUnit = -0.4
+    @objc let waterGaugeMaxUnit = 0.42
+    @objc let waterGaugeMinUnit = -0.4
     
-    let PointerToBoatRatio = 0.5
+    @objc let PointerToBoatRatio = 0.5
     
     // Colors
-    let textColor = UIColor(colorLiteralRed: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
-    let correctColor = UIColor(colorLiteralRed: 105.0 / 255.0, green: 255.0 / 255.0, blue: 109.0 / 255.0, alpha: 1.0)
-    let wrongColor = UIColor(colorLiteralRed: 255.0 / 255.0, green: 105.0 / 255.0, blue: 105.0 / 255.0, alpha: 1.0)
-    let scoreTextColor = UIColor.white
+    @objc let textColor = UIColor(red: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
+    @objc let correctColor = UIColor(red: 105.0 / 255.0, green: 255.0 / 255.0, blue: 109.0 / 255.0, alpha: 1.0)
+    @objc let wrongColor = UIColor(red: 255.0 / 255.0, green: 105.0 / 255.0, blue: 105.0 / 255.0, alpha: 1.0)
+    @objc let scoreTextColor = UIColor.white
     
     // Fonts
-    let fontName = "Montserrat-Bold"
-    let questionFontSize = CGFloat(18)
-    let scoreFontSize = CGFloat(22)
-    let timerFontSize = CGFloat(17)
-    let endSceneCountFontSize = CGFloat(55)
-    let endSceneScoreFontSize = CGFloat(80)
+    @objc let fontName = "Montserrat-Bold"
+    @objc let questionFontSize = CGFloat(18)
+    @objc let scoreFontSize = CGFloat(22)
+    @objc let timerFontSize = CGFloat(17)
+    @objc let endSceneCountFontSize = CGFloat(55)
+    @objc let endSceneScoreFontSize = CGFloat(80)
     
     // Sprite nodes
-    let backgroundSprite = SKSpriteNode(imageNamed: "sink_to_swim_background")
-    let foregroundSprite = SKSpriteNode(imageNamed: "sink_to_swim_foreground")
-    let waterGaugeSprite = SKSpriteNode(imageNamed: "sink_to_swim_gauge")
-    let waterGaugePointerSprite = SKSpriteNode(imageNamed: "sink_to_swim_indicator")
-    let avatarBoatSprite = SKSpriteNode(imageNamed: "sink_to_swim_boat_avatar")
-    let timerSprite = SKSpriteNode(imageNamed: "sink_to_swim_timer")
-    let questionBoxSprite = SKSpriteNode(imageNamed: "sink_to_swim_true_false_box")
-    let trueButton = SKSpriteNode()
-    let falseButton = SKSpriteNode()
-    let dontKnowButton = SKSpriteNode()
-    let correctWrongSprite = SKSpriteNode()
-    let endSceneSprite = SKSpriteNode(imageNamed: "sink_to_swim_end_scene")
-    let continueButton = SKSpriteNode(imageNamed: "continue_button")
+    @objc let backgroundSprite = SKSpriteNode(imageNamed: "sink_to_swim_background")
+    @objc let foregroundSprite = SKSpriteNode(imageNamed: "sink_to_swim_foreground")
+    @objc let waterGaugeSprite = SKSpriteNode(imageNamed: "sink_to_swim_gauge")
+    @objc let waterGaugePointerSprite = SKSpriteNode(imageNamed: "sink_to_swim_indicator")
+    @objc let avatarBoatSprite = SKSpriteNode(imageNamed: "sink_to_swim_boat_avatar")
+    @objc let timerSprite = SKSpriteNode(imageNamed: "sink_to_swim_timer")
+    @objc let questionBoxSprite = SKSpriteNode(imageNamed: "sink_to_swim_true_false_box")
+    @objc let trueButton = SKSpriteNode()
+    @objc let falseButton = SKSpriteNode()
+    @objc let dontKnowButton = SKSpriteNode()
+    @objc let correctWrongSprite = SKSpriteNode()
+    @objc let endSceneSprite = SKSpriteNode(imageNamed: "sink_to_swim_end_scene")
+    @objc let continueButton = SKSpriteNode(imageNamed: "continue_button")
     
     // Textures
-    let correctIconTexture = SKTexture(imageNamed: "sink_to_swim_correct_icon")
-    let wrongIconTexture = SKTexture(imageNamed: "sink_to_swim_wrong_icon")
+    @objc let correctIconTexture = SKTexture(imageNamed: "sink_to_swim_correct_icon")
+    @objc let wrongIconTexture = SKTexture(imageNamed: "sink_to_swim_wrong_icon")
     
     // Labels
-    let scoreLabel = SKLabelNode()
-    let timerLabel = SKLabelNode()
-    let endSceneScoreLabel = SKLabelNode()
-    let endSceneCorrectCountLabel = SKLabelNode()
-    let endSceneWrongCountLabel = SKLabelNode()
+    @objc let scoreLabel = SKLabelNode()
+    @objc let timerLabel = SKLabelNode()
+    @objc let endSceneScoreLabel = SKLabelNode()
+    @objc let endSceneCorrectCountLabel = SKLabelNode()
+    @objc let endSceneWrongCountLabel = SKLabelNode()
     
     // Label wrapper nodes (For better control & positioning).
-    let scoreLabelWrapper = SKNode()
-    let timerLabelWrapper = SKNode()
-    let endSceneScoreLabelWrapper = SKNode()
-    let endSceneCorrectCountLabelWrapper = SKNode()
-    let endSceneWrongCountLabelWrapper = SKNode()
+    @objc let scoreLabelWrapper = SKNode()
+    @objc let timerLabelWrapper = SKNode()
+    @objc let endSceneScoreLabelWrapper = SKNode()
+    @objc let endSceneCorrectCountLabelWrapper = SKNode()
+    @objc let endSceneWrongCountLabelWrapper = SKNode()
     
-    let scoreLabelPrefix = "Score: "
+    @objc let scoreLabelPrefix = "Score: "
     
     // Layers (zPosition)
-    let backgroundLayer = CGFloat(-0.1)
-    let avatarBoatLayer = CGFloat(0.1)
-    let foregroundLayer = CGFloat(0.2)
-    let uiLayer = CGFloat(0.3)
-    let uiTextLayer = CGFloat(0.4)
-    let frontLayer = CGFloat(0.5)
-    let endSceneLayer = CGFloat(1.5)
-    let tutorialSceneLayer = CGFloat(5)
+    @objc let backgroundLayer = CGFloat(-0.1)
+    @objc let avatarBoatLayer = CGFloat(0.1)
+    @objc let foregroundLayer = CGFloat(0.2)
+    @objc let uiLayer = CGFloat(0.3)
+    @objc let uiTextLayer = CGFloat(0.4)
+    @objc let frontLayer = CGFloat(0.5)
+    @objc let endSceneLayer = CGFloat(1.5)
+    @objc let tutorialSceneLayer = CGFloat(5)
     
     // Animations
-    let questionFadeInTime = 0.3
-    let questionFadeOutTime = 0.2
-    let correctWrongSpriteStayTime = 0.5
-    let boatRaiseDuration = 0.4
-    let boatRotateAngle = 20.0
-    let boatRotateDuration = 4.0
-    let endScenePauseDuration = 1.0
-    let endSceneFadeInDuration = 1.0
+    @objc let questionFadeInTime = 0.3
+    @objc let questionFadeOutTime = 0.2
+    @objc let correctWrongSpriteStayTime = 0.5
+    @objc let boatRaiseDuration = 0.4
+    @objc let boatRotateAngle = 20.0
+    @objc let boatRotateDuration = 4.0
+    @objc let endScenePauseDuration = 1.0
+    @objc let endSceneFadeInDuration = 1.0
     
     // MARK: Properties
-    var questionLabel: SKMultilineLabel!
-    var tutorialScene: SKTutorialScene!
+    @objc var questionLabel: SKMultilineLabel!
+    @objc var tutorialScene: SKTutorialScene!
     
     // Only when the question is presented can the player choose the answer.
-    var questionPresented = false
+    @objc var questionPresented = false
     
     // Index of the current water level.
     var currWaterLevel: Int!
     
     // Index of the current question.
-    var currQuestion = -1
+    @objc var currQuestion = -1
     
     // Current score.
-    var score = 0
-    var wrongCount = 0
+    @objc var score = 0
+    @objc var wrongCount = 0
     
     // Current timer (Start counting down from this value).
-    var timer = 40
+    @objc var timer = 40
     
     // Disable buttons and update function if the game is over.
-    var isGameOver = false
+    @objc var isGameOver = false
     
     // Timestamp of the previous frame.
     var timestamp: Double? = nil
     
-    var raisingBoat = false
+    @objc var raisingBoat = false
     
     // To avoid sinking the boat while the game is in tutorial scene.
-    var inTutorial = true
+    @objc var inTutorial = true
     
     // Continue button is only interactable after the ending scene is fully faded in.
-    var continueButtonInteractable = false
+    @objc var continueButtonInteractable = false
     
     // Keep a reference to the view controller for end game transition. (This is assigned in the MiniGameViewController class).
-    var viewController: MiniGameViewController!
+    @objc var viewController: MiniGameViewController!
     
     // MARK: Constructors
     override init(size: CGSize) {
@@ -497,13 +497,13 @@ class SinkToSwimGameScene: SKScene {
     }
     
     // Tick the timer.
-    func tickTimer() {
+    @objc func tickTimer() {
         timer -= 1
         timerLabel.text = String(self.timer)
     }
     
     // Start animating the boat.
-    func startBoatWobblingAnimation() {
+    @objc func startBoatWobblingAnimation() {
         let deg2rad = .pi / 180.0
         
         let clockwiseRotation = SKAction.rotate(byAngle: CGFloat(-boatRotateAngle * deg2rad), duration: boatRotateDuration / 4.0)
@@ -517,7 +517,7 @@ class SinkToSwimGameScene: SKScene {
     }
     
     // Transition to game over scene. Determine the game is successful by whether the boat is drowned or not. (currently, the result is the same whether the game is successful or not. Just keep the "drowned" parameter so that future changes could be done easily.)
-    func gameOver(drowned: Bool) {
+    @objc func gameOver(drowned: Bool) {
         isGameOver = true
         
         // Stop the timer ticking animation.
@@ -541,7 +541,7 @@ class SinkToSwimGameScene: SKScene {
     }
     
     // Fade-in the next question.
-    func showNextQuestion() {
+    @objc func showNextQuestion() {
         currQuestion += 1
         
         // Configure the text.
