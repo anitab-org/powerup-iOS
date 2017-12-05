@@ -88,7 +88,7 @@ class VocabMatchingGameScene: SKScene {
     
     // Fonts
     let fontName = "Montserrat-Bold"
-    let fontColor = UIColor(colorLiteralRed: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
+    let fontColor = UIColor(red: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
     
     // Font size
     let clipboardFontSize = CGFloat(14)
