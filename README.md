@@ -4,7 +4,7 @@ PowerUp is an educational mobile game app that seeks to empower young girls to t
 and self-esteem by navigating the life of their Avatar!
 
 ## Setup for Developers
-1. Make sure you have Xcode IDE downloaded on your machine for software development for iOS. ![Show Me](https://github.com/g30r93g/powerup-iOS/blob/develop/Toolbar.jpg)
+1. Make sure you have Xcode IDE downloaded on your machine. This will allow you to develop for iOS. ![Show Me](https://github.com/g30r93g/powerup-iOS/blob/develop/Toolbar.jpg)
 
 2. Fork the systers project. Go to [Powerup-iOS](https://github.com/systers/powerup-iOS) and click on Fork. Fork the repo on your GitHub ID. Make sure that you don’t have any existing repos with the same name in your profile because conflicts will occur. ![Show Me](https://github.com/g30r93g/powerup-iOS/blob/develop/Screen%20Shot%202017-12-06%20at%2017.58.51.jpg)
 
