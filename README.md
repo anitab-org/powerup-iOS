@@ -4,17 +4,17 @@ PowerUp is an educational mobile game app that seeks to empower young girls to t
 and self-esteem by navigating the life of their Avatar!
 
 ## Setup for Developers
-1. Make sure you have Xcode IDE downloaded on your machine for software development for iOS. [Show Me](https://github.com/g30r93g/powerup-iOS/blob/develop/Toolbar.jpg)
+1. Make sure you have Xcode IDE downloaded on your machine for software development for iOS. ![Show Me](https://github.com/g30r93g/powerup-iOS/blob/develop/Toolbar.jpg)
 
-2. Fork the systers project. Go to [Powerup-iOS](https://github.com/systers/powerup-iOS) and click on Fork. Fork the repo on your GitHub ID. Make sure that you don’t have any existing repos with the same name in your profile because conflicts will occur. [Show Me](https://github.com/g30r93g/powerup-iOS/blob/develop/Screen%20Shot%202017-12-06%20at%2017.58.51.jpg)
+2. Fork the systers project. Go to [Powerup-iOS](https://github.com/systers/powerup-iOS) and click on Fork. Fork the repo on your GitHub ID. Make sure that you don’t have any existing repos with the same name in your profile because conflicts will occur. ![Show Me](https://github.com/g30r93g/powerup-iOS/blob/develop/Screen%20Shot%202017-12-06%20at%2017.58.51.jpg)
 
-3. Make sure you have installed [GitHub Desktop(for Mac)](https://desktop.github.com/). Open GitHub Desktop and click on 'Clone Repository' in File Menu. This will get a local copy on your system. [Show Me](https://github.com/g30r93g/powerup-iOS/blob/develop/Screen%20Shot%202017-12-06%20at%2017.34.27.jpg)
+3. Make sure you have installed [GitHub Desktop(for Mac)](https://desktop.github.com/). Open GitHub Desktop and click on 'Clone Repository' in File Menu. This will get a local copy on your system. ![Show Me](https://github.com/g30r93g/powerup-iOS/blob/develop/Screen%20Shot%202017-12-06%20at%2017.34.27.jpg)
 
-4. Get the path where you have your git repository on your machine. Go to that path in Terminal using cd. Alternatively, open GitHub Desktop and navigate to your desired branch. Then select 'Repository' and click 'Open In Terminal'. [Show Me](https://github.com/g30r93g/powerup-iOS/blob/develop/Screen%20Shot%202017-12-06%20at%2017.34.46.jpg).
-5. Execute the following in the terminal:
-git status
-git remote -v
-git merge systers/master
+4. Get the path where you have your git repository on your machine. Go to that path in Terminal using cd. Alternatively, open GitHub Desktop and navigate to your desired branch. Then select 'Repository' and click 'Open In Terminal'. ![Show Me](https://github.com/g30r93g/powerup-iOS/blob/develop/Screen%20Shot%202017-12-06%20at%2017.34.46.jpg).
+5. Execute the following in the Terminal:   
+git status  
+git remote -v   
+git merge systers/master  
 
 6. Project set-up is complete. For more details and additional git commands, [click here](https://docs.google.com/document/d/1N_-zmmjPn6D1H6wTdF4z66mFGT3af_FWbfGvLKkeY1w/edit#bookmark=id.lsmu7e8l1dnn).
 
