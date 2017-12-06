@@ -50,11 +50,13 @@ class ShopViewController: UIViewController {
     
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var prevButton: UIButton!
-    
+    let relativeFontConstant:CGFloat = 0.026
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        for label in buttonTexts {
+            label.font = label.font.withSize(self.view.frame.height * relativeFontConstant)
+        }
         // Fetch the accessory arrays from the database.
         accessories = dataSource.getAccessoryArray(accessoryType: .handbag)
         accessories.append(contentsOf: dataSource.getAccessoryArray(accessoryType: .glasses))
