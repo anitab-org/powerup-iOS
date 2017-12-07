@@ -50,11 +50,14 @@ class ShopViewController: UIViewController {
     
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var prevButton: UIButton!
-    
+    // As font size 9 works with 35 width in smaller iPhone. Dividing 9/35 gives 0.257, So, We take take .026 as relativeFontConstant.
+    let relativeFontConstant:CGFloat = 0.026
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        for label in buttonTexts {
+            label.font = label.font.withSize(self.view.frame.height * relativeFontConstant)
+        }
         // Fetch the accessory arrays from the database.
         accessories = dataSource.getAccessoryArray(accessoryType: .handbag)
         accessories.append(contentsOf: dataSource.getAccessoryArray(accessoryType: .glasses))
