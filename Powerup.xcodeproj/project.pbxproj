@@ -7,41 +7,55 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A057D5E1B50F26E009CD214 /* Choices-SecondScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A057D5D1B50F26E009CD214 /* Choices-SecondScreen.swift */; };
 		2A0CA5551B294C6B00ED8781 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0CA5541B294C6B00ED8781 /* AppDelegate.swift */; };
-		2A0CA5571B294C6B00ED8781 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0CA5561B294C6B00ED8781 /* ViewController.swift */; };
+		2A0CA5571B294C6B00ED8781 /* ScenarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0CA5561B294C6B00ED8781 /* ScenarioViewController.swift */; };
 		2A0CA55A1B294C6B00ED8781 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A0CA5581B294C6B00ED8781 /* Main.storyboard */; };
 		2A0CA55C1B294C6B00ED8781 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A0CA55B1B294C6B00ED8781 /* Images.xcassets */; };
 		2A0CA55F1B294C6B00ED8781 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A0CA55D1B294C6B00ED8781 /* LaunchScreen.xib */; };
-		2A0CA56B1B294C6B00ED8781 /* PowerupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0CA56A1B294C6B00ED8781 /* PowerupTests.swift */; };
 		2A0CA5751B294C9200ED8781 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A0CA5741B294C9200ED8781 /* libsqlite3.dylib */; };
-		2A0FEF611B52A7E400E28079 /* Choices-SixthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0FEF601B52A7E400E28079 /* Choices-SixthScreen.swift */; };
-		2A271E6D1D075CEC008B0689 /* CustomizeAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A271E6C1D075CEC008B0689 /* CustomizeAvatar.swift */; };
-		2A2A4DB71B373C5B00D50860 /* StartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A4DB61B373C5B00D50860 /* StartScreen.swift */; };
-		2A3530631B6617DB00F9E5DF /* Choices-EndScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3530621B6617DB00F9E5DF /* Choices-EndScreen.swift */; };
-		2A4AED701B77877C00268B6B /* Scene4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4AED6F1B77877C00268B6B /* Scene4.swift */; };
-		2A4AED721B778A2400268B6B /* Scene5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4AED711B778A2400268B6B /* Scene5.swift */; };
-		2A4AED741B778AF400268B6B /* Scene7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4AED731B778AF400268B6B /* Scene7.swift */; };
-		2A4AED761B77950B00268B6B /* Scene6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4AED751B77950B00268B6B /* Scene6.swift */; };
+		2A2A4DB71B373C5B00D50860 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2A4DB61B373C5B00D50860 /* StartViewController.swift */; };
 		2A5B28371D3E6E6300308F78 /* mainDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */; };
-		2A68C3DB1B2EA28700E2FAE8 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A68C3DA1B2EA28700E2FAE8 /* SecondViewController.swift */; };
-		2A8962311B386AB2009B2338 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8962301B386AB2009B2338 /* MapScreen.swift */; };
-		2A8D2E071D17CDF700154F98 /* Accessories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8D2E061D17CDF700154F98 /* Accessories.swift */; };
-		2A93D8711B2F4DFE00AE4824 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A93D8701B2F4DFE00AE4824 /* ThirdViewController.swift */; };
-		2A992EE11B513B9A00E9AF04 /* Choices-ThirdScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A992EE01B513B9A00E9AF04 /* Choices-ThirdScreen.swift */; };
-		2A992EE31B5174D000E9AF04 /* Choices-FourthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A992EE21B5174D000E9AF04 /* Choices-FourthScreen.swift */; };
-		2A992EE51B51758F00E9AF04 /* Choices-FifthScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A992EE41B51758F00E9AF04 /* Choices-FifthScreen.swift */; };
-		2A99DDB91D15DAB300ABEF45 /* DressingRoom2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A99DDB81D15DAB300ABEF45 /* DressingRoom2.swift */; };
-		2AAEE53E1B48303500885044 /* Choices-FirstScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAEE53D1B48303500885044 /* Choices-FirstScreen.swift */; };
-		2AB2B8971D3B5B7C005663EB /* Choices.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 2AAEE5391B482E4600885044 /* Choices.sqlite */; };
+		2A8D2E071D17CDF700154F98 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A8D2E061D17CDF700154F98 /* ShopViewController.swift */; };
 		2AD1A1E71B2B1ADA00BCA94D /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD1A1E61B2B1ADA00BCA94D /* ModelManager.swift */; };
-		2AD5A1B41D1C473800CE0DF2 /* Clothes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5A1B31D1C473800CE0DF2 /* Clothes.swift */; };
-		2AD5A1B61D1C521A00CE0DF2 /* Hair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5A1B51D1C521A00CE0DF2 /* Hair.swift */; };
 		2AF82A8D1B4BA74A00307BED /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A831B4BA74A00307BED /* FMDatabase.m */; };
 		2AF82A8E1B4BA74A00307BED /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A851B4BA74A00307BED /* FMDatabaseAdditions.m */; };
 		2AF82A8F1B4BA74A00307BED /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A871B4BA74A00307BED /* FMDatabasePool.m */; };
 		2AF82A901B4BA74A00307BED /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A891B4BA74A00307BED /* FMDatabaseQueue.m */; };
 		2AF82A911B4BA74A00307BED /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A8C1B4BA74A00307BED /* FMResultSet.m */; };
+		D910FF191F04AB3200C444DA /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF181F04AB3200C444DA /* DataSource.swift */; };
+		D910FF1F1F04DD4F00C444DA /* ResultViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF1E1F04DD4F00C444DA /* ResultViewControllerTests.swift */; };
+		D910FF211F05E22400C444DA /* ScenarioViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF201F05E22400C444DA /* ScenarioViewControllerTests.swift */; };
+		D910FF231F05FF5E00C444DA /* CustomizeAvatarViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF221F05FF5E00C444DA /* CustomizeAvatarViewControllerTests.swift */; };
+		D910FF251F06304F00C444DA /* DatabaseAccessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF241F06304F00C444DA /* DatabaseAccessorTests.swift */; };
+		D9381DB11EF773B2000AC2B5 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D9381DB01EF773B2000AC2B5 /* Montserrat-Bold.otf */; };
+		D959CBC71EE6430E00C31753 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D959CBC61EE6430E00C31753 /* Answer.swift */; };
+		D959CBC91EE643F400C31753 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D959CBC81EE643F400C31753 /* Avatar.swift */; };
+		D959CBCB1EE6481100C31753 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = D959CBCA1EE6481100C31753 /* Question.swift */; };
+		D959CBCD1EE6489100C31753 /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = D959CBCC1EE6489100C31753 /* Scenario.swift */; };
+		D959CBCF1EE6491800C31753 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = D959CBCE1EE6491800C31753 /* Score.swift */; };
+		D959CBD31EE64A3A00C31753 /* DatabaseAccessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D959CBD21EE64A3A00C31753 /* DatabaseAccessor.swift */; };
+		D95B03CC1EDE7470001DB858 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95B03CB1EDE7470001DB858 /* MapViewController.swift */; };
+		D95B03CE1EDEA680001DB858 /* MiniGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95B03CD1EDEA680001DB858 /* MiniGameViewController.swift */; };
+		D95BBB801F4A911D00E0E620 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95BBB7F1F4A911D00E0E620 /* AboutViewController.swift */; };
+		D96944AF1F2EE97900FBE0E4 /* SKTutorialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96944AE1F2EE97900FBE0E4 /* SKTutorialScene.swift */; };
+		D969D26C1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D969D26B1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift */; };
+		D984D3011F0F598C0006270D /* SinkToSwimGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D984D3001F0F598C0006270D /* SinkToSwimGameScene.swift */; };
+		D984D3031F0F59A40006270D /* SinkToSwimQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D984D3021F0F59A40006270D /* SinkToSwimQuestion.swift */; };
+		D984D3051F0F59BA0006270D /* SKMultilineLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D984D3041F0F59BA0006270D /* SKMultilineLabel.swift */; };
+		D984E4D61F4A95A400A06204 /* CustomizeAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D984E4D51F4A95A400A06204 /* CustomizeAvatarViewController.swift */; };
+		D9970C7C1F00998300960B52 /* MinesweeperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9970C7B1F00998300960B52 /* MinesweeperTests.swift */; };
+		D9A1572E1F0A205200B3A51B /* DatabaseEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A1572D1F0A205200B3A51B /* DatabaseEntryTests.swift */; };
+		D9AAA9C41EF2335F00287A79 /* MinesweeperGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AAA9C31EF2335F00287A79 /* MinesweeperGameScene.swift */; };
+		D9AAA9C61EF2481900287A79 /* GuessingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AAA9C51EF2481900287A79 /* GuessingBox.swift */; };
+		D9AAA9C91EF25E4600287A79 /* ShuffleArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AAA9C81EF25E4600287A79 /* ShuffleArrayExtension.swift */; };
+		D9D10A401EE130BD003584F4 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D10A3F1EE130BD003584F4 /* ResultsViewController.swift */; };
+		D9DD913E1F0363DF009DE3B5 /* ModelClassTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DD913D1F0363DF009DE3B5 /* ModelClassTests.swift */; };
+		D9E190A61EE952CD00109F39 /* Accessory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E190A51EE952CD00109F39 /* Accessory.swift */; };
+		D9E74B791F1F149400A42B7E /* VocabMatchingGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E74B781F1F149400A42B7E /* VocabMatchingGameScene.swift */; };
+		D9E74B7B1F1F14ED00A42B7E /* VocabMatchingClipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E74B7A1F1F14ED00A42B7E /* VocabMatchingClipboard.swift */; };
+		D9E74B7F1F1F1AF800A42B7E /* VocabMatchingTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E74B7E1F1F1AF800A42B7E /* VocabMatchingTile.swift */; };
+		D9E922E71F1C9FFA0091D8BB /* SinkToSwimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E922E61F1C9FFA0091D8BB /* SinkToSwimTests.swift */; };
+		D9EEC4551F2A1A230037C745 /* VocabMatchingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EEC4541F2A1A230037C745 /* VocabMatchingTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,41 +81,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2A057D5D1B50F26E009CD214 /* Choices-SecondScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-SecondScreen.swift"; sourceTree = "<group>"; };
 		2A0CA54F1B294C6B00ED8781 /* Powerup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Powerup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A0CA5531B294C6B00ED8781 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A0CA5541B294C6B00ED8781 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2A0CA5561B294C6B00ED8781 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2A0CA5561B294C6B00ED8781 /* ScenarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioViewController.swift; sourceTree = "<group>"; };
 		2A0CA5591B294C6B00ED8781 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2A0CA55B1B294C6B00ED8781 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2A0CA55E1B294C6B00ED8781 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		2A0CA5641B294C6B00ED8781 /* PowerupTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PowerupTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A0CA5691B294C6B00ED8781 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2A0CA56A1B294C6B00ED8781 /* PowerupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerupTests.swift; sourceTree = "<group>"; };
 		2A0CA5741B294C9200ED8781 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsqlite3.dylib; sourceTree = "<group>"; };
 		2A0CA5761B29E83500ED8781 /* Powerup-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Powerup-Bridging-Header.h"; sourceTree = "<group>"; };
-		2A0FEF601B52A7E400E28079 /* Choices-SixthScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-SixthScreen.swift"; sourceTree = "<group>"; };
 		2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = mainDatabase.sqlite; path = Scenarios/mainDatabase.sqlite; sourceTree = "<group>"; };
-		2A271E6C1D075CEC008B0689 /* CustomizeAvatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizeAvatar.swift; sourceTree = "<group>"; };
-		2A2A4DB61B373C5B00D50860 /* StartScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScreen.swift; sourceTree = "<group>"; };
-		2A3530621B6617DB00F9E5DF /* Choices-EndScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-EndScreen.swift"; sourceTree = "<group>"; };
-		2A4AED6F1B77877C00268B6B /* Scene4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene4.swift; sourceTree = "<group>"; };
-		2A4AED711B778A2400268B6B /* Scene5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene5.swift; sourceTree = "<group>"; };
-		2A4AED731B778AF400268B6B /* Scene7.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene7.swift; sourceTree = "<group>"; };
-		2A4AED751B77950B00268B6B /* Scene6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene6.swift; sourceTree = "<group>"; };
-		2A68C3DA1B2EA28700E2FAE8 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		2A8962301B386AB2009B2338 /* MapScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
-		2A8D2E061D17CDF700154F98 /* Accessories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accessories.swift; sourceTree = "<group>"; };
-		2A93D8701B2F4DFE00AE4824 /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
-		2A992EE01B513B9A00E9AF04 /* Choices-ThirdScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-ThirdScreen.swift"; sourceTree = "<group>"; };
-		2A992EE21B5174D000E9AF04 /* Choices-FourthScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-FourthScreen.swift"; sourceTree = "<group>"; };
-		2A992EE41B51758F00E9AF04 /* Choices-FifthScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-FifthScreen.swift"; sourceTree = "<group>"; };
-		2A99DDB81D15DAB300ABEF45 /* DressingRoom2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DressingRoom2.swift; sourceTree = "<group>"; };
-		2AAEE5391B482E4600885044 /* Choices.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = Choices.sqlite; path = Scenarios/Choices.sqlite; sourceTree = "<group>"; };
-		2AAEE53D1B48303500885044 /* Choices-FirstScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices-FirstScreen.swift"; sourceTree = "<group>"; };
+		2A2A4DB61B373C5B00D50860 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		2A8D2E061D17CDF700154F98 /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		2AD1A1E61B2B1ADA00BCA94D /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
-		2AD5A1B31D1C473800CE0DF2 /* Clothes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clothes.swift; sourceTree = "<group>"; };
-		2AD5A1B51D1C521A00CE0DF2 /* Hair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hair.swift; sourceTree = "<group>"; };
 		2AF82A821B4BA74A00307BED /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = FMDB/FMDatabase.h; sourceTree = "<group>"; };
 		2AF82A831B4BA74A00307BED /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = FMDB/FMDatabase.m; sourceTree = "<group>"; };
 		2AF82A841B4BA74A00307BED /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = FMDB/FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -113,6 +107,40 @@
 		2AF82A8A1B4BA74A00307BED /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = FMDB/FMDB.h; sourceTree = "<group>"; };
 		2AF82A8B1B4BA74A00307BED /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = FMDB/FMResultSet.h; sourceTree = "<group>"; };
 		2AF82A8C1B4BA74A00307BED /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = FMDB/FMResultSet.m; sourceTree = "<group>"; };
+		D910FF181F04AB3200C444DA /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		D910FF1E1F04DD4F00C444DA /* ResultViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewControllerTests.swift; sourceTree = "<group>"; };
+		D910FF201F05E22400C444DA /* ScenarioViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioViewControllerTests.swift; sourceTree = "<group>"; };
+		D910FF221F05FF5E00C444DA /* CustomizeAvatarViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizeAvatarViewControllerTests.swift; sourceTree = "<group>"; };
+		D910FF241F06304F00C444DA /* DatabaseAccessorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseAccessorTests.swift; sourceTree = "<group>"; };
+		D9381DB01EF773B2000AC2B5 /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
+		D959CBC61EE6430E00C31753 /* Answer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		D959CBC81EE643F400C31753 /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
+		D959CBCA1EE6481100C31753 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		D959CBCC1EE6489100C31753 /* Scenario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scenario.swift; sourceTree = "<group>"; };
+		D959CBCE1EE6491800C31753 /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		D959CBD21EE64A3A00C31753 /* DatabaseAccessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseAccessor.swift; sourceTree = "<group>"; };
+		D95B03CB1EDE7470001DB858 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		D95B03CD1EDEA680001DB858 /* MiniGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniGameViewController.swift; sourceTree = "<group>"; };
+		D95BBB7F1F4A911D00E0E620 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		D96944AE1F2EE97900FBE0E4 /* SKTutorialScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SKTutorialScene.swift; path = ../SKTutorialScene.swift; sourceTree = "<group>"; };
+		D969D26B1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FMResultSetNullCheckExtension.swift; sourceTree = "<group>"; };
+		D984D3001F0F598C0006270D /* SinkToSwimGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinkToSwimGameScene.swift; sourceTree = "<group>"; };
+		D984D3021F0F59A40006270D /* SinkToSwimQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinkToSwimQuestion.swift; sourceTree = "<group>"; };
+		D984D3041F0F59BA0006270D /* SKMultilineLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKMultilineLabel.swift; sourceTree = "<group>"; };
+		D984E4D51F4A95A400A06204 /* CustomizeAvatarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomizeAvatarViewController.swift; sourceTree = "<group>"; };
+		D9970C7B1F00998300960B52 /* MinesweeperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperTests.swift; sourceTree = "<group>"; };
+		D9A1572D1F0A205200B3A51B /* DatabaseEntryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseEntryTests.swift; sourceTree = "<group>"; };
+		D9AAA9C31EF2335F00287A79 /* MinesweeperGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperGameScene.swift; sourceTree = "<group>"; };
+		D9AAA9C51EF2481900287A79 /* GuessingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuessingBox.swift; sourceTree = "<group>"; };
+		D9AAA9C81EF25E4600287A79 /* ShuffleArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShuffleArrayExtension.swift; path = ../ShuffleArrayExtension.swift; sourceTree = "<group>"; };
+		D9D10A3F1EE130BD003584F4 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		D9DD913D1F0363DF009DE3B5 /* ModelClassTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelClassTests.swift; sourceTree = "<group>"; };
+		D9E190A51EE952CD00109F39 /* Accessory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Accessory.swift; sourceTree = "<group>"; };
+		D9E74B781F1F149400A42B7E /* VocabMatchingGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabMatchingGameScene.swift; sourceTree = "<group>"; };
+		D9E74B7A1F1F14ED00A42B7E /* VocabMatchingClipboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabMatchingClipboard.swift; sourceTree = "<group>"; };
+		D9E74B7E1F1F1AF800A42B7E /* VocabMatchingTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabMatchingTile.swift; sourceTree = "<group>"; };
+		D9E922E61F1C9FFA0091D8BB /* SinkToSwimTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinkToSwimTests.swift; sourceTree = "<group>"; };
+		D9EEC4541F2A1A230037C745 /* VocabMatchingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabMatchingTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +169,7 @@
 				2AD1A1E61B2B1ADA00BCA94D /* ModelManager.swift */,
 				2A0CA5741B294C9200ED8781 /* libsqlite3.dylib */,
 				2A0CA5761B29E83500ED8781 /* Powerup-Bridging-Header.h */,
-				2A259E3C1CE8ECFE00AC1CF7 /* Scenarios */,
+				2A259E3C1CE8ECFE00AC1CF7 /* Database */,
 				2A0CA5511B294C6B00ED8781 /* Powerup */,
 				2A0CA5671B294C6B00ED8781 /* PowerupTests */,
 				2A0CA5501B294C6B00ED8781 /* Products */,
@@ -160,32 +188,22 @@
 		2A0CA5511B294C6B00ED8781 /* Powerup */ = {
 			isa = PBXGroup;
 			children = (
+				D9381DB21EF773B9000AC2B5 /* Font */,
+				D9AAA9C71EF25E2700287A79 /* Extensions */,
+				D9E74B771F1F145900A42B7E /* Vocab Matching Game */,
+				D9AAA99E1EF21C3D00287A79 /* Mine Sweeper Game */,
+				D984D2FF1F0F596E0006270D /* Sink to Swim Game */,
+				D96944AE1F2EE97900FBE0E4 /* SKTutorialScene.swift */,
+				D910FF181F04AB3200C444DA /* DataSource.swift */,
+				D959CBD21EE64A3A00C31753 /* DatabaseAccessor.swift */,
+				D984D3041F0F59BA0006270D /* SKMultilineLabel.swift */,
+				D959CBC51EE642BE00C31753 /* Data Models */,
+				D956495E1EDFB20A008D5675 /* View Controllers */,
 				2A0CA5541B294C6B00ED8781 /* AppDelegate.swift */,
-				2A0CA5561B294C6B00ED8781 /* ViewController.swift */,
-				2A68C3DA1B2EA28700E2FAE8 /* SecondViewController.swift */,
 				2A0CA5581B294C6B00ED8781 /* Main.storyboard */,
-				2A4AED751B77950B00268B6B /* Scene6.swift */,
-				2AD5A1B31D1C473800CE0DF2 /* Clothes.swift */,
-				2A271E6C1D075CEC008B0689 /* CustomizeAvatar.swift */,
-				2A4AED731B778AF400268B6B /* Scene7.swift */,
-				2A8D2E061D17CDF700154F98 /* Accessories.swift */,
-				2A99DDB81D15DAB300ABEF45 /* DressingRoom2.swift */,
-				2A4AED711B778A2400268B6B /* Scene5.swift */,
-				2A4AED6F1B77877C00268B6B /* Scene4.swift */,
-				2AD5A1B51D1C521A00CE0DF2 /* Hair.swift */,
-				2A3530621B6617DB00F9E5DF /* Choices-EndScreen.swift */,
-				2A0FEF601B52A7E400E28079 /* Choices-SixthScreen.swift */,
-				2A992EE41B51758F00E9AF04 /* Choices-FifthScreen.swift */,
-				2A992EE21B5174D000E9AF04 /* Choices-FourthScreen.swift */,
-				2A992EE01B513B9A00E9AF04 /* Choices-ThirdScreen.swift */,
-				2A057D5D1B50F26E009CD214 /* Choices-SecondScreen.swift */,
-				2A8962301B386AB2009B2338 /* MapScreen.swift */,
-				2A93D8701B2F4DFE00AE4824 /* ThirdViewController.swift */,
 				2A0CA55B1B294C6B00ED8781 /* Images.xcassets */,
 				2A0CA55D1B294C6B00ED8781 /* LaunchScreen.xib */,
 				2A0CA5521B294C6B00ED8781 /* Supporting Files */,
-				2A2A4DB61B373C5B00D50860 /* StartScreen.swift */,
-				2AAEE53D1B48303500885044 /* Choices-FirstScreen.swift */,
 			);
 			path = Powerup;
 			sourceTree = "<group>";
@@ -201,7 +219,15 @@
 		2A0CA5671B294C6B00ED8781 /* PowerupTests */ = {
 			isa = PBXGroup;
 			children = (
-				2A0CA56A1B294C6B00ED8781 /* PowerupTests.swift */,
+				D9EEC4541F2A1A230037C745 /* VocabMatchingTests.swift */,
+				D9E922E61F1C9FFA0091D8BB /* SinkToSwimTests.swift */,
+				D9A1572D1F0A205200B3A51B /* DatabaseEntryTests.swift */,
+				D910FF241F06304F00C444DA /* DatabaseAccessorTests.swift */,
+				D910FF221F05FF5E00C444DA /* CustomizeAvatarViewControllerTests.swift */,
+				D910FF201F05E22400C444DA /* ScenarioViewControllerTests.swift */,
+				D910FF1E1F04DD4F00C444DA /* ResultViewControllerTests.swift */,
+				D9DD913D1F0363DF009DE3B5 /* ModelClassTests.swift */,
+				D9970C7B1F00998300960B52 /* MinesweeperTests.swift */,
 				2A0CA5681B294C6B00ED8781 /* Supporting Files */,
 			);
 			path = PowerupTests;
@@ -215,13 +241,12 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2A259E3C1CE8ECFE00AC1CF7 /* Scenarios */ = {
+		2A259E3C1CE8ECFE00AC1CF7 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				2AAEE5391B482E4600885044 /* Choices.sqlite */,
 				2A2322DA1B2C5EB200F3F6D4 /* mainDatabase.sqlite */,
 			);
-			name = Scenarios;
+			name = Database;
 			sourceTree = "<group>";
 		};
 		2AC905691CDB445B00FFA856 /* FMDB */ = {
@@ -240,6 +265,79 @@
 				2AF82A8B1B4BA74A00307BED /* FMResultSet.h */,
 			);
 			name = FMDB;
+			sourceTree = "<group>";
+		};
+		D9381DB21EF773B9000AC2B5 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				D9381DB01EF773B2000AC2B5 /* Montserrat-Bold.otf */,
+			);
+			name = Font;
+			sourceTree = "<group>";
+		};
+		D956495E1EDFB20A008D5675 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2A2A4DB61B373C5B00D50860 /* StartViewController.swift */,
+				2A8D2E061D17CDF700154F98 /* ShopViewController.swift */,
+				D984E4D51F4A95A400A06204 /* CustomizeAvatarViewController.swift */,
+				D95B03CB1EDE7470001DB858 /* MapViewController.swift */,
+				2A0CA5561B294C6B00ED8781 /* ScenarioViewController.swift */,
+				D95B03CD1EDEA680001DB858 /* MiniGameViewController.swift */,
+				D9D10A3F1EE130BD003584F4 /* ResultsViewController.swift */,
+				D95BBB7F1F4A911D00E0E620 /* AboutViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D959CBC51EE642BE00C31753 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				D959CBC61EE6430E00C31753 /* Answer.swift */,
+				D959CBC81EE643F400C31753 /* Avatar.swift */,
+				D959CBCA1EE6481100C31753 /* Question.swift */,
+				D959CBCC1EE6489100C31753 /* Scenario.swift */,
+				D959CBCE1EE6491800C31753 /* Score.swift */,
+				D9E190A51EE952CD00109F39 /* Accessory.swift */,
+			);
+			name = "Data Models";
+			sourceTree = "<group>";
+		};
+		D984D2FF1F0F596E0006270D /* Sink to Swim Game */ = {
+			isa = PBXGroup;
+			children = (
+				D984D3001F0F598C0006270D /* SinkToSwimGameScene.swift */,
+				D984D3021F0F59A40006270D /* SinkToSwimQuestion.swift */,
+			);
+			name = "Sink to Swim Game";
+			sourceTree = "<group>";
+		};
+		D9AAA99E1EF21C3D00287A79 /* Mine Sweeper Game */ = {
+			isa = PBXGroup;
+			children = (
+				D9AAA9C31EF2335F00287A79 /* MinesweeperGameScene.swift */,
+				D9AAA9C51EF2481900287A79 /* GuessingBox.swift */,
+			);
+			name = "Mine Sweeper Game";
+			sourceTree = "<group>";
+		};
+		D9AAA9C71EF25E2700287A79 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D9AAA9C81EF25E4600287A79 /* ShuffleArrayExtension.swift */,
+				D969D26B1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		D9E74B771F1F145900A42B7E /* Vocab Matching Game */ = {
+			isa = PBXGroup;
+			children = (
+				D9E74B781F1F149400A42B7E /* VocabMatchingGameScene.swift */,
+				D9E74B7A1F1F14ED00A42B7E /* VocabMatchingClipboard.swift */,
+				D9E74B7E1F1F1AF800A42B7E /* VocabMatchingTile.swift */,
+			);
+			name = "Vocab Matching Game";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,17 +387,17 @@
 			attributes = {
 				LastSwiftMigration = 0730;
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = Systers;
 				TargetAttributes = {
 					2A0CA54E1B294C6B00ED8781 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = D96FAZJH3E;
+						DevelopmentTeam = YUWPSE2UN9;
 						LastSwiftMigration = 0800;
 					};
 					2A0CA5631B294C6B00ED8781 = {
 						CreatedOnToolsVersion = 6.3.2;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0830;
 						TestTargetID = 2A0CA54E1B294C6B00ED8781;
 					};
 				};
@@ -328,8 +426,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9381DB11EF773B2000AC2B5 /* Montserrat-Bold.otf in Resources */,
 				2A5B28371D3E6E6300308F78 /* mainDatabase.sqlite in Resources */,
-				2AB2B8971D3B5B7C005663EB /* Choices.sqlite in Resources */,
 				2A0CA55A1B294C6B00ED8781 /* Main.storyboard in Resources */,
 				2A0CA55F1B294C6B00ED8781 /* LaunchScreen.xib in Resources */,
 				2A0CA55C1B294C6B00ED8781 /* Images.xcassets in Resources */,
@@ -350,34 +448,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AD5A1B41D1C473800CE0DF2 /* Clothes.swift in Sources */,
-				2AAEE53E1B48303500885044 /* Choices-FirstScreen.swift in Sources */,
-				2A992EE11B513B9A00E9AF04 /* Choices-ThirdScreen.swift in Sources */,
-				2A271E6D1D075CEC008B0689 /* CustomizeAvatar.swift in Sources */,
-				2A2A4DB71B373C5B00D50860 /* StartScreen.swift in Sources */,
-				2A8962311B386AB2009B2338 /* MapScreen.swift in Sources */,
-				2A992EE51B51758F00E9AF04 /* Choices-FifthScreen.swift in Sources */,
-				2A4AED721B778A2400268B6B /* Scene5.swift in Sources */,
-				2A4AED741B778AF400268B6B /* Scene7.swift in Sources */,
-				2AD5A1B61D1C521A00CE0DF2 /* Hair.swift in Sources */,
+				2A2A4DB71B373C5B00D50860 /* StartViewController.swift in Sources */,
+				D9E74B7B1F1F14ED00A42B7E /* VocabMatchingClipboard.swift in Sources */,
 				2AF82A8D1B4BA74A00307BED /* FMDatabase.m in Sources */,
-				2A0CA5571B294C6B00ED8781 /* ViewController.swift in Sources */,
+				D96944AF1F2EE97900FBE0E4 /* SKTutorialScene.swift in Sources */,
+				D984D3051F0F59BA0006270D /* SKMultilineLabel.swift in Sources */,
+				D959CBCB1EE6481100C31753 /* Question.swift in Sources */,
+				D959CBC91EE643F400C31753 /* Avatar.swift in Sources */,
+				2A0CA5571B294C6B00ED8781 /* ScenarioViewController.swift in Sources */,
 				2AF82A901B4BA74A00307BED /* FMDatabaseQueue.m in Sources */,
 				2AF82A911B4BA74A00307BED /* FMResultSet.m in Sources */,
-				2A992EE31B5174D000E9AF04 /* Choices-FourthScreen.swift in Sources */,
 				2AF82A8F1B4BA74A00307BED /* FMDatabasePool.m in Sources */,
-				2A8D2E071D17CDF700154F98 /* Accessories.swift in Sources */,
-				2A4AED761B77950B00268B6B /* Scene6.swift in Sources */,
-				2A0FEF611B52A7E400E28079 /* Choices-SixthScreen.swift in Sources */,
+				D959CBC71EE6430E00C31753 /* Answer.swift in Sources */,
+				2A8D2E071D17CDF700154F98 /* ShopViewController.swift in Sources */,
+				D9AAA9C61EF2481900287A79 /* GuessingBox.swift in Sources */,
+				D9D10A401EE130BD003584F4 /* ResultsViewController.swift in Sources */,
+				D959CBCD1EE6489100C31753 /* Scenario.swift in Sources */,
+				D969D26C1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift in Sources */,
+				D959CBCF1EE6491800C31753 /* Score.swift in Sources */,
+				D910FF191F04AB3200C444DA /* DataSource.swift in Sources */,
 				2AD1A1E71B2B1ADA00BCA94D /* ModelManager.swift in Sources */,
+				D959CBD31EE64A3A00C31753 /* DatabaseAccessor.swift in Sources */,
 				2A0CA5551B294C6B00ED8781 /* AppDelegate.swift in Sources */,
-				2A057D5E1B50F26E009CD214 /* Choices-SecondScreen.swift in Sources */,
-				2A93D8711B2F4DFE00AE4824 /* ThirdViewController.swift in Sources */,
-				2A68C3DB1B2EA28700E2FAE8 /* SecondViewController.swift in Sources */,
-				2A4AED701B77877C00268B6B /* Scene4.swift in Sources */,
+				D9E190A61EE952CD00109F39 /* Accessory.swift in Sources */,
+				D984D3031F0F59A40006270D /* SinkToSwimQuestion.swift in Sources */,
+				D984D3011F0F598C0006270D /* SinkToSwimGameScene.swift in Sources */,
+				D95BBB801F4A911D00E0E620 /* AboutViewController.swift in Sources */,
 				2AF82A8E1B4BA74A00307BED /* FMDatabaseAdditions.m in Sources */,
-				2A3530631B6617DB00F9E5DF /* Choices-EndScreen.swift in Sources */,
-				2A99DDB91D15DAB300ABEF45 /* DressingRoom2.swift in Sources */,
+				D984E4D61F4A95A400A06204 /* CustomizeAvatarViewController.swift in Sources */,
+				D9E74B791F1F149400A42B7E /* VocabMatchingGameScene.swift in Sources */,
+				D9E74B7F1F1F1AF800A42B7E /* VocabMatchingTile.swift in Sources */,
+				D95B03CE1EDEA680001DB858 /* MiniGameViewController.swift in Sources */,
+				D95B03CC1EDE7470001DB858 /* MapViewController.swift in Sources */,
+				D9AAA9C91EF25E4600287A79 /* ShuffleArrayExtension.swift in Sources */,
+				D9AAA9C41EF2335F00287A79 /* MinesweeperGameScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,7 +489,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A0CA56B1B294C6B00ED8781 /* PowerupTests.swift in Sources */,
+				D9E922E71F1C9FFA0091D8BB /* SinkToSwimTests.swift in Sources */,
+				D9A1572E1F0A205200B3A51B /* DatabaseEntryTests.swift in Sources */,
+				D910FF231F05FF5E00C444DA /* CustomizeAvatarViewControllerTests.swift in Sources */,
+				D910FF251F06304F00C444DA /* DatabaseAccessorTests.swift in Sources */,
+				D9DD913E1F0363DF009DE3B5 /* ModelClassTests.swift in Sources */,
+				D9EEC4551F2A1A230037C745 /* VocabMatchingTests.swift in Sources */,
+				D910FF1F1F04DD4F00C444DA /* ResultViewControllerTests.swift in Sources */,
+				D910FF211F05E22400C444DA /* ScenarioViewControllerTests.swift in Sources */,
+				D9970C7C1F00998300960B52 /* MinesweeperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,13 +544,15 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -478,13 +592,15 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -498,6 +614,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -510,9 +627,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = YUWPSE2UN9;
 				INFOPLIST_FILE = Powerup/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Powerup;
 				PROVISIONING_PROFILE = "";
@@ -530,7 +650,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = YUWPSE2UN9;
 				INFOPLIST_FILE = Powerup/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
@@ -546,18 +668,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
+				GCC_PREPROCESSOR_DEFINITIONS = "";
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
 					"DEBUG=1",
-					"$(inherited)",
+					"TEST=1",
 				);
 				INFOPLIST_FILE = PowerupTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = PowerupTests;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Powerup.app/Powerup";
 			};
@@ -567,12 +688,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = PowerupTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = PowerupTests;
 				SWIFT_VERSION = 3.0;
