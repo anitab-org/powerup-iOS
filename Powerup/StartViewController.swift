@@ -59,6 +59,9 @@ class StartViewController: UIViewController {
         } else {
             performSegue(withIdentifier: "toNewAvatar", sender: self)
         }
+        UserDefaults.standard.set(true, forKey: "vocabFirst")
+        UserDefaults.standard.set(true, forKey: "sink2SwimFirst")
+        UserDefaults.standard.set(true, forKey: "mineSweeperFirst")
         
     }
     

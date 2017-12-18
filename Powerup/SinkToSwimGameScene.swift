@@ -220,6 +220,9 @@ class SinkToSwimGameScene: SKScene {
     // To avoid sinking the boat while the game is in tutorial scene.
     var inTutorial = true
     
+    // Checks if it's player's first time playing Sink To Swim MiniGame
+    var sink2SwimFirst = Bool()
+    
     // Continue button is only interactable after the ending scene is fully faded in.
     var continueButtonInteractable = false
     
@@ -419,15 +422,25 @@ class SinkToSwimGameScene: SKScene {
         // Start the wobbling animation of the boat.
         startBoatWobblingAnimation()
         
-        // Show tutorial scene. After that, start the game (aka start the timer).
-        tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
-            let timerTickAction = SKAction.sequence([SKAction.wait(forDuration: 1.0), SKAction.run({self.tickTimer()})])
-            self.run(SKAction.repeatForever(timerTickAction), withKey: "timer_tick")
-            self.inTutorial = false
+        if let swim = UserDefaults.standard.object(forKey: "sink2SwimFirst") {
+            sink2SwimFirst = swim as! Bool
+            UserDefaults.standard.set(false, forKey: "sink2SwimFirst")
+        } else {
+            UserDefaults.standard.set(false, forKey: "sink2SwimFirst")
+            sink2SwimFirst = true
         }
-        tutorialScene.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
-        tutorialScene.zPosition = tutorialSceneLayer
-        addChild(tutorialScene)
+        
+        // Show tutorial scene. After that, start the game (aka start the timer).
+        if sink2SwimFirst == true {
+            tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
+                let timerTickAction = SKAction.sequence([SKAction.wait(forDuration: 1.0), SKAction.run({self.tickTimer()})])
+                self.run(SKAction.repeatForever(timerTickAction), withKey: "timer_tick")
+                self.inTutorial = false
+            }
+            tutorialScene.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
+            tutorialScene.zPosition = tutorialSceneLayer
+            addChild(tutorialScene)
+        }
     }
     
     // Being called every frame.

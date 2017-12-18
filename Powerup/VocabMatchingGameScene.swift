@@ -132,6 +132,9 @@ class VocabMatchingGameScene: SKScene {
     
     var score: Int = 0
     
+    // Checks if it's player's first time playing Vocab Matching MiniGame
+    var vocabFirst = Bool()
+    
     // MARK: Constructors
     override init(size: CGSize) {
         let gameWidth = Double(size.width)
@@ -243,13 +246,23 @@ class VocabMatchingGameScene: SKScene {
         // Add end scene.
         addChild(endSceneSprite)
         
-        // Show tutorial scene. After that, start the game.
-        tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
-            self.nextRound()
+        if let vocab = UserDefaults.standard.object(forKey: "vocabFirst") {
+            vocabFirst = vocab as! Bool
+            UserDefaults.standard.set(false, forKey: "vocabFirst")
+        } else {
+            UserDefaults.standard.set(false, forKey: "vocabFirst")
+            vocabFirst = true
         }
-        tutorialScene.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
-        tutorialScene.zPosition = tutorialSceneLayer
-        addChild(tutorialScene)
+        
+        // Show tutorial scene. After that, start the game.
+        if vocabFirst {
+            tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
+                self.nextRound()
+            }
+            tutorialScene.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
+            tutorialScene.zPosition = tutorialSceneLayer
+            addChild(tutorialScene)
+        }
     }
     
     // Spawn tiles for the next round. Completion closure is for unit tests.
