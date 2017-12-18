@@ -18,10 +18,10 @@ class MinesweeperGameScene: SKScene {
     let selectionMaxCount = 5
     
     // Colors of game UIs.
-    let uiColor = UIColor(red: 42.0 / 255.0, green: 203.0 / 255.0, blue: 211.0 / 255.0, alpha: 1.0)
-    let textColor = UIColor(red: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
-    let prosTextColor = UIColor(red: 105.0 / 255.0, green: 255.0 / 255.0, blue: 97.0 / 255.0, alpha: 1.0)
-    let consTextColor = UIColor(red: 255.0 / 255.0, green: 105.0 / 255.0, blue: 105.0 / 255.0, alpha: 1.0)
+    let uiColor = UIColor(colorLiteralRed: 42.0 / 255.0, green: 203.0 / 255.0, blue: 211.0 / 255.0, alpha: 1.0)
+    let textColor = UIColor(colorLiteralRed: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
+    let prosTextColor = UIColor(colorLiteralRed: 105.0 / 255.0, green: 255.0 / 255.0, blue: 97.0 / 255.0, alpha: 1.0)
+    let consTextColor = UIColor(colorLiteralRed: 255.0 / 255.0, green: 105.0 / 255.0, blue: 105.0 / 255.0, alpha: 1.0)
     
     // Animation constants.
     let boxEnlargingScale = CGFloat(1.2)
@@ -256,9 +256,9 @@ class MinesweeperGameScene: SKScene {
     }
     
     /**
-     Reset the grid for a new round.
-     - Parameter: The possibility of the contrceptive method in percentage.
-     */
+      Reset the grid for a new round.
+      - Parameter: The possibility of the contrceptive method in percentage.
+    */
     func newRound() {
         let possibility = possiblityPercentages[roundCount]
         
@@ -304,7 +304,7 @@ class MinesweeperGameScene: SKScene {
         boxSelected = true
         
         selectedBoxes += 1
-        
+
         // Animations.
         let scaleBackAction = SKAction.scale(to: 1.0, duration: self.boxEnlargingDuration)
         let waitAction = SKAction.wait(forDuration: boxFlipInterval)
@@ -473,4 +473,3 @@ class MinesweeperGameScene: SKScene {
         fatalError("init(coder:) not implemented.")
     }
 }
-
