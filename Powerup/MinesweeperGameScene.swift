@@ -431,7 +431,7 @@ class MinesweeperGameScene: SKScene {
                 newRound()
                 hideDescription()
             } else {
-                // End game.
+                // End game
                 viewController.endGame()
             }
         }
