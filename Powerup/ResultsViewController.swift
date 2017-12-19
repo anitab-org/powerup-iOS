@@ -48,7 +48,7 @@ class ResultsViewController: UIViewController {
             }
             
         } catch _ {
-            let alert = UIAlertController(title: "Warning", message: "Error fetching scenario data from database. Please connect to the internet and try again.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Warning", message: "Error fetching scenario data from database. Please try again. If that doesn't work, restart or reinstall the app.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default))
             self.present(alert, animated: true, completion: nil)
             
