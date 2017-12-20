@@ -129,9 +129,6 @@ class MinesweeperGameScene: SKScene {
     // Avoid player interaction with boxes when the game is in tutorial scene.
     var inTutorial = true
     
-    // Checks if it's player's first time playing MineSweeper MiniGame
-    var mineSweeperFirst = Bool()
-    
     // MARK: Constructor
     override init(size: CGSize) {
         

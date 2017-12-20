@@ -220,9 +220,6 @@ class SinkToSwimGameScene: SKScene {
     // To avoid sinking the boat while the game is in tutorial scene.
     var inTutorial = true
     
-    // Checks if it's player's first time playing Sink To Swim MiniGame
-    var sink2SwimFirst = Bool()
-    
     // Continue button is only interactable after the ending scene is fully faded in.
     var continueButtonInteractable = false
     

@@ -132,9 +132,6 @@ class VocabMatchingGameScene: SKScene {
     
     var score: Int = 0
     
-    // Checks if it's player's first time playing Vocab Matching MiniGame
-    var vocabFirst = Bool()
-    
     // MARK: Constructors
     override init(size: CGSize) {
         let gameWidth = Double(size.width)
