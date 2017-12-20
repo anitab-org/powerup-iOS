@@ -430,6 +430,8 @@ class SinkToSwimGameScene: SKScene {
             tutorialScene.zPosition = tutorialSceneLayer
             addChild(tutorialScene)
         } else {
+            let timerTickAction = SKAction.sequence([SKAction.wait(forDuration: 1.0), SKAction.run({self.tickTimer()})])
+            self.run(SKAction.repeatForever(timerTickAction), withKey: "timer_tick")
             self.inTutorial = false
         }
     }
