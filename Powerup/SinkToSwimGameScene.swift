@@ -420,7 +420,7 @@ class SinkToSwimGameScene: SKScene {
         startBoatWobblingAnimation()
         
         // Show tutorial scene. After that, start the game (aka start the timer).
-        if UserDefaultsHandler.tutorialShown(key: "sink2SwimFirst") == true  {
+        if UserDefaults.tutorialViewed(key: .SinkToSwimTutorialViewed) == false {
             tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
                 let timerTickAction = SKAction.sequence([SKAction.wait(forDuration: 1.0), SKAction.run({self.tickTimer()})])
                 self.run(SKAction.repeatForever(timerTickAction), withKey: "timer_tick")

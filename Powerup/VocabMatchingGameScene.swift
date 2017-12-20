@@ -244,7 +244,7 @@ class VocabMatchingGameScene: SKScene {
         addChild(endSceneSprite)
         
         // Show tutorial scene. After that, start the game.
-        if UserDefaultsHandler.tutorialShown(key: "vocabFirst") == true {
+        if UserDefaults.tutorialViewed(key: .VocabTutorialViewed) == false {
             tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
                 self.nextRound()
             }

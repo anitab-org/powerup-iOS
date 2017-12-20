@@ -245,7 +245,7 @@ class MinesweeperGameScene: SKScene {
             }
         }
         
-        if UserDefaultsHandler.tutorialShown(key: "mineSweeperFirst") == true {
+        if UserDefaults.tutorialViewed(key: .MineSweeperTutorialViewed) == false {
             // Show tutorial scene. After that, start the game.
             tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
                 self.newRound()
