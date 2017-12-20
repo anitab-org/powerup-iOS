@@ -255,6 +255,7 @@ class MinesweeperGameScene: SKScene {
             tutorialScene.zPosition = tutorialSceneLayer
             addChild(tutorialScene)
         } else {
+            self.newRound()
             self.inTutorial = false
         }
     }
