@@ -248,15 +248,7 @@ class MinesweeperGameScene: SKScene {
             }
         }
         
-        if let sweep = UserDefaults.standard.object(forKey: "mineSweeperFirst") {
-            mineSweeperFirst = sweep as! Bool
-            UserDefaults.standard.set(false, forKey: "mineSweeperFirst")
-        } else {
-            UserDefaults.standard.set(false, forKey: "mineSweeperFirst")
-            mineSweeperFirst = true
-        }
-        
-        if mineSweeperFirst == true    {
+        if UserDefaultsHandler.tutorialShown(key: "mineSweeperFirst") == true {
             // Show tutorial scene. After that, start the game.
             tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
                 self.newRound()
@@ -265,6 +257,8 @@ class MinesweeperGameScene: SKScene {
             tutorialScene.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
             tutorialScene.zPosition = tutorialSceneLayer
             addChild(tutorialScene)
+        } else {
+            self.inTutorial = false
         }
     }
     

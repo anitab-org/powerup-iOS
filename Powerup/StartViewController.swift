@@ -59,6 +59,7 @@ class StartViewController: UIViewController {
         } else {
             performSegue(withIdentifier: "toNewAvatar", sender: self)
         }
+        // Re-shows tutorial, when creating a new avatar
         UserDefaults.standard.set(true, forKey: "vocabFirst")
         UserDefaults.standard.set(true, forKey: "sink2SwimFirst")
         UserDefaults.standard.set(true, forKey: "mineSweeperFirst")

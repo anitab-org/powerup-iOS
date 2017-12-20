@@ -246,22 +246,16 @@ class VocabMatchingGameScene: SKScene {
         // Add end scene.
         addChild(endSceneSprite)
         
-        if let vocab = UserDefaults.standard.object(forKey: "vocabFirst") {
-            vocabFirst = vocab as! Bool
-            UserDefaults.standard.set(false, forKey: "vocabFirst")
-        } else {
-            UserDefaults.standard.set(false, forKey: "vocabFirst")
-            vocabFirst = true
-        }
-        
         // Show tutorial scene. After that, start the game.
-        if vocabFirst {
+        if UserDefaultsHandler.tutorialShown(key: "vocabFirst") == true {
             tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
                 self.nextRound()
             }
             tutorialScene.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
             tutorialScene.zPosition = tutorialSceneLayer
             addChild(tutorialScene)
+        } else {
+            self.nextRound()
         }
     }
     

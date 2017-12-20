@@ -422,16 +422,8 @@ class SinkToSwimGameScene: SKScene {
         // Start the wobbling animation of the boat.
         startBoatWobblingAnimation()
         
-        if let swim = UserDefaults.standard.object(forKey: "sink2SwimFirst") {
-            sink2SwimFirst = swim as! Bool
-            UserDefaults.standard.set(false, forKey: "sink2SwimFirst")
-        } else {
-            UserDefaults.standard.set(false, forKey: "sink2SwimFirst")
-            sink2SwimFirst = true
-        }
-        
         // Show tutorial scene. After that, start the game (aka start the timer).
-        if sink2SwimFirst == true {
+        if UserDefaultsHandler.tutorialShown(key: "sink2SwimFirst") == true  {
             tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
                 let timerTickAction = SKAction.sequence([SKAction.wait(forDuration: 1.0), SKAction.run({self.tickTimer()})])
                 self.run(SKAction.repeatForever(timerTickAction), withKey: "timer_tick")
@@ -440,6 +432,8 @@ class SinkToSwimGameScene: SKScene {
             tutorialScene.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
             tutorialScene.zPosition = tutorialSceneLayer
             addChild(tutorialScene)
+        } else {
+            self.inTutorial = false
         }
     }
     
