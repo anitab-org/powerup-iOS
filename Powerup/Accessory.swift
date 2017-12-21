@@ -42,8 +42,9 @@ struct Accessory {
         self.purchased = purchased
         
         // Set display image. Avatar image is prefixed with "avatar_", display image is prefixed with "display_", so we have to substring from '_' and prefix it with "display".
-        let fromIndex = imageName.characters.count >= 6 ? imageName.index(imageName.startIndex, offsetBy: 6) : imageName.startIndex
-        let displayName = "display" + imageName.substring(from: fromIndex)
+        let fromIndex = imageName.count >= 6 ? imageName.index(imageName.startIndex, offsetBy: 6) : imageName.startIndex
+        let displayName = "display" + String(imageName[..<fromIndex])
+        
         self.displayImage = UIImage(named: displayName)
     }
     
