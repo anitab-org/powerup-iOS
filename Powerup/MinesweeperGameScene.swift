@@ -245,14 +245,21 @@ class MinesweeperGameScene: SKScene {
             }
         }
         
-        // Show tutorial scene. After that, start the game.
-        tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
+        if !UserDefaults.standard.bool(forKey: "MineTutsViewed") {
+            // Show tutorial scene. After that, start the game.
+            tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
+                self.newRound()
+                self.inTutorial = false
+            }
+            tutorialScene.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
+            tutorialScene.zPosition = tutorialSceneLayer
+            addChild(tutorialScene)
+            UserDefaults.standard.set(true, forKey: "MineTutsViewed")
+        } else {
+            // It is not the user's 1st time playing the game, so skip tutorials
             self.newRound()
             self.inTutorial = false
         }
-        tutorialScene.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
-        tutorialScene.zPosition = tutorialSceneLayer
-        addChild(tutorialScene)
     }
     
     /**

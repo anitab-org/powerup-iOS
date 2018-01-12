@@ -46,6 +46,10 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func newAvatarButtonTouched(_ sender: UIButton) {
+        // Allow the mini game tutorials to be shown for the first time
+        UserDefaults.standard.set(false, forKey: "MineTutsViewed")
+        UserDefaults.standard.set(false, forKey: "VocabTutsViewed")
+        UserDefaults.standard.set(false, forKey: "SwimTutsViewed")
         // If previous avatar exists, warns the player that previous data will be lost.
         if dataSource.avatarExists() {
             let alert = UIAlertController(title: "Are you sure?", message: "If you start a new game, previous data and all Karma points will be lost!", preferredStyle: .alert)
