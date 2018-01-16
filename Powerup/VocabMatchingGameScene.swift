@@ -332,7 +332,7 @@ class VocabMatchingGameScene: SKScene {
             randomClipboard.matchingID = tile.matchingID
             
             // Shrink text size if the string is too long.
-            if randomClipboard.descriptionLabel.text!.characters.count >= clipboardLongTextDef {
+            if (randomClipboard.descriptionLabel.text?.count)! >= clipboardLongTextDef {
                 randomClipboard.descriptionLabel.fontSize = clipboardLongTextFontSize
             } else {
                 randomClipboard.descriptionLabel.fontSize = clipboardFontSize
