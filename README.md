@@ -1,3 +1,5 @@
+[![Travis](https://img.shields.io/travis/rust-lang/rust.svg?style=plastic)](https://github.com/systers/powerup-iOS)
+
 # PowerUp - iOS [![Build Status](https://travis-ci.org/systers/powerup-iOS.svg?branch=GSoC17)](https://travis-ci.org/systers/powerup-iOS)
 
 PowerUp is an educational mobile game app that seeks to empower young girls to take charge of their reproductive health 
