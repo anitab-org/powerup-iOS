@@ -20,6 +20,9 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     // Answers for the question
     var answers = [Answer]()
     
+    // Height for each cell in the TableView of answers
+    let tableViewRowHeight: CGFloat = 45
+    
     // MARK: Views
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var scenarioNameLabel: UILabel!
@@ -102,6 +105,10 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         
         choicesTableView.delegate = self
         choicesTableView.dataSource = self
+        
+        // Configure table cells.
+        choicesTableView.rowHeight = tableViewRowHeight
+        choicesTableView.contentInset = UIEdgeInsetsMake(0, -2, 0, -35)
         
         // TODO: Configure the image and name of the "Asker" avatar.
         
