@@ -73,13 +73,12 @@ class MapViewController: UIViewController {
             return
         }
         
+        // Configure the selected scenario name.
+        selectedScenarioName = selectedScenario.name
         // If completed, go to completed view.
         if selectedScenario.completed {
             performSegue(withIdentifier: "toCompletedView", sender: sender)
         } else {
-            // Configure the selected scenario name.
-            selectedScenarioName = selectedScenario.name
-            
             // Go to the corresponding scenario
             performSegue(withIdentifier: "toScenarioView", sender: sender)
         }
@@ -87,22 +86,17 @@ class MapViewController: UIViewController {
     
     // MARK: Segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toScenarioView" {
-            if let senderButton = sender as? UIButton, let destinationVC = segue.destination as? ScenarioViewController {
-                
-                let scenarioID = senderButton.tag
-                
-                // The scenario ID is stored in the tag of the button.
-                destinationVC.scenarioID = scenarioID
-                
-                // The scenario name.
-                destinationVC.scenarioName = selectedScenarioName
-                
-                // Set the background image.
-                destinationVC.backgroundImage = UIImage(named: backgroundImages[scenarioID] ?? "")
-                
-            } else {
-                print("Error selecting sceanrio.")
+        if let senderButton = sender as? UIButton {
+            let scenarioID = senderButton.tag
+            
+            if segue.identifier == "toScenarioView" {
+                (segue.destination as? ScenarioViewController)?.scenarioID = scenarioID
+                (segue.destination as? ScenarioViewController)?.scenarioName = selectedScenarioName
+                (segue.destination as? ScenarioViewController)?.backgroundImage = UIImage(named: backgroundImages[scenarioID] ?? "")
+            } else if segue.identifier == "toCompletedView" {
+                (segue.destination as? CompletedViewController)?.scenarioID = scenarioID
+                (segue.destination as? CompletedViewController)?.scenarioName = selectedScenarioName
+                (segue.destination as? CompletedViewController)?.backgroundImage = UIImage(named: backgroundImages[scenarioID] ?? "")
             }
         }
     }
