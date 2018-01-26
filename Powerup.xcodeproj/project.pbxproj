@@ -56,6 +56,7 @@
 		D9E74B7F1F1F1AF800A42B7E /* VocabMatchingTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E74B7E1F1F1AF800A42B7E /* VocabMatchingTile.swift */; };
 		D9E922E71F1C9FFA0091D8BB /* SinkToSwimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E922E61F1C9FFA0091D8BB /* SinkToSwimTests.swift */; };
 		D9EEC4551F2A1A230037C745 /* VocabMatchingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EEC4541F2A1A230037C745 /* VocabMatchingTests.swift */; };
+		EAB1B4AC1FE9E4FB005964AF /* UserDefaultsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB1B4AB1FE9E4FB005964AF /* UserDefaultsHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +142,7 @@
 		D9E74B7E1F1F1AF800A42B7E /* VocabMatchingTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabMatchingTile.swift; sourceTree = "<group>"; };
 		D9E922E61F1C9FFA0091D8BB /* SinkToSwimTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinkToSwimTests.swift; sourceTree = "<group>"; };
 		D9EEC4541F2A1A230037C745 /* VocabMatchingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabMatchingTests.swift; sourceTree = "<group>"; };
+		EAB1B4AB1FE9E4FB005964AF /* UserDefaultsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +326,7 @@
 		D9AAA9C71EF25E2700287A79 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EAB1B4AB1FE9E4FB005964AF /* UserDefaultsHandler.swift */,
 				D9AAA9C81EF25E4600287A79 /* ShuffleArrayExtension.swift */,
 				D969D26B1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift */,
 			);
@@ -469,6 +472,7 @@
 				2AD1A1E71B2B1ADA00BCA94D /* ModelManager.swift in Sources */,
 				D959CBD31EE64A3A00C31753 /* DatabaseAccessor.swift in Sources */,
 				2A0CA5551B294C6B00ED8781 /* AppDelegate.swift in Sources */,
+				EAB1B4AC1FE9E4FB005964AF /* UserDefaultsHandler.swift in Sources */,
 				D9E190A61EE952CD00109F39 /* Accessory.swift in Sources */,
 				D984D3031F0F59A40006270D /* SinkToSwimQuestion.swift in Sources */,
 				D984D3011F0F598C0006270D /* SinkToSwimGameScene.swift in Sources */,

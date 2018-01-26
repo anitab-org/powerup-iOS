@@ -244,12 +244,16 @@ class VocabMatchingGameScene: SKScene {
         addChild(endSceneSprite)
         
         // Show tutorial scene. After that, start the game.
-        tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
+        if !UserDefaults.tutorialViewed(key: .VocabTutorialViewed) {
+            tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
+                self.nextRound()
+            }
+            tutorialScene.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
+            tutorialScene.zPosition = tutorialSceneLayer
+            addChild(tutorialScene)
+        } else {
             self.nextRound()
         }
-        tutorialScene.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
-        tutorialScene.zPosition = tutorialSceneLayer
-        addChild(tutorialScene)
     }
     
     // Spawn tiles for the next round. Completion closure is for unit tests.
