@@ -419,15 +419,23 @@ class SinkToSwimGameScene: SKScene {
         // Start the wobbling animation of the boat.
         startBoatWobblingAnimation()
         
-        // Show tutorial scene. After that, start the game (aka start the timer).
-        tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
+        if !UserDefaults.standard.bool(forKey: "SwimTutsViewed") {
+            // Show tutorial scene. After that, start the game (aka start the timer).
+            tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
+                let timerTickAction = SKAction.sequence([SKAction.wait(forDuration: 1.0), SKAction.run({self.tickTimer()})])
+                self.run(SKAction.repeatForever(timerTickAction), withKey: "timer_tick")
+                self.inTutorial = false
+            }
+            tutorialScene.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
+            tutorialScene.zPosition = tutorialSceneLayer
+            addChild(tutorialScene)
+            UserDefaults.standard.set(true, forKey: "SwimTutsViewed")
+        } else {
+            // It is not the user's 1st time playing the game, so skip tutorials
             let timerTickAction = SKAction.sequence([SKAction.wait(forDuration: 1.0), SKAction.run({self.tickTimer()})])
             self.run(SKAction.repeatForever(timerTickAction), withKey: "timer_tick")
             self.inTutorial = false
         }
-        tutorialScene.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
-        tutorialScene.zPosition = tutorialSceneLayer
-        addChild(tutorialScene)
     }
     
     // Being called every frame.

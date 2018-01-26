@@ -243,13 +243,19 @@ class VocabMatchingGameScene: SKScene {
         // Add end scene.
         addChild(endSceneSprite)
         
-        // Show tutorial scene. After that, start the game.
-        tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
+        if !UserDefaults.standard.bool(forKey: "VocabTutsViewed") {
+            // Show tutorial scene. After that, start the game.
+            tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
+                self.nextRound()
+            }
+            tutorialScene.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
+            tutorialScene.zPosition = tutorialSceneLayer
+            addChild(tutorialScene)
+            UserDefaults.standard.set(true, forKey: "VocabTutsViewed")
+        } else {
+            // It is not the user's 1st time playing the game, so skip tutorials
             self.nextRound()
         }
-        tutorialScene.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
-        tutorialScene.zPosition = tutorialSceneLayer
-        addChild(tutorialScene)
     }
     
     // Spawn tiles for the next round. Completion closure is for unit tests.
