@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode8.3
+osx_image: xcode9.2
 xcode_project: Powerup.xcodeproj
 xcode_scheme: Powerup
 xcode_sdk: iphonesimulator10.3
