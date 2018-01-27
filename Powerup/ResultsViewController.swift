@@ -48,7 +48,7 @@ class ResultsViewController: UIViewController {
             }
             
         } catch _ {
-            let alert = UIAlertController(title: "Warning", message: "Error fetching scenario data from database.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Warning", message: "Error fetching scenario data from database. Please retry this action. If that doesn't help, try restarting or reinstalling the app.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default))
             self.present(alert, animated: true, completion: nil)
             

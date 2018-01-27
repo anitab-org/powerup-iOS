@@ -88,7 +88,7 @@ class VocabMatchingGameScene: SKScene {
     
     // Fonts
     let fontName = "Montserrat-Bold"
-    let fontColor = UIColor(colorLiteralRed: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
+    let fontColor = UIColor(red: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
     
     // Font size
     let clipboardFontSize = CGFloat(14)
@@ -244,12 +244,16 @@ class VocabMatchingGameScene: SKScene {
         addChild(endSceneSprite)
         
         // Show tutorial scene. After that, start the game.
-        tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
+        if !UserDefaults.tutorialViewed(key: .VocabTutorialViewed) {
+            tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
+                self.nextRound()
+            }
+            tutorialScene.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
+            tutorialScene.zPosition = tutorialSceneLayer
+            addChild(tutorialScene)
+        } else {
             self.nextRound()
         }
-        tutorialScene.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
-        tutorialScene.zPosition = tutorialSceneLayer
-        addChild(tutorialScene)
     }
     
     // Spawn tiles for the next round. Completion closure is for unit tests.
@@ -332,7 +336,7 @@ class VocabMatchingGameScene: SKScene {
             randomClipboard.matchingID = tile.matchingID
             
             // Shrink text size if the string is too long.
-            if randomClipboard.descriptionLabel.text!.characters.count >= clipboardLongTextDef {
+            if (randomClipboard.descriptionLabel.text?.count)! >= clipboardLongTextDef {
                 randomClipboard.descriptionLabel.fontSize = clipboardLongTextFontSize
             } else {
                 randomClipboard.descriptionLabel.fontSize = clipboardFontSize
