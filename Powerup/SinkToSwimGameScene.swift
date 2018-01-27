@@ -121,9 +121,9 @@ class SinkToSwimGameScene: SKScene {
     let PointerToBoatRatio = 0.5
     
     // Colors
-    let textColor = UIColor(colorLiteralRed: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
-    let correctColor = UIColor(colorLiteralRed: 105.0 / 255.0, green: 255.0 / 255.0, blue: 109.0 / 255.0, alpha: 1.0)
-    let wrongColor = UIColor(colorLiteralRed: 255.0 / 255.0, green: 105.0 / 255.0, blue: 105.0 / 255.0, alpha: 1.0)
+    let textColor = UIColor(red: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
+    let correctColor = UIColor(red: 105.0 / 255.0, green: 255.0 / 255.0, blue: 109.0 / 255.0, alpha: 1.0)
+    let wrongColor = UIColor(red: 255.0 / 255.0, green: 105.0 / 255.0, blue: 105.0 / 255.0, alpha: 1.0)
     let scoreTextColor = UIColor.white
     
     // Fonts
@@ -420,14 +420,20 @@ class SinkToSwimGameScene: SKScene {
         startBoatWobblingAnimation()
         
         // Show tutorial scene. After that, start the game (aka start the timer).
-        tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
+        if !UserDefaults.tutorialViewed(key: .SinkToSwimTutorialViewed) {
+            tutorialScene = SKTutorialScene(namedImages: tutorialSceneImages, size: size) {
+                let timerTickAction = SKAction.sequence([SKAction.wait(forDuration: 1.0), SKAction.run({self.tickTimer()})])
+                self.run(SKAction.repeatForever(timerTickAction), withKey: "timer_tick")
+                self.inTutorial = false
+            }
+            tutorialScene.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
+            tutorialScene.zPosition = tutorialSceneLayer
+            addChild(tutorialScene)
+        } else {
             let timerTickAction = SKAction.sequence([SKAction.wait(forDuration: 1.0), SKAction.run({self.tickTimer()})])
             self.run(SKAction.repeatForever(timerTickAction), withKey: "timer_tick")
             self.inTutorial = false
         }
-        tutorialScene.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
-        tutorialScene.zPosition = tutorialSceneLayer
-        addChild(tutorialScene)
     }
     
     // Being called every frame.

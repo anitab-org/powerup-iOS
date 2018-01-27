@@ -59,6 +59,10 @@ class StartViewController: UIViewController {
         } else {
             performSegue(withIdentifier: "toNewAvatar", sender: self)
         }
+        // Re-shows tutorial, when creating a new avatar
+        UserDefaults.setTutorialViewed(key: .MineSweeperTutorialViewed, value: false)
+        UserDefaults.setTutorialViewed(key: .VocabTutorialViewed, value: false)
+        UserDefaults.setTutorialViewed(key: .SinkToSwimTutorialViewed, value: false)
         
     }
     
