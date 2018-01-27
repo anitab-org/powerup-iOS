@@ -96,7 +96,7 @@ class CustomizeAvatarViewController: UIViewController {
         do {
             try dataSource.createAvatar(avatar)
         } catch _ {
-            let alert = UIAlertController(title: "Warning", message: "Failed to save avatar, please retry this action. If that doesn't help, try restaring or reinstalling the app.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Warning", message: "Failed to save avatar, please retry this action. If that doesn't help, try restarting or reinstalling the app.", preferredStyle: .alert)
             
             // Unwind to Start View when Ok Button is pressed.
             let okButton = UIAlertAction(title: "OK", style: .cancel, handler: {action in
