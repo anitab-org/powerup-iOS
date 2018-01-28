@@ -652,7 +652,7 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
         <!--Shop View Controller-->
         <scene sceneID="uGO-Kb-Jms">
             <objects>
-                <viewController id="Ayb-3h-vA7" customClass="ShopViewController" customModule="Powerup" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Shop View Controller" id="Ayb-3h-vA7" customClass="ShopViewController" customModule="Powerup" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="C1p-vc-PYe"/>
                         <viewControllerLayoutGuide type="bottom" id="35U-NA-5dW"/>
