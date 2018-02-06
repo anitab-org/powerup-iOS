@@ -1,7 +1,7 @@
 import UIKit
 
 class CompletedViewController: UIViewController {
-   
+
     // MARK: Properties
     // The scenario information of the view, set by MapViewController.
     var scenarioID: Int = -1
@@ -45,4 +45,5 @@ class CompletedViewController: UIViewController {
             (segue.destination as? ScenarioViewController)?.backgroundImage = backgroundImage
         }
     }
+   
 }
