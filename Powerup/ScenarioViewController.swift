@@ -103,7 +103,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         choicesTableView.delegate = self
         choicesTableView.dataSource = self
         // Use an arbitrary yet appropriate height value.
-        choicesTableView.estimatedRowHeight = 50; 
+        choicesTableView.estimatedRowHeight = 50
         // Allow dynamic resizing of TableView cells.
         choicesTableView.rowHeight = UITableViewAutomaticDimension 
         
