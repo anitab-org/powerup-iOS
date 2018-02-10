@@ -50,11 +50,14 @@ class ShopViewController: UIViewController {
     
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var prevButton: UIButton!
-    
+    // As font size 9 works with 326 ppi iPhone (iPhone4,5). Dividing 9/326 gives 0.027, So, We take take .026 as relativeFontConstant. Which makes it more good
+    let relativeFontConstant:CGFloat = 0.026
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        for label in buttonTexts {
+            label.font = label.font.withSize(self.view.frame.height * relativeFontConstant)
+        }
         // Fetch the accessory arrays from the database.
         accessories = dataSource.getAccessoryArray(accessoryType: .handbag)
         accessories.append(contentsOf: dataSource.getAccessoryArray(accessoryType: .glasses))
