@@ -1,4 +1,5 @@
 import XCTest
+import SpriteKit
 @testable import Powerup
 
 class VocabMatchingTests: XCTestCase {
@@ -17,6 +18,24 @@ class VocabMatchingTests: XCTestCase {
         super.tearDown()
     }
 
+    /** Test that all the necessary nodes are added to the Vocab Matching scene upon initialization. */
+    func testInitialScreen() {
+        // Given
+        let skView = SKView()
+        
+        // When (Initialize the scene.)
+        vocabMatchingGame.didMove(to: skView)
+        
+        // Then
+        XCTAssertTrue(vocabMatchingGame.children.contains(vocabMatchingGame.backgroundSprite))
+        for clipboard in vocabMatchingGame.clipboards {
+            // Make sure all clipboards have been included in the scene.
+            XCTAssertTrue(vocabMatchingGame.children.contains(clipboard))
+        }
+        XCTAssertTrue(vocabMatchingGame.children.contains(vocabMatchingGame.scoreBoxSprite))
+        XCTAssertTrue(vocabMatchingGame.children.contains(vocabMatchingGame.endSceneSprite))
+    }
+    
     /** Test that matches are correctly checked. */
     func testCheckIfMatches() {
         
