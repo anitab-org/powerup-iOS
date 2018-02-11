@@ -113,10 +113,10 @@ class ShopViewController: UIViewController {
             if (firstAccessoryIndex + boxIndex) >= currDisplayingArray.count {
                 for remainingIndex in boxIndex..<displayBoxCount {
                     // Grey out the box.
-                    displayBoxes[remainingIndex].image = UIImage(named: greyOutBoxImageName)
+                    displayBoxes[remainingIndex].image = UIImage()
                     
                     // Price Label
-                    priceLabels[remainingIndex].text = "-"
+                    priceLabels[remainingIndex].text = ""
                     
                     // Hide check mark.
                     purchasedCheckmark[remainingIndex].isHidden = true

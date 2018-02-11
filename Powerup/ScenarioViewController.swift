@@ -103,6 +103,11 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         choicesTableView.delegate = self
         choicesTableView.dataSource = self
         
+        // Configure table cells.
+        // Set cell height according to the TableView height.
+        choicesTableView.rowHeight = (choicesTableView.frame.size.height / 3).rounded()
+        choicesTableView.contentInset = UIEdgeInsetsMake(0, -2, 0, -35)
+        
         // TODO: Configure the image and name of the "Asker" avatar.
         
         // Configure scenario name.
