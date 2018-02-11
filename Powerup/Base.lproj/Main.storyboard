@@ -534,7 +534,7 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
                                             <rect key="frame" x="0.0" y="0.0" width="240.5" height="39"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Sample Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="JR9-C4-9RX">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Sample Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JR9-C4-9RX">
                                                     <rect key="frame" x="15" y="0.0" width="210.5" height="39"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -652,7 +652,7 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
         <!--Shop View Controller-->
         <scene sceneID="uGO-Kb-Jms">
             <objects>
-                <viewController storyboardIdentifier="Shop View Controller" id="Ayb-3h-vA7" customClass="ShopViewController" customModule="Powerup" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ayb-3h-vA7" customClass="ShopViewController" customModule="Powerup" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="C1p-vc-PYe"/>
                         <viewControllerLayoutGuide type="bottom" id="35U-NA-5dW"/>

@@ -40,24 +40,8 @@ class CustomizeAvatarViewControllerTests: XCTestCase {
     }
     
     /**
-     - Test that the back button and confirm label are both hidden at the initialization of the view (before the continue button is touched).
-     */
-    func testInitialView() {
-        // Given
-        let backButton = customizeAvatarViewController.backButton
-        let confirmLabel = customizeAvatarViewController.confirmLabel
-        
-        // When
-        customizeAvatarViewController.viewDidLoad()
-        
-        // Then
-        XCTAssertTrue((backButton?.isHidden)!)
-        XCTAssertTrue((confirmLabel?.isHidden)!)
-    }
-    
-    /**
-     - Test that the accessories are shown correctly when pressing the left & right buttons.
-     */
+      - Test that the accessories are shown correctly when pressing the left & right buttons.
+    */
     func testAccessoryExhibitions() {
         // Given
         // Mock the accessory data.

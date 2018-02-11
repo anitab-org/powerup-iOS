@@ -1,5 +1,4 @@
 import XCTest
-import SpriteKit
 @testable import Powerup
 
 class SinkToSwimTests: XCTestCase {
@@ -18,25 +17,6 @@ class SinkToSwimTests: XCTestCase {
         sinkToSwimGame = nil
         
         super.tearDown()
-    }
-    
-    /** Test that all the necessary nodes are added to the Sink To Swim scene upon initialization. */
-    func testInitialScreen() {
-        // Given
-        let skView = SKView()
-        
-        // When (Initialize the scene.)
-        sinkToSwimGame.didMove(to: skView)
-        
-        // Then
-        XCTAssertTrue(sinkToSwimGame.children.contains(sinkToSwimGame.backgroundSprite))
-        XCTAssertTrue(sinkToSwimGame.children.contains(sinkToSwimGame.foregroundSprite))
-        XCTAssertTrue(sinkToSwimGame.children.contains(sinkToSwimGame.waterGaugeSprite))
-        XCTAssertTrue(sinkToSwimGame.children.contains(sinkToSwimGame.avatarBoatSprite))
-        XCTAssertTrue(sinkToSwimGame.children.contains(sinkToSwimGame.questionBoxSprite))
-        XCTAssertTrue(sinkToSwimGame.children.contains(sinkToSwimGame.timerSprite))
-        XCTAssertTrue(sinkToSwimGame.children.contains(sinkToSwimGame.scoreLabelWrapper))
-        XCTAssertTrue(sinkToSwimGame.children.contains(sinkToSwimGame.endSceneSprite))
     }
     
     /** Test that questions are presented correctly. */
