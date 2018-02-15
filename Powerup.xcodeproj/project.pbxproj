@@ -23,6 +23,8 @@
 		2AF82A901B4BA74A00307BED /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A891B4BA74A00307BED /* FMDatabaseQueue.m */; };
 		2AF82A911B4BA74A00307BED /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A8C1B4BA74A00307BED /* FMResultSet.m */; };
 		4DF1CBB120152582008B5359 /* CompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF1CBB020152582008B5359 /* CompletedViewController.swift */; };
+		4D4074AC200E68FF009118F6 /* ShopViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4074AB200E68FF009118F6 /* ShopViewControllerTests.swift */; };
+		4D4074AE200E69AA009118F6 /* MapViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4074AD200E69AA009118F6 /* MapViewControllerTests.swift */; };
 		D910FF191F04AB3200C444DA /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF181F04AB3200C444DA /* DataSource.swift */; };
 		D910FF1F1F04DD4F00C444DA /* ResultViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF1E1F04DD4F00C444DA /* ResultViewControllerTests.swift */; };
 		D910FF211F05E22400C444DA /* ScenarioViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF201F05E22400C444DA /* ScenarioViewControllerTests.swift */; };
@@ -57,6 +59,7 @@
 		D9E74B7F1F1F1AF800A42B7E /* VocabMatchingTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E74B7E1F1F1AF800A42B7E /* VocabMatchingTile.swift */; };
 		D9E922E71F1C9FFA0091D8BB /* SinkToSwimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E922E61F1C9FFA0091D8BB /* SinkToSwimTests.swift */; };
 		D9EEC4551F2A1A230037C745 /* VocabMatchingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EEC4541F2A1A230037C745 /* VocabMatchingTests.swift */; };
+		EAB1B4AC1FE9E4FB005964AF /* UserDefaultsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB1B4AB1FE9E4FB005964AF /* UserDefaultsHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +112,8 @@
 		2AF82A8B1B4BA74A00307BED /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = FMDB/FMResultSet.h; sourceTree = "<group>"; };
 		2AF82A8C1B4BA74A00307BED /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = FMDB/FMResultSet.m; sourceTree = "<group>"; };
 		4DF1CBB020152582008B5359 /* CompletedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedViewController.swift; sourceTree = "<group>"; };
+		4D4074AB200E68FF009118F6 /* ShopViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewControllerTests.swift; sourceTree = "<group>"; };
+		4D4074AD200E69AA009118F6 /* MapViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerTests.swift; sourceTree = "<group>"; };
 		D910FF181F04AB3200C444DA /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		D910FF1E1F04DD4F00C444DA /* ResultViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewControllerTests.swift; sourceTree = "<group>"; };
 		D910FF201F05E22400C444DA /* ScenarioViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioViewControllerTests.swift; sourceTree = "<group>"; };
@@ -143,6 +148,7 @@
 		D9E74B7E1F1F1AF800A42B7E /* VocabMatchingTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabMatchingTile.swift; sourceTree = "<group>"; };
 		D9E922E61F1C9FFA0091D8BB /* SinkToSwimTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinkToSwimTests.swift; sourceTree = "<group>"; };
 		D9EEC4541F2A1A230037C745 /* VocabMatchingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabMatchingTests.swift; sourceTree = "<group>"; };
+		EAB1B4AB1FE9E4FB005964AF /* UserDefaultsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +227,8 @@
 		2A0CA5671B294C6B00ED8781 /* PowerupTests */ = {
 			isa = PBXGroup;
 			children = (
+				4D4074AD200E69AA009118F6 /* MapViewControllerTests.swift */,
+				4D4074AB200E68FF009118F6 /* ShopViewControllerTests.swift */,
 				D9EEC4541F2A1A230037C745 /* VocabMatchingTests.swift */,
 				D9E922E61F1C9FFA0091D8BB /* SinkToSwimTests.swift */,
 				D9A1572D1F0A205200B3A51B /* DatabaseEntryTests.swift */,
@@ -327,6 +335,7 @@
 		D9AAA9C71EF25E2700287A79 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EAB1B4AB1FE9E4FB005964AF /* UserDefaultsHandler.swift */,
 				D9AAA9C81EF25E4600287A79 /* ShuffleArrayExtension.swift */,
 				D969D26B1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift */,
 			);
@@ -390,17 +399,16 @@
 			attributes = {
 				LastSwiftMigration = 0730;
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Systers;
 				TargetAttributes = {
 					2A0CA54E1B294C6B00ED8781 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = YUWPSE2UN9;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0920;
 					};
 					2A0CA5631B294C6B00ED8781 = {
 						CreatedOnToolsVersion = 6.3.2;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0920;
 						TestTargetID = 2A0CA54E1B294C6B00ED8781;
 					};
 				};
@@ -473,6 +481,7 @@
 				2AD1A1E71B2B1ADA00BCA94D /* ModelManager.swift in Sources */,
 				D959CBD31EE64A3A00C31753 /* DatabaseAccessor.swift in Sources */,
 				2A0CA5551B294C6B00ED8781 /* AppDelegate.swift in Sources */,
+				EAB1B4AC1FE9E4FB005964AF /* UserDefaultsHandler.swift in Sources */,
 				D9E190A61EE952CD00109F39 /* Accessory.swift in Sources */,
 				D984D3031F0F59A40006270D /* SinkToSwimQuestion.swift in Sources */,
 				D984D3011F0F598C0006270D /* SinkToSwimGameScene.swift in Sources */,
@@ -501,6 +510,8 @@
 				D9EEC4551F2A1A230037C745 /* VocabMatchingTests.swift in Sources */,
 				D910FF1F1F04DD4F00C444DA /* ResultViewControllerTests.swift in Sources */,
 				D910FF211F05E22400C444DA /* ScenarioViewControllerTests.swift in Sources */,
+				4D4074AE200E69AA009118F6 /* MapViewControllerTests.swift in Sources */,
+				4D4074AC200E68FF009118F6 /* ShopViewControllerTests.swift in Sources */,
 				D9970C7C1F00998300960B52 /* MinesweeperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -543,14 +554,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -591,14 +608,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -631,18 +654,19 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = YUWPSE2UN9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Powerup/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Powerup;
 				PRODUCT_NAME = Powerup;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Powerup-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -654,16 +678,17 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = YUWPSE2UN9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Powerup/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Powerup;
 				PRODUCT_NAME = Powerup;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Powerup-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -683,7 +708,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = PowerupTests;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Powerup.app/Powerup";
 			};
 			name = Debug;
@@ -698,7 +724,8 @@
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = PowerupTests;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Powerup.app/Powerup";
 			};
 			name = Release;

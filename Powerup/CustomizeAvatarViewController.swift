@@ -57,10 +57,10 @@ class CustomizeAvatarViewController: UIViewController {
     }
     
     func initializeAccessoryArrays() {
-        clothes = dataSource.getAccessoryArray(accessoryType: .clothes).filter({a in return a.purchased})
-        hairs = dataSource.getAccessoryArray(accessoryType: .hair).filter({a in return a.purchased})
-        faces = dataSource.getAccessoryArray(accessoryType: .face).filter({a in return a.purchased})
-        eyes = dataSource.getAccessoryArray(accessoryType: .eyes).filter({a in return a.purchased})
+        clothes = dataSource.getAccessoryArray(accessoryType: .clothes)
+        hairs = dataSource.getAccessoryArray(accessoryType: .hair)
+        faces = dataSource.getAccessoryArray(accessoryType: .face)
+        eyes = dataSource.getAccessoryArray(accessoryType: .eyes)
     }
     
     func updateClothesImage() {
@@ -95,8 +95,11 @@ class CustomizeAvatarViewController: UIViewController {
     func saveAvatar() -> Bool {
         do {
             try dataSource.createAvatar(avatar)
+            // Record the hair and clothes as bought if they aren't purchased by default.
+            try dataSource.boughtAccessory(accessory: avatar.hair)
+            try dataSource.boughtAccessory(accessory: avatar.clothes)
         } catch _ {
-            let alert = UIAlertController(title: "Warning", message: "Failed to save avatar, please retry this action. If that doesn't help, try restaring or reinstalling the app.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Warning", message: "Failed to save avatar, please retry this action. If that doesn't help, try restarting or reinstalling the app.", preferredStyle: .alert)
             
             // Unwind to Start View when Ok Button is pressed.
             let okButton = UIAlertAction(title: "OK", style: .cancel, handler: {action in
