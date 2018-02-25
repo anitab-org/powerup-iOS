@@ -239,7 +239,7 @@ class ShopViewController: UIViewController {
                 if haveEnoughPointsToBuy(accessoryPrice: itemChosen.points) {
                     // If have enough points, buy the item.
                     // Alert the player that the purchase couldn't be reverted.
-                    let cannotRevertAlert = UIAlertController(title: "Warning", message: "Are you sure you want to purchase these items? You will be spending $\(itemChosen.points) and the purchase can't be reverted.", preferredStyle: .alert)
+                    let cannotRevertAlert = UIAlertController(title: "Warning", message: "Are you sure you want to purchase these items? You will be spending \(itemChosen.points)karma points and the purchase can't be reverted.", preferredStyle: .alert)
                     let cancelButton = UIAlertAction(title: "Maybe not", style: .cancel)
                     let purchaseButton = UIAlertAction(title: "Purchase", style: .default, handler: {action in
                         
