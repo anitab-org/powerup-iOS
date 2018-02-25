@@ -404,7 +404,6 @@
 				TargetAttributes = {
 					2A0CA54E1B294C6B00ED8781 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 4KAGKN9362;
 						LastSwiftMigration = 0920;
 					};
 					2A0CA5631B294C6B00ED8781 = {
@@ -655,9 +654,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 4KAGKN9362;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Powerup/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
 				OTHER_SWIFT_FLAGS = "";
@@ -679,9 +678,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 4KAGKN9362;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Powerup/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.systers.Powerup;
