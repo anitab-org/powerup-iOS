@@ -30,7 +30,7 @@ class ShopViewController: UIViewController {
     
     // MARK: Views
     @IBOutlet weak var pointsLabel: UILabel!
-    
+    @IBOutlet weak var previewLabel: UILabel!
     @IBOutlet weak var avatarEyesView: UIImageView!
     @IBOutlet weak var avatarHairView: UIImageView!
     @IBOutlet weak var avatarFaceView: UIImageView!
@@ -237,10 +237,27 @@ class ShopViewController: UIViewController {
             if !itemChosen.purchased {
                 
                 if haveEnoughPointsToBuy(accessoryPrice: itemChosen.points) {
+                    // Save the current item in case the user wants to revert.
+                    let currentItem = self.avatar.getAccessoryByType(itemChosen.type)
+                    
+                    // Show the user a preview of the item.
+                    self.avatar.setAccessoryByType(itemChosen.type, accessory: itemChosen)
+                    self.updateAvatarImageView()
+                    
+                    // Set the preview label's text to "Preview".
+                    previewLabel.text = "Preview"
+                    
                     // If have enough points, buy the item.
                     // Alert the player that the purchase couldn't be reverted.
                     let cannotRevertAlert = UIAlertController(title: "Warning", message: "Are you sure you want to purchase these items? You will be spending $\(itemChosen.points) and the purchase can't be reverted.", preferredStyle: .alert)
-                    let cancelButton = UIAlertAction(title: "Maybe not", style: .cancel)
+                    let cancelButton = UIAlertAction(title: "Maybe not", style: .cancel, handler: {action in
+                        // Revert to whatever accessory the user had before.
+                        self.avatar.setAccessoryByType(itemChosen.type, accessory: currentItem)
+                        self.updateAvatarImageView()
+                        
+                        // Get rid of the preview text.
+                        self.previewLabel.text = ""
+                    })
                     let purchaseButton = UIAlertAction(title: "Purchase", style: .default, handler: {action in
                         
                         // Save the purchased data into the database.
@@ -277,6 +294,9 @@ class ShopViewController: UIViewController {
                         let confirmButton = UIAlertAction(title: "OK", style: .default)
                         successfulDiologue.addAction(confirmButton)
                         self.present(successfulDiologue, animated: true, completion: nil)
+                        
+                        // Get rid of the preview text.
+                        self.previewLabel.text = ""
                     })
                     
                     cannotRevertAlert.addAction(cancelButton)
