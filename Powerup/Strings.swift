@@ -21,6 +21,7 @@ let errorPurchasingMessage = "Error purchasing item, please retry this action. I
 let errorSavingPurchaseMessage = "Error saving your purchase, please retry this action. If that doesn't help, try restarting or reinstalling the app."
 let yayTitleMessage = "Yay!"
 let successFullPurchaseMessage = "The purchase is successful!"
+let previewLabelText = "Preview"
 let cancelButtonText = "Maybe not"
 let purchaseButtonText = "Purchase"
 let errorSavingAvatarMessage = "Error saving the avatar, please retry this action. If that doesn't help, try restarting or reinstalling the app."
