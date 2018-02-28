@@ -104,10 +104,6 @@ class VocabMatchingGameScene: SKScene {
     let endSceneFadeInAnimationDuration = 0.5
     let clipboardStarBlinkAnimationDuration = 0.3
     
-    // Strings
-    let endSceneTitleLabelText = "Game Over"
-    let scoreLabelPrefix = "Score: "
-    
     // MARK: Properties
     var tutorialScene: SKTutorialScene!
     
@@ -287,7 +283,7 @@ class VocabMatchingGameScene: SKScene {
                 // Fade in end scene.
                 self.endSceneSprite.alpha = 0.0
                 self.endSceneSprite.isHidden = false
-                self.endSceneScoreLabel.text = self.scoreLabelPrefix + String(self.score)
+                self.endSceneScoreLabel.text = scoreLabelPrefix + String(self.score)
                 self.endSceneSprite.run(SKAction.fadeIn(withDuration: self.endSceneFadeInAnimationDuration)) {
                     self.isContinueButtonInteractable = true
                 }
