@@ -29,8 +29,6 @@ class MinesweeperGameScene: SKScene {
     let buttonWaitDuration = 0.5
     let boxFlipInterval = 0.2
     let showAllBoxesInterval = 0.3
-    let boxEnlargingKey = "enlarge"
-    let boxShrinkingKey = "shrink"
     let boxDarkening = SKAction.colorize(with: UIColor(white: 0.6, alpha: 0.8), colorBlendFactor: 1.0, duration: 0.2)
     let fadeInAction = SKAction.fadeIn(withDuration: 0.8)
     let fadeOutAction = SKAction.fadeOut(withDuration: 0.8)
