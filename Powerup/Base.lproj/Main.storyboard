@@ -1123,6 +1123,16 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
                                     <action selector="homeButtonTouched:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="5a5-QJ-5F0"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0A7-Zd-dwO">
+                                <rect key="frame" x="30" y="132" width="70" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="RJw-SL-ZjI"/>
+                                    <constraint firstAttribute="height" constant="21" id="aYK-Oc-vrW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -1134,6 +1144,7 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
                             <constraint firstItem="35U-NA-5dW" firstAttribute="top" secondItem="dpd-4J-5ix" secondAttribute="bottom" id="F59-U3-8T4"/>
                             <constraint firstItem="QNs-33-Qom" firstAttribute="width" secondItem="uOc-oZ-NLG" secondAttribute="width" multiplier="0.275" id="KjK-7F-OAn"/>
                             <constraint firstItem="JQp-zY-86c" firstAttribute="width" secondItem="uOc-oZ-NLG" secondAttribute="width" multiplier="0.25" id="KrV-Eu-QSt"/>
+                            <constraint firstItem="0A7-Zd-dwO" firstAttribute="top" secondItem="24j-Zk-rSY" secondAttribute="bottom" constant="74" id="LUW-xc-D7c"/>
                             <constraint firstItem="NR8-TQ-vgw" firstAttribute="height" secondItem="k8w-Nb-jCO" secondAttribute="height" multiplier="0.73" id="Lmj-uP-5nh"/>
                             <constraint firstItem="JQp-zY-86c" firstAttribute="centerY" secondItem="uOc-oZ-NLG" secondAttribute="centerY" id="NNd-No-wnP"/>
                             <constraint firstItem="JQp-zY-86c" firstAttribute="height" secondItem="uOc-oZ-NLG" secondAttribute="height" id="NTu-cA-TsF"/>
@@ -1145,6 +1156,7 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
                             <constraint firstItem="uOc-oZ-NLG" firstAttribute="centerY" secondItem="k8w-Nb-jCO" secondAttribute="centerY" multiplier="0.2" id="YJe-bm-Xh6"/>
                             <constraint firstItem="JQp-zY-86c" firstAttribute="centerX" secondItem="uOc-oZ-NLG" secondAttribute="centerX" multiplier="0.55" id="bWL-n1-CRv"/>
                             <constraint firstItem="uOc-oZ-NLG" firstAttribute="centerX" secondItem="k8w-Nb-jCO" secondAttribute="centerX" id="gQf-bi-4TF"/>
+                            <constraint firstItem="0A7-Zd-dwO" firstAttribute="leading" secondItem="k8w-Nb-jCO" secondAttribute="leadingMargin" constant="10" id="tej-Cq-MEH"/>
                             <constraint firstItem="NR8-TQ-vgw" firstAttribute="centerX" secondItem="k8w-Nb-jCO" secondAttribute="centerX" multiplier="1.15" id="hIO-OW-zYh"/>
                             <constraint firstItem="DHw-1J-Sgi" firstAttribute="top" secondItem="C1p-vc-PYe" secondAttribute="bottom" id="kW5-QP-L1V"/>
                             <constraint firstItem="24j-Zk-rSY" firstAttribute="centerY" secondItem="uOc-oZ-NLG" secondAttribute="centerY" id="lDB-2M-yWU"/>
@@ -1174,6 +1186,7 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
                         <outlet property="nextButton" destination="Zb4-CC-Mbj" id="uuq-cW-67H"/>
                         <outlet property="pointsLabel" destination="9IW-7K-Gls" id="lm7-Xg-smx"/>
                         <outlet property="prevButton" destination="0ZK-mD-cKM" id="1nY-ya-ROe"/>
+                        <outlet property="previewLabel" destination="0A7-Zd-dwO" id="5tm-G4-WhD"/>
                         <outletCollection property="displayBoxes" destination="2Uv-dW-Wkm" collectionClass="NSMutableArray" id="BWa-5Q-3N9"/>
                         <outletCollection property="displayBoxes" destination="X50-eP-Zyb" collectionClass="NSMutableArray" id="7sw-EK-OLI"/>
                         <outletCollection property="displayBoxes" destination="Xbb-5J-AKk" collectionClass="NSMutableArray" id="DtO-Bm-WSf"/>
@@ -1321,10 +1334,10 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
             </objects>
             <point key="canvasLocation" x="2742" y="831"/>
         </scene>
-        <!--View Controller-->
+        <!--Completed View Controller-->
         <scene sceneID="KiG-y7-maB">
             <objects>
-                <viewController id="rlW-vW-5EN" sceneMemberID="viewController">
+                <viewController id="rlW-vW-5EN" customClass="CompletedViewController" customModule="Powerup" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="niH-gG-daI"/>
                         <viewControllerLayoutGuide type="bottom" id="dlx-sJ-h6W"/>
@@ -1336,11 +1349,56 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scenario_complete_scene" translatesAutoresizingMaskIntoConstraints="NO" id="o1p-K2-wtC">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NFe-EU-XXC" userLabel="Map Button">
-                                <rect key="frame" x="233" y="224" width="200" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggV-oD-bbd">
+                                <rect key="frame" x="132.5" y="226" width="169" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="Ovl-Sh-Ocq"/>
-                                    <constraint firstAttribute="height" constant="40" id="YMv-cv-qAe"/>
+                                    <constraint firstAttribute="height" constant="36" id="O7Q-bM-bW2"/>
+                                    <constraint firstAttribute="width" constant="169" id="yKU-W6-nE7"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="replay_button"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="push" identifier="toScenarioView" id="g9d-TJ-O76"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Current Scenario:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3x2-5c-b2v">
+                                <rect key="frame" x="241" y="79" width="185" height="24.5"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
+                                <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="karma_star" translatesAutoresizingMaskIntoConstraints="NO" id="Sjq-tY-NP2">
+                                <rect key="frame" x="10" y="10" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ePr-QX-rbu"/>
+                                    <constraint firstAttribute="width" constant="40" id="hmm-qU-VYy"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOP-gF-DVR">
+                                <rect key="frame" x="58" y="13" width="50" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="4El-z9-rJa"/>
+                                    <constraint firstAttribute="width" constant="50" id="8LX-zP-Vyr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
+                                <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a87-JU-rSY">
+                                <rect key="frame" x="602" y="15" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="bCj-cA-zZw"/>
+                                    <constraint firstAttribute="height" constant="50" id="ebS-Xs-Hoa"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="home_button"/>
+                                <connections>
+                                    <segue destination="i9o-3C-Maz" kind="unwind" unwindAction="unwindToStartWithUnwindSegue:" id="a0y-t0-Us7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NFe-EU-XXC" userLabel="Map Button">
+                                <rect key="frame" x="365" y="226" width="169" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="169" id="Ovl-Sh-Ocq"/>
+                                    <constraint firstAttribute="height" constant="36" id="YMv-cv-qAe"/>
                                 </constraints>
                                 <state key="normal" image="map_button"/>
                                 <connections>
@@ -1352,13 +1410,27 @@ The app uses Social and Emotional Learning (SEL) to empower middle school girls 
                         <constraints>
                             <constraint firstItem="o1p-K2-wtC" firstAttribute="height" secondItem="uPm-ct-ZVH" secondAttribute="height" id="3wD-gh-VXD"/>
                             <constraint firstItem="o1p-K2-wtC" firstAttribute="centerX" secondItem="uPm-ct-ZVH" secondAttribute="centerX" id="9Tb-CR-JEO"/>
-                            <constraint firstItem="NFe-EU-XXC" firstAttribute="centerX" secondItem="uPm-ct-ZVH" secondAttribute="centerX" id="fKW-c3-UtX"/>
+                            <constraint firstItem="Sjq-tY-NP2" firstAttribute="leading" secondItem="uPm-ct-ZVH" secondAttribute="leading" constant="10" id="L9U-QO-zkQ"/>
+                            <constraint firstItem="cOP-gF-DVR" firstAttribute="centerY" secondItem="Sjq-tY-NP2" secondAttribute="centerY" id="Lmb-2x-G9L"/>
+                            <constraint firstItem="ggV-oD-bbd" firstAttribute="centerY" secondItem="o1p-K2-wtC" secondAttribute="centerY" multiplier="1.3" id="VpX-9o-3dH"/>
+                            <constraint firstItem="a87-JU-rSY" firstAttribute="top" secondItem="niH-gG-daI" secondAttribute="bottom" constant="15" id="WxR-0c-NEt"/>
+                            <constraint firstItem="3x2-5c-b2v" firstAttribute="centerY" secondItem="uPm-ct-ZVH" secondAttribute="centerY" multiplier="0.5" id="cIj-uW-oMi"/>
+                            <constraint firstAttribute="trailing" secondItem="a87-JU-rSY" secondAttribute="trailing" constant="15" id="eqP-zb-a4q"/>
+                            <constraint firstItem="NFe-EU-XXC" firstAttribute="centerX" secondItem="uPm-ct-ZVH" secondAttribute="centerX" multiplier="1.35" id="fKW-c3-UtX"/>
+                            <constraint firstItem="Sjq-tY-NP2" firstAttribute="top" secondItem="uPm-ct-ZVH" secondAttribute="top" constant="10" id="goM-u3-ran"/>
+                            <constraint firstItem="ggV-oD-bbd" firstAttribute="centerX" secondItem="o1p-K2-wtC" secondAttribute="centerX" multiplier="0.65" id="j5U-Yf-1jk"/>
                             <constraint firstItem="o1p-K2-wtC" firstAttribute="centerY" secondItem="uPm-ct-ZVH" secondAttribute="centerY" id="jji-0E-Qlf"/>
                             <constraint firstItem="NFe-EU-XXC" firstAttribute="centerY" secondItem="uPm-ct-ZVH" secondAttribute="centerY" multiplier="1.3" id="kIk-uK-KmT"/>
                             <constraint firstItem="o1p-K2-wtC" firstAttribute="width" secondItem="uPm-ct-ZVH" secondAttribute="width" id="nCx-ib-BIm"/>
+                            <constraint firstItem="cOP-gF-DVR" firstAttribute="leading" secondItem="Sjq-tY-NP2" secondAttribute="trailing" constant="10" id="u1A-in-ZOT"/>
+                            <constraint firstItem="3x2-5c-b2v" firstAttribute="centerX" secondItem="uPm-ct-ZVH" secondAttribute="centerX" id="y64-1S-zIE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QiI-9m-e9X"/>
+                    <connections>
+                        <outlet property="karmaPointsLabel" destination="cOP-gF-DVR" id="cZU-fK-VdG"/>
+                        <outlet property="scenarioLabel" destination="3x2-5c-b2v" id="cQA-va-YK0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NIo-dC-jOr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="i9o-3C-Maz" userLabel="Exit" sceneMemberID="exit"/>
