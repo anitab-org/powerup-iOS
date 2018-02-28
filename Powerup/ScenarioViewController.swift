@@ -52,7 +52,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         } catch _ {
             // Unwind back to map view if cound't fetch choices from database.
             let alert = UIAlertController(title: warningTitleMessage, message: errorLoadingChoicesMessage, preferredStyle: .alert)
-            let okButton = UIAlertAction(title: "OK", style: .default, handler: {action in self.performSegue(withIdentifier: "unwindToMap", sender: self)})
+            let okButton = UIAlertAction(title: okText, style: .default, handler: {action in self.performSegue(withIdentifier: "unwindToMap", sender: self)})
             alert.addAction(okButton)
             
             self.present(alert, animated: true, completion: nil)
