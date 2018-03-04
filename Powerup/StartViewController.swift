@@ -44,8 +44,7 @@ class StartViewController: UIViewController, SegueHandlerType {
             let alert = UIAlertController(title: "Warning", message: "Create your avatar to start the game!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {action in
                 self.performSegueWithIdentifier(.toNewAvatar, sender: self)
-                //self.performSegue(withIdentifier: "toNewAvatar", sender: self)
-            }))
+                }))
             self.present(alert, animated: true)
         }
     }
