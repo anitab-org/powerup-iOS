@@ -1,11 +1,11 @@
 import UIKit
 
-class MapViewController: UIViewController, SegueHandlerType{
+class MapViewController: UIViewController, SegueHandlerType {
     
-        enum SegueIdentifier: String {
+    enum SegueIdentifier: String {
         case toScenarioView = "toScenarioView"
         case toCompletedView = "toCompletedView"
-        }
+    }
     
     // The background images for scenarios.
     let backgroundImages: [String?] = [
@@ -18,7 +18,7 @@ class MapViewController: UIViewController, SegueHandlerType{
         "hospital_background",
         "library_background"
     ]
-  
+    
     
     // MARK: Properties
     var dataSource: DataSource = DatabaseAccessor.sharedInstance
@@ -89,23 +89,25 @@ class MapViewController: UIViewController, SegueHandlerType{
             performSegueWithIdentifier(.toScenarioView, sender: sender)
         }
     }
-   
+    
     
     // MARK: Segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let senderButton = sender as? UIButton {
             let scenarioID = senderButton.tag
             switch segueIdentifierForSegue(segue){
-            case .toScenarioView:
+            case .toScenarioView?:
                 (segue.destination as? ScenarioViewController)?.scenarioID = scenarioID
                 (segue.destination as? ScenarioViewController)?.scenarioName = selectedScenarioName
                 (segue.destination as? ScenarioViewController)?.backgroundImage = UIImage(named: backgroundImages[scenarioID] ?? "")
                 
-            case .toCompletedView:
+            case .toCompletedView?:
                 (segue.destination as? CompletedViewController)?.scenarioID = scenarioID
                 (segue.destination as? CompletedViewController)?.scenarioName = selectedScenarioName
                 (segue.destination as? CompletedViewController)?.backgroundImage = UIImage(named: backgroundImages[scenarioID] ?? "")
                 
+            case .none:
+                print("segue doesnot have valid identifier")
             }
             
             
