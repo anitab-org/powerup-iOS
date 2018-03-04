@@ -96,16 +96,18 @@ class MapViewController: UIViewController, SegueHandlerType{
         if let senderButton = sender as? UIButton {
             let scenarioID = senderButton.tag
             switch segueIdentifierForSegue(segue){
-            case .toScenarioView:
+            case .toScenarioView?:
                 (segue.destination as? ScenarioViewController)?.scenarioID = scenarioID
                 (segue.destination as? ScenarioViewController)?.scenarioName = selectedScenarioName
                 (segue.destination as? ScenarioViewController)?.backgroundImage = UIImage(named: backgroundImages[scenarioID] ?? "")
                 
-            case .toCompletedView:
+            case .toCompletedView?:
                 (segue.destination as? CompletedViewController)?.scenarioID = scenarioID
                 (segue.destination as? CompletedViewController)?.scenarioName = selectedScenarioName
                 (segue.destination as? CompletedViewController)?.backgroundImage = UIImage(named: backgroundImages[scenarioID] ?? "")
                 
+            case .none:
+                print("segue doesnot have valid identifier")
             }
             
             
