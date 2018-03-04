@@ -8,7 +8,7 @@ class StartViewController: UIViewController {
     // MARK: Views
     @IBOutlet weak var StartButton: UIButton!
     @IBOutlet weak var PowerUp: UITextView!
-    
+   
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
