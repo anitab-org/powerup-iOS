@@ -12,7 +12,7 @@ class StartViewController: UIViewController, SegueHandlerType{
     // MARK: Views
     @IBOutlet weak var StartButton: UIButton!
     @IBOutlet weak var PowerUp: UITextView!
-   
+    
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +62,7 @@ class StartViewController: UIViewController, SegueHandlerType{
             
             self.present(alert, animated: true, completion: nil)
         } else {
-           performSegueWithIdentifier(.toNewAvatar, sender: self)
+            performSegueWithIdentifier(.toNewAvatar, sender: self)
         }
         // Re-shows tutorial, when creating a new avatar
         UserDefaults.setTutorialViewed(key: .MineSweeperTutorialViewed, value: false)

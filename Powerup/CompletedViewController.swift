@@ -5,7 +5,7 @@ class CompletedViewController: UIViewController,SegueHandlerType{
         case toScenarioView = "toScenarioView"
     }
     
-
+    
     // MARK: Properties
     // The scenario information of the view, set by MapViewController.
     var scenarioID: Int = -1
@@ -23,7 +23,7 @@ class CompletedViewController: UIViewController,SegueHandlerType{
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Configure scenario name.
         scenarioLabel.text = "Current Scenario: " + scenarioName
         
@@ -48,10 +48,10 @@ class CompletedViewController: UIViewController,SegueHandlerType{
             (segue.destination as? ScenarioViewController)?.scenarioID = scenarioID
             (segue.destination as? ScenarioViewController)?.scenarioName = scenarioName
             (segue.destination as? ScenarioViewController)?.backgroundImage = backgroundImage
-            case .none:
+        case .none:
             print("segue doesnot have valid identifier")
         }
-
+        
     }
-   
+    
 }

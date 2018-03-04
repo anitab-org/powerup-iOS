@@ -2,10 +2,10 @@ import UIKit
 
 class MapViewController: UIViewController, SegueHandlerType{
     
-        enum SegueIdentifier: String {
+    enum SegueIdentifier: String {
         case toScenarioView = "toScenarioView"
         case toCompletedView = "toCompletedView"
-        }
+    }
     
     // The background images for scenarios.
     let backgroundImages: [String?] = [
@@ -18,7 +18,7 @@ class MapViewController: UIViewController, SegueHandlerType{
         "hospital_background",
         "library_background"
     ]
-  
+    
     
     // MARK: Properties
     var dataSource: DataSource = DatabaseAccessor.sharedInstance
@@ -89,7 +89,7 @@ class MapViewController: UIViewController, SegueHandlerType{
             performSegueWithIdentifier(.toScenarioView, sender: sender)
         }
     }
-   
+    
     
     // MARK: Segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

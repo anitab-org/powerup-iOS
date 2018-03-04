@@ -38,7 +38,7 @@ class MiniGameViewController: UIViewController,SegueHandlerType{
             let minesweeperGame = MinesweeperGameScene(size: view.bounds.size)
             minesweeperGame.viewController = self
             gameScene = minesweeperGame
-        
+            
         // Vocab Matching
         case .vocabMatching:
             let vocabMatchingGame = VocabMatchingGameScene(size: view.bounds.size)
@@ -50,7 +50,7 @@ class MiniGameViewController: UIViewController,SegueHandlerType{
             let sinkToSwimGame = SinkToSwimGameScene(size: view.bounds.size)
             sinkToSwimGame.viewController = self
             gameScene = sinkToSwimGame
-        
+            
         default:
             print("Unknown mini game.")
         }

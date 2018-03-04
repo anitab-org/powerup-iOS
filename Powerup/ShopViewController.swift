@@ -117,7 +117,7 @@ class ShopViewController: UIViewController {
                     
                     // Hide the price label
                     priceLabels[remainingIndex].text = ""
-
+                    
                     // Hide check mark.
                     purchasedCheckmark[remainingIndex].isHidden = true
                     
@@ -205,7 +205,7 @@ class ShopViewController: UIViewController {
         avatarHandbagView.image = avatar.handbag?.image
         avatarHatView.image = avatar.hat?.image
     }
-
+    
     // MARK: Actions
     @IBAction func nextButtonTouched(_ sender: UIButton) {
         firstAccessoryIndex += displayBoxCount

@@ -16,7 +16,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     
     // The background image of the view, set by MapViewController.
     var backgroundImage: UIImage? = nil
-
+    
     // Questions ([questionID : question]) for the scenario
     var questions = [Int:Question]()
     var currQuestionID: Int = -1
@@ -91,7 +91,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
             
             return
         }
-    
+        
         clothesView.image = avatar.clothes.image
         faceView.image = avatar.face.image
         hairView.image = avatar.hair.image
@@ -120,7 +120,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         
         // Configure background image.
         backgroundImageView.image = backgroundImage
-
+        
         configureAvatar()
         
         initializeQuestions()

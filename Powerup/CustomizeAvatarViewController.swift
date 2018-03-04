@@ -179,7 +179,7 @@ class CustomizeAvatarViewController: UIViewController,SegueHandlerType {
         if confirming {
             if saveAvatar() {
                 // Perform Push segue to map scene.
-                 self.performSegueWithIdentifier(.toMapScene, sender: self)
+                self.performSegueWithIdentifier(.toMapScene, sender: self)
             }
         } else {
             // Hide selection bar.
@@ -192,7 +192,7 @@ class CustomizeAvatarViewController: UIViewController,SegueHandlerType {
             confirming = true
         }
     }
-
+    
     @IBAction func backButtonTouched(_ sender: UIButton) {
         // Hide back button & confirming text.
         backButton.isHidden = true
