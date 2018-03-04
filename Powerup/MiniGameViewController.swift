@@ -8,7 +8,10 @@ enum MiniGameIndex: Int {
     case vocabMatching = -3
 }
 
-class MiniGameViewController: UIViewController {
+class MiniGameViewController: UIViewController,SegueHandlerType{
+    enum SegueIdentifier: String {
+        case toResultScene = "toResultScene"
+    }
     
     // MARK: Properties
     var completedScenarioID: Int = -1
@@ -64,7 +67,7 @@ class MiniGameViewController: UIViewController {
     
     // Called by the mini game.
     func endGame() {
-        performSegue(withIdentifier: "toResultScene", sender: self)
+        performSegueWithIdentifier(.toResultScene, sender: self)
     }
     
     // MARK: Segues
