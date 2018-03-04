@@ -1,6 +1,6 @@
 import UIKit
 
-class ScenarioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SegueHandlerType{
+class ScenarioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SegueHandlerType {
     enum SegueIdentifier: String {
         case unwindToMap = "unwindToMap"
         case toMiniGame = "toMiniGame"

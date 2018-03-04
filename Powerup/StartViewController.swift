@@ -1,6 +1,6 @@
 import UIKit
 
-class StartViewController: UIViewController, SegueHandlerType{
+class StartViewController: UIViewController, SegueHandlerType {
     enum SegueIdentifier: String {
         case toMapView = "toMapView"
         case toNewAvatar = "toNewAvatar"

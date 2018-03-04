@@ -1,6 +1,6 @@
 import UIKit
 
-class MapViewController: UIViewController, SegueHandlerType{
+class MapViewController: UIViewController, SegueHandlerType {
     
     enum SegueIdentifier: String {
         case toScenarioView = "toScenarioView"

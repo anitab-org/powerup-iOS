@@ -8,7 +8,7 @@ enum MiniGameIndex: Int {
     case vocabMatching = -3
 }
 
-class MiniGameViewController: UIViewController,SegueHandlerType{
+class MiniGameViewController: UIViewController,SegueHandlerType {
     enum SegueIdentifier: String {
         case toResultScene = "toResultScene"
     }

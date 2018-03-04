@@ -8,7 +8,6 @@ protocol SegueHandlerType {
 extension SegueHandlerType where Self: UIViewController,
     SegueIdentifier.RawValue == String
 {
-    
     func performSegueWithIdentifier(_ segueIdentifier: SegueIdentifier,
                                     sender: AnyObject?) {
         
@@ -16,6 +15,7 @@ extension SegueHandlerType where Self: UIViewController,
     }
     
     func segueIdentifierForSegue(_ segue: UIStoryboardSegue) -> SegueIdentifier? {
+        
         if segue.identifier==nil
         {
             return nil
