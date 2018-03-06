@@ -431,13 +431,19 @@ class MinesweeperGameScene: SKScene {
             if !resultBanner.isHidden {
                 // Button in the result banner. Show description when tapped.
                 showDescription()
+                // Record score to update karma points
+                viewController.score = score
                 viewController.endGame()
             } else if roundCount < possiblityPercentages.count {
                 // Not the last round, hide description banner and start a new round.
                 newRound()
                 hideDescription()
+                // Record score to update karma points
+                viewController.score = score
                 viewController.endGame()
             } else {
+                // Record score to update karma points
+                viewController.score = score
                 // End game.
                 viewController.endGame()
             }
