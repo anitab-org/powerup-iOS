@@ -9,7 +9,7 @@ class ResultsViewController: UIViewController {
     // This will be set in the ScenarioViewController.
     var completedScenarioID: Int = -1
     var completedScenarioName: String = ""
-
+    
     var dataSource: DataSource = DatabaseAccessor.sharedInstance
     
     // MARK: Views
@@ -19,7 +19,7 @@ class ResultsViewController: UIViewController {
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Configure scenario name.
         scenarioName.text = "Current Scenario: " + completedScenarioName
         
@@ -58,7 +58,7 @@ class ResultsViewController: UIViewController {
         saveScenarioAndUnlockNextScenario()
     }
     
-
+    
     func gainKarmaPoints() {
         // Save the karma gains in database.
         let newScore: Score!
@@ -90,7 +90,7 @@ class ResultsViewController: UIViewController {
             
             // Get the next scenario.
             var nextScenario = try dataSource.getScenario(of: currScenario.nextScenarioID)
-
+            
             nextScenario.unlocked = true
             
             // Save the updated (next) scenario back to database.
