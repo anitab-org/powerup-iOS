@@ -50,17 +50,23 @@ class VocabMatchingGameScene: SKScene {
     let continueButtonHeightRelativeToSceneHeight = 0.15
     let continueButtonAspectRatio = 2.783
     
-    // End scene labels
-    let endSceneTitleLabelPosX = 0.0
-    let endSceneTitleLabelPosY = 0.1
-    let endSceneScoreLabelPosX = 0.0
-    let endSceneScoreLabelPosY = -0.1
+    // End scene labels.
+    let endSceneCorrectLabelPosX = -0.01
+    let endSceneCorrectLabelPosY = -0.06
+    let endSceneWrongLabelPosX = 0.3
+    let endSceneWrongLabelPosY = -0.06
+    let endSceneScoreLabelPosX = -0.37
+    let endSceneScoreLabelPosY = -0.12
+    let endSceneScoreLabel = SKLabelNode()
+    let endSceneCorrectCountLabel = SKLabelNode()
+    let endSceneWrongCountLabel = SKLabelNode()
     
     // Sprite Nodes
     let scoreBoxSprite = SKSpriteNode(imageNamed: "vocabmatching_scorebox")
     let backgroundSprite = SKSpriteNode(imageNamed: "vocabmatching_background")
-    let endSceneSprite = SKSpriteNode()
+    let endSceneSprite = SKSpriteNode(imageNamed: "end_scene")
     let continueButton = SKSpriteNode(imageNamed: "continue_button")
+    let correctWrongSprite = SKSpriteNode()
     
     // Label Nodes & Label Wrapper Node
     let scoreLabelWrapper = SKNode()
@@ -68,7 +74,8 @@ class VocabMatchingGameScene: SKScene {
     let endSceneScoreLabelWrapper = SKNode()
     let scoreLabel = SKLabelNode()
     let endSceneTitleLabel = SKLabelNode()
-    let endSceneScoreLabel = SKLabelNode()
+    let endSceneCorrectCountLabelWrapper = SKNode()
+    let endSceneWrongCountLabelWrapper = SKNode()
     
     // Textures
     let tileTexture = SKTexture(imageNamed: "vocabmatching_tile")
@@ -86,6 +93,12 @@ class VocabMatchingGameScene: SKScene {
     let endSceneLayer = CGFloat(1.5)
     let tutorialSceneLayer = CGFloat(5)
     
+    // Colors
+    let textColor = UIColor(red: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
+    let correctColor = UIColor(red: 105.0 / 255.0, green: 255.0 / 255.0, blue: 109.0 / 255.0, alpha: 1.0)
+    let wrongColor = UIColor(red: 255.0 / 255.0, green: 105.0 / 255.0, blue: 105.0 / 255.0, alpha: 1.0)
+    let scoreTextColor = UIColor.white
+    
     // Fonts
     let fontName = "Montserrat-Bold"
     let fontColor = UIColor(red: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
@@ -93,7 +106,9 @@ class VocabMatchingGameScene: SKScene {
     // Font size
     let clipboardFontSize = CGFloat(14)
     let scoreFontSize = CGFloat(16)
+    let endSceneCountFontSize = CGFloat(55)
     let endSceneTitleFontSize = CGFloat(20)
+    let endSceneScoreFontSize = CGFloat(80)
     
     // If there are too many (longTextDef) characters in the string of the pad, shrink it.
     let clipboardLongTextFontSize = CGFloat(10)
@@ -127,6 +142,7 @@ class VocabMatchingGameScene: SKScene {
     var isContinueButtonInteractable = false
     
     var score: Int = 0
+    var wrongCount: Int = 0
     
     // MARK: Constructors
     override init(size: CGSize) {
@@ -160,7 +176,6 @@ class VocabMatchingGameScene: SKScene {
             
             clipboards.append(currClipboard)
         }
-        
         // Score Label
         scoreBoxSprite.addChild(scoreLabelWrapper)
         scoreLabelWrapper.position = CGPoint(x: Double(scoreBoxSprite.size.width) * scoreLabelPosX, y: Double(scoreBoxSprite.size.height) * scoreLabelPosY)
@@ -174,33 +189,45 @@ class VocabMatchingGameScene: SKScene {
         scoreLabel.text = "0"
         
         // Sizing and positioning ending scene.
-        endSceneSprite.size = CGSize(width: size.width, height: size.height)
-        endSceneSprite.position = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
+        endSceneSprite.size = CGSize(width: gameWidth, height: gameHeight)
+        endSceneSprite.position = CGPoint(x: gameWidth / 2.0, y: gameHeight / 2.0)
         endSceneSprite.color = UIColor.white
         endSceneSprite.zPosition = endSceneLayer
         
         // End scene labels.
-        endSceneSprite.addChild(endSceneTitleLabelWrapper)
-        endSceneTitleLabelWrapper.position = CGPoint(x: gameWidth * endSceneTitleLabelPosX, y: gameHeight * endSceneTitleLabelPosY)
-        endSceneTitleLabelWrapper.zPosition = uiTextLayer
-        endSceneTitleLabelWrapper.addChild(endSceneTitleLabel)
+        // Correct count label.
+        endSceneSprite.addChild(endSceneCorrectCountLabelWrapper)
+        endSceneCorrectCountLabelWrapper.position = CGPoint(x: gameWidth * endSceneCorrectLabelPosX, y: gameHeight * endSceneCorrectLabelPosY)
+        endSceneCorrectCountLabelWrapper.zPosition = uiTextLayer
+        endSceneCorrectCountLabelWrapper.addChild(endSceneCorrectCountLabel)
         
-        endSceneTitleLabel.fontName = fontName
-        endSceneTitleLabel.fontColor = fontColor
-        endSceneTitleLabel.fontSize = endSceneTitleFontSize
-        endSceneTitleLabel.text = endSceneTitleLabelText
-        endSceneTitleLabel.horizontalAlignmentMode = .center
-        endSceneTitleLabel.verticalAlignmentMode = .center
+        endSceneCorrectCountLabel.fontName = fontName
+        endSceneCorrectCountLabel.fontColor = correctColor
+        endSceneCorrectCountLabel.fontSize = endSceneCountFontSize
+        endSceneCorrectCountLabel.horizontalAlignmentMode = .center
+        endSceneCorrectCountLabel.verticalAlignmentMode = .center
         
+        // Wrong count label.
+        endSceneSprite.addChild(endSceneWrongCountLabelWrapper)
+        endSceneWrongCountLabelWrapper.position = CGPoint(x: gameWidth * endSceneWrongLabelPosX, y: gameHeight * endSceneWrongLabelPosY)
+        endSceneWrongCountLabelWrapper.zPosition = uiTextLayer
+        endSceneWrongCountLabelWrapper.addChild(endSceneWrongCountLabel)
+        
+        endSceneWrongCountLabel.fontName = fontName
+        endSceneWrongCountLabel.fontColor = wrongColor
+        endSceneWrongCountLabel.fontSize = endSceneCountFontSize
+        endSceneWrongCountLabel.horizontalAlignmentMode = .center
+        endSceneWrongCountLabel.verticalAlignmentMode = .center
+        
+        // End scene score label.
         endSceneSprite.addChild(endSceneScoreLabelWrapper)
         endSceneScoreLabelWrapper.position = CGPoint(x: gameWidth * endSceneScoreLabelPosX, y: gameHeight * endSceneScoreLabelPosY)
         endSceneScoreLabelWrapper.zPosition = uiTextLayer
         endSceneScoreLabelWrapper.addChild(endSceneScoreLabel)
         
         endSceneScoreLabel.fontName = fontName
-        endSceneScoreLabel.fontColor = fontColor
-        endSceneScoreLabel.fontSize = scoreFontSize
-        endSceneScoreLabel.text = scoreLabelPrefix
+        endSceneScoreLabel.fontColor = textColor
+        endSceneScoreLabel.fontSize = endSceneScoreFontSize
         endSceneScoreLabel.horizontalAlignmentMode = .center
         endSceneScoreLabel.verticalAlignmentMode = .center
         
@@ -280,10 +307,14 @@ class VocabMatchingGameScene: SKScene {
             if self.currRound + 1 < self.totalRounds {
                 self.nextRound()
             } else {
-                // Fade in end scene.
+                // Set the score label, correct counts, and wrong counts.
+                self.endSceneScoreLabel.text = String(self.score)
+                self.endSceneCorrectCountLabel.text = String(self.score)
+                self.endSceneWrongCountLabel.text = String(self.wrongCount)
+                
+                // Fade in ending scene.
                 self.endSceneSprite.alpha = 0.0
                 self.endSceneSprite.isHidden = false
-                self.endSceneScoreLabel.text = scoreLabelPrefix + String(self.score)
                 self.endSceneSprite.run(SKAction.fadeIn(withDuration: self.endSceneFadeInAnimationDuration)) {
                     self.isContinueButtonInteractable = true
                 }
@@ -389,6 +420,7 @@ class VocabMatchingGameScene: SKScene {
             clipboardAtLane.run(SKAction.wait(forDuration: clipboardStarBlinkAnimationDuration)) {
                 clipboardAtLane.texture = self.clipboardTexture
             }
+            wrongCount += 1
         }
         
         // Remove the current tile.
@@ -468,7 +500,6 @@ class VocabMatchingGameScene: SKScene {
         if isContinueButtonInteractable && continueButton.contains(touch.location(in: endSceneSprite)) {
             // End the game, transition to result view controller.
             viewController.endGame()
-            
             return
         }
         

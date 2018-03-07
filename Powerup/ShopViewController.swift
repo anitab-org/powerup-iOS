@@ -246,9 +246,10 @@ class ShopViewController: UIViewController {
                     
                     // If have enough points, buy the item.
                     // Alert the player that the purchase couldn't be reverted.
-                    let cannotRevertAlert = UIAlertController(title: warningTitleMessage, message: "Are you sure you want to purchase these items? You will be spending $\(itemChosen.points) and the purchase can't be reverted.", preferredStyle: .alert)
-                    let cancelButton = UIAlertAction(title: cancelButtonText, style: .cancel, handler: {action in
-                        // Revert to whatever accessory the user had before.
+
+                    let cannotRevertAlert = UIAlertController(title: confirmationTitleMessage, message: "You will be spending \(itemChosen.points) Karma Points!", preferredStyle: .alert)
+                    let cancelButton = UIAlertAction(title: cancelText, style: .cancel, handler: {action in
+                     // Revert to whatever accessory the user had before.
                         self.avatar.setAccessoryByType(itemChosen.type, accessory: currentItem)
                         self.updateAvatarImageView()
                         
