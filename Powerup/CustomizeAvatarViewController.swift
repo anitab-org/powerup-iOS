@@ -1,6 +1,10 @@
 import UIKit
 
-class CustomizeAvatarViewController: UIViewController {
+class CustomizeAvatarViewController: UIViewController,SegueHandlerType {
+    enum SegueIdentifier: String {
+        case unwindToStartScene = "unwindToStartScene"
+        case toMapScene = "toMapScene"
+    }
     
     // MARK: Views
     @IBOutlet weak var customClothesView: UIImageView!
@@ -103,7 +107,7 @@ class CustomizeAvatarViewController: UIViewController {
             
             // Unwind to Start View when Ok Button is pressed.
             let okButton = UIAlertAction(title: "OK", style: .cancel, handler: {action in
-                self.performSegue(withIdentifier: "unwindToStartScene", sender: self)
+                self.performSegueWithIdentifier(.unwindToStartScene, sender: self)
             })
             alert.addAction(okButton)
             self.present(alert, animated: true, completion: nil)
@@ -175,7 +179,7 @@ class CustomizeAvatarViewController: UIViewController {
         if confirming {
             if saveAvatar() {
                 // Perform Push segue to map scene.
-                performSegue(withIdentifier: "toMapScene", sender: self)
+                self.performSegueWithIdentifier(.toMapScene, sender: self)
             }
         } else {
             // Hide selection bar.
@@ -188,7 +192,7 @@ class CustomizeAvatarViewController: UIViewController {
             confirming = true
         }
     }
-
+    
     @IBAction func backButtonTouched(_ sender: UIButton) {
         // Hide back button & confirming text.
         backButton.isHidden = true

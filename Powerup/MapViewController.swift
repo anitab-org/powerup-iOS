@@ -1,6 +1,11 @@
 import UIKit
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, SegueHandlerType {
+    
+    enum SegueIdentifier: String {
+        case toScenarioView = "toScenarioView"
+        case toCompletedView = "toCompletedView"
+    }
     
     // The background images for scenarios.
     let backgroundImages: [String?] = [
@@ -13,6 +18,7 @@ class MapViewController: UIViewController {
         "hospital_background",
         "library_background"
     ]
+    
     
     // MARK: Properties
     var dataSource: DataSource = DatabaseAccessor.sharedInstance
@@ -77,27 +83,34 @@ class MapViewController: UIViewController {
         selectedScenarioName = selectedScenario.name
         // If completed, go to completed view.
         if selectedScenario.completed {
-            performSegue(withIdentifier: "toCompletedView", sender: sender)
+            performSegueWithIdentifier(.toCompletedView, sender: sender)
         } else {
             // Go to the corresponding scenario
-            performSegue(withIdentifier: "toScenarioView", sender: sender)
+            performSegueWithIdentifier(.toScenarioView, sender: sender)
         }
     }
+    
     
     // MARK: Segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let senderButton = sender as? UIButton {
             let scenarioID = senderButton.tag
-            
-            if segue.identifier == "toScenarioView" {
+            switch segueIdentifierForSegue(segue){
+            case .toScenarioView?:
                 (segue.destination as? ScenarioViewController)?.scenarioID = scenarioID
                 (segue.destination as? ScenarioViewController)?.scenarioName = selectedScenarioName
                 (segue.destination as? ScenarioViewController)?.backgroundImage = UIImage(named: backgroundImages[scenarioID] ?? "")
-            } else if segue.identifier == "toCompletedView" {
+                
+            case .toCompletedView?:
                 (segue.destination as? CompletedViewController)?.scenarioID = scenarioID
                 (segue.destination as? CompletedViewController)?.scenarioName = selectedScenarioName
                 (segue.destination as? CompletedViewController)?.backgroundImage = UIImage(named: backgroundImages[scenarioID] ?? "")
+                
+            case .none:
+                print("segue doesnot have valid identifier")
             }
+            
+            
         }
     }
     
