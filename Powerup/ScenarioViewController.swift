@@ -51,8 +51,8 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
             try answers = dataSource.getAnswers(of: currQuestionID)
         } catch _ {
             // Unwind back to map view if cound't fetch choices from database.
-            let alert = UIAlertController(title: "Warning", message: "Error loading the choices. Please try again!", preferredStyle: .alert)
-            let okButton = UIAlertAction(title: "OK", style: .default, handler: {action in self.performSegue(withIdentifier: "unwindToMap", sender: self)})
+            let alert = UIAlertController(title: warningTitleMessage, message: errorLoadingChoicesMessage, preferredStyle: .alert)
+            let okButton = UIAlertAction(title: okText, style: .default, handler: {action in self.performSegue(withIdentifier: "unwindToMap", sender: self)})
             alert.addAction(okButton)
             
             self.present(alert, animated: true, completion: nil)
@@ -78,8 +78,8 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
             avatar = try dataSource.getAvatar()
         } catch _ {
             // Unwind back to map view if cound't fetch avatar from database.
-            let alert = UIAlertController(title: "Warning", message: "Error loading the avatar. Please try again!", preferredStyle: .alert)
-            let okButton = UIAlertAction(title: "OK", style: .default, handler: {action in self.performSegue(withIdentifier: "unwindToMap", sender: self)})
+            let alert = UIAlertController(title: warningTitleMessage, message: errorLoadingAvatarMessage, preferredStyle: .alert)
+            let okButton = UIAlertAction(title: okText, style: .default, handler: {action in self.performSegue(withIdentifier: "unwindToMap", sender: self)})
             alert.addAction(okButton)
             
             self.present(alert, animated: true, completion: nil)
@@ -129,8 +129,8 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
             questions = try dataSource.getQuestions(of: scenarioID)
         } catch _ {
             // Unwind back to map view if cound't fetch questions from database.
-            let alert = UIAlertController(title: "Warning", message: "Error loading the scenario. Please try again!", preferredStyle: .alert)
-            let okButton = UIAlertAction(title: "OK", style: .default, handler: {action in self.performSegue(withIdentifier: "unwindToMap", sender: self)})
+            let alert = UIAlertController(title: warningTitleMessage, message: errorLoadingScenarioMessage, preferredStyle: .alert)
+            let okButton = UIAlertAction(title: okText, style: .default, handler: {action in self.performSegue(withIdentifier: "unwindToMap", sender: self)})
             alert.addAction(okButton)
             
             self.present(alert, animated: true, completion: nil)
