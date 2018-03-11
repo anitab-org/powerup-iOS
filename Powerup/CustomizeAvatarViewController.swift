@@ -2,7 +2,7 @@ import UIKit
 
 class CustomizeAvatarViewController: UIViewController,SegueHandler {
     enum SegueIdentifier: String {
-        case unwindToStartScene = "unwindToStartScene"
+        case unwindToStartView = "unwindToStartScene"
         case toMapView = "toMapScene"
     }
 
@@ -107,7 +107,7 @@ class CustomizeAvatarViewController: UIViewController,SegueHandler {
 
             // Unwind to Start View when Ok Button is pressed.
             let okButton = UIAlertAction(title: okText, style: .cancel, handler: {action in
-                self.performSegueWithIdentifier(.unwindToStartScene, sender: self)
+                self.performSegueWithIdentifier(.unwindToStartView, sender: self)
             })
             alert.addAction(okButton)
             self.present(alert, animated: true, completion: nil)

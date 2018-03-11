@@ -10,7 +10,7 @@ enum MiniGameIndex: Int {
 
 class MiniGameViewController: UIViewController,SegueHandler {
     enum SegueIdentifier: String {
-        case toResultScene = "toResultScene"
+        case toResultSceneView = "toResultScene"
     }
     
     // MARK: Properties
@@ -67,7 +67,7 @@ class MiniGameViewController: UIViewController,SegueHandler {
     
     // Called by the mini game.
     func endGame() {
-        performSegueWithIdentifier(.toResultScene, sender: self)
+        performSegueWithIdentifier(.toResultSceneView, sender: self)
     }
     
     // MARK: Segues

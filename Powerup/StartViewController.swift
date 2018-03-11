@@ -3,7 +3,7 @@ import UIKit
 class StartViewController: UIViewController, SegueHandler {
     enum SegueIdentifier: String {
         case toMapView = "toMapView"
-        case toNewAvatar = "toNewAvatar"
+        case toNewAvatarView = "toNewAvatar"
     }
 
     // MARK: Properties
@@ -44,7 +44,7 @@ class StartViewController: UIViewController, SegueHandler {
 
             let alert = UIAlertController(title: warningTitleMessage, message: createAvatarMessage, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: okText, style: .default, handler: { action in
-                self.performSegueWithIdentifier(.toNewAvatar, sender: self)
+                self.performSegueWithIdentifier(.toNewAvatarView, sender: self)
             }))
 
             self.present(alert, animated: true)
@@ -55,13 +55,13 @@ class StartViewController: UIViewController, SegueHandler {
         // If previous avatar exists, warns the player that previous data will be lost.
         if dataSource.avatarExists() {
             let alert = UIAlertController(title: confirmationTitleMessage, message: startNewGameMessage, preferredStyle: .alert)
-            let okButton = UIAlertAction(title: newAvatarTitleMessage, style: .destructive, handler: { (action) -> Void in self.performSegueWithIdentifier(.toNewAvatar, sender: self) })
+            let okButton = UIAlertAction(title: newAvatarTitleMessage, style: .destructive, handler: { (action) -> Void in self.performSegueWithIdentifier(.toNewAvatarView, sender: self) })
             let cancelButton = UIAlertAction(title: cancelText, style: .cancel)
             alert.addAction(okButton)
             alert.addAction(cancelButton)
             self.present(alert, animated: true, completion: nil)
         } else {
-            performSegueWithIdentifier(.toNewAvatar, sender: self)
+            performSegueWithIdentifier(.toNewAvatarView, sender: self)
         }
         // Re-shows tutorial, when creating a new avatar
         UserDefaults.setTutorialViewed(key: .MineSweeperTutorialViewed, value: false)
