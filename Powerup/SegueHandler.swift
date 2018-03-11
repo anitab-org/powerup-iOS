@@ -20,6 +20,3 @@ extension SegueHandler where Self: UIViewController, SegueIdentifier.RawValue ==
     }
 
 }
-
-
-
