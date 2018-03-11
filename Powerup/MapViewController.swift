@@ -1,6 +1,6 @@
 import UIKit
 
-class MapViewController: UIViewController, SegueHandlerType {
+class MapViewController: UIViewController, SegueHandler {
     
     enum SegueIdentifier: String {
         case toScenarioView = "toScenarioView"
@@ -107,7 +107,7 @@ class MapViewController: UIViewController, SegueHandlerType {
                 (segue.destination as? CompletedViewController)?.backgroundImage = UIImage(named: backgroundImages[scenarioID] ?? "")
                 
             case .none:
-                print("segue doesnot have valid identifier")
+                assertionFailure("segue doesnot have valid identifier")
             }
             
             

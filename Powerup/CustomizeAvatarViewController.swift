@@ -1,6 +1,6 @@
 import UIKit
 
-class CustomizeAvatarViewController: UIViewController,SegueHandlerType {
+class CustomizeAvatarViewController: UIViewController,SegueHandler {
     enum SegueIdentifier: String {
         case unwindToStartScene = "unwindToStartScene"
         case toMapScene = "toMapScene"

@@ -1,6 +1,6 @@
 import UIKit
 
-class CompletedViewController: UIViewController,SegueHandlerType {
+class CompletedViewController: UIViewController,SegueHandler {
     enum SegueIdentifier: String {
         case toScenarioView = "toScenarioView"
     }
