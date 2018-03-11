@@ -17,6 +17,7 @@ extension SegueHandler where Self: UIViewController, SegueIdentifier.RawValue ==
                 return nil }
 
         return segueIdentifier
-     }
+    }
 
 }
+
