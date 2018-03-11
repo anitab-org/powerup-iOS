@@ -5,6 +5,7 @@ class MapViewController: UIViewController, SegueHandler {
     enum SegueIdentifier: String {
         case toScenarioView = "toScenarioView"
         case toCompletedView = "toCompletedView"
+        case toShopView = "toShopView"
     }
     
     // The background images for scenarios.
@@ -105,9 +106,10 @@ class MapViewController: UIViewController, SegueHandler {
                 (segue.destination as? CompletedViewController)?.scenarioID = scenarioID
                 (segue.destination as? CompletedViewController)?.scenarioName = selectedScenarioName
                 (segue.destination as? CompletedViewController)?.backgroundImage = UIImage(named: backgroundImages[scenarioID] ?? "")
-                
+            case .toShopView?:
+                 debugPrint("moving to ShopView Controller")
             case .none:
-                assertionFailure("segue doesnot have valid identifier")
+                assertionFailure("String doesnot have valid identifier")
             }
             
             

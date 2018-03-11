@@ -49,7 +49,7 @@ class CompletedViewController: UIViewController,SegueHandler {
             (segue.destination as? ScenarioViewController)?.scenarioName = scenarioName
             (segue.destination as? ScenarioViewController)?.backgroundImage = backgroundImage
         case .none:
-            print("segue doesnot have valid identifier")
+            assertionFailure("String doesnot have valid identifier")
         }
         
     }
