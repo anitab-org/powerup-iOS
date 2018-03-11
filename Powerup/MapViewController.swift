@@ -109,7 +109,7 @@ class MapViewController: UIViewController, SegueHandler {
             case .toShopView?:
                  debugPrint("moving to ShopView Controller")
             case .none:
-                assertionFailure("String doesnot have valid identifier")
+                debugPrint("String doesnot have valid identifier")
             }
             
             

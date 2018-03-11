@@ -3,7 +3,7 @@ import UIKit
 class CustomizeAvatarViewController: UIViewController,SegueHandler {
     enum SegueIdentifier: String {
         case unwindToStartScene = "unwindToStartScene"
-        case toMapScene = "toMapScene"
+        case toMapView = "toMapScene"
     }
 
     // MARK: Views
@@ -179,7 +179,7 @@ class CustomizeAvatarViewController: UIViewController,SegueHandler {
         if confirming {
             if saveAvatar() {
                 // Perform Push segue to map scene.
-                self.performSegueWithIdentifier(.toMapScene, sender: self)
+                self.performSegueWithIdentifier(.toMapView, sender: self)
             }
         } else {
             // Hide selection bar.
