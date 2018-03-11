@@ -25,7 +25,7 @@
 		4D4074AC200E68FF009118F6 /* ShopViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4074AB200E68FF009118F6 /* ShopViewControllerTests.swift */; };
 		4D4074AE200E69AA009118F6 /* MapViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4074AD200E69AA009118F6 /* MapViewControllerTests.swift */; };
 		4DF1CBB120152582008B5359 /* CompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF1CBB020152582008B5359 /* CompletedViewController.swift */; };
-		5B03046520547ED700187653 /* SegueHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B03046420547ED700187653 /* SegueHandlerType.swift */; };
+		5BB66DBD2055D15100DE3B9C /* SegueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB66DBC2055D15100DE3B9C /* SegueHandler.swift */; };
 		D910FF191F04AB3200C444DA /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF181F04AB3200C444DA /* DataSource.swift */; };
 		D910FF1F1F04DD4F00C444DA /* ResultViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF1E1F04DD4F00C444DA /* ResultViewControllerTests.swift */; };
 		D910FF211F05E22400C444DA /* ScenarioViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF201F05E22400C444DA /* ScenarioViewControllerTests.swift */; };
@@ -115,7 +115,7 @@
 		4D4074AB200E68FF009118F6 /* ShopViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewControllerTests.swift; sourceTree = "<group>"; };
 		4D4074AD200E69AA009118F6 /* MapViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerTests.swift; sourceTree = "<group>"; };
 		4DF1CBB020152582008B5359 /* CompletedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedViewController.swift; sourceTree = "<group>"; };
-		5B03046420547ED700187653 /* SegueHandlerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueHandlerType.swift; sourceTree = "<group>"; };
+		5BB66DBC2055D15100DE3B9C /* SegueHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueHandler.swift; sourceTree = "<group>"; };
 		D910FF181F04AB3200C444DA /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		D910FF1E1F04DD4F00C444DA /* ResultViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewControllerTests.swift; sourceTree = "<group>"; };
 		D910FF201F05E22400C444DA /* ScenarioViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioViewControllerTests.swift; sourceTree = "<group>"; };
@@ -283,7 +283,7 @@
 		5B0304612054778900187653 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				5B03046420547ED700187653 /* SegueHandlerType.swift */,
+				5BB66DBC2055D15100DE3B9C /* SegueHandler.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -471,6 +471,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A2A4DB71B373C5B00D50860 /* StartViewController.swift in Sources */,
+				5BB66DBD2055D15100DE3B9C /* SegueHandler.swift in Sources */,
 				D9E74B7B1F1F14ED00A42B7E /* VocabMatchingClipboard.swift in Sources */,
 				2AF82A8D1B4BA74A00307BED /* FMDatabase.m in Sources */,
 				D96944AF1F2EE97900FBE0E4 /* SKTutorialScene.swift in Sources */,
@@ -488,7 +489,6 @@
 				D959CBCD1EE6489100C31753 /* Scenario.swift in Sources */,
 				D969D26C1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift in Sources */,
 				D959CBCF1EE6491800C31753 /* Score.swift in Sources */,
-				5B03046520547ED700187653 /* SegueHandlerType.swift in Sources */,
 				D910FF191F04AB3200C444DA /* DataSource.swift in Sources */,
 				2AD1A1E71B2B1ADA00BCA94D /* ModelManager.swift in Sources */,
 				D959CBD31EE64A3A00C31753 /* DatabaseAccessor.swift in Sources */,
