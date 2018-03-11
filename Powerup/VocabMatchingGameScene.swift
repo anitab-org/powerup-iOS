@@ -119,10 +119,6 @@ class VocabMatchingGameScene: SKScene {
     let endSceneFadeInAnimationDuration = 0.5
     let clipboardStarBlinkAnimationDuration = 0.3
     
-    // Strings
-    let endSceneTitleLabelText = "Game Over"
-    let scoreLabelPrefix = "Score: "
-    
     // MARK: Properties
     var tutorialScene: SKTutorialScene!
     

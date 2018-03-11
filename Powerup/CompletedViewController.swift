@@ -33,8 +33,8 @@ class CompletedViewController: UIViewController,SegueHandler {
             karmaPointsLabel.text = String(score.karmaPoints)
         } catch _ {
             // If the saving failed, show an alert dialogue.
-            let alert = UIAlertController(title: "Warning", message: "Error loading Karma points.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            let alert = UIAlertController(title: warningTitleMessage, message: errorLoadingKarmaPoints, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: okText, style: .default))
             self.present(alert, animated: true, completion: nil)
             
             return

@@ -25,7 +25,8 @@
 		4D4074AC200E68FF009118F6 /* ShopViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4074AB200E68FF009118F6 /* ShopViewControllerTests.swift */; };
 		4D4074AE200E69AA009118F6 /* MapViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4074AD200E69AA009118F6 /* MapViewControllerTests.swift */; };
 		4DF1CBB120152582008B5359 /* CompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF1CBB020152582008B5359 /* CompletedViewController.swift */; };
-		5BB66DBD2055D15100DE3B9C /* SegueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB66DBC2055D15100DE3B9C /* SegueHandler.swift */; };
+		5BB66DBF2055D5D800DE3B9C /* SegueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB66DBE2055D5D800DE3B9C /* SegueHandler.swift */; };
+		5BD864812046F61900004B39 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD864802046F61900004B39 /* Strings.swift */; };
 		D910FF191F04AB3200C444DA /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF181F04AB3200C444DA /* DataSource.swift */; };
 		D910FF1F1F04DD4F00C444DA /* ResultViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF1E1F04DD4F00C444DA /* ResultViewControllerTests.swift */; };
 		D910FF211F05E22400C444DA /* ScenarioViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF201F05E22400C444DA /* ScenarioViewControllerTests.swift */; };
@@ -115,7 +116,8 @@
 		4D4074AB200E68FF009118F6 /* ShopViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewControllerTests.swift; sourceTree = "<group>"; };
 		4D4074AD200E69AA009118F6 /* MapViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerTests.swift; sourceTree = "<group>"; };
 		4DF1CBB020152582008B5359 /* CompletedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedViewController.swift; sourceTree = "<group>"; };
-		5BB66DBC2055D15100DE3B9C /* SegueHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueHandler.swift; sourceTree = "<group>"; };
+		5BB66DBE2055D5D800DE3B9C /* SegueHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueHandler.swift; sourceTree = "<group>"; };
+		5BD864802046F61900004B39 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		D910FF181F04AB3200C444DA /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		D910FF1E1F04DD4F00C444DA /* ResultViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewControllerTests.swift; sourceTree = "<group>"; };
 		D910FF201F05E22400C444DA /* ScenarioViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioViewControllerTests.swift; sourceTree = "<group>"; };
@@ -198,7 +200,7 @@
 		2A0CA5511B294C6B00ED8781 /* Powerup */ = {
 			isa = PBXGroup;
 			children = (
-				5B0304612054778900187653 /* Utilities */,
+				5BD8647F2046F5FF00004B39 /* Utlities */,
 				D9381DB21EF773B9000AC2B5 /* Font */,
 				D9AAA9C71EF25E2700287A79 /* Extensions */,
 				D9E74B771F1F145900A42B7E /* Vocab Matching Game */,
@@ -280,12 +282,13 @@
 			name = FMDB;
 			sourceTree = "<group>";
 		};
-		5B0304612054778900187653 /* Utilities */ = {
+		5BD8647F2046F5FF00004B39 /* Utlities */ = {
 			isa = PBXGroup;
 			children = (
-				5BB66DBC2055D15100DE3B9C /* SegueHandler.swift */,
+				5BD864802046F61900004B39 /* Strings.swift */,
+				5BB66DBE2055D5D800DE3B9C /* SegueHandler.swift */,
 			);
-			name = Utilities;
+			name = Utlities;
 			sourceTree = "<group>";
 		};
 		D9381DB21EF773B9000AC2B5 /* Font */ = {
@@ -470,8 +473,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BB66DBF2055D5D800DE3B9C /* SegueHandler.swift in Sources */,
+				5BD864812046F61900004B39 /* Strings.swift in Sources */,
 				2A2A4DB71B373C5B00D50860 /* StartViewController.swift in Sources */,
-				5BB66DBD2055D15100DE3B9C /* SegueHandler.swift in Sources */,
 				D9E74B7B1F1F14ED00A42B7E /* VocabMatchingClipboard.swift in Sources */,
 				2AF82A8D1B4BA74A00307BED /* FMDatabase.m in Sources */,
 				D96944AF1F2EE97900FBE0E4 /* SKTutorialScene.swift in Sources */,
