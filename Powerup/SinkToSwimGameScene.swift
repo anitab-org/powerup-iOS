@@ -16,8 +16,6 @@ class SinkToSwimGameScene: SKScene {
         SinkToSwimQuestion(description: "Test question 10, answer: false", correctAnswer: false)
     ]
     
-    // MARK: Constants
-    let sinkingSpeedRelativeToGauge = 0.025
     
     let tutorialSceneImages = [
         "sink_to_swim_tutorial_1",

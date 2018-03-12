@@ -15,12 +15,6 @@ class VocabMatchingGameScene: SKScene {
         (8, "vocabmatching_tile_depression", "Depression")
     ]
     
-    // MARK: Constants
-    let timeForTileToReachClipboard = 6.0
-    let delayTimeToNextRound = 0.25
-    let totalRounds = 5
-    let tilesPerRound = 3
-    let timeBetweenTileSpawns = 2.0
     
     // Tutorial Scene images.
     let tutorialSceneImages = ["vocabmatching_tutorial_1", "vocabmatching_tutorial_2"]
@@ -304,7 +298,7 @@ class VocabMatchingGameScene: SKScene {
         run(SKAction.sequence(actionSequence)) {
             
             // If it is not the last round, spawn next tile.
-            if self.currRound + 1 < self.totalRounds {
+            if self.currRound + 1 < totalRounds {
                 self.nextRound()
             } else {
                 // Set the score label, correct counts, and wrong counts.
