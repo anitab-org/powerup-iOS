@@ -146,7 +146,7 @@ class SinkToSwimGameScene: SKScene {
     let falseButton = SKSpriteNode()
     let dontKnowButton = SKSpriteNode()
     let correctWrongSprite = SKSpriteNode()
-    let endSceneSprite = SKSpriteNode(imageNamed: "sink_to_swim_end_scene")
+    let endSceneSprite = SKSpriteNode(imageNamed: "end_scene")
     let continueButton = SKSpriteNode(imageNamed: "continue_button")
     
     // Textures
@@ -618,7 +618,8 @@ class SinkToSwimGameScene: SKScene {
             
             // Check if continue button is tapped.
             if continueButtonInteractable && continueButton.contains(touch.location(in: endSceneSprite)) {
-                
+                // Record score to update karma points
+                viewController.score = score
                 // End game.
                 viewController.endGame()
             }

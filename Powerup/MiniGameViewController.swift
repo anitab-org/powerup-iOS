@@ -23,6 +23,9 @@ class MiniGameViewController: UIViewController,SegueHandler {
     // Will be assigned in the previous VC (ScenarioViewController).
     var gameIndex: MiniGameIndex = .unknown
     
+    // Score of the played minigame (will be used to update karma points)
+    var score: Int = 0
+    
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +78,7 @@ class MiniGameViewController: UIViewController,SegueHandler {
         if let resultVC = segue.destination as? ResultsViewController {
             resultVC.completedScenarioID = completedScenarioID
             resultVC.completedScenarioName = scenarioName
+            resultVC.karmaGain = 20 + score
         }
     }
     
