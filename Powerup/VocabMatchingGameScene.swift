@@ -481,6 +481,8 @@ class VocabMatchingGameScene: SKScene {
         
         // Check if the end game continue button is pressed.
         if isContinueButtonInteractable && continueButton.contains(touch.location(in: endSceneSprite)) {
+            // Record score to update karma points
+            viewController.score = score
             // End the game, transition to result view controller.
             viewController.endGame()
             return

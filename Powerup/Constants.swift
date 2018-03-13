@@ -14,5 +14,3 @@ let gridSizeCount = 5
 let selectionMaxCount = 5
 // MARK: Constants SinkToSwimGameScene.swift
 let sinkingSpeedRelativeToGauge = 0.025
-// TODO: Should detemine how many Karma points will be given after each completion of scenario.
-let karmaGain = 20
