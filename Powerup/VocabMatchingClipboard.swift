@@ -3,9 +3,6 @@ import SpriteKit
 /** This class is for the clipboards of the Vocab Matching Game. */
 class VocabMatchingClipboard: SKSpriteNode {
     
-    // MARK: Constant
-    let descriptionTextPosX = 0.19
-    let descriptionTextPosY = -0.1
     
     // MARK: Properties
     // The correct tile for this clipboard will have the same matching id.

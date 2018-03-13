@@ -15,12 +15,6 @@ class VocabMatchingGameScene: SKScene {
         (8, "vocabmatching_tile_depression", "Depression")
     ]
     
-    // MARK: Constants
-    let timeForTileToReachClipboard = 6.0
-    let delayTimeToNextRound = 0.25
-    let totalRounds = 5
-    let tilesPerRound = 3
-    let timeBetweenTileSpawns = 2.0
     
     // Tutorial Scene images.
     let tutorialSceneImages = ["vocabmatching_tutorial_1", "vocabmatching_tutorial_2"]
@@ -92,13 +86,7 @@ class VocabMatchingGameScene: SKScene {
     let uiTextLayer = CGFloat(0.6)
     let endSceneLayer = CGFloat(1.5)
     let tutorialSceneLayer = CGFloat(5)
-    
-    // Colors
-    let textColor = UIColor(red: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
-    let correctColor = UIColor(red: 105.0 / 255.0, green: 255.0 / 255.0, blue: 109.0 / 255.0, alpha: 1.0)
-    let wrongColor = UIColor(red: 255.0 / 255.0, green: 105.0 / 255.0, blue: 105.0 / 255.0, alpha: 1.0)
-    let scoreTextColor = UIColor.white
-    
+        
     // Fonts
     let fontName = "Montserrat-Bold"
     let fontColor = UIColor(red: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
@@ -113,12 +101,7 @@ class VocabMatchingGameScene: SKScene {
     // If there are too many (longTextDef) characters in the string of the pad, shrink it.
     let clipboardLongTextFontSize = CGFloat(10)
     let clipboardLongTextDef = 12
-    
-    // Animations
-    let swappingAnimationDuration = 0.2
-    let endSceneFadeInAnimationDuration = 0.5
-    let clipboardStarBlinkAnimationDuration = 0.3
-    
+
     // MARK: Properties
     var tutorialScene: SKTutorialScene!
     
@@ -304,7 +287,7 @@ class VocabMatchingGameScene: SKScene {
         run(SKAction.sequence(actionSequence)) {
             
             // If it is not the last round, spawn next tile.
-            if self.currRound + 1 < self.totalRounds {
+            if self.currRound + 1 < totalRounds {
                 self.nextRound()
             } else {
                 // Set the score label, correct counts, and wrong counts.
@@ -315,7 +298,7 @@ class VocabMatchingGameScene: SKScene {
                 // Fade in ending scene.
                 self.endSceneSprite.alpha = 0.0
                 self.endSceneSprite.isHidden = false
-                self.endSceneSprite.run(SKAction.fadeIn(withDuration: self.endSceneFadeInAnimationDuration)) {
+                self.endSceneSprite.run(SKAction.fadeIn(withDuration: endSceneFadeInAnimationDuration)) {
                     self.isContinueButtonInteractable = true
                 }
             }

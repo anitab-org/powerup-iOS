@@ -16,8 +16,6 @@ class SinkToSwimGameScene: SKScene {
         SinkToSwimQuestion(description: "Test question 10, answer: false", correctAnswer: false)
     ]
     
-    // MARK: Constants
-    let sinkingSpeedRelativeToGauge = 0.025
     
     let tutorialSceneImages = [
         "sink_to_swim_tutorial_1",
@@ -120,13 +118,7 @@ class SinkToSwimGameScene: SKScene {
     
     let PointerToBoatRatio = 0.5
     
-    // Colors
-    let textColor = UIColor(red: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
-    let correctColor = UIColor(red: 105.0 / 255.0, green: 255.0 / 255.0, blue: 109.0 / 255.0, alpha: 1.0)
-    let wrongColor = UIColor(red: 255.0 / 255.0, green: 105.0 / 255.0, blue: 105.0 / 255.0, alpha: 1.0)
-    let scoreTextColor = UIColor.white
-    
-    // Fonts
+     // Fonts
     let fontName = "Montserrat-Bold"
     let questionFontSize = CGFloat(18)
     let scoreFontSize = CGFloat(22)
@@ -178,17 +170,7 @@ class SinkToSwimGameScene: SKScene {
     let frontLayer = CGFloat(0.5)
     let endSceneLayer = CGFloat(1.5)
     let tutorialSceneLayer = CGFloat(5)
-    
-    // Animations
-    let questionFadeInTime = 0.3
-    let questionFadeOutTime = 0.2
-    let correctWrongSpriteStayTime = 0.5
-    let boatRaiseDuration = 0.4
-    let boatRotateAngle = 20.0
-    let boatRotateDuration = 4.0
-    let endScenePauseDuration = 1.0
-    let endSceneFadeInDuration = 1.0
-    
+
     // MARK: Properties
     var questionLabel: SKMultilineLabel!
     var tutorialScene: SKTutorialScene!
@@ -540,7 +522,7 @@ class SinkToSwimGameScene: SKScene {
             // Fade in ending scene.
             self.endSceneSprite.alpha = 0.0
             self.endSceneSprite.isHidden = false
-            self.endSceneSprite.run(SKAction.fadeIn(withDuration: self.endSceneFadeInDuration)) {
+            self.endSceneSprite.run(SKAction.fadeIn(withDuration: endSceneFadeInDuration)) {
                 self.continueButtonInteractable = true
             }
         }
@@ -593,7 +575,7 @@ class SinkToSwimGameScene: SKScene {
             self.correctWrongSprite.texture = nil
             
             // Fade out the question.
-            self.questionLabel.run(SKAction.fadeOut(withDuration: self.questionFadeOutTime)) {
+            self.questionLabel.run(SKAction.fadeOut(withDuration: questionFadeOutTime)) {
                 self.questionLabel.isHidden = true
                 
                 // Check if there're still questions, if so, show the next question.

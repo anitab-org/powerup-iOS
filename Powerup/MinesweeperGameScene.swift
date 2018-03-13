@@ -5,36 +5,12 @@ class MinesweeperGameScene: SKScene {
     // Make it as an array, so it is easy to add new entries.
     var possiblityPercentages = [90.0]
     
-    // MARK: Game Constants
-    let gridSizeCount = 5
-    
     let tutorialSceneImages = [
         "minesweeper_tutorial_1",
         "minesweeper_tutorial_2",
         "minesweeper_tutorial_3"
     ]
-    
-    // How many boxes could be selected each round.
-    let selectionMaxCount = 5
-    
-    // Colors of game UIs.
-    let uiColor = UIColor(red: 42.0 / 255.0, green: 203.0 / 255.0, blue: 211.0 / 255.0, alpha: 1.0)
-    let textColor = UIColor(red: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
-    let prosTextColor = UIColor(red: 105.0 / 255.0, green: 255.0 / 255.0, blue: 97.0 / 255.0, alpha: 1.0)
-    let consTextColor = UIColor(red: 255.0 / 255.0, green: 105.0 / 255.0, blue: 105.0 / 255.0, alpha: 1.0)
-    
-    // Animation constants.
-    let boxEnlargingScale = CGFloat(1.2)
-    let boxEnlargingDuration = 0.25
-    let buttonWaitDuration = 0.5
-    let boxFlipInterval = 0.2
-    let showAllBoxesInterval = 0.3
-    let boxDarkening = SKAction.colorize(with: UIColor(white: 0.6, alpha: 0.8), colorBlendFactor: 1.0, duration: 0.2)
-    let fadeInAction = SKAction.fadeIn(withDuration: 0.8)
-    let fadeOutAction = SKAction.fadeOut(withDuration: 0.8)
-    let scoreTextPopScale = CGFloat(1.2)
-    let scoreTextPopDuraion = 0.25
-    
+
     // These are relative to the size of the view, so they can be applied to different screen sizes.
     let gridOffsetXRelativeToWidth = 0.31
     let gridOffsetYRelativeToHeight = 0.0822
@@ -309,7 +285,7 @@ class MinesweeperGameScene: SKScene {
         selectedBoxes += 1
 
         // Animations.
-        let scaleBackAction = SKAction.scale(to: 1.0, duration: self.boxEnlargingDuration)
+        let scaleBackAction = SKAction.scale(to: 1.0, duration: boxEnlargingDuration)
         let waitAction = SKAction.wait(forDuration: boxFlipInterval)
         let scaleBackAndWait = SKAction.sequence([scaleBackAction, waitAction])
         
@@ -324,13 +300,13 @@ class MinesweeperGameScene: SKScene {
                     self.showAllResults(isSuccessful: false)
                 } else {
                     // Update score. (With a pop animation)
-                    self.scoreLabel.setScale(self.scoreTextPopScale)
+                    self.scoreLabel.setScale(scoreTextPopScale)
                     self.score += 1
                     self.scoreLabel.text = self.scoreTextPrefix + String(self.score)
-                    self.scoreLabel.run(SKAction.scale(to: 1.0, duration: self.scoreTextPopDuraion))
+                    self.scoreLabel.run(SKAction.scale(to: 1.0, duration: scoreTextPopDuraion))
                     
                     // Check if max selection count is reached.
-                    if self.selectedBoxes == self.selectionMaxCount {
+                    if self.selectedBoxes == selectionMaxCount {
                         self.showAllResults(isSuccessful: true)
                     } else {
                         // Reset boxSelected flag so that player could continue to select the next box.
@@ -356,15 +332,15 @@ class MinesweeperGameScene: SKScene {
         
         // Fade in banner.
         resultBanner.run(bannerAnimation) {
-            for x in 0..<self.gridSizeCount {
-                for y in 0..<self.gridSizeCount {
+            for x in 0..<gridSizeCount {
+                for y in 0..<gridSizeCount {
                     let currBox = self.gameGrid[x][y]
                     
                     // Don't darken the selected box.
                     if currBox.onFrontSide { continue }
                     
                     // Darkens the color and flip the box.
-                    currBox.run(self.boxDarkening) {
+                    currBox.run(boxDarkening) {
                         currBox.changeSide()
                         
                     }
@@ -374,7 +350,7 @@ class MinesweeperGameScene: SKScene {
             // Continue button. Change text and fade in.
             self.continueButton.alpha = 0.0
             self.continueButton.isHidden = false
-            self.continueButton.run(SKAction.sequence([buttonWaitAction, self.fadeInAction]))
+            self.continueButton.run(SKAction.sequence([buttonWaitAction,fadeInAction]))
         }
         
     }
@@ -395,7 +371,7 @@ class MinesweeperGameScene: SKScene {
             // Fade in "next round" or "end game" button.
             self.continueButton.alpha = 0.0
             self.continueButton.isHidden = false
-            self.continueButton.run(self.fadeInAction)
+            self.continueButton.run(fadeInAction)
         }
     }
     

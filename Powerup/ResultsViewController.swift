@@ -1,6 +1,7 @@
 import UIKit
 
 class ResultsViewController: UIViewController {
+
     
     // TODO: Should determine how many Karma points will be given after each completion of scenario.
     var karmaGain = 20

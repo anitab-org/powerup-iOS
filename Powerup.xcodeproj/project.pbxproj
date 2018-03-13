@@ -26,6 +26,9 @@
 		4D4074AE200E69AA009118F6 /* MapViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4074AD200E69AA009118F6 /* MapViewControllerTests.swift */; };
 		4DF1CBB120152582008B5359 /* CompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF1CBB020152582008B5359 /* CompletedViewController.swift */; };
 		5BB66DBF2055D5D800DE3B9C /* SegueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB66DBE2055D5D800DE3B9C /* SegueHandler.swift */; };
+		5BB66DC12057007D00DE3B9C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB66DC02057007D00DE3B9C /* Constants.swift */; };
+		5BB66DC320570B4900DE3B9C /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB66DC220570B4900DE3B9C /* ColorConstants.swift */; };
+		5BB66DC5205859EA00DE3B9C /* AnimationConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB66DC4205859EA00DE3B9C /* AnimationConstants.swift */; };
 		5BD864812046F61900004B39 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD864802046F61900004B39 /* Strings.swift */; };
 		D910FF191F04AB3200C444DA /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF181F04AB3200C444DA /* DataSource.swift */; };
 		D910FF1F1F04DD4F00C444DA /* ResultViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF1E1F04DD4F00C444DA /* ResultViewControllerTests.swift */; };
@@ -117,6 +120,9 @@
 		4D4074AD200E69AA009118F6 /* MapViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerTests.swift; sourceTree = "<group>"; };
 		4DF1CBB020152582008B5359 /* CompletedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedViewController.swift; sourceTree = "<group>"; };
 		5BB66DBE2055D5D800DE3B9C /* SegueHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueHandler.swift; sourceTree = "<group>"; };
+		5BB66DC02057007D00DE3B9C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5BB66DC220570B4900DE3B9C /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
+		5BB66DC4205859EA00DE3B9C /* AnimationConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationConstants.swift; sourceTree = "<group>"; };
 		5BD864802046F61900004B39 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		D910FF181F04AB3200C444DA /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		D910FF1E1F04DD4F00C444DA /* ResultViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewControllerTests.swift; sourceTree = "<group>"; };
@@ -287,6 +293,9 @@
 			children = (
 				5BD864802046F61900004B39 /* Strings.swift */,
 				5BB66DBE2055D5D800DE3B9C /* SegueHandler.swift */,
+				5BB66DC02057007D00DE3B9C /* Constants.swift */,
+				5BB66DC220570B4900DE3B9C /* ColorConstants.swift */,
+				5BB66DC4205859EA00DE3B9C /* AnimationConstants.swift */,
 			);
 			name = Utlities;
 			sourceTree = "<group>";
@@ -476,6 +485,7 @@
 				5BB66DBF2055D5D800DE3B9C /* SegueHandler.swift in Sources */,
 				5BD864812046F61900004B39 /* Strings.swift in Sources */,
 				2A2A4DB71B373C5B00D50860 /* StartViewController.swift in Sources */,
+				5BB66DC320570B4900DE3B9C /* ColorConstants.swift in Sources */,
 				D9E74B7B1F1F14ED00A42B7E /* VocabMatchingClipboard.swift in Sources */,
 				2AF82A8D1B4BA74A00307BED /* FMDatabase.m in Sources */,
 				D96944AF1F2EE97900FBE0E4 /* SKTutorialScene.swift in Sources */,
@@ -493,6 +503,7 @@
 				D959CBCD1EE6489100C31753 /* Scenario.swift in Sources */,
 				D969D26C1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift in Sources */,
 				D959CBCF1EE6491800C31753 /* Score.swift in Sources */,
+				5BB66DC12057007D00DE3B9C /* Constants.swift in Sources */,
 				D910FF191F04AB3200C444DA /* DataSource.swift in Sources */,
 				2AD1A1E71B2B1ADA00BCA94D /* ModelManager.swift in Sources */,
 				D959CBD31EE64A3A00C31753 /* DatabaseAccessor.swift in Sources */,
@@ -506,6 +517,7 @@
 				D984E4D61F4A95A400A06204 /* CustomizeAvatarViewController.swift in Sources */,
 				D9E74B791F1F149400A42B7E /* VocabMatchingGameScene.swift in Sources */,
 				D9E74B7F1F1F1AF800A42B7E /* VocabMatchingTile.swift in Sources */,
+				5BB66DC5205859EA00DE3B9C /* AnimationConstants.swift in Sources */,
 				D95B03CE1EDEA680001DB858 /* MiniGameViewController.swift in Sources */,
 				D95B03CC1EDE7470001DB858 /* MapViewController.swift in Sources */,
 				D9AAA9C91EF25E4600287A79 /* ShuffleArrayExtension.swift in Sources */,

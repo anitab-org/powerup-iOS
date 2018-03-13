@@ -129,7 +129,7 @@ class VocabMatchingTests: XCTestCase {
     /** Test that the game ends after it reaches the last round. */
     func testGameEnds() {
         // Given
-        let maxRound = vocabMatchingGame.totalRounds
+        let maxRound = totalRounds
         vocabMatchingGame.currRound = maxRound - 1
         
         // When
