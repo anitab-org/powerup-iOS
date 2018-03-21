@@ -51,11 +51,11 @@ class CompletedViewController: UIViewController,SegueHandler {
             (segue.destination as? ScenarioViewController)?.scenarioName = scenarioName
             (segue.destination as? ScenarioViewController)?.backgroundImage = backgroundImage
         case .unwindToMapView?:
-            debugPrint("Moving back to MapView")
+            break
         case .unwindToStartView?:
-            debugPrint("Moving back to StartView")
+            break
         case .none:
-            assertionFailure("String doesnot have valid identifier \(segue.identifier)")
+            assertionFailure("Did not recognize storyboard identifier \(segue.identifier)")
       }
         
     }

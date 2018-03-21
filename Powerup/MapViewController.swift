@@ -108,11 +108,11 @@ class MapViewController: UIViewController, SegueHandler {
                 (segue.destination as? CompletedViewController)?.scenarioName = selectedScenarioName
                 (segue.destination as? CompletedViewController)?.backgroundImage = UIImage(named: backgroundImages[scenarioID] ?? "")
             case .toShopView?:
-                 debugPrint("moving to ShopView Controller")
+                 break
             case .unwindToStartView?:
-                 debugPrint("moving to StartView Controller")
+                 break
             case .none:
-                assertionFailure("String doesnot have valid identifier")
+                assertionFailure("Did not recognize storyboard identifier \(segue.identifier)")
             }
             
             
