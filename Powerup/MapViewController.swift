@@ -6,6 +6,7 @@ class MapViewController: UIViewController, SegueHandler {
         case toScenarioView = "toScenarioView"
         case toCompletedView = "toCompletedView"
         case toShopView = "toShopView"
+        case unwindToStartView = "unwindToStartView"
     }
     
     // The background images for scenarios.
@@ -107,9 +108,11 @@ class MapViewController: UIViewController, SegueHandler {
                 (segue.destination as? CompletedViewController)?.scenarioName = selectedScenarioName
                 (segue.destination as? CompletedViewController)?.backgroundImage = UIImage(named: backgroundImages[scenarioID] ?? "")
             case .toShopView?:
-                 debugPrint("moving to ShopView Controller")
+                 break
+            case .unwindToStartView?:
+                 break
             case .none:
-                debugPrint("String doesnot have valid identifier")
+                assertionFailure("Did not recognize segue identifier \(segue.identifier)")
             }
             
             

@@ -3,6 +3,8 @@ import UIKit
 class CompletedViewController: UIViewController,SegueHandler {
     enum SegueIdentifier: String {
         case toScenarioView = "toScenarioView"
+        case unwindToMapView = "unwindtoMapView"
+        case unwindToStartView = "unwindtoStartView"
     }
     
     
@@ -48,9 +50,13 @@ class CompletedViewController: UIViewController,SegueHandler {
             (segue.destination as? ScenarioViewController)?.scenarioID = scenarioID
             (segue.destination as? ScenarioViewController)?.scenarioName = scenarioName
             (segue.destination as? ScenarioViewController)?.backgroundImage = backgroundImage
+        case .unwindToMapView?:
+            break
+        case .unwindToStartView?:
+            break
         case .none:
-            debugPrint("String doesnot have valid identifier")
-        }
+            assertionFailure("Did not recognize segue identifier \(segue.identifier)")
+      }
         
     }
     
