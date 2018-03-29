@@ -1,17 +1,40 @@
 import UIKit
 
-class ResultsViewController: UIViewController {
+class ResultsViewController: UIViewController, SegueHandler {
+    enum SegueIdentifier: String {
+        case toScenarioView = "toScenarioScene"
+        case toEndView = "toEndScene"
+        case unwindToStartView = "unwindToStartScene"
+        case unwindToScenarioView = "unwindToScenarioScene"
+        case unwindToMapView = "unwindToMapScene"
+    }
+    let backgroundImages: [String?] = [
+        nil,
+        "class_room_background",
+        nil,
+        nil,
+        nil,
+        "home_background",
+        "hospital_background",
+        "library_background"
+    ]
 
     // TODO: Should determine how many Karma points will be given after each completion of scenario.
     var karmaGain = 20
+    var currScenario = Scenario()
+    var nextScenario = Scenario()
+    // MARK: Constants
+    let scenarioHome = "Home"
 
     // MARK: Properties
     // This will be set in the ScenarioViewController.
     var completedScenarioID: Int = -1
     var completedScenarioName: String = ""
+
+
     var dataSource: DataSource = DatabaseAccessor.sharedInstance
-    // Mark: Constants
-     let scenarioHome = "Home"
+
+
     // MARK: Views
     @IBOutlet weak var karmaPointsLabel: UILabel!
     @IBOutlet weak var scenarioName: UILabel!
@@ -83,7 +106,8 @@ class ResultsViewController: UIViewController {
     func saveScenarioAndUnlockNextScenario() {
         do {
             // Get the current scenario.
-            var currScenario = try dataSource.getScenario(of: completedScenarioID)
+
+            currScenario = try dataSource.getScenario(of: completedScenarioID)
 
             currScenario.completed = true
 
@@ -91,11 +115,9 @@ class ResultsViewController: UIViewController {
             try dataSource.saveScenario(currScenario)
 
             // Get the next scenario.
-            var nextScenario = try dataSource.getScenario(of: currScenario.nextScenarioID)
+
+            nextScenario = try dataSource.getScenario(of: currScenario.nextScenarioID)
             nextScenario.unlocked = true
-            if nextScenario.name == scenarioHome {
-                continueButton.isHidden = false
-            }
 
             // Save the updated (next) scenario back to database.
             try dataSource.saveScenario(nextScenario)
@@ -108,5 +130,36 @@ class ResultsViewController: UIViewController {
             return
         }
     }
+
+
+    // MARK: Segues
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segueIdentifierForSegue(segue) {
+        case .toScenarioView?:
+            (segue.destination as? ScenarioViewController)?.scenarioID = nextScenario.id
+            (segue.destination as? ScenarioViewController)?.scenarioName = nextScenario.name
+            (segue.destination as? ScenarioViewController)?.backgroundImage = UIImage(named: backgroundImages[nextScenario.id] ?? "")
+        case .toEndView?:
+            break
+        case .unwindToStartView?:
+            break
+        case .unwindToScenarioView?:
+            break
+        case .unwindToMapView?:
+            break
+        case .none:
+            assertionFailure("Did not recognize segue identifier \(segue.identifier)")
+        }
+    }
+
+    @IBAction func continueButtonPressed(_ sender: Any) {
+        if nextScenario.name == scenarioHome {
+            performSegueWithIdentifier(.toEndView, sender: nil)
+        }
+        else {
+            performSegueWithIdentifier(.toScenarioView, sender: nil)
+        }
+    }
+
 
 }
