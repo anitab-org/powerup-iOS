@@ -25,6 +25,9 @@
 		4D4074AC200E68FF009118F6 /* ShopViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4074AB200E68FF009118F6 /* ShopViewControllerTests.swift */; };
 		4D4074AE200E69AA009118F6 /* MapViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4074AD200E69AA009118F6 /* MapViewControllerTests.swift */; };
 		4DF1CBB120152582008B5359 /* CompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF1CBB020152582008B5359 /* CompletedViewController.swift */; };
+		5B06E2F220753D5500DB046A /* CollapsableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06E2F120753D5500DB046A /* CollapsableTableViewCell.swift */; };
+		5B06E2F420753E4A00DB046A /* AboutViewControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06E2F320753E4A00DB046A /* AboutViewControllerModel.swift */; };
+		5B8720C82073D4AA001FE0CD /* CollapsableTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8720C72073D4AA001FE0CD /* CollapsableTableViewHeader.swift */; };
 		5BB66DBF2055D5D800DE3B9C /* SegueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB66DBE2055D5D800DE3B9C /* SegueHandler.swift */; };
 		5BD864812046F61900004B39 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD864802046F61900004B39 /* Strings.swift */; };
 		D910FF191F04AB3200C444DA /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF181F04AB3200C444DA /* DataSource.swift */; };
@@ -116,6 +119,9 @@
 		4D4074AB200E68FF009118F6 /* ShopViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewControllerTests.swift; sourceTree = "<group>"; };
 		4D4074AD200E69AA009118F6 /* MapViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerTests.swift; sourceTree = "<group>"; };
 		4DF1CBB020152582008B5359 /* CompletedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedViewController.swift; sourceTree = "<group>"; };
+		5B06E2F120753D5500DB046A /* CollapsableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsableTableViewCell.swift; sourceTree = "<group>"; };
+		5B06E2F320753E4A00DB046A /* AboutViewControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewControllerModel.swift; sourceTree = "<group>"; };
+		5B8720C72073D4AA001FE0CD /* CollapsableTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsableTableViewHeader.swift; sourceTree = "<group>"; };
 		5BB66DBE2055D5D800DE3B9C /* SegueHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueHandler.swift; sourceTree = "<group>"; };
 		5BD864802046F61900004B39 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		D910FF181F04AB3200C444DA /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
@@ -200,6 +206,7 @@
 		2A0CA5511B294C6B00ED8781 /* Powerup */ = {
 			isa = PBXGroup;
 			children = (
+				5BFAEE4B2077DDCD00F5E9E8 /* ExpandableHeaderAboutViewController */,
 				5BD8647F2046F5FF00004B39 /* Utlities */,
 				D9381DB21EF773B9000AC2B5 /* Font */,
 				D9AAA9C71EF25E2700287A79 /* Extensions */,
@@ -291,6 +298,15 @@
 			name = Utlities;
 			sourceTree = "<group>";
 		};
+		5BFAEE4B2077DDCD00F5E9E8 /* ExpandableHeaderAboutViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5B06E2F120753D5500DB046A /* CollapsableTableViewCell.swift */,
+				5B8720C72073D4AA001FE0CD /* CollapsableTableViewHeader.swift */,
+			);
+			name = ExpandableHeaderAboutViewController;
+			sourceTree = "<group>";
+		};
 		D9381DB21EF773B9000AC2B5 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				D959CBC61EE6430E00C31753 /* Answer.swift */,
+				5B06E2F320753E4A00DB046A /* AboutViewControllerModel.swift */,
 				D959CBC81EE643F400C31753 /* Avatar.swift */,
 				D959CBCA1EE6481100C31753 /* Question.swift */,
 				D959CBCC1EE6489100C31753 /* Scenario.swift */,
@@ -475,6 +492,7 @@
 			files = (
 				5BB66DBF2055D5D800DE3B9C /* SegueHandler.swift in Sources */,
 				5BD864812046F61900004B39 /* Strings.swift in Sources */,
+				5B06E2F220753D5500DB046A /* CollapsableTableViewCell.swift in Sources */,
 				2A2A4DB71B373C5B00D50860 /* StartViewController.swift in Sources */,
 				D9E74B7B1F1F14ED00A42B7E /* VocabMatchingClipboard.swift in Sources */,
 				2AF82A8D1B4BA74A00307BED /* FMDatabase.m in Sources */,
@@ -491,6 +509,7 @@
 				D9AAA9C61EF2481900287A79 /* GuessingBox.swift in Sources */,
 				D9D10A401EE130BD003584F4 /* ResultsViewController.swift in Sources */,
 				D959CBCD1EE6489100C31753 /* Scenario.swift in Sources */,
+				5B06E2F420753E4A00DB046A /* AboutViewControllerModel.swift in Sources */,
 				D969D26C1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift in Sources */,
 				D959CBCF1EE6491800C31753 /* Score.swift in Sources */,
 				D910FF191F04AB3200C444DA /* DataSource.swift in Sources */,
@@ -511,6 +530,7 @@
 				D9AAA9C91EF25E4600287A79 /* ShuffleArrayExtension.swift in Sources */,
 				4DF1CBB120152582008B5359 /* CompletedViewController.swift in Sources */,
 				D9AAA9C41EF2335F00287A79 /* MinesweeperGameScene.swift in Sources */,
+				5B8720C82073D4AA001FE0CD /* CollapsableTableViewHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
