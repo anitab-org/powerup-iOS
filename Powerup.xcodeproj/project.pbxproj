@@ -25,6 +25,7 @@
 		4D4074AC200E68FF009118F6 /* ShopViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4074AB200E68FF009118F6 /* ShopViewControllerTests.swift */; };
 		4D4074AE200E69AA009118F6 /* MapViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4074AD200E69AA009118F6 /* MapViewControllerTests.swift */; };
 		4DF1CBB120152582008B5359 /* CompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF1CBB020152582008B5359 /* CompletedViewController.swift */; };
+		5BAC4644206D2D9B0091C73C /* EndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAC4643206D2D9B0091C73C /* EndViewController.swift */; };
 		5BB66DBF2055D5D800DE3B9C /* SegueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB66DBE2055D5D800DE3B9C /* SegueHandler.swift */; };
 		5BD864812046F61900004B39 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD864802046F61900004B39 /* Strings.swift */; };
 		D910FF191F04AB3200C444DA /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF181F04AB3200C444DA /* DataSource.swift */; };
@@ -116,6 +117,7 @@
 		4D4074AB200E68FF009118F6 /* ShopViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewControllerTests.swift; sourceTree = "<group>"; };
 		4D4074AD200E69AA009118F6 /* MapViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerTests.swift; sourceTree = "<group>"; };
 		4DF1CBB020152582008B5359 /* CompletedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedViewController.swift; sourceTree = "<group>"; };
+		5BAC4643206D2D9B0091C73C /* EndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndViewController.swift; sourceTree = "<group>"; };
 		5BB66DBE2055D5D800DE3B9C /* SegueHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueHandler.swift; sourceTree = "<group>"; };
 		5BD864802046F61900004B39 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		D910FF181F04AB3200C444DA /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 				D9D10A3F1EE130BD003584F4 /* ResultsViewController.swift */,
 				D95BBB7F1F4A911D00E0E620 /* AboutViewController.swift */,
 				4DF1CBB020152582008B5359 /* CompletedViewController.swift */,
+				5BAC4643206D2D9B0091C73C /* EndViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 				D984D3051F0F59BA0006270D /* SKMultilineLabel.swift in Sources */,
 				D959CBCB1EE6481100C31753 /* Question.swift in Sources */,
 				D959CBC91EE643F400C31753 /* Avatar.swift in Sources */,
+				5BAC4644206D2D9B0091C73C /* EndViewController.swift in Sources */,
 				2A0CA5571B294C6B00ED8781 /* ScenarioViewController.swift in Sources */,
 				2AF82A901B4BA74A00307BED /* FMDatabaseQueue.m in Sources */,
 				2AF82A911B4BA74A00307BED /* FMResultSet.m in Sources */,
