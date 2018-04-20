@@ -5,9 +5,9 @@ import SpriteKit
 class GuessingBox: SKSpriteNode {
     
     // MARK: Constants
-    let backsideTexture = SKTexture(imageNamed: "minesweeper_yellowstar_box")
-    let failureTexture = SKTexture(imageNamed: "minesweeper_redstar_box")
-    let successTexture = SKTexture(imageNamed: "minesweeper_greenstar_box")
+    let backsideTexture = SKTexture(imageNamed: Images.minesweeperYellowstarBox)
+    let failureTexture = SKTexture(imageNamed: Images.minesweeperRedstarBox)
+    let successTexture = SKTexture(imageNamed: Images.minesweeperGreenstarBox)
     
     // Animation constants.
     let flipDuration = 0.6

@@ -17,12 +17,6 @@ class MinesweeperGameScene: SKScene {
     // How many boxes could be selected each round.
     let selectionMaxCount = 5
     
-    // Colors of game UIs.
-    let uiColor = UIColor(red: 42.0 / 255.0, green: 203.0 / 255.0, blue: 211.0 / 255.0, alpha: 1.0)
-    let textColor = UIColor(red: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
-    let prosTextColor = UIColor(red: 105.0 / 255.0, green: 255.0 / 255.0, blue: 97.0 / 255.0, alpha: 1.0)
-    let consTextColor = UIColor(red: 255.0 / 255.0, green: 105.0 / 255.0, blue: 105.0 / 255.0, alpha: 1.0)
-    
     // Animation constants.
     let boxEnlargingScale = CGFloat(1.2)
     let boxEnlargingDuration = 0.25
@@ -59,7 +53,6 @@ class MinesweeperGameScene: SKScene {
     let buttonTextFontSize = CGFloat(18)
     let descriptionTitleFontSize = CGFloat(24)
     let descriptionFontSize = CGFloat(20)
-    let fontName = "Montserrat-Bold"
     
     let buttonStrokeWidth = CGFloat(3)
     
@@ -71,10 +64,10 @@ class MinesweeperGameScene: SKScene {
     let gridSpacing: Double
     
     // Sprite nodes
-    let backgroundImage = SKSpriteNode(imageNamed: "minesweeper_background")
+    let backgroundImage = SKSpriteNode(imageNamed: Images.minesweeperBackground)
     let resultBanner = SKSpriteNode()
-    let descriptionBanner = SKSpriteNode(imageNamed: "minesweeper_pros_cons_banner")
-    let continueButton = SKSpriteNode(imageNamed: "continue_button")
+    let descriptionBanner = SKSpriteNode(imageNamed: Images.minesweeperProsConsBanner)
+    let continueButton = SKSpriteNode(imageNamed: Images.continueButton)
     
     // Label wrapper nodes
     let scoreLabelNode = SKNode()
@@ -87,8 +80,8 @@ class MinesweeperGameScene: SKScene {
     let consLabel = SKLabelNode(text: "Cons text goes here...")
     
     // Textures
-    let successBannerTexture = SKTexture(imageNamed: "success_banner")
-    let failureBannerTexture = SKTexture(imageNamed: "failure_banner")
+    let successBannerTexture = SKTexture(imageNamed: Images.successBanner)
+    let failureBannerTexture = SKTexture(imageNamed: Images.failureBanner)
     
     // TODO: Replace the temporary sprite.
     let endGameText = "End Game"
@@ -152,10 +145,10 @@ class MinesweeperGameScene: SKScene {
         scoreLabelNode.position = CGPoint(x: Double(size.width) - scoreTextOffsetX, y: Double(size.height) - scoreTextOffsetY)
         scoreLabelNode.zPosition = bannerLayer
         scoreLabel.position = CGPoint.zero
-        scoreLabel.fontName = fontName
+        scoreLabel.fontName = FontName.montserratBold
         scoreLabel.fontSize = scoreTextFontSize
         scoreLabel.zPosition = uiLayer
-        scoreLabel.fontColor = uiColor
+        scoreLabel.fontColor = Colors.uiColor
         scoreLabel.horizontalAlignmentMode = .right
         scoreLabelNode.addChild(scoreLabel)
         
@@ -171,9 +164,9 @@ class MinesweeperGameScene: SKScene {
         prosLabelNode.zPosition = bannerLayer
         prosLabel.position = CGPoint.zero
         prosLabel.horizontalAlignmentMode = .left
-        prosLabel.fontName = fontName
+        prosLabel.fontName = FontName.montserratBold
         prosLabel.fontSize = descriptionFontSize
-        prosLabel.fontColor = prosTextColor
+        prosLabel.fontColor = Colors.prosTextColor
         prosLabel.zPosition = uiLayer
         prosLabelNode.addChild(prosLabel)
         descriptionBanner.addChild(prosLabelNode)
@@ -183,9 +176,9 @@ class MinesweeperGameScene: SKScene {
         consLabelNode.zPosition = bannerLayer
         consLabel.position = CGPoint.zero
         consLabel.horizontalAlignmentMode = .left
-        consLabel.fontName = fontName
+        consLabel.fontName = FontName.montserratBold
         consLabel.fontSize = descriptionFontSize
-        consLabel.fontColor = consTextColor
+        consLabel.fontColor = Colors.consTextColor
         consLabel.zPosition = uiLayer
         consLabelNode.addChild(consLabel)
         descriptionBanner.addChild(consLabelNode)

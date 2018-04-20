@@ -62,10 +62,10 @@ class VocabMatchingGameScene: SKScene {
     let endSceneWrongCountLabel = SKLabelNode()
     
     // Sprite Nodes
-    let scoreBoxSprite = SKSpriteNode(imageNamed: "vocabmatching_scorebox")
-    let backgroundSprite = SKSpriteNode(imageNamed: "vocabmatching_background")
-    let endSceneSprite = SKSpriteNode(imageNamed: "end_scene")
-    let continueButton = SKSpriteNode(imageNamed: "continue_button")
+    let scoreBoxSprite = SKSpriteNode(imageNamed: Images.vocabMatchingScoreBox)
+    let backgroundSprite = SKSpriteNode(imageNamed: Images.vocabMatchingBackground)
+    let endSceneSprite = SKSpriteNode(imageNamed: Images.endScene)
+    let continueButton = SKSpriteNode(imageNamed: Images.continueButton)
     let correctWrongSprite = SKSpriteNode()
     
     // Label Nodes & Label Wrapper Node
@@ -78,10 +78,10 @@ class VocabMatchingGameScene: SKScene {
     let endSceneWrongCountLabelWrapper = SKNode()
     
     // Textures
-    let tileTexture = SKTexture(imageNamed: "vocabmatching_tile")
-    let clipboardTexture = SKTexture(imageNamed: "vocabmatching_clipboard")
-    let clipboardCorrectTexture = SKTexture(imageNamed: "vocabmatching_clipboard_green")
-    let clipboardWrongTexture = SKTexture(imageNamed: "vocabmatching_clipboard_red")
+    let tileTexture = SKTexture(imageNamed: Images.vocabMatchingTile)
+    let clipboardTexture = SKTexture(imageNamed: Images.vocabMatchingClipboard)
+    let clipboardCorrectTexture = SKTexture(imageNamed: Images.vocabMatchingClipboardGreen)
+    let clipboardWrongTexture = SKTexture(imageNamed: Images.vocabMatchingClipboardRed)
     
     // Layers (zPosition)
     let backgroundLayer = CGFloat(-0.1)
@@ -92,17 +92,7 @@ class VocabMatchingGameScene: SKScene {
     let uiTextLayer = CGFloat(0.6)
     let endSceneLayer = CGFloat(1.5)
     let tutorialSceneLayer = CGFloat(5)
-    
-    // Colors
-    let textColor = UIColor(red: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
-    let correctColor = UIColor(red: 105.0 / 255.0, green: 255.0 / 255.0, blue: 109.0 / 255.0, alpha: 1.0)
-    let wrongColor = UIColor(red: 255.0 / 255.0, green: 105.0 / 255.0, blue: 105.0 / 255.0, alpha: 1.0)
-    let scoreTextColor = UIColor.white
-    
-    // Fonts
-    let fontName = "Montserrat-Bold"
-    let fontColor = UIColor(red: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
-    
+
     // Font size
     let clipboardFontSize = CGFloat(14)
     let scoreFontSize = CGFloat(16)
@@ -167,8 +157,8 @@ class VocabMatchingGameScene: SKScene {
             let currClipboard = VocabMatchingClipboard(texture: clipboardTexture, size: CGSize(width: gameWidth * clipboardSpriteWidth, height: gameHeight * clipboardSpriteHeight), matchingID: -1, description: "")
             
             // Configure font.
-            currClipboard.descriptionLabel.fontName = fontName
-            currClipboard.descriptionLabel.fontColor = fontColor
+            currClipboard.descriptionLabel.fontName = FontName.montserratBold
+            currClipboard.descriptionLabel.fontColor = Colors.textColor
             
             // Positioning
             currClipboard.position = CGPoint(x: gameWidth * clipboardSpritePosX, y: gameHeight * lanePositionsY[index])
@@ -183,8 +173,8 @@ class VocabMatchingGameScene: SKScene {
         scoreLabel.horizontalAlignmentMode = .center
         scoreLabel.verticalAlignmentMode = .center
         scoreLabel.zPosition = uiTextLayer
-        scoreLabel.fontName = fontName
-        scoreLabel.fontColor = fontColor
+        scoreLabel.fontName = FontName.montserratBold
+        scoreLabel.fontColor = Colors.textColor
         scoreLabel.fontSize = scoreFontSize
         scoreLabel.text = "0"
         
@@ -201,8 +191,8 @@ class VocabMatchingGameScene: SKScene {
         endSceneCorrectCountLabelWrapper.zPosition = uiTextLayer
         endSceneCorrectCountLabelWrapper.addChild(endSceneCorrectCountLabel)
         
-        endSceneCorrectCountLabel.fontName = fontName
-        endSceneCorrectCountLabel.fontColor = correctColor
+        endSceneCorrectCountLabel.fontName = FontName.montserratBold
+        endSceneCorrectCountLabel.fontColor = Colors.correctColor
         endSceneCorrectCountLabel.fontSize = endSceneCountFontSize
         endSceneCorrectCountLabel.horizontalAlignmentMode = .center
         endSceneCorrectCountLabel.verticalAlignmentMode = .center
@@ -213,8 +203,8 @@ class VocabMatchingGameScene: SKScene {
         endSceneWrongCountLabelWrapper.zPosition = uiTextLayer
         endSceneWrongCountLabelWrapper.addChild(endSceneWrongCountLabel)
         
-        endSceneWrongCountLabel.fontName = fontName
-        endSceneWrongCountLabel.fontColor = wrongColor
+        endSceneWrongCountLabel.fontName = FontName.montserratBold
+        endSceneWrongCountLabel.fontColor = Colors.wrongColor
         endSceneWrongCountLabel.fontSize = endSceneCountFontSize
         endSceneWrongCountLabel.horizontalAlignmentMode = .center
         endSceneWrongCountLabel.verticalAlignmentMode = .center
@@ -225,8 +215,8 @@ class VocabMatchingGameScene: SKScene {
         endSceneScoreLabelWrapper.zPosition = uiTextLayer
         endSceneScoreLabelWrapper.addChild(endSceneScoreLabel)
         
-        endSceneScoreLabel.fontName = fontName
-        endSceneScoreLabel.fontColor = textColor
+        endSceneScoreLabel.fontName = FontName.montserratBold
+        endSceneScoreLabel.fontColor = Colors.textColor
         endSceneScoreLabel.fontSize = endSceneScoreFontSize
         endSceneScoreLabel.horizontalAlignmentMode = .center
         endSceneScoreLabel.verticalAlignmentMode = .center
