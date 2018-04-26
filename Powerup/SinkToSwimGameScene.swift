@@ -120,14 +120,9 @@ class SinkToSwimGameScene: SKScene {
     
     let PointerToBoatRatio = 0.5
     
-    // Colors
-    let textColor = UIColor(red: 21.0 / 255.0, green: 124.0 / 255.0, blue: 129.0 / 255.0, alpha: 1.0)
-    let correctColor = UIColor(red: 105.0 / 255.0, green: 255.0 / 255.0, blue: 109.0 / 255.0, alpha: 1.0)
-    let wrongColor = UIColor(red: 255.0 / 255.0, green: 105.0 / 255.0, blue: 105.0 / 255.0, alpha: 1.0)
-    let scoreTextColor = UIColor.white
+
     
     // Fonts
-    let fontName = "Montserrat-Bold"
     let questionFontSize = CGFloat(18)
     let scoreFontSize = CGFloat(22)
     let timerFontSize = CGFloat(17)
@@ -135,23 +130,23 @@ class SinkToSwimGameScene: SKScene {
     let endSceneScoreFontSize = CGFloat(80)
     
     // Sprite nodes
-    let backgroundSprite = SKSpriteNode(imageNamed: "sink_to_swim_background")
-    let foregroundSprite = SKSpriteNode(imageNamed: "sink_to_swim_foreground")
-    let waterGaugeSprite = SKSpriteNode(imageNamed: "sink_to_swim_gauge")
-    let waterGaugePointerSprite = SKSpriteNode(imageNamed: "sink_to_swim_indicator")
-    let avatarBoatSprite = SKSpriteNode(imageNamed: "sink_to_swim_boat_avatar")
-    let timerSprite = SKSpriteNode(imageNamed: "sink_to_swim_timer")
-    let questionBoxSprite = SKSpriteNode(imageNamed: "sink_to_swim_true_false_box")
+    let backgroundSprite = SKSpriteNode(imageNamed: Images.sinkToSwimBackground)
+    let foregroundSprite = SKSpriteNode(imageNamed: Images.sinkToSwimForeground)
+    let waterGaugeSprite = SKSpriteNode(imageNamed: Images.sinkToSwimGauge)
+    let waterGaugePointerSprite = SKSpriteNode(imageNamed: Images.sinkToSwimIndicator)
+    let avatarBoatSprite = SKSpriteNode(imageNamed: Images.sinkToSwimBoatAvatar)
+    let timerSprite = SKSpriteNode(imageNamed: Images.sinkToSwimTimer)
+    let questionBoxSprite = SKSpriteNode(imageNamed: Images.sinkToSwimTrueFalseBox)
     let trueButton = SKSpriteNode()
     let falseButton = SKSpriteNode()
     let dontKnowButton = SKSpriteNode()
     let correctWrongSprite = SKSpriteNode()
-    let endSceneSprite = SKSpriteNode(imageNamed: "end_scene")
-    let continueButton = SKSpriteNode(imageNamed: "continue_button")
+    let endSceneSprite = SKSpriteNode(imageNamed: Images.endScene)
+    let continueButton = SKSpriteNode(imageNamed: Images.continueButton)
     
     // Textures
-    let correctIconTexture = SKTexture(imageNamed: "sink_to_swim_correct_icon")
-    let wrongIconTexture = SKTexture(imageNamed: "sink_to_swim_wrong_icon")
+    let correctIconTexture = SKTexture(imageNamed: Images.sinkToSwimCorrectIcon)
+    let wrongIconTexture = SKTexture(imageNamed: Images.sinkToSwimWrongIcon)
     
     // Labels
     let scoreLabel = SKLabelNode()
@@ -282,7 +277,7 @@ class SinkToSwimGameScene: SKScene {
         dontKnowButton.color = UIColor.clear
         
         // Positioning question label.
-        questionLabel = SKMultilineLabel(text: "", labelWidth: Int(CGFloat(questionLabelWidth) * questionBoxSprite.size.width), pos: CGPoint.zero, fontName: fontName, fontSize: questionFontSize, fontColor: textColor,leading: questionLabelLeading)
+        questionLabel = SKMultilineLabel(text: "", labelWidth: Int(CGFloat(questionLabelWidth) * questionBoxSprite.size.width), pos: CGPoint.zero, fontName: FontName.montserratBold, fontSize: questionFontSize, fontColor: Colors.textColor,leading: questionLabelLeading)
         questionLabel.zPosition = uiTextLayer
         questionBoxSprite.addChild(questionLabel)
         questionLabel.pos =  CGPoint(x: questionBoxSprite.size.width * CGFloat(questionLabelPosX), y: questionBoxSprite.size.height * CGFloat(questionLabelPosY))
@@ -294,9 +289,9 @@ class SinkToSwimGameScene: SKScene {
         
         // Positioning and configuring font properties of score label.
         scoreLabel.text = scoreLabelPrefix + String(score)
-        scoreLabel.fontColor = scoreTextColor
+        scoreLabel.fontColor = Colors.scoreTextColor
         scoreLabel.fontSize = scoreFontSize
-        scoreLabel.fontName = fontName
+        scoreLabel.fontName = FontName.montserratBold
         scoreLabel.horizontalAlignmentMode = .center
         scoreLabel.verticalAlignmentMode = .center
         scoreLabel.zPosition = uiTextLayer
@@ -307,9 +302,9 @@ class SinkToSwimGameScene: SKScene {
         
         // Positioning and configuring font properties of timer label.
         timerLabel.text = String(timer)
-        timerLabel.fontColor = textColor
+        timerLabel.fontColor = Colors.textColor
         timerLabel.fontSize = timerFontSize
-        timerLabel.fontName = fontName
+        timerLabel.fontName = FontName.montserratBold
         timerLabel.horizontalAlignmentMode = .center
         timerLabel.verticalAlignmentMode = .center
         timerLabel.zPosition = uiTextLayer
@@ -337,8 +332,8 @@ class SinkToSwimGameScene: SKScene {
         endSceneCorrectCountLabelWrapper.zPosition = uiTextLayer
         endSceneCorrectCountLabelWrapper.addChild(endSceneCorrectCountLabel)
         
-        endSceneCorrectCountLabel.fontName = fontName
-        endSceneCorrectCountLabel.fontColor = correctColor
+        endSceneCorrectCountLabel.fontName = FontName.montserratBold
+        endSceneCorrectCountLabel.fontColor = Colors.correctColor
         endSceneCorrectCountLabel.fontSize = endSceneCountFontSize
         endSceneCorrectCountLabel.horizontalAlignmentMode = .center
         endSceneCorrectCountLabel.verticalAlignmentMode = .center
@@ -349,8 +344,8 @@ class SinkToSwimGameScene: SKScene {
         endSceneWrongCountLabelWrapper.zPosition = uiTextLayer
         endSceneWrongCountLabelWrapper.addChild(endSceneWrongCountLabel)
         
-        endSceneWrongCountLabel.fontName = fontName
-        endSceneWrongCountLabel.fontColor = wrongColor
+        endSceneWrongCountLabel.fontName = FontName.montserratBold
+        endSceneWrongCountLabel.fontColor = Colors.wrongColor
         endSceneWrongCountLabel.fontSize = endSceneCountFontSize
         endSceneWrongCountLabel.horizontalAlignmentMode = .center
         endSceneWrongCountLabel.verticalAlignmentMode = .center
@@ -361,8 +356,8 @@ class SinkToSwimGameScene: SKScene {
         endSceneScoreLabelWrapper.zPosition = uiTextLayer
         endSceneScoreLabelWrapper.addChild(endSceneScoreLabel)
         
-        endSceneScoreLabel.fontName = fontName
-        endSceneScoreLabel.fontColor = textColor
+        endSceneScoreLabel.fontName = FontName.montserratBold
+        endSceneScoreLabel.fontColor = Colors.textColor
         endSceneScoreLabel.fontSize = endSceneScoreFontSize
         endSceneScoreLabel.horizontalAlignmentMode = .center
         endSceneScoreLabel.verticalAlignmentMode = .center
