@@ -77,7 +77,7 @@ class MapViewController: UIViewController, SegueHandler {
             let alert = UIAlertController(title: warningTitleMessage, message: errorLoadingScenarioMessage, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: okText, style: .default))
             self.present(alert, animated: true, completion: nil)
-            
+
             return
         }
         
