@@ -1,6 +1,13 @@
 import UIKit
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, SegueHandler {
+    
+    enum SegueIdentifier: String {
+        case toScenarioView = "toScenarioView"
+        case toCompletedView = "toCompletedView"
+        case toShopView = "toShopView"
+        case unwindToStartView = "unwindToStartView"
+    }
     
     // The background images for scenarios.
     let backgroundImages: [String?] = [
@@ -13,6 +20,7 @@ class MapViewController: UIViewController {
         "hospital_background",
         "library_background"
     ]
+    
     
     // MARK: Properties
     var dataSource: DataSource = DatabaseAccessor.sharedInstance
@@ -40,8 +48,8 @@ class MapViewController: UIViewController {
             do {
                 currScenario = try dataSource.getScenario(of: scenarioID)
             } catch _ {
-                let alert = UIAlertController(title: "Warning", message: "Error loading scenarios, please and try again, if this error still occurs, try restarting the app.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                let alert = UIAlertController(title: warningTitleMessage, message: errorLoadingScenarioMessage, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: okText, style: .default))
                 self.present(alert, animated: true, completion: nil)
                 
                 return
@@ -66,10 +74,10 @@ class MapViewController: UIViewController {
         do {
             selectedScenario = try dataSource.getScenario(of: sender.tag)
         } catch _ {
-            let alert = UIAlertController(title: "Warning", message: "Error loading scenarios, please and try again, if this error still occurs, try restarting the app.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            let alert = UIAlertController(title: warningTitleMessage, message: errorLoadingScenarioMessage, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: okText, style: .default))
             self.present(alert, animated: true, completion: nil)
-            
+
             return
         }
         
@@ -77,27 +85,37 @@ class MapViewController: UIViewController {
         selectedScenarioName = selectedScenario.name
         // If completed, go to completed view.
         if selectedScenario.completed {
-            performSegue(withIdentifier: "toCompletedView", sender: sender)
+            performSegueWithIdentifier(.toCompletedView, sender: sender)
         } else {
             // Go to the corresponding scenario
-            performSegue(withIdentifier: "toScenarioView", sender: sender)
+            performSegueWithIdentifier(.toScenarioView, sender: sender)
         }
     }
+    
     
     // MARK: Segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let senderButton = sender as? UIButton {
             let scenarioID = senderButton.tag
-            
-            if segue.identifier == "toScenarioView" {
+            switch segueIdentifierForSegue(segue){
+            case .toScenarioView?:
                 (segue.destination as? ScenarioViewController)?.scenarioID = scenarioID
                 (segue.destination as? ScenarioViewController)?.scenarioName = selectedScenarioName
                 (segue.destination as? ScenarioViewController)?.backgroundImage = UIImage(named: backgroundImages[scenarioID] ?? "")
-            } else if segue.identifier == "toCompletedView" {
+                
+            case .toCompletedView?:
                 (segue.destination as? CompletedViewController)?.scenarioID = scenarioID
                 (segue.destination as? CompletedViewController)?.scenarioName = selectedScenarioName
                 (segue.destination as? CompletedViewController)?.backgroundImage = UIImage(named: backgroundImages[scenarioID] ?? "")
+            case .toShopView?:
+                 break
+            case .unwindToStartView?:
+                 break
+            case .none:
+                assertionFailure("Did not recognize segue identifier \(segue.identifier)")
             }
+            
+            
         }
     }
     

@@ -1,6 +1,11 @@
 import UIKit
 
-class ScenarioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ScenarioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SegueHandler {
+    enum SegueIdentifier: String {
+        case unwindToMapView = "unwindToMap"
+        case toMiniGameView = "toMiniGame"
+        case toEndSceneView = "toEndScene"
+    }
     
     // MARK: Properties
     var dataSource: DataSource = DatabaseAccessor.sharedInstance
@@ -11,7 +16,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     
     // The background image of the view, set by MapViewController.
     var backgroundImage: UIImage? = nil
-
+    
     // Questions ([questionID : question]) for the scenario
     var questions = [Int:Question]()
     var currQuestionID: Int = -1
@@ -51,8 +56,10 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
             try answers = dataSource.getAnswers(of: currQuestionID)
         } catch _ {
             // Unwind back to map view if cound't fetch choices from database.
-            let alert = UIAlertController(title: "Warning", message: "Error loading the choices. Please try again!", preferredStyle: .alert)
-            let okButton = UIAlertAction(title: "OK", style: .default, handler: {action in self.performSegue(withIdentifier: "unwindToMap", sender: self)})
+
+            let alert = UIAlertController(title: warningTitleMessage, message: errorLoadingChoicesMessage, preferredStyle: .alert)
+            let okButton = UIAlertAction(title: okText, style: .default, handler: {action in self.performSegueWithIdentifier(.unwindToMapView, sender: self)})
+
             alert.addAction(okButton)
             
             self.present(alert, animated: true, completion: nil)
@@ -78,15 +85,17 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
             avatar = try dataSource.getAvatar()
         } catch _ {
             // Unwind back to map view if cound't fetch avatar from database.
-            let alert = UIAlertController(title: "Warning", message: "Error loading the avatar. Please try again!", preferredStyle: .alert)
-            let okButton = UIAlertAction(title: "OK", style: .default, handler: {action in self.performSegue(withIdentifier: "unwindToMap", sender: self)})
+
+            let alert = UIAlertController(title: warningTitleMessage, message: errorLoadingAvatarMessage, preferredStyle: .alert)
+            let okButton = UIAlertAction(title: okText, style: .default, handler: {action in self.performSegueWithIdentifier(.unwindToMapView, sender: self)})
+
             alert.addAction(okButton)
             
             self.present(alert, animated: true, completion: nil)
             
             return
         }
-    
+        
         clothesView.image = avatar.clothes.image
         faceView.image = avatar.face.image
         hairView.image = avatar.hair.image
@@ -115,7 +124,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         
         // Configure background image.
         backgroundImageView.image = backgroundImage
-
+        
         configureAvatar()
         
         initializeQuestions()
@@ -129,8 +138,10 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
             questions = try dataSource.getQuestions(of: scenarioID)
         } catch _ {
             // Unwind back to map view if cound't fetch questions from database.
-            let alert = UIAlertController(title: "Warning", message: "Error loading the scenario. Please try again!", preferredStyle: .alert)
-            let okButton = UIAlertAction(title: "OK", style: .default, handler: {action in self.performSegue(withIdentifier: "unwindToMap", sender: self)})
+
+            let alert = UIAlertController(title: warningTitleMessage, message: errorLoadingScenarioMessage, preferredStyle: .alert)
+            let okButton = UIAlertAction(title: okText, style: .default, handler: {action in self.performSegueWithIdentifier(.unwindToMapView, sender: self)})
+
             alert.addAction(okButton)
             
             self.present(alert, animated: true, completion: nil)
@@ -174,12 +185,12 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
             } else {
                 // Negative nextQuestion indicates mini game transitions
                 toMiniGameIndex = nextQuestionIDInt
-                performSegue(withIdentifier: "toMiniGame", sender: self)
+                performSegueWithIdentifier(.toMiniGameView, sender: self)
             }
             
         } else {
             // Perform push segue to result scene
-            performSegue(withIdentifier: "toEndScene", sender: self)
+            performSegueWithIdentifier(.toEndSceneView, sender: self)
         }
         
     }

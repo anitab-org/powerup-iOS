@@ -1,7 +1,13 @@
 import UIKit
 
-class CompletedViewController: UIViewController {
-
+class CompletedViewController: UIViewController,SegueHandler {
+    enum SegueIdentifier: String {
+        case toScenarioView = "toScenarioView"
+        case unwindToMapView = "unwindtoMapView"
+        case unwindToStartView = "unwindtoStartView"
+    }
+    
+    
     // MARK: Properties
     // The scenario information of the view, set by MapViewController.
     var scenarioID: Int = -1
@@ -19,7 +25,7 @@ class CompletedViewController: UIViewController {
     // MARK: Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Configure scenario name.
         scenarioLabel.text = "Current Scenario: " + scenarioName
         
@@ -29,8 +35,8 @@ class CompletedViewController: UIViewController {
             karmaPointsLabel.text = String(score.karmaPoints)
         } catch _ {
             // If the saving failed, show an alert dialogue.
-            let alert = UIAlertController(title: "Warning", message: "Error loading Karma points.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            let alert = UIAlertController(title: warningTitleMessage, message: errorLoadingKarmaPoints, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: okText, style: .default))
             self.present(alert, animated: true, completion: nil)
             
             return
@@ -39,11 +45,19 @@ class CompletedViewController: UIViewController {
     
     // MARK: Segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toScenarioView" {
+        switch segueIdentifierForSegue(segue){
+        case .toScenarioView?:
             (segue.destination as? ScenarioViewController)?.scenarioID = scenarioID
             (segue.destination as? ScenarioViewController)?.scenarioName = scenarioName
             (segue.destination as? ScenarioViewController)?.backgroundImage = backgroundImage
-        }
+        case .unwindToMapView?:
+            break
+        case .unwindToStartView?:
+            break
+        case .none:
+            assertionFailure("Did not recognize segue identifier \(segue.identifier)")
+      }
+        
     }
-   
+    
 }

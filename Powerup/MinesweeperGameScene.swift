@@ -29,8 +29,6 @@ class MinesweeperGameScene: SKScene {
     let buttonWaitDuration = 0.5
     let boxFlipInterval = 0.2
     let showAllBoxesInterval = 0.3
-    let boxEnlargingKey = "enlarge"
-    let boxShrinkingKey = "shrink"
     let boxDarkening = SKAction.colorize(with: UIColor(white: 0.6, alpha: 0.8), colorBlendFactor: 1.0, duration: 0.2)
     let fadeInAction = SKAction.fadeIn(withDuration: 0.8)
     let fadeOutAction = SKAction.fadeOut(withDuration: 0.8)
@@ -431,13 +429,19 @@ class MinesweeperGameScene: SKScene {
             if !resultBanner.isHidden {
                 // Button in the result banner. Show description when tapped.
                 showDescription()
+                // Record score to update karma points
+                viewController.score = score
                 viewController.endGame()
             } else if roundCount < possiblityPercentages.count {
                 // Not the last round, hide description banner and start a new round.
                 newRound()
                 hideDescription()
+                // Record score to update karma points
+                viewController.score = score
                 viewController.endGame()
             } else {
+                // Record score to update karma points
+                viewController.score = score
                 // End game.
                 viewController.endGame()
             }
