@@ -8,7 +8,10 @@ enum MiniGameIndex: Int {
     case vocabMatching = -3
 }
 
-class MiniGameViewController: UIViewController {
+class MiniGameViewController: UIViewController,SegueHandler {
+    enum SegueIdentifier: String {
+        case toResultSceneView = "toResultScene"
+    }
     
     // MARK: Properties
     var completedScenarioID: Int = -1
@@ -19,6 +22,9 @@ class MiniGameViewController: UIViewController {
     
     // Will be assigned in the previous VC (ScenarioViewController).
     var gameIndex: MiniGameIndex = .unknown
+    
+    // Score of the played minigame (will be used to update karma points)
+    var score: Int = 0
     
     // MARK: Functions
     override func viewDidLoad() {
@@ -35,7 +41,7 @@ class MiniGameViewController: UIViewController {
             let minesweeperGame = MinesweeperGameScene(size: view.bounds.size)
             minesweeperGame.viewController = self
             gameScene = minesweeperGame
-        
+            
         // Vocab Matching
         case .vocabMatching:
             let vocabMatchingGame = VocabMatchingGameScene(size: view.bounds.size)
@@ -47,7 +53,7 @@ class MiniGameViewController: UIViewController {
             let sinkToSwimGame = SinkToSwimGameScene(size: view.bounds.size)
             sinkToSwimGame.viewController = self
             gameScene = sinkToSwimGame
-        
+            
         default:
             print("Unknown mini game.")
         }
@@ -64,7 +70,7 @@ class MiniGameViewController: UIViewController {
     
     // Called by the mini game.
     func endGame() {
-        performSegue(withIdentifier: "toResultScene", sender: self)
+        performSegueWithIdentifier(.toResultSceneView, sender: self)
     }
     
     // MARK: Segues
@@ -72,6 +78,7 @@ class MiniGameViewController: UIViewController {
         if let resultVC = segue.destination as? ResultsViewController {
             resultVC.completedScenarioID = completedScenarioID
             resultVC.completedScenarioName = scenarioName
+            resultVC.karmaGain = 20 + score
         }
     }
     
