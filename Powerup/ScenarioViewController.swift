@@ -218,4 +218,17 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         
         resetQuestionAndChoices()
     }
+    
+    // Alert the user about possibly losing karma points upon migrating back to the map.
+    @IBAction func homeButtonPressed(_ sender: Any) {
+        let alert = UIAlertController(title: confirmationTitleMessage, message: mapMigrationAlertMessage, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: okText, style: .default, handler: {action in self.performSegueWithIdentifier(.unwindToMapView, sender: self)})
+        let cancelButton = UIAlertAction(title: cancelText, style: .cancel, handler: {action in self.dismiss(animated: true, completion: nil)})
+        
+        alert.addAction(okButton)
+        alert.addAction(cancelButton)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
