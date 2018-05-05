@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Record Mapper</title>
+  <meta name="description" content="A diagram for displaying and editing the N to M relationships from one set of objects to another set of objects."
+  />
+  <!-- Copyright 1998-2018 by Northwoods Software Corporation. -->
+  <meta charset="UTF-8">
+  <script src="go-debug.js"></script>
+  <script src="answer.js"></script>
+  <script src="question.js"></script>
+  <!-- <script src="../release/go.js"></script>
+  <script src="../assets/js/goSamples.js"></script> -->
+  <!-- this is only for the GoJS Samples framework -->
+  <script>
+
+    function init() {
+
+      // 1 - School
+      // 2 - exists but not implemented
+      // 5 - Home
+      // 6 - Hospital
+      // 7 - Library
+      let currentScenario = 7;
+
+      if (window.goSamples) goSamples();  // init for these samples -- you don't need to call this
+      var $ = go.GraphObject.make;  // for conciseness in defining templates
+
+      myDiagram =
+        $(go.Diagram, "myDiagramDiv",
+          {
+            layout: $(go.TreeLayout,
+              { nodeSpacing: 100, layerSpacing: 100 }),
+            initialContentAlignment: go.Spot.Center,
+            validCycle: go.Diagram.CycleNotDirected,  // don't allow loops
+            // For this sample, automatically show the state of the diagram's model on the page
+            // "ModelChanged": function (e) {
+            //   if (e.isTransactionFinished) showModel();
+            // },
+            "undoManager.isEnabled": true,
+            padding: 150
+          });
+
+      // This template is a Panel that is used to represent each item in a Panel.itemArray.
+      // The Panel is data bound to the item object.
+      var fieldTemplate =
+        $(go.Panel, "TableRow",  // this Panel is a row in the containing Table
+          $(go.TextBlock,
+            {
+              margin: new go.Margin(0, 5), column: 1, font: "bold 13px sans-serif",
+              alignment: go.Spot.Left,
+              // and disallow drawing links from or to this text:
+              fromLinkable: false, toLinkable: false
+            },
+            new go.Binding("text", "name")),
+          $(go.TextBlock,
+            { margin: new go.Margin(0, 5), width: 100, column: 2, font: "13px sans-serif", alignment: go.Spot.Left, wrap: go.TextBlock.WrapFit },
+            new go.Binding("text", "info"))
+        );
+
+      // This template represents a whole "record".
+      myDiagram.nodeTemplate =
+        $(go.Node, "Auto",
+          {
+            layoutConditions: go.Part.LayoutStandard & ~go.Part.LayoutNodeSized,
+            fromSpot: go.Spot.AllSides,
+            toSpot: go.Spot.AllSides,
+            isShadowed: true,
+            shadowColor: "#C5C1AA"
+          },
+          new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
+          // this rectangular shape surrounds the content of the node
+          $(go.Shape,
+            { fill: "#EEEEEE" }),
+          // the content consists of a header and a list of items
+          $(go.Panel, "Vertical",
+            // this is the header for the whole node
+            $(go.Panel, "Auto",
+              { stretch: go.GraphObject.Horizontal },  // as wide as the whole node
+              $(go.Shape,
+                { fill: "#1570A6", stroke: null }, new go.Binding("fill", "color")),
+              $(go.TextBlock,
+                {
+                  alignment: go.Spot.Center,
+                  margin: 3,
+                  stroke: "white",
+                  textAlign: "center",
+                  font: "bold 12pt sans-serif"
+                },
+                new go.Binding("text", "key"))),
+            // this Panel holds a Panel for each item object in the itemArray;
+            // each item Panel is defined by the itemTemplate to be a TableRow in this Table
+            $(go.Panel, "Table",
+              {
+                padding: 2,
+                minSize: new go.Size(100, 10),
+                defaultStretch: go.GraphObject.Horizontal,
+                itemTemplate: fieldTemplate
+              },
+              new go.Binding("itemArray", "fields")
+            )  // end Table Panel of items
+          )  // end Vertical Panel
+        );  // end Node
+
+      myDiagram.linkTemplate =
+        $(go.Link,
+          {
+            routing: go.Link.AvoidsNodes,
+            curve: go.Link.JumpGap
+          },
+          $(go.Shape, { strokeWidth: 1.5 }, new go.Binding("stroke", "color")),
+          $(go.Shape, { toArrow: "Standard" }, new go.Binding("stroke", "color"), new go.Binding("fill", "color"))
+        );
+
+      // console.log(answers);
+      // console.log(questions);
+
+      // 1 - School
+      // 2 - exists but not implemented
+      // 5 - Home
+      // 6 - Hospital
+      // 7 - Library
+      let scenarioName = "";
+      switch (currentScenario) {
+        case 1:
+          scenarioName = "School";
+          break;
+        case 5:
+          scenarioName = "Home";
+          break;
+        case 6:
+          scenarioName = "Hospital";
+          break;
+        case 7:
+          scenarioName = "Library";
+          break;
+      }
+
+      document.getElementById("title").innerHTML = "ScenarioID " + currentScenario.toString() + " - " + scenarioName;
+
+      let currentQuestions = [];
+      let currentQIDs = [];
+      let currentAnswers = [];
+      // Retrieve questions for the current scenario - compare currentScenario with the record.ScenarioID
+      // Store the question IDs to use when searching for the answers
+      for (let i in questions) {
+        let record = questions[i];
+        if (record.ScenarioID == currentScenario) {
+          currentQuestions.push(record);
+          currentQIDs.push(record.QuestionID);
+        }
+      }
+      //console.log(currentQIDs);
+
+      // Retrieve answers for the current scenario - compare currentQIDs with record.QuestionID
+      for (let i in answers) {
+        let record = answers[i];
+        for (let j in currentQIDs) {
+          if (record.QuestionID == currentQIDs[j]) {
+            // console.log(record.NextQID);
+            // console.log(record.ADescription);
+            currentAnswers.push(record);
+          }
+        }
+      }
+
+      // starting question light green = #1dd1a1
+      // question light blue = #48dbfb
+      // answer purple = #5f27cd
+      // terminal answer light red = #ff6b6b
+      // minigame answer light orange = #feca57
+
+      let data = [];
+      let linkData = [];
+
+      for (let i in currentAnswers) {
+        let currentRecord = currentAnswers[i];
+
+        let key = "A " + currentRecord.AnswerID;
+        let color = (currentRecord.NextQID == "$") ? "#ff6b6b" : (currentRecord.NextQID < 0) ? "#feca57" : "#5f27cd";
+        let textField = { name: "ADescription", info: currentRecord.ADescription };
+        let qIDField = { name: "QuestionID", info: currentRecord.QuestionID };
+        let nextIDField = { name: "NextQID", info: currentRecord.NextQID };
+        let pointsField = { name: "Points", info: currentRecord.Points };
+
+        let record = {
+          key: key,
+          color: color,
+          fields: [textField, qIDField, nextIDField, pointsField]
+        }
+
+        data.push(record);
+      }
+
+      for (let i in currentQuestions) {
+        let currentRecord = currentQuestions[i];
+
+        let key = "Q " + currentRecord.QuestionID;
+        let color = (i == 0) ? "#1dd1a1" : "#00d2d3";
+        let textField = { name: "QDescription", info: currentRecord.QDescription };
+
+        let record = {
+          key: key,
+          color: color,
+          fields: [textField]
+        }
+
+        data.push(record);
+      }
+
+      for (let i in currentAnswers) {
+        let currentRecord = currentAnswers[i];
+
+        let qLink = { from: "Q " + currentRecord.QuestionID, to: "A " + currentRecord.AnswerID, color: "#00d2d3" };
+        let aLink = { from: "A " + currentRecord.AnswerID, to: "Q " + currentRecord.NextQID, color: "#341f97" };
+
+        linkData.push(qLink);
+        linkData.push(aLink);
+      }
+
+      myDiagram.model =
+        $(go.GraphLinksModel,
+          {
+            linkFromPortIdProperty: "fromPort",
+            linkToPortIdProperty: "toPort",
+            nodeDataArray: data,
+            linkDataArray: linkData
+          });
+
+      // showModel();  // show the diagram's initial model
+
+      // function showModel() {
+      //   document.getElementById("mySavedModel").textContent = myDiagram.model.toJson();
+      // }
+    }
+
+  </script>
+</head>
+
+<body onload="init()">
+  <div id="sample">
+    <div id="title" style="position: absolute; background-color: #ffffff; z-index: 100000000; font-family: Arial, Helvetica, sans-serif;
+                          left: 10px; top: 10px; width: 180px; height: 65px; line-height: 65px; font-size: .9em;
+                          text-align: center;"></div>
+    <div id="myDiagramDiv" style="border: solid 1px black; width:100%; height:95vh;"></div>
+    <!-- <p>This record mapper shows a number of "fields" for each "record" and how they are mapped between each other.</p>
+    <p>
+      Draw new links by dragging from the background of any field. Reconnect a selected link by dragging its diamond-shaped handle.
+      The "record" Nodes use a
+      <a>Panel.Table</a> to place the various fields into rows. Records are not movable or copyable or deletable.
+    </p>
+    <p>For a variation on this sample with selectable fields in the record nodes, see the
+      <a href="selectableFields.html">selectable fields</a> sample.</p>
+    <div>
+      Diagram Model saved in JSON format, automatically updated after each change or undo or redo:
+      <textarea id="mySavedModel" style="width:100%;height:250px"></textarea>
+    </div> -->
+  </div>
+</body>
+
+</html>
