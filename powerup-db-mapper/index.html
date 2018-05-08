@@ -2,9 +2,10 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
   <title>Record Mapper</title>
-  <meta name="description" content="A diagram for displaying and editing the N to M relationships from one set of objects to another set of objects."
+  <meta name="description" content="Auto mapper for Powerup Scenario DB"
   />
   <!-- Copyright 1998-2018 by Northwoods Software Corporation. -->
   <meta charset="UTF-8">
@@ -23,7 +24,7 @@
       // 5 - Home
       // 6 - Hospital
       // 7 - Library
-      let currentScenario = 7;
+      let currentScenario = 1;
 
       if (window.goSamples) goSamples();  // init for these samples -- you don't need to call this
       var $ = go.GraphObject.make;  // for conciseness in defining templates
