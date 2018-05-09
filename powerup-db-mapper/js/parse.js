@@ -12,7 +12,7 @@ var questions = [];
 
 function init() {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'mainDatabase.sqlite', true);
+    xhr.open('GET', 'https://raw.githubusercontent.com/systers/powerup-iOS/develop/Scenarios/mainDatabase.sqlite', true);
     xhr.responseType = 'arraybuffer';
 
     xhr.onload = function (e) {
