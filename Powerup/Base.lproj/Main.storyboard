@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="eFm-LF-3yb">
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="eFm-LF-3yb">
+>>>>>>> systers/develop
     <device id="retina5_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
+<<<<<<< HEAD
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+=======
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+>>>>>>> systers/develop
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -206,7 +214,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="156" height="41.333333333333336"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ags-IQ-Dxd">
+<<<<<<< HEAD
                                                 <rect key="frame" x="57.666666666666671" y="10.666666666666671" width="41" height="22"/>
+=======
+                                                <rect key="frame" x="57.666666666666671" y="9.6666666666666714" width="41" height="22"/>
+>>>>>>> systers/develop
                                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -252,7 +264,11 @@
                                         <rect key="frame" x="181" y="0.0" width="156.33333333333337" height="41.333333333333336"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eyes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbt-qX-ypc">
+<<<<<<< HEAD
                                                 <rect key="frame" x="56.666666666666657" y="10.666666666666671" width="42.666666666666657" height="22"/>
+=======
+                                                <rect key="frame" x="56.666666666666657" y="9.6666666666666714" width="42.666666666666657" height="22"/>
+>>>>>>> systers/develop
                                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -324,7 +340,11 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clothes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5p4-KD-Db0">
+<<<<<<< HEAD
                                                 <rect key="frame" x="46.666666666666629" y="12.000000000000002" width="62.333333333333343" height="19.666666666666671"/>
+=======
+                                                <rect key="frame" x="46.666666666666629" y="11.000000000000002" width="62.333333333333343" height="19.666666666666671"/>
+>>>>>>> systers/develop
                                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="16"/>
                                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -562,7 +582,7 @@
                                 </constraints>
                                 <state key="normal" image="home_button"/>
                                 <connections>
-                                    <segue destination="tRn-hQ-WhV" kind="unwind" identifier="toMapview" unwindAction="unwindToMapWithUnwindSegue:" id="P5B-2A-6nf"/>
+                                    <action selector="homeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TwC-Yg-s3f"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scenario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nut-8U-Q0c" userLabel="Scenario Name Label">
@@ -706,7 +726,11 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SELECT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UT3-0Z-0jd" userLabel="Button Text">
+<<<<<<< HEAD
                                                         <rect key="frame" x="29.000000000000004" y="105" width="50.333333333333343" height="16"/>
+=======
+                                                        <rect key="frame" x="30.000000000000004" y="105" width="50.333333333333343" height="16"/>
+>>>>>>> systers/develop
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.38039215686274508" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -869,33 +893,53 @@
                                                 <rect key="frame" x="0.0" y="0.33333333333334281" width="114" height="141"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shop_available_box" translatesAutoresizingMaskIntoConstraints="NO" id="5qr-Ke-PiT" userLabel="Display Box 4">
+<<<<<<< HEAD
                                                         <rect key="frame" x="0.0" y="0.0" width="114" height="141.66666666666666"/>
+=======
+                                                        <rect key="frame" x="0.0" y="0.66666666666665719" width="114" height="141.66666666666666"/>
+>>>>>>> systers/develop
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="06b-l4-D6S" userLabel="Display Image 4">
                                                         <rect key="frame" x="21" y="31" width="72" height="68"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqL-nh-FT0" userLabel="Price Label 4">
+<<<<<<< HEAD
                                                         <rect key="frame" x="54.333333333333343" y="8" width="45.333333333333343" height="21"/>
+=======
+                                                        <rect key="frame" x="54.333333333333343" y="7.3333333333333144" width="45.333333333333343" height="21"/>
+>>>>>>> systers/develop
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                                         <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="purchased_checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="PIr-lw-o6P" userLabel="Purchased Checkmark">
+<<<<<<< HEAD
                                                         <rect key="frame" x="32.333333333333314" y="38.666666666666686" width="50" height="50"/>
+=======
+                                                        <rect key="frame" x="32.333333333333314" y="39.333333333333314" width="50" height="50"/>
+>>>>>>> systers/develop
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="BIw-fS-Q52"/>
                                                             <constraint firstAttribute="width" constant="50" id="a9L-11-iFw"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4J-mj-DPt" userLabel="Button Text">
+<<<<<<< HEAD
                                                         <rect key="frame" x="34.666666666666657" y="105" width="41.333333333333343" height="16"/>
+=======
+                                                        <rect key="frame" x="34.666666666666657" y="105.66666666666669" width="41.333333333333343" height="16"/>
+>>>>>>> systers/develop
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Pk-9s-C0k" userLabel="Purchase Button 4">
+<<<<<<< HEAD
                                                         <rect key="frame" x="-0.66666666666668561" y="0.0" width="114.33333333333333" height="141.66666666666666"/>
+=======
+                                                        <rect key="frame" x="-0.66666666666668561" y="0.66666666666665719" width="114.33333333333333" height="141.66666666666666"/>
+>>>>>>> systers/develop
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <connections>
                                                             <action selector="purchaseItem:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="pbE-Xk-nY1"/>
@@ -926,33 +970,53 @@
                                                 <rect key="frame" x="163.99999999999997" y="0.33333333333334281" width="113.66666666666666" height="141"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shop_available_box" translatesAutoresizingMaskIntoConstraints="NO" id="xQD-5I-vss" userLabel="Display Box 5">
+<<<<<<< HEAD
                                                         <rect key="frame" x="0.0" y="0.0" width="113.66666666666667" height="141.66666666666666"/>
+=======
+                                                        <rect key="frame" x="0.0" y="0.66666666666665719" width="113.66666666666667" height="141.66666666666666"/>
+>>>>>>> systers/develop
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i4t-Ti-nZx" userLabel="Display Image 5">
                                                         <rect key="frame" x="18" y="28" width="63" height="61"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Bg-q0-Dxb" userLabel="Price Label 5">
+<<<<<<< HEAD
                                                         <rect key="frame" x="54" y="8" width="46" height="21"/>
+=======
+                                                        <rect key="frame" x="54" y="7.3333333333333144" width="46" height="21"/>
+>>>>>>> systers/develop
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                                         <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="purchased_checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="l82-zb-gkH" userLabel="Purchased Checkmark">
+<<<<<<< HEAD
                                                         <rect key="frame" x="32.333333333333371" y="38.666666666666686" width="50" height="50"/>
+=======
+                                                        <rect key="frame" x="32.333333333333371" y="39.333333333333314" width="50" height="50"/>
+>>>>>>> systers/develop
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="F5s-pG-biL"/>
                                                             <constraint firstAttribute="width" constant="50" id="dPN-X5-ET9"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6uT-um-xmX" userLabel="Button Text">
+<<<<<<< HEAD
                                                         <rect key="frame" x="34.333333333333371" y="105" width="41.333333333333343" height="16"/>
+=======
+                                                        <rect key="frame" x="34.333333333333371" y="105.66666666666669" width="41.333333333333343" height="16"/>
+>>>>>>> systers/develop
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIF-P3-mGf" userLabel="Purchase Button 5">
+<<<<<<< HEAD
                                                         <rect key="frame" x="-0.33333333333331439" y="0.0" width="113.66666666666667" height="141.66666666666666"/>
+=======
+                                                        <rect key="frame" x="-0.33333333333331439" y="0.66666666666665719" width="113.66666666666667" height="141.66666666666666"/>
+>>>>>>> systers/develop
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <connections>
                                                             <action selector="purchaseItem:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="M9r-X8-XPr"/>
@@ -983,33 +1047,53 @@
                                                 <rect key="frame" x="327.66666666666663" y="0.33333333333334281" width="114" height="141"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shop_available_box" translatesAutoresizingMaskIntoConstraints="NO" id="sQ8-y7-6JZ" userLabel="Display Box 6">
+<<<<<<< HEAD
                                                         <rect key="frame" x="0.0" y="0.0" width="114" height="141.66666666666666"/>
+=======
+                                                        <rect key="frame" x="0.0" y="0.66666666666665719" width="114" height="141.66666666666666"/>
+>>>>>>> systers/develop
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rZL-NX-JXV" userLabel="Display Image 6">
                                                         <rect key="frame" x="18" y="28" width="63" height="61"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpl-51-ETr" userLabel="Price Label 6">
+<<<<<<< HEAD
                                                         <rect key="frame" x="54.666666666666629" y="8" width="45.666666666666657" height="21"/>
+=======
+                                                        <rect key="frame" x="54.666666666666629" y="7.3333333333333144" width="45.666666666666657" height="21"/>
+>>>>>>> systers/develop
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                                         <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="purchased_checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="c2K-F6-l2O" userLabel="Purchased Checkmark">
+<<<<<<< HEAD
                                                         <rect key="frame" x="32" y="38.666666666666686" width="50" height="50"/>
+=======
+                                                        <rect key="frame" x="32" y="39.333333333333314" width="50" height="50"/>
+>>>>>>> systers/develop
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="50" id="Sqd-zL-ZwR"/>
                                                             <constraint firstAttribute="height" constant="50" id="fO4-60-CYk"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQo-Hs-1Vo" userLabel="Button Text">
+<<<<<<< HEAD
                                                         <rect key="frame" x="34.666666666666629" y="105" width="41.333333333333343" height="16"/>
+=======
+                                                        <rect key="frame" x="34.666666666666629" y="105.66666666666669" width="41.333333333333343" height="16"/>
+>>>>>>> systers/develop
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TxL-Fj-r9g" userLabel="Purchase Button 6">
+<<<<<<< HEAD
                                                         <rect key="frame" x="-0.33333333333337123" y="0.0" width="113.66666666666667" height="141.66666666666666"/>
+=======
+                                                        <rect key="frame" x="-0.33333333333337123" y="0.66666666666665719" width="113.66666666666667" height="141.66666666666666"/>
+>>>>>>> systers/develop
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <connections>
                                                             <action selector="purchaseItem:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="NZ9-hb-gLg"/>
