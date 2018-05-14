@@ -70,7 +70,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         
         // No answers left, reveal "continue" button to go to result view controller.
         if answers.count == 0 {
-            answers.append(Answer(answerID: -1, questionID: -1, answerDescription: "Continue", nextQuestionID: "$", points: 0))
+            answers.append(Answer(answerID: -1, questionID: -1, answerDescription: "Continue", nextQuestionID: "$", points: 0, popupID: "#"))
         }
         
         // Reload the table.
@@ -130,6 +130,8 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         initializeQuestions()
         
         resetQuestionAndChoices()
+        
+        startSequence();
     }
     
     func initializeQuestions() {
@@ -155,6 +157,28 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    // MARK: OOC Event Functions
+    // handle starting sequence - opens as an overlay on top of the initial screen - called in viewDidLoad()
+    func startSequence() {
+        print("begin opening sequence");
+    }
+    
+    // handles calling events - func called in tableView didSelectRowAt indexPath
+    func handlePopupEvent(idNumber: String) {
+        // type check the idNumber String - if it's not an integer, ignore it
+        print("handlePopupEvent() with ID: "+idNumber)
+        if let checkForInt = Int(idNumber) {
+            // if it's an Int...
+            if checkForInt > 0 {
+                // if it's positive, show inline popup
+                print("Positive int - show inline popup")
+            } else {
+                // if it's negative, show ending sequence
+                print("Negative int - show ending sequence")
+            }
+        }
+    }
+    
     // MARK: UITableViewDataSourceDelegate
     // How many cells are there.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -175,6 +199,10 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         
         // Check if the next questionID is a valid integer, if not, it's the end of the scnario (entering a mini game)
         let nextQuestionID = answers[selectedIndex].nextQuestionID
+        
+        // pass the popupID string of the selected answer to handlePopupEvent function
+        handlePopupEvent(idNumber: answers[selectedIndex].popupID)
+        
         if let nextQuestionIDInt = Int(nextQuestionID) {
             
             if nextQuestionIDInt > 0 {
