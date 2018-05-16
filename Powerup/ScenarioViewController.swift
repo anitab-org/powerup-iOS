@@ -1,6 +1,6 @@
 import UIKit
 
-class ScenarioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SegueHandler {
+class ScenarioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PopupEventPlayerDelegate, SegueHandler {
     enum SegueIdentifier: String {
         case unwindToMapView = "unwindToMap"
         case toMiniGameView = "toMiniGame"
@@ -9,6 +9,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     
     // MARK: Properties
     var dataSource: DataSource = DatabaseAccessor.sharedInstance
+    var popup : PopupEventPlayer?
     
     // current scenario, set by MapViewController
     var scenarioID: Int = 0
@@ -160,23 +161,34 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     // MARK: OOC Event Functions
     // handle starting sequence - opens as an overlay on top of the initial screen - called in viewDidLoad()
     func startSequence() {
-        print("begin opening sequence");
+        print("\nbegin opening sequence");
     }
     
     // handles calling events - func called in tableView didSelectRowAt indexPath
     func handlePopupEvent(idNumber: String) {
         // type check the idNumber String - if it's not an integer, ignore it
-        print("handlePopupEvent() with ID: "+idNumber)
+        print("\nhandlePopupEvent() with ID: "+idNumber)
+        
+        popup = PopupEventPlayer(delegate: self)
+        self.view.addSubview(popup!)
+        print(popup!)
+        
         if let checkForInt = Int(idNumber) {
             // if it's an Int...
             if checkForInt > 0 {
                 // if it's positive, show inline popup
-                print("Positive int - show inline popup")
+                print("\nPositive int - show inline popup")
             } else {
                 // if it's negative, show ending sequence
-                print("Negative int - show ending sequence")
+                print("\nNegative int - show ending sequence")
             }
         }
+    }
+    
+    // MARK: PopupEventPlayer Delegate Methods
+    func popupDidFinish(sender: PopupEventPlayer) {
+        popup = nil
+        print("released popup")
     }
     
     // MARK: UITableViewDataSourceDelegate
