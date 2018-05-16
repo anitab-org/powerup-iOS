@@ -13,16 +13,14 @@ class PopupEventPlayer : UIView {
     /* *******************************
     MARK: Properties
     ******************************* */
-    let screenSize = UIScreen.main.bounds
-    var soundPlayer : AVAudioPlayer?
     weak var delegate:PopupEventPlayerDelegate?
 
     var width : CGFloat,
         height : CGFloat
     
-    var bgColor : UIColor? { didSet {updateContainer()} }
-    var borderColor : UIColor? { didSet {updateContainer()} }
-    var textColor : UIColor? { didSet {updateLabels()} }
+    var bgColor : UIColor { didSet {updateContainer()} }
+    var borderColor : UIColor { didSet {updateContainer()} }
+    var textColor : UIColor { didSet {updateLabels()} }
     
     var mainText: String { didSet {updateMainLabel()} }
     var subText: String { didSet {updateSubLabel()} }
@@ -37,10 +35,11 @@ class PopupEventPlayer : UIView {
     MARK: Initializers
     ******************************* */
     override init(frame: CGRect) {
+        let screenSize = UIScreen.main.bounds
         
         // initialize default properties
-        self.width = self.screenSize.width * 0.8
-        self.height = self.screenSize.height * 0.25
+        self.width = screenSize.width * 0.8
+        self.height = screenSize.height * 0.25
         
         self.bgColor = UIColor.cyan
         self.borderColor = UIColor.black
@@ -49,7 +48,7 @@ class PopupEventPlayer : UIView {
         self.mainText = ""
         self.subText = ""
         
-        self.container = UIView(frame: CGRect(x: self.screenSize.width, y: 10, width: self.width, height: self.height))
+        self.container = UIView(frame: CGRect(x: screenSize.width, y: 10, width: self.width, height: self.height))
         
         self.mainLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         self.subLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
@@ -120,8 +119,8 @@ class PopupEventPlayer : UIView {
         path.close()
         
         layer.path = path.cgPath
-        layer.fillColor = bgColor?.cgColor
-        layer.strokeColor = borderColor?.cgColor
+        layer.fillColor = bgColor.cgColor
+        layer.strokeColor = borderColor.cgColor
         layer.lineWidth = borderWidth
         
         layer.shadowPath = layer.path
@@ -157,14 +156,13 @@ class PopupEventPlayer : UIView {
     // animate and play sound on a background thread, wait, automatically dismiss the view
     func show() {
         let hideDelay : Double = 3.0
-        let volume : Float = 0.2
         let sound = "placeholder"
+        let volume : Float = 0.2
         
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.async {
-                let x = self.screenSize.width-self.width
+                let x = UIScreen.main.bounds.width-self.width
                 self.animateSlide(x)
-                self.playSound(sound, volume)
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + hideDelay) {
                 self.hide()
@@ -177,7 +175,7 @@ class PopupEventPlayer : UIView {
             let animationLength : Double = 0.5
             DispatchQueue.global(qos: .background).async {
                 DispatchQueue.main.async {
-                    self.animateSlide(self.screenSize.width)
+                    self.animateSlide(UIScreen.main.bounds.width)
                 }
                 DispatchQueue.main.asyncAfter(deadline: .now() + animationLength) {
                     self.removeFromSuperview()
@@ -203,25 +201,31 @@ class PopupEventPlayer : UIView {
         })
     }
     
-    func playSound(_ fileName: String,_ volume: Float) {
-        guard let sound = NSDataAsset(name: fileName) else { return }
-        do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-            try AVAudioSession.sharedInstance().setActive(true)
-            
-            if #available(iOS 11.0, *) {
-                soundPlayer = try AVAudioPlayer(data: sound.data, fileTypeHint: AVFileType.mp3.rawValue)
-            } else {
-                soundPlayer = try AVAudioPlayer(data: sound.data)
-            }
-            
-            guard let player = soundPlayer else { return }
-            player.volume = volume
-            player.play()
-        } catch let error {
-            print(error.localizedDescription)
-        }
-    }
+//    func playSound(_ fileName: String,_ volume: Float) {
+//        guard let sound = NSDataAsset(name: fileName) else { return }
+//        do {
+//            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
+//            try AVAudioSession.sharedInstance().setActive(true)
+//
+//            if #available(iOS 11.0, *) {
+//                soundPlayer = try AVAudioPlayer(data: sound.data, fileTypeHint: AVFileType.mp3.rawValue)
+//            } else {
+//                soundPlayer = try AVAudioPlayer(data: sound.data)
+//            }
+//
+//            guard let player = soundPlayer else { return }
+//
+//            if #available(iOS 10.0, *) {
+//                player.setVolume(volume, fadeDuration: 0.4)
+//            } else {
+//                player.volume = volume
+//            }
+//
+//            player.play()
+//        } catch let error {
+//            print(error.localizedDescription)
+//        }
+//    }
 }
 
 /* *******************************

@@ -9,7 +9,6 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     
     // MARK: Properties
     var dataSource: DataSource = DatabaseAccessor.sharedInstance
-    var popup : PopupEventPlayer?
     
     // current scenario, set by MapViewController
     var scenarioID: Int = 0
@@ -175,11 +174,9 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
                 // if it's positive, show inline popup
                 print("\nPositive int - show inline popup")
                 
-                // swift handles inferring that a new instance of the controllers class variable "popup" should be created
-                // may need to handle differently in Android - perhaps creating local variables for each instance and storing them in a higher scope array
-                // otherwise overlapping calls may conflict
-                popup = PopupEventPlayer(delegate: self)
-                self.view.addSubview(popup!)
+                // create local instance of class add to self.view
+                let newPopup = PopupEventPlayer(delegate: self)
+                self.view.addSubview(newPopup)
             } else {
                 // if it's negative, show ending sequence
                 print("\nNegative int - show ending sequence")
@@ -190,8 +187,9 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     // MARK: PopupEventPlayer Delegate Methods
+    // After popup event is dismissed, remove from superview - reduces reference count to 0 and releases from memory
     func popupDidFinish(sender: PopupEventPlayer) {
-        popup = nil
+        sender.removeFromSuperview()
         print("\nreleased popup")
     }
     
