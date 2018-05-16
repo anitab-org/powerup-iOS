@@ -10,6 +10,15 @@ import UIKit
 import AVFoundation
 import AudioToolbox
 
+/*
+    Example Use
+ 
+    var soundPlayer : SoundPlayer? = SoundPlayer()
+    guard let player = self.soundPlayer else {return}
+    player.playSound(<#T##fileName: String##String#>, <#T##volume: Float##Float#>)
+ 
+*/
+
 class SoundPlayer {
     var player : AVAudioPlayer?
     
@@ -31,8 +40,8 @@ class SoundPlayer {
             } else {
                 player = try AVAudioPlayer(data: sound.data)
             }
-            guard let soundplayer = player else { return }
             
+            guard let soundplayer = player else { return }
             soundplayer.volume = volume
             soundplayer.play()
         } catch let error {

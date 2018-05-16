@@ -14,7 +14,8 @@ class PopupEventPlayer : UIView {
     MARK: Properties
     ******************************* */
     weak var delegate:PopupEventPlayerDelegate?
-
+    var soundPlayer : SoundPlayer? = SoundPlayer()
+    
     var width : CGFloat,
         height : CGFloat
     
@@ -156,13 +157,16 @@ class PopupEventPlayer : UIView {
     // animate and play sound on a background thread, wait, automatically dismiss the view
     func show() {
         let hideDelay : Double = 3.0
-        let sound = "placeholder"
+        let soundName = "placeholder"
         let volume : Float = 0.2
         
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.async {
                 let x = UIScreen.main.bounds.width-self.width
                 self.animateSlide(x)
+                
+                guard let player = self.soundPlayer else {return}
+                player.playSound(soundName, volume)
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + hideDelay) {
                 self.hide()
@@ -200,32 +204,6 @@ class PopupEventPlayer : UIView {
             
         })
     }
-    
-//    func playSound(_ fileName: String,_ volume: Float) {
-//        guard let sound = NSDataAsset(name: fileName) else { return }
-//        do {
-//            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
-//            try AVAudioSession.sharedInstance().setActive(true)
-//
-//            if #available(iOS 11.0, *) {
-//                soundPlayer = try AVAudioPlayer(data: sound.data, fileTypeHint: AVFileType.mp3.rawValue)
-//            } else {
-//                soundPlayer = try AVAudioPlayer(data: sound.data)
-//            }
-//
-//            guard let player = soundPlayer else { return }
-//
-//            if #available(iOS 10.0, *) {
-//                player.setVolume(volume, fadeDuration: 0.4)
-//            } else {
-//                player.volume = volume
-//            }
-//
-//            player.play()
-//        } catch let error {
-//            print(error.localizedDescription)
-//        }
-//    }
 }
 
 /* *******************************

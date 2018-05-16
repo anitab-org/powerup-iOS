@@ -131,7 +131,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         
         resetQuestionAndChoices()
         
-        startSequence();
+        startSequence()
     }
     
     func initializeQuestions() {
@@ -160,7 +160,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     // MARK: OOC Event Functions
     // handle starting sequence - opens as an overlay on top of the initial screen - called in viewDidLoad()
     func startSequence() {
-        print("\nbegin opening sequence");
+        print("\nbegin opening sequence")
     }
     
     // handles calling events - func called in tableView didSelectRowAt indexPath
@@ -175,8 +175,9 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
                 print("\nPositive int - show inline popup")
                 
                 // create local instance of class add to self.view
-                let newPopup = PopupEventPlayer(delegate: self)
-                self.view.addSubview(newPopup)
+                let newPopup : PopupEventPlayer? = PopupEventPlayer(delegate: self)
+                guard let popup = newPopup else {return}
+                self.view.addSubview(popup)
             } else {
                 // if it's negative, show ending sequence
                 print("\nNegative int - show ending sequence")
