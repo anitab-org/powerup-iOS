@@ -28,6 +28,7 @@
 		5BAC4644206D2D9B0091C73C /* EndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAC4643206D2D9B0091C73C /* EndViewController.swift */; };
 		5BB66DBF2055D5D800DE3B9C /* SegueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB66DBE2055D5D800DE3B9C /* SegueHandler.swift */; };
 		5BD864812046F61900004B39 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD864802046F61900004B39 /* Strings.swift */; };
+		6A29A3F220AC9CAC00DABACE /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A29A3F120AC9CAC00DABACE /* SoundPlayer.swift */; };
 		6A69DC8D20AB386B006511E3 /* StorySequencePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A69DC8C20AB386B006511E3 /* StorySequencePlayer.swift */; };
 		6A69DC8F20AB3881006511E3 /* PopupEventPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A69DC8E20AB3881006511E3 /* PopupEventPlayer.swift */; };
 		6A69DC9120AB3892006511E3 /* StorySequenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A69DC9020AB3892006511E3 /* StorySequenceModel.swift */; };
@@ -128,6 +129,7 @@
 		5BAC4643206D2D9B0091C73C /* EndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndViewController.swift; sourceTree = "<group>"; };
 		5BB66DBE2055D5D800DE3B9C /* SegueHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueHandler.swift; sourceTree = "<group>"; };
 		5BD864802046F61900004B39 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		6A29A3F120AC9CAC00DABACE /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		6A69DC8C20AB386B006511E3 /* StorySequencePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySequencePlayer.swift; sourceTree = "<group>"; };
 		6A69DC8E20AB3881006511E3 /* PopupEventPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupEventPlayer.swift; sourceTree = "<group>"; };
 		6A69DC9020AB3892006511E3 /* StorySequenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySequenceModel.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 				6A69DC9220AB389E006511E3 /* PopupEventModel.swift */,
 				6A69DC9420AB38B4006511E3 /* StorySequences.swift */,
 				6A69DC9620AB38BD006511E3 /* PopupEvents.swift */,
+				6A29A3F120AC9CAC00DABACE /* SoundPlayer.swift */,
 			);
 			path = "OOC-Event-Classes";
 			sourceTree = "<group>";
@@ -447,7 +450,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0730;
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Systers;
 				TargetAttributes = {
@@ -545,6 +548,7 @@
 				6A69DC9120AB3892006511E3 /* StorySequenceModel.swift in Sources */,
 				D984D3011F0F598C0006270D /* SinkToSwimGameScene.swift in Sources */,
 				6A69DC9320AB389E006511E3 /* PopupEventModel.swift in Sources */,
+				6A29A3F220AC9CAC00DABACE /* SoundPlayer.swift in Sources */,
 				D95BBB801F4A911D00E0E620 /* AboutViewController.swift in Sources */,
 				2AF82A8E1B4BA74A00307BED /* FMDatabaseAdditions.m in Sources */,
 				D984E4D61F4A95A400A06204 /* CustomizeAvatarViewController.swift in Sources */,
@@ -720,6 +724,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.Powerup;
 				PRODUCT_NAME = Powerup;
@@ -744,6 +749,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.Powerup;
 				PRODUCT_NAME = Powerup;
 				PROVISIONING_PROFILE = "";
