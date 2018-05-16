@@ -25,7 +25,7 @@ class PopupEventPlayer : UIView {
     
     var mainText: String { didSet {updateMainLabel()} }
     var subText: String { didSet {updateSubLabel()} }
-
+    
     var container : UIView,
         mainLabel : UILabel,
         subLabel: UILabel
@@ -204,6 +204,7 @@ class PopupEventPlayer : UIView {
             
         })
     }
+    
 }
 
 /* *******************************
