@@ -169,26 +169,30 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         // type check the idNumber String - if it's not an integer, ignore it
         print("\nhandlePopupEvent() with ID: "+idNumber)
         
-        popup = PopupEventPlayer(delegate: self)
-        self.view.addSubview(popup!)
-        print(popup!)
-        
         if let checkForInt = Int(idNumber) {
             // if it's an Int...
             if checkForInt > 0 {
                 // if it's positive, show inline popup
                 print("\nPositive int - show inline popup")
+                
+                // swift handles inferring that a new instance of the controllers class variable "popup" should be created
+                // may need to handle differently in Android - perhaps creating local variables for each instance and storing them in a higher scope array
+                // otherwise overlapping calls may conflict
+                popup = PopupEventPlayer(delegate: self)
+                self.view.addSubview(popup!)
             } else {
                 // if it's negative, show ending sequence
                 print("\nNegative int - show ending sequence")
             }
+        } else {
+            print("\nNot an int, no ooc event")
         }
     }
     
     // MARK: PopupEventPlayer Delegate Methods
     func popupDidFinish(sender: PopupEventPlayer) {
         popup = nil
-        print("released popup")
+        print("\nreleased popup")
     }
     
     // MARK: UITableViewDataSourceDelegate
