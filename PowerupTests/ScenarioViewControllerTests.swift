@@ -67,9 +67,9 @@ class ScenarioViewControllerTests: XCTestCase {
         ]
         
         let answers = [
-            Answer(answerID: 1, questionID: 1, answerDescription: "Q1 A1 to Q2", nextQuestionID: "2", points: 0),
-            Answer(answerID: 2, questionID: 2, answerDescription: "Q2 A2 to Q4", nextQuestionID: "4", points: 0),
-            Answer(answerID: 3, questionID: 4, answerDescription: "Q4 A3 to Q1", nextQuestionID: "1", points: 0)
+            Answer(answerID: 1, questionID: 1, answerDescription: "Q1 A1 to Q2", nextQuestionID: "2", points: 0, popupID: "#"),
+            Answer(answerID: 2, questionID: 2, answerDescription: "Q2 A2 to Q4", nextQuestionID: "4", points: 0, popupID: "1"),
+            Answer(answerID: 3, questionID: 4, answerDescription: "Q4 A3 to Q1", nextQuestionID: "1", points: 0, popupID: "-1")
         ]
         
         let mockData = MockSource(answers: answers, questions: questions)
