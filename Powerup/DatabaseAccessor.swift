@@ -8,8 +8,10 @@ enum DatabaseError: Error {
 class DatabaseAccessor: DataSource {
     
     // Database file name
-    var databaseNameInFile = "mainDatabase"
-    let databaseNameInBundle = "mainDatabase"
+//    var databaseNameInFile = "mainDatabase"
+//    let databaseNameInBundle = "mainDatabase"
+    var databaseNameInFile = "mainDatabaseDev"
+    let databaseNameInBundle = "mainDatabaseDev"
     let DatabaseFileType = "sqlite"
     
     // TODO: Multiple avatars with different IDs.
@@ -84,12 +86,12 @@ class DatabaseAccessor: DataSource {
         let queryResults: FMResultSet? = mainDB?.executeQuery(queryString, withArgumentsIn: nil)
         
         var result = [Answer]()
-        
+
         // Loop through all the results of choices
         while queryResults?.next() == true {
-            if let answerID = queryResults?.int(forColumn: "AnswerID"), let questionID = queryResults?.int(forColumn: "QuestionID"), let answerDescription = queryResults?.string(forColumn: "ADescription"), let nextQuestionID = queryResults?.string(forColumn: "NextQID"), let points = queryResults?.int(forColumn: "Points") {
+            if let answerID = queryResults?.int(forColumn: "AnswerID"), let questionID = queryResults?.int(forColumn: "QuestionID"), let answerDescription = queryResults?.string(forColumn: "ADescription"), let nextQuestionID = queryResults?.string(forColumn: "NextQID"), let points = queryResults?.int(forColumn: "Points"), let popupID = queryResults?.string(forColumn: "PopupID") {
                 
-                result.append(Answer(answerID: Int(answerID), questionID: Int(questionID), answerDescription: answerDescription, nextQuestionID: nextQuestionID, points: Int(points)))
+                result.append(Answer(answerID: Int(answerID), questionID: Int(questionID), answerDescription: answerDescription, nextQuestionID: nextQuestionID, points: Int(points), popupID: popupID))
                 
             } else {
                 throw DatabaseError.databaseQueryFailed

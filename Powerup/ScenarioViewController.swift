@@ -1,6 +1,6 @@
 import UIKit
 
-class ScenarioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SegueHandler {
+class ScenarioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PopupEventPlayerDelegate, SegueHandler {
     enum SegueIdentifier: String {
         case unwindToMapView = "unwindToMap"
         case toMiniGameView = "toMiniGame"
@@ -9,6 +9,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     
     // MARK: Properties
     var dataSource: DataSource = DatabaseAccessor.sharedInstance
+    var popup : PopupEventPlayer?
     
     // current scenario, set by MapViewController
     var scenarioID: Int = 0
@@ -70,7 +71,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         
         // No answers left, reveal "continue" button to go to result view controller.
         if answers.count == 0 {
-            answers.append(Answer(answerID: -1, questionID: -1, answerDescription: "Continue", nextQuestionID: "$", points: 0))
+            answers.append(Answer(answerID: -1, questionID: -1, answerDescription: "Continue", nextQuestionID: "$", points: 0, popupID: "#"))
         }
         
         // Reload the table.
@@ -130,6 +131,8 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         initializeQuestions()
         
         resetQuestionAndChoices()
+        
+        startSequence();
     }
     
     func initializeQuestions() {
@@ -155,6 +158,43 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    // MARK: OOC Event Functions
+    // handle starting sequence - opens as an overlay on top of the initial screen - called in viewDidLoad()
+    func startSequence() {
+        print("\nbegin opening sequence");
+    }
+    
+    // handles calling events - func called in tableView didSelectRowAt indexPath
+    func handlePopupEvent(idNumber: String) {
+        // type check the idNumber String - if it's not an integer, ignore it
+        print("\nhandlePopupEvent() with ID: "+idNumber)
+        
+        if let checkForInt = Int(idNumber) {
+            // if it's an Int...
+            if checkForInt > 0 {
+                // if it's positive, show inline popup
+                print("\nPositive int - show inline popup")
+                
+                // swift handles inferring that a new instance of the controllers class variable "popup" should be created
+                // may need to handle differently in Android - perhaps creating local variables for each instance and storing them in a higher scope array
+                // otherwise overlapping calls may conflict
+                popup = PopupEventPlayer(delegate: self)
+                self.view.addSubview(popup!)
+            } else {
+                // if it's negative, show ending sequence
+                print("\nNegative int - show ending sequence")
+            }
+        } else {
+            print("\nNot an int, no ooc event")
+        }
+    }
+    
+    // MARK: PopupEventPlayer Delegate Methods
+    func popupDidFinish(sender: PopupEventPlayer) {
+        popup = nil
+        print("\nreleased popup")
+    }
+    
     // MARK: UITableViewDataSourceDelegate
     // How many cells are there.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -175,6 +215,10 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         
         // Check if the next questionID is a valid integer, if not, it's the end of the scnario (entering a mini game)
         let nextQuestionID = answers[selectedIndex].nextQuestionID
+        
+        // pass the popupID string of the selected answer to handlePopupEvent function
+        handlePopupEvent(idNumber: answers[selectedIndex].popupID)
+        
         if let nextQuestionIDInt = Int(nextQuestionID) {
             
             if nextQuestionIDInt > 0 {
