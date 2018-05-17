@@ -32,7 +32,6 @@
 		6A69DC8D20AB386B006511E3 /* StorySequencePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A69DC8C20AB386B006511E3 /* StorySequencePlayer.swift */; };
 		6A69DC8F20AB3881006511E3 /* PopupEventPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A69DC8E20AB3881006511E3 /* PopupEventPlayer.swift */; };
 		6A69DC9120AB3892006511E3 /* StorySequenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A69DC9020AB3892006511E3 /* StorySequenceModel.swift */; };
-		6A69DC9320AB389E006511E3 /* PopupEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A69DC9220AB389E006511E3 /* PopupEventModel.swift */; };
 		6A69DC9520AB38B4006511E3 /* StorySequences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A69DC9420AB38B4006511E3 /* StorySequences.swift */; };
 		6A69DC9720AB38BD006511E3 /* PopupEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A69DC9620AB38BD006511E3 /* PopupEvents.swift */; };
 		6A69DC9E20ABCA0A006511E3 /* Sounds.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A69DC9D20ABCA0A006511E3 /* Sounds.xcassets */; };
@@ -133,7 +132,6 @@
 		6A69DC8C20AB386B006511E3 /* StorySequencePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySequencePlayer.swift; sourceTree = "<group>"; };
 		6A69DC8E20AB3881006511E3 /* PopupEventPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupEventPlayer.swift; sourceTree = "<group>"; };
 		6A69DC9020AB3892006511E3 /* StorySequenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySequenceModel.swift; sourceTree = "<group>"; };
-		6A69DC9220AB389E006511E3 /* PopupEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupEventModel.swift; sourceTree = "<group>"; };
 		6A69DC9420AB38B4006511E3 /* StorySequences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySequences.swift; sourceTree = "<group>"; };
 		6A69DC9620AB38BD006511E3 /* PopupEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupEvents.swift; sourceTree = "<group>"; };
 		6A69DC9D20ABCA0A006511E3 /* Sounds.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Sounds.xcassets; sourceTree = "<group>"; };
@@ -317,12 +315,11 @@
 		6A69DC8B20AB3835006511E3 /* OOC-Event-Classes */ = {
 			isa = PBXGroup;
 			children = (
-				6A69DC8C20AB386B006511E3 /* StorySequencePlayer.swift */,
 				6A69DC8E20AB3881006511E3 /* PopupEventPlayer.swift */,
-				6A69DC9020AB3892006511E3 /* StorySequenceModel.swift */,
-				6A69DC9220AB389E006511E3 /* PopupEventModel.swift */,
-				6A69DC9420AB38B4006511E3 /* StorySequences.swift */,
 				6A69DC9620AB38BD006511E3 /* PopupEvents.swift */,
+				6A69DC8C20AB386B006511E3 /* StorySequencePlayer.swift */,
+				6A69DC9020AB3892006511E3 /* StorySequenceModel.swift */,
+				6A69DC9420AB38B4006511E3 /* StorySequences.swift */,
 				6A29A3F120AC9CAC00DABACE /* SoundPlayer.swift */,
 			);
 			path = "OOC-Event-Classes";
@@ -547,7 +544,6 @@
 				D984D3031F0F59A40006270D /* SinkToSwimQuestion.swift in Sources */,
 				6A69DC9120AB3892006511E3 /* StorySequenceModel.swift in Sources */,
 				D984D3011F0F598C0006270D /* SinkToSwimGameScene.swift in Sources */,
-				6A69DC9320AB389E006511E3 /* PopupEventModel.swift in Sources */,
 				6A29A3F220AC9CAC00DABACE /* SoundPlayer.swift in Sources */,
 				D95BBB801F4A911D00E0E620 /* AboutViewController.swift in Sources */,
 				2AF82A8E1B4BA74A00307BED /* FMDatabaseAdditions.m in Sources */,
