@@ -24,8 +24,8 @@ class PopupEventPlayer : UIView {
     var borderColor : UIColor { didSet {updateContainer()} }
     var textColor : UIColor { didSet {updateLabels()} }
     
-    var mainText: String? { didSet {updateMainLabel()} }
-    var subText: String? { didSet {updateSubLabel()} }
+    var mainText : String? { didSet {updateMainLabel()} }
+    var subText : String? { didSet {updateSubLabel()} }
     
     var image : UIImage? { didSet {updateImageView()} }
     
@@ -90,10 +90,24 @@ class PopupEventPlayer : UIView {
         tapped = true
     }
     
-    convenience init(delegate: PopupEventPlayerDelegate, withSound: Bool?) {
+    convenience init(delegate: PopupEventPlayerDelegate, model: PopupEvent) {
         self.init(frame: CGRect.zero)
         self.delegate = delegate
-        self.useSound = withSound
+        if model.mainText != nil {
+            mainText = model.mainText
+            updateMainLabel()
+        }
+        if model.subText != nil {
+            subText = model.subText
+            updateSubLabel()
+        }
+        if model.image != nil {
+            image = UIImage(named: model.image!)
+            updateImageView()
+        }
+        if model.useSound != nil {
+            useSound = model.useSound
+        }
     }
     
     // animate view automatically when view is added to a superview
@@ -148,9 +162,9 @@ class PopupEventPlayer : UIView {
 //        mainLabel.backgroundColor = UIColor.init(red: 1.0, green: 0, blue: 0, alpha: 0.3)
 //        subLabel.backgroundColor = UIColor.init(red: 0, green: 1.0, blue: 0, alpha: 0.3)
 //        imageView.backgroundColor = UIColor.init(red: 0, green: 0, blue: 1.0, alpha: 0.3)
-        mainText = "testing the main label"
-        subText = "testing the sub label"
-        image = UIImage(named: "karma_star")
+//        mainText = "testing the main label"
+//        subText = "testing the sub label"
+//        image = UIImage(named: "karma_star")
     }
     
     func animateLabelText (_ label: UILabel) {
@@ -172,7 +186,6 @@ class PopupEventPlayer : UIView {
     }
     
     func updateMainLabel() {
-        //mainLabel.text = ""
         mainLabel.textColor = textColor
         guard let text = mainText else {return}
         mainLabel.text = text
@@ -180,7 +193,6 @@ class PopupEventPlayer : UIView {
     }
     
     func updateSubLabel() {
-        //subLabel.text = ""
         subLabel.textColor = textColor
         guard let text = subText else {return}
         subLabel.text = text
@@ -294,7 +306,7 @@ class PopupEventPlayer : UIView {
         
         UIView.animate(withDuration: duration,
                        delay: 0,
-                       usingSpringWithDamping: 0.7,
+                       usingSpringWithDamping: 0.3,
                        initialSpringVelocity: 12,
                        options: .curveEaseOut,
         animations: {
