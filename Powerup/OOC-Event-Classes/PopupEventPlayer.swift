@@ -71,8 +71,8 @@ class PopupEventPlayer : UIView {
         // setup subviews
         setupSubviews()
         updateContainer()
-        updateLabels()
-        updateImageView()
+//        updateLabels()
+//        updateImageView()
         
         // add a tap gesture to manually dismiss the popup
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapView(sender:)))
@@ -130,6 +130,8 @@ class PopupEventPlayer : UIView {
         subLabel.textAlignment = .center
         mainLabel.adjustsFontSizeToFitWidth = true
         subLabel.adjustsFontSizeToFitWidth = true
+        mainLabel.layer.opacity = 0
+        subLabel.layer.opacity = 0
         
         let size = constrainH * 0.9
         let degrees = -90.0
@@ -151,6 +153,18 @@ class PopupEventPlayer : UIView {
         image = UIImage(named: "karma_star")
     }
     
+    func animateLabelText (_ label: UILabel) {
+        
+        UIView.animate(withDuration: slideAnimDuration*2,
+                       delay: 0,
+                       options: .curveEaseInOut,
+        animations: {
+            label.layer.opacity = 1
+        }, completion: { (finished: Bool) in
+        
+        })
+    }
+    
     // setters to ensure views are updated if content changed after initialization
     func updateLabels() {
         updateMainLabel()
@@ -158,15 +172,19 @@ class PopupEventPlayer : UIView {
     }
     
     func updateMainLabel() {
+        //mainLabel.text = ""
         mainLabel.textColor = textColor
         guard let text = mainText else {return}
         mainLabel.text = text
+        animateLabelText(mainLabel)
     }
     
     func updateSubLabel() {
+        //subLabel.text = ""
         subLabel.textColor = textColor
         guard let text = subText else {return}
         subLabel.text = text
+        animateLabelText(subLabel)
     }
     
     func updateImageView() {
