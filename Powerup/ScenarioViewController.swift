@@ -175,8 +175,8 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
                 print("\nPositive int - show inline popup")
                 
                 // create local instance of class add to self.view
-                let newPopup : PopupEventPlayer? = PopupEventPlayer(delegate: self)
-                guard let popup = newPopup else {return}
+                let event : PopupEventPlayer? = PopupEventPlayer(delegate: self, withSound: true)
+                guard let popup = event else {return}
                 self.view.addSubview(popup)
             } else {
                 // if it's negative, show ending sequence
