@@ -168,22 +168,36 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         // type check the idNumber String - if it's not an integer, ignore it
         print("\nhandlePopupEvent() with ID: "+idNumber)
         
-        if let checkForInt = Int(idNumber) {
+        if let popupID = Int(idNumber) {
             // if it's an Int...
-            if checkForInt > 0 {
+            if popupID > 0 {
                 // if it's positive, show inline popup
-                print("\nPositive int - show inline popup")
                 
-                // create local instance of class add to self.view
-                let newPopup : PopupEventPlayer? = PopupEventPlayer(delegate: self)
-                guard let popup = newPopup else {return}
+                // get the correct model as per popupID
+                guard let model : PopupEvent = popupEvents[popupID] else {return}
+                
+                /* manual test events */
+                /* positive int, but no corresponding model event : don't show a popup, but also don't crash ^^ */
+                //guard let model : PopupEvent = popupEvents[9001] else {return}
+                
+                /* subtext is nil, main text is empty string : popup displays with no text, but has sound and image */
+                //guard let model : PopupEvent = popupEvents[4] else {return}
+                
+                /* image is nil, but popup has sound : no image, and only the slide sound plays */
+                //guard let model : PopupEvent = popupEvents[5] else {return}
+                
+                /* image named doesnt exist, popup has sound : no image, and only the slide sound plays */
+                //guard let model : PopupEvent = popupEvents[6] else {return}
+                
+                // create local instance of PopupEventPlayer class and add to self.view
+                let event : PopupEventPlayer? = PopupEventPlayer(delegate: self, model: model)
+                guard let popup = event else {return}
                 self.view.addSubview(popup)
             } else {
                 // if it's negative, show ending sequence
-                print("\nNegative int - show ending sequence")
             }
         } else {
-            print("\nNot an int, no ooc event")
+            // not an int, ignore ooc events
         }
     }
     
