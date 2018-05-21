@@ -1,6 +1,7 @@
 import UIKit
 
-class ScenarioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PopupEventPlayerDelegate, SegueHandler {
+class ScenarioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, StorySequencePlayerDelegate, PopupEventPlayerDelegate, SegueHandler {
+    
     enum SegueIdentifier: String {
         case unwindToMapView = "unwindToMap"
         case toMiniGameView = "toMiniGame"
@@ -159,13 +160,21 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     
     // MARK: OOC Event Functions
     /**
-     Handle starting sequences - opens as an overlay on top of the initial screen
+     Handle starting sequences - opens as an overlay on top of the initial view. Checks if an intro sequence exists for the current scenarioID. Returns if not, otherwise creates an instance of StorySequencePlayer.
      
-     - Important: Not yet implemented
-    */
+     Called in viewDidLoad().
+     */
     //
     func startSequence() {
         print("\nbegin opening sequence")
+        
+        if introStorySequences[self.scenarioID] != nil {
+            let sequenceView: StorySequencePlayer? = StorySequencePlayer(delegate: self)
+            guard let sequence = sequenceView else { return }
+            self.view.addSubview(sequence)
+        } else {
+            return
+        }
     }
     
     /**
@@ -233,6 +242,22 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     func popupDidFinish(sender: PopupEventPlayer) {
         sender.removeFromSuperview()
         print("\nreleased popup")
+    }
+    
+    /**
+     StorySequencePlayer Delegate Method
+     
+     - parameters:
+     - sender : StorySequencePlayer - the StorySequencePlayer instance
+     
+     - Important:
+     Although possible, there's probably not a reason to call this method yourself. It's automatically called by the class instance when dismissed.
+     
+     Should call sender.removeFromSuperview() to ensure each instance is dismissed and released from memory
+     */
+    func sequenceDidFinish(sender: StorySequencePlayer) {
+        sender.removeFromSuperview()
+        print("\nreleased story sequence view")
     }
     
     // MARK: UITableViewDataSourceDelegate
