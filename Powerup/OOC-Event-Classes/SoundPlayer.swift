@@ -12,13 +12,13 @@ import AudioToolbox
  ```
  var soundPlayer : SoundPlayer? = SoundPlayer()
  guard let player = self.soundPlayer else {return}
- /* player.playSound(fileName: String, volume: Float) */
+ // player.playSound(fileName: String, volume: Float)
  player.playSound("sound.mp3", 0.5)
  ```
  */
 class SoundPlayer {
-    var player : AVAudioPlayer?
-    
+    var player: AVAudioPlayer?
+
     init () {
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
@@ -27,7 +27,7 @@ class SoundPlayer {
             print(error.localizedDescription)
         }
     }
-    
+
     /**
      Handles checking for AVAudioPlayer and playing a sound.
      
@@ -37,12 +37,12 @@ class SoundPlayer {
         - fileName : String - file name as it appears in Sounds.xcassets
         - volume : Float - volume scaled 0.0 - 1.0
     */
-    func playSound(_ fileName: String,_ volume: Float) {
+    func playSound(_ fileName: String, _ volume: Float) {
         guard let sound = NSDataAsset(name: fileName) else { return }
-        
+
         do {
             player = try AVAudioPlayer(data: sound.data)
-            
+
             guard let soundplayer = player else { return }
             soundplayer.volume = volume
             soundplayer.play()
@@ -50,5 +50,5 @@ class SoundPlayer {
             print(error.localizedDescription)
         }
     }
-    
+
 }

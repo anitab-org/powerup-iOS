@@ -5,11 +5,11 @@
  Cadence Holmes
  */
 struct PopupEvent {
-    var mainText : String?
-    var subText : String?
-    var image : String?
-    var useSound : Bool?
-    
+    var mainText: String?
+    var subText: String?
+    var image: String?
+    var useSound: Bool?
+
     init (mainText: String?, subText: String?, image: String?, useSound: Bool?) {
         self.mainText = mainText
         self.subText = subText
