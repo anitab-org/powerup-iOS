@@ -1,48 +1,47 @@
-//
-//  PopupEventPlayer.swift
-//  Powerup
-//
-//  Created by KD on 5/15/18.
-//  Copyright © 2018 Systers. All rights reserved.
-//
-
 import UIKit
 import AVFoundation
 
+/**
+ Handles the entire popup lifecycle. Owns all popup views, media, and interactions.
+ 
+ - Author:
+    Cadence Holmes
+*/
 class PopupEventPlayer : UIView {
     /* *******************************
     MARK: Properties
     ******************************* */
     weak var delegate:PopupEventPlayerDelegate?
     
+    let angleSize : CGFloat = 0.1,
+        slideAnimDuration : Double = 0.5,
+        popupDuration : Double = 5.0,
+        fontName : String = "Montserrat-Bold"
+
     var width : CGFloat,
-        height : CGFloat,
-        tapped : Bool
+        height : CGFloat
     var useSound : Bool?
-    
+
     var bgColor : UIColor { didSet {updateContainer()} }
     var borderColor : UIColor { didSet {updateContainer()} }
     var textColor : UIColor { didSet {updateLabels()} }
     
     var mainText : String? { didSet {updateMainLabel()} }
     var subText : String? { didSet {updateSubLabel()} }
-    
+
     var image : UIImage? { didSet {updateImageView()} }
-    
+
     var container : UIView,
         mainLabel : UILabel,
         subLabel : UILabel,
         imageView : UIImageView
-    
-    let angleSize : CGFloat = 0.1,
-        slideAnimDuration : Double = 0.5,
-        popupDuration : Double = 3.0,
-        fontName : String = "Montserrat-Bold"
-    
+
     var soundPlayer : SoundPlayer? = SoundPlayer()
     let sounds = (slideIn: "placeholder",
                   showImage: "placeholder2")
-    
+
+    private var tapped : Bool
+
     /* *******************************
     MARK: Initializers
     ******************************* */
@@ -120,8 +119,7 @@ class PopupEventPlayer : UIView {
     /* *******************************
      MARK: Setup and Setters
      ******************************* */
-    // setup labels and imageview
-    func setupSubviews() {
+    private func setupSubviews() {
         container.frame = CGRect(x: UIScreen.main.bounds.width, y: 10, width: width, height: height)
         
         // compute label frames
@@ -167,7 +165,7 @@ class PopupEventPlayer : UIView {
 //        image = UIImage(named: "karma_star")
     }
     
-    func animateLabelText (_ label: UILabel) {
+    private func animateLabelText (_ label: UILabel) {
         
         UIView.animate(withDuration: slideAnimDuration*2,
                        delay: 0,
@@ -180,11 +178,21 @@ class PopupEventPlayer : UIView {
     }
     
     // setters to ensure views are updated if content changed after initialization
+    /**
+     Updates the main and sub labels.
+     
+     Calls `self.updateMainLabel()` and `self.updateSubLabel()`.
+    */
     func updateLabels() {
         updateMainLabel()
         updateSubLabel()
     }
     
+    /**
+     Updates the main label.
+     
+     References relevant class properties and updates the upper text label *with* fade-in animations.
+     */
     func updateMainLabel() {
         mainLabel.textColor = textColor
         guard let text = mainText else {return}
@@ -192,6 +200,11 @@ class PopupEventPlayer : UIView {
         animateLabelText(mainLabel)
     }
     
+    /**
+     Updates the sub label.
+     
+     References relevant class properties and updates the lower text label *with* fade-in animations.
+     */
     func updateSubLabel() {
         subLabel.textColor = textColor
         guard let text = subText else {return}
@@ -199,11 +212,21 @@ class PopupEventPlayer : UIView {
         animateLabelText(subLabel)
     }
     
+    /**
+     Updates the image view.
+     
+     References relevant class properties and updates the image view *without* animations. Animations are handled when the class is implemented and added to a superview.
+     */
     func updateImageView() {
         guard let image = image else {return}
         imageView.image = image
     }
     
+    /**
+     Draws the inner container layer (angle and shadow).
+     
+     Also updates self.frame to conform to the inner containers bounds.
+     */
     func updateContainer() {
         let layer : CAShapeLayer = drawAngledShape()
         container.layer.addSublayer(layer)
@@ -211,7 +234,7 @@ class PopupEventPlayer : UIView {
     }
     
     // draw an angle on the left border, add shadow : called in updatedContainer()
-    func drawAngledShape() -> CAShapeLayer {
+    private func drawAngledShape() -> CAShapeLayer {
         let borderWidth : CGFloat = 1.5
         
         let bounds = container.bounds
@@ -237,20 +260,15 @@ class PopupEventPlayer : UIView {
         
         return layer
     }
-    
-    // for debugging purposes
-//    override var description : String {
-//        get {
-//            return "\nPopupEventPlayer:\n  mainText: \(mainText);\n  subText: \(subText);\n  container: \(container)"
-//        }
-//    }
-    
+
     /* *******************************
-     MARK: Class Methods
+     MARK: Public Class Methods
      ******************************* */
-    
-    // show() is automatically called when instance is added to a superview
-    // animate and play sound on a background thread, wait, automatically dismiss the view
+    /**
+     Animates showing the popup. Automatically called when an instance of PopupEventPlayer is added to a superview. See `override func didMoveToSuperview()`.
+     
+     Handles animations asyncronously on a background thread, checks for and plays sound, and times the popup for automatic dismissal.
+     */
     func show() {
         let sound = sounds.slideIn
         let volume : Float = 0.2
@@ -267,6 +285,11 @@ class PopupEventPlayer : UIView {
     }
     
     // hide() is automatically called after show() + self.popupDuration
+    /**
+     Animates hiding the popup. Automatically called after show() + self.popupDuration, or when the popup is tapped.
+     
+     Handles animations asyncronously on a background thread, calls delegate method `.popupDidFinish(sender: self)`.
+     */
     func hide() {
         if !tapped {
             DispatchQueue.global(qos: .background).async {
@@ -275,15 +298,16 @@ class PopupEventPlayer : UIView {
                     self.animateSlideToWithSound(x: x, sound: nil, volume: nil)
                 }
                 DispatchQueue.main.asyncAfter(deadline: .now() + self.slideAnimDuration) {
-                    self.removeFromSuperview()
-                    self.container.removeFromSuperview()
                     self.delegate?.popupDidFinish(sender: self)
                 }
             }
         }
     }
     
-    func animateSlideToWithSound(x: CGFloat, sound: String?, volume: Float?) {
+    /* *******************************
+     MARK: Private Class Methods
+     ******************************* */
+    private func animateSlideToWithSound(x: CGFloat, sound: String?, volume: Float?) {
         UIView.animate(withDuration: slideAnimDuration,
                        delay: 0,
                        usingSpringWithDamping: 1,
@@ -299,7 +323,7 @@ class PopupEventPlayer : UIView {
         })
     }
     
-    func animateShowImageWithSound() {
+    private func animateShowImageWithSound() {
         let duration : Double = 0.2
         let sound = sounds.showImage
         let volume : Float = 0.1
@@ -318,7 +342,7 @@ class PopupEventPlayer : UIView {
         })
     }
     
-    func playSound (fileName: String?, volume: Float?) {
+    private func playSound (fileName: String?, volume: Float?) {
         if self.useSound! {
             guard let sound = fileName else {return}
             guard let player = self.soundPlayer else {return}

@@ -158,12 +158,28 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     // MARK: OOC Event Functions
-    // handle starting sequence - opens as an overlay on top of the initial screen - called in viewDidLoad()
+    /**
+     Handle starting sequences - opens as an overlay on top of the initial screen
+     
+     - Important: Not yet implemented
+    */
+    //
     func startSequence() {
         print("\nbegin opening sequence")
     }
     
-    // handles calling events - func called in tableView didSelectRowAt indexPath
+    /**
+     Handles calling popup events. The logic is:
+        - check if the ID number can be cast to an Int
+        - If > 0 create an instance of PopupEventPlayer and add to self.view subviews
+        - If < 0 call the method to handle scenario ending sequences
+        - If it's not an Int, return
+     
+     - parameters:
+        - idNumber : String - the popupID property from the retrieved Answer
+     
+     The PopupEventPlayer class handles the entire popup lifecycle. This function only needs to creates a local instance of the class.
+    */
     func handlePopupEvent(idNumber: String) {
         // type check the idNumber String - if it's not an integer, ignore it
         print("\nhandlePopupEvent() with ID: "+idNumber)
@@ -198,11 +214,22 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
             }
         } else {
             // not an int, ignore ooc events
+            return
         }
     }
     
     // MARK: PopupEventPlayer Delegate Methods
-    // After popup event is dismissed, remove from superview - reduces reference count to 0 and releases from memory
+    /**
+     PopupUpEventPlayer Delegate Method
+     
+     - parameters:
+        - sender : PopupEventPlayer - the PopupEventPlayer instance
+     
+     - Important:
+        Although possible, there's probably not a reason to call this method yourself. It's automatically called by the class instance when dismissed (via tap or automatically).
+     
+     Should call sender.removeFromSuperview() to ensure each instance is dismissed and released from memory
+     */
     func popupDidFinish(sender: PopupEventPlayer) {
         sender.removeFromSuperview()
         print("\nreleased popup")

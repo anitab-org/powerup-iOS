@@ -1,11 +1,9 @@
-//
-//  PopupEvents.swift
-//  Powerup
-//
-//  Created by KD on 5/15/18.
-//  Copyright © 2018 Systers. All rights reserved.
-//
-
+/**
+ Struct defining PopupEvent model.
+ 
+ - Author:
+ Cadence Holmes
+ */
 struct PopupEvent {
     var mainText : String?
     var subText : String?
@@ -20,6 +18,9 @@ struct PopupEvent {
     }
 }
 
+/**
+ Dictionary containing descriptions of PopupEvent instances. Keys reference Answer.popupID.
+ */
 let popupEvents = [
     1: PopupEvent(mainText: "test model 1",
                   subText: "has sound",
