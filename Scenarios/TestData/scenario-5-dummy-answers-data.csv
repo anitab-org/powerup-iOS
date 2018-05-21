@@ -1,0 +1,11 @@
+AnswerID,QuestionID,ADescription,NextQID,Points,PopupID
+"5001","5001","1A. Show inline popup - go to branch 2","5002","2","1"
+"5002","5001","1B. No OOC event - go to branch 3","5003","2","&"
+"5003","5001","1C. Show ending event","-1","2","-1"
+"5004","5002","2A. Show inline popup - go to branch 4","5004","2","1"
+"5005","5002","2B. No OOC event - go to branch 3","5003","2","&"
+5006,5002,"2C. Show ending event","-1","2","-1"
+"5007","5003","3A. Show inline popup - go to branch 4","5004","2","1"
+"5008","5003","3B. No OOC event - go to branch 4","5004","2","&"
+5009,5003,"3C. Show ending event","-1","2","-1"
+5010,5004,"4A. Show ending event","-1","2","&"

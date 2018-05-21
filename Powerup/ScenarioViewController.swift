@@ -1,6 +1,6 @@
 import UIKit
 
-class ScenarioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SegueHandler {
+class ScenarioViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PopupEventPlayerDelegate, SegueHandler {
     enum SegueIdentifier: String {
         case unwindToMapView = "unwindToMap"
         case toMiniGameView = "toMiniGame"
@@ -70,7 +70,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         
         // No answers left, reveal "continue" button to go to result view controller.
         if answers.count == 0 {
-            answers.append(Answer(answerID: -1, questionID: -1, answerDescription: "Continue", nextQuestionID: "$", points: 0))
+            answers.append(Answer(answerID: -1, questionID: -1, answerDescription: "Continue", nextQuestionID: "$", points: 0, popupID: "#"))
         }
         
         // Reload the table.
@@ -130,6 +130,8 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         initializeQuestions()
         
         resetQuestionAndChoices()
+        
+        startSequence()
     }
     
     func initializeQuestions() {
@@ -155,6 +157,84 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    // MARK: OOC Event Functions
+    /**
+     Handle starting sequences - opens as an overlay on top of the initial screen
+     
+     - Important: Not yet implemented
+    */
+    //
+    func startSequence() {
+        print("\nbegin opening sequence")
+    }
+    
+    /**
+     Handles calling popup events. The logic is:
+        - check if the ID number can be cast to an Int
+        - If > 0 create an instance of PopupEventPlayer and add to self.view subviews
+        - If < 0 call the method to handle scenario ending sequences
+        - If it's not an Int, return
+     
+     - parameters:
+        - idNumber : String - the popupID property from the retrieved Answer
+     
+     The PopupEventPlayer class handles the entire popup lifecycle. This function only needs to creates a local instance of the class.
+    */
+    func handlePopupEvent(idNumber: String) {
+        // type check the idNumber String - if it's not an integer, ignore it
+        print("\nhandlePopupEvent() with ID: "+idNumber)
+        
+        if let popupID = Int(idNumber) {
+            // if it's an Int...
+            if popupID > 0 {
+                // if it's positive, show inline popup
+                
+                // get the correct model as per popupID
+                guard let model : PopupEvent = popupEvents[popupID] else {return}
+                
+                /* manual test events */
+                /* positive int, but no corresponding model event : don't show a popup, but also don't crash ^^ */
+                //guard let model : PopupEvent = popupEvents[9001] else {return}
+                
+                /* subtext is nil, main text is empty string : popup displays with no text, but has sound and image */
+                //guard let model : PopupEvent = popupEvents[4] else {return}
+                
+                /* image is nil, but popup has sound : no image, and only the slide sound plays */
+                //guard let model : PopupEvent = popupEvents[5] else {return}
+                
+                /* image named doesnt exist, popup has sound : no image, and only the slide sound plays */
+                //guard let model : PopupEvent = popupEvents[6] else {return}
+                
+                // create local instance of PopupEventPlayer class and add to self.view
+                let event : PopupEventPlayer? = PopupEventPlayer(delegate: self, model: model)
+                guard let popup = event else {return}
+                self.view.addSubview(popup)
+            } else {
+                // if it's negative, show ending sequence
+            }
+        } else {
+            // not an int, ignore ooc events
+            return
+        }
+    }
+    
+    // MARK: PopupEventPlayer Delegate Methods
+    /**
+     PopupUpEventPlayer Delegate Method
+     
+     - parameters:
+        - sender : PopupEventPlayer - the PopupEventPlayer instance
+     
+     - Important:
+        Although possible, there's probably not a reason to call this method yourself. It's automatically called by the class instance when dismissed (via tap or automatically).
+     
+     Should call sender.removeFromSuperview() to ensure each instance is dismissed and released from memory
+     */
+    func popupDidFinish(sender: PopupEventPlayer) {
+        sender.removeFromSuperview()
+        print("\nreleased popup")
+    }
+    
     // MARK: UITableViewDataSourceDelegate
     // How many cells are there.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -175,6 +255,10 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         
         // Check if the next questionID is a valid integer, if not, it's the end of the scnario (entering a mini game)
         let nextQuestionID = answers[selectedIndex].nextQuestionID
+        
+        // pass the popupID string of the selected answer to handlePopupEvent function
+        handlePopupEvent(idNumber: answers[selectedIndex].popupID)
+        
         if let nextQuestionIDInt = Int(nextQuestionID) {
             
             if nextQuestionIDInt > 0 {
