@@ -18,7 +18,7 @@ class PopupEventPlayer: UIView {
 
     var width: CGFloat,
         height: CGFloat
-    var useSound: Bool?
+    var useSound: Bool
 
     var bgColor: UIColor { didSet { updateContainer() } }
     var borderColor: UIColor { didSet { updateContainer() } }
@@ -79,6 +79,7 @@ class PopupEventPlayer: UIView {
         self.imageView = UIImageView(frame: CGRect.zero)
 
         self.tapped = false
+        self.useSound = false
 
         super.init(frame: frame)
 
@@ -98,6 +99,7 @@ class PopupEventPlayer: UIView {
     }
 
     @objc func tapView(sender: UITapGestureRecognizer) {
+        self.useSound = false
         hide()
         tapped = true
     }
@@ -118,7 +120,7 @@ class PopupEventPlayer: UIView {
             updateImageView()
         }
         if model.doSound != nil {
-            useSound = model.doSound
+            useSound = model.doSound!
         }
     }
 
@@ -358,7 +360,7 @@ class PopupEventPlayer: UIView {
     }
 
     private func playSound (fileName: String?, volume: Float?) {
-        if self.useSound! {
+        if self.useSound {
             guard let sound = fileName else { return }
             guard let player = self.soundPlayer else { return }
             let vol = (volume != nil) ? volume : 1
