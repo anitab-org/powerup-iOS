@@ -254,7 +254,8 @@ class StorySequencePlayer: UIView {
     // shift labels up as new labels are added
     private func shiftLabels(then: (() -> ())?) {
         let labels = textContainer.subviews
-        let dur = 0.5
+        let dur = 0.8
+        let fadeTo: CGFloat = 0.2
 
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.async {
@@ -266,23 +267,32 @@ class StorySequencePlayer: UIView {
                 }
                 // loop through and shift the labels, reduce alpha for old labels
                 for label in labels {
+                    // move all labels
                     UIView.animate(withDuration: dur,
                                    delay: 0,
                                    usingSpringWithDamping: 0.6,
-                                   initialSpringVelocity: 6.8 + (self.randomCGFloat() * 5),
+                                   initialSpringVelocity: 6.5 + (self.randomCGFloat() * 8),
                                    options: .curveEaseOut,
                                    animations: {
-                                       if label != labels.last {
-                                           if label.alpha == 1 {
-                                               label.alpha = 0.4
-                                           }
-                                       }
                                        label.frame.origin.y = label.frame.origin.y - height
-                                   }, completion: { (finished: Bool) in
                                    })
+                    // if the label isnt't the new label, and alpha is still 1, then reduce alpha
+                    if label != labels.last {
+                        if label.alpha == 1 {
+                            UIView.animate(withDuration: dur,
+                                           delay: 0,
+                                           usingSpringWithDamping: 1,
+                                           initialSpringVelocity: 1,
+                                           options: .curveEaseOut,
+                                           animations: {
+                                               label.alpha = fadeTo
+                                           })
+                        }
+                    }
+
                 }
             }
-            
+
             // wait until shifting animations are done, and deal with labels moving off screen
             DispatchQueue.main.asyncAfter(deadline: .now() + dur) {
                 for label in labels {
@@ -292,8 +302,7 @@ class StorySequencePlayer: UIView {
                     }
                     // fade out labels if that may be partially on screen
                     if label.frame.origin.y < 0 {
-                        print("\n\(label.frame.origin)")
-                        self.fadeAlpha(view: label, alpha: 0, duration: 0.8, then: nil)
+                        self.fadeAlpha(view: label, alpha: 0, duration: 0.5, then: nil)
                     }
                 }
             }
