@@ -16,7 +16,8 @@ class StorySequencePlayer: UIView {
 
     let fontName: String = "Montserrat-Bold",
         fontSize: CGFloat = 16,
-        indicatorImage: String = "indicator_placeholder"
+        indicatorImage: String = "indicator_placeholder",
+        baseAnimDuration: Double = 0.5
 
     var textContainer: UIView,
         imageViewContainer: UIView,
@@ -71,9 +72,8 @@ class StorySequencePlayer: UIView {
 
         self.delegate = delegate
         self.model = model
-
         DispatchQueue.global(qos: .background).async {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + self.baseAnimDuration) {
                 self.checkCurrentStep()
             }
         }
@@ -82,6 +82,7 @@ class StorySequencePlayer: UIView {
     /* *******************************
      MARK: Private Class Functions
      ******************************* */
+    // Add a full screen blurred view as the background layer
     private func addBlur(_ view: UIView) {
         let blur = UIBlurEffect(style: UIBlurEffectStyle.dark)
         let blurView = UIVisualEffectView(effect: blur)
@@ -90,6 +91,7 @@ class StorySequencePlayer: UIView {
         view.addSubview(blurView)
     }
 
+    // layout the image container in the main view, layout the imageviews in the image container, also add the indicator view
     private func layoutImageViews(_ margin: CGFloat, _ height: CGFloat) {
         let containerW = self.bounds.width - (margin * 2)
         let containerH = self.bounds.height * height
@@ -134,6 +136,7 @@ class StorySequencePlayer: UIView {
         self.addSubview(indicator)
     }
 
+    // layout the text container
     private func layoutTextContainer(_ margin: CGFloat, _ height: CGFloat) {
         let containerW = self.bounds.width - (margin * 2)
         let containerH = (self.bounds.height * height) - (margin * 2)
@@ -145,7 +148,6 @@ class StorySequencePlayer: UIView {
         textContainer.layer.masksToBounds = true
         textContainer.layer.cornerRadius = 12
 
-        //addBlur(textContainer)
         self.addSubview(textContainer)
     }
 
@@ -161,7 +163,8 @@ class StorySequencePlayer: UIView {
         }
     }
 
-    // check if there is another step, update count and call ui updates, else hide and dismiss
+    // check if there is another step in the sequence, update count and call ui updates, else hide and dismiss
+    // called when the view is tapped (and once when the view is initialized)
     private func checkCurrentStep() {
         // stop interactions, enabled after updateToCurrentStep is complete
         self.canTap = false
@@ -179,8 +182,11 @@ class StorySequencePlayer: UIView {
     private func updateToCurrentStep() {
         updateLeftSide()
         updateRightSide()
+        
+        // wait 50% longer than the baseAnimDuration
+        let dur = baseAnimDuration + (baseAnimDuration/2)
         DispatchQueue.global(qos: .background).async {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + dur) {
                 self.canTap = true
                 self.showIndicator()
             }
@@ -201,9 +207,7 @@ class StorySequencePlayer: UIView {
         if m.text != nil {
             let label = self.makeLabel(text: m.text!, left: true)
             self.textContainer.addSubview(label)
-            shiftLabels(then: {
-
-            })
+            shiftLabels()
         }
     }
 
@@ -221,9 +225,7 @@ class StorySequencePlayer: UIView {
         if m.text != nil {
             let label = self.makeLabel(text: m.text!, left: false)
             self.textContainer.addSubview(label)
-            shiftLabels(then: {
-
-            })
+            shiftLabels()
         }
     }
 
@@ -236,19 +238,15 @@ class StorySequencePlayer: UIView {
         let height = (bounds.height - (margin * 2)) / 4
         let y = bounds.height - margin
         // determine if it's on the left or right side
-        var x = margin
-        if !left {
-            x = bounds.width - width - margin
-        }
+        let x = (left) ? margin : bounds.width - width - margin
+
         let label = UILabel(frame: CGRect(x: x, y: y, width: width, height: height))
 
         // set basic properties
         label.textColor = UIColor.white
         label.font = UIFont(name: fontName, size: fontSize)
         label.text = text
-        if !left {
-            label.textAlignment = .right
-        }
+        label.textAlignment = (left) ? .left : .right
 
         // resize and reformat to account for word wrapping
         label.numberOfLines = 0
@@ -256,32 +254,30 @@ class StorySequencePlayer: UIView {
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.sizeToFit()
 
-        // force width back to original value, check that height isn't too small
+        // force width back to original value
         label.frame.size.width = width
-        if label.frame.size.height < height {
-            label.frame.size.height = height
-        }
-
+        
         return label
     }
 
     // shift labels up as new labels are added
-    private func shiftLabels(then: (() -> ())?) {
+    private func shiftLabels() {
+        // get subviews from the textcontainer
         let labels = textContainer.subviews
-        let dur = 0.8
+        
+        // 50% longer than the baseAnimDuration
+        let dur = baseAnimDuration + (baseAnimDuration/2)
         let fadeTo: CGFloat = 0.2
-
+        
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.async {
-                // get the height of the newly added label and shift all labels by that amount + a buffer
-                var height: CGFloat = 0
+                // if there are labels, get the height of the newly added label and shift all labels by that amount + a buffer
                 let buffer: CGFloat = 15
-                if labels.count > 0 {
-                    height = labels.last!.frame.size.height + buffer
-                }
+                let height = (labels.count > 0) ? labels.last!.frame.size.height + buffer : 0
+                
                 // loop through and shift the labels, reduce alpha for old labels
                 for label in labels {
-                    // move all labels
+                    // animate moving all labels, use random value to make the spring jiggle more dynamic
                     UIView.animate(withDuration: dur,
                                    delay: 0,
                                    usingSpringWithDamping: 0.6,
@@ -303,7 +299,6 @@ class StorySequencePlayer: UIView {
                                            })
                         }
                     }
-
                 }
             }
 
@@ -319,13 +314,6 @@ class StorySequencePlayer: UIView {
                         self.fadeAlpha(view: label, alpha: 0, duration: 0.5, then: nil)
                     }
                 }
-            }
-        }
-
-        // call completion handler after shifting
-        DispatchQueue.global(qos: .background).async {
-            DispatchQueue.main.asyncAfter(deadline: .now() + dur) {
-                then?()
             }
         }
     }
@@ -383,13 +371,11 @@ class StorySequencePlayer: UIView {
             x = -view.frame.width * 2
         }
 
-        if !left {
-            x = imageViewContainer.bounds.width - view.bounds.width - x
-        }
+        x = (left) ? x : imageViewContainer.bounds.width - view.bounds.width - x
 
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.async {
-                UIView.animate(withDuration: 0.5,
+                UIView.animate(withDuration: self.baseAnimDuration,
                                delay: 0,
                                usingSpringWithDamping: 1,
                                initialSpringVelocity: 1,
@@ -414,10 +400,12 @@ class StorySequencePlayer: UIView {
         blinkIndicator()
     }
 
+    // blink the indicator, turn off if the view is hidden
     private func blinkIndicator() {
+        let dur = baseAnimDuration + (baseAnimDuration/2)
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.async {
-                UIView.animate(withDuration: 0.8,
+                UIView.animate(withDuration: dur,
                                delay: 0,
                                usingSpringWithDamping: 1,
                                initialSpringVelocity: 1,
@@ -437,7 +425,7 @@ class StorySequencePlayer: UIView {
      MARK: Public Class Methods
      ******************************* */
     func hide() {
-        UIView.animate(withDuration: 0.5,
+        UIView.animate(withDuration: self.baseAnimDuration,
                        delay: 0,
                        usingSpringWithDamping: 1,
                        initialSpringVelocity: 1,

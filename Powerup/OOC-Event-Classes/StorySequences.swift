@@ -30,19 +30,19 @@ let introStorySequences: Dictionary<Int, StorySequence> = [
 private let testChar = StorySequence.Images().testChar
 private let testChar2 = StorySequence.Images().testChar2
 private let home: StorySequence = StorySequence([
-    0: StorySequence.Step(lftEvent: StorySequence.Event(txt: "left text with normal image, step 0",
+    0: StorySequence.Step(lftEvent: StorySequence.Event(txt: "Hey, this is an intro sequence!",
                                                         img: testChar.normal,
                                                         pos: .near,
                                                         ani: nil),
                           rgtEvent: nil
     ),
     1: StorySequence.Step(lftEvent: nil,
-                          rgtEvent: StorySequence.Event(txt: "right text with sad image, step 1",
+                          rgtEvent: StorySequence.Event(txt: "You can change the images in each step, and each side is independent.",
                                                         img: testChar2.sad,
                                                         pos: .near,
                                                         ani: nil)
     ),
-    2: StorySequence.Step(lftEvent: StorySequence.Event(txt: "left move to mid, right change to upset, step 2",
+    2: StorySequence.Step(lftEvent: StorySequence.Event(txt: "The images can move to different positions.",
                                                         img: nil,
                                                         pos: .mid,
                                                         ani: nil),
@@ -51,28 +51,28 @@ private let home: StorySequence = StorySequence([
                                                         pos: nil,
                                                         ani: nil)
     ),
-    3: StorySequence.Step(lftEvent: StorySequence.Event(txt: "left change to talking, move to start, step 3",
+    3: StorySequence.Step(lftEvent: StorySequence.Event(txt: "Passing nil to a side just leaves everything alone",
                                                         img: testChar.talking,
                                                         pos: .near,
                                                         ani: nil),
                           rgtEvent: nil
     ),
     4: StorySequence.Step(lftEvent: nil,
-                          rgtEvent: StorySequence.Event(txt: "right move to far, change to scared, step 4",
+                          rgtEvent: StorySequence.Event(txt: "See? The left side didn't change",
                                                         img: testChar2.scared,
                                                         pos: .far,
                                                         ani: nil)
     ),
-    5: StorySequence.Step(lftEvent: StorySequence.Event(txt: "left move to hidden, step 5",
+    5: StorySequence.Step(lftEvent: StorySequence.Event(txt: "Now both images are hidden.",
                                                         img: nil,
                                                         pos: .hidden,
                                                         ani: nil),
-                          rgtEvent: StorySequence.Event(txt: "right move hidden, step 5",
+                          rgtEvent: StorySequence.Event(txt: nil,
                                                         img: nil,
                                                         pos: .hidden,
                                                         ani: nil)
     ),
-    6: StorySequence.Step(lftEvent: StorySequence.Event(txt: "left move to far, step 6",
+    6: StorySequence.Step(lftEvent: StorySequence.Event(txt: "Surprise!",
                                                         img: testChar.normal,
                                                         pos: .far,
                                                         ani: nil),
