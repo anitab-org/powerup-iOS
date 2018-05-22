@@ -15,16 +15,20 @@ struct StorySequence {
         case dismiss
     }
 
+    enum StorySequenceImageAnimation {
+
+    }
+
     /**
      Struct containing two `StorySequence.Event` representing the left and right sides of the `StorySequencePlayer`.
      */
     struct Step {
-        var lEvent: Event?,
-            rEvent: Event?
+        var lftEvent: Event?,
+            rgtEvent: Event?
 
-        init (lEvent: Event?, rEvent: Event?) {
-            self.lEvent = lEvent
-            self.rEvent = rEvent
+        init (lftEvent: Event?, rgtEvent: Event?) {
+            self.lftEvent = lftEvent
+            self.rgtEvent = rgtEvent
         }
     }
 
@@ -34,12 +38,14 @@ struct StorySequence {
     struct Event {
         var text: String?,
             image: String?,
-            position: StorySequenceImagePosition?
+            position: StorySequenceImagePosition?,
+            imgAnim: StorySequenceImageAnimation?
 
-        init (txt: String?, img: String?, pos: StorySequenceImagePosition?) {
+        init (txt: String?, img: String?, pos: StorySequenceImagePosition?, ani: StorySequenceImageAnimation?) {
             self.text = txt
             self.image = img
             self.position = pos
+            self.imgAnim = ani
         }
     }
 
