@@ -49,5 +49,4 @@ class SoundPlayer {
             print(error.localizedDescription)
         }
     }
-
 }

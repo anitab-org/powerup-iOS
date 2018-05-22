@@ -6,7 +6,7 @@ import UIKit
  */
 struct StorySequence {
     var steps: Dictionary<Int, Step>
-    
+
     /**
      Struct containing descriptions of each character and the different types of images available.
      */
@@ -16,6 +16,12 @@ struct StorySequence {
                         scared: "test_image_scared",
                         talking: "test_image_talking",
                         upset: "test_image_upset")
+
+        let testChar2 = (normal: "test_image2_normal",
+                         sad: "test_image2_sad",
+                         scared: "test_image2_scared",
+                         talking: "test_image2_talking",
+                         upset: "test_image2_upset")
     }
 
     enum StorySequenceImagePosition {

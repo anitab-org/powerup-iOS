@@ -28,6 +28,7 @@ let introStorySequences: Dictionary<Int, StorySequence> = [
 // you can nil the entire event as well (for no change from the previous step)
 // calling .dismiss in the pos property hides *and* releases the image from the imageView
 private let testChar = StorySequence.Images().testChar
+private let testChar2 = StorySequence.Images().testChar2
 private let home: StorySequence = StorySequence([
     0: StorySequence.Step(lftEvent: StorySequence.Event(txt: "left text with normal image, step 0",
                                                         img: testChar.normal,
@@ -37,7 +38,7 @@ private let home: StorySequence = StorySequence([
     ),
     1: StorySequence.Step(lftEvent: nil,
                           rgtEvent: StorySequence.Event(txt: "right text with sad image, step 1",
-                                                        img: testChar.sad,
+                                                        img: testChar2.sad,
                                                         pos: .near,
                                                         ani: nil)
     ),
@@ -46,7 +47,7 @@ private let home: StorySequence = StorySequence([
                                                         pos: .mid,
                                                         ani: nil),
                           rgtEvent: StorySequence.Event(txt: nil,
-                                                        img: testChar.upset,
+                                                        img: testChar2.upset,
                                                         pos: nil,
                                                         ani: nil)
     ),
@@ -58,7 +59,7 @@ private let home: StorySequence = StorySequence([
     ),
     4: StorySequence.Step(lftEvent: nil,
                           rgtEvent: StorySequence.Event(txt: "right move to far, change to scared, step 4",
-                                                        img: testChar.scared,
+                                                        img: testChar2.scared,
                                                         pos: .far,
                                                         ani: nil)
     ),

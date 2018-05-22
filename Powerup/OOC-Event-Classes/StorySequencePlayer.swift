@@ -15,12 +15,14 @@ class StorySequencePlayer: UIView {
     weak var delegate: StorySequencePlayerDelegate?
 
     let fontName: String = "Montserrat-Bold",
-        fontSize: CGFloat = 16
+        fontSize: CGFloat = 16,
+        indicatorImage: String = "indicator_placeholder"
 
     var textContainer: UIView,
         imageViewContainer: UIView,
         leftImageView: UIImageView,
-        rightImageView: UIImageView
+        rightImageView: UIImageView,
+        indicator: UIImageView
 
     var model: StorySequence,
         currentStep: Int
@@ -44,6 +46,7 @@ class StorySequencePlayer: UIView {
         self.imageViewContainer = UIView(frame: CGRect.zero)
         self.leftImageView = UIImageView(frame: CGRect.zero)
         self.rightImageView = UIImageView(frame: CGRect.zero)
+        self.indicator = UIImageView(frame: CGRect.zero)
 
         self.currentStep = -1
         self.canTap = false
@@ -118,9 +121,17 @@ class StorySequencePlayer: UIView {
 //        rightImageView.backgroundColor = UIColor.blue
 //        rightImageView.alpha = 0.2
 
+        let indicatorSize = 15
+        indicator.frame = CGRect(x: 0, y: 0, width: indicatorSize, height: indicatorSize)
+        indicator.contentMode = .scaleAspectFit
+        indicator.image = UIImage(named: indicatorImage)
+        indicator.center = CGPoint(x: (self.bounds.width / 2), y: self.bounds.height - indicator.frame.height)
+        hideIndicator()
+
         imageViewContainer.addSubview(leftImageView)
         imageViewContainer.addSubview(rightImageView)
         self.addSubview(imageViewContainer)
+        self.addSubview(indicator)
     }
 
     private func layoutTextContainer(_ margin: CGFloat, _ height: CGFloat) {
@@ -154,6 +165,8 @@ class StorySequencePlayer: UIView {
     private func checkCurrentStep() {
         // stop interactions, enabled after updateToCurrentStep is complete
         self.canTap = false
+        hideIndicator()
+
         if currentStep < model.steps.count - 1 {
             currentStep = currentStep + 1
             updateToCurrentStep()
@@ -169,6 +182,7 @@ class StorySequencePlayer: UIView {
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
                 self.canTap = true
+                self.showIndicator()
             }
         }
     }
@@ -379,11 +393,41 @@ class StorySequencePlayer: UIView {
                                delay: 0,
                                usingSpringWithDamping: 1,
                                initialSpringVelocity: 1,
-                               options: .curveEaseOut,
+                               options: .curveEaseIn,
                                animations: {
                                    view.frame.origin.x = x
                                }, completion: { (finished: Bool) in
 
+                               })
+            }
+        }
+    }
+
+    private func hideIndicator() {
+        indicator.isHidden = true
+        indicator.stopAnimating()
+        indicator.alpha = 0
+    }
+
+    private func showIndicator() {
+        indicator.isHidden = false
+        blinkIndicator()
+    }
+
+    private func blinkIndicator() {
+        DispatchQueue.global(qos: .background).async {
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: 0.8,
+                               delay: 0,
+                               usingSpringWithDamping: 1,
+                               initialSpringVelocity: 1,
+                               options: .curveEaseOut,
+                               animations: {
+                                   self.indicator.alpha = (self.indicator.alpha <= 0.4) ? 0.8 : 0
+                               }, completion: { (finished: Bool) in
+                                   if !self.indicator.isHidden {
+                                       self.blinkIndicator()
+                                   }
                                })
             }
         }
