@@ -182,9 +182,9 @@ class StorySequencePlayer: UIView {
     private func updateToCurrentStep() {
         updateLeftSide()
         updateRightSide()
-        
+
         // wait 50% longer than the baseAnimDuration
-        let dur = baseAnimDuration + (baseAnimDuration/2)
+        let dur = baseAnimDuration + (baseAnimDuration / 2)
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.asyncAfter(deadline: .now() + dur) {
                 self.canTap = true
@@ -256,7 +256,7 @@ class StorySequencePlayer: UIView {
 
         // force width back to original value
         label.frame.size.width = width
-        
+
         return label
     }
 
@@ -264,17 +264,17 @@ class StorySequencePlayer: UIView {
     private func shiftLabels() {
         // get subviews from the textcontainer
         let labels = textContainer.subviews
-        
+
         // 50% longer than the baseAnimDuration
-        let dur = baseAnimDuration + (baseAnimDuration/2)
+        let dur = baseAnimDuration + (baseAnimDuration / 2)
         let fadeTo: CGFloat = 0.2
-        
+
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.async {
                 // if there are labels, get the height of the newly added label and shift all labels by that amount + a buffer
                 let buffer: CGFloat = 15
                 let height = (labels.count > 0) ? labels.last!.frame.size.height + buffer : 0
-                
+
                 // loop through and shift the labels, reduce alpha for old labels
                 for label in labels {
                     // animate moving all labels, use random value to make the spring jiggle more dynamic
@@ -324,9 +324,12 @@ class StorySequencePlayer: UIView {
     }
 
     // fade out view, then change image, then fade in view
+    /**
+     Important: I don't know if I like the fade mechanics. It might be ok to just switch them instantly.
+     */
     private func changeImage(imageView: UIImageView, image: String) {
-        let duration = 0.1
-        fadeAlpha(view: imageView, alpha: 0.1, duration: duration, then: {
+        let duration = 0.05
+        fadeAlpha(view: imageView, alpha: 0.5, duration: duration, then: {
             DispatchQueue.global(qos: .background).async {
                 DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
                     imageView.image = UIImage(named: image)
@@ -402,7 +405,7 @@ class StorySequencePlayer: UIView {
 
     // blink the indicator, turn off if the view is hidden
     private func blinkIndicator() {
-        let dur = baseAnimDuration + (baseAnimDuration/2)
+        let dur = baseAnimDuration + (baseAnimDuration / 2)
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.async {
                 UIView.animate(withDuration: dur,

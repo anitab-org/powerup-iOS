@@ -51,19 +51,19 @@ private let home: StorySequence = StorySequence([
                                                         pos: nil,
                                                         ani: nil)
     ),
-    3: StorySequence.Step(lftEvent: StorySequence.Event(txt: "Passing nil to a side just leaves everything alone",
+    3: StorySequence.Step(lftEvent: StorySequence.Event(txt: "You describe it in a model of steps and events. Passing nil to a side just leaves everything alone.",
                                                         img: testChar.talking,
                                                         pos: .near,
                                                         ani: nil),
                           rgtEvent: nil
     ),
     4: StorySequence.Step(lftEvent: nil,
-                          rgtEvent: StorySequence.Event(txt: "See? The left side didn't change",
+                          rgtEvent: StorySequence.Event(txt: "See? The left side didn't change!",
                                                         img: testChar2.scared,
                                                         pos: .far,
                                                         ani: nil)
     ),
-    5: StorySequence.Step(lftEvent: StorySequence.Event(txt: "Now both images are hidden.",
+    5: StorySequence.Step(lftEvent: StorySequence.Event(txt: "Things can happen on one or both sides. Now both images are hidden.",
                                                         img: nil,
                                                         pos: .hidden,
                                                         ani: nil),
