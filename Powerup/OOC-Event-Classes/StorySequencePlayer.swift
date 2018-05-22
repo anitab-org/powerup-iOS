@@ -22,6 +22,9 @@ class StorySequencePlayer: UIView {
     var leftImage: UIImage?,
         rightImage: UIImage?
 
+    var model: StorySequence,
+        currentStep: Int
+
     /* *******************************
      MARK: Initializers
      ******************************* */
@@ -30,10 +33,12 @@ class StorySequencePlayer: UIView {
     }
 
     override init(frame: CGRect) {
+        self.model = StorySequence([:])
         self.textContainer = UIView(frame: CGRect.zero)
         self.imageViewContainer = UIView(frame: CGRect.zero)
         self.leftImageView = UIImageView(frame: CGRect.zero)
         self.rightImageView = UIImageView(frame: CGRect.zero)
+        self.currentStep = -1
 
         super.init(frame: frame)
 
@@ -46,14 +51,13 @@ class StorySequencePlayer: UIView {
         addTapGesture()
     }
 
-    convenience init(delegate: StorySequencePlayerDelegate) {
+    convenience init(delegate: StorySequencePlayerDelegate, model: StorySequence) {
         self.init(frame: UIScreen.main.bounds)
 
         self.delegate = delegate
-    }
+        self.model = model
 
-    @objc func tapView(sender: UITapGestureRecognizer) {
-        self.hide()
+        checkCurrentStep()
     }
 
     //    override func didMoveToSuperview() {
@@ -113,10 +117,27 @@ class StorySequencePlayer: UIView {
         self.addSubview(textContainer)
     }
 
+    // add a tap gesture to manually dismiss the popup
     private func addTapGesture() {
-        // add a tap gesture to manually dismiss the popup
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapView(sender:)))
         self.addGestureRecognizer(tap)
+    }
+
+    @objc private func tapView(sender: UITapGestureRecognizer) {
+        checkCurrentStep()
+    }
+
+    private func checkCurrentStep() {
+        if currentStep < model.steps.count - 1 {
+            currentStep = currentStep + 1
+            updateToCurrentStep()
+        } else {
+            hide()
+        }
+    }
+
+    private func updateToCurrentStep() {
+
     }
 
     /* *******************************
