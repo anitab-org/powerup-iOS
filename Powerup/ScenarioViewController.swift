@@ -168,10 +168,10 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         print("\nbegin opening sequence")
 
         // can be nil, so guard, if it is nil then return, else create the view
-        let retrievedModel = introStorySequences[self.scenarioID]
+        let retrievedModel = introStorySequences[scenarioID]
         guard let model = retrievedModel else { return }
         // at this point we know a model exists and that it is a proper model (see StorySequenceModel.swift)
-        let sequenceView: StorySequencePlayer = StorySequencePlayer(delegate: self, model: model)
+        let sequenceView: StorySequencePlayer = StorySequencePlayer(delegate: self, model: model, scenarioID: scenarioID)
         self.view.addSubview(sequenceView)
     }
 

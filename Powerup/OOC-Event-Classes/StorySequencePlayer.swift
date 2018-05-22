@@ -32,6 +32,9 @@ class StorySequencePlayer: UIView {
         imgMid: CGFloat,
         imgFar: CGFloat
 
+    var scenarioID: Int
+    var soundPlayer: SoundPlayer = SoundPlayer()
+
     private var canTap: Bool
 
     /* *******************************
@@ -56,6 +59,8 @@ class StorySequencePlayer: UIView {
         self.imgMid = 0
         self.imgFar = 0
 
+        self.scenarioID = 0
+
         super.init(frame: frame)
 
         let margin: CGFloat = 10
@@ -67,14 +72,17 @@ class StorySequencePlayer: UIView {
         addTapGesture()
     }
 
-    convenience init(delegate: StorySequencePlayerDelegate, model: StorySequence) {
+    convenience init(delegate: StorySequencePlayerDelegate, model: StorySequence, scenarioID: Int) {
         self.init(frame: UIScreen.main.bounds)
 
+        self.scenarioID = scenarioID
         self.delegate = delegate
         self.model = model
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.asyncAfter(deadline: .now() + self.baseAnimDuration) {
                 self.checkCurrentStep()
+                self.soundPlayer.player?.numberOfLoops = -1
+                self.soundPlayer.playSound((StorySequence.Sounds().files[self.scenarioID]?.intro)!, 1)
             }
         }
     }
@@ -422,10 +430,20 @@ class StorySequencePlayer: UIView {
         }
     }
 
+//    private func playSound (fileName: String?, volume: Float?) {
+//        guard let sound = fileName else { return }
+//        guard let player = self.soundPlayer else { return }
+//        let vol = (volume != nil) ? volume : 1
+//        player.playSound(sound, vol!)
+//    }
+
     /* *******************************
      MARK: Public Class Methods
      ******************************* */
     func hide() {
+        if #available(iOS 10.0, *) {
+            self.soundPlayer.player?.setVolume(0, fadeDuration: self.baseAnimDuration)
+        }
         UIView.animate(withDuration: self.baseAnimDuration,
                        delay: 0,
                        usingSpringWithDamping: 1,
@@ -434,6 +452,7 @@ class StorySequencePlayer: UIView {
                        animations: {
                            self.alpha = 0
                        }, completion: { (finished: Bool) in
+                           self.soundPlayer.player?.stop()
                            self.delegate?.sequenceDidFinish(sender: self)
                        })
     }

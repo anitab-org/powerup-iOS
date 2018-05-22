@@ -28,6 +28,13 @@ struct StorySequence {
                          upset: "test_image2_upset")
     }
 
+    struct Sounds {
+        let files = [
+            5: (intro: "home_intro_music_placeholder",
+                goodEnding: "home_good_ending_example")
+        ]
+    }
+
     enum StorySequenceImagePosition {
         case hidden
         case near
