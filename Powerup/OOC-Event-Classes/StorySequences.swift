@@ -27,37 +27,53 @@ let introStorySequences: Dictionary<Int, StorySequence> = [
 // if any properties are left nil, there will be no change from the previous step
 // you can nil the entire event as well (for no change from the previous step)
 // calling .dismiss in the pos property hides *and* releases the image from the imageView
+private let testChar = StorySequence.Images().testChar
 private let home: StorySequence = StorySequence([
-    0: StorySequence.Step(lftEvent: StorySequence.Event(txt: "left text event, step 0",
-                                                        img: "test_image_normal",
-                                                        pos: .start,
+    0: StorySequence.Step(lftEvent: StorySequence.Event(txt: "left text with normal image, step 0",
+                                                        img: testChar.normal,
+                                                        pos: .near,
                                                         ani: nil),
                           rgtEvent: nil
     ),
     1: StorySequence.Step(lftEvent: nil,
-                          rgtEvent: StorySequence.Event(txt: "left text event, step 0",
-                                                        img: "test_image_normal",
-                                                        pos: .start,
+                          rgtEvent: StorySequence.Event(txt: "right text with sad image, step 1",
+                                                        img: testChar.sad,
+                                                        pos: .near,
                                                         ani: nil)
     ),
-    2: StorySequence.Step(lftEvent: StorySequence.Event(txt: "left text event, step 0",
-                                                        img: "test_image_normal",
-                                                        pos: .start,
+    2: StorySequence.Step(lftEvent: StorySequence.Event(txt: "left move to mid, right change to upset, step 2",
+                                                        img: nil,
+                                                        pos: .mid,
                                                         ani: nil),
-                          rgtEvent: StorySequence.Event(txt: "left text event, step 0",
-                                                        img: "test_image_normal",
-                                                        pos: .start,
+                          rgtEvent: StorySequence.Event(txt: nil,
+                                                        img: testChar.upset,
+                                                        pos: nil,
                                                         ani: nil)
     ),
-    3: StorySequence.Step(lftEvent: StorySequence.Event(txt: "left text event, step 0",
-                                                        img: "test_image_normal",
-                                                        pos: .start,
+    3: StorySequence.Step(lftEvent: StorySequence.Event(txt: "left change to talking, move to start, step 3",
+                                                        img: testChar.talking,
+                                                        pos: .near,
                                                         ani: nil),
                           rgtEvent: nil
     ),
-    4: StorySequence.Step(lftEvent: StorySequence.Event(txt: "left text event, step 0",
-                                                        img: "test_image_normal",
-                                                        pos: .start,
+    4: StorySequence.Step(lftEvent: nil,
+                          rgtEvent: StorySequence.Event(txt: "right move to far, change to scared, step 4",
+                                                        img: testChar.scared,
+                                                        pos: .far,
+                                                        ani: nil)
+    ),
+    5: StorySequence.Step(lftEvent: StorySequence.Event(txt: "left move to hidden, step 5",
+                                                        img: nil,
+                                                        pos: .hidden,
+                                                        ani: nil),
+                          rgtEvent: StorySequence.Event(txt: "right move hidden, step 5",
+                                                        img: nil,
+                                                        pos: .hidden,
+                                                        ani: nil)
+    ),
+    6: StorySequence.Step(lftEvent: StorySequence.Event(txt: "left move to far, step 6",
+                                                        img: testChar.normal,
+                                                        pos: .far,
                                                         ani: nil),
                           rgtEvent: nil
     )

@@ -1,15 +1,26 @@
 import UIKit
 
 /**
- Struct containing a dictionary of `StorySequence.Step`. Describes `StorySequence.Step` and `StorySequence.Event`.
+ Struct containing a dictionary of `StorySequence.Step`. Also describes `StorySequence.Step` and `StorySequence.Event`.
  - Author: Cadence Holmes
  */
 struct StorySequence {
     var steps: Dictionary<Int, Step>
+    
+    /**
+     Struct containing descriptions of each character and the different types of images available.
+     */
+    struct Images {
+        let testChar = (normal: "test_image_normal",
+                        sad: "test_image_sad",
+                        scared: "test_image_scared",
+                        talking: "test_image_talking",
+                        upset: "test_image_upset")
+    }
 
     enum StorySequenceImagePosition {
         case hidden
-        case start
+        case near
         case mid
         case far
         case dismiss
@@ -26,7 +37,7 @@ struct StorySequence {
         var lftEvent: Event?,
             rgtEvent: Event?
 
-        init (lftEvent: Event?, rgtEvent: Event?) {
+        init(lftEvent: Event?, rgtEvent: Event?) {
             self.lftEvent = lftEvent
             self.rgtEvent = rgtEvent
         }
