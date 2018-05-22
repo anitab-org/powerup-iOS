@@ -5,8 +5,7 @@ import AudioToolbox
 /**
  Creates a strong reference to AVAudioPlayer and playing a sound file. Convenience class to declutter controller classes.
  
- - Author:
- Cadence Holmes
+ - Author: Cadence Holmes
  
  Example Use
  ```

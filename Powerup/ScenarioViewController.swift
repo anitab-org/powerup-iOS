@@ -164,17 +164,15 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
      
      Called in viewDidLoad().
      */
-    //
     func startSequence() {
         print("\nbegin opening sequence")
 
-        if introStorySequences[self.scenarioID] != nil {
-            let sequenceView: StorySequencePlayer? = StorySequencePlayer(delegate: self)
-            guard let sequence = sequenceView else { return }
-            self.view.addSubview(sequence)
-        } else {
-            return
-        }
+        // can be nil, so guard, if it is nil then return, else create the view
+        let retrievedModel = introStorySequences[self.scenarioID]
+        guard let model = retrievedModel else { return }
+        // at this point we know a model exists and that it is a proper model (see StorySequenceModel.swift)
+        let sequenceView: StorySequencePlayer = StorySequencePlayer(delegate: self, model: model)
+        self.view.addSubview(sequenceView)
     }
 
     /**
@@ -199,7 +197,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
                 // if it's positive, show inline popup
 
                 // get the correct model as per popupID
-                guard let model: PopupEvent = popupEvents[popupID] else { return }
+                guard let model: PopupEventPlayer.Event = popupEvents[popupID] else { return }
 
                 /* manual test events */
                 /* positive int, but no corresponding model event : don't show a popup, but also don't crash ^^ */

@@ -3,9 +3,7 @@ import AVFoundation
 
 /**
  Handles the entire popup lifecycle. Owns all popup views, media, and interactions.
- 
- - Author:
-    Cadence Holmes
+ - Author: Cadence Holmes
 */
 class PopupEventPlayer: UIView {
     /* *******************************
@@ -42,6 +40,23 @@ class PopupEventPlayer: UIView {
 
     private var tapped: Bool
 
+    /**
+     Struct defining Event model for individual popups.
+     */
+    struct Event {
+        var topText: String?
+        var botText: String?
+        var imgName: String?
+        var doSound: Bool?
+
+        init (topText: String?, botText: String?, imgName: String?, doSound: Bool?) {
+            self.topText = topText
+            self.botText = botText
+            self.imgName = imgName
+            self.doSound = doSound
+        }
+    }
+
     /* *******************************
     MARK: Initializers
     ******************************* */
@@ -70,8 +85,6 @@ class PopupEventPlayer: UIView {
         // setup subviews
         setupSubviews()
         updateContainer()
-//        updateLabels()
-//        updateImageView()
 
         // add a tap gesture to manually dismiss the popup
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapView(sender:)))
@@ -89,23 +102,23 @@ class PopupEventPlayer: UIView {
         tapped = true
     }
 
-    convenience init(delegate: PopupEventPlayerDelegate, model: PopupEvent) {
+    convenience init(delegate: PopupEventPlayerDelegate, model: Event) {
         self.init(frame: CGRect.zero)
         self.delegate = delegate
-        if model.mainText != nil {
-            mainText = model.mainText
+        if model.topText != nil {
+            mainText = model.topText
             updateMainLabel()
         }
-        if model.subText != nil {
-            subText = model.subText
+        if model.botText != nil {
+            subText = model.botText
             updateSubLabel()
         }
-        if model.image != nil {
-            image = UIImage(named: model.image!)
+        if model.imgName != nil {
+            image = UIImage(named: model.imgName!)
             updateImageView()
         }
-        if model.useSound != nil {
-            useSound = model.useSound
+        if model.doSound != nil {
+            useSound = model.doSound
         }
     }
 
@@ -155,14 +168,6 @@ class PopupEventPlayer: UIView {
         imageView.layer.transform = CATransform3DScale(rotateTransform, shrink, shrink, shrink)
         imageView.layer.opacity = 0
         imageView.contentMode = .scaleAspectFit
-
-        // temporary: for testing
-//        mainLabel.backgroundColor = UIColor.init(red: 1.0, green: 0, blue: 0, alpha: 0.3)
-//        subLabel.backgroundColor = UIColor.init(red: 0, green: 1.0, blue: 0, alpha: 0.3)
-//        imageView.backgroundColor = UIColor.init(red: 0, green: 0, blue: 1.0, alpha: 0.3)
-//        mainText = "testing the main label"
-//        subText = "testing the sub label"
-//        image = UIImage(named: "karma_star")
     }
 
     private func animateLabelText (_ label: UILabel) {
