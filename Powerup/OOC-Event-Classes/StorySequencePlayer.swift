@@ -370,8 +370,6 @@ class StorySequencePlayer: UIView {
             x = imgFar
         case .hidden:
             x = -view.frame.width * 2
-        case .dismiss:
-            x = -view.frame.width * 2
         }
 
         x = (left) ? x : imageViewContainer.bounds.width - view.bounds.width - x

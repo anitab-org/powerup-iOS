@@ -9,6 +9,10 @@ struct StorySequence {
 
     /**
      Struct containing descriptions of each character and the different types of images available.
+     
+     As new scenes are added, this static data should be updated. Each character should be represented as a descriptive constant, and should reference a tuple describing the images and referencing their file name.
+     
+     Thanks to autocompletion, this makes it much easier to create and maintain StorySequence models rather than using just strings.
      */
     struct Images {
         let testChar = (normal: "test_image_normal",
@@ -29,7 +33,6 @@ struct StorySequence {
         case near
         case mid
         case far
-        case dismiss
     }
 
     enum StorySequenceImageAnimation {
@@ -50,7 +53,7 @@ struct StorySequence {
     }
 
     /**
-     Struct describing a single event with text, image, and image position.
+     Struct describing a single event with text, image, image position, and image animation type.
      */
     struct Event {
         var text: String?,
