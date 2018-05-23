@@ -17,6 +17,7 @@ import AudioToolbox
  */
 class SoundPlayer {
     var player: AVAudioPlayer?
+    var numberOfLoops: Int = 1
 
     init () {
         do {
@@ -43,6 +44,7 @@ class SoundPlayer {
             player = try AVAudioPlayer(data: sound.data)
 
             guard let soundplayer = player else { return }
+            soundplayer.numberOfLoops = numberOfLoops
             soundplayer.volume = volume
             soundplayer.play()
         } catch let error {

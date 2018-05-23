@@ -81,7 +81,7 @@ class StorySequencePlayer: UIView {
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.asyncAfter(deadline: .now() + self.baseAnimDuration) {
                 self.checkCurrentStep()
-                self.soundPlayer.player?.numberOfLoops = -1
+                self.soundPlayer.numberOfLoops = -1
                 self.soundPlayer.playSound((StorySequence.Sounds().files[self.scenarioID]?.intro)!, 1)
             }
         }
