@@ -47,6 +47,8 @@ struct StorySequence {
 
     enum ImageAnimation {
         case shake
+        case tiltLeft
+        case tiltRight
     }
 
     /**

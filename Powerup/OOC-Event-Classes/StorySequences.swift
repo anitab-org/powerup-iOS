@@ -43,12 +43,12 @@ private let home: StorySequence = StorySequence([
                           rgtEvent: StorySequence.Event(txt: "You can change the images in each step, and each side is independent.",
                                                         img: testChar2.sad,
                                                         pos: pos.near,
-                                                        ani: ani.shake)
+                                                        ani: ani.tiltLeft)
     ),
     2: StorySequence.Step(lftEvent: StorySequence.Event(txt: "The images can move to different positions.",
                                                         img: nil,
                                                         pos: pos.mid,
-                                                        ani: nil),
+                                                        ani: ani.shake),
                           rgtEvent: StorySequence.Event(txt: nil,
                                                         img: testChar2.upset,
                                                         pos: nil,

@@ -444,43 +444,17 @@ class StorySequencePlayer: UIView {
     }
 
     private func doAnimation(anim: StorySequence.ImageAnimation, view: UIView) {
+        let tiltDuration = 0.7
+        
         switch anim {
         case .shake:
-            animateShake(view)
-        }
-    }
-
-    private func animateShake(_ view: UIView) {
-        // store origin as the reference
-        let x = view.frame.origin.x
-        // duration of the entire animation event
-        let dur: Double = 0.4
-        // target x positions in reference to the origin
-        let keys = [10, -10, 7, -7, 4, -4, 1, -1]
-        // duration of a single animation event
-        let oneDur = dur / Double(keys.count)
-        // loop through keys and animate to each in turn
-        for i in 0..<keys.count {
-            // delay each animation by an appropriate amount so they happen consecutively
-            let thisDur = oneDur * Double(i + 1)
-            DispatchQueue.global(qos: .background).async {
-                DispatchQueue.main.asyncAfter(deadline: .now() + thisDur) {
-                    UIView.animate(withDuration: oneDur,
-                                   delay: 0,
-                                   usingSpringWithDamping: 0.5,
-                                   initialSpringVelocity: 10,
-                                   options: .curveEaseOut,
-                                   animations: {
-                                       view.frame.origin.x = x + CGFloat(keys[i])
-                                   })
-                }
-            }
-        }
-        // reset to original x after the animation is over
-        DispatchQueue.global(qos: .background).async {
-            DispatchQueue.main.asyncAfter(deadline: .now() + dur) {
-                view.frame.origin.x = x
-            }
+            Animate().shake(view, nil)
+        case .tiltLeft:
+            Animate().tilt(view: view, degrees: -30, duration: tiltDuration)
+            Animate().translate(view: view, x: 0, y: 8, duration: tiltDuration)
+        case .tiltRight:
+            Animate().tilt(view: view, degrees: 30, duration: tiltDuration)
+            Animate().translate(view: view, x: 0, y: 8, duration: tiltDuration)
         }
     }
 
