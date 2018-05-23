@@ -26,7 +26,7 @@ struct StorySequence {
                          scared: "test_image2_scared",
                          talking: "test_image2_talking",
                          upset: "test_image2_upset")
-        
+
         let misc = (dataExample: "test_data_example",
                     empty: "")
     }
@@ -38,15 +38,15 @@ struct StorySequence {
         ]
     }
 
-    enum StorySequenceImagePosition {
+    enum ImagePosition {
         case hidden
         case near
         case mid
         case far
     }
 
-    enum StorySequenceImageAnimation {
-
+    enum ImageAnimation {
+        case shake
     }
 
     /**
@@ -68,10 +68,10 @@ struct StorySequence {
     struct Event {
         var text: String?,
             image: String?,
-            position: StorySequenceImagePosition?,
-            imgAnim: StorySequenceImageAnimation?
+            position: ImagePosition?,
+            imgAnim: ImageAnimation?
 
-        init (txt: String?, img: String?, pos: StorySequenceImagePosition?, ani: StorySequenceImageAnimation?) {
+        init (txt: String?, img: String?, pos: ImagePosition?, ani: ImageAnimation?) {
             self.text = txt
             self.image = img
             self.position = pos

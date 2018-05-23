@@ -215,7 +215,11 @@ class StorySequencePlayer: UIView {
             moveImage(pos: m.position!, view: leftImageView, left: true)
         }
         if m.imgAnim != nil {
-
+            DispatchQueue.global(qos: .background).async {
+                DispatchQueue.main.asyncAfter(deadline: .now() + self.baseAnimDuration) {
+                    self.doAnimation(anim: m.imgAnim!, view: self.leftImageView)
+                }
+            }
         }
         if m.text != nil {
             let label = self.makeLabel(text: m.text!, left: true)
@@ -233,7 +237,11 @@ class StorySequencePlayer: UIView {
             moveImage(pos: m.position!, view: rightImageView, left: false)
         }
         if m.imgAnim != nil {
-
+            DispatchQueue.global(qos: .background).async {
+                DispatchQueue.main.asyncAfter(deadline: .now() + self.baseAnimDuration) {
+                    self.doAnimation(anim: m.imgAnim!, view: self.rightImageView)
+                }
+            }
         }
         if m.text != nil {
             let label = self.makeLabel(text: m.text!, left: false)
@@ -371,7 +379,7 @@ class StorySequencePlayer: UIView {
     }
 
     // determine x position and animate moving the imageView
-    private func moveImage(pos: StorySequence.StorySequenceImagePosition, view: UIImageView, left: Bool) {
+    private func moveImage(pos: StorySequence.ImagePosition, view: UIImageView, left: Bool) {
         var x: CGFloat
 
         switch pos {
@@ -435,12 +443,46 @@ class StorySequencePlayer: UIView {
         }
     }
 
-//    private func playSound (fileName: String?, volume: Float?) {
-//        guard let sound = fileName else { return }
-//        guard let player = self.soundPlayer else { return }
-//        let vol = (volume != nil) ? volume : 1
-//        player.playSound(sound, vol!)
-//    }
+    private func doAnimation(anim: StorySequence.ImageAnimation, view: UIView) {
+        switch anim {
+        case .shake:
+            animateShake(view)
+        }
+    }
+
+    private func animateShake(_ view: UIView) {
+        // store origin as the reference
+        let x = view.frame.origin.x
+        // duration of the entire animation event
+        let dur: Double = 0.4
+        // target x positions in reference to the origin
+        let keys = [10, -10, 7, -7, 4, -4, 1, -1]
+        // duration of a single animation event
+        let oneDur = dur / Double(keys.count)
+        // loop through keys and animate to each in turn
+        for i in 0..<keys.count {
+            // delay each animation by an appropriate amount so they happen consecutively
+            let thisDur = oneDur * Double(i + 1)
+            DispatchQueue.global(qos: .background).async {
+                DispatchQueue.main.asyncAfter(deadline: .now() + thisDur) {
+                    UIView.animate(withDuration: oneDur,
+                                   delay: 0,
+                                   usingSpringWithDamping: 0.5,
+                                   initialSpringVelocity: 10,
+                                   options: .curveEaseOut,
+                                   animations: {
+                                       view.frame.origin.x = x + CGFloat(keys[i])
+                                   })
+                }
+            }
+        }
+        // reset to original x after the animation is over
+        DispatchQueue.global(qos: .background).async {
+            DispatchQueue.main.asyncAfter(deadline: .now() + dur) {
+                view.frame.origin.x = x
+            }
+        }
+    }
 
     /* *******************************
      MARK: Public Class Methods
