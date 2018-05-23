@@ -148,7 +148,7 @@ struct Animate {
         - view: UIView
         - keys: Array<Double>? - An array describing points to move to along the x-axis in reference to the x origin. A `nil` value will use a predefined shake animation.
      */
-    // DOES NOT WORK CORRECTLY ON IMAGES NOT AT ORIGIN 0 
+    // DOES NOT WORK CORRECTLY ON IMAGES NOT AT ORIGIN 0
     func shake(_ view: UIView, _ keys: Array<Double>?) {
         // store origin as the reference
         let x = view.frame.origin.x
