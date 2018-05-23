@@ -26,6 +26,9 @@ struct StorySequence {
                          scared: "test_image2_scared",
                          talking: "test_image2_talking",
                          upset: "test_image2_upset")
+        
+        let misc = (dataExample: "test_data_example",
+                    empty: "")
     }
 
     struct Sounds {

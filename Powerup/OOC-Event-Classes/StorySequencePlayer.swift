@@ -81,8 +81,10 @@ class StorySequencePlayer: UIView {
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.asyncAfter(deadline: .now() + self.baseAnimDuration) {
                 self.checkCurrentStep()
+                let file = StorySequence.Sounds().files[self.scenarioID]?.intro
+                guard let sound = file else { return }
                 self.soundPlayer.numberOfLoops = -1
-                self.soundPlayer.playSound((StorySequence.Sounds().files[self.scenarioID]?.intro)!, 1)
+                self.soundPlayer.playSound(sound, 0.1)
             }
         }
     }
@@ -201,6 +203,9 @@ class StorySequencePlayer: UIView {
         }
     }
 
+    /**
+     Important: Should handle alpha for left and right text at the same time. Right now it'll fade the left text since it reads left to right and fades all text other than the latest.
+    */
     private func updateLeftSide() {
         guard let m = model.steps[currentStep]!.lftEvent else { return }
         if m.image != nil {

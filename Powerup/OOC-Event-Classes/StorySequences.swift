@@ -29,6 +29,7 @@ let introStorySequences: Dictionary<Int, StorySequence> = [
 // calling .dismiss in the pos property hides *and* releases the image from the imageView
 private let testChar = StorySequence.Images().testChar
 private let testChar2 = StorySequence.Images().testChar2
+private let misc = StorySequence.Images().misc
 private let home: StorySequence = StorySequence([
     0: StorySequence.Step(lftEvent: StorySequence.Event(txt: "Hey, this is an intro sequence!",
                                                         img: testChar.normal,
@@ -51,14 +52,14 @@ private let home: StorySequence = StorySequence([
                                                         pos: nil,
                                                         ani: nil)
     ),
-    3: StorySequence.Step(lftEvent: StorySequence.Event(txt: "You describe it in a model of steps and events. Passing nil to a side just leaves everything alone.",
+    3: StorySequence.Step(lftEvent: StorySequence.Event(txt: "You describe it in a model of steps and events. Passing nil to a value tells it to stay the same.",
                                                         img: testChar.talking,
                                                         pos: .near,
                                                         ani: nil),
                           rgtEvent: nil
     ),
     4: StorySequence.Step(lftEvent: nil,
-                          rgtEvent: StorySequence.Event(txt: "See? The left side didn't change!",
+                          rgtEvent: StorySequence.Event(txt: "See? The left image didn't move or change!",
                                                         img: testChar2.scared,
                                                         pos: .far,
                                                         ani: nil)
@@ -72,10 +73,46 @@ private let home: StorySequence = StorySequence([
                                                         pos: .hidden,
                                                         ani: nil)
     ),
-    6: StorySequence.Step(lftEvent: StorySequence.Event(txt: "Surprise!",
+    6: StorySequence.Step(lftEvent: StorySequence.Event(txt: "A `StorySequence` is just a collection of `Steps`!",
                                                         img: testChar.normal,
                                                         pos: .far,
                                                         ani: nil),
                           rgtEvent: nil
+    ),
+    7: StorySequence.Step(lftEvent: StorySequence.Event(txt: "This is what the data looks like for a single step. It's two events, left and right.",
+                                                        img: testChar.scared,
+                                                        pos: .mid,
+                                                        ani: nil),
+                          rgtEvent: StorySequence.Event(txt: nil,
+                                                        img: misc.dataExample,
+                                                        pos: .near,
+                                                        ani: nil)
+    ),
+    8: StorySequence.Step(lftEvent: StorySequence.Event(txt: nil,
+                                                        img: testChar.normal,
+                                                        pos: .near,
+                                                        ani: nil),
+                          rgtEvent: StorySequence.Event(txt: "It's not that bad!",
+                                                        img: nil,
+                                                        pos: .far,
+                                                        ani: nil)
+    ),
+    9: StorySequence.Step(lftEvent: StorySequence.Event(txt: "Oh yea! The text fades out and is released when it reaches the edge.",
+                                                        img: testChar.talking,
+                                                        pos: .near,
+                                                        ani: nil),
+                          rgtEvent: StorySequence.Event(txt: nil,
+                                                        img: nil,
+                                                        pos: .hidden,
+                                                        ani: nil)
+    ),
+    10: StorySequence.Step(lftEvent: StorySequence.Event(txt: "But that's it for now! Thanks for listening!",
+                                                         img: testChar.normal,
+                                                         pos: .mid,
+                                                         ani: nil),
+                           rgtEvent: StorySequence.Event(txt: nil,
+                                                         img: "minesweeper_abstinence_heart",
+                                                         pos: .far,
+                                                         ani: nil)
     )
 ])
