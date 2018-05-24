@@ -329,7 +329,9 @@ class Animate {
      This animation is different from `.translate(by:)`. It moves the center of the view frame.
      */
     @discardableResult func move(by: Array<CGFloat>, then: Completion? = nil) -> Animate {
-        if !moved { moved = true }
+        if !moved {
+            moved = true
+        }
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.async {
                 UIView.animate(withDuration: self.dur,
