@@ -48,7 +48,7 @@ class Animate {
 
     /**
      Set the options for all animations.
-     
+
      See `UIView.animate(options: UIViewAnimationOptions)` for more information.
      */
     @discardableResult func setOptions(_ options: UIViewAnimationOptions) -> Animate {
@@ -58,7 +58,7 @@ class Animate {
 
     /**
      Set the spring damping and velocity for all animations.
-     
+
      See `UIView.animate(usingSpringWithDamping:)` and `UIView.animate(initialSpringVelocity:)` for more information.
      */
     @discardableResult func setSpring(_ damping: CGFloat, _ velocity: CGFloat) -> Animate {
@@ -101,7 +101,7 @@ class Animate {
 
     /**
      Cancel current animations on the view layer. The transform does not reset.
-     
+
      - parameters:
          - then: Nullable completion handler, executed after the duration of the animation.
      */
@@ -117,7 +117,7 @@ class Animate {
 
     /**
      Chainable wait function.
-     
+
      - parameters:
          - asec: Time in seconds to wait.
          - then: Nullable completion handler, executed after the duration of the animation.
@@ -133,7 +133,7 @@ class Animate {
 
     /**
      Invert the view layers current transform. No change if the transform is already its identity.
-     
+
      - parameters:
          - then: Nullable completion handler, executed after the duration of the animation.
      */
@@ -174,15 +174,14 @@ class Animate {
 
     /**
      Shaking animation.
-     
+
      - parameters:
         - vertical: If `true`, the animation will be a vertical shake, else it will be a horizontal shake. Default `false`.
             - keys: An array describing points to move to along a single axis in reference to the origin. Passing `nil` to this parameter will use a default shake animation.
             - then: Nullable completion handler, executed after the duration of the animation.
-     
+
      - Important: Uses `Animate().translate`, so be aware if applying this animation along with an `Animate().rotate` transform.
-     
-     
+
      not affected by now()
      */
     @discardableResult func shake(vertical: Bool? = nil, keys: Array<Double>? = nil, then: (() -> ())? = nil) -> Animate {
@@ -227,7 +226,7 @@ class Animate {
 
     /**
      Flip animation.
-     
+
      - parameters:
          - vertical: If `true`, the animation will be a vertical flip, else it will be a horizontal flip. Default `false`.
          - then: Nullable completion handler, executed after the duration of the animation.
@@ -256,7 +255,7 @@ class Animate {
 
     /**
      Jiggle animation.
-     
+
      - parameters:
          - amount: The maximum size to which the view can be jiggled. Default `1.08`.
          - times: The number of times the view should jiggle. Default `7`.
@@ -356,15 +355,15 @@ class Animate {
 
     /**
      Translate the view layer **to point [x, y]** in relation to the layer origin.
-     
+
      This will reset all other transforms on the layer.
-     
+
      - parameters:
          - to: An array consisting of two `CGFloat`, ordered as `[x, y]`. This represents a point in relation to the view layers origin **to which** the layer is translated. This functions differently from `.move(to:)`.
          - then: Nullable completion handler, executed after the duration of the animation.
 
      This animation is different from `.move(to:)`. It is a transform on the view layer and does not change the actual frame location.
-     
+
      - Important: `.translate` does not work as you might expect when combined with `.rotate` transform. Use `.move(by:)` if you need to chain animations that move and rotate.
      */
     @discardableResult func translate(to: Array<CGFloat>, then: Completion? = nil) -> Animate {
@@ -390,13 +389,13 @@ class Animate {
 
     /**
      Translate the view layer **by [x, y] amount** in relation to the layers current position.
-     
+
      - parameters:
          - by: An array consisting of two `CGFloat`, ordered as `[x, y]`. This represents a point in relation to the view layers origin to which the layer is translated.
          - then: Nullable completion handler, executed after the duration of the animation.
-     
+
      This animation is different from `.move(by:)`. It is a transform on the view layer and does not change the actual frame location.
-     
+
      - Important: `.translate` does not work as you might expect when combined with `.rotate` transform. Use `.move(by:)` if you need to chain animations that move and rotate.
      */
     @discardableResult func translate(by: Array<CGFloat>, then: Completion? = nil) -> Animate {
@@ -425,13 +424,13 @@ class Animate {
      ******************************* */
     /**
      Uniformly scale the view layer **to an amount** in relation to its original size.
-     
+
      Using this animation will reset any other transforms.
-     
+
      - parameters:
          - to: Amount to which the view layer is scaled. `1.0` will always be the original size.
          - then: Nullable completion handler, executed after the duration of the animation.
-     
+
      - Important: `.scale(to:)` values are in relation to the original scale. `.scale(to: 1.5)` would scale a view to 150% its original size, and `.scale(to: 1)` would then scale it back to it's original size.
      */
     @discardableResult func scale(to: CGFloat, then: Completion? = nil) -> Animate {
@@ -455,11 +454,11 @@ class Animate {
 
     /**
      Uniformly scale the view layer **by an amount** in relation to its current transform.
-     
+
      - parameters:
          - by: Amount by which the view layer is scaled. `1.0` will always be no change.
          - then: Nullable completion handler, executed after the duration of the animation.
-     
+
      - Important: `.scale(by:)` values are in relation to the current scale, which is always represented as `1.0`. If you scale to `1.5`, then try to scale to `1.0` there would be no change. To more easily calculate values for `.scale(by:)`, you could use fractions instead of decimals. Scale to `3/2` to increase size by 50%, then scale to `2/3` to get back to the original size.
      */
     @discardableResult func scale(by: CGFloat, then: Completion? = nil) -> Animate {
@@ -486,13 +485,13 @@ class Animate {
      ******************************* */
     /**
      Rotate the view layer around its center point, **to an angle in degrees** in relation to its origin.
-     
+
      Using this animation will reset any other transforms.
-     
+
      - parameters:
          - to: Rotate the view layer to this angle in degrees. Positive or negative determines direction.
          - then: Nullable completion handler, executed after the duration of the animation.
-     
+
      - Important: `.translate` does not work as you might expect when combined with `.rotate` transform. Use `.move(by:)` if you need to chain animations that move and rotate.
      */
     @discardableResult func rotate(to: Double, then: Completion? = nil) -> Animate {
@@ -517,11 +516,11 @@ class Animate {
 
     /**
      Rotate the view layer around its center point, **by an amount in degrees** in relation to its current transform.
-     
+
      - parameters:
          - by: Rotate the view layer by this amount in degrees. Positive or negative determines direction.
          - then: Nullable completion handler, executed after the duration of the animation.
-     
+
      - Important: `.translate` does not work as you might expect when combined with `.rotate` transform. Use `.move(by:)` if you need to chain animations that move and rotate.
      */
     @discardableResult func rotate(by: Double, then: Completion? = nil) -> Animate {
@@ -549,7 +548,7 @@ class Animate {
      ******************************* */
     /**
      Animates the view layer and frame back to its original state.
-     
+
      - parameters:
         - then: Nullable completion handler, executed after the duration of the animation.
      */
