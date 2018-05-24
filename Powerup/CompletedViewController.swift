@@ -55,7 +55,7 @@ class CompletedViewController: UIViewController,SegueHandler {
         case .unwindToStartView?:
             break
         case .none:
-            assertionFailure("Did not recognize segue identifier \(segue.identifier)")
+            assertionFailure("Did not recognize segue identifier \(segue.identifier!)")
       }
         
     }
