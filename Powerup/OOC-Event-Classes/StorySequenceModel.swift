@@ -49,6 +49,8 @@ struct StorySequence {
         case shake
         case tiltLeft
         case tiltRight
+        case jiggle
+        case flip
     }
 
     /**
@@ -84,4 +86,5 @@ struct StorySequence {
     init(_ steps: Dictionary<Int, Step>) {
         self.steps = steps
     }
+
 }

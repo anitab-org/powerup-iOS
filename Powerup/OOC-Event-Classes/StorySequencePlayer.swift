@@ -193,8 +193,8 @@ class StorySequencePlayer: UIView {
         updateLeftSide()
         updateRightSide()
 
-        // wait 50% longer than the baseAnimDuration
-        let dur = baseAnimDuration + (baseAnimDuration / 2)
+        // wait double the baseAnimDuration
+        let dur = baseAnimDuration * 2 //+ (baseAnimDuration / 2)
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.asyncAfter(deadline: .now() + dur) {
                 self.canTap = true
@@ -349,15 +349,16 @@ class StorySequencePlayer: UIView {
      Important: I don't know if I like the fade mechanics. It might be ok to just switch them instantly.
      */
     private func changeImage(imageView: UIImageView, image: String) {
-        let duration = 0.05
-        fadeAlpha(view: imageView, alpha: 0.5, duration: duration, then: {
-            DispatchQueue.global(qos: .background).async {
-                DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
-                    imageView.image = UIImage(named: image)
-                    self.fadeAlpha(view: imageView, alpha: 1, duration: duration, then: nil)
-                }
-            }
-        })
+        imageView.image = UIImage(named: image)
+//        let duration = 0.05
+//        fadeAlpha(view: imageView, alpha: 0.5, duration: duration, then: {
+//            DispatchQueue.global(qos: .background).async {
+//                DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
+//                    imageView.image = UIImage(named: image)
+//                    self.fadeAlpha(view: imageView, alpha: 1, duration: duration, then: nil)
+//                }
+//            }
+//        })
     }
 
     // fade view with completion handler
@@ -404,6 +405,7 @@ class StorySequencePlayer: UIView {
                                options: .curveEaseIn,
                                animations: {
                                    view.frame.origin.x = x
+                                   //print("moved to \(view.frame.origin.x)")
                                }, completion: { (finished: Bool) in
 
                                })
@@ -444,17 +446,21 @@ class StorySequencePlayer: UIView {
     }
 
     private func doAnimation(anim: StorySequence.ImageAnimation, view: UIView) {
+        let duration = 0.4
         let tiltDuration = 0.7
-        
         switch anim {
         case .shake:
-            Animate().shake(view, nil)
+            Animate(view, duration).shake()
         case .tiltLeft:
-            Animate().tilt(view: view, degrees: -30, duration: tiltDuration)
-            Animate().translate(view: view, x: 0, y: 8, duration: tiltDuration)
+            Animate(view, tiltDuration).tilt(degrees: -30)
         case .tiltRight:
-            Animate().tilt(view: view, degrees: 30, duration: tiltDuration)
-            Animate().translate(view: view, x: 0, y: 8, duration: tiltDuration)
+            Animate(view, tiltDuration).tilt(degrees: 30)
+        case .jiggle:
+            Animate(view, duration).jiggle()
+        case .flip:
+            Animate(view, duration / 2).flip(then: {
+                Animate(view, duration / 2).flip()
+            })
         }
     }
 
@@ -477,6 +483,7 @@ class StorySequencePlayer: UIView {
                            self.delegate?.sequenceDidFinish(sender: self)
                        })
     }
+
 }
 
 /* *******************************

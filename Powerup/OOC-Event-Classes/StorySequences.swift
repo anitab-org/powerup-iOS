@@ -1,10 +1,3 @@
-//
-//  StorySequences.swift
-//  Powerup
-//
-//  Created by KD on 5/15/18.
-//  Copyright © 2018 Systers. All rights reserved.
-//
 
 import Foundation
 
@@ -48,16 +41,16 @@ private let home: StorySequence = StorySequence([
     2: StorySequence.Step(lftEvent: StorySequence.Event(txt: "The images can move to different positions.",
                                                         img: nil,
                                                         pos: pos.mid,
-                                                        ani: ani.shake),
+                                                        ani: ani.tiltRight),
                           rgtEvent: StorySequence.Event(txt: nil,
                                                         img: testChar2.upset,
                                                         pos: nil,
-                                                        ani: nil)
+                                                        ani: ani.jiggle)
     ),
     3: StorySequence.Step(lftEvent: StorySequence.Event(txt: "You describe it in a model of steps and events. Passing nil to a value tells it to stay the same.",
                                                         img: testChar.talking,
                                                         pos: pos.near,
-                                                        ani: nil),
+                                                        ani: ani.flip),
                           rgtEvent: nil
     ),
     4: StorySequence.Step(lftEvent: nil,
