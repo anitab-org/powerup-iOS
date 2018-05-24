@@ -9,7 +9,7 @@ struct StorySequence {
 
     /**
      Struct containing descriptions of each character and the different types of images available.
-     
+
      As new scenes are added, this static data should be updated. Each character should be represented as a descriptive constant, and should reference a tuple describing the images and referencing their file name.
      
      Thanks to autocompletion, this makes it much easier to create and maintain StorySequence models rather than using just strings.
