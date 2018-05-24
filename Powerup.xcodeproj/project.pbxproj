@@ -36,6 +36,7 @@
 		6A69DC9720AB38BD006511E3 /* PopupEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A69DC9620AB38BD006511E3 /* PopupEvents.swift */; };
 		6A69DC9E20ABCA0A006511E3 /* Sounds.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A69DC9D20ABCA0A006511E3 /* Sounds.xcassets */; };
 		6A7B854120A9F51100EBFEEB /* mainDatabaseDev.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 6A7B854020A9F51100EBFEEB /* mainDatabaseDev.sqlite */; };
+		6A9A4A1A20B51DE500FFC5AA /* Animate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A4A1920B51DE500FFC5AA /* Animate.swift */; };
 		D910FF191F04AB3200C444DA /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF181F04AB3200C444DA /* DataSource.swift */; };
 		D910FF1F1F04DD4F00C444DA /* ResultViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF1E1F04DD4F00C444DA /* ResultViewControllerTests.swift */; };
 		D910FF211F05E22400C444DA /* ScenarioViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF201F05E22400C444DA /* ScenarioViewControllerTests.swift */; };
@@ -136,6 +137,7 @@
 		6A69DC9620AB38BD006511E3 /* PopupEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupEvents.swift; sourceTree = "<group>"; };
 		6A69DC9D20ABCA0A006511E3 /* Sounds.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Sounds.xcassets; sourceTree = "<group>"; };
 		6A7B854020A9F51100EBFEEB /* mainDatabaseDev.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = mainDatabaseDev.sqlite; path = Scenarios/mainDatabaseDev.sqlite; sourceTree = "<group>"; };
+		6A9A4A1920B51DE500FFC5AA /* Animate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animate.swift; sourceTree = "<group>"; };
 		D910FF181F04AB3200C444DA /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		D910FF1E1F04DD4F00C444DA /* ResultViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewControllerTests.swift; sourceTree = "<group>"; };
 		D910FF201F05E22400C444DA /* ScenarioViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioViewControllerTests.swift; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 				6A69DC9020AB3892006511E3 /* StorySequenceModel.swift */,
 				6A69DC9420AB38B4006511E3 /* StorySequences.swift */,
 				6A29A3F120AC9CAC00DABACE /* SoundPlayer.swift */,
+				6A9A4A1920B51DE500FFC5AA /* Animate.swift */,
 			);
 			path = "OOC-Event-Classes";
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				D959CBC71EE6430E00C31753 /* Answer.swift in Sources */,
 				2A8D2E071D17CDF700154F98 /* ShopViewController.swift in Sources */,
 				D9AAA9C61EF2481900287A79 /* GuessingBox.swift in Sources */,
+				6A9A4A1A20B51DE500FFC5AA /* Animate.swift in Sources */,
 				D9D10A401EE130BD003584F4 /* ResultsViewController.swift in Sources */,
 				D959CBCD1EE6489100C31753 /* Scenario.swift in Sources */,
 				D969D26C1EE8F36200A5133F /* FMResultSetNullCheckExtension.swift in Sources */,
