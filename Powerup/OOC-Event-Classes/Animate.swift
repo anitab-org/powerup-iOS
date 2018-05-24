@@ -2,9 +2,8 @@ import UIKit
 
 /**
  Class for creating animations. It's designed so you can chain together animation 'sentences' using self-returning functions and completion handlers.
- 
   - Author: Cadence Holmes
- 
+
  ```
  Animate(view, duration).setOptions(.curveLinear).rotate(to: 90)
  ```
@@ -291,15 +290,17 @@ class Animate {
      ******************************* */
     /**
      Move the view center **to point [x, y]** in the superviews space.
-     
+
      - parameters:
          - to: An array consisting of two `CGFloat`, ordered as `[x, y]`. This is the point to which the center is moved. This functions differently from `.translate(to:)`.
          - then: Nullable completion handler, executed after the duration of the animation.
-     
+
      This animation is different from `.translate(to:)`. It moves the center of the view frame.
      */
     @discardableResult func move(to: Array<CGFloat>, then: Completion? = nil) -> Animate {
-        if !moved { moved = true }
+        if !moved {
+            moved = true
+        }
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.async {
                 UIView.animate(withDuration: self.dur,
@@ -321,11 +322,11 @@ class Animate {
 
     /**
      Move the view center **by this amount [x, y]** in relation to the current view center.
-     
+
      - parameters:
          - by: An array consisting of two `CGFloat`, ordered as `[x, y]`. This is the amount by which the center is moved.
          - then: Nullable completion handler, executed after the duration of the animation.
-     
+
      This animation is different from `.translate(by:)`. It moves the center of the view frame.
      */
     @discardableResult func move(by: Array<CGFloat>, then: Completion? = nil) -> Animate {
