@@ -1,11 +1,3 @@
-//
-//  StorySequencePlayer.swift
-//  Powerup
-//
-//  Created by KD on 5/15/18.
-//  Copyright © 2018 Systers. All rights reserved.
-//
-
 import UIKit
 
 class StorySequencePlayer: UIView {
@@ -194,7 +186,7 @@ class StorySequencePlayer: UIView {
         updateRightSide()
 
         // wait double the baseAnimDuration
-        let dur = baseAnimDuration * 2 //+ (baseAnimDuration / 2)
+        let dur = baseAnimDuration * 2
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.asyncAfter(deadline: .now() + dur) {
                 self.canTap = true
@@ -405,7 +397,6 @@ class StorySequencePlayer: UIView {
                                options: .curveEaseIn,
                                animations: {
                                    view.frame.origin.x = x
-                                   //print("moved to \(view.frame.origin.x)")
                                }, completion: { (finished: Bool) in
 
                                })

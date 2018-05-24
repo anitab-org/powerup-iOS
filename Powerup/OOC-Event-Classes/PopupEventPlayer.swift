@@ -20,14 +20,14 @@ class PopupEventPlayer: UIView {
         height: CGFloat
     var useSound: Bool
 
-    var bgColor: UIColor //{ didSet { updateContainer() } }
-    var borderColor: UIColor //{ didSet { updateContainer() } }
-    var textColor: UIColor //{ didSet { updateLabels() } }
+    var bgColor: UIColor // { didSet { updateContainer() } }
+    var borderColor: UIColor // { didSet { updateContainer() } }
+    var textColor: UIColor // { didSet { updateLabels() } }
 
-    var mainText: String? //{ didSet { updateMainLabel() } }
-    var subText: String? //{ didSet { updateSubLabel() } }
+    var mainText: String? // { didSet { updateMainLabel() } }
+    var subText: String? // { didSet { updateSubLabel() } }
 
-    var image: UIImage? //{ didSet { updateImageView() } }
+    var image: UIImage? // { didSet { updateImageView() } }
 
     var container: UIView,
         mainLabel: UILabel,
@@ -325,7 +325,6 @@ class PopupEventPlayer: UIView {
                                options: .curveEaseOut,
                                animations: {
                                    self.container.frame.origin.x = x
-                                   //self.container.frame = CGRect(x: x, y: 10, width: self.width, height: self.height)
                                    self.playSound(fileName: sound, volume: volume)
                                }, completion: { (finished: Bool) in
                                    if self.image != nil {
