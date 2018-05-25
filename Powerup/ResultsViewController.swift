@@ -148,7 +148,7 @@ class ResultsViewController: UIViewController, SegueHandler {
         case .unwindToMapView?:
             break
         case .none:
-            assertionFailure("Did not recognize segue identifier \(segue.identifier)")
+            assertionFailure("Did not recognize segue identifier \(segue.identifier!)")
         }
     }
 
