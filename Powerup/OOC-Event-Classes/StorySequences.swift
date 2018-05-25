@@ -26,14 +26,14 @@ private let testChar2 = StorySequence.Images().testChar2
 private let misc = StorySequence.Images().misc
 private let home: StorySequence = StorySequence([
     0: StorySequence.Step(lftEvent: StorySequence.Event(txt: "Hey, this is an intro sequence!",
-                                                        img: testChar.normal,
+                                                        img: testChar.happy,
                                                         pos: pos.near,
                                                         ani: ani.shake),
                           rgtEvent: nil
     ),
     1: StorySequence.Step(lftEvent: nil,
                           rgtEvent: StorySequence.Event(txt: "You can change the images in each step, and each side is independent.",
-                                                        img: testChar2.sad,
+                                                        img: testChar2.normal,
                                                         pos: pos.near,
                                                         ani: ani.tiltLeft)
     ),

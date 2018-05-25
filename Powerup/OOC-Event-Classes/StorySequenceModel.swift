@@ -15,17 +15,29 @@ struct StorySequence {
      Thanks to autocompletion, this makes it much easier to create and maintain StorySequence models rather than using just strings.
      */
     struct Images {
-        let testChar = (normal: "test_image_normal",
-                        sad: "test_image_sad",
-                        scared: "test_image_scared",
-                        talking: "test_image_talking",
-                        upset: "test_image_upset")
+        let testChar = (normal: "test_chibi_normal",
+                        happy: "test_chibi_happy",
+                        smiling: "test_chibi_smiling",
+                        talking: "test_chibi_talking",
+                        lecturing: "test_chibi_lecturing",
+                        sad: "test_chibi_sad",
+                        scared: "test_chibi_scared",
+                        upset: "test_chibi_upset",
+                        dazed: "test_chibi_dazed",
+                        whatever: "test_chibi_whatever",
+                        tired: "test_chibi_tired")
 
-        let testChar2 = (normal: "test_image2_normal",
-                         sad: "test_image2_sad",
-                         scared: "test_image2_scared",
-                         talking: "test_image2_talking",
-                         upset: "test_image2_upset")
+        let testChar2 = (normal: "test2_chibi_normal",
+                         happy: "test2_chibi_happy",
+                         smiling: "test2_chibi_smiling",
+                         talking: "test2_chibi_talking",
+                         lecturing: "test2_chibi_lecturing",
+                         sad: "test2_chibi_sad",
+                         scared: "test2_chibi_scared",
+                         upset: "test2_chibi_upset",
+                         dazed: "test2_chibi_dazed",
+                         whatever: "test2_chibi_whatever",
+                         tired: "test2_chibi_tired")
 
         let misc = (dataExample: "test_data_example",
                     empty: "")
