@@ -113,6 +113,9 @@ class StorySequencePlayer: UIView {
         leftImageView.contentMode = .scaleAspectFit
         rightImageView.contentMode = .scaleAspectFit
 
+        leftImageView.isOpaque = true
+        rightImageView.isOpaque = true
+
         imgMid = (imageViewContainer.bounds.width / 4) - (imageWidth / 2)
         imgFar = (imageViewContainer.bounds.width / 2) - imageWidth
 
