@@ -57,7 +57,6 @@ class CompletedViewController: UIViewController, SegueHandler {
         case .none:
             assertionFailure("Did not recognize segue identifier \(segue.identifier!)")
         }
-
     }
 
 }
