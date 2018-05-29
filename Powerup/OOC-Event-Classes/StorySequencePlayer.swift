@@ -24,7 +24,6 @@ class StorySequencePlayer: UIView {
         imgMid: CGFloat,
         imgFar: CGFloat
 
-    var scenarioID: Int
     var soundPlayer: SoundPlayer = SoundPlayer()
 
     private var canTap: Bool
@@ -37,7 +36,7 @@ class StorySequencePlayer: UIView {
     }
 
     override init(frame: CGRect) {
-        self.model = StorySequence([:])
+        self.model = StorySequence(music: nil, [:])
         self.textContainer = UIView(frame: CGRect.zero)
         self.imageViewContainer = UIView(frame: CGRect.zero)
         self.leftImageView = UIImageView(frame: CGRect.zero)
@@ -51,8 +50,6 @@ class StorySequencePlayer: UIView {
         self.imgMid = 0
         self.imgFar = 0
 
-        self.scenarioID = 0
-
         super.init(frame: frame)
 
         let margin: CGFloat = 10
@@ -64,17 +61,16 @@ class StorySequencePlayer: UIView {
         addTapGesture()
     }
 
-    convenience init(delegate: StorySequencePlayerDelegate, model: StorySequence, scenarioID: Int) {
+    convenience init(delegate: StorySequencePlayerDelegate, model: StorySequence) {
         self.init(frame: UIScreen.main.bounds)
 
-        self.scenarioID = scenarioID
         self.delegate = delegate
         self.model = model
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.asyncAfter(deadline: .now() + self.baseAnimDuration) {
                 self.checkCurrentStep()
-                let file = StorySequence.Sounds().files[self.scenarioID]?.intro
-                guard let sound = file else { return }
+                let soundFile = self.model.music
+                guard let sound = soundFile else { return }
                 self.soundPlayer.numberOfLoops = -1
                 self.soundPlayer.playSound(sound, 0.1)
             }

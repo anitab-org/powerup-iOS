@@ -28,7 +28,7 @@ private let ani = StorySequence.ImageAnimation.self
 private let testChar = StorySequence.Images().testChar
 private let testChar2 = StorySequence.Images().testChar2
 private let misc = StorySequence.Images().misc
-private let home: StorySequence = StorySequence([
+private let home: StorySequence = StorySequence(music: Sounds().scenarioMusic[5]?.intro, [
     0: StorySequence.Step(lftEvent: StorySequence.Event(txt: "Hey, this is an intro sequence!",
                                                         img: testChar.happy,
                                                         pos: pos.near,
