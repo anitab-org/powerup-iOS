@@ -161,35 +161,37 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     // MARK: OOC Event Functions
     /**
      Handle starting sequences - opens as an overlay on top of the initial view. Checks if an intro sequence exists for the current scenarioID. Returns if not, otherwise creates an instance of StorySequencePlayer.
-     
+
      Called in viewDidLoad().
      */
     func startSequence() {
         print("\nbegin opening sequence")
 
-        // can be nil, so guard, if it is nil then return, else create the view
-        let retrievedModel = introStorySequences[scenarioID]
-        guard let model = retrievedModel else { return }
-        // at this point we know a model exists and that it is a proper model (see StorySequenceModel.swift)
+        guard let model = StorySequences().intros[scenarioID] else { return }
         let sequenceView: StorySequencePlayer = StorySequencePlayer(delegate: self, model: model, scenarioID: scenarioID)
         self.view.addSubview(sequenceView)
     }
 
     /**
      Handles calling popup events. The logic is:
-        - check if the ID number can be cast to an Int
-        - If > 0 create an instance of PopupEventPlayer and add to self.view subviews
-        - If < 0 call the method to handle scenario ending sequences
-        - If it's not an Int, return
-     
+     - check if popups exist for the scenario ID
+     - check if the ID number can be cast to an Int
+     - If > 0 check for and retrieve the model
+     - then create an instance of PopupEventPlayer and add to self.view
+     - If < 0 call the method to handle scenario ending sequences
+     - If it's not an Int, return
+
      - parameters:
-        - idNumber : String - the popupID property from the retrieved Answer
-     
+     - idNumber : String - the popupID property from the retrieved Answer
+
      The PopupEventPlayer class handles the entire popup lifecycle. This function only needs to creates a local instance of the class.
-    */
+     */
     func handlePopupEvent(idNumber: String) {
         // type check the idNumber String - if it's not an integer, ignore it
         print("\nhandlePopupEvent() with ID: " + idNumber)
+
+        // check for and retrieve popups for the current scenario
+        guard let popups = PopupEvents().scenarioPopups[scenarioID] else { return }
 
         if let popupID = Int(idNumber) {
             // if it's an Int...
@@ -197,7 +199,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
                 // if it's positive, show inline popup
 
                 // get the correct model as per popupID
-                guard let model: PopupEventPlayer.Event = popupEvents[popupID] else { return }
+                guard let model: PopupEvent = popups[popupID] else { return }
 
                 /* manual test events */
                 /* positive int, but no corresponding model event : don't show a popup, but also don't crash ^^ */

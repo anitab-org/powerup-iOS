@@ -37,6 +37,7 @@
 		6A69DC9E20ABCA0A006511E3 /* Sounds.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A69DC9D20ABCA0A006511E3 /* Sounds.xcassets */; };
 		6A7B854120A9F51100EBFEEB /* mainDatabaseDev.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 6A7B854020A9F51100EBFEEB /* mainDatabaseDev.sqlite */; };
 		6A9353E520BD131700A6D196 /* PowerupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9353E420BD131700A6D196 /* PowerupUITests.swift */; };
+		6A9353ED20BD14C500A6D196 /* PopupEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9353EC20BD14C500A6D196 /* PopupEventModel.swift */; };
 		6A9A4A1A20B51DE500FFC5AA /* Animate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A4A1920B51DE500FFC5AA /* Animate.swift */; };
 		D910FF191F04AB3200C444DA /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF181F04AB3200C444DA /* DataSource.swift */; };
 		D910FF1F1F04DD4F00C444DA /* ResultViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910FF1E1F04DD4F00C444DA /* ResultViewControllerTests.swift */; };
@@ -148,6 +149,7 @@
 		6A9353E220BD131700A6D196 /* PowerupUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PowerupUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A9353E420BD131700A6D196 /* PowerupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerupUITests.swift; sourceTree = "<group>"; };
 		6A9353E620BD131700A6D196 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A9353EC20BD14C500A6D196 /* PopupEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupEventModel.swift; sourceTree = "<group>"; };
 		6A9A4A1920B51DE500FFC5AA /* Animate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animate.swift; sourceTree = "<group>"; };
 		D910FF181F04AB3200C444DA /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		D910FF1E1F04DD4F00C444DA /* ResultViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewControllerTests.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				6A69DC8E20AB3881006511E3 /* PopupEventPlayer.swift */,
+				6A9353EC20BD14C500A6D196 /* PopupEventModel.swift */,
 				6A69DC9620AB38BD006511E3 /* PopupEvents.swift */,
 				6A69DC8C20AB386B006511E3 /* StorySequencePlayer.swift */,
 				6A69DC9020AB3892006511E3 /* StorySequenceModel.swift */,
@@ -576,6 +579,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BB66DBF2055D5D800DE3B9C /* SegueHandler.swift in Sources */,
+				6A9353ED20BD14C500A6D196 /* PopupEventModel.swift in Sources */,
 				5BD864812046F61900004B39 /* Strings.swift in Sources */,
 				2A2A4DB71B373C5B00D50860 /* StartViewController.swift in Sources */,
 				D9E74B7B1F1F14ED00A42B7E /* VocabMatchingClipboard.swift in Sources */,

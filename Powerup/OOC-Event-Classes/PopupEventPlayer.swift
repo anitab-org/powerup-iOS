@@ -4,20 +4,20 @@ import AVFoundation
 /**
  Handles the entire popup lifecycle. Owns all popup views, media, and interactions.
  - Author: Cadence Holmes
-*/
+ */
 class PopupEventPlayer: UIView {
     /* *******************************
-    MARK: Properties
-    ******************************* */
+     MARK: Properties
+     ******************************* */
     weak var delegate: PopupEventPlayerDelegate?
 
     let angleSize: CGFloat = 0.1,
-        slideAnimDuration: Double = 0.5,
-        popupDuration: Double = 5.0,
-        fontName: String = "Montserrat-Bold"
+    slideAnimDuration: Double = 0.5,
+    popupDuration: Double = 5.0,
+    fontName: String = "Montserrat-Bold"
 
     var width: CGFloat,
-        height: CGFloat
+    height: CGFloat
     var useSound: Bool
 
     var bgColor: UIColor // { didSet { updateContainer() } }
@@ -30,9 +30,9 @@ class PopupEventPlayer: UIView {
     var image: UIImage? // { didSet { updateImageView() } }
 
     var container: UIView,
-        mainLabel: UILabel,
-        subLabel: UILabel,
-        imageView: UIImageView
+    mainLabel: UILabel,
+    subLabel: UILabel,
+    imageView: UIImageView
 
     var soundPlayer: SoundPlayer? = SoundPlayer()
     let sounds = (slideIn: "placeholder",
@@ -40,26 +40,9 @@ class PopupEventPlayer: UIView {
 
     private var tapped: Bool
 
-    /**
-     Struct defining Event model for individual popups.
-     */
-    struct Event {
-        var topText: String?
-        var botText: String?
-        var imgName: String?
-        var doSound: Bool?
-
-        init (topText: String?, botText: String?, imgName: String?, doSound: Bool?) {
-            self.topText = topText
-            self.botText = botText
-            self.imgName = imgName
-            self.doSound = doSound
-        }
-    }
-
     /* *******************************
-    MARK: Initializers
-    ******************************* */
+     MARK: Initializers
+     ******************************* */
     required init(coder aDecoder: NSCoder) {
         fatalError("This class does not support NSCoding")
     }
@@ -98,15 +81,21 @@ class PopupEventPlayer: UIView {
         self.addSubview(self.container)
     }
 
+    func setupForDebug(_ superview: UIView) {
+        let popups = superview.subviews.filter({ $0 is PopupEventPlayer })
+        self.accessibilityIdentifier = "PopupEventPlayer-\(popups.count)"
+    }
+
     @objc func tapView(sender: UITapGestureRecognizer) {
         self.useSound = false
         hide()
         tapped = true
     }
 
-    convenience init(delegate: PopupEventPlayerDelegate, model: Event) {
+    convenience init(delegate: PopupEventPlayerDelegate, model: PopupEvent) {
         self.init(frame: CGRect.zero)
         self.delegate = delegate
+
         if model.topText != nil {
             mainText = model.topText
             updateMainLabel()
@@ -124,11 +113,11 @@ class PopupEventPlayer: UIView {
         }
     }
 
-    // animate view automatically when view is added to a superview
+    // setup view for debugging and animate view automatically when view is added to a superview
     override func didMoveToSuperview() {
-        if self.superview != nil {
-            show()
-        }
+        guard let superview = self.superview else { return }
+        setupForDebug(superview)
+        show()
     }
 
     /* *******************************
@@ -179,10 +168,10 @@ class PopupEventPlayer: UIView {
                                delay: 0,
                                options: .curveEaseInOut,
                                animations: {
-                                   label.layer.opacity = 1
-                               }, completion: { (finished: Bool) in
+                                label.layer.opacity = 1
+                }, completion: { (finished: Bool) in
 
-                               })
+                })
             }
         }
     }
@@ -190,9 +179,9 @@ class PopupEventPlayer: UIView {
     // setters to ensure views are updated if content changed after initialization
     /**
      Updates the main and sub labels.
-     
+
      Calls `self.updateMainLabel()` and `self.updateSubLabel()`.
-    */
+     */
     func updateLabels() {
         updateMainLabel()
         updateSubLabel()
@@ -200,7 +189,7 @@ class PopupEventPlayer: UIView {
 
     /**
      Updates the main label.
-     
+
      References relevant class properties and updates the upper text label *with* fade-in animations.
      */
     func updateMainLabel() {
@@ -212,7 +201,7 @@ class PopupEventPlayer: UIView {
 
     /**
      Updates the sub label.
-     
+
      References relevant class properties and updates the lower text label *with* fade-in animations.
      */
     func updateSubLabel() {
@@ -224,7 +213,7 @@ class PopupEventPlayer: UIView {
 
     /**
      Updates the image view.
-     
+
      References relevant class properties and updates the image view *without* animations. Animations are handled when the class is implemented and added to a superview.
      */
     func updateImageView() {
@@ -234,7 +223,7 @@ class PopupEventPlayer: UIView {
 
     /**
      Draws the inner container layer (angle and shadow).
-     
+
      Also updates self.frame to conform to the inner containers bounds.
      */
     func updateContainer() {
@@ -276,7 +265,7 @@ class PopupEventPlayer: UIView {
      ******************************* */
     /**
      Animates showing the popup. Automatically called when an instance of PopupEventPlayer is added to a superview. See `override func didMoveToSuperview()`.
-     
+
      Handles animations asyncronously on a background thread, checks for and plays sound, and times the popup for automatic dismissal.
      */
     func show() {
@@ -296,7 +285,7 @@ class PopupEventPlayer: UIView {
     // hide() is automatically called after show() + self.popupDuration
     /**
      Animates hiding the popup. Automatically called after show() + self.popupDuration, or when the popup is tapped.
-     
+
      Handles animations asyncronously on a background thread, calls delegate method `.popupDidFinish(sender: self)`.
      */
     func hide() {
@@ -324,13 +313,13 @@ class PopupEventPlayer: UIView {
                                initialSpringVelocity: 1,
                                options: .curveEaseOut,
                                animations: {
-                                   self.container.frame.origin.x = x
-                                   self.playSound(fileName: sound, volume: volume)
-                               }, completion: { (finished: Bool) in
-                                   if self.image != nil {
-                                       self.animateShowImageWithSound()
-                                   }
-                               })
+                                self.container.frame.origin.x = x
+                                self.playSound(fileName: sound, volume: volume)
+                }, completion: { (finished: Bool) in
+                    if self.image != nil {
+                        self.animateShowImageWithSound()
+                    }
+                })
             }
         }
 
@@ -348,12 +337,12 @@ class PopupEventPlayer: UIView {
                                initialSpringVelocity: 12,
                                options: .curveEaseOut,
                                animations: {
-                                   self.imageView.layer.transform = CATransform3DIdentity
-                                   self.imageView.layer.opacity = 1
-                                   self.playSound(fileName: sound, volume: volume)
-                               }, completion: { (finished: Bool) in
+                                self.imageView.layer.transform = CATransform3DIdentity
+                                self.imageView.layer.opacity = 1
+                                self.playSound(fileName: sound, volume: volume)
+                }, completion: { (finished: Bool) in
 
-                               })
+                })
             }
         }
     }
