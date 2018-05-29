@@ -12,12 +12,12 @@ class PopupEventPlayer: UIView {
     weak var delegate: PopupEventPlayerDelegate?
 
     let angleSize: CGFloat = 0.1,
-    slideAnimDuration: Double = 0.5,
-    popupDuration: Double = 5.0,
-    fontName: String = "Montserrat-Bold"
+        slideAnimDuration: Double = 0.5,
+        popupDuration: Double = 5.0,
+        fontName: String = "Montserrat-Bold"
 
     var width: CGFloat,
-    height: CGFloat
+        height: CGFloat
     var useSound: Bool
 
     var bgColor: UIColor // { didSet { updateContainer() } }
@@ -30,9 +30,9 @@ class PopupEventPlayer: UIView {
     var image: UIImage? // { didSet { updateImageView() } }
 
     var container: UIView,
-    mainLabel: UILabel,
-    subLabel: UILabel,
-    imageView: UIImageView
+        mainLabel: UILabel,
+        subLabel: UILabel,
+        imageView: UIImageView
 
     var soundPlayer: SoundPlayer? = SoundPlayer()
     let sounds = (slideIn: "placeholder",
@@ -81,10 +81,10 @@ class PopupEventPlayer: UIView {
         self.addSubview(self.container)
     }
 
-    func setupForDebug(_ superview: UIView) {
-        let popups = superview.subviews.filter({ $0 is PopupEventPlayer })
-        self.accessibilityIdentifier = "PopupEventPlayer-\(popups.count)"
-    }
+//    func setupForDebug(_ superview: UIView) {
+//        let popups = superview.subviews.filter({ $0 is PopupEventPlayer })
+//        self.accessibilityIdentifier = "PopupEventPlayer-\(popups.count)"
+//    }
 
     @objc func tapView(sender: UITapGestureRecognizer) {
         self.useSound = false
@@ -168,10 +168,10 @@ class PopupEventPlayer: UIView {
                                delay: 0,
                                options: .curveEaseInOut,
                                animations: {
-                                label.layer.opacity = 1
-                }, completion: { (finished: Bool) in
+                                   label.layer.opacity = 1
+                               }, completion: { (finished: Bool) in
 
-                })
+                               })
             }
         }
     }
@@ -313,13 +313,13 @@ class PopupEventPlayer: UIView {
                                initialSpringVelocity: 1,
                                options: .curveEaseOut,
                                animations: {
-                                self.container.frame.origin.x = x
-                                self.playSound(fileName: sound, volume: volume)
-                }, completion: { (finished: Bool) in
-                    if self.image != nil {
-                        self.animateShowImageWithSound()
-                    }
-                })
+                                   self.container.frame.origin.x = x
+                                   self.playSound(fileName: sound, volume: volume)
+                               }, completion: { (finished: Bool) in
+                                   if self.image != nil {
+                                       self.animateShowImageWithSound()
+                                   }
+                               })
             }
         }
 
@@ -337,12 +337,12 @@ class PopupEventPlayer: UIView {
                                initialSpringVelocity: 12,
                                options: .curveEaseOut,
                                animations: {
-                                self.imageView.layer.transform = CATransform3DIdentity
-                                self.imageView.layer.opacity = 1
-                                self.playSound(fileName: sound, volume: volume)
-                }, completion: { (finished: Bool) in
+                                   self.imageView.layer.transform = CATransform3DIdentity
+                                   self.imageView.layer.opacity = 1
+                                   self.playSound(fileName: sound, volume: volume)
+                               }, completion: { (finished: Bool) in
 
-                })
+                               })
             }
         }
     }
