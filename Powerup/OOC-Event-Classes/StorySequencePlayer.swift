@@ -52,6 +52,7 @@ class StorySequencePlayer: UIView {
 
         super.init(frame: frame)
 
+        self.accessibilityIdentifier = "story-sequence-player"
         let margin: CGFloat = 10
         let imageViewHeight: CGFloat = 0.6
 
