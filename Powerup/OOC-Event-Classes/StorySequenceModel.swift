@@ -1,11 +1,20 @@
-import UIKit
+/**
+ Struct containing music files for easy access
+ */
+struct Sounds {
+    let scenarioMusic = [
+        5: (intro: "home_intro_music_placeholder",
+            goodEnding: "home_good_ending_example")
+    ]
+}
 
 /**
  Struct containing a dictionary of `StorySequence.Step`. Also describes `StorySequence.Step` and `StorySequence.Event`.
  - Author: Cadence Holmes
  */
 struct StorySequence {
-    var steps: Dictionary<Int, Step>
+    var steps: Dictionary<Int, Step>,
+        music: String?
 
     /**
      Struct containing descriptions of each character and the different types of images available.
@@ -41,13 +50,6 @@ struct StorySequence {
 
         let misc = (dataExample: "test_data_example",
                     empty: "")
-    }
-
-    struct Sounds {
-        let files = [
-            5: (intro: "home_intro_music_placeholder",
-                goodEnding: "home_good_ending_example")
-        ]
     }
 
     enum ImagePosition {
@@ -95,8 +97,9 @@ struct StorySequence {
         }
     }
 
-    init(_ steps: Dictionary<Int, Step>) {
+    init(music: String?, _ steps: Dictionary<Int, Step>) {
         self.steps = steps
+        self.music = music
     }
 
 }

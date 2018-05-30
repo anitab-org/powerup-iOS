@@ -1,15 +1,19 @@
-import Foundation
-
 /**
- Defined in StorySequence.swift. Called in ScenarioViewController.startSequence()
- 
+ Stuct describing all collections of story sequences. Defined in StorySequence.swift. Called in ScenarioViewController.startSequence()
+
  Important: Contains references to instances of StorySequence defined in StorySequence.swift
- 
+
  Each key is the ScenarioID, the value is a StorySequence.
  */
-let introStorySequences: Dictionary<Int, StorySequence> = [
-    5: home
-]
+struct StorySequences {
+    let intros: Dictionary<Int, StorySequence>
+
+    init() {
+        intros = [
+            5: home
+        ]
+    }
+}
 
 // MARK: Scenario 5 - Home
 // define each story sequence as a private let, named descriptively
@@ -24,7 +28,7 @@ private let ani = StorySequence.ImageAnimation.self
 private let testChar = StorySequence.Images().testChar
 private let testChar2 = StorySequence.Images().testChar2
 private let misc = StorySequence.Images().misc
-private let home: StorySequence = StorySequence([
+private let home: StorySequence = StorySequence(music: Sounds().scenarioMusic[5]?.intro, [
     0: StorySequence.Step(lftEvent: StorySequence.Event(txt: "Hey, this is an intro sequence!",
                                                         img: testChar.happy,
                                                         pos: pos.near,

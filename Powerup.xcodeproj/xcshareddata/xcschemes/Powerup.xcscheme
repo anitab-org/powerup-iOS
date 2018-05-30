@@ -38,6 +38,16 @@
                ReferencedContainer = "container:Powerup.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6A9353E120BD131700A6D196"
+               BuildableName = "PowerupUITests.xctest"
+               BlueprintName = "PowerupUITests"
+               ReferencedContainer = "container:Powerup.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
