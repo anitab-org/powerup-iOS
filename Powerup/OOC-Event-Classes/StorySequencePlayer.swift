@@ -28,6 +28,14 @@ class StorySequencePlayer: UIView {
 
     private var canTap: Bool
 
+    // for easy access to accessibility identifiers
+    enum accessibilityIdentifiers: String {
+        case storySequencePlayer = "story-sequence-player"
+        case skipWarningView = "ssp-skip-warning-view"
+        case skipWarningYes = "ssp-skip-warning-view-button-yes"
+        case skipWarningNo = "ssp-skip-warning-view-button-no"
+    }
+
     /* *******************************
      MARK: Initializers
      ******************************* */
@@ -52,14 +60,15 @@ class StorySequencePlayer: UIView {
 
         super.init(frame: frame)
 
-        self.accessibilityIdentifier = "story-sequence-player"
+        self.accessibilityIdentifier = accessibilityIdentifiers.storySequencePlayer.rawValue
         let margin: CGFloat = 10
         let imageViewHeight: CGFloat = 0.6
 
-        addBlur(self)
+        addBlur(self, .dark)
         layoutImageViews(margin, imageViewHeight)
         layoutTextContainer(margin, 1 - imageViewHeight)
         addTapGesture()
+        addLPGesture()
     }
 
     convenience init(delegate: StorySequencePlayerDelegate, model: StorySequence) {
@@ -82,7 +91,7 @@ class StorySequencePlayer: UIView {
      MARK: Private Class Functions
      ******************************* */
     // Add a full screen blurred view as the background layer
-    private func addBlur(_ view: UIView) {
+    private func addBlur(_ view: UIView, _ style: UIBlurEffectStyle) {
         let blur = UIBlurEffect(style: UIBlurEffectStyle.dark)
         let blurView = UIVisualEffectView(effect: blur)
         blurView.frame = view.bounds
@@ -119,12 +128,6 @@ class StorySequencePlayer: UIView {
         moveImage(pos: .hidden, view: leftImageView, left: true)
         moveImage(pos: .hidden, view: rightImageView, left: false)
 
-//        imageViewContainer.backgroundColor = UIColor.green
-//        leftImageView.backgroundColor = UIColor.red
-//        leftImageView.alpha = 0.2
-//        rightImageView.backgroundColor = UIColor.blue
-//        rightImageView.alpha = 0.2
-
         let indicatorSize = 15
         indicator.frame = CGRect(x: 0, y: 0, width: indicatorSize, height: indicatorSize)
         indicator.contentMode = .scaleAspectFit
@@ -143,10 +146,6 @@ class StorySequencePlayer: UIView {
         let containerW = self.bounds.width - (margin * 2)
         let containerH = (self.bounds.height * height) - (margin * 2)
         textContainer.frame = CGRect(x: margin, y: margin, width: containerW, height: containerH)
-
-//        textContainer.backgroundColor = UIColor.cyan
-//        textContainer.alpha = 0.2
-
         textContainer.layer.masksToBounds = true
         textContainer.layer.cornerRadius = 12
 
@@ -155,13 +154,92 @@ class StorySequencePlayer: UIView {
 
     // add a tap gesture to manually step through the story sequence
     private func addTapGesture() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapView(sender:)))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapView(_:)))
         self.addGestureRecognizer(tap)
     }
 
-    @objc private func tapView(sender: UITapGestureRecognizer) {
+    @objc private func tapView(_ sender: UITapGestureRecognizer) {
         if canTap {
             checkCurrentStep()
+        }
+    }
+
+    // add a long press gesture to skip the story sequence
+    private func addLPGesture() {
+        let lp = UILongPressGestureRecognizer(target: self, action: #selector(self.lpView(_:)))
+        self.addGestureRecognizer(lp)
+    }
+
+    @objc private func lpView(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == UIGestureRecognizerState.began {
+            displaySkipWarning()
+        }
+    }
+
+    private func displaySkipWarning() {
+        let view = UIView(frame: self.bounds)
+        view.accessibilityIdentifier = accessibilityIdentifiers.skipWarningView.rawValue
+
+        let warningView = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height / 2))
+        warningView.center = CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)
+
+        if #available(iOS 10.0, *) {
+            addBlur(view, .prominent)
+            addBlur(warningView, .prominent)
+        } else {
+            addBlur(view, .extraLight)
+            addBlur(warningView, .extraLight)
+        }
+
+        let bounds = warningView.bounds
+        let topContainer = UIView(frame: CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height / 2))
+        let botContainer = UIView(frame: CGRect(x: 0, y: bounds.height / 2, width: bounds.width, height: bounds.height / 2))
+
+        let label = UILabel(frame: topContainer.bounds)
+        label.font = UIFont(name: fontName, size: fontSize * 2)
+        label.textColor = UIColor.white
+        label.textAlignment = .center
+        label.text = "Ready to skip?"
+
+        let botBounds = botContainer.bounds
+        let yes = UIButton(frame: CGRect(x: 0, y: 0, width: botBounds.width / 2, height: botBounds.height))
+        yes.accessibilityIdentifier = accessibilityIdentifiers.skipWarningYes.rawValue
+        yes.addTarget(self, action: #selector(tapSkipButton(_:)), for: .touchUpInside)
+        yes.setTitle("Yes", for: .normal)
+        yes.tag = 1
+
+        let no = UIButton(frame: CGRect(x: botBounds.width / 2, y: 0, width: botBounds.width / 2, height: botBounds.height))
+        no.accessibilityIdentifier = accessibilityIdentifiers.skipWarningNo.rawValue
+        no.addTarget(self, action: #selector(tapSkipButton(_:)), for: .touchUpInside)
+        no.setTitle("No", for: .normal)
+
+        topContainer.addSubview(label)
+        botContainer.addSubview(yes)
+        botContainer.addSubview(no)
+        warningView.addSubview(topContainer)
+        warningView.addSubview(botContainer)
+        view.addSubview(warningView)
+        self.addSubview(view)
+
+        let dur = 0.05
+        Animate(view, dur).fadeIn()
+    }
+
+    @objc private func tapSkipButton(_ sender: UIButton?) {
+        guard let button = sender else { return }
+        if button.tag > 0 {
+            // cancel the sequence and remove the StorySequencePlayer view
+            hide()
+        } else {
+            // find and target the warning view for dismissal
+            for view in self.subviews {
+                if view.accessibilityIdentifier == accessibilityIdentifiers.skipWarningView.rawValue {
+                    let dur = 0.05
+                    Animate(view, dur).fade(to: 0, then: {
+                        view.removeFromSuperview()
+                    })
+                }
+            }
         }
     }
 
@@ -280,7 +358,7 @@ class StorySequencePlayer: UIView {
 
         // 50% longer than the baseAnimDuration
         let dur = baseAnimDuration + (baseAnimDuration / 2)
-        let fadeTo: CGFloat = 0.2
+        let fadeTo: Float = 0.2
 
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.async {
@@ -291,25 +369,12 @@ class StorySequencePlayer: UIView {
                 // loop through and shift the labels, reduce alpha for old labels
                 for label in labels {
                     // animate moving all labels, use random value to make the spring jiggle more dynamic
-                    UIView.animate(withDuration: dur,
-                                   delay: 0,
-                                   usingSpringWithDamping: 0.6,
-                                   initialSpringVelocity: 6.5 + (self.randomCGFloat() * 8),
-                                   options: .curveEaseOut,
-                                   animations: {
-                                       label.frame.origin.y = label.frame.origin.y - height
-                                   })
+                    Animate(label, dur).setSpring(0.6, 6.5 + (self.randomCGFloat() * 8)).setOptions(.curveEaseOut).move(by: [0, -height])
+
                     // if the label isnt't the new label, and alpha is still 1, then reduce alpha
                     if label != labels.last {
                         if label.alpha == 1 {
-                            UIView.animate(withDuration: dur,
-                                           delay: 0,
-                                           usingSpringWithDamping: 1,
-                                           initialSpringVelocity: 1,
-                                           options: .curveEaseOut,
-                                           animations: {
-                                               label.alpha = fadeTo
-                                           })
+                            Animate(label, dur).fade(to: fadeTo)
                         }
                     }
                 }
@@ -324,7 +389,7 @@ class StorySequencePlayer: UIView {
                     }
                     // fade out labels if that may be partially on screen
                     if label.frame.origin.y < 0 {
-                        self.fadeAlpha(view: label, alpha: 0, duration: 0.5, then: nil)
+                        Animate(label, self.baseAnimDuration).fade(to: 0)
                     }
                 }
             }
@@ -337,38 +402,8 @@ class StorySequencePlayer: UIView {
     }
 
     // fade out view, then change image, then fade in view
-    /**
-     Important: I don't know if I like the fade mechanics. It might be ok to just switch them instantly.
-     */
     private func changeImage(imageView: UIImageView, image: String) {
         imageView.image = UIImage(named: image)
-//        let duration = 0.05
-//        fadeAlpha(view: imageView, alpha: 0.5, duration: duration, then: {
-//            DispatchQueue.global(qos: .background).async {
-//                DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
-//                    imageView.image = UIImage(named: image)
-//                    self.fadeAlpha(view: imageView, alpha: 1, duration: duration, then: nil)
-//                }
-//            }
-//        })
-    }
-
-    // fade view with completion handler
-    private func fadeAlpha(view: UIView, alpha: CGFloat, duration: Double, then: (() -> ())?) {
-        DispatchQueue.global(qos: .background).async {
-            DispatchQueue.main.async {
-                UIView.animate(withDuration: duration,
-                               delay: 0,
-                               usingSpringWithDamping: 1,
-                               initialSpringVelocity: 1,
-                               options: .curveEaseOut,
-                               animations: {
-                                   view.alpha = alpha
-                               }, completion: { (finished: Bool) in
-                                   then?()
-                               })
-            }
-        }
     }
 
     // determine x position and animate moving the imageView
@@ -388,26 +423,13 @@ class StorySequencePlayer: UIView {
 
         x = (left) ? x : imageViewContainer.bounds.width - view.bounds.width - x
 
-        DispatchQueue.global(qos: .background).async {
-            DispatchQueue.main.async {
-                UIView.animate(withDuration: self.baseAnimDuration,
-                               delay: 0,
-                               usingSpringWithDamping: 1,
-                               initialSpringVelocity: 1,
-                               options: .curveEaseIn,
-                               animations: {
-                                   view.frame.origin.x = x
-                               }, completion: { (finished: Bool) in
-
-                               })
-            }
-        }
+        let v = Animate(view, baseAnimDuration)
+        v.move(to: [x, view.frame.origin.y])
     }
 
     private func hideIndicator() {
         indicator.isHidden = true
-        indicator.stopAnimating()
-        indicator.alpha = 0
+        blinkIndicator()
     }
 
     private func showIndicator() {
@@ -418,22 +440,11 @@ class StorySequencePlayer: UIView {
     // blink the indicator, turn off if the view is hidden
     private func blinkIndicator() {
         let dur = baseAnimDuration + (baseAnimDuration / 2)
-        DispatchQueue.global(qos: .background).async {
-            DispatchQueue.main.async {
-                UIView.animate(withDuration: dur,
-                               delay: 0,
-                               usingSpringWithDamping: 1,
-                               initialSpringVelocity: 1,
-                               options: .curveEaseOut,
-                               animations: {
-                                   self.indicator.alpha = (self.indicator.alpha <= 0.4) ? 0.8 : 0
-                               }, completion: { (finished: Bool) in
-                                   if !self.indicator.isHidden {
-                                       self.blinkIndicator()
-                                   }
-                               })
-            }
+        var flash = true
+        if indicator.isHidden {
+            flash = false
         }
+        Animate(indicator, dur).flashing(flash)
     }
 
     private func doAnimation(anim: StorySequence.ImageAnimation, view: UIView) {
@@ -441,7 +452,7 @@ class StorySequencePlayer: UIView {
         let tiltDuration = 0.7
         switch anim {
         case .shake:
-            Animate(view, duration).shake()
+            Animate(view, duration).setDelay(baseAnimDuration / 3).shake()
         case .tiltLeft:
             Animate(view, tiltDuration).tilt(degrees: -30)
         case .tiltRight:
@@ -449,8 +460,9 @@ class StorySequencePlayer: UIView {
         case .jiggle:
             Animate(view, duration).jiggle()
         case .flip:
-            Animate(view, duration / 2).flip(then: {
-                Animate(view, duration / 2).flip()
+            let v = Animate(view, tiltDuration / 2)
+            v.flip(then: {
+                v.flip()
             })
         }
     }
@@ -460,19 +472,13 @@ class StorySequencePlayer: UIView {
      ******************************* */
     func hide() {
         if #available(iOS 10.0, *) {
-            self.soundPlayer.player?.setVolume(0, fadeDuration: self.baseAnimDuration)
+            soundPlayer.player?.setVolume(0, fadeDuration: baseAnimDuration)
         }
-        UIView.animate(withDuration: self.baseAnimDuration,
-                       delay: 0,
-                       usingSpringWithDamping: 1,
-                       initialSpringVelocity: 1,
-                       options: .curveEaseInOut,
-                       animations: {
-                           self.alpha = 0
-                       }, completion: { (finished: Bool) in
-                           self.soundPlayer.player?.stop()
-                           self.delegate?.sequenceDidFinish(sender: self)
-                       })
+        let v = Animate(self, baseAnimDuration)
+        v.fade(to: 0, then: {
+            self.soundPlayer.player?.stop()
+            self.delegate?.sequenceDidFinish(sender: self)
+        })
     }
 
 }

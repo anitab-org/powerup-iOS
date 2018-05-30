@@ -29,15 +29,19 @@ class Animate {
         delay: Double = 0,
         damping: CGFloat = 1,
         velocity: CGFloat = 1,
-        moved: Bool = false,
-        dur: Double
+        dur: Double,
+        moved: Bool = false
 
-    private let view: UIView,
-        origin: Array<CGFloat>
+    private var origin: Array<CGFloat>,
+        opacity: Float,
+        view: UIView
+
+    //private weak var view: UIView?
 
     init(_ view: UIView, _ duration: Double? = nil) {
         self.view = view
-        self.origin = [view.center.x, view.center.y]
+        self.origin = [view.frame.origin.x, view.frame.origin.y]
+        self.opacity = view.layer.opacity
         self.duration = (duration != nil) ? duration! : 0.5
         self.dur = self.duration
     }
@@ -45,6 +49,14 @@ class Animate {
     /* *******************************
      MARK: Utility
      ******************************* */
+
+//    /**
+//     End
+//     */
+//    func end(then: Completion? = nil) {
+//        self.view = UIView()
+//    }
+
 
     /**
      Set the options for all animations.
@@ -105,11 +117,11 @@ class Animate {
      - parameters:
          - then: Nullable completion handler, executed after the duration of the animation.
      */
-    @discardableResult func cancel(then: Completion?) -> Animate {
-        let t = self.view.layer.presentation()?.transform
-        self.view.layer.removeAllAnimations()
+    @discardableResult func cancel(then: Completion? = nil) -> Animate {
+        let t = view.layer.presentation()?.transform
+        view.layer.removeAllAnimations()
         if t != nil {
-            self.view.layer.transform = t!
+            view.layer.transform = t!
         }
         then?()
         return self
@@ -131,43 +143,21 @@ class Animate {
         return self
     }
 
-    /**
-     Invert the view layers current transform. No change if the transform is already its identity.
-
-     - parameters:
-         - then: Nullable completion handler, executed after the duration of the animation.
-     */
-    @discardableResult func invert(then: Completion? = nil) -> Animate {
-        DispatchQueue.global(qos: .background).async {
-            DispatchQueue.main.async {
-                UIView.animate(withDuration: self.dur,
-                               delay: self.delay,
-                               usingSpringWithDamping: self.damping,
-                               initialSpringVelocity: self.velocity,
-                               options: self.options,
-                               animations: {
-                                   self.view.layer.transform = CATransform3DInvert(self.view.layer.transform)
-                               }, completion: { (finished: Bool) in
-                                   then?()
-                               })
-            }
-        }
-        return self
-    }
+    /* *******************************
+     MARK: Compounded
+     ******************************* */
 
     /**
-     Tilt animation. Tilt in one direction with a slight vertical offset, then tilt back to origin.
+     Tilt animation. Tilt in one direction, then tilt back to origin.
 
      - parameters:
         - degrees: Amount to tilt. Positive or negative determines direction.
         - then: Nullable completion handler, executed after the duration of the animation.
      */
-    @discardableResult func tilt(degrees: Double, then: (() -> ())? = nil) -> Animate {
-        let view = Animate(self.view, dur / 2)
-        view.move(by: [0, 10]).rotate(by: degrees, then: {
-            view.move(by: [0, -10]).rotate(by: -degrees, then: {
-                then?()
-            })
+    @discardableResult func tilt(degrees: Double, then: Completion? = nil) -> Animate {
+        let vw = Animate(view, dur / 2).setOptions(options).setSpring(damping, velocity)
+        vw.rotate(by: degrees, then: {
+            vw.rotate(by: -degrees)
         })
         return self
     }
@@ -177,14 +167,12 @@ class Animate {
 
      - parameters:
         - vertical: If `true`, the animation will be a vertical shake, else it will be a horizontal shake. Default `false`.
-            - keys: An array describing points to move to along a single axis in reference to the origin. Passing `nil` to this parameter will use a default shake animation.
+            - keys: An array describing points to move to along a single axis in reference to the origin. Passing `nil` to this parameter will use the default `[10, -10, 7, -7, 4, -4, 1, -1]`.
             - then: Nullable completion handler, executed after the duration of the animation.
 
      - Important: Uses `Animate().translate`, so be aware if applying this animation along with an `Animate().rotate` transform.
-
-     not affected by now()
      */
-    @discardableResult func shake(vertical: Bool? = nil, keys: Array<Double>? = nil, then: (() -> ())? = nil) -> Animate {
+    @discardableResult func shake(vertical: Bool? = nil, keys: Array<Double>? = nil, then: Completion? = nil) -> Animate {
         // check if it's vertical or horizontal, guard against nil
         let v: Bool = (vertical != nil) ? vertical! : false
         // in the key array, target positions are calculated in reference to the origin
@@ -192,62 +180,41 @@ class Animate {
         // move to origin+10, then origin-10, then origin+7, etc.
         let k: Array<Double> = (keys != nil) ? keys! : [10, -10, 7, -7, 4, -4, 1, -1]
         // get the duration of a single animation event
-        let oneDur: Double = self.duration / (Double(k.count) + 1)
-        // loop through keys, apply delay and animate each in turn, finally reset to original relative position
-        for i in 0..<k.count + 1 {
-            let del: Double = oneDur * Double(i + 1)
-            var a: CGFloat, b: CGFloat
-            // for each key, calculate the amount to move in relation to the previous key
-            if i < k.count {
-                a = (!v) ? CGFloat(k[i]) : 0
-                b = (v) ? CGFloat(k[i]) : 0
-                if i > 0 {
-                    if !v {
-                        a = a - CGFloat(k[i - 1])
+        let oneDur: Double = duration / (Double(k.count) + 1)
+        // queue the animation to adhere to the expected delay on the calling class instance
+        DispatchQueue.global(qos: .background).async { //[weak self] in
+            //guard let this = self else { return }
+            DispatchQueue.main.asyncAfter(deadline: .now() + self.delay) {
+                // loop through keys, apply delay and animate each in turn, finally reset to original relative position
+                for i in 0..<k.count + 1 {
+                    let del: Double = oneDur * Double(i + 1)
+                    var a: CGFloat, b: CGFloat
+                    // for each key, calculate the amount to move in relation to the previous key
+                    if i < k.count {
+                        a = (!v) ? CGFloat(k[i]) : 0
+                        b = (v) ? CGFloat(k[i]) : 0
+                        if i > 0 {
+                            if !v {
+                                a = a - CGFloat(k[i - 1])
+                            } else {
+                                b = b - CGFloat(k[i - 1])
+                            }
+                        }
                     } else {
-                        b = b - CGFloat(k[i - 1])
+                        // or if all of the keys have been used, offset the last key to return to the original relative position
+                        let last = CGFloat(k.last!)
+                        let end = last - last
+                        a = (!v) ? end : 0
+                        b = (v) ? end : 0
                     }
+                    //let vw = Animate(this.view, oneDur).setOptions(this.options).setSpring(this.damping, this.velocity)
+                    let vw = Animate(self.view, oneDur).setOptions(self.options).setSpring(self.damping, self.velocity)
+                    vw.setDelay(del).translate(by: [a, b], then: {
+                        if i == k.count {
+                            then?()
+                        }
+                    })
                 }
-            } else {
-                // or if all of the keys have been used, offset the last key to return to the original relative position
-                let last = CGFloat(k.last!)
-                let end = last - last
-                a = (!v) ? end : 0
-                b = (v) ? end : 0
-            }
-            Animate(self.view, oneDur).setDelay(del).translate(by: [a, b], then: {
-                if i == k.count {
-                    then?()
-                }
-            })
-        }
-        return self
-    }
-
-    /**
-     Flip animation.
-
-     - parameters:
-         - vertical: If `true`, the animation will be a vertical flip, else it will be a horizontal flip. Default `false`.
-         - then: Nullable completion handler, executed after the duration of the animation.
-     */
-    @discardableResult func flip(vertical: Bool? = nil, then: Completion? = nil) -> Animate {
-        let v: Bool = (vertical != nil) ? vertical! : false
-        DispatchQueue.global(qos: .background).async {
-            DispatchQueue.main.async {
-                UIView.animate(withDuration: self.dur,
-                               delay: self.delay,
-                               usingSpringWithDamping: self.damping,
-                               initialSpringVelocity: self.velocity,
-                               options: self.options,
-                               animations: {
-                                   let a: CGFloat = (!v) ? -1 : 1
-                                   let b: CGFloat = (v) ? -1 : 1
-                                   let t = CATransform3DScale(self.view.layer.transform, a, b, 1)
-                                   self.view.layer.transform = t
-                               }, completion: { (finished: Bool) in
-                                   then?()
-                               })
             }
         }
         return self
@@ -274,12 +241,184 @@ class Animate {
             array.append(a)
             array.append(b)
         }
-        // loop through the array and animate scale for each value
-        for i in 0..<array.count {
-            let val: CGFloat = array[i]
-            Animate(view, oneDur).setDelay(oneDur * Double(i)).scale(by: CGFloat(val), then: {
-                then?()
+        DispatchQueue.global(qos: .background).async {
+            DispatchQueue.main.asyncAfter(deadline: .now() + self.dur) {
+                // loop through the array and animate scale for each value
+                for i in 0..<array.count {
+                    let val: CGFloat = array[i]
+                    let vw = Animate(self.view, oneDur).setOptions(self.options).setSpring(self.damping, self.velocity)
+                    vw.setDelay(oneDur * Double(i)).scale(by: CGFloat(val), then: {
+                        then?()
+                    })
+                }
+            }
+        }
+        return self
+    }
+
+    /**
+
+
+     - parameters:
+        - then: Nullable completion handler, executed after the duration of the animation.
+     */
+    @discardableResult func fadeIn(then: Completion? = nil) -> Animate {
+        view.layer.opacity = 0
+        let vw = Animate(view, dur).setOptions(options).setSpring(damping, velocity).setDelay(delay)
+        vw.fade(to: 1, then: { then?() })
+        return self
+    }
+
+    /**
+     Shrink and fade the view to a scale that's near invisible.
+
+     - parameters:
+        - then: Nullable completion handler, executed after the duration of the animation.
+     */
+    @discardableResult func shrinkAndWink(then: Completion? = nil) -> Animate {
+        let vw = Animate(view, dur).setOptions(options).setSpring(damping, velocity).setDelay(delay)
+        vw.fade(to: 0).scale(by: 0.01, then: { then?() })
+        return self
+    }
+
+    /**
+     Set the view to a scale and opacity that's near invisible, then grow to full size.
+
+     - parameters:
+        - then: Nullable completion handler, executed after the duration of the animation.
+     */
+    @discardableResult func growAndShow(then: Completion? = nil) -> Animate {
+        view.layer.opacity = 0
+        let vw = Animate(view, dur).setOptions(options).setSpring(damping, velocity)
+        vw.now().scale(by: 0.01, then: {
+            vw.notnow().wait(asec: self.delay, then: {
+                vw.fade(to: 1).scale(by: 1 / 0.01, then: { then?() })
             })
+        })
+        return self
+    }
+
+    /**
+     Flashing
+
+     - parameters:
+        - then: Nullable completion handler, executed after the duration of the animation.
+
+     not compatible with .now() since it's a repeating animation
+     */
+    @discardableResult func flashing(_ on: Bool) -> Animate {
+        DispatchQueue.global(qos: .background).async {
+            DispatchQueue.main.async {
+                let animation = CABasicAnimation(keyPath: "opacity")
+                animation.duration = self.duration
+                animation.fromValue = self.view.layer.opacity
+
+                if on {
+                    animation.toValue = abs(1 - self.view.layer.opacity)
+                    animation.repeatCount = .infinity
+                    animation.autoreverses = true
+                } else {
+                    animation.toValue = self.opacity
+                    animation.isRemovedOnCompletion = true
+                }
+
+                self.view.layer.add(animation, forKey: "opacity")
+            }
+        }
+        return self
+    }
+
+    /* *******************************
+     MARK: Simple Animations
+     ******************************* */
+
+    /* *******************************
+     MARK: Fade
+     ******************************* */
+    /**
+     Change the view layer opacity **to** a percentage.
+
+     - parameters:
+        - to: Fade the view layer opacity to this percentage.
+        - then: Nullable completion handler, executed after the duration of the animation.
+     */
+    @discardableResult func fade(to: Float, then: Completion? = nil) -> Animate {
+        DispatchQueue.global(qos: .background).async {
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: self.dur,
+                               delay: self.delay,
+                               usingSpringWithDamping: self.damping,
+                               initialSpringVelocity: self.velocity,
+                               options: self.options,
+                               animations: { [weak self] in
+                                   guard let this = self else { return }
+                                   this.view.layer.opacity = to
+                               }, completion: { (finished: Bool) in
+                                   then?()
+                               })
+            }
+        }
+        return self
+    }
+
+    /**
+     Change the view layer opacity **by** a percentage. (e.g. If the current opacity is 0.5, `.fade(by:0.5)` will change the opacity to `0.25` or `0.5 * 0.5`)
+
+     - parameters:
+        - by: Fade the view layer opacity **by** this percentage.
+        - then: Nullable completion handler, executed after the duration of the animation.
+
+     - Important: Requires the view opacity to be `> 0`.
+     */
+    @discardableResult func fade(by: Float, then: Completion? = nil) -> Animate {
+        DispatchQueue.global(qos: .background).async {
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: self.dur,
+                               delay: self.delay,
+                               usingSpringWithDamping: self.damping,
+                               initialSpringVelocity: self.velocity,
+                               options: self.options,
+                               animations: { [weak self] in
+                                   guard let this = self else { return }
+                                   let opac = this.view.layer.opacity
+                                   this.view.layer.opacity = opac * by
+                               }, completion: { (finished: Bool) in
+                                   then?()
+                               })
+            }
+        }
+        return self
+    }
+
+    /* *******************************
+     MARK: Flip
+     ******************************* */
+    /**
+     2D Flip animation.
+
+     - parameters:
+        - vertical: If `true`, the animation will be a vertical flip, else it will be a horizontal flip. Default `false`.
+        - then: Nullable completion handler, executed after the duration of the animation.
+     */
+    @discardableResult func flip(vertical: Bool? = nil, then: Completion? = nil) -> Animate {
+        let v: Bool = (vertical != nil) ? vertical! : false
+        DispatchQueue.global(qos: .background).async {
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: self.dur,
+                               delay: self.delay,
+                               usingSpringWithDamping: self.damping,
+                               initialSpringVelocity: self.velocity,
+                               options: self.options,
+                               animations: { [weak self] in
+                                   guard let this = self else { return }
+                                   let a: CGFloat = (!v) ? -1 : 1
+                                   let b: CGFloat = (v) ? -1 : 1
+                                   let t = CATransform3DScale(this.view.layer.transform, a, b, 1)
+                                   this.view.layer.transform = t
+                               }, completion: { (finished: Bool) in
+                                   then?()
+                               })
+            }
         }
         return self
     }
@@ -288,13 +427,13 @@ class Animate {
      MARK: Move
      ******************************* */
     /**
-     Move the view center **to point [x, y]** in the superviews space.
+     Move the view origin **to point [x, y]** in the superviews space.
 
      - parameters:
-         - to: An array consisting of two `CGFloat`, ordered as `[x, y]`. This is the point to which the center is moved. This functions differently from `.translate(to:)`.
+         - to: An array consisting of two `CGFloat`, ordered as `[x, y]`. This is the point to which the origin is moved. This functions differently from `.translate(to:)`.
          - then: Nullable completion handler, executed after the duration of the animation.
 
-     This animation is different from `.translate(to:)`. It moves the center of the view frame.
+     This animation is different from `.translate(to:)`. It moves the origin of the view **frame**.
      */
     @discardableResult func move(to: Array<CGFloat>, then: Completion? = nil) -> Animate {
         if !moved {
@@ -307,10 +446,11 @@ class Animate {
                                usingSpringWithDamping: self.damping,
                                initialSpringVelocity: self.velocity,
                                options: self.options,
-                               animations: {
+                               animations: { [weak self] in
+                                   guard let this = self else { return }
                                    let x = to[0]
                                    let y = to[1]
-                                   self.view.center = CGPoint(x: x, y: y)
+                                   this.view.frame.origin = CGPoint(x: x, y: y)
                                }, completion: { (finished: Bool) in
                                    then?()
                                })
@@ -320,13 +460,13 @@ class Animate {
     }
 
     /**
-     Move the view center **by this amount [x, y]** in relation to the current view center.
+     Move the view origin **by this amount [x, y]** in relation to the current view origin.
 
      - parameters:
-         - by: An array consisting of two `CGFloat`, ordered as `[x, y]`. This is the amount by which the center is moved.
+         - by: An array consisting of two `CGFloat`, ordered as `[x, y]`. This is the amount by which the origin is moved.
          - then: Nullable completion handler, executed after the duration of the animation.
 
-     This animation is different from `.translate(by:)`. It moves the center of the view frame.
+     This animation is different from `.translate(by:)`. It moves the origin of the view **frame**.
      */
     @discardableResult func move(by: Array<CGFloat>, then: Completion? = nil) -> Animate {
         if !moved {
@@ -339,10 +479,44 @@ class Animate {
                                usingSpringWithDamping: self.damping,
                                initialSpringVelocity: self.velocity,
                                options: self.options,
-                               animations: {
-                                   let x = by[0] + self.view.center.x
-                                   let y = by[1] + self.view.center.y
-                                   self.view.center = CGPoint(x: x, y: y)
+                               animations: { [weak self] in
+                                   guard let this = self else { return }
+                                   let x = by[0] + this.view.frame.origin.x
+                                   let y = by[1] + this.view.frame.origin.y
+                                   this.view.frame.origin = CGPoint(x: x, y: y)
+                               }, completion: { (finished: Bool) in
+                                   then?()
+                               })
+            }
+        }
+        return self
+    }
+
+    /**
+     Move the view center **to point [x, y]** in the superviews space.
+
+     - parameters:
+        - to: An array consisting of two `CGFloat`, ordered as `[x, y]`. This is the point to which the center is moved. This functions differently from `.translate(to:)`.
+        - then: Nullable completion handler, executed after the duration of the animation.
+
+     This animation is different from `.translate(to:)`. It moves the center of the view **frame**.
+     */
+    @discardableResult func move(center to: Array<CGFloat>, then: Completion? = nil) -> Animate {
+        if !moved {
+            moved = true
+        }
+        DispatchQueue.global(qos: .background).async {
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: self.dur,
+                               delay: self.delay,
+                               usingSpringWithDamping: self.damping,
+                               initialSpringVelocity: self.velocity,
+                               options: self.options,
+                               animations: { [weak self] in
+                                   guard let this = self else { return }
+                                   let x = to[0]
+                                   let y = to[1]
+                                   this.view.center = CGPoint(x: x, y: y)
                                }, completion: { (finished: Bool) in
                                    then?()
                                })
@@ -376,11 +550,12 @@ class Animate {
                                usingSpringWithDamping: self.damping,
                                initialSpringVelocity: self.velocity,
                                options: self.options,
-                               animations: {
+                               animations: { [weak self] in
+                                   guard let this = self else { return }
                                    let x = to[0]
                                    let y = to[1]
                                    let t = CATransform3DMakeTranslation(x, y, 0)
-                                   self.view.layer.transform = t
+                                   this.view.layer.transform = t
                                }, completion: { (finished: Bool) in
                                    then?()
                                })
@@ -408,11 +583,12 @@ class Animate {
                                usingSpringWithDamping: self.damping,
                                initialSpringVelocity: self.velocity,
                                options: self.options,
-                               animations: {
+                               animations: { [weak self] in
+                                   guard let this = self else { return }
                                    let x = by[0]
                                    let y = by[1]
-                                   let t = CATransform3DTranslate(self.view.layer.transform, x, y, 0)
-                                   self.view.layer.transform = t
+                                   let t = CATransform3DTranslate(this.view.layer.transform, x, y, 0)
+                                   this.view.layer.transform = t
                                }, completion: { (finished: Bool) in
                                    then?()
                                })
@@ -443,9 +619,10 @@ class Animate {
                                usingSpringWithDamping: self.damping,
                                initialSpringVelocity: self.velocity,
                                options: self.options,
-                               animations: {
+                               animations: { [weak self] in
+                                   guard let this = self else { return }
                                    let t = CATransform3DMakeScale(to, to, 1)
-                                   self.view.layer.transform = t
+                                   this.view.layer.transform = t
                                }, completion: { (finished: Bool) in
                                    then?()
                                })
@@ -471,9 +648,10 @@ class Animate {
                                usingSpringWithDamping: self.damping,
                                initialSpringVelocity: self.velocity,
                                options: self.options,
-                               animations: {
-                                   let t = CATransform3DScale(self.view.layer.transform, by, by, 1)
-                                   self.view.layer.transform = t
+                               animations: { [weak self] in
+                                   guard let this = self else { return }
+                                   let t = CATransform3DScale(this.view.layer.transform, by, by, 1)
+                                   this.view.layer.transform = t
                                }, completion: { (finished: Bool) in
                                    then?()
                                })
@@ -504,10 +682,11 @@ class Animate {
                                usingSpringWithDamping: self.damping,
                                initialSpringVelocity: self.velocity,
                                options: self.options,
-                               animations: {
+                               animations: { [weak self] in
+                                   guard let this = self else { return }
                                    let radians = CGFloat(to * Double.pi / 180)
                                    let t = CATransform3DMakeRotation(radians, 0, 0, 1)
-                                   self.view.layer.transform = t
+                                   this.view.layer.transform = t
                                }, completion: { (finished: Bool) in
                                    then?()
                                })
@@ -533,10 +712,39 @@ class Animate {
                                usingSpringWithDamping: self.damping,
                                initialSpringVelocity: self.velocity,
                                options: self.options,
-                               animations: {
+                               animations: { [weak self] in
+                                   guard let this = self else { return }
                                    let radians = CGFloat(by * Double.pi / 180)
-                                   let t = CATransform3DRotate(self.view.layer.transform, radians, 0, 0, 1)
-                                   self.view.layer.transform = t
+                                   let t = CATransform3DRotate(this.view.layer.transform, radians, 0, 0, 1)
+                                   this.view.layer.transform = t
+                               }, completion: { (finished: Bool) in
+                                   then?()
+                               })
+            }
+        }
+        return self
+    }
+
+    /* *******************************
+     MARK: Invert
+     ******************************* */
+    /**
+     Invert the view layers current transform. No change if the transform is already its identity.
+
+     - parameters:
+        - then: Nullable completion handler, executed after the duration of the animation.
+     */
+    @discardableResult func invert(then: Completion? = nil) -> Animate {
+        DispatchQueue.global(qos: .background).async {
+            DispatchQueue.main.async {
+                UIView.animate(withDuration: self.dur,
+                               delay: self.delay,
+                               usingSpringWithDamping: self.damping,
+                               initialSpringVelocity: self.velocity,
+                               options: self.options,
+                               animations: { [weak self] in
+                                   guard let this = self else { return }
+                                   this.view.layer.transform = CATransform3DInvert(this.view.layer.transform)
                                }, completion: { (finished: Bool) in
                                    then?()
                                })
@@ -562,11 +770,13 @@ class Animate {
                                usingSpringWithDamping: self.damping,
                                initialSpringVelocity: self.velocity,
                                options: self.options,
-                               animations: {
-                                   self.view.layer.transform = CATransform3DIdentity
-                                   if self.moved {
-                                       self.move(to: self.origin)
-                                       self.moved = false
+                               animations: { [weak self] in
+                                   guard let this = self else { return }
+                                   this.view.layer.opacity = this.opacity
+                                   this.view.layer.transform = CATransform3DIdentity
+                                   if this.moved {
+                                       this.move(to: this.origin)
+                                       this.moved = false
                                    }
                                }, completion: { (finished: Bool) in
                                    then?()

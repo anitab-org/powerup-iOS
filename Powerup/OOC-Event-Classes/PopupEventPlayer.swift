@@ -87,9 +87,7 @@ class PopupEventPlayer: UIView {
 //    }
 
     @objc func tapView(sender: UITapGestureRecognizer) {
-        self.useSound = false
         hide()
-        tapped = true
     }
 
     convenience init(delegate: PopupEventPlayerDelegate, model: PopupEvent) {
@@ -162,18 +160,7 @@ class PopupEventPlayer: UIView {
     }
 
     private func animateLabelText (_ label: UILabel) {
-        DispatchQueue.global(qos: .background).async {
-            DispatchQueue.main.async {
-                UIView.animate(withDuration: self.slideAnimDuration * 2,
-                               delay: 0,
-                               options: .curveEaseInOut,
-                               animations: {
-                                   label.layer.opacity = 1
-                               }, completion: { (finished: Bool) in
-
-                               })
-            }
-        }
+        Animate(label, slideAnimDuration * 2).fade(to: 1)
     }
 
     // setters to ensure views are updated if content changed after initialization
@@ -272,8 +259,9 @@ class PopupEventPlayer: UIView {
         let sound = sounds.slideIn
         let volume: Float = 0.2
 
-        let x = UIScreen.main.bounds.width - self.width
-        self.animateSlideToWithSound(x: x, sound: sound, volume: volume)
+        let x = UIScreen.main.bounds.width - width
+        animateSlideTo(x: x)
+        playSound(fileName: sound, volume: volume)
 
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.asyncAfter(deadline: .now() + self.popupDuration) {
@@ -290,8 +278,9 @@ class PopupEventPlayer: UIView {
      */
     func hide() {
         if !tapped {
+            tapped = true
             let x = UIScreen.main.bounds.width * 2
-            self.animateSlideToWithSound(x: x, sound: nil, volume: nil)
+            animateSlideTo(x: x)
 
             DispatchQueue.global(qos: .background).async {
                 DispatchQueue.main.asyncAfter(deadline: .now() + self.slideAnimDuration) {
@@ -304,51 +293,24 @@ class PopupEventPlayer: UIView {
     /* *******************************
      MARK: Private Class Methods
      ******************************* */
-    private func animateSlideToWithSound(x: CGFloat, sound: String?, volume: Float?) {
-        DispatchQueue.global(qos: .background).async {
-            DispatchQueue.main.async {
-                UIView.animate(withDuration: self.slideAnimDuration,
-                               delay: 0,
-                               usingSpringWithDamping: 1,
-                               initialSpringVelocity: 1,
-                               options: .curveEaseOut,
-                               animations: {
-                                   self.container.frame.origin.x = x
-                                   self.playSound(fileName: sound, volume: volume)
-                               }, completion: { (finished: Bool) in
-                                   if self.image != nil {
-                                       self.animateShowImageWithSound()
-                                   }
-                               })
+    private func animateSlideTo(x: CGFloat) {
+        Animate(container, slideAnimDuration).move(to: [x, container.frame.origin.y], then: {
+            if self.image != nil {
+                self.animateShowImageWithSound()
             }
-        }
-
+        })
     }
 
     private func animateShowImageWithSound() {
         let duration: Double = 0.2
         let sound = sounds.showImage
         let volume: Float = 0.1
-        DispatchQueue.global(qos: .background).async {
-            DispatchQueue.main.async {
-                UIView.animate(withDuration: duration,
-                               delay: 0,
-                               usingSpringWithDamping: 0.3,
-                               initialSpringVelocity: 12,
-                               options: .curveEaseOut,
-                               animations: {
-                                   self.imageView.layer.transform = CATransform3DIdentity
-                                   self.imageView.layer.opacity = 1
-                                   self.playSound(fileName: sound, volume: volume)
-                               }, completion: { (finished: Bool) in
-
-                               })
-            }
-        }
+        Animate(imageView, duration).setSpring(0.3, 12).reset().fade(to: 1)
+        playSound(fileName: sound, volume: volume)
     }
 
     private func playSound (fileName: String?, volume: Float?) {
-        if self.useSound {
+        if useSound && !tapped {
             guard let sound = fileName else { return }
             guard let player = self.soundPlayer else { return }
             let vol = (volume != nil) ? volume : 1
