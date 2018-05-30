@@ -115,7 +115,7 @@ class PopupEventPlayer: UIView {
 
     // setup view for debugging and animate view automatically when view is added to a superview
     override func didMoveToSuperview() {
-        guard let superview = self.superview else { return }
+//        guard let superview = self.superview else { return }
 //        setupForDebug(superview)
         show()
     }
