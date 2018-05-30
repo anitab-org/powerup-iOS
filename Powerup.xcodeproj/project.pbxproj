@@ -36,7 +36,6 @@
 		6A69DC9720AB38BD006511E3 /* PopupEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A69DC9620AB38BD006511E3 /* PopupEvents.swift */; };
 		6A69DC9E20ABCA0A006511E3 /* Sounds.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A69DC9D20ABCA0A006511E3 /* Sounds.xcassets */; };
 		6A7B854120A9F51100EBFEEB /* mainDatabaseDev.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 6A7B854020A9F51100EBFEEB /* mainDatabaseDev.sqlite */; };
-		6A9353E520BD131700A6D196 /* PowerupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9353E420BD131700A6D196 /* PowerupUITests.swift */; };
 		6A9353ED20BD14C500A6D196 /* PopupEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9353EC20BD14C500A6D196 /* PopupEventModel.swift */; };
 		6A9A4A1A20B51DE500FFC5AA /* Animate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A4A1920B51DE500FFC5AA /* Animate.swift */; };
 		6AA0D96920BD2E97009969AE /* PopupEventPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A69DC8E20AB3881006511E3 /* PopupEventPlayer.swift */; };
@@ -155,7 +154,6 @@
 		6A69DC9D20ABCA0A006511E3 /* Sounds.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Sounds.xcassets; sourceTree = "<group>"; };
 		6A7B854020A9F51100EBFEEB /* mainDatabaseDev.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = mainDatabaseDev.sqlite; path = Scenarios/mainDatabaseDev.sqlite; sourceTree = "<group>"; };
 		6A9353E220BD131700A6D196 /* PowerupUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PowerupUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6A9353E420BD131700A6D196 /* PowerupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerupUITests.swift; sourceTree = "<group>"; };
 		6A9353E620BD131700A6D196 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A9353EC20BD14C500A6D196 /* PopupEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupEventModel.swift; sourceTree = "<group>"; };
 		6A9A4A1920B51DE500FFC5AA /* Animate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animate.swift; sourceTree = "<group>"; };
@@ -362,7 +360,6 @@
 		6A9353E320BD131700A6D196 /* PowerupUITests */ = {
 			isa = PBXGroup;
 			children = (
-				6A9353E420BD131700A6D196 /* PowerupUITests.swift */,
 				6A9353E620BD131700A6D196 /* Info.plist */,
 			);
 			path = PowerupUITests;
@@ -665,7 +662,6 @@
 				6AA0D96B20BD2E9B009969AE /* PopupEvents.swift in Sources */,
 				6AA0D96C20BD2E9E009969AE /* StorySequencePlayer.swift in Sources */,
 				6AA0D96A20BD2E99009969AE /* PopupEventModel.swift in Sources */,
-				6A9353E520BD131700A6D196 /* PowerupUITests.swift in Sources */,
 				6AA0D96E20BD2EA2009969AE /* StorySequences.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
