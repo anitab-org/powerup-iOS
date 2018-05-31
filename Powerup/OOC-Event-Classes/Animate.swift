@@ -36,8 +36,6 @@ class Animate {
         opacity: Float,
         view: UIView
 
-    //private weak var view: UIView?
-
     init(_ view: UIView, _ duration: Double? = nil) {
         self.view = view
         self.origin = [view.frame.origin.x, view.frame.origin.y]
@@ -182,8 +180,7 @@ class Animate {
         // get the duration of a single animation event
         let oneDur: Double = duration / (Double(k.count) + 1)
         // queue the animation to adhere to the expected delay on the calling class instance
-        DispatchQueue.global(qos: .background).async { //[weak self] in
-            //guard let this = self else { return }
+        DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.asyncAfter(deadline: .now() + self.delay) {
                 // loop through keys, apply delay and animate each in turn, finally reset to original relative position
                 for i in 0..<k.count + 1 {
@@ -207,7 +204,6 @@ class Animate {
                         a = (!v) ? end : 0
                         b = (v) ? end : 0
                     }
-                    //let vw = Animate(this.view, oneDur).setOptions(this.options).setSpring(this.damping, this.velocity)
                     let vw = Animate(self.view, oneDur).setOptions(self.options).setSpring(self.damping, self.velocity)
                     vw.setDelay(del).translate(by: [a, b], then: {
                         if i == k.count {
