@@ -81,7 +81,14 @@ class StorySequencePlayerTests: XCTestCase {
         let app = XCUIApplication()
         let element = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element
         element.children(matching: .button).element(boundBy: 1).tap()
-        app.alerts["Are you sure?"].buttons["Create New Avatar"].tap()
+
+        // this checks for a new game alert - won't display if the game is a fresh install
+        let alert = app.alerts["Are you sure?"].buttons["Create New Avatar"]
+        if (alert.exists) {
+            alert.tap()
+        }
+
+        // two contine buttons to exit the character creation
         app.buttons["continue button"].tap()
         app.buttons["continue button"].tap()
 
