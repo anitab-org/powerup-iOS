@@ -53,7 +53,7 @@ class StorySequencePlayerTests: XCTestCase {
         homeScenarioButton.tap()
 
         // assert the scenario view controller loaded and the player launched
-        let player = app.otherElements[StorySequencePlayer.accessibilityIdentifiers.storySequencePlayer.rawValue]
+        let player = app.otherElements[StorySequencePlayer.AccessibilityIdentifiers.storySequencePlayer.rawValue]
         let playerExists = player.waitForExistence(timeout: 5)
         XCTAssert(playerExists)
 
@@ -111,7 +111,7 @@ class StorySequencePlayerTests: XCTestCase {
         homeScenarioButton.tap()
 
         // assert the scenario view controller loaded and the player launched
-        let player = app.otherElements[StorySequencePlayer.accessibilityIdentifiers.storySequencePlayer.rawValue]
+        let player = app.otherElements[StorySequencePlayer.AccessibilityIdentifiers.storySequencePlayer.rawValue]
         let playerExists = player.waitForExistence(timeout: 5)
         XCTAssert(playerExists)
 
@@ -120,7 +120,7 @@ class StorySequencePlayerTests: XCTestCase {
         player.press(forDuration: 1.0)
 
         // assert the skip view loads and the no button exists
-        let no = app.buttons[StorySequencePlayer.accessibilityIdentifiers.skipWarningNo.rawValue]
+        let no = app.buttons[StorySequencePlayer.AccessibilityIdentifiers.skipWarningNo.rawValue]
         let noExists = no.waitForExistence(timeout: 5)
         XCTAssert(noExists)
 
@@ -134,7 +134,7 @@ class StorySequencePlayerTests: XCTestCase {
         player.press(forDuration: 1.0)
 
         // assert the skip view loads and the yes button exists
-        let yes = app.buttons[StorySequencePlayer.accessibilityIdentifiers.skipWarningYes.rawValue]
+        let yes = app.buttons[StorySequencePlayer.AccessibilityIdentifiers.skipWarningYes.rawValue]
         let yesExists = yes.waitForExistence(timeout: 5)
         XCTAssert(yesExists)
 
