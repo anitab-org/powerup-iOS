@@ -36,7 +36,7 @@ class StorySequencePlayerTests: XCTestCase {
 
         // check for and retrieve the number of steps in the home intro sequence
         let steps: Int? = StorySequences().intros[5]?.steps.count
-        let modelExists: Bool = (steps != nil)
+        let modelExists: Bool = steps != nil
         XCTAssert(modelExists)
 
         // assert we're on the map view controller and the home scenario button exists, then tap it
@@ -87,7 +87,7 @@ class StorySequencePlayerTests: XCTestCase {
 
         // make sure home scenario has an intro to test
         let model: StorySequence? = StorySequences().intros[5]
-        let modelExists: Bool = (model != nil)
+        let modelExists: Bool = model != nil
         XCTAssert(modelExists)
 
         // assert we're on the map view controller and the home scenario button exists, then tap it
@@ -146,5 +146,5 @@ extension XCTestCase {
 
         waitForExpectations(timeout: duration)
     }
-}
 
+}
