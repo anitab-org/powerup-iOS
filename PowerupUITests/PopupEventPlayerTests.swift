@@ -40,7 +40,7 @@ class PopupEventPlayerTests: XCTestCase {
         aboutButton.tap()
 
         // check that the popup loads as expected
-        let popup = app.otherElements["popup-event-player"]
+        let popup = app.otherElements[PopupEventPlayer.AccessibilityIdentifiers.popupEventPlayer.rawValue]
         let exists: Bool = popup.waitForExistence(timeout: 5)
         XCTAssert(exists)
 

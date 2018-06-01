@@ -40,7 +40,7 @@ class PopupEventPlayer: UIView {
 
     private var tapped: Bool
 
-    enum accessibilityIdentifiers: String {
+    enum AccessibilityIdentifiers: String {
         case popupEventPlayer = "popup-event-player"
     }
 
@@ -70,7 +70,7 @@ class PopupEventPlayer: UIView {
 
         super.init(frame: frame)
 
-        self.accessibilityIdentifier = accessibilityIdentifiers.popupEventPlayer.rawValue
+        self.accessibilityIdentifier = AccessibilityIdentifiers.popupEventPlayer.rawValue
 
         // setup subviews
         setupSubviews()
