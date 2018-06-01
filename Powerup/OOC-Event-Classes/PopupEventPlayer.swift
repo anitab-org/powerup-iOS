@@ -40,6 +40,10 @@ class PopupEventPlayer: UIView {
 
     private var tapped: Bool
 
+    enum accessibilityIdentifiers: String {
+        case popupEventPlayer = "popup-event-player"
+    }
+
     /* *******************************
      MARK: Initializers
      ******************************* */
@@ -66,6 +70,8 @@ class PopupEventPlayer: UIView {
 
         super.init(frame: frame)
 
+        self.accessibilityIdentifier = accessibilityIdentifiers.popupEventPlayer.rawValue
+
         // setup subviews
         setupSubviews()
         updateContainer()
@@ -80,11 +86,6 @@ class PopupEventPlayer: UIView {
         container.addSubview(imageView)
         self.addSubview(self.container)
     }
-
-//    func setupForDebug(_ superview: UIView) {
-//        let popups = superview.subviews.filter({ $0 is PopupEventPlayer })
-//        self.accessibilityIdentifier = "PopupEventPlayer-\(popups.count)"
-//    }
 
     @objc func tapView(sender: UITapGestureRecognizer) {
         hide()
@@ -113,8 +114,6 @@ class PopupEventPlayer: UIView {
 
     // setup view for debugging and animate view automatically when view is added to a superview
     override func didMoveToSuperview() {
-//        guard let superview = self.superview else { return }
-//        setupForDebug(superview)
         show()
     }
 
