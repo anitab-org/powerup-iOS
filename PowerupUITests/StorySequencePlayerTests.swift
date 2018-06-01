@@ -33,7 +33,7 @@ class StorySequencePlayerTests: XCTestCase {
 
         // this checks for a new game alert - won't display if the game is a fresh install
         let alert = app.alerts["Are you sure?"].buttons["Create New Avatar"]
-        if (alert.exists) {
+        if alert.exists {
             alert.tap()
         }
 
@@ -91,7 +91,7 @@ class StorySequencePlayerTests: XCTestCase {
 
         // this checks for a new game alert - won't display if the game is a fresh install
         let alert = app.alerts["Are you sure?"].buttons["Create New Avatar"]
-        if (alert.exists) {
+        if alert.exists {
             alert.tap()
         }
 
