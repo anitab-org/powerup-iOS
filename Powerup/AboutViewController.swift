@@ -23,4 +23,5 @@ class AboutViewController: UIViewController, PopupEventPlayerDelegate {
     func popupDidFinish(sender: PopupEventPlayer) {
         sender.removeFromSuperview()
     }
+
 }
