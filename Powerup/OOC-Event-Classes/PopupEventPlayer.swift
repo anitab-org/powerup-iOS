@@ -91,24 +91,26 @@ class PopupEventPlayer: UIView {
         hide()
     }
 
-    convenience init(delegate: PopupEventPlayerDelegate, model: PopupEvent) {
+    convenience init(delegate: PopupEventPlayerDelegate?, model: PopupEvent?) {
         self.init(frame: CGRect.zero)
         self.delegate = delegate
 
-        if model.topText != nil {
-            mainText = model.topText
+        guard let m = model else { return }
+
+        if m.topText != nil {
+            mainText = m.topText
             updateMainLabel()
         }
-        if model.botText != nil {
-            subText = model.botText
+        if m.botText != nil {
+            subText = m.botText
             updateSubLabel()
         }
-        if model.imgName != nil {
-            image = UIImage(named: model.imgName!)
+        if m.imgName != nil {
+            image = UIImage(named: m.imgName!)
             updateImageView()
         }
-        if model.doSound != nil {
-            useSound = model.doSound!
+        if m.doSound != nil {
+            useSound = m.doSound!
         }
     }
 
