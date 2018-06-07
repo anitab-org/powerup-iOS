@@ -159,20 +159,3 @@ class StorySequencePlayerTests: XCTestCase {
     }
 
 }
-
-// a manual wait function - the automated idle check "taps" too often to step through the sequence properly
-// this ensures we wait long enough for the scene change to take place
-extension XCTestCase {
-
-    func wait(for duration: TimeInterval) {
-        let waitExpectation = expectation(description: "Waiting")
-
-        let when = DispatchTime.now() + duration
-        DispatchQueue.main.asyncAfter(deadline: when) {
-            waitExpectation.fulfill()
-        }
-
-        waitForExpectations(timeout: duration)
-    }
-
-}
