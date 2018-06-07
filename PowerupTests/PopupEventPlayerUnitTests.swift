@@ -129,7 +129,8 @@ class PopupEventPlayerUnitTests: XCTestCase {
 
         // loop through all major collections, which must be dictionaries of dictionaries
         for child in mirror.children {
-            let majorCollections = child.value as! Dictionary<Int, Dictionary<Int, PopupEvent>>
+            let majCol = child.value as? Dictionary<Int, Dictionary<Int, PopupEvent>>
+            guard let majorCollections = majCol else { return }
 
             // loop through each collection of models, which must be dictionaries of PopupEvent()
             for key in majorCollections.keys {
