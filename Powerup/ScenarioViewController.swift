@@ -182,7 +182,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
      - If it's not an Int, return
 
      - parameters:
-     - idNumber : String - the popupID property from the retrieved Answer
+        - idNumber : String - the popupID property from the retrieved Answer
 
      The PopupEventPlayer class handles the entire popup lifecycle. This function only needs to creates a local instance of the class.
      */
@@ -231,33 +231,19 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     /**
      PopupUpEventPlayer Delegate Method
      
-     - parameters:
-        - sender : PopupEventPlayer - the PopupEventPlayer instance
-     
-     - Important:
-        Although possible, there's probably not a reason to call this method yourself. It's automatically called by the class instance when dismissed (via tap or automatically).
-     
      Should call sender.removeFromSuperview() to ensure each instance is dismissed and released from memory
      */
     func popupDidFinish(sender: PopupEventPlayer) {
         sender.removeFromSuperview()
-        print("\nreleased popup")
     }
 
     /**
      StorySequencePlayer Delegate Method
-     
-     - parameters:
-     - sender : StorySequencePlayer - the StorySequencePlayer instance
-     
-     - Important:
-     Although possible, there's probably not a reason to call this method yourself. It's automatically called by the class instance when dismissed.
-     
+
      Should call sender.removeFromSuperview() to ensure each instance is dismissed and released from memory
      */
     func sequenceDidFinish(sender: StorySequencePlayer) {
         sender.removeFromSuperview()
-        print("\nreleased story sequence view")
     }
 
     // MARK: UITableViewDataSourceDelegate
