@@ -48,7 +48,8 @@ class StorySequencePlayerUnitTests: XCTestCase {
 
         // loop through all collections, which must be dictionaries of StorySequence()
         for child in mirror.children {
-            let collections = child.value as! Dictionary<Int, StorySequence>
+            let coll = child.value as? Dictionary<Int, StorySequence>
+            guard let collections = coll else { return }
 
             // loop through all models which must be a StorySequence()
             for key in collections.keys {
