@@ -20,14 +20,36 @@ class PopupEventPlayer: UIView {
         height: CGFloat
     var useSound: Bool
 
-    var bgColor: UIColor { didSet { updateContainer() } }
-    var borderColor: UIColor { didSet { updateContainer() } }
-    var textColor: UIColor { didSet { updateLabels() } }
-
-    var mainText: String? { didSet { updateMainLabel() } }
-    var subText: String? { didSet { updateSubLabel() } }
-
-    var image: UIImage? { didSet { updateImageView() } }
+    var bgColor: UIColor {
+        didSet {
+            updateContainer()
+        }
+    }
+    var borderColor: UIColor {
+        didSet {
+            updateContainer()
+        }
+    }
+    var textColor: UIColor {
+        didSet {
+            updateLabels()
+        }
+    }
+    var mainText: String? {
+        didSet {
+            updateMainLabel()
+        }
+    }
+    var subText: String? {
+        didSet {
+            updateSubLabel()
+        }
+    }
+    var image: UIImage? {
+        didSet {
+            updateImageView()
+        }
+    }
 
     var container: UIView,
         mainLabel: UILabel,
