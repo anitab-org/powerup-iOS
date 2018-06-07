@@ -29,7 +29,7 @@ class StorySequencePlayer: UIView {
     private var canTap: Bool
 
     // for easy access to accessibility identifiers
-    enum accessibilityIdentifiers: String {
+    enum AccessibilityIdentifiers: String {
         case storySequencePlayer = "story-sequence-player"
         case skipWarningView = "ssp-skip-warning-view"
         case skipWarningYes = "ssp-skip-warning-view-button-yes"
