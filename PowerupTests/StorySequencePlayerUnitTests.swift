@@ -29,7 +29,9 @@ class StorySequencePlayerUnitTests: XCTestCase {
                 }
             }
             return false
+
         }
+
         // for checking values against enum cases
         func checkAniCases(position: String) -> Bool {
             for pos in StorySequence.ImageAnimation.cases {
