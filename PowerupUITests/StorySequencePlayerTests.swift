@@ -47,7 +47,14 @@ class StorySequencePlayerTests: XCTestCase {
         XCTAssert(modelExists)
 
         // assert we're on the map view controller and the home scenario button exists, then tap it
-        let homeScenarioButton = element.children(matching: .button).element(boundBy: 2)
+        var homeScenarioButton: XCUIElement
+        if #available(iOS 10.0, *) {
+            // for whatever awful reason, the generic path to locate this button is different in iOS 10+
+            homeScenarioButton = element.children(matching: .button).element(boundBy: 2)
+        } else {
+            // than it is in iOS 9
+            homeScenarioButton = app.otherElements.containing(.navigationBar, identifier: "Powerup.MapView").children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .button).element(boundBy: 4)
+        }
         let homeScenarioButtonExists = homeScenarioButton.waitForExistence(timeout: 5)
         XCTAssert(homeScenarioButtonExists)
         homeScenarioButton.tap()
@@ -105,7 +112,14 @@ class StorySequencePlayerTests: XCTestCase {
         XCTAssert(modelExists)
 
         // assert we're on the map view controller and the home scenario button exists, then tap it
-        let homeScenarioButton = element.children(matching: .button).element(boundBy: 2)
+        var homeScenarioButton: XCUIElement
+        if #available(iOS 10.0, *) {
+            // for whatever awful reason, the generic path to locate this button is different in iOS 10+
+            homeScenarioButton = element.children(matching: .button).element(boundBy: 2)
+        } else {
+            // than it is in iOS 9
+            homeScenarioButton = app.otherElements.containing(.navigationBar, identifier: "Powerup.MapView").children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .button).element(boundBy: 4)
+        }
         let homeScenarioButtonExists = homeScenarioButton.waitForExistence(timeout: 5)
         XCTAssert(homeScenarioButtonExists)
         homeScenarioButton.tap()
