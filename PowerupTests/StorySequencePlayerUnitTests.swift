@@ -40,6 +40,7 @@ class StorySequencePlayerUnitTests: XCTestCase {
                 }
             }
             return false
+
         }
 
         // get the real datasource
