@@ -53,7 +53,7 @@ class StorySequencePlayerTests: XCTestCase {
             homeScenarioButton = element.children(matching: .button).element(boundBy: 2)
         } else {
             // than it is in iOS 9
-            homeScenarioButton = app.otherElements.containing(.navigationBar, identifier: "Powerup.MapView").children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .button).element(boundBy: 4)
+            homeScenarioButton = element.children(matching: .button).element(boundBy: 4)
         }
         let homeScenarioButtonExists = homeScenarioButton.waitForExistence(timeout: 5)
         XCTAssert(homeScenarioButtonExists)
@@ -118,7 +118,7 @@ class StorySequencePlayerTests: XCTestCase {
             homeScenarioButton = element.children(matching: .button).element(boundBy: 2)
         } else {
             // than it is in iOS 9
-            homeScenarioButton = app.otherElements.containing(.navigationBar, identifier: "Powerup.MapView").children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .button).element(boundBy: 4)
+            homeScenarioButton = element.children(matching: .button).element(boundBy: 4)
         }
         let homeScenarioButtonExists = homeScenarioButton.waitForExistence(timeout: 5)
         XCTAssert(homeScenarioButtonExists)
