@@ -52,19 +52,32 @@ struct StorySequence {
                     empty: "")
     }
 
-    enum ImagePosition {
-        case hidden
-        case near
-        case mid
-        case far
+    enum ImagePosition: String {
+        static let cases = [
+            hidden,
+            near,
+            mid,
+            far
+        ]
+        case hidden = "hidden"
+        case near = "near"
+        case mid = "mid"
+        case far = "far"
     }
 
-    enum ImageAnimation {
-        case shake
-        case tiltLeft
-        case tiltRight
-        case jiggle
-        case flip
+    enum ImageAnimation: String {
+        static let cases = [
+            shake,
+            tiltLeft,
+            tiltRight,
+            jiggle,
+            flip
+        ]
+        case shake = "shake"
+        case tiltLeft = "tiltLeft"
+        case tiltRight = "tiltRight"
+        case jiggle = "jiggle"
+        case flip = "flip"
     }
 
     /**

@@ -29,7 +29,7 @@ class StorySequencePlayer: UIView {
     private var canTap: Bool
 
     // for easy access to accessibility identifiers
-    enum AccessibilityIdentifiers: String {
+    enum accessibilityIdentifiers: String {
         case storySequencePlayer = "story-sequence-player"
         case skipWarningView = "ssp-skip-warning-view"
         case skipWarningYes = "ssp-skip-warning-view-button-yes"
@@ -60,7 +60,7 @@ class StorySequencePlayer: UIView {
 
         super.init(frame: frame)
 
-        self.accessibilityIdentifier = AccessibilityIdentifiers.storySequencePlayer.rawValue
+        self.accessibilityIdentifier = accessibilityIdentifiers.storySequencePlayer.rawValue
         let margin: CGFloat = 10
         let imageViewHeight: CGFloat = 0.6
 
@@ -71,7 +71,7 @@ class StorySequencePlayer: UIView {
         addLPGesture()
     }
 
-    convenience init(delegate: StorySequencePlayerDelegate, model: StorySequence) {
+    convenience init(delegate: StorySequencePlayerDelegate?, model: StorySequence) {
         self.init(frame: UIScreen.main.bounds)
 
         self.delegate = delegate
@@ -178,7 +178,7 @@ class StorySequencePlayer: UIView {
 
     private func displaySkipWarning() {
         let view = UIView(frame: self.bounds)
-        view.accessibilityIdentifier = AccessibilityIdentifiers.skipWarningView.rawValue
+        view.accessibilityIdentifier = accessibilityIdentifiers.skipWarningView.rawValue
 
         let warningView = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height / 2))
         warningView.center = CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)
@@ -203,13 +203,13 @@ class StorySequencePlayer: UIView {
 
         let botBounds = botContainer.bounds
         let yes = UIButton(frame: CGRect(x: 0, y: 0, width: botBounds.width / 2, height: botBounds.height))
-        yes.accessibilityIdentifier = AccessibilityIdentifiers.skipWarningYes.rawValue
+        yes.accessibilityIdentifier = accessibilityIdentifiers.skipWarningYes.rawValue
         yes.addTarget(self, action: #selector(tapSkipButton(_:)), for: .touchUpInside)
         yes.setTitle("Yes", for: .normal)
         yes.tag = 1
 
         let no = UIButton(frame: CGRect(x: botBounds.width / 2, y: 0, width: botBounds.width / 2, height: botBounds.height))
-        no.accessibilityIdentifier = AccessibilityIdentifiers.skipWarningNo.rawValue
+        no.accessibilityIdentifier = accessibilityIdentifiers.skipWarningNo.rawValue
         no.addTarget(self, action: #selector(tapSkipButton(_:)), for: .touchUpInside)
         no.setTitle("No", for: .normal)
 
@@ -233,7 +233,7 @@ class StorySequencePlayer: UIView {
         } else {
             // find and target the warning view for dismissal
             for view in self.subviews {
-                if view.accessibilityIdentifier == AccessibilityIdentifiers.skipWarningView.rawValue {
+                if view.accessibilityIdentifier == accessibilityIdentifiers.skipWarningView.rawValue {
                     let dur = 0.05
                     Animate(view, dur).fade(to: 0, then: {
                         view.removeFromSuperview()
@@ -275,7 +275,7 @@ class StorySequencePlayer: UIView {
 
     /**
      Important: Should handle alpha for left and right text at the same time. Right now it'll fade the left text since it reads left to right and fades all text other than the latest.
-    */
+     */
     private func updateLeftSide() {
         guard let m = model.steps[currentStep]!.lftEvent else { return }
         if m.image != nil {
