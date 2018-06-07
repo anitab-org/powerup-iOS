@@ -41,6 +41,10 @@ class PopupEventPlayer: UIView {
 
     private var tapped: Bool
 
+    enum AccessibilityIdentifiers: String {
+        case popupEventPlayer = "popup-event-player"
+    }
+
     /* *******************************
      MARK: Initializers
      ******************************* */
@@ -66,6 +70,8 @@ class PopupEventPlayer: UIView {
         self.useSound = false
 
         super.init(frame: frame)
+
+        self.accessibilityIdentifier = AccessibilityIdentifiers.popupEventPlayer.rawValue
 
         // setup subviews
         setupSubviews()
