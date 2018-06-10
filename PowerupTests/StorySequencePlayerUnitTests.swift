@@ -69,6 +69,7 @@ class StorySequencePlayerUnitTests: XCTestCase {
                     let lftEvent: StorySequence.Event! = step.lftEvent
                     let rgtEvent: StorySequence.Event! = step.rgtEvent
 
+                    // check each side independently
                     if lftEvent != nil {
                         // if there should be an image, check that the file exists
                         let lftImageCheck = (lftEvent.image != nil) ? (UIImage(named: lftEvent.image!) != nil) : true
@@ -82,6 +83,7 @@ class StorySequencePlayerUnitTests: XCTestCase {
                         let lftAniCheck = (lftEvent.imgAnim != nil) ? checkAniCases(position: lftEvent.imgAnim!.rawValue) : true
                         XCTAssert(lftAniCheck)
                     }
+
                     if rgtEvent != nil {
                         let rgtImageCheck = (rgtEvent.image != nil) ? (UIImage(named: rgtEvent.image!) != nil) : true
                         XCTAssert(rgtImageCheck)
