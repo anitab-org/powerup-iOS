@@ -52,8 +52,13 @@ class PopupEventPlayerUnitTests: XCTestCase {
 
     /**
      Mock and test specific model cases.
-     */
 
+     Commented out because it fails automated tests by Travis-CI even though it passes in Xcode.
+
+     Travis seems to be unable to create an audio player when running unit tests.
+
+     Will re-evaluate in the future.
+     */
     /*
     func testPopupCases() {
 
@@ -118,6 +123,12 @@ class PopupEventPlayerUnitTests: XCTestCase {
 
     /**
      Test all actual popups described in PopupEvents to ensure there are no errors in the dataset, especially if it ends up being generated from database tables, which would be a better cross-platform goal.
+
+     Commented out because it fails automated tests by Travis-CI even though it passes in Xcode.
+
+     Travis seems to be unable to create an audio player when running unit tests.
+
+     Will re-evaluate in the future.
      */
 
     /*
@@ -173,6 +184,8 @@ class PopupEventPlayerUnitTests: XCTestCase {
 
     /**
      Test all actual popups described in PopupEvents to ensure there are no errors in the dataset, especially if it ends up being generated from database tables, which would be a better cross-platform goal.
+
+     This test passes in Travis-CI, but only tests for images.
      */
     func testWithNoSound() {
 
