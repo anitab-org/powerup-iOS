@@ -338,6 +338,7 @@ class StorySequencePlayer: UIView {
         label.font = UIFont(name: fontName, size: fontSize)
         label.text = text
         label.textAlignment = (left) ? .left : .right
+        label.tag = currentStep
 
         // resize and reformat to account for word wrapping
         label.numberOfLines = 0
@@ -371,11 +372,8 @@ class StorySequencePlayer: UIView {
                     // animate moving all labels, use random value to make the spring jiggle more dynamic
                     Animate(label, dur).setSpring(0.6, 6.5 + (self.randomCGFloat() * 8)).setOptions(.curveEaseOut).move(by: [0, -height])
 
-                    // if the label isnt't the new label, and alpha is still 1, then reduce alpha
-                    if label != labels.last {
-                        if label.alpha == 1 {
-                            Animate(label, dur).fade(to: fadeTo)
-                        }
+                    if label.tag != self.currentStep {
+                        Animate(label, dur).fade(to: fadeTo)
                     }
                 }
             }
