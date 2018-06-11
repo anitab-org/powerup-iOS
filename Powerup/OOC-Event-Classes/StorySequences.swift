@@ -62,11 +62,11 @@ private let home: StorySequence = StorySequence(music: Sounds().scenarioMusic[5]
                                                         pos: pos.far,
                                                         ani: nil)
     ),
-    5: StorySequence.Step(lftEvent: StorySequence.Event(txt: "Things can happen on one or both sides. Now both images are hidden.",
+    5: StorySequence.Step(lftEvent: StorySequence.Event(txt: "Things can happen on one or both sides.",
                                                         img: nil,
                                                         pos: pos.hidden,
                                                         ani: nil),
-                          rgtEvent: StorySequence.Event(txt: nil,
+                          rgtEvent: StorySequence.Event(txt: "Now both images are hidden!",
                                                         img: nil,
                                                         pos: pos.hidden,
                                                         ani: nil)
