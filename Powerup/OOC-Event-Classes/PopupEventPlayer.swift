@@ -20,21 +20,44 @@ class PopupEventPlayer: UIView {
         height: CGFloat
     var useSound: Bool
 
-    var bgColor: UIColor // { didSet { updateContainer() } }
-    var borderColor: UIColor // { didSet { updateContainer() } }
-    var textColor: UIColor // { didSet { updateLabels() } }
-
-    var mainText: String? // { didSet { updateMainLabel() } }
-    var subText: String? // { didSet { updateSubLabel() } }
-
-    var image: UIImage? // { didSet { updateImageView() } }
+    var bgColor: UIColor {
+        didSet {
+            updateContainer()
+        }
+    }
+    var borderColor: UIColor {
+        didSet {
+            updateContainer()
+        }
+    }
+    var textColor: UIColor {
+        didSet {
+            updateLabels()
+        }
+    }
+    var mainText: String? {
+        didSet {
+            updateMainLabel()
+        }
+    }
+    var subText: String? {
+        didSet {
+            updateSubLabel()
+        }
+    }
+    var image: UIImage? {
+        didSet {
+            updateImageView()
+        }
+    }
 
     var container: UIView,
         mainLabel: UILabel,
         subLabel: UILabel,
         imageView: UIImageView
 
-    var soundPlayer: SoundPlayer? = SoundPlayer()
+    var soundPlayer: SoundPlayer? = SoundPlayer(),
+        forceSilent: Bool = false
     let sounds = (slideIn: "placeholder",
                   showImage: "placeholder2")
 
@@ -76,15 +99,14 @@ class PopupEventPlayer: UIView {
         setupSubviews()
         updateContainer()
 
-        // add a tap gesture to manually dismiss the popup
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapView(sender:)))
-        self.container.addGestureRecognizer(tap)
-
-        // add subviews
         container.addSubview(mainLabel)
         container.addSubview(subLabel)
         container.addSubview(imageView)
-        self.addSubview(self.container)
+        self.addSubview(container)
+
+        // add a tap gesture to manually dismiss the popup
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapView(sender:)))
+        self.addGestureRecognizer(tap)
     }
 
     @objc func tapView(sender: UITapGestureRecognizer) {
@@ -114,7 +136,6 @@ class PopupEventPlayer: UIView {
         }
     }
 
-    // setup view for debugging and animate view automatically when view is added to a superview
     override func didMoveToSuperview() {
         show()
     }
@@ -314,7 +335,10 @@ class PopupEventPlayer: UIView {
         if useSound && !tapped {
             guard let sound = fileName else { return }
             guard let player = self.soundPlayer else { return }
-            let vol = (volume != nil) ? volume : 1
+            var vol = (volume != nil) ? volume : 1
+            if forceSilent {
+                vol = 0
+            }
             player.playSound(sound, vol!)
         }
     }

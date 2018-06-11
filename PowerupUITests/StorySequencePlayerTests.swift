@@ -156,6 +156,7 @@ class StorySequencePlayerTests: XCTestCase {
         yes.tap()
         let playerDismissed = !player.exists
         XCTAssert(playerDismissed)
+
     }
 
 }
