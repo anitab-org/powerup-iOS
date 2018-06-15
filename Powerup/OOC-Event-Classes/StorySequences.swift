@@ -7,10 +7,17 @@
  */
 struct StorySequences {
     let intros: Dictionary<Int, StorySequence>
+    let outros: Dictionary<Int, Dictionary<Int, StorySequence>>
 
     init() {
         intros = [
             5: home
+        ]
+
+        outros = [
+            5: [
+                1: homeOutro
+            ]
         ]
     }
 }
@@ -112,5 +119,100 @@ private let home: StorySequence = StorySequence(music: Sounds().scenarioMusic[5]
                                                          img: "minesweeper_abstinence_heart",
                                                          pos: pos.far,
                                                          ani: nil)
+    )
+])
+
+// MARK: Example outro - scenario 5 - popupID -1
+private let testChar3 = StorySequence.Images().testChar3
+private let homeOutro: StorySequence = StorySequence(music: Sounds().scenarioMusic[5]?.goodEnding, [
+    0: StorySequence.Step(lftEvent: StorySequence.Event(txt: "Hi everyone, we're back!",
+                                                        img: testChar2.smiling,
+                                                        pos: pos.mid,
+                                                        ani: nil),
+                          rgtEvent: StorySequence.Event(txt: nil,
+                                                        img: testChar.happy,
+                                                        pos: pos.mid,
+                                                        ani: nil)
+    ),
+    1: StorySequence.Step(lftEvent: StorySequence.Event(txt: nil,
+                                                        img: testChar2.normal,
+                                                        pos: pos.near,
+                                                        ani: nil),
+                          rgtEvent: StorySequence.Event(txt: "Outro sequences are just like an intro sequence, except they are triggered by the PopupID value.",
+                                                        img: testChar.lecturing,
+                                                        pos: nil,
+                                                        ani: nil)
+    ),
+    2: StorySequence.Step(lftEvent: StorySequence.Event(txt: "When an answer record has a positive int, it looks for a popup.",
+                                                        img: testChar2.talking,
+                                                        pos: nil,
+                                                        ani: nil),
+                          rgtEvent: StorySequence.Event(txt: nil,
+                                                        img: testChar.normal,
+                                                        pos: pos.near,
+                                                        ani: nil)
+    ),
+    3: StorySequence.Step(lftEvent: StorySequence.Event(txt: nil,
+                                                        img: testChar2.normal,
+                                                        pos: nil,
+                                                        ani: nil),
+                          rgtEvent: StorySequence.Event(txt: "But when it has a negative int, it looks to end the scenario with an outro sequence!",
+                                                        img: testChar.talking,
+                                                        pos: pos.far,
+                                                        ani: nil)
+    ),
+    4: StorySequence.Step(lftEvent: StorySequence.Event(txt: "We think all of these story sequences can be used in different ways.",
+                                                        img: testChar2.lecturing,
+                                                        pos: nil,
+                                                        ani: nil),
+                          rgtEvent: StorySequence.Event(txt: nil,
+                                                        img: testChar.scared,
+                                                        pos: pos.near,
+                                                        ani: ani.jiggle)
+    ),
+    5: StorySequence.Step(lftEvent: StorySequence.Event(txt: "We might be characters in the story, and we could just continue the scene with a script.",
+                                                        img: testChar2.talking,
+                                                        pos: pos.mid,
+                                                        ani: nil),
+                          rgtEvent: StorySequence.Event(txt: nil,
+                                                        img: testChar.happy,
+                                                        pos: nil,
+                                                        ani: ani.tiltLeft)
+    ),
+    6: StorySequence.Step(lftEvent: StorySequence.Event(txt: nil,
+                                                        img: nil,
+                                                        pos: pos.hidden,
+                                                        ani: nil),
+                          rgtEvent: StorySequence.Event(txt: "We could also address the player directly and be truly Out-Of-Character.",
+                                                        img: testChar.talking,
+                                                        pos: pos.far,
+                                                        ani: nil)
+    ),
+    7: StorySequence.Step(lftEvent: StorySequence.Event(txt: "Or introduce new characters of authority to talk about important things!",
+                                                        img: testChar3.normal,
+                                                        pos: pos.mid,
+                                                        ani: nil),
+                          rgtEvent: StorySequence.Event(txt: nil,
+                                                        img: testChar.dazed,
+                                                        pos: pos.near,
+                                                        ani: ani.shake)
+    ),
+    8: StorySequence.Step(lftEvent: StorySequence.Event(txt: nil,
+                                                        img: nil,
+                                                        pos: pos.hidden,
+                                                        ani: ani.flip),
+                          rgtEvent: StorySequence.Event(txt: "Soon, we'll have some more concrete examples of what these scenes could look like.",
+                                                        img: testChar.whatever,
+                                                        pos: nil,
+                                                        ani: nil)
+    ),
+    9: StorySequence.Step(lftEvent: StorySequence.Event(txt: "As well as documentation on exactly how to build the models to make these scenes work!",
+                                                        img: testChar2.smiling,
+                                                        pos: pos.near,
+                                                        ani: ani.tiltRight),
+                          rgtEvent: StorySequence.Event(txt: "Thanks!",
+                                                        img: testChar.smiling,
+                                                        pos: pos.near,
+                                                        ani: ani.tiltLeft)
     )
 ])

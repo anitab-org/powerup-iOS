@@ -48,6 +48,9 @@ struct StorySequence {
                          whatever: "test2_chibi_whatever",
                          tired: "test2_chibi_tired")
 
+        let testChar3 = (normal: "testChar3",
+                         empty: "")
+
         let misc = (dataExample: "test_data_example",
                     empty: "")
     }

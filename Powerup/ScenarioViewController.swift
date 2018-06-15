@@ -25,6 +25,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
 
     // Answers for the question
     var answers = [Answer]()
+    var nextQuestionID = "$"
 
     // MARK: Views
     @IBOutlet weak var backgroundImageView: UIImageView!
@@ -195,36 +196,60 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
 
         if let popupID = Int(idNumber) {
             // if it's an Int...
-            if popupID > 0 {
+            if popupID > -1 {
                 // if it's positive, show inline popup
+
+                // go ahead and set up the next question
+                handleNextQuestion()
 
                 // get the correct model as per popupID
                 guard let model: PopupEvent = popups[popupID] else { return }
-
-                /* manual test events */
-                /* positive int, but no corresponding model event : don't show a popup, but also don't crash ^^ */
-                //guard let model : PopupEvent = popupEvents[9001] else {return}
-
-                /* subtext is nil, main text is empty string : popup displays with no text, but has sound and image */
-                //guard let model : PopupEvent = popupEvents[4] else {return}
-
-                /* image is nil, but popup has sound : no image, and only the slide sound plays */
-                //guard let model : PopupEvent = popupEvents[5] else {return}
-
-                /* image named doesnt exist, popup has sound : no image, and only the slide sound plays */
-                //guard let model : PopupEvent = popupEvents[6] else {return}
 
                 // create local instance of PopupEventPlayer class and add to self.view
                 let event: PopupEventPlayer? = PopupEventPlayer(delegate: self, model: model)
                 guard let popup = event else { return }
                 self.view.addSubview(popup)
+
             } else {
                 // if it's negative, show ending sequence
+                startOutroSequence(popupID: popupID)
             }
         } else {
             // not an int, ignore ooc events
-            return
+            handleNextQuestion()
         }
+    }
+
+    /**
+     Handles calling outro sequences. The logic is:
+     - check if popups exist for the scenario ID
+     - check if the ID number can be cast to an Int
+     - If > 0 check for and retrieve the model
+     - then create an instance of PopupEventPlayer and add to self.view
+     - If < 0 call the method to handle scenario ending sequences
+     - If it's not an Int, return
+
+     - parameters:
+     - idNumber : String - the popupID property from the retrieved Answer
+
+     The PopupEventPlayer class handles the entire popup lifecycle. This function only needs to creates a local instance of the class.
+     */
+    func startOutroSequence(popupID: Int) {
+        // outros have a negative id in the answer database, but positive in the story sequence dataset
+        let popupID = abs(popupID)
+
+        // get the outro sequences for the current scenario
+        guard let models = StorySequences().outros[scenarioID] else { return }
+
+        // get the correct outro sequence
+        guard let model = models[popupID] else { return }
+
+        // create and start the sequence
+        let sequenceView: StorySequencePlayer = StorySequencePlayer(delegate: self, model: model)
+
+        // so we can check in the delegate method
+        sequenceView.tag = 1
+        self.view.addSubview(sequenceView)
     }
 
     // MARK: PopupEventPlayer Delegate Methods
@@ -244,6 +269,11 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
      */
     func sequenceDidFinish(sender: StorySequencePlayer) {
         sender.removeFromSuperview()
+
+        // outros were given a tag of 1 and needed to delay handleNextQuestion()
+        if sender.tag == 1 {
+            handleNextQuestion()
+        }
     }
 
     // MARK: UITableViewDataSourceDelegate
@@ -264,12 +294,18 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedIndex = indexPath.row
 
-        // Check if the next questionID is a valid integer, if not, it's the end of the scnario (entering a mini game)
-        let nextQuestionID = answers[selectedIndex].nextQuestionID
+        // store nextQuestionID - it might be used now, it might be used after a sequence
+        nextQuestionID = answers[selectedIndex].nextQuestionID
 
         // pass the popupID string of the selected answer to handlePopupEvent function
         handlePopupEvent(idNumber: answers[selectedIndex].popupID)
+    }
 
+    /**
+     Because ending sequences are triggered by the popupID value, handleNextQuestion is called from handlePopupEvent or the StorySequencePlayer delegate method.
+    */
+    func handleNextQuestion() {
+        // Check if the next questionID is a valid integer, if not, it's the end of the scnario (entering a mini game)
         if let nextQuestionIDInt = Int(nextQuestionID) {
 
             if nextQuestionIDInt > 0 {
@@ -287,7 +323,6 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
             // Perform push segue to result scene
             performSegueWithIdentifier(.toEndSceneView, sender: self)
         }
-
     }
 
     // MARK: Segue
