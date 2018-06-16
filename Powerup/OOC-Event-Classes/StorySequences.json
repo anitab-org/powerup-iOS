@@ -1,0 +1,214 @@
+{
+    "intros": {
+        "1": {
+            "music": "home_intro_music_placeholder",
+            "steps": {
+                "0": {
+                    "lftEvent": {
+                        "txt": "test scenario 1 - intro",
+                        "img": "test_chibi_happy",
+                        "pos": "near",
+                        "ani": "shake"
+                    },
+                    "rgtEvent": null
+                }
+            }
+        },
+        "5": {
+            "music": "home_intro_music_placeholder",
+            "steps": {
+                "0": {
+                    "lftEvent": {
+                        "txt": "Hey, this is an intro sequence!",
+                        "img": "test_chibi_happy",
+                        "pos": "near",
+                        "ani": "shake"
+                    },
+                    "rgtEvent": null
+                },
+                "1": {
+                    "lftEvent": null,
+                    "rgtEvent": {
+                        "txt": "You can change the images in each step, and each side is independent.",
+                        "img": "test2_chibi_normal",
+                        "pos": "near",
+                        "ani": "tiltLeft"
+                    }
+                },
+                "2": {
+                    "lftEvent": {
+                        "txt": "The images can move to different positions.",
+                        "img": null,
+                        "pos": "mid",
+                        "ani": "tiltRight"
+                    },
+                    "rgtEvent": {
+                        "txt": null,
+                        "img": "test2_chibi_upset",
+                        "pos": null,
+                        "ani": "juggle"
+                    }
+                },
+                "3": {
+                    "lftEvent": {
+                        "txt": "You describe it in a model of steps and events. Passing nil to a value tells it to stay the same.",
+                        "img": "test_chibi_talking",
+                        "pos": "near",
+                        "ani": "flip"
+                    },
+                    "rgtEvent": null
+                },
+                "4": {
+                    "lftEvent": null,
+                    "rgtEvent": {
+                        "txt": "See? The left image didn't move or change!",
+                        "img": "test2_chibi_scared",
+                        "pos": "far",
+                        "ani": null
+                    }
+                },
+                "5": {
+                    "lftEvent": {
+                        "txt": "Things can happen on one or both sides.",
+                        "img": null,
+                        "pos": "hidden",
+                        "ani": null
+                    },
+                    "rgtEvent": {
+                        "txt": "Now both images are hidden!",
+                        "img": null,
+                        "pos": "hidden",
+                        "ani": null
+                    }
+                },
+                "6": {
+                    "lftEvent": {
+                        "txt": "A `StorySequence` is just a collection of `Steps`!",
+                        "img": "test_chibi_normal",
+                        "pos": "far",
+                        "ani": null
+                    },
+                    "rgtEvent": null
+                },
+                "7": {
+                    "lftEvent": {
+                        "txt": "This is what the data looks like for a single step. It's two events, left and right.",
+                        "img": "test_chibi_scared",
+                        "pos": "mid",
+                        "ani": null
+                    },
+                    "rgtEvent": {
+                        "txt": null,
+                        "img": "test_data_example",
+                        "pos": "near",
+                        "ani": null
+                    }
+                },
+                "8": {
+                    "lftEvent": {
+                        "txt": null,
+                        "img": "test2_chibi_normal",
+                        "pos": "near",
+                        "ani": null
+                    },
+                    "rgtEvent": {
+                        "txt": "It's not that bad!",
+                        "img": null,
+                        "pos": "far",
+                        "ani": null
+                    }
+                },
+                "9": {
+                    "lftEvent": {
+                        "txt": "Oh yea! There's also predefined animations to give your characters some character.",
+                        "img": "test_chibi_talking",
+                        "pos": "near",
+                        "ani": null
+                    },
+                    "rgtEvent": {
+                        "txt": null,
+                        "img": null,
+                        "pos": "hidden",
+                        "ani": null
+                    }
+                },
+                "10": {
+                    "lftEvent": {
+                        "txt": "But that's it for now! Thanks for listening!",
+                        "img": "test_chibi_normal",
+                        "pos": "mid",
+                        "ani": null
+                    },
+                    "rgtEvent": {
+                        "txt": null,
+                        "img": "minesweeper_abstinence_heart",
+                        "pos": "far",
+                        "ani": null
+                    }
+                }
+            }
+        }
+    },
+    "outros": {
+        "5": {
+            "1": {
+                "music": "home_good_ending_example",
+                "steps": {
+                    "0": {
+                        "lftEvent": {
+                            "txt": "scenario 5 - outro 1",
+                            "img": "test_chibi_happy",
+                            "pos": "far",
+                            "ani": "shake"
+                        },
+                        "rgtEvent": null
+                    }
+                }
+            },
+            "2": {
+                "music": "home_good_ending_example",
+                "steps": {
+                    "0": {
+                        "lftEvent": {
+                            "txt": "scenario 5 - outro 2",
+                            "img": "test_chibi_happy",
+                            "pos": "near",
+                            "ani": "shake"
+                        },
+                        "rgtEvent": null
+                    }
+                }
+            }
+        },
+        "6": {
+            "1": {
+                "music": "home_good_ending_example",
+                "steps": {
+                    "0": {
+                        "lftEvent": {
+                            "txt": "scenario 6 - outro 1",
+                            "img": null,
+                            "pos": null,
+                            "ani": null
+                        },
+                        "rgtEvent": null
+                    }
+                }
+            },
+            "2": {
+                "music": "home_good_ending_example",
+                "steps": {
+                    "0": {
+                        "lftEvent": {
+                            "txt": "scenario 5 - outro 2",
+                            "img": "test2_chibi_happy",
+                            "pos": "near",
+                            "ani": "shake"
+                        },
+                        "rgtEvent": null
+                    }
+                }
+            }
+        }
+    }
+}
