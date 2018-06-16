@@ -113,31 +113,10 @@ func getStorySequence(scenario: Int, outro: Int? = nil) -> StorySequence? {
 
 }
 
-/**
- Stuct describing all collections of story sequences. Defined in StorySequence.swift. Called in ScenarioViewController.startSequence()
+// MARK: Example data sets
 
- Important: Contains references to instances of StorySequence defined in StorySequence.swift
+// Example Intro
 
- Each key is the ScenarioID, the value is a StorySequence.
- */
-struct StorySequences {
-    let intros: Dictionary<Int, StorySequence>
-    let outros: Dictionary<Int, Dictionary<Int, StorySequence>>
-
-    init() {
-        intros = [
-            5: home
-        ]
-
-        outros = [
-            5: [
-                1: homeOutro
-            ]
-        ]
-    }
-}
-
-// MARK: Scenario 5 - Home
 // define each story sequence as a private let, named descriptively
 // a StorySequence is a dictionary of StorySequenceStep, keys must be Int and serve to make the collection more readable as well as giving better access to starting a sequence in the middle
 // a StorySequenceStep describes two StorySequenceEvent, a left event and a right event.
@@ -145,6 +124,8 @@ struct StorySequences {
 // if any properties are left nil, there will be no change from the previous step
 // you can nil the entire event as well (for no change from the previous step)
 // calling .dismiss in the pos property hides *and* releases the image from the imageView
+
+/*
 private let pos = StorySequence.ImagePosition.self
 private let ani = StorySequence.ImageAnimation.self
 private let testChar = StorySequence.Images().testChar
@@ -236,8 +217,12 @@ private let home: StorySequence = StorySequence(music: Sounds().scenarioMusic[5]
                                                          ani: nil)
     )
 ])
+*/
 
-// MARK: Example outro - scenario 5 - popupID -1
+/** ************** */
+// Example outro
+
+/*
 private let testChar3 = StorySequence.Images().testChar3
 private let homeOutro: StorySequence = StorySequence(music: Sounds().scenarioMusic[5]?.goodEnding, [
     0: StorySequence.Step(lftEvent: StorySequence.Event(txt: "Hi everyone, we're back!",
@@ -331,3 +316,4 @@ private let homeOutro: StorySequence = StorySequence(music: Sounds().scenarioMus
                                                         ani: ani.tiltLeft)
     )
 ])
+*/
