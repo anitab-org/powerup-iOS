@@ -177,7 +177,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     /**
-     Handles calling popup events.
+     Handles calling popup events or outro sequences.
 
      - parameters:
         - popupID : String - the popupID property from the retrieved Answer
@@ -185,9 +185,6 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
      The PopupEventPlayer class handles the entire popup lifecycle. This function only needs to creates a local instance of the class.
      */
     func handlePopupEvent(popupID: String) {
-        // check for and retrieve popups for the current scenario
-        guard let popups = PopupEvents().scenarioPopups[scenarioID] else { return }
-
         // type check the idNumber String - if it's not an integer, ignore it
         if let popupID = Int(popupID) {
             // if it's an Int...
@@ -197,10 +194,13 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
                 // go ahead and set up the next question
                 handleNextQuestion()
 
-                // get the correct model as per popupID
-                guard let model: PopupEvent = popups[popupID] else { return }
+                // get the correct model
+                guard let model: PopupEvent = getPopup(type: .scenario, collection: String(scenarioID), popupID: popupID) else {
+                    print("Could not retrieve outro story sequence for scenario \(scenarioID) with popupID \(popupID).")
+                    return
+                }
 
-                // create local instance of PopupEventPlayer class and add to self.view
+                // create local instance of PopupEventPlayer class and add to view
                 let event: PopupEventPlayer? = PopupEventPlayer(delegate: self, model: model)
                 guard let popup = event else { return }
                 self.view.addSubview(popup)
