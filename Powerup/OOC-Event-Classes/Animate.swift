@@ -89,6 +89,7 @@ class Animate {
      Set the duration for all animations.
      */
     @discardableResult func setDuration(_ duration: Double) -> Animate {
+        self.duration = duration
         self.dur = duration
         return self
     }
