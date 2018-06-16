@@ -36,11 +36,13 @@
 		6A69DC9520AB38B4006511E3 /* StorySequences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A69DC9420AB38B4006511E3 /* StorySequences.swift */; };
 		6A69DC9720AB38BD006511E3 /* PopupEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A69DC9620AB38BD006511E3 /* PopupEvents.swift */; };
 		6A69DC9E20ABCA0A006511E3 /* Sounds.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A69DC9D20ABCA0A006511E3 /* Sounds.xcassets */; };
+		6A72368B20D5A28F00698257 /* Popups.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A72368920D5A28F00698257 /* Popups.json */; };
+		6A72368C20D5A28F00698257 /* StorySequences.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A72368A20D5A28F00698257 /* StorySequences.json */; };
 		6A7B854120A9F51100EBFEEB /* mainDatabaseDev.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 6A7B854020A9F51100EBFEEB /* mainDatabaseDev.sqlite */; };
 		6A9353ED20BD14C500A6D196 /* PopupEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9353EC20BD14C500A6D196 /* PopupEventModel.swift */; };
 		6A9A4A1A20B51DE500FFC5AA /* Animate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A4A1920B51DE500FFC5AA /* Animate.swift */; };
-		6A9DA05520C9E66E009C969E /* StorySequencePlayerUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9DA05420C9E66E009C969E /* StorySequencePlayerUnitTests.swift */; };
 		6A9DA03820C9E2F2009C969E /* PopupEventPlayerUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9DA03720C9E2F2009C969E /* PopupEventPlayerUnitTests.swift */; };
+		6A9DA05520C9E66E009C969E /* StorySequencePlayerUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9DA05420C9E66E009C969E /* StorySequencePlayerUnitTests.swift */; };
 		6AA0D96920BD2E97009969AE /* PopupEventPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A69DC8E20AB3881006511E3 /* PopupEventPlayer.swift */; };
 		6AA0D96A20BD2E99009969AE /* PopupEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9353EC20BD14C500A6D196 /* PopupEventModel.swift */; };
 		6AA0D96B20BD2E9B009969AE /* PopupEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A69DC9620AB38BD006511E3 /* PopupEvents.swift */; };
@@ -158,13 +160,15 @@
 		6A69DC9420AB38B4006511E3 /* StorySequences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySequences.swift; sourceTree = "<group>"; };
 		6A69DC9620AB38BD006511E3 /* PopupEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupEvents.swift; sourceTree = "<group>"; };
 		6A69DC9D20ABCA0A006511E3 /* Sounds.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Sounds.xcassets; sourceTree = "<group>"; };
+		6A72368920D5A28F00698257 /* Popups.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Popups.json; sourceTree = "<group>"; };
+		6A72368A20D5A28F00698257 /* StorySequences.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StorySequences.json; sourceTree = "<group>"; };
 		6A7B854020A9F51100EBFEEB /* mainDatabaseDev.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = mainDatabaseDev.sqlite; path = Scenarios/mainDatabaseDev.sqlite; sourceTree = "<group>"; };
 		6A9353E220BD131700A6D196 /* PowerupUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PowerupUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A9353E620BD131700A6D196 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A9353EC20BD14C500A6D196 /* PopupEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupEventModel.swift; sourceTree = "<group>"; };
 		6A9A4A1920B51DE500FFC5AA /* Animate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animate.swift; sourceTree = "<group>"; };
-		6A9DA05420C9E66E009C969E /* StorySequencePlayerUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorySequencePlayerUnitTests.swift; sourceTree = "<group>"; };
 		6A9DA03720C9E2F2009C969E /* PopupEventPlayerUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupEventPlayerUnitTests.swift; sourceTree = "<group>"; };
+		6A9DA05420C9E66E009C969E /* StorySequencePlayerUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorySequencePlayerUnitTests.swift; sourceTree = "<group>"; };
 		6AE6AFF820C1CB02000B7828 /* StorySequencePlayerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorySequencePlayerTests.swift; sourceTree = "<group>"; };
 		6AE6AFFC20C1CCA9000B7828 /* PopupEventPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupEventPlayerTests.swift; sourceTree = "<group>"; };
 		D910FF181F04AB3200C444DA /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
@@ -357,6 +361,8 @@
 		6A69DC8B20AB3835006511E3 /* OOC-Event-Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6A72368920D5A28F00698257 /* Popups.json */,
+				6A72368A20D5A28F00698257 /* StorySequences.json */,
 				6A69DC8E20AB3881006511E3 /* PopupEventPlayer.swift */,
 				6A9353EC20BD14C500A6D196 /* PopupEventModel.swift */,
 				6A69DC9620AB38BD006511E3 /* PopupEvents.swift */,
@@ -569,10 +575,12 @@
 			files = (
 				D9381DB11EF773B2000AC2B5 /* Montserrat-Bold.otf in Resources */,
 				2A5B28371D3E6E6300308F78 /* mainDatabase.sqlite in Resources */,
+				6A72368B20D5A28F00698257 /* Popups.json in Resources */,
 				2A0CA55A1B294C6B00ED8781 /* Main.storyboard in Resources */,
 				2A0CA55F1B294C6B00ED8781 /* LaunchScreen.xib in Resources */,
 				2A0CA55C1B294C6B00ED8781 /* Images.xcassets in Resources */,
 				6A69DC9E20ABCA0A006511E3 /* Sounds.xcassets in Resources */,
+				6A72368C20D5A28F00698257 /* StorySequences.json in Resources */,
 				6A7B854120A9F51100EBFEEB /* mainDatabaseDev.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
