@@ -11,6 +11,8 @@ class PopupEventPlayer: UIView {
      ******************************* */
     weak var delegate: PopupEventPlayerDelegate?
 
+    var id: Int?
+
     let angleSize: CGFloat = 0.1,
         slideAnimDuration: Double = 0.5,
         popupDuration: Double = 5.0,
@@ -20,44 +22,21 @@ class PopupEventPlayer: UIView {
         height: CGFloat
     var useSound: Bool
 
-    var bgColor: UIColor {
-        didSet {
-            updateContainer()
-        }
-    }
-    var borderColor: UIColor {
-        didSet {
-            updateContainer()
-        }
-    }
-    var textColor: UIColor {
-        didSet {
-            updateLabels()
-        }
-    }
-    var mainText: String? {
-        didSet {
-            updateMainLabel()
-        }
-    }
-    var subText: String? {
-        didSet {
-            updateSubLabel()
-        }
-    }
-    var image: UIImage? {
-        didSet {
-            updateImageView()
-        }
-    }
+    var bgColor: UIColor // { didSet { updateContainer() } }
+    var borderColor: UIColor // { didSet { updateContainer() } }
+    var textColor: UIColor // { didSet { updateLabels() } }
+
+    var mainText: String? // { didSet { updateMainLabel() } }
+    var subText: String? // { didSet { updateSubLabel() } }
+
+    var image: UIImage? // { didSet { updateImageView() } }
 
     var container: UIView,
         mainLabel: UILabel,
         subLabel: UILabel,
         imageView: UIImageView
 
-    var soundPlayer: SoundPlayer? = SoundPlayer(),
-        forceSilent: Bool = false
+    var soundPlayer: SoundPlayer? = SoundPlayer()
     let sounds = (slideIn: "placeholder",
                   showImage: "placeholder2")
 
@@ -99,18 +78,15 @@ class PopupEventPlayer: UIView {
         setupSubviews()
         updateContainer()
 
+        // add a tap gesture to manually dismiss the popup
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapView(sender:)))
+        self.container.addGestureRecognizer(tap)
+
+        // add subviews
         container.addSubview(mainLabel)
         container.addSubview(subLabel)
         container.addSubview(imageView)
-        self.addSubview(container)
-
-        // add a tap gesture to manually dismiss the popup
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapView(sender:)))
-        self.addGestureRecognizer(tap)
-    }
-
-    @objc func tapView(sender: UITapGestureRecognizer) {
-        hide()
+        self.addSubview(self.container)
     }
 
     convenience init(delegate: PopupEventPlayerDelegate?, model: PopupEvent?) {
@@ -136,6 +112,16 @@ class PopupEventPlayer: UIView {
         }
     }
 
+    convenience init(_ model: PopupEvent) {
+        self.init(delegate: nil, model: model)
+    }
+
+    @objc func tapView(sender: UITapGestureRecognizer) {
+        self.delegate?.popupWasTapped(sender: self)
+        hide()
+    }
+
+    // setup view for debugging and animate view automatically when view is added to a superview
     override func didMoveToSuperview() {
         show()
     }
@@ -278,6 +264,9 @@ class PopupEventPlayer: UIView {
      Handles animations asyncronously on a background thread, checks for and plays sound, and times the popup for automatic dismissal.
      */
     func show() {
+
+        self.delegate?.popupDidShow(sender: self)
+
         let sound = sounds.slideIn
         let volume: Float = 0.2
 
@@ -306,7 +295,8 @@ class PopupEventPlayer: UIView {
 
             DispatchQueue.global(qos: .background).async {
                 DispatchQueue.main.asyncAfter(deadline: .now() + self.slideAnimDuration) {
-                    self.delegate?.popupDidFinish(sender: self)
+                    self.delegate?.popupDidHide(sender: self)
+                    self.removeFromSuperview()
                 }
             }
         }
@@ -335,10 +325,7 @@ class PopupEventPlayer: UIView {
         if useSound && !tapped {
             guard let sound = fileName else { return }
             guard let player = self.soundPlayer else { return }
-            var vol = (volume != nil) ? volume : 1
-            if forceSilent {
-                vol = 0
-            }
+            let vol = (volume != nil) ? volume : 1
             player.playSound(sound, vol!)
         }
     }
@@ -349,5 +336,7 @@ class PopupEventPlayer: UIView {
  MARK: Delegate Methods
  ******************************* */
 protocol PopupEventPlayerDelegate: AnyObject {
-    func popupDidFinish(sender: PopupEventPlayer)
+    func popupDidShow(sender: PopupEventPlayer)
+    func popupDidHide(sender: PopupEventPlayer)
+    func popupWasTapped(sender: PopupEventPlayer)
 }
