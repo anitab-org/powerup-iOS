@@ -168,7 +168,10 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     func startSequence() {
         print("\nbegin opening sequence")
 
-        guard let model = getStorySequence(scenario: scenarioID) else { return }
+        guard let model = getStorySequence(scenario: scenarioID) else {
+            print("Could not retrieve intro story sequence for scenario \(scenarioID).")
+            return
+        }
         let sequenceView: StorySequencePlayer = StorySequencePlayer(delegate: self, model: model)
         self.view.addSubview(sequenceView)
     }
@@ -225,7 +228,10 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         let popupID = abs(popupID)
 
         // get the correct outro sequence for the current scenario and answer
-        guard let model = getStorySequence(scenario: scenarioID, outro: popupID) else { return }
+        guard let model = getStorySequence(scenario: scenarioID, outro: popupID) else {
+            print("Could not retrieve outro story sequence for scenario \(scenarioID) with popupID \(popupID).")
+            return
+        }
 
         // create and start the sequence
         let sequenceView: StorySequencePlayer = StorySequencePlayer(delegate: self, model: model)
