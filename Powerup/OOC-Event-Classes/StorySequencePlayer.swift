@@ -71,7 +71,7 @@ class StorySequencePlayer: UIView {
         addLPGesture()
     }
 
-    convenience init(delegate: StorySequencePlayerDelegate?, model: StorySequence) {
+    convenience init(delegate: StorySequencePlayerDelegate, model: StorySequence) {
         self.init(frame: UIScreen.main.bounds)
 
         self.delegate = delegate
@@ -85,6 +85,10 @@ class StorySequencePlayer: UIView {
                 self.soundPlayer.playSound(sound, 0.1)
             }
         }
+    }
+
+    override func didMoveToSuperview() {
+        self.delegate?.sequenceDidStart(sender: self)
     }
 
     /* *******************************
@@ -230,6 +234,7 @@ class StorySequencePlayer: UIView {
         if button.tag > 0 {
             // cancel the sequence and remove the StorySequencePlayer view
             hide()
+            self.delegate?.sequenceWasSkipped(sender: self)
         } else {
             // find and target the warning view for dismissal
             for view in self.subviews {
@@ -275,7 +280,7 @@ class StorySequencePlayer: UIView {
 
     /**
      Important: Should handle alpha for left and right text at the same time. Right now it'll fade the left text since it reads left to right and fades all text other than the latest.
-     */
+    */
     private func updateLeftSide() {
         guard let m = model.steps[currentStep]!.lftEvent else { return }
         if m.image != nil {
@@ -339,9 +344,6 @@ class StorySequencePlayer: UIView {
         label.text = text
         label.textAlignment = (left) ? .left : .right
 
-        // used to check if a label should fade
-        label.tag = currentStep
-
         // resize and reformat to account for word wrapping
         label.numberOfLines = 0
         label.preferredMaxLayoutWidth = width
@@ -374,9 +376,11 @@ class StorySequencePlayer: UIView {
                     // animate moving all labels, use random value to make the spring jiggle more dynamic
                     Animate(label, dur).setSpring(0.6, 6.5 + (self.randomCGFloat() * 8)).setOptions(.curveEaseOut).move(by: [0, -height])
 
-                    // check the tag to see if it's an old label, and fade if it is
-                    if label.tag != self.currentStep {
-                        Animate(label, dur).fade(to: fadeTo)
+                    // if the label isnt't the new label, and alpha is still 1, then reduce alpha
+                    if label != labels.last {
+                        if label.alpha == 1 {
+                            Animate(label, dur).fade(to: fadeTo)
+                        }
                     }
                 }
             }
@@ -479,6 +483,7 @@ class StorySequencePlayer: UIView {
         v.fade(to: 0, then: {
             self.soundPlayer.player?.stop()
             self.delegate?.sequenceDidFinish(sender: self)
+            self.removeFromSuperview()
         })
     }
 
@@ -488,5 +493,7 @@ class StorySequencePlayer: UIView {
  MARK: Delegate Methods
  ******************************* */
 protocol StorySequencePlayerDelegate: AnyObject {
+    func sequenceDidStart(sender: StorySequencePlayer)
     func sequenceDidFinish(sender: StorySequencePlayer)
+    func sequenceWasSkipped(sender: StorySequencePlayer)
 }
