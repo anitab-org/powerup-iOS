@@ -203,6 +203,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
                 // create local instance of PopupEventPlayer class and add to view
                 let event: PopupEventPlayer? = PopupEventPlayer(delegate: self, model: model)
                 guard let popup = event else { return }
+                popup.id = popupID
                 self.view.addSubview(popup)
 
             } else {
@@ -242,27 +243,32 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     // MARK: PopupEventPlayer Delegate Methods
-    /**
-     PopupUpEventPlayer Delegate Method
-     
-     Should call sender.removeFromSuperview() to ensure each instance is dismissed and released from memory
-     */
-    func popupDidFinish(sender: PopupEventPlayer) {
-        sender.removeFromSuperview()
+    func popupDidShow(sender: PopupEventPlayer) {
+
     }
 
-    /**
-     StorySequencePlayer Delegate Method
+    func popupDidHide(sender: PopupEventPlayer) {
 
-     Should call sender.removeFromSuperview() to ensure each instance is dismissed and released from memory
-     */
+    }
+
+    func popupWasTapped(sender: PopupEventPlayer) {
+
+    }
+
+    // MARK: StorySequencePlayer Delegate Methods
     func sequenceDidFinish(sender: StorySequencePlayer) {
-        sender.removeFromSuperview()
-
         // outros were given a tag of 1 and needed to delay handleNextQuestion()
         if sender.tag == 1 {
             handleNextQuestion()
         }
+    }
+
+    func sequenceDidStart(sender: StorySequencePlayer) {
+
+    }
+
+    func sequenceWasSkipped(sender: StorySequencePlayer) {
+
     }
 
     // MARK: UITableViewDataSourceDelegate

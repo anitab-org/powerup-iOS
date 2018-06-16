@@ -1,6 +1,6 @@
 import UIKit
 
-class AboutViewController: UIViewController, PopupEventPlayerDelegate {
+class AboutViewController: UIViewController {
 
     // MARK: Action
     @IBAction func homeButtonTouched(_ sender: UIButton) {
@@ -16,12 +16,8 @@ class AboutViewController: UIViewController, PopupEventPlayerDelegate {
                                botText: "by Systers Open Source",
                                imgName: nil,
                                doSound: false)
-        let popup: PopupEventPlayer = PopupEventPlayer(delegate: self, model: model)
+        let popup: PopupEventPlayer = PopupEventPlayer(model)
         self.view.addSubview(popup)
-    }
-
-    func popupDidFinish(sender: PopupEventPlayer) {
-        sender.removeFromSuperview()
     }
 
 }
