@@ -168,7 +168,13 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     func startSequence() {
         print("\nbegin opening sequence")
 
+        /*
         guard let model = StorySequences().intros[scenarioID] else { return }
+        let sequenceView: StorySequencePlayer = StorySequencePlayer(delegate: self, model: model)
+        self.view.addSubview(sequenceView)
+        */
+
+        guard let model = getStorySequence(scenario: scenarioID) else { return }
         let sequenceView: StorySequencePlayer = StorySequencePlayer(delegate: self, model: model)
         self.view.addSubview(sequenceView)
     }
