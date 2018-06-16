@@ -1,5 +1,9 @@
 import UIKit
 
+/**
+ Handles the entire story sequence lifecycle. Owns all popup views, media, and interactions.
+ - Author: Cadence Holmes
+ */
 class StorySequencePlayer: UIView {
     /* *******************************
      MARK: Properties

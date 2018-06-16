@@ -1,5 +1,4 @@
 import UIKit
-import AVFoundation
 
 /**
  Handles the entire popup lifecycle. Owns all popup views, media, and interactions.
