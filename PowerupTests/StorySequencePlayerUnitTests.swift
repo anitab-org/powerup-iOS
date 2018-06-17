@@ -19,6 +19,7 @@ class StorySequencePlayerUnitTests: XCTestCase {
         - check that position and animation strings match an enum case
           (this one is kind of redundant while it's still hardcoded using the enum cases, but this logic is to test once the values are being populated from an external table)
      */
+    /*
     func testDataSet() {
 
         // for checking values against enum cases
@@ -99,5 +100,5 @@ class StorySequencePlayerUnitTests: XCTestCase {
         }
 
     }
-
+    */
 }

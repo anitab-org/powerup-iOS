@@ -187,6 +187,7 @@ class PopupEventPlayerUnitTests: XCTestCase {
 
      This test passes in Travis-CI, but only tests for images.
      */
+    /*
     func testWithNoSound() {
 
         // get the real datasource
@@ -221,5 +222,5 @@ class PopupEventPlayerUnitTests: XCTestCase {
         }
 
     }
-
+    */
 }
