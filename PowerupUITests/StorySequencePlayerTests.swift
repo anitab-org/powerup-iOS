@@ -41,8 +41,12 @@ class StorySequencePlayerTests: XCTestCase {
         app.buttons["continue button"].tap()
         app.buttons["continue button"].tap()
 
+        // get the data from the test bundle
+        var testStorySequences = StorySequences()
+        testStorySequences.bundle = Bundle(for: StorySequencePlayerTests.self)
+
         // check for and retrieve the number of steps in the home intro sequence
-        let steps: Int? = StorySequences().intros[5]?.steps.count
+        let steps: Int? = testStorySequences.getStorySequence(scenario: 5)?.steps.count
         let modelExists: Bool = steps != nil
         XCTAssert(modelExists)
 
@@ -106,8 +110,12 @@ class StorySequencePlayerTests: XCTestCase {
         app.buttons["continue button"].tap()
         app.buttons["continue button"].tap()
 
+        // get the data from the test bundle
+        var testStorySequences = StorySequences()
+        testStorySequences.bundle = Bundle(for: StorySequencePlayerTests.self)
+
         // make sure home scenario has an intro to test
-        let model: StorySequence? = StorySequences().intros[5]
+        let model: StorySequence? = testStorySequences.getStorySequence(scenario: 5)
         let modelExists: Bool = model != nil
         XCTAssert(modelExists)
 

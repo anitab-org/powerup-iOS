@@ -1,115 +1,128 @@
+import Foundation
+
 /**
- Parse JSON and return a formatted StorySequence
+ Name space to avoid ambiguity
 */
-func getStorySequence(scenario: Int, outro: Int? = nil) -> StorySequence? {
+struct StorySequences {
 
-    var sequence = StorySequence(music: nil, [:])
+    // bundle needs to be able to be changed in order to automate testing
+    var bundle = Bundle.main
 
-    let scenario = String(scenario)
-    let key = (outro != nil) ? String(outro!) : nil
-    let type = (outro == nil) ? "intros" : "outros"
+    /**
+     Parse JSON and return a formatted StorySequence
+    */
+    func getStorySequence(scenario: Int, outro: Int? = nil) -> StorySequence? {
 
-    // parse events into the correct types once retrieved from json
-    func parseEvent(event: Dictionary<String, AnyObject?>?) -> StorySequence.Event? {
+        var sequence = StorySequence(music: nil, [:])
 
-        if event == nil {
+        let scenario = String(scenario)
+        let key = (outro != nil) ? String(outro!) : nil
+        let type = (outro == nil) ? "intros" : "outros"
+
+        // parse events into the correct types once retrieved from json
+        func parseEvent(event: Dictionary<String, AnyObject?>?) -> StorySequence.Event? {
+
+            if event == nil {
+                return nil
+            }
+
+            let p = event?["pos"] as? String
+            let a = event?["ani"] as? String
+
+            return StorySequence.Event(txt: event?["txt"] as? String,
+                                       img: event?["img"] as? String,
+                                       pos: (p != nil) ? StorySequence.ImagePosition(rawValue: p!) : nil,
+                                       ani: (a != nil) ? StorySequence.ImageAnimation(rawValue: a!) : nil)
+        }
+
+        // change this to the main json containing all sequences
+        let fileName = "StorySequences"
+        guard let path = bundle.path(forResource: fileName, ofType: "json") else {
+            print("Unable to retrieve Story Sequence JSON.")
             return nil
         }
 
-        let p = event?["pos"] as? String
-        let a = event?["ani"] as? String
+        do {
+            // retrieve json and map to datatype Dictionary<String, AnyObject>
+            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+            let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
 
-        return StorySequence.Event(txt: event?["txt"] as? String,
-                                   img: event?["img"] as? String,
-                                   pos: (p != nil) ? StorySequence.ImagePosition(rawValue: p!) : nil,
-                                   ani: (a != nil) ? StorySequence.ImageAnimation(rawValue: a!) : nil)
-    }
+            if let json = json as? Dictionary<String, AnyObject> {
 
-    // change this to the main json containing all sequences
-    guard let path = Bundle.main.path(forResource: "StorySequences", ofType: "json") else {
-        print("Unable to retrieve Story Sequence JSON.")
-        return nil
-    }
-
-    do {
-        // retrieve json and map to datatype Dictionary<String, AnyObject>
-        let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-        let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-
-        if let json = json as? Dictionary<String, AnyObject> {
-
-            // retrieve the collection of sequences based on type
-            guard let sequences = json[type] as? Dictionary<String, AnyObject?> else {
-                print("Unable to retrieve sequences of type: \(type).")
-                return nil
-            }
-
-            var seq: Dictionary<String, AnyObject?>
-
-            // handle intros and outros
-            if key != nil {
-
-                // if there's a secondary key, then it's an outro - retrieve outros for scenario, then correct outro
-                let i = key!
-                guard let outros = sequences[scenario] as? Dictionary<String, AnyObject?> else {
-                    print("Unable to retrieve outro sequences for scenario: \(scenario).")
+                // retrieve the collection of sequences based on type
+                guard let sequences = json[type] as? Dictionary<String, AnyObject?> else {
+                    print("Unable to retrieve sequences of type: \(type).")
                     return nil
                 }
 
-                guard let outro = outros[i] as? Dictionary<String, AnyObject?> else {
-                    print("Unable to retrieve outro sequence for scenario - key: \(scenario) - \(i).")
+                var seq: Dictionary<String, AnyObject?>
+
+                // handle intros and outros
+                if key != nil {
+
+                    // if there's a secondary key, then it's an outro - retrieve outros for scenario, then correct outro
+                    let i = key!
+                    guard let outros = sequences[scenario] as? Dictionary<String, AnyObject?> else {
+                        print("Unable to retrieve outro sequences for scenario: \(scenario).")
+                        return nil
+                    }
+
+                    guard let outro = outros[i] as? Dictionary<String, AnyObject?> else {
+                        print("Unable to retrieve outro sequence for scenario - key: \(scenario) - \(i).")
+                        return nil
+                    }
+
+                    seq = outro
+                } else {
+
+                    // if there's no secondary key, then it's an intro - retrieve intro for scenario
+                    guard let intro = sequences[scenario] as? Dictionary<String, AnyObject?> else {
+                        print("Unable to retrieve intro sequence for scenario: \(scenario).")
+                        return nil
+                    }
+
+                    seq = intro
+                }
+
+                sequence.music = seq["music"] as? String
+
+                guard let steps = seq["steps"] as? Dictionary<String, AnyObject?> else {
+                    print("Unable to retrieve steps for: \(type) - \(scenario) - \(String(describing: key)).")
                     return nil
                 }
 
-                seq = outro
-            } else {
+                for step in steps {
 
-                // if there's no secondary key, then it's an intro - retrieve intro for scenario
-                guard let intro = sequences[scenario] as? Dictionary<String, AnyObject?> else {
-                    print("Unable to retrieve intro sequence for scenario: \(scenario).")
-                    return nil
+                    guard let i = Int(step.key) else {
+                        print("Key is not an Int")
+                        return nil
+                    }
+
+                    guard let events = step.value as? Dictionary<String, AnyObject?> else {
+                        print("Unable to retrieve step for key: \(i)")
+                        continue
+                    }
+
+                    let lft = events["lftEvent"] as? Dictionary<String, AnyObject?>
+                    let rgt = events["rgtEvent"] as? Dictionary<String, AnyObject?>
+
+                    let lftEvent = parseEvent(event: lft)
+                    let rgtEvent = parseEvent(event: rgt)
+
+                    let newStep = StorySequence.Step(lftEvent: lftEvent, rgtEvent: rgtEvent)
+
+                    sequence.steps[i] = newStep
                 }
 
-                seq = intro
             }
 
-            sequence.music = seq["music"] as? String
-
-            guard let steps = seq["steps"] as? Dictionary<String, AnyObject?> else {
-                print("Unable to retrieve steps for: \(type) - \(scenario) - \(String(describing: key)).")
-                return nil
-            }
-
-            for step in steps {
-
-                guard let i = Int(step.key) else {
-                    print("Key is not an Int")
-                    return nil
-                }
-
-                guard let events = step.value as? Dictionary<String, AnyObject?> else {
-                    print("Unable to retrieve step for key: \(i)")
-                    continue
-                }
-
-                let lft = events["lftEvent"] as? Dictionary<String, AnyObject?>
-                let rgt = events["rgtEvent"] as? Dictionary<String, AnyObject?>
-
-                let lftEvent = parseEvent(event: lft)
-                let rgtEvent = parseEvent(event: rgt)
-
-                let newStep = StorySequence.Step(lftEvent: lftEvent, rgtEvent: rgtEvent)
-
-                sequence.steps[i] = newStep
-            }
-
+        } catch let error {
+            print(error.localizedDescription)
         }
 
-    } catch let error {
-        print(error.localizedDescription)
-    }
+        return sequence
 
-    return sequence
+    }
 
 }
 
