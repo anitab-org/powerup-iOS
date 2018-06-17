@@ -38,6 +38,8 @@
 		6A69DC9E20ABCA0A006511E3 /* Sounds.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A69DC9D20ABCA0A006511E3 /* Sounds.xcassets */; };
 		6A72368B20D5A28F00698257 /* Popups.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A72368920D5A28F00698257 /* Popups.json */; };
 		6A72368C20D5A28F00698257 /* StorySequences.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A72368A20D5A28F00698257 /* StorySequences.json */; };
+		6A72369520D6163300698257 /* Popups.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A72368920D5A28F00698257 /* Popups.json */; };
+		6A72369620D6163600698257 /* StorySequences.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A72368A20D5A28F00698257 /* StorySequences.json */; };
 		6A7B854120A9F51100EBFEEB /* mainDatabaseDev.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 6A7B854020A9F51100EBFEEB /* mainDatabaseDev.sqlite */; };
 		6A9353ED20BD14C500A6D196 /* PopupEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9353EC20BD14C500A6D196 /* PopupEventModel.swift */; };
 		6A9A4A1A20B51DE500FFC5AA /* Animate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A9A4A1920B51DE500FFC5AA /* Animate.swift */; };
@@ -596,6 +598,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A72369620D6163600698257 /* StorySequences.json in Resources */,
+				6A72369520D6163300698257 /* Popups.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
