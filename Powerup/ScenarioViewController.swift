@@ -168,33 +168,25 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     func startSequence() {
         print("\nbegin opening sequence")
 
-        guard let model = StorySequences().intros[scenarioID] else { return }
+        guard let model = StorySequences().getStorySequence(scenario: scenarioID) else {
+            print("Could not retrieve intro story sequence for scenario \(scenarioID).")
+            return
+        }
         let sequenceView: StorySequencePlayer = StorySequencePlayer(delegate: self, model: model)
         self.view.addSubview(sequenceView)
     }
 
     /**
-     Handles calling popup events. The logic is:
-     - check if popups exist for the scenario ID
-     - check if the ID number can be cast to an Int
-     - If > 0 check for and retrieve the model
-     - then create an instance of PopupEventPlayer and add to self.view
-     - If < 0 call the method to handle scenario ending sequences
-     - If it's not an Int, return
+     Handles calling popup events or outro sequences.
 
      - parameters:
-        - idNumber : String - the popupID property from the retrieved Answer
+        - popupID : String - the popupID property from the retrieved Answer
 
      The PopupEventPlayer class handles the entire popup lifecycle. This function only needs to creates a local instance of the class.
      */
-    func handlePopupEvent(idNumber: String) {
+    func handlePopupEvent(popupID: String) {
         // type check the idNumber String - if it's not an integer, ignore it
-        print("\nhandlePopupEvent() with ID: " + idNumber)
-
-        // check for and retrieve popups for the current scenario
-        guard let popups = PopupEvents().scenarioPopups[scenarioID] else { return }
-
-        if let popupID = Int(idNumber) {
+        if let popupID = Int(popupID) {
             // if it's an Int...
             if popupID > -1 {
                 // if it's positive, show inline popup
@@ -202,12 +194,16 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
                 // go ahead and set up the next question
                 handleNextQuestion()
 
-                // get the correct model as per popupID
-                guard let model: PopupEvent = popups[popupID] else { return }
+                // get the correct model
+                guard let model: PopupEvent = PopupEvents().getPopup(type: .scenario, collection: String(scenarioID), popupID: popupID) else {
+                    print("Could not retrieve outro story sequence for scenario \(scenarioID) with popupID \(popupID).")
+                    return
+                }
 
-                // create local instance of PopupEventPlayer class and add to self.view
+                // create local instance of PopupEventPlayer class and add to view
                 let event: PopupEventPlayer? = PopupEventPlayer(delegate: self, model: model)
                 guard let popup = event else { return }
+                popup.id = popupID
                 self.view.addSubview(popup)
 
             } else {
@@ -221,16 +217,10 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     /**
-     Handles calling outro sequences. The logic is:
-     - check if popups exist for the scenario ID
-     - check if the ID number can be cast to an Int
-     - If > 0 check for and retrieve the model
-     - then create an instance of PopupEventPlayer and add to self.view
-     - If < 0 call the method to handle scenario ending sequences
-     - If it's not an Int, return
+     Handles calling outro sequences.
 
      - parameters:
-     - idNumber : String - the popupID property from the retrieved Answer
+        - popupID : Int - the popupID property from the retrieved Answer
 
      The PopupEventPlayer class handles the entire popup lifecycle. This function only needs to creates a local instance of the class.
      */
@@ -238,42 +228,47 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         // outros have a negative id in the answer database, but positive in the story sequence dataset
         let popupID = abs(popupID)
 
-        // get the outro sequences for the current scenario
-        guard let models = StorySequences().outros[scenarioID] else { return }
-
-        // get the correct outro sequence
-        guard let model = models[popupID] else { return }
+        // get the correct outro sequence for the current scenario and answer
+        guard let model = StorySequences().getStorySequence(scenario: scenarioID, outro: popupID) else {
+            print("Could not retrieve outro story sequence for scenario \(scenarioID) with popupID \(popupID).")
+            return
+        }
 
         // create and start the sequence
         let sequenceView: StorySequencePlayer = StorySequencePlayer(delegate: self, model: model)
 
-        // so we can check in the delegate method
+        // set a tag so we can differentiate outros and intros in the delegate method
         sequenceView.tag = 1
         self.view.addSubview(sequenceView)
     }
 
     // MARK: PopupEventPlayer Delegate Methods
-    /**
-     PopupUpEventPlayer Delegate Method
-     
-     Should call sender.removeFromSuperview() to ensure each instance is dismissed and released from memory
-     */
-    func popupDidFinish(sender: PopupEventPlayer) {
-        sender.removeFromSuperview()
+    func popupDidShow(sender: PopupEventPlayer) {
+
     }
 
-    /**
-     StorySequencePlayer Delegate Method
+    func popupDidHide(sender: PopupEventPlayer) {
 
-     Should call sender.removeFromSuperview() to ensure each instance is dismissed and released from memory
-     */
+    }
+
+    func popupWasTapped(sender: PopupEventPlayer) {
+
+    }
+
+    // MARK: StorySequencePlayer Delegate Methods
     func sequenceDidFinish(sender: StorySequencePlayer) {
-        sender.removeFromSuperview()
-
         // outros were given a tag of 1 and needed to delay handleNextQuestion()
         if sender.tag == 1 {
             handleNextQuestion()
         }
+    }
+
+    func sequenceDidStart(sender: StorySequencePlayer) {
+
+    }
+
+    func sequenceWasSkipped(sender: StorySequencePlayer) {
+
     }
 
     // MARK: UITableViewDataSourceDelegate
@@ -298,7 +293,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         nextQuestionID = answers[selectedIndex].nextQuestionID
 
         // pass the popupID string of the selected answer to handlePopupEvent function
-        handlePopupEvent(idNumber: answers[selectedIndex].popupID)
+        handlePopupEvent(popupID: answers[selectedIndex].popupID)
     }
 
     /**

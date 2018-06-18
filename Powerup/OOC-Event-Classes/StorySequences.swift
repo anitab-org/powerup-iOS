@@ -1,28 +1,135 @@
+import Foundation
+
 /**
- Stuct describing all collections of story sequences. Defined in StorySequence.swift. Called in ScenarioViewController.startSequence()
-
- Important: Contains references to instances of StorySequence defined in StorySequence.swift
-
- Each key is the ScenarioID, the value is a StorySequence.
- */
+ Name space to avoid ambiguity
+*/
 struct StorySequences {
-    let intros: Dictionary<Int, StorySequence>
-    let outros: Dictionary<Int, Dictionary<Int, StorySequence>>
 
-    init() {
-        intros = [
-            5: home
-        ]
+    // bundle needs to be able to be changed in order to automate testing
+    var bundle = Bundle.main
 
-        outros = [
-            5: [
-                1: homeOutro
-            ]
-        ]
+    /**
+     Parse JSON and return a formatted StorySequence
+    */
+    func getStorySequence(scenario: Int, outro: Int? = nil) -> StorySequence? {
+
+        var sequence = StorySequence(music: nil, [:])
+
+        let scenario = String(scenario)
+        let key = (outro != nil) ? String(outro!) : nil
+        let type = (outro == nil) ? "intros" : "outros"
+
+        // parse events into the correct types once retrieved from json
+        func parseEvent(event: Dictionary<String, AnyObject?>?) -> StorySequence.Event? {
+
+            if event == nil {
+                return nil
+            }
+
+            let p = event?["pos"] as? String
+            let a = event?["ani"] as? String
+
+            return StorySequence.Event(txt: event?["txt"] as? String,
+                                       img: event?["img"] as? String,
+                                       pos: (p != nil) ? StorySequence.ImagePosition(rawValue: p!) : nil,
+                                       ani: (a != nil) ? StorySequence.ImageAnimation(rawValue: a!) : nil)
+        }
+
+        // change this to the main json containing all sequences
+        let fileName = "StorySequences"
+        guard let path = bundle.path(forResource: fileName, ofType: "json") else {
+            print("Unable to retrieve Story Sequence JSON.")
+            return nil
+        }
+
+        do {
+            // retrieve json and map to datatype Dictionary<String, AnyObject>
+            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+            let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+
+            if let json = json as? Dictionary<String, AnyObject> {
+
+                // retrieve the collection of sequences based on type
+                guard let sequences = json[type] as? Dictionary<String, AnyObject?> else {
+                    print("Unable to retrieve sequences of type: \(type).")
+                    return nil
+                }
+
+                var seq: Dictionary<String, AnyObject?>
+
+                // handle intros and outros
+                if key != nil {
+
+                    // if there's a secondary key, then it's an outro - retrieve outros for scenario, then correct outro
+                    let i = key!
+                    guard let outros = sequences[scenario] as? Dictionary<String, AnyObject?> else {
+                        print("Unable to retrieve outro sequences for scenario: \(scenario).")
+                        return nil
+                    }
+
+                    guard let outro = outros[i] as? Dictionary<String, AnyObject?> else {
+                        print("Unable to retrieve outro sequence for scenario - key: \(scenario) - \(i).")
+                        return nil
+                    }
+
+                    seq = outro
+                } else {
+
+                    // if there's no secondary key, then it's an intro - retrieve intro for scenario
+                    guard let intro = sequences[scenario] as? Dictionary<String, AnyObject?> else {
+                        print("Unable to retrieve intro sequence for scenario: \(scenario).")
+                        return nil
+                    }
+
+                    seq = intro
+                }
+
+                sequence.music = seq["music"] as? String
+
+                guard let steps = seq["steps"] as? Dictionary<String, AnyObject?> else {
+                    print("Unable to retrieve steps for: \(type) - \(scenario) - \(String(describing: key)).")
+                    return nil
+                }
+
+                for step in steps {
+
+                    guard let i = Int(step.key) else {
+                        print("Key is not an Int")
+                        return nil
+                    }
+
+                    guard let events = step.value as? Dictionary<String, AnyObject?> else {
+                        print("Unable to retrieve step for key: \(i)")
+                        continue
+                    }
+
+                    let lft = events["lftEvent"] as? Dictionary<String, AnyObject?>
+                    let rgt = events["rgtEvent"] as? Dictionary<String, AnyObject?>
+
+                    let lftEvent = parseEvent(event: lft)
+                    let rgtEvent = parseEvent(event: rgt)
+
+                    let newStep = StorySequence.Step(lftEvent: lftEvent, rgtEvent: rgtEvent)
+
+                    sequence.steps[i] = newStep
+                }
+
+            }
+
+        } catch let error {
+            print(error.localizedDescription)
+        }
+
+        return sequence
+
     }
+
 }
 
-// MARK: Scenario 5 - Home
+// MARK: Example data sets
+
+// Example Intro
+
 // define each story sequence as a private let, named descriptively
 // a StorySequence is a dictionary of StorySequenceStep, keys must be Int and serve to make the collection more readable as well as giving better access to starting a sequence in the middle
 // a StorySequenceStep describes two StorySequenceEvent, a left event and a right event.
@@ -30,6 +137,8 @@ struct StorySequences {
 // if any properties are left nil, there will be no change from the previous step
 // you can nil the entire event as well (for no change from the previous step)
 // calling .dismiss in the pos property hides *and* releases the image from the imageView
+
+/*
 private let pos = StorySequence.ImagePosition.self
 private let ani = StorySequence.ImageAnimation.self
 private let testChar = StorySequence.Images().testChar
@@ -121,8 +230,12 @@ private let home: StorySequence = StorySequence(music: Sounds().scenarioMusic[5]
                                                          ani: nil)
     )
 ])
+*/
 
-// MARK: Example outro - scenario 5 - popupID -1
+/** ************** */
+// Example outro
+
+/*
 private let testChar3 = StorySequence.Images().testChar3
 private let homeOutro: StorySequence = StorySequence(music: Sounds().scenarioMusic[5]?.goodEnding, [
     0: StorySequence.Step(lftEvent: StorySequence.Event(txt: "Hi everyone, we're back!",
@@ -216,3 +329,4 @@ private let homeOutro: StorySequence = StorySequence(music: Sounds().scenarioMus
                                                         ani: ani.tiltLeft)
     )
 ])
+*/
