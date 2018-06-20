@@ -6,7 +6,7 @@
                 "0": {
                     "lftEvent": {
                         "txt": "test scenario 1 - intro",
-                        "img": "test_chibi_happy",
+                        "img": "test_chibi^happy",
                         "pos": "near",
                         "ani": "shake"
                     },
@@ -20,7 +20,7 @@
                 "0": {
                     "lftEvent": {
                         "txt": "Hey, this is an intro sequence!",
-                        "img": "test_chibi_happy",
+                        "img": "test_chibi^happy",
                         "pos": "near",
                         "ani": "shake"
                     },
@@ -30,7 +30,7 @@
                     "lftEvent": null,
                     "rgtEvent": {
                         "txt": "You can change the images in each step, and each side is independent.",
-                        "img": "test2_chibi_normal",
+                        "img": "test2_chibi^normal",
                         "pos": "near",
                         "ani": "tiltLeft"
                     }
@@ -44,7 +44,7 @@
                     },
                     "rgtEvent": {
                         "txt": null,
-                        "img": "test2_chibi_upset",
+                        "img": "test2_chibi^upset",
                         "pos": null,
                         "ani": "juggle"
                     }
@@ -52,7 +52,7 @@
                 "3": {
                     "lftEvent": {
                         "txt": "You describe it in a model of steps and events. Passing nil to a value tells it to stay the same.",
-                        "img": "test_chibi_talking",
+                        "img": "test_chibi^talking",
                         "pos": "near",
                         "ani": "flip"
                     },
@@ -62,7 +62,7 @@
                     "lftEvent": null,
                     "rgtEvent": {
                         "txt": "See? The left image didn't move or change!",
-                        "img": "test2_chibi_scared",
+                        "img": "test2_chibi^scared",
                         "pos": "far",
                         "ani": null
                     }
@@ -84,7 +84,7 @@
                 "6": {
                     "lftEvent": {
                         "txt": "A `StorySequence` is just a collection of `Steps`!",
-                        "img": "test_chibi_normal",
+                        "img": "test_chibi^normal",
                         "pos": "far",
                         "ani": null
                     },
@@ -93,7 +93,7 @@
                 "7": {
                     "lftEvent": {
                         "txt": "This is what the data looks like for a single step. It's two events, left and right.",
-                        "img": "test_chibi_scared",
+                        "img": "test_chibi^scared",
                         "pos": "mid",
                         "ani": null
                     },
@@ -107,7 +107,7 @@
                 "8": {
                     "lftEvent": {
                         "txt": null,
-                        "img": "test_chibi_normal",
+                        "img": "test_chibi^normal",
                         "pos": "near",
                         "ani": null
                     },
@@ -121,7 +121,7 @@
                 "9": {
                     "lftEvent": {
                         "txt": "Oh yea! There's also predefined animations to give your characters some character.",
-                        "img": "test_chibi_talking",
+                        "img": "test_chibi^talking",
                         "pos": "near",
                         "ani": null
                     },
@@ -135,7 +135,7 @@
                 "10": {
                     "lftEvent": {
                         "txt": "But that's it for now! Thanks for listening!",
-                        "img": "test_chibi_normal",
+                        "img": "test_chibi^normal",
                         "pos": "mid",
                         "ani": null
                     },
@@ -157,9 +157,99 @@
                     "0": {
                         "lftEvent": {
                             "txt": "scenario 5 - outro 1",
-                            "img": "test_chibi_happy",
+                            "img": "test_chibi^happy",
                             "pos": "far",
                             "ani": "shake"
+                        },
+                        "rgtEvent": null
+                    },
+                    "1": {
+                        "lftEvent": {
+                            "txt": "swap images, same position",
+                            "img": "test2_chibi^normal",
+                            "pos": null,
+                            "ani": null
+                        },
+                        "rgtEvent": null
+                    },
+                    "2": {
+                        "lftEvent": {
+                            "txt": "swap images, new position",
+                            "img": "test_chibi^normal",
+                            "pos": "near",
+                            "ani": null
+                        },
+                        "rgtEvent": null
+                    },
+                    "3": {
+                        "lftEvent": {
+                            "txt": "swap images, same position with animation",
+                            "img": "test2_chibi^normal",
+                            "pos": null,
+                            "ani": "shake"
+                        },
+                        "rgtEvent": null
+                    },
+                    "4": {
+                        "lftEvent": {
+                            "txt": "swap images, new position with animation",
+                            "img": "test_chibi^happy",
+                            "pos": "far",
+                            "ani": "tiltLeft"
+                        },
+                        "rgtEvent": null
+                    },
+                    "5": {
+                        "lftEvent": {
+                            "txt": "swap mood, same character",
+                            "img": "test_chibi^normal",
+                            "pos": "mid",
+                            "ani": "tiltRight"
+                        },
+                        "rgtEvent": null
+                    },
+                    "6": {
+                        "lftEvent": {
+                            "txt": "no change to character image",
+                            "img": "test_chibi^normal",
+                            "pos": null,
+                            "ani": null
+                        },
+                        "rgtEvent": null
+                    },
+                    "7": {
+                        "lftEvent": {
+                            "txt": "hide character and switch in next frame",
+                            "img": null,
+                            "pos": "hidden",
+                            "ani": null
+                        },
+                        "rgtEvent": null
+                    },
+                    "8": {
+                        "lftEvent": {
+                            "txt": "show new character",
+                            "img": "test2_chibi^normal",
+                            "pos": "mid",
+                            "ani": null
+                        },
+                        "rgtEvent": null
+                    },
+                    "9": {
+                        "lftEvent": {
+                            "txt": "hide character but don't change in next frame",
+                            "img": null,
+                            "pos": "hidden",
+                            "ani": null
+                        },
+                        "rgtEvent": null
+                    },
+                    "10": {
+                        "lftEvent": {
+                            "txt": "show same character",
+                            "img": "test2_chibi^normal",
+                            "pos": "near",
+                            "ani": null
                         },
                         "rgtEvent": null
                     }
@@ -171,7 +261,7 @@
                     "0": {
                         "lftEvent": {
                             "txt": "scenario 5 - outro 2",
-                            "img": "test_chibi_happy",
+                            "img": "test_chibi^happy",
                             "pos": "near",
                             "ani": "shake"
                         },
@@ -201,7 +291,7 @@
                     "0": {
                         "lftEvent": {
                             "txt": "scenario 5 - outro 2",
-                            "img": "test2_chibi_happy",
+                            "img": "test2_chibi^happy",
                             "pos": "near",
                             "ani": "shake"
                         },

@@ -24,29 +24,29 @@ struct StorySequence {
      Thanks to autocompletion, this makes it much easier to create and maintain StorySequence models rather than using just strings.
      */
     struct Images {
-        let testChar = (normal: "test_chibi_normal",
-                        happy: "test_chibi_happy",
-                        smiling: "test_chibi_smiling",
-                        talking: "test_chibi_talking",
-                        lecturing: "test_chibi_lecturing",
-                        sad: "test_chibi_sad",
-                        scared: "test_chibi_scared",
-                        upset: "test_chibi_upset",
-                        dazed: "test_chibi_dazed",
-                        whatever: "test_chibi_whatever",
-                        tired: "test_chibi_tired")
+        let testChar = (normal: "test_chibi^normal",
+                        happy: "test_chibi^happy",
+                        smiling: "test_chibi^smiling",
+                        talking: "test_chibi^talking",
+                        lecturing: "test_chibi^lecturing",
+                        sad: "test_chibi^sad",
+                        scared: "test_chibi^scared",
+                        upset: "test_chibi^upset",
+                        dazed: "test_chibi^dazed",
+                        whatever: "test_chibi^whatever",
+                        tired: "test_chibi^tired")
 
-        let testChar2 = (normal: "test2_chibi_normal",
-                         happy: "test2_chibi_happy",
-                         smiling: "test2_chibi_smiling",
-                         talking: "test2_chibi_talking",
-                         lecturing: "test2_chibi_lecturing",
-                         sad: "test2_chibi_sad",
-                         scared: "test2_chibi_scared",
-                         upset: "test2_chibi_upset",
-                         dazed: "test2_chibi_dazed",
-                         whatever: "test2_chibi_whatever",
-                         tired: "test2_chibi_tired")
+        let testChar2 = (normal: "test2_chibi^normal",
+                         happy: "test2_chibi^happy",
+                         smiling: "test2_chibi^smiling",
+                         talking: "test2_chibi^talking",
+                         lecturing: "test2_chibi^lecturing",
+                         sad: "test2_chibi^sad",
+                         scared: "test2_chibi^scared",
+                         upset: "test2_chibi^upset",
+                         dazed: "test2_chibi^dazed",
+                         whatever: "test2_chibi^whatever",
+                         tired: "test2_chibi^tired")
 
         let testChar3 = (normal: "testChar3",
                          empty: "")
