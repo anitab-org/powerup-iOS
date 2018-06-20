@@ -26,10 +26,12 @@ class StorySequencePlayerTests: XCTestCase {
      This test assumes there is a home intro. It should be changed to unlock and test a different sequence if one does not exist at some point.
     */
     func testSSPStepThrough() {
+
         // open app, start new game, navigate to map view
         let app = XCUIApplication()
-        let element = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element
-        element.children(matching: .button).element(boundBy: 1).tap()
+
+        let startButton = app.buttons["startvc-new-game-button"]
+        startButton.tap()
 
         // this checks for a new game alert - won't display if the game is a fresh install
         let alert = app.alerts["Are you sure?"].buttons["Create New Avatar"]
@@ -38,8 +40,13 @@ class StorySequencePlayerTests: XCTestCase {
         }
 
         // two contine buttons to exit the character creation
-        app.buttons["continue button"].tap()
-        app.buttons["continue button"].tap()
+        func checkContinueButtons() {
+            let continueButton = app.buttons["continue button"]
+            continueButton.tap()
+        }
+
+        checkContinueButtons()
+        checkContinueButtons()
 
         // get the data from the test bundle
         var testStorySequences = StorySequences()
@@ -51,14 +58,7 @@ class StorySequencePlayerTests: XCTestCase {
         XCTAssert(modelExists)
 
         // assert we're on the map view controller and the home scenario button exists, then tap it
-        var homeScenarioButton: XCUIElement
-        if #available(iOS 10.0, *) {
-            // for whatever awful reason, the generic path to locate this button is different in iOS 10+
-            homeScenarioButton = element.children(matching: .button).element(boundBy: 2)
-        } else {
-            // than it is in iOS 9
-            homeScenarioButton = element.children(matching: .button).element(boundBy: 4)
-        }
+        let homeScenarioButton = app.buttons["mapvc-home-scenario-button"]
         let homeScenarioButtonExists = homeScenarioButton.waitForExistence(timeout: 5)
         XCTAssert(homeScenarioButtonExists)
         homeScenarioButton.tap()
@@ -97,8 +97,9 @@ class StorySequencePlayerTests: XCTestCase {
 
         // open app, start new game, navigate to map view
         let app = XCUIApplication()
-        let element = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element
-        element.children(matching: .button).element(boundBy: 1).tap()
+
+        let startButton = app.buttons["startvc-new-game-button"]
+        startButton.tap()
 
         // this checks for a new game alert - won't display if the game is a fresh install
         let alert = app.alerts["Are you sure?"].buttons["Create New Avatar"]
@@ -107,8 +108,13 @@ class StorySequencePlayerTests: XCTestCase {
         }
 
         // two contine buttons to exit the character creation
-        app.buttons["continue button"].tap()
-        app.buttons["continue button"].tap()
+        func checkContinueButtons() {
+            let continueButton = app.buttons["continue button"]
+            continueButton.tap()
+        }
+
+        checkContinueButtons()
+        checkContinueButtons()
 
         // get the data from the test bundle
         var testStorySequences = StorySequences()
@@ -120,14 +126,7 @@ class StorySequencePlayerTests: XCTestCase {
         XCTAssert(modelExists)
 
         // assert we're on the map view controller and the home scenario button exists, then tap it
-        var homeScenarioButton: XCUIElement
-        if #available(iOS 10.0, *) {
-            // for whatever awful reason, the generic path to locate this button is different in iOS 10+
-            homeScenarioButton = element.children(matching: .button).element(boundBy: 2)
-        } else {
-            // than it is in iOS 9
-            homeScenarioButton = element.children(matching: .button).element(boundBy: 4)
-        }
+        let homeScenarioButton = app.buttons["mapvc-home-scenario-button"]
         let homeScenarioButtonExists = homeScenarioButton.waitForExistence(timeout: 5)
         XCTAssert(homeScenarioButtonExists)
         homeScenarioButton.tap()

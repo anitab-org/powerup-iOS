@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="eFm-LF-3yb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="eFm-LF-3yb">
     <device id="retina5_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -110,6 +110,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jE-f7-7E2" userLabel="New User Button">
                                 <rect key="frame" x="257" y="283.66666666666669" width="221.33333333333337" height="41"/>
+                                <accessibility key="accessibilityConfiguration" identifier="startvc-new-game-button"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -893,33 +894,33 @@
                                                 <rect key="frame" x="0.0" y="0.33333333333334281" width="114" height="141"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shop_available_box" translatesAutoresizingMaskIntoConstraints="NO" id="5qr-Ke-PiT" userLabel="Display Box 4">
-                                                        <rect key="frame" x="0.0" y="0.0" width="114" height="141.66666666666666"/>
+                                                        <rect key="frame" x="0.0" y="1" width="114" height="141.66666666666666"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="06b-l4-D6S" userLabel="Display Image 4">
                                                         <rect key="frame" x="21" y="31" width="72" height="68"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqL-nh-FT0" userLabel="Price Label 4">
-                                                        <rect key="frame" x="54.333333333333343" y="8" width="45.333333333333343" height="21"/>
+                                                        <rect key="frame" x="54.333333333333343" y="7.6666666666666856" width="45.333333333333343" height="21"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                                         <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="purchased_checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="PIr-lw-o6P" userLabel="Purchased Checkmark">
-                                                        <rect key="frame" x="32.333333333333314" y="38.666666666666686" width="50" height="50"/>
+                                                        <rect key="frame" x="32.333333333333314" y="39.666666666666686" width="50" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="BIw-fS-Q52"/>
                                                             <constraint firstAttribute="width" constant="50" id="a9L-11-iFw"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4J-mj-DPt" userLabel="Button Text">
-                                                        <rect key="frame" x="34.666666666666657" y="105" width="41.333333333333343" height="16"/>
+                                                        <rect key="frame" x="34.666666666666657" y="106" width="41.333333333333343" height="16"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Pk-9s-C0k" userLabel="Purchase Button 4">
-                                                        <rect key="frame" x="-0.66666666666668561" y="0.0" width="114.33333333333333" height="141.66666666666666"/>
+                                                        <rect key="frame" x="-0.66666666666668561" y="1" width="114.33333333333333" height="141.66666666666666"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <connections>
                                                             <action selector="purchaseItem:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="pbE-Xk-nY1"/>
@@ -950,33 +951,33 @@
                                                 <rect key="frame" x="163.99999999999997" y="0.33333333333334281" width="113.66666666666666" height="141"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shop_available_box" translatesAutoresizingMaskIntoConstraints="NO" id="xQD-5I-vss" userLabel="Display Box 5">
-                                                        <rect key="frame" x="0.0" y="0.0" width="113.66666666666667" height="141.66666666666666"/>
+                                                        <rect key="frame" x="0.0" y="1" width="113.66666666666667" height="141.66666666666666"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i4t-Ti-nZx" userLabel="Display Image 5">
                                                         <rect key="frame" x="18" y="28" width="63" height="61"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Bg-q0-Dxb" userLabel="Price Label 5">
-                                                        <rect key="frame" x="54" y="8" width="46" height="21"/>
+                                                        <rect key="frame" x="54" y="7.6666666666666856" width="46" height="21"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                                         <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="purchased_checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="l82-zb-gkH" userLabel="Purchased Checkmark">
-                                                        <rect key="frame" x="32.333333333333371" y="38.666666666666686" width="50" height="50"/>
+                                                        <rect key="frame" x="32.333333333333371" y="39.666666666666686" width="50" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="F5s-pG-biL"/>
                                                             <constraint firstAttribute="width" constant="50" id="dPN-X5-ET9"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6uT-um-xmX" userLabel="Button Text">
-                                                        <rect key="frame" x="34.333333333333371" y="105" width="41.333333333333343" height="16"/>
+                                                        <rect key="frame" x="34.333333333333371" y="106" width="41.333333333333343" height="16"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIF-P3-mGf" userLabel="Purchase Button 5">
-                                                        <rect key="frame" x="-0.33333333333331439" y="0.0" width="113.66666666666667" height="141.66666666666666"/>
+                                                        <rect key="frame" x="-0.33333333333331439" y="1" width="113.66666666666667" height="141.66666666666666"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <connections>
                                                             <action selector="purchaseItem:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="M9r-X8-XPr"/>
@@ -1007,33 +1008,33 @@
                                                 <rect key="frame" x="327.66666666666663" y="0.33333333333334281" width="114" height="141"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shop_available_box" translatesAutoresizingMaskIntoConstraints="NO" id="sQ8-y7-6JZ" userLabel="Display Box 6">
-                                                        <rect key="frame" x="0.0" y="0.0" width="114" height="141.66666666666666"/>
+                                                        <rect key="frame" x="0.0" y="1" width="114" height="141.66666666666666"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rZL-NX-JXV" userLabel="Display Image 6">
                                                         <rect key="frame" x="18" y="28" width="63" height="61"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpl-51-ETr" userLabel="Price Label 6">
-                                                        <rect key="frame" x="54.666666666666629" y="8" width="45.666666666666657" height="21"/>
+                                                        <rect key="frame" x="54.666666666666629" y="7.6666666666666856" width="45.666666666666657" height="21"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                                         <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="purchased_checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="c2K-F6-l2O" userLabel="Purchased Checkmark">
-                                                        <rect key="frame" x="32" y="38.666666666666686" width="50" height="50"/>
+                                                        <rect key="frame" x="32" y="39.666666666666686" width="50" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="50" id="Sqd-zL-ZwR"/>
                                                             <constraint firstAttribute="height" constant="50" id="fO4-60-CYk"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQo-Hs-1Vo" userLabel="Button Text">
-                                                        <rect key="frame" x="34.666666666666629" y="105" width="41.333333333333343" height="16"/>
+                                                        <rect key="frame" x="34.666666666666629" y="106" width="41.333333333333343" height="16"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TxL-Fj-r9g" userLabel="Purchase Button 6">
-                                                        <rect key="frame" x="-0.33333333333337123" y="0.0" width="113.66666666666667" height="141.66666666666666"/>
+                                                        <rect key="frame" x="-0.33333333333337123" y="1" width="113.66666666666667" height="141.66666666666666"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <connections>
                                                             <action selector="purchaseItem:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="NZ9-hb-gLg"/>
@@ -1597,6 +1598,7 @@
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9k-wY-tNO" userLabel="Home Scenario Button">
                                 <rect key="frame" x="21.999999999999993" y="186.66666666666663" width="110.33333333333331" height="165"/>
+                                <accessibility key="accessibilityConfiguration" identifier="mapvc-home-scenario-button"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.92477746660000004" green="1" blue="0.97109429339999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -1815,7 +1817,7 @@
         <image name="start_scene" width="682" height="384"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Vcg-vV-Did"/>
+        <segue reference="Ck5-aV-1L2"/>
         <segue reference="HHh-kx-uKw"/>
         <segue reference="1yy-KV-VO2"/>
     </inferredMetricsTieBreakers>
