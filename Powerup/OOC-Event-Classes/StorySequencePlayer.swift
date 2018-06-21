@@ -274,8 +274,8 @@ class StorySequencePlayer: UIView {
         updateLeftSide()
         updateRightSide()
 
-        // wait double the baseAnimDuration
-        let dur = baseAnimDuration * 2
+        // wait double the baseAnimDuration plus a little before enabling user interactions again
+        let dur = (baseAnimDuration * 2) + 0.1
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.asyncAfter(deadline: .now() + dur) {
                 self.canTap = true
@@ -284,9 +284,6 @@ class StorySequencePlayer: UIView {
         }
     }
 
-    /**
-     Important: Should handle alpha for left and right text at the same time. Right now it'll fade the left text since it reads left to right and fades all text other than the latest.
-    */
     private func updateLeftSide() {
 
         guard let m = model.steps[currentStep]!.lftEvent else { return }
@@ -298,16 +295,15 @@ class StorySequencePlayer: UIView {
             shiftLabels()
         }
 
+        // set up conditions to determine how to handle swapping a character image
         let swapPosition = m.position != .hidden
         var swapImage = false
         var targetPosition: StorySequence.ImagePosition = .hidden
         var components: Array<String>?
 
         if m.image != nil {
-
             components = m.image!.components(separatedBy: "^")
             swapImage = components![0] != lastImages[0]
-
             if swapPosition {
                 if m.position != nil {
                     targetPosition = m.position!
@@ -317,6 +313,7 @@ class StorySequencePlayer: UIView {
             }
         }
 
+        // if the character is different, animate it off screen, swap the image, and animate on screen to the appropriate position
         if swapImage && swapPosition {
 
             moveImage(pos: .hidden, view: leftImageView, left: true, dur: baseAnimDuration / 2)
@@ -336,8 +333,10 @@ class StorySequencePlayer: UIView {
                 }
             }
 
+
         } else {
 
+            // otherwise handle the image normally
             if m.image != nil {
                 changeImage(imageView: leftImageView, image: m.image!)
             }
@@ -355,6 +354,7 @@ class StorySequencePlayer: UIView {
             }
         }
 
+        // prepare global variables for the next slide
         if m.image != nil {
             lastImages[0] = components![0]
         }
@@ -365,25 +365,83 @@ class StorySequencePlayer: UIView {
     }
 
     private func updateRightSide() {
+
         guard let m = model.steps[currentStep]!.rgtEvent else { return }
-        if m.image != nil {
-            changeImage(imageView: rightImageView, image: m.image!)
-        }
-        if m.position != nil {
-            moveImage(pos: m.position!, view: rightImageView, left: false, dur: baseAnimDuration)
-        }
-        if m.imgAnim != nil {
-            DispatchQueue.global(qos: .background).async {
-                DispatchQueue.main.asyncAfter(deadline: .now() + self.baseAnimDuration) {
-                    self.doAnimation(anim: m.imgAnim!, view: self.rightImageView)
-                }
-            }
-        }
+
+        // handle text
         if m.text != nil {
             let label = self.makeLabel(text: m.text!, left: false)
             self.textContainer.addSubview(label)
             shiftLabels()
         }
+
+        // set up conditions to determine how to handle swapping a character image
+        let swapPosition = m.position != .hidden
+        var swapImage = false
+        var targetPosition: StorySequence.ImagePosition = .hidden
+        var components: Array<String>?
+
+        if m.image != nil {
+            components = m.image!.components(separatedBy: "^")
+            swapImage = components![0] != lastImages[1]
+            if swapPosition {
+                if m.position != nil {
+                    targetPosition = m.position!
+                } else {
+                    targetPosition = lastPositions[1]
+                }
+            }
+        }
+
+        // if the character is different, animate it off screen, swap the image, and animate on screen to the appropriate position
+        if swapImage && swapPosition {
+
+            moveImage(pos: .hidden, view: rightImageView, left: true, dur: baseAnimDuration / 2)
+
+            DispatchQueue.global(qos: .background).async {
+                DispatchQueue.main.asyncAfter(deadline: .now() + self.baseAnimDuration / 2) {
+                    self.changeImage(imageView: self.rightImageView, image: m.image!)
+                    self.moveImage(pos: targetPosition, view: self.rightImageView, left: true, dur: self.baseAnimDuration / 2)
+                }
+            }
+
+            if m.imgAnim != nil {
+                DispatchQueue.global(qos: .background).async {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + self.baseAnimDuration) {
+                        self.doAnimation(anim: m.imgAnim!, view: self.rightImageView)
+                    }
+                }
+            }
+
+
+        } else {
+
+            // otherwise handle the image normally
+            if m.image != nil {
+                changeImage(imageView: rightImageView, image: m.image!)
+            }
+
+            if m.position != nil {
+                moveImage(pos: m.position!, view: rightImageView, left: true, dur: baseAnimDuration)
+            }
+
+            if m.imgAnim != nil {
+                DispatchQueue.global(qos: .background).async {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + self.baseAnimDuration) {
+                        self.doAnimation(anim: m.imgAnim!, view: self.rightImageView)
+                    }
+                }
+            }
+        }
+
+        // prepare global variables for the next slide
+        if m.image != nil {
+            lastImages[1] = components![0]
+        }
+        if m.position != nil {
+            lastPositions[1] = m.position!
+        }
+
     }
 
     // return a formatted label
