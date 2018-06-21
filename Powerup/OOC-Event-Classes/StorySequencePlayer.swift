@@ -396,12 +396,12 @@ class StorySequencePlayer: UIView {
         // if the character is different, animate it off screen, swap the image, and animate on screen to the appropriate position
         if swapImage && swapPosition {
 
-            moveImage(pos: .hidden, view: rightImageView, left: true, dur: baseAnimDuration / 2)
+            moveImage(pos: .hidden, view: rightImageView, left: false, dur: baseAnimDuration / 2)
 
             DispatchQueue.global(qos: .background).async {
                 DispatchQueue.main.asyncAfter(deadline: .now() + self.baseAnimDuration / 2) {
                     self.changeImage(imageView: self.rightImageView, image: m.image!)
-                    self.moveImage(pos: targetPosition, view: self.rightImageView, left: true, dur: self.baseAnimDuration / 2)
+                    self.moveImage(pos: targetPosition, view: self.rightImageView, left: false, dur: self.baseAnimDuration / 2)
                 }
             }
 
@@ -422,7 +422,7 @@ class StorySequencePlayer: UIView {
             }
 
             if m.position != nil {
-                moveImage(pos: m.position!, view: rightImageView, left: true, dur: baseAnimDuration)
+                moveImage(pos: m.position!, view: rightImageView, left: false, dur: baseAnimDuration)
             }
 
             if m.imgAnim != nil {

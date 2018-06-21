@@ -246,7 +246,7 @@
                     },
                     "10": {
                         "lftEvent": {
-                            "txt": "show same character",
+                            "txt": "show same character, new position",
                             "img": "test2_chibi^normal",
                             "pos": "near",
                             "ani": null
