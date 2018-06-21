@@ -31,6 +31,8 @@ class StorySequencePlayer: UIView {
     var soundPlayer: SoundPlayer = SoundPlayer()
 
     private var canTap: Bool
+    private var lastImages: Array<String?> = [nil, nil]
+    private var lastPositions: Array<StorySequence.ImagePosition> = [.hidden, .hidden]
 
     // for easy access to accessibility identifiers
     enum AccessibilityIdentifiers: String {
@@ -133,8 +135,8 @@ class StorySequencePlayer: UIView {
         imgMid = (imageViewContainer.bounds.width / 4) - (imageWidth / 2)
         imgFar = (imageViewContainer.bounds.width / 2) - imageWidth
 
-        moveImage(pos: .hidden, view: leftImageView, left: true)
-        moveImage(pos: .hidden, view: rightImageView, left: false)
+        moveImage(pos: .hidden, view: leftImageView, left: true, dur: baseAnimDuration)
+        moveImage(pos: .hidden, view: rightImageView, left: false, dur: baseAnimDuration)
 
         let indicatorSize = 15
         indicator.frame = CGRect(x: 0, y: 0, width: indicatorSize, height: indicatorSize)
@@ -272,8 +274,8 @@ class StorySequencePlayer: UIView {
         updateLeftSide()
         updateRightSide()
 
-        // wait double the baseAnimDuration
-        let dur = baseAnimDuration * 2
+        // wait double the baseAnimDuration plus a little before enabling user interactions again
+        let dur = (baseAnimDuration * 2) + 0.1
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.asyncAfter(deadline: .now() + dur) {
                 self.canTap = true
@@ -282,51 +284,164 @@ class StorySequencePlayer: UIView {
         }
     }
 
-    /**
-     Important: Should handle alpha for left and right text at the same time. Right now it'll fade the left text since it reads left to right and fades all text other than the latest.
-    */
     private func updateLeftSide() {
+
         guard let m = model.steps[currentStep]!.lftEvent else { return }
-        if m.image != nil {
-            changeImage(imageView: leftImageView, image: m.image!)
-        }
-        if m.position != nil {
-            moveImage(pos: m.position!, view: leftImageView, left: true)
-        }
-        if m.imgAnim != nil {
-            DispatchQueue.global(qos: .background).async {
-                DispatchQueue.main.asyncAfter(deadline: .now() + self.baseAnimDuration) {
-                    self.doAnimation(anim: m.imgAnim!, view: self.leftImageView)
-                }
-            }
-        }
+
+        // handle text
         if m.text != nil {
             let label = self.makeLabel(text: m.text!, left: true)
             self.textContainer.addSubview(label)
             shiftLabels()
         }
-    }
 
-    private func updateRightSide() {
-        guard let m = model.steps[currentStep]!.rgtEvent else { return }
+        // set up conditions to determine how to handle swapping a character image
+        let swapPosition = m.position != .hidden
+        var swapImage = false
+        var targetPosition: StorySequence.ImagePosition = .hidden
+        var components: Array<String>?
+
         if m.image != nil {
-            changeImage(imageView: rightImageView, image: m.image!)
-        }
-        if m.position != nil {
-            moveImage(pos: m.position!, view: rightImageView, left: false)
-        }
-        if m.imgAnim != nil {
-            DispatchQueue.global(qos: .background).async {
-                DispatchQueue.main.asyncAfter(deadline: .now() + self.baseAnimDuration) {
-                    self.doAnimation(anim: m.imgAnim!, view: self.rightImageView)
+            components = m.image!.components(separatedBy: "^")
+            swapImage = components![0] != lastImages[0]
+            if swapPosition {
+                if m.position != nil {
+                    targetPosition = m.position!
+                } else {
+                    targetPosition = lastPositions[0]
                 }
             }
         }
+
+        // if the character is different, animate it off screen, swap the image, and animate on screen to the appropriate position
+        if swapImage && swapPosition {
+
+            moveImage(pos: .hidden, view: leftImageView, left: true, dur: baseAnimDuration / 2)
+
+            DispatchQueue.global(qos: .background).async {
+                DispatchQueue.main.asyncAfter(deadline: .now() + self.baseAnimDuration / 2) {
+                    self.changeImage(imageView: self.leftImageView, image: m.image!)
+                    self.moveImage(pos: targetPosition, view: self.leftImageView, left: true, dur: self.baseAnimDuration / 2)
+                }
+            }
+
+            if m.imgAnim != nil {
+                DispatchQueue.global(qos: .background).async {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + self.baseAnimDuration) {
+                        self.doAnimation(anim: m.imgAnim!, view: self.leftImageView)
+                    }
+                }
+            }
+
+
+        } else {
+
+            // otherwise handle the image normally
+            if m.image != nil {
+                changeImage(imageView: leftImageView, image: m.image!)
+            }
+
+            if m.position != nil {
+                moveImage(pos: m.position!, view: leftImageView, left: true, dur: baseAnimDuration)
+            }
+
+            if m.imgAnim != nil {
+                DispatchQueue.global(qos: .background).async {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + self.baseAnimDuration) {
+                        self.doAnimation(anim: m.imgAnim!, view: self.leftImageView)
+                    }
+                }
+            }
+        }
+
+        // prepare global variables for the next slide
+        if m.image != nil {
+            lastImages[0] = components![0]
+        }
+        if m.position != nil {
+            lastPositions[0] = m.position!
+        }
+
+    }
+
+    private func updateRightSide() {
+
+        guard let m = model.steps[currentStep]!.rgtEvent else { return }
+
+        // handle text
         if m.text != nil {
             let label = self.makeLabel(text: m.text!, left: false)
             self.textContainer.addSubview(label)
             shiftLabels()
         }
+
+        // set up conditions to determine how to handle swapping a character image
+        let swapPosition = m.position != .hidden
+        var swapImage = false
+        var targetPosition: StorySequence.ImagePosition = .hidden
+        var components: Array<String>?
+
+        if m.image != nil {
+            components = m.image!.components(separatedBy: "^")
+            swapImage = components![0] != lastImages[1]
+            if swapPosition {
+                if m.position != nil {
+                    targetPosition = m.position!
+                } else {
+                    targetPosition = lastPositions[1]
+                }
+            }
+        }
+
+        // if the character is different, animate it off screen, swap the image, and animate on screen to the appropriate position
+        if swapImage && swapPosition {
+
+            moveImage(pos: .hidden, view: rightImageView, left: false, dur: baseAnimDuration / 2)
+
+            DispatchQueue.global(qos: .background).async {
+                DispatchQueue.main.asyncAfter(deadline: .now() + self.baseAnimDuration / 2) {
+                    self.changeImage(imageView: self.rightImageView, image: m.image!)
+                    self.moveImage(pos: targetPosition, view: self.rightImageView, left: false, dur: self.baseAnimDuration / 2)
+                }
+            }
+
+            if m.imgAnim != nil {
+                DispatchQueue.global(qos: .background).async {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + self.baseAnimDuration) {
+                        self.doAnimation(anim: m.imgAnim!, view: self.rightImageView)
+                    }
+                }
+            }
+
+
+        } else {
+
+            // otherwise handle the image normally
+            if m.image != nil {
+                changeImage(imageView: rightImageView, image: m.image!)
+            }
+
+            if m.position != nil {
+                moveImage(pos: m.position!, view: rightImageView, left: false, dur: baseAnimDuration)
+            }
+
+            if m.imgAnim != nil {
+                DispatchQueue.global(qos: .background).async {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + self.baseAnimDuration) {
+                        self.doAnimation(anim: m.imgAnim!, view: self.rightImageView)
+                    }
+                }
+            }
+        }
+
+        // prepare global variables for the next slide
+        if m.image != nil {
+            lastImages[1] = components![0]
+        }
+        if m.position != nil {
+            lastPositions[1] = m.position!
+        }
+
     }
 
     // return a formatted label
@@ -347,6 +462,7 @@ class StorySequencePlayer: UIView {
         label.font = UIFont(name: fontName, size: fontSize)
         label.text = text
         label.textAlignment = (left) ? .left : .right
+        label.tag = currentStep
 
         // resize and reformat to account for word wrapping
         label.numberOfLines = 0
@@ -381,7 +497,7 @@ class StorySequencePlayer: UIView {
                     Animate(label, dur).setSpring(0.6, 6.5 + (self.randomCGFloat() * 8)).setOptions(.curveEaseOut).move(by: [0, -height])
 
                     // if the label isnt't the new label, and alpha is still 1, then reduce alpha
-                    if label != labels.last {
+                    if label.tag != self.currentStep {
                         if label.alpha == 1 {
                             Animate(label, dur).fade(to: fadeTo)
                         }
@@ -416,7 +532,7 @@ class StorySequencePlayer: UIView {
     }
 
     // determine x position and animate moving the imageView
-    private func moveImage(pos: StorySequence.ImagePosition, view: UIImageView, left: Bool) {
+    private func moveImage(pos: StorySequence.ImagePosition, view: UIImageView, left: Bool, dur: Double) {
         var x: CGFloat
 
         switch pos {
@@ -432,7 +548,7 @@ class StorySequencePlayer: UIView {
 
         x = (left) ? x : imageViewContainer.bounds.width - view.bounds.width - x
 
-        let v = Animate(view, baseAnimDuration)
+        let v = Animate(view, dur)
         v.move(to: [x, view.frame.origin.y])
     }
 
