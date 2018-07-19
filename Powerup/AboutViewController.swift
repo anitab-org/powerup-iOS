@@ -15,7 +15,8 @@ class AboutViewController: UIViewController {
         let model = PopupEvent(topText: "Made with ♥",
                                botText: "by Systers Open Source",
                                imgName: nil,
-                               doSound: false)
+                               slideSound: nil,
+                               badgeSound: nil)
         let popup: PopupEventPlayer = PopupEventPlayer(model)
         self.view.addSubview(popup)
     }
