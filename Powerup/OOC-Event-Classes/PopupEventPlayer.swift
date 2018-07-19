@@ -19,7 +19,6 @@ class PopupEventPlayer: UIView {
 
     var width: CGFloat,
         height: CGFloat
-    //var useSound: Bool
 
     var bgColor: UIColor // { didSet { updateContainer() } }
     var borderColor: UIColor // { didSet { updateContainer() } }
