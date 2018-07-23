@@ -11,6 +11,8 @@ struct MockPopupEvents {
     let topString = "test top text"
     let botString = "test bottom text"
     let imageName = "minesweeper_abstinence_heart"
+    let slideSound = "placeholder"
+    let badgeSound = "placeholder2"
 
     init() {
         popups = [
@@ -19,22 +21,26 @@ struct MockPopupEvents {
                 1: PopupEvent(topText: topString,
                               botText: botString,
                               imgName: imageName,
-                              doSound: true),
+                              slideSound: slideSound,
+                              badgeSound: badgeSound),
                 // all fields no sound
                 2: PopupEvent(topText: topString,
                               botText: botString,
                               imgName: imageName,
-                              doSound: false),
+                              slideSound: nil,
+                              badgeSound: nil),
                 // no image no sound
                 3: PopupEvent(topText: topString,
                               botText: botString,
                               imgName: nil,
-                              doSound: nil),
+                              slideSound: slideSound,
+                              badgeSound: nil),
                 // empty popups are still presented
                 4: PopupEvent(topText: nil,
                               botText: nil,
                               imgName: nil,
-                              doSound: nil)
+                              slideSound: nil,
+                              badgeSound: badgeSound)
             ]
         ]
     }
