@@ -160,6 +160,19 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     // MARK: OOC Event Functions
+
+    /**
+     Check if the scenario has been previously completed.
+     */
+    func firstTime() -> Bool {
+        do {
+            let scenario: Scenario = try dataSource.getScenario(of: scenarioID)
+            return !scenario.completed
+        } catch _ {
+            return true
+        }
+    }
+
     /**
      Handle starting sequences - opens as an overlay on top of the initial view. Checks if an intro sequence exists for the current scenarioID. Returns if not, otherwise creates an instance of StorySequencePlayer.
 
@@ -172,7 +185,8 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
             print("Could not retrieve intro story sequence for scenario \(scenarioID).")
             return
         }
-        let sequenceView: StorySequencePlayer = StorySequencePlayer(delegate: self, model: model)
+
+        let sequenceView: StorySequencePlayer = StorySequencePlayer(delegate: self, model: model, firstTime: firstTime())
         self.view.addSubview(sequenceView)
     }
 
@@ -235,7 +249,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         }
 
         // create and start the sequence
-        let sequenceView: StorySequencePlayer = StorySequencePlayer(delegate: self, model: model)
+        let sequenceView: StorySequencePlayer = StorySequencePlayer(delegate: self, model: model, firstTime: firstTime())
 
         // set a tag so we can differentiate outros and intros in the delegate method
         sequenceView.tag = 1

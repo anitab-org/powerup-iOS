@@ -77,7 +77,7 @@ class StorySequencePlayer: UIView {
         addLPGesture()
     }
 
-    convenience init(delegate: StorySequencePlayerDelegate, model: StorySequence) {
+    convenience init(delegate: StorySequencePlayerDelegate, model: StorySequence, firstTime: Bool) {
         self.init(frame: UIScreen.main.bounds)
 
         self.delegate = delegate
@@ -91,10 +91,40 @@ class StorySequencePlayer: UIView {
                 self.soundPlayer.playSound(sound, 0.1)
             }
         }
+
+        if firstTime == false {
+            showSkipNotice()
+        }
     }
 
     override func didMoveToSuperview() {
         self.delegate?.sequenceDidStart(sender: self)
+    }
+
+    private func showSkipNotice() {
+        let label = UILabel(frame: CGRect(x: 5, y: 5, width: self.bounds.width, height: 0))
+        label.textColor = UIColor.white
+        label.numberOfLines = 0
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        label.font = UIFont(name: fontName, size: fontSize)
+
+        label.text = "(Press and hold to skip)"
+
+        label.sizeToFit()
+
+        let view = Animate(label)
+        view.wait(asec: 1.5, then: {
+            self.addSubview(label)
+            view.fadeIn(then: {
+                view.setDuration(4).fade(to: 0.2)
+                view.wait(asec: 1.5, then: {
+                    view.setDuration(view.originalDuration).move(to: [-self.bounds.width * 2, 0], then: {
+                        label.removeFromSuperview()
+                    })
+                })
+            })
+        })
+
     }
 
     /* *******************************
