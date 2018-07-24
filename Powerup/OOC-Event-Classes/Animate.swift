@@ -32,6 +32,8 @@ class Animate {
         dur: Double,
         moved: Bool = false
 
+    var originalDuration: Double
+
     private var origin: Array<CGFloat>,
         opacity: Float,
         view: UIView
@@ -40,8 +42,9 @@ class Animate {
         self.view = view
         self.origin = [view.frame.origin.x, view.frame.origin.y]
         self.opacity = view.layer.opacity
-        self.duration = (duration != nil) ? duration! : 0.5
-        self.dur = self.duration
+        self.originalDuration = (duration != nil) ? duration! : 0.5
+        self.duration = self.originalDuration
+        self.dur = self.originalDuration
     }
 
     /* *******************************
