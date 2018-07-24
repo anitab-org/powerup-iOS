@@ -186,7 +186,6 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
             return
         }
 
-        //guard let firstTime = dataSource.getScenario(of: scenarioID) else { return false }
         let sequenceView: StorySequencePlayer = StorySequencePlayer(delegate: self, model: model, firstTime: firstTime())
         self.view.addSubview(sequenceView)
     }
