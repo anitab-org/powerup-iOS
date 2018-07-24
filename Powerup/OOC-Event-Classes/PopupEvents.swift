@@ -32,7 +32,7 @@ struct PopupEvents {
      */
     func getPopup(type: PopupType, collection: String, popupID: Int) -> PopupEvent? {
 
-        var popup = PopupEvent(topText: nil, botText: nil, imgName: nil, doSound: nil)
+        var popup = PopupEvent(topText: nil, botText: nil, imgName: nil, slideSound: nil, badgeSound: nil)
 
         // change this to the main json containing all sequences
         let fileName = "Popups"
@@ -70,7 +70,8 @@ struct PopupEvents {
                 popup.topText = pop["topText"] as? String
                 popup.botText = pop["botText"] as? String
                 popup.imgName = pop["imgName"] as? String
-                popup.doSound = pop["doSound"] as? Bool
+                popup.slideSound = pop["slideSound"] as? String
+                popup.badgeSound = pop["badgeSound"] as? String
             }
 
         } catch let error {

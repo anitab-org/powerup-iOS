@@ -19,7 +19,6 @@ class PopupEventPlayer: UIView {
 
     var width: CGFloat,
         height: CGFloat
-    var useSound: Bool
 
     var bgColor: UIColor // { didSet { updateContainer() } }
     var borderColor: UIColor // { didSet { updateContainer() } }
@@ -36,8 +35,10 @@ class PopupEventPlayer: UIView {
         imageView: UIImageView
 
     var soundPlayer: SoundPlayer? = SoundPlayer()
-    let sounds = (slideIn: "placeholder",
-                  showImage: "placeholder2")
+    var slideSound: String?
+    var badgeSound: String?
+    let defaultSounds = (slideIn: "placeholder",
+                         showImage: "placeholder2")
 
     private var tapped: Bool
 
@@ -67,7 +68,6 @@ class PopupEventPlayer: UIView {
         self.imageView = UIImageView(frame: CGRect.zero)
 
         self.tapped = false
-        self.useSound = false
 
         super.init(frame: frame)
 
@@ -106,8 +106,11 @@ class PopupEventPlayer: UIView {
             image = UIImage(named: m.imgName!)
             updateImageView()
         }
-        if m.doSound != nil {
-            useSound = m.doSound!
+        if m.slideSound != nil {
+            slideSound = m.slideSound!
+        }
+        if m.badgeSound != nil {
+            badgeSound = m.badgeSound!
         }
     }
 
@@ -266,12 +269,11 @@ class PopupEventPlayer: UIView {
 
         self.delegate?.popupDidShow(sender: self)
 
-        let sound = sounds.slideIn
         let volume: Float = 0.2
 
         let x = UIScreen.main.bounds.width - width
         animateSlideTo(x: x)
-        playSound(fileName: sound, volume: volume)
+        playSound(fileName: slideSound, volume: volume)
 
         DispatchQueue.global(qos: .background).async {
             DispatchQueue.main.asyncAfter(deadline: .now() + self.popupDuration) {
@@ -314,14 +316,13 @@ class PopupEventPlayer: UIView {
 
     private func animateShowImageWithSound() {
         let duration: Double = 0.2
-        let sound = sounds.showImage
         let volume: Float = 0.1
         Animate(imageView, duration).setSpring(0.3, 12).reset().fade(to: 1)
-        playSound(fileName: sound, volume: volume)
+        playSound(fileName: badgeSound, volume: volume)
     }
 
     private func playSound (fileName: String?, volume: Float?) {
-        if useSound && !tapped {
+        if fileName != nil && !tapped {
             guard let sound = fileName else { return }
             guard let player = self.soundPlayer else { return }
             let vol = (volume != nil) ? volume : 1
