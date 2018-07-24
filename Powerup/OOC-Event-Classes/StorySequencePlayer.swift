@@ -109,12 +109,27 @@ class StorySequencePlayer: UIView {
         view.addSubview(blurView)
     }
 
+    // test for iPhone X to be able to adjust for the black area in the larger status bar
+    private func isIphoneX() -> Bool {
+        if UIDevice().userInterfaceIdiom == .phone && UIScreen.main.nativeBounds.height == 2436 {
+            return true
+        }
+        return false
+    }
+
+    // return the height of the status bar
+    private func iPhoneXStatusBarHeight() -> CGFloat {
+        return 44
+    }
+
     // layout the image container in the main view, layout the imageviews in the image container, also add the indicator view
     private func layoutImageViews(_ margin: CGFloat, _ height: CGFloat) {
+
         let containerW = self.bounds.width - (margin * 2)
         let containerH = self.bounds.height * height
+        let adjustedW = isIphoneX() ? containerW - iPhoneXStatusBarHeight(): containerW
 
-        imageViewContainer.frame = CGRect(x: margin, y: self.bounds.height - containerH, width: containerW, height: containerH)
+        imageViewContainer.frame = CGRect(x: margin, y: self.bounds.height - containerH, width: adjustedW, height: containerH)
 
         let bounds = imageViewContainer.bounds
         let imageWidth: CGFloat = bounds.width * 0.3
@@ -153,9 +168,12 @@ class StorySequencePlayer: UIView {
 
     // layout the text container
     private func layoutTextContainer(_ margin: CGFloat, _ height: CGFloat) {
+
         let containerW = self.bounds.width - (margin * 2)
         let containerH = (self.bounds.height * height) - (margin * 2)
-        textContainer.frame = CGRect(x: margin, y: margin, width: containerW, height: containerH)
+        let adjustedW = isIphoneX() ? containerW - iPhoneXStatusBarHeight(): containerW
+
+        textContainer.frame = CGRect(x: margin, y: margin, width: adjustedW, height: containerH)
         textContainer.layer.masksToBounds = true
         textContainer.layer.cornerRadius = 12
 
