@@ -17,6 +17,8 @@ class StorySequencePlayerTests: XCTestCase {
     /**
      Testing stepping through a StoryPlayerSequence intro.
 
+     - Author: Cadence Holmes 2018
+
      - start a new game and navigate to the map view
      - check for and retrieve the intro sequence for the home scenario
      - navigate to home scenario

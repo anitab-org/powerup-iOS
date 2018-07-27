@@ -15,6 +15,10 @@ class PopupEventPlayerTests: XCTestCase {
     /**
      Test PopupEventPlayer interactions.
 
+     - Author: Cadence Holmes 2018
+
+     This test assumes there is a popup on the About page. It should be changed to locate a different popup if one does not exist in the future.
+
      - test automatic dismissal
          - get the expected durations from the PopupEventPlayer declaration
          - go to the About page where a popup should be presented automatically
@@ -36,7 +40,7 @@ class PopupEventPlayerTests: XCTestCase {
 
         // open the app and tap on the about button
         let app = XCUIApplication()
-        let aboutButton = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .button).element(boundBy: 0)
+        let aboutButton = app.buttons["startvc-about-button"]
         aboutButton.tap()
 
         // check that the popup loads as expected
