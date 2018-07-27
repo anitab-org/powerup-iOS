@@ -2,7 +2,8 @@ import UIKit
 
 /**
  Handles the entire popup lifecycle. Owns all popup views, media, and interactions.
- - Author: Cadence Holmes
+ 
+ - Author: Cadence Holmes 2018
  */
 class PopupEventPlayer: UIView {
     /* *******************************

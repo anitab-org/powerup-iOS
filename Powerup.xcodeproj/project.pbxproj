@@ -30,6 +30,7 @@
 		5BD864812046F61900004B39 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD864802046F61900004B39 /* Strings.swift */; };
 		6A29A3F220AC9CAC00DABACE /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A29A3F120AC9CAC00DABACE /* SoundPlayer.swift */; };
 		6A3BC2D220C90E9900767253 /* XCTestCase+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3BC2D120C90E9900767253 /* XCTestCase+.swift */; };
+		6A4CB0D5210B44EC00685CF9 /* StorySequences.example.json in Resources */ = {isa = PBXBuildFile; fileRef = 6A4CB0D4210B44EC00685CF9 /* StorySequences.example.json */; };
 		6A69DC8D20AB386B006511E3 /* StorySequencePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A69DC8C20AB386B006511E3 /* StorySequencePlayer.swift */; };
 		6A69DC8F20AB3881006511E3 /* PopupEventPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A69DC8E20AB3881006511E3 /* PopupEventPlayer.swift */; };
 		6A69DC9120AB3892006511E3 /* StorySequenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A69DC9020AB3892006511E3 /* StorySequenceModel.swift */; };
@@ -156,6 +157,7 @@
 		5BD864802046F61900004B39 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		6A29A3F120AC9CAC00DABACE /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		6A3BC2D120C90E9900767253 /* XCTestCase+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+.swift"; sourceTree = "<group>"; };
+		6A4CB0D4210B44EC00685CF9 /* StorySequences.example.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = StorySequences.example.json; sourceTree = "<group>"; };
 		6A69DC8C20AB386B006511E3 /* StorySequencePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySequencePlayer.swift; sourceTree = "<group>"; };
 		6A69DC8E20AB3881006511E3 /* PopupEventPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupEventPlayer.swift; sourceTree = "<group>"; };
 		6A69DC9020AB3892006511E3 /* StorySequenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySequenceModel.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 			children = (
 				6A72368920D5A28F00698257 /* Popups.json */,
 				6A72368A20D5A28F00698257 /* StorySequences.json */,
+				6A4CB0D4210B44EC00685CF9 /* StorySequences.example.json */,
 				6A69DC8E20AB3881006511E3 /* PopupEventPlayer.swift */,
 				6A9353EC20BD14C500A6D196 /* PopupEventModel.swift */,
 				6A69DC9620AB38BD006511E3 /* PopupEvents.swift */,
@@ -581,6 +584,7 @@
 				2A0CA55A1B294C6B00ED8781 /* Main.storyboard in Resources */,
 				2A0CA55F1B294C6B00ED8781 /* LaunchScreen.xib in Resources */,
 				2A0CA55C1B294C6B00ED8781 /* Images.xcassets in Resources */,
+				6A4CB0D5210B44EC00685CF9 /* StorySequences.example.json in Resources */,
 				6A69DC9E20ABCA0A006511E3 /* Sounds.xcassets in Resources */,
 				6A72368C20D5A28F00698257 /* StorySequences.json in Resources */,
 				6A7B854120A9F51100EBFEEB /* mainDatabaseDev.sqlite in Resources */,

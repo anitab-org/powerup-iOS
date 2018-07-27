@@ -1,7 +1,15 @@
 import Foundation
 
 /**
- Name space to avoid ambiguity
+ Struct describing popups. Protects necessary strings as swift datatypes, and parses Popups.json to retrieve a properly formatted PopupEventModel.
+
+ - Author: Cadence Holmes 2018
+
+ Popups.json contains references to popups for PopupEventPlayer.
+
+ The scenarioPopups are necessary. The first level key should match the scenario ID, and the second level key should match the popupID found in the Answers database.
+
+ The otherPopups are for convenience. These must be passed directly to an instance of PopupEventPlayer.
 */
 struct PopupEvents {
 
@@ -42,10 +50,11 @@ struct PopupEvents {
         }
 
         do {
+            print("retrieve")
             // retrieve json and map to datatype Dictionary<String, AnyObject>
             let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
             let json = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-
+            print(json)
             if let json = json as? Dictionary<String, AnyObject> {
 
                 // retrieve the group of popups based on type

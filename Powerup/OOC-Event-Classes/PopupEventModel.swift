@@ -1,5 +1,7 @@
 /**
  Struct defining Event model for individual popups.
+
+ - Author: Cadence Holmes 2018
  */
 struct PopupEvent {
     var topText: String?
