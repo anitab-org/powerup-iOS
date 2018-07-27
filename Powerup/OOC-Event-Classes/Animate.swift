@@ -1,7 +1,7 @@
 import UIKit
 
 /**
- Class for creating animations. It's designed so you can chain together animation 'sentences' using self-returning functions and completion handlers.
+ Class for creating animations. Chains together animation 'sentences' using self-returning functions and completion handlers.
 
  - Author: Cadence Holmes 2018
 
@@ -51,14 +51,6 @@ class Animate {
     /* *******************************
      MARK: Utility
      ******************************* */
-
-//    /**
-//     End
-//     */
-//    func end(then: Completion? = nil) {
-//        self.view = UIView()
-//    }
-
 
     /**
      Set the options for all animations.

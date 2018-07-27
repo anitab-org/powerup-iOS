@@ -95,7 +95,7 @@ struct StorySequence {
     }
 
     /**
-     These are the possible animations for StorySequenceEvents. As new animations are created and added in StorySequencePlayer, this collection should be updated.
+     These are the possible animations for StorySequenceEvents. As new animations are created and added in StorySequencePlayer.swift and Animate.swift, this collection should be updated.
 
      ** Any changes to this struct need to be reflected in the PowerUp Story Designer web app.
      */

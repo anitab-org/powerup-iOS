@@ -3,13 +3,13 @@ import AVFoundation
 import AudioToolbox
 
 /**
- Creates a strong reference to AVAudioPlayer and playing a sound file. Convenience class to declutter controller classes.
+ Creates a strong reference to AVAudioPlayer and plays a sound file. Convenience class to declutter controller classes.
 
  - Author: Cadence Holmes 2018
 
  Example Use
  ```
- var soundPlayer : SoundPlayer? = SoundPlayer()
+ let soundPlayer : SoundPlayer? = SoundPlayer()
  guard let player = self.soundPlayer else {return}
  // player.playSound(fileName: String, volume: Float)
  player.playSound("sound.mp3", 0.5)
