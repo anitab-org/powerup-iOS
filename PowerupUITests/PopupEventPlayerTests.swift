@@ -30,6 +30,8 @@ class PopupEventPlayerTests: XCTestCase {
          - tap on the popup
          - wait for the animation duration
          - check that the popup has been dismissed and removed from the view
+
+     Dataset validation is performed in Unit Testing.
      */
     func testPopupEventPlayer() {
 

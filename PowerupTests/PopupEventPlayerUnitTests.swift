@@ -19,6 +19,8 @@ class PopupEventPlayerUnitTests: XCTestCase {
 
      - check that all media assets exist
      - check that position and animation strings match an enum case
+
+     More thorough, functional tests are performed in UI Testing.
      */
     func testDataSet() {
 

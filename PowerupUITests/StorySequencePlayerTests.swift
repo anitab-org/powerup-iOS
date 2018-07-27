@@ -26,6 +26,8 @@ class StorySequencePlayerTests: XCTestCase {
      - once finished, check that the player is dismissed
 
      This test assumes there is a home intro. It should be changed to unlock and test a different sequence if one does not exist at some point.
+
+     Dataset validation is performed in Unit Testing.
     */
     func testSSPStepThrough() {
 
