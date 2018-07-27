@@ -2,7 +2,8 @@ import UIKit
 
 /**
  Class for creating animations. It's designed so you can chain together animation 'sentences' using self-returning functions and completion handlers.
-  - Author: Cadence Holmes
+
+ - Author: Cadence Holmes 2018
 
  ```
  Animate(view, duration).setOptions(.curveLinear).rotate(to: 90)
