@@ -1,7 +1,7 @@
 
 /**
  Struct containing a dictionary of `StorySequence.Step`. Also describes `StorySequence.Step` and `StorySequence.Event`.
- 
+
  - Author: Cadence Holmes 2018
  */
 struct StorySequence {

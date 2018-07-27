@@ -2,7 +2,7 @@ import UIKit
 
 /**
  Handles the entire popup lifecycle. Owns all popup views, media, and interactions.
- 
+
  - Author: Cadence Holmes 2018
 
  Example retrieving a model from the Popups dataset:
