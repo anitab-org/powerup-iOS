@@ -311,7 +311,7 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     /**
-     Because ending sequences are triggered by the popupID value, handleNextQuestion is called from handlePopupEvent or the StorySequencePlayer delegate method.
+     Because ending sequences are triggered by the popupID value, handleNextQuestion() is called from handlePopupEvent() or the StorySequencePlayer delegate method.
     */
     func handleNextQuestion() {
         // Check if the next questionID is a valid integer, if not, it's the end of the scnario (entering a mini game)

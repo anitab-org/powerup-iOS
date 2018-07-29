@@ -2,7 +2,48 @@ import UIKit
 
 /**
  Handles the entire popup lifecycle. Owns all popup views, media, and interactions.
- - Author: Cadence Holmes
+
+ - Author: Cadence Holmes 2018
+
+ Example retrieving a model from the Popups dataset:
+ ```
+ // get the correct model
+ let scenarioID = 5
+ let popupID = 1
+ guard let model: PopupEvent = PopupEvents().getPopup(type: .scenario,
+                                                      collection: String(scenarioID),
+                                                      popupID: popupID
+ ) else {
+    print("Could not retrieve outro story sequence for scenario \(scenarioID) with popupID \(popupID).")
+    return
+ }
+
+ let event: PopupEventPlayer? = PopupEventPlayer(delegate: self, model: model)
+ guard let popup = event else { return }
+ popup.id = popupID
+ self.view.addSubview(popup)
+ ```
+
+ Or use anywhere with a locally created model:
+ ```
+ func addPopup() {
+    let model = PopupEvent(topText: "Made with ♥",
+                           botText: "by Systers Open Source",
+                           imgName: nil,
+                           slideSound: nil,
+                           badgeSound: nil)
+
+    let popup: PopupEventPlayer = PopupEventPlayer(model)
+    self.view.addSubview(popup)
+ }
+ ```
+
+ Delegate methods: (optional)
+ ```
+ func popupDidShow(sender: PopupEventPlayer)
+ func popupDidHide(sender: PopupEventPlayer)
+ func popupWasTapped(sender: PopupEventPlayer)
+ ```
  */
 class PopupEventPlayer: UIView {
     /* *******************************

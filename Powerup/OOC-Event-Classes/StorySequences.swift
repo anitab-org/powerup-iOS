@@ -1,7 +1,9 @@
 import Foundation
 
 /**
- Name space to avoid ambiguity
+ Struct is responsible for retrieving and parsing StorySequences.json into a Swift datatype. It describes all instance of StorySequence.
+
+ - Author: Cadence Holmes 2018
 */
 struct StorySequences {
 
@@ -128,15 +130,20 @@ struct StorySequences {
 
 // MARK: Example data sets
 
-// Example Intro
+/*
 
-// define each story sequence as a private let, named descriptively
-// a StorySequence is a dictionary of StorySequenceStep, keys must be Int and serve to make the collection more readable as well as giving better access to starting a sequence in the middle
-// a StorySequenceStep describes two StorySequenceEvent, a left event and a right event.
-// A StorySequenceEvent describes the text, image, and image position.
-// if any properties are left nil, there will be no change from the previous step
-// you can nil the entire event as well (for no change from the previous step)
-// calling .dismiss in the pos property hides *and* releases the image from the imageView
+ Example Datasets
+
+ While StorySequencePlayer expects to parse a file called StorySequences.json, which is created in an external tool, the resultant Swift dataset ultimately looks like the following examples.
+
+ - define each story sequence as a private let, named descriptively
+ - a StorySequence is a dictionary of StorySequenceStep, keys must be an Int
+ - a StorySequenceStep describes two StorySequenceEvent, a left event and a right event.
+ - A StorySequenceEvent describes the text, image, and image position.
+ - if any properties are left nil, there will be no change from the previous step
+ - you can nil the entire event as well (for no change from the previous step)
+
+*/
 
 /*
 private let pos = StorySequence.ImagePosition.self
@@ -144,6 +151,7 @@ private let ani = StorySequence.ImageAnimation.self
 private let testChar = StorySequence.Images().testChar
 private let testChar2 = StorySequence.Images().testChar2
 private let misc = StorySequence.Images().misc
+
 private let home: StorySequence = StorySequence(music: Sounds().scenarioMusic[5]?.intro, [
     0: StorySequence.Step(lftEvent: StorySequence.Event(txt: "Hey, this is an intro sequence!",
                                                         img: testChar.happy,
@@ -237,6 +245,7 @@ private let home: StorySequence = StorySequence(music: Sounds().scenarioMusic[5]
 
 /*
 private let testChar3 = StorySequence.Images().testChar3
+
 private let homeOutro: StorySequence = StorySequence(music: Sounds().scenarioMusic[5]?.goodEnding, [
     0: StorySequence.Step(lftEvent: StorySequence.Event(txt: "Hi everyone, we're back!",
                                                         img: testChar2.smiling,

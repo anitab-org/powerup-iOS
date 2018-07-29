@@ -1,8 +1,28 @@
 import UIKit
 
 /**
- Handles the entire story sequence lifecycle. Owns all popup views, media, and interactions.
- - Author: Cadence Holmes
+ Handles the entire story sequence lifecycle. Owns all views, media, and interactions.
+
+ - Author: Cadence Holmes 2018
+
+ Example use:
+ ```
+ let scenarioID = 5
+ guard let model = StorySequences().getStorySequence(scenario: scenarioID) else {
+ print("Could not retrieve intro story sequence for scenario \(scenarioID).")
+ return
+ }
+
+ let sequenceView: StorySequencePlayer = StorySequencePlayer(delegate: self, model: model, firstTime: firstTime())
+ self.view.addSubview(sequenceView)
+ ```
+
+ Delegate methods: (optional)
+ ```
+ func sequenceDidStart(sender: StorySequencePlayer)
+ func sequenceDidFinish(sender: StorySequencePlayer)
+ func sequenceWasSkipped(sender: StorySequencePlayer)
+ ```
  */
 class StorySequencePlayer: UIView {
     /* *******************************

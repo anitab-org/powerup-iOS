@@ -1,27 +1,45 @@
-/**
- Struct containing music files for easy access
- */
-struct Sounds {
-    let scenarioMusic = [
-        5: (intro: "home_intro_music_placeholder",
-            goodEnding: "home_good_ending_example")
-    ]
-}
 
 /**
  Struct containing a dictionary of `StorySequence.Step`. Also describes `StorySequence.Step` and `StorySequence.Event`.
- - Author: Cadence Holmes
+
+ - Author: Cadence Holmes 2018
  */
 struct StorySequence {
     var steps: Dictionary<Int, Step>,
         music: String?
+
+    /*
+     Currently, the following structs are not being directly used by any related classes since the strings are being added to the Swift dataset via json. But they should be updated as new media/options are added to the app for a couple reasons:
+
+     - StorySequencePlayer could be used with a dataset other than those in StorySequences.json, and these structs help ensure the data is viable.
+     - This is a convenient place to organize the relevant media files for reference when keeping this model and the PowerUp Story Designer web tool in sync.
+    */
+
+    /**
+     Struct containing music files for StorySequences.
+
+     Add new music media files to this collection as necessary.
+
+     ** Any changes to this struct need to be reflected in the PowerUp Story Designer web app.
+     */
+    struct Sounds {
+        let scenarioMusic = [
+            5: (intro: "home_intro_music_placeholder",
+                goodEnding: "home_good_ending_example")
+        ]
+    }
 
     /**
      Struct containing descriptions of each character and the different types of images available.
 
      As new scenes are added, this static data should be updated. Each character should be represented as a descriptive constant, and should reference a tuple describing the images and referencing their file name.
 
-     Thanks to autocompletion, this makes it much easier to create and maintain StorySequence models rather than using just strings.
+     ** Image files for StorySequencePlayer should be in the following format:
+     "CharacterName^Version"
+
+     The carot ^ is necessary for StorySequencePlayer. The first half (CharacterName) must be the same for all images of the same character. The second half (Version) should be descriptive, such as mood.
+
+     ** Any changes to this struct need to be reflected in the PowerUp Story Designer web app.
      */
     struct Images {
         let testChar = (normal: "test_chibi^normal",
@@ -55,7 +73,15 @@ struct StorySequence {
                     empty: "")
     }
 
+    /**
+     These are the possible positions for an image. StorySequencePlayer interprets these cases per left and right.
+
+     Near describes the image being close to the edge of the screen, and far describes the image being close to the middle of the screen. Mid is the middle of those positions.
+
+     ** This enum typically won't need to change or be updated, but if any are made, make sure to also reflect those changes in the PowerUp Story Designer web app.
+     */
     enum ImagePosition: String {
+        // this array is so we can loop through the enum during unit testing
         static let cases = [
             hidden,
             near,
@@ -68,7 +94,13 @@ struct StorySequence {
         case far = "far"
     }
 
+    /**
+     These are the possible animations for StorySequenceEvents. As new animations are created and added in StorySequencePlayer.swift and Animate.swift, this collection should be updated.
+
+     ** Any changes to this struct need to be reflected in the PowerUp Story Designer web app.
+     */
     enum ImageAnimation: String {
+        // this array is so we can loop through the enum during unit testing
         static let cases = [
             shake,
             tiltLeft,
