@@ -30,9 +30,9 @@ class SoundPlayer {
 
     /**
      Handles checking for AVAudioPlayer and playing a sound.
-     
+
      - throws: print(error.localizedDescription)
-     
+
      - parameters:
         - fileName : String - file name as it appears in Sounds.xcassets
         - volume : Float - volume scaled 0.0 - 1.0
