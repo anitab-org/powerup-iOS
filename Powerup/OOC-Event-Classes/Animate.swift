@@ -3,8 +3,6 @@ import UIKit
 /**
  Class for creating animations. Chains together animation 'sentences' using self-returning functions and completion handlers.
 
- - Author: Cadence Holmes 2018
-
  ```
  Animate(view, duration).setOptions(.curveLinear).rotate(to: 90)
  ```
@@ -17,7 +15,7 @@ import UIKit
  })
  ```
 
- More detailed information coming.
+ - Author: Cadence Holmes 2018
  */
 class Animate {
     typealias Completion = () -> ()

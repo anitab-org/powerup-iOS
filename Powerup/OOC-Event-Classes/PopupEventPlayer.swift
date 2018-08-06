@@ -3,8 +3,6 @@ import UIKit
 /**
  Handles the entire popup lifecycle. Owns all popup views, media, and interactions.
 
- - Author: Cadence Holmes 2018
-
  Example retrieving a model from the Popups dataset:
  ```
  // get the correct model
@@ -44,6 +42,8 @@ import UIKit
  func popupDidHide(sender: PopupEventPlayer)
  func popupWasTapped(sender: PopupEventPlayer)
  ```
+
+ - Author: Cadence Holmes 2018
  */
 class PopupEventPlayer: UIView {
     /* *******************************
@@ -172,6 +172,9 @@ class PopupEventPlayer: UIView {
     /* *******************************
      MARK: Setup and Setters
      ******************************* */
+    /**
+     Size and layout subviews.
+     */
     private func setupSubviews() {
         container.frame = CGRect(x: UIScreen.main.bounds.width, y: 10, width: width, height: height)
 
@@ -210,6 +213,15 @@ class PopupEventPlayer: UIView {
         imageView.contentMode = .scaleAspectFit
     }
 
+    /**
+     Animate text labels upwards.
+
+     - Parameter label: `UILabel` to be animated.
+
+     - Remark: References `slideAnimateDuration`.
+
+     - Note: See `Animate`.
+     */
     private func animateLabelText (_ label: UILabel) {
         Animate(label, slideAnimDuration * 2).fade(to: 1)
     }
@@ -218,7 +230,7 @@ class PopupEventPlayer: UIView {
     /**
      Updates the main and sub labels.
 
-     Calls `self.updateMainLabel()` and `self.updateSubLabel()`.
+     Calls `updateMainLabel()` and `updateSubLabel()`.
      */
     func updateLabels() {
         updateMainLabel()
@@ -262,7 +274,7 @@ class PopupEventPlayer: UIView {
     /**
      Draws the inner container layer (angle and shadow).
 
-     Also updates self.frame to conform to the inner containers bounds.
+     Also updates `self.frame` to conform to the inner containers bounds.
      */
     func updateContainer() {
         let layer: CAShapeLayer = drawAngledShape()
@@ -271,6 +283,11 @@ class PopupEventPlayer: UIView {
     }
 
     // draw an angle on the left border, add shadow : called in updatedContainer()
+    /**
+     Draws the layer for the popup view, including the angled edge.
+
+     - Returns: `CAShapeLayer` for the `PopupEventPlayer` view.
+     */
     private func drawAngledShape() -> CAShapeLayer {
         let borderWidth: CGFloat = 1.5
 
@@ -302,7 +319,7 @@ class PopupEventPlayer: UIView {
      MARK: Public Class Methods
      ******************************* */
     /**
-     Animates showing the popup. Automatically called when an instance of PopupEventPlayer is added to a superview. See `override func didMoveToSuperview()`.
+     Animates showing the popup. Automatically called when an instance of PopupEventPlayer is added to a superview. See `didMoveToSuperview()`.
 
      Handles animations asyncronously on a background thread, checks for and plays sound, and times the popup for automatic dismissal.
      */
@@ -325,9 +342,9 @@ class PopupEventPlayer: UIView {
 
     // hide() is automatically called after show() + self.popupDuration
     /**
-     Animates hiding the popup. Automatically called after show() + self.popupDuration, or when the popup is tapped.
+     Animates hiding the popup. Automatically called after `show()` + `popupDuration`, or when the popup is tapped.
 
-     Handles animations asyncronously on a background thread, calls delegate method `.popupDidFinish(sender: self)`.
+     Handles animations asyncronously on a background thread, calls delegate method `popupDidFinish(sender:)`.
      */
     func hide() {
         if !tapped {
@@ -347,6 +364,11 @@ class PopupEventPlayer: UIView {
     /* *******************************
      MARK: Private Class Methods
      ******************************* */
+    /**
+     Animate sliding the popup into view.
+
+     - Parameter x: The distance to slide the popup.
+     */
     private func animateSlideTo(x: CGFloat) {
         Animate(container, slideAnimDuration).move(to: [x, container.frame.origin.y], then: {
             if self.image != nil {
@@ -355,6 +377,9 @@ class PopupEventPlayer: UIView {
         })
     }
 
+    /**
+     Animate showing the badge image and call `playSound()`.
+     */
     private func animateShowImageWithSound() {
         let duration: Double = 0.2
         let volume: Float = 0.1
@@ -362,6 +387,12 @@ class PopupEventPlayer: UIView {
         playSound(fileName: badgeSound, volume: volume)
     }
 
+    /**
+     Play a sound file once.
+
+     - Parameter fileName: The name of the audio asset to be played.
+     - Parameter volume: The volume at which the sound is played.
+     */
     private func playSound (fileName: String?, volume: Float?) {
         if fileName != nil && !tapped {
             guard let sound = fileName else { return }
@@ -377,7 +408,16 @@ class PopupEventPlayer: UIView {
  MARK: Delegate Methods
  ******************************* */
 protocol PopupEventPlayerDelegate: AnyObject {
+    /**
+     Called when `PopupEventPlayer` is successfully initialized and the view is added to the view hierarchy.
+     */
     func popupDidShow(sender: PopupEventPlayer)
+    /**
+     Called when `PopupEventPlayer` is dismissed, whether by tapping or waiting for the duration.
+     */
     func popupDidHide(sender: PopupEventPlayer)
+    /**
+     Called when `PopupEventPlayer` is tapped to hide.
+     */
     func popupWasTapped(sender: PopupEventPlayer)
 }
