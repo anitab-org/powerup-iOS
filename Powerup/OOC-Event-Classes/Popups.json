@@ -1,0 +1,38 @@
+{
+    "scenarioPopups": {
+        "5": {
+            "1": {
+                "topText": "test model 1",
+                "botText": "has sound",
+                "imgName": "minesweeper_abstinence_heart",
+                "slideSound": "placeholder",
+                "badgeSound": "placeholder2"
+            },
+            "2": {
+                "topText": "test model 2 with longer text it should shrink to fit",
+                "botText": "no sound",
+                "imgName": "karma_star",
+                "slideSound": null,
+                "badgeSound": null
+            }
+        }
+    },
+    "otherPopups": {
+        "achievements": {
+            "1": {
+                "topText": "test model 1",
+                "botText": "has sound",
+                "imgName": "minesweeper_abstinence_heart",
+                "slideSound": "placeholder",
+                "badgeSound": "placeholder2"
+            },
+            "2": {
+                "topText": "test model 2 with longer text it should shrink to fit",
+                "botText": "no sound",
+                "imgName": "karma_star",
+                "slideSound": null,
+                "badgeSound": null
+            }
+        }
+    }
+}
