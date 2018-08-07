@@ -5,8 +5,6 @@ import AudioToolbox
 /**
  Creates a strong reference to AVAudioPlayer and plays a sound file. Convenience class to declutter controller classes.
 
- - Author: Cadence Holmes 2018
-
  Example Use
  ```
  let soundPlayer : SoundPlayer? = SoundPlayer()
@@ -14,6 +12,8 @@ import AudioToolbox
  // player.playSound(fileName: String, volume: Float)
  player.playSound("sound.mp3", 0.5)
  ```
+
+  - Author: Cadence Holmes 2018
  */
 class SoundPlayer {
     var player: AVAudioPlayer?
@@ -30,9 +30,9 @@ class SoundPlayer {
 
     /**
      Handles checking for AVAudioPlayer and playing a sound.
-     
+
      - throws: print(error.localizedDescription)
-     
+
      - parameters:
         - fileName : String - file name as it appears in Sounds.xcassets
         - volume : Float - volume scaled 0.0 - 1.0

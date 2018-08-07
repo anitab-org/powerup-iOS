@@ -1,15 +1,15 @@
 import Foundation
 
 /**
- Struct describing popups. Protects necessary strings as swift datatypes, and parses Popups.json to retrieve a properly formatted PopupEventModel.
+ Struct describing popups. Protects necessary strings as swift datatypes, and parses `Popups.json` to retrieve a properly formatted `PopupEventModel`.
+
+ `Popups.json` contains references to popups for `PopupEventPlayer`.
+
+ The `scenarioPopups` are necessary. The first level key should match the scenario ID, and the second level key should match the `popupID` found in the `Answers` database.
+
+ The `otherPopups` are for convenience. These must be passed directly to an instance of `PopupEventPlayer`.
 
  - Author: Cadence Holmes 2018
-
- Popups.json contains references to popups for PopupEventPlayer.
-
- The scenarioPopups are necessary. The first level key should match the scenario ID, and the second level key should match the popupID found in the Answers database.
-
- The otherPopups are for convenience. These must be passed directly to an instance of PopupEventPlayer.
 */
 struct PopupEvents {
 
@@ -18,6 +18,8 @@ struct PopupEvents {
 
     /**
      For matching with JSON keys.
+
+     - Important: This enum needs to be kept in sync with the structure and expected values for StorySequences.json. The values in PowerUp Story Designer web app should have matching values here.
     */
     enum PopupType: String {
         case scenario = "scenarioPopups"
@@ -26,6 +28,8 @@ struct PopupEvents {
 
     /**
      For matching with JSON keys.
+
+     - Important: This enum needs to be kept in sync with the structure and expected values for StorySequences.json. The values in PowerUp Story Designer web app should have matching values here.
     */
     enum PopupCollection: String {
         // scenarioPopups
@@ -36,7 +40,15 @@ struct PopupEvents {
     }
 
     /**
-     Parse JSON and return a formatted Popup
+     Parse `Popup.json`, search for the target popup, and return a formatted `PopupEvent`.
+
+     - Parameter type: The type of the target popup to be retrieved. Should either use the enum `PopupType` or a matching string.
+     - Parameter collection: The collection of the target popup to be retrieved. Should use a string, either literal or the `rawValue` of a `PopupCollection` enum case.
+     - Parameter popupID: The unique id number for the desired popup.
+
+     - Returns: A formatted `PopupEvent`.
+
+     - Throws: `print(error.localizedDescription)` if unable to retrieve data.
      */
     func getPopup(type: PopupType, collection: String, popupID: Int) -> PopupEvent? {
 

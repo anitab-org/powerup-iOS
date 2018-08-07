@@ -3,8 +3,6 @@ import UIKit
 /**
  Handles the entire story sequence lifecycle. Owns all views, media, and interactions.
 
- - Author: Cadence Holmes 2018
-
  Example use:
  ```
  let scenarioID = 5
@@ -23,6 +21,8 @@ import UIKit
  func sequenceDidFinish(sender: StorySequencePlayer)
  func sequenceWasSkipped(sender: StorySequencePlayer)
  ```
+
+ - Author: Cadence Holmes 2018
  */
 class StorySequencePlayer: UIView {
     /* *******************************
@@ -54,7 +54,9 @@ class StorySequencePlayer: UIView {
     private var lastImages: Array<String?> = [nil, nil]
     private var lastPositions: Array<StorySequence.ImagePosition> = [.hidden, .hidden]
 
-    // for easy access to accessibility identifiers
+    /**
+     For easy access to accessibility identifiers used in testing.
+     */
     enum AccessibilityIdentifiers: String {
         case storySequencePlayer = "story-sequence-player"
         case skipWarningView = "ssp-skip-warning-view"
@@ -117,10 +119,16 @@ class StorySequencePlayer: UIView {
         }
     }
 
+    /**
+     Automatically start the sequence when StorySequencePlayer is added to the view hierarchy.
+     */
     override func didMoveToSuperview() {
         self.delegate?.sequenceDidStart(sender: self)
     }
 
+    /**
+     Show a notice letting users know that long-pressing will start the skip sequence.
+     */
     private func showSkipNotice() {
         let label = UILabel(frame: CGRect(x: 5, y: 5, width: self.bounds.width, height: 0))
         label.textColor = UIColor.white
@@ -144,13 +152,17 @@ class StorySequencePlayer: UIView {
                 })
             })
         })
-
     }
 
     /* *******************************
      MARK: Private Class Functions
      ******************************* */
-    // Add a full screen blurred view as the background layer
+    /**
+     Add a full screen blurred view as the background layer.
+
+     - Parameter view: Target `UIView`.
+     - Parameter style: Desired `UIBlueEffectStyle`.
+     */
     private func addBlur(_ view: UIView, _ style: UIBlurEffectStyle) {
         let blur = UIBlurEffect(style: UIBlurEffectStyle.dark)
         let blurView = UIVisualEffectView(effect: blur)
@@ -159,7 +171,11 @@ class StorySequencePlayer: UIView {
         view.addSubview(blurView)
     }
 
-    // test for iPhone X to be able to adjust for the black area in the larger status bar
+    /**
+     Test for iPhone X to be able to adjust for the black area in the larger status bar.
+
+     - Returns: `true` if the user device is a phone with pixel height 2436.
+     */
     private func isIphoneX() -> Bool {
         if UIDevice().userInterfaceIdiom == .phone && UIScreen.main.nativeBounds.height == 2436 {
             return true
@@ -167,12 +183,19 @@ class StorySequencePlayer: UIView {
         return false
     }
 
-    // return the height of the status bar
+    /**
+     - Returns: 44 pixels.
+     */
     private func iPhoneXStatusBarHeight() -> CGFloat {
         return 44
     }
 
-    // layout the image container in the main view, layout the imageviews in the image container, also add the indicator view
+    /**
+     Layout the image container in the main view, layout the imageviews in the image container, also add the indicator view
+
+     - Parameter margin: The margin to pad either side of the container.
+     - Parameter height: The intended height of the image containers.
+     */
     private func layoutImageViews(_ margin: CGFloat, _ height: CGFloat) {
 
         let containerW = self.bounds.width - (margin * 2)
@@ -216,7 +239,12 @@ class StorySequencePlayer: UIView {
         self.addSubview(indicator)
     }
 
-    // layout the text container
+    /**
+     Layout the main text container. Parent container for the left and right text containers.
+
+     - Parameter margin: The margin to pad either side of the container.
+     - Parameter height: The intended height of the text containers.
+     */
     private func layoutTextContainer(_ margin: CGFloat, _ height: CGFloat) {
 
         let containerW = self.bounds.width - (margin * 2)
@@ -230,30 +258,43 @@ class StorySequencePlayer: UIView {
         self.addSubview(textContainer)
     }
 
-    // add a tap gesture to manually step through the story sequence
+    /**
+    Add a tap gesture to manually step through the story sequence.
+     */
     private func addTapGesture() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapView(_:)))
         self.addGestureRecognizer(tap)
     }
 
+    /**
+     Check if the view is tappable. If so, call `checkCurrentStep()`.
+     */
     @objc private func tapView(_ sender: UITapGestureRecognizer) {
         if canTap {
             checkCurrentStep()
         }
     }
 
-    // add a long press gesture to skip the story sequence
+    /**
+     Add a long press gesture to skip the story sequence.
+     */
     private func addLPGesture() {
         let lp = UILongPressGestureRecognizer(target: self, action: #selector(self.lpView(_:)))
         self.addGestureRecognizer(lp)
     }
 
+    /**
+     Check if a long press has begun. If so, call `displaySkipWarning()`.
+     */
     @objc private func lpView(_ sender: UILongPressGestureRecognizer) {
         if sender.state == UIGestureRecognizerState.began {
             displaySkipWarning()
         }
     }
 
+    /**
+     Create and display an interactive warning view. User must ascert their intention to skip the story sequence.
+    */
     private func displaySkipWarning() {
         let view = UIView(frame: self.bounds)
         view.accessibilityIdentifier = AccessibilityIdentifiers.skipWarningView.rawValue
@@ -303,6 +344,11 @@ class StorySequencePlayer: UIView {
         Animate(view, dur).fadeIn()
     }
 
+    /**
+     Called when from the warning view shown by `displaySkipWarning()`. Either dismiss the warning, or proceed with skipping the story sequence.
+
+     Skipping dismisses and releases the view, and calls the delegate method `sequenceWasSkipped(sender:)`.
+     */
     @objc private func tapSkipButton(_ sender: UIButton?) {
         guard let button = sender else { return }
         if button.tag > 0 {
@@ -322,8 +368,11 @@ class StorySequencePlayer: UIView {
         }
     }
 
-    // check if there is another step in the sequence, update count and call ui updates, else hide and dismiss
-    // called when the view is tapped (and once when the view is initialized)
+    /**
+     Check if there is another step in the sequence, update own count and call UI updates, else hide and dismiss.
+
+     Called when the view is tapped.
+     */
     private func checkCurrentStep() {
         // stop interactions, enabled after updateToCurrentStep is complete
         self.canTap = false
@@ -337,7 +386,9 @@ class StorySequencePlayer: UIView {
         }
     }
 
-    // these functions check for data in the model and calls the appropriate updates
+    /**
+     Update the layout for both sides to the `currentStep`. Wait for animations to complete before re-enabling interactions.
+     */
     private func updateToCurrentStep() {
         updateLeftSide()
         updateRightSide()
@@ -352,6 +403,9 @@ class StorySequencePlayer: UIView {
         }
     }
 
+    /**
+     Update the layout of the left side to the `currentStep`. Automatically handles all animations and changes based on the data in the model.
+     */
     private func updateLeftSide() {
 
         guard let m = model.steps[currentStep]!.lftEvent else { return }
@@ -432,6 +486,9 @@ class StorySequencePlayer: UIView {
 
     }
 
+    /**
+     Update the layout of the right side to the `currentStep`. Automatically handles all animations and changes based on the data in the model.
+     */
     private func updateRightSide() {
 
         guard let m = model.steps[currentStep]!.rgtEvent else { return }
@@ -512,7 +569,14 @@ class StorySequencePlayer: UIView {
 
     }
 
-    // return a formatted label
+    /**
+     Create a formatted label to use as unbound text bubbles.
+
+     - Parameter text: The text to be used.
+     - Parameter left: If `true`, label is formatted to be used on the left side, otherwise it is formatted for the right side.
+
+     - Returns: A properly formatted `UILabel` ready to be inserted in the view hierarchy.
+     */
     private func makeLabel(text: String, left: Bool) -> UILabel {
         // determine properties based on container bounds
         let margin: CGFloat = 10
@@ -544,7 +608,9 @@ class StorySequencePlayer: UIView {
         return label
     }
 
-    // shift labels up as new labels are added
+    /**
+     Handles shifting all of the subviews of `textContainer`.
+     */
     private func shiftLabels() {
         // get subviews from the textcontainer
         let labels = textContainer.subviews
@@ -589,17 +655,34 @@ class StorySequencePlayer: UIView {
         }
     }
 
-    // returns a random CGFloat 0 - 1
+    /**
+     Returns a random CGFloat 0 - 1.
+     */
     private func randomCGFloat() -> CGFloat {
         return CGFloat(Float(arc4random()) / Float(UINT32_MAX))
     }
 
-    // fade out view, then change image, then fade in view
+    /**
+     Change the `image` of the `imageView`.
+
+     - Parameter: imageView: Target `UIImageView`.
+     - Parameter: image: File name of the image to change to.
+
+     - Remarks: This function originally included animation instructions as well. Even though it's simplified to the point of not really being necessary, it has been left in case animations need to be added again.
+     */
     private func changeImage(imageView: UIImageView, image: String) {
         imageView.image = UIImage(named: image)
     }
 
     // determine x position and animate moving the imageView
+    /**
+     Determing the horizontal position to move an image to and animate the `imageView` to the position.
+
+     - Parameter pos: `enum StorySequence.ImagePosition` describing the target position.
+     - Parameter view: Target `UIImageView`.
+     - Parameter left: If `true`, `pos` cases will be calculated for the left side of the view container. Otherwise `pos` will be calculated for the right side.
+     - Parameter dur: The duration of the animation. This is variable since this function is used differently depending on whether or not the entire character image or just the character type/mood has changed.
+     */
     private func moveImage(pos: StorySequence.ImagePosition, view: UIImageView, left: Bool, dur: Double) {
         var x: CGFloat
 
@@ -620,17 +703,25 @@ class StorySequencePlayer: UIView {
         v.move(to: [x, view.frame.origin.y])
     }
 
+    /**
+     Hide the indicator when the view is not interactive.
+    */
     private func hideIndicator() {
         indicator.isHidden = true
         blinkIndicator()
     }
 
+    /**
+     Show the indicator when the view is interactive.
+     */
     private func showIndicator() {
         indicator.isHidden = false
         blinkIndicator()
     }
 
-    // blink the indicator, turn off if the view is hidden
+    /**
+     Handle blinking the indicator when visible, or turning off the animation when hidden.
+     */
     private func blinkIndicator() {
         let dur = baseAnimDuration + (baseAnimDuration / 2)
         var flash = true
@@ -640,6 +731,14 @@ class StorySequencePlayer: UIView {
         Animate(indicator, dur).flashing(flash)
     }
 
+    /**
+     Handle the animations for an image. This is the animation specific to the step, not the universal animations used when changing position.
+
+     All of the animation instructions are in this function. When designing/adding new animation options, the case and instructions should be added here as well as in `enum StorySequence.ImageAnimation`. New options also need to be synced with the PowerUp Story Designer web app.
+
+     - Parameter anim: `enum StorySequence.ImageAnimation` case for the desired animation. Provided by the model.
+     - Parameter view: Target `UIView` to be animated.
+     */
     private func doAnimation(anim: StorySequence.ImageAnimation, view: UIView) {
         let duration = 0.4
         let tiltDuration = 0.7
@@ -663,6 +762,13 @@ class StorySequencePlayer: UIView {
     /* *******************************
      MARK: Public Class Methods
      ******************************* */
+    /**
+     Handles hiding and dismissing the `StorySequencePlayer` view.
+
+     Ends sound, animates the view to hidden, and removes this instance of `StorySequencePlayer` from its superview.
+
+     Also calls the delegate method `sequenceDidFinish(sender:)`.
+     */
     func hide() {
         if #available(iOS 10.0, *) {
             soundPlayer.player?.setVolume(0, fadeDuration: baseAnimDuration)
@@ -681,7 +787,16 @@ class StorySequencePlayer: UIView {
  MARK: Delegate Methods
  ******************************* */
 protocol StorySequencePlayerDelegate: AnyObject {
+    /**
+     Called when `StorySequencePlayer` is added to the view hierarchy.
+     */
     func sequenceDidStart(sender: StorySequencePlayer)
+    /**
+     Called when `StorySequencePlayer` is dismissed, whether via skip or natural completion.
+     */
     func sequenceDidFinish(sender: StorySequencePlayer)
+    /**
+     Called when `StorySequencePlayer` is skipped.
+     */
     func sequenceWasSkipped(sender: StorySequencePlayer)
 }

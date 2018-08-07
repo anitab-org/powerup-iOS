@@ -1,7 +1,7 @@
 import Foundation
 
 /**
- Struct is responsible for retrieving and parsing StorySequences.json into a Swift datatype. It describes all instance of StorySequence.
+ Struct is responsible for retrieving and parsing StorySequences.json into a Swift datatype. It describes all instances of StorySequence.
 
  - Author: Cadence Holmes 2018
 */
@@ -11,8 +11,15 @@ struct StorySequences {
     var bundle = Bundle.main
 
     /**
-     Parse JSON and return a formatted StorySequence
-    */
+     Parse `StorySequences.json` and return a formatted `StorySequence`.
+
+     - Parameter scenario: The `scenarioID` of the target scenario.
+     - Parameter outro: If `true`, searches for the `outro` event type. Otherwise searches for the `intro` event type.
+
+     - Returns: A formatted `StorySequence`.
+
+     - Throws: `print(error.localizedDescription)` if unable to retrieve data.
+     */
     func getStorySequence(scenario: Int, outro: Int? = nil) -> StorySequence? {
 
         var sequence = StorySequence(music: nil, [:])

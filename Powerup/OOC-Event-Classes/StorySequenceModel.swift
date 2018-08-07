@@ -1,4 +1,3 @@
-
 /**
  Struct containing a dictionary of `StorySequence.Step`. Also describes `StorySequence.Step` and `StorySequence.Event`.
 
