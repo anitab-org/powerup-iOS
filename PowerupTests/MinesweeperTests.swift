@@ -154,7 +154,7 @@ class MinesweeperTests: XCTestCase {
     func testSelectBox() {
         // Given
         let originalSelectedBoxes = minesweeperGame.selectedBoxes
-        let originalScore = minesweeperGame.score
+        // let originalScore = minesweeperGame.score
         
         // When
         minesweeperGame.selectBox(box: guessingBox)
