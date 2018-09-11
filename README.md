@@ -1,6 +1,9 @@
-[![Travis](https://img.shields.io/travis/rust-lang/rust.svg?style=plastic)](https://github.com/systers/powerup-iOS)
+| Branch | Status |
+| :---: | :---: |
+| [master](https://github.com/systers/powerup-iOS/tree/master) | [![Build Status](https://travis-ci.org/systers/powerup-iOS.svg?branch=master)](https://travis-ci.org/systers/powerup-iOS) |
+| [develop](https://github.com/systers/powerup-iOS/tree/develop) | [![Build Status](https://travis-ci.org/systers/powerup-iOS.svg?branch=develop)](https://travis-ci.org/systers/powerup-iOS) |
 
-# PowerUp - iOS [![Build Status](https://travis-ci.org/systers/powerup-iOS.svg?branch=GSoC17)](https://travis-ci.org/systers/powerup-iOS)
+# PowerUp - iOS 
 
 PowerUp is an educational mobile game app that seeks to empower young girls to take charge of their reproductive health
 and self-esteem by navigating the life of their Avatar.
