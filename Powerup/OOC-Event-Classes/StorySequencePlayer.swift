@@ -163,8 +163,8 @@ class StorySequencePlayer: UIView {
      - Parameter view: Target `UIView`.
      - Parameter style: Desired `UIBlueEffectStyle`.
      */
-    private func addBlur(_ view: UIView, _ style: UIBlurEffectStyle) {
-        let blur = UIBlurEffect(style: UIBlurEffectStyle.dark)
+    private func addBlur(_ view: UIView, _ style: UIBlurEffect.Style) {
+        let blur = UIBlurEffect(style: UIBlurEffect.Style.dark)
         let blurView = UIVisualEffectView(effect: blur)
         blurView.frame = view.bounds
         blurView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -287,7 +287,7 @@ class StorySequencePlayer: UIView {
      Check if a long press has begun. If so, call `displaySkipWarning()`.
      */
     @objc private func lpView(_ sender: UILongPressGestureRecognizer) {
-        if sender.state == UIGestureRecognizerState.began {
+        if sender.state == UIGestureRecognizer.State.began {
             displaySkipWarning()
         }
     }

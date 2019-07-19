@@ -149,7 +149,7 @@ class ShopViewControllerTests: XCTestCase {
                 XCTAssertEqual(shopViewController.priceLabels[boxIndex].text, String(5))
             } else {
                 // Since there are no other hairs, the other boxes should be unavailable.
-                XCTAssertEqual(UIImagePNGRepresentation(shopViewController.displayBoxes[boxIndex].image!), UIImagePNGRepresentation(UIImage()))
+                XCTAssertEqual(shopViewController.displayBoxes[boxIndex].image!.pngData(), UIImage().pngData())
                 XCTAssertEqual(shopViewController.priceLabels[boxIndex].text, "")
                 XCTAssertTrue(shopViewController.purchasedCheckmark[boxIndex].isHidden)
                 XCTAssertEqual(shopViewController.displayImages[boxIndex].image, nil)
