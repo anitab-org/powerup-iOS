@@ -24,7 +24,7 @@ class Animate {
      MARK: Init
      ******************************* */
     private var duration: Double,
-        options: UIViewAnimationOptions = [.curveEaseOut],
+        options: UIView.AnimationOptions = [.curveEaseOut],
         delay: Double = 0,
         damping: CGFloat = 1,
         velocity: CGFloat = 1,
@@ -55,7 +55,7 @@ class Animate {
 
      See `UIView.animate(options: UIViewAnimationOptions)` for more information.
      */
-    @discardableResult func setOptions(_ options: UIViewAnimationOptions) -> Animate {
+    @discardableResult func setOptions(_ options: UIView.AnimationOptions) -> Animate {
         self.options = options
         return self
     }
