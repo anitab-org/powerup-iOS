@@ -51,6 +51,10 @@ This will give you an exact copy of the current remote, make sure you don't have
 ## Contributing Guidelines
 [Click](https://github.com/systers/powerup-iOS/wiki/How-to-Contribute) here to find the contributing guidelines for the project and follow them before sending a contribution.<br />
 
+## Support
+
+If you have questions about PowerUp-iOS or just want to interact, you can join our [slack channel](http://systers.io/slack-systers-opensource/). Don't forget that we are open to suggestions, extensions or adaptations. Feel free to discuss or propose new ideas for projects!
+
 ## Documentation of PowerUp-iOS
 Links to the Documentation:<br />
 
