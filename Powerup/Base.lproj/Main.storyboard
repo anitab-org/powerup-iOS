@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="eFm-LF-3yb">
-    <device id="retina5_5" orientation="landscape">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="eFm-LF-3yb">
+    <device id="retina5_5" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -91,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zwe-o9-mfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="658.5" y="-187.5"/>
+            <point key="canvasLocation" x="954.34782608695662" y="-125.55803571428571"/>
         </scene>
         <!--Start View Controller-->
         <scene sceneID="bOj-Fm-Fh1">
@@ -109,7 +104,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jE-f7-7E2" userLabel="New User Button">
-                                <rect key="frame" x="257" y="283.66666666666669" width="221.33333333333337" height="41"/>
+                                <rect key="frame" x="257.66666666666669" y="283.66666666666669" width="220.66666666666669" height="41.333333333333314"/>
                                 <accessibility key="accessibilityConfiguration" identifier="startvc-new-game-button"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -119,7 +114,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S80-hG-Bup">
-                                <rect key="frame" x="243" y="334" width="220.33333333333337" height="41.333333333333314"/>
+                                <rect key="frame" x="243" y="333.33333333333331" width="220.66666666666663" height="41.333333333333314"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -164,7 +159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5D-0F-CHK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-146" y="304"/>
+            <point key="canvasLocation" x="-211.59420289855075" y="203.57142857142856"/>
         </scene>
         <!--Customize Avatar View Controller-->
         <scene sceneID="zcc-y7-lCe">
@@ -194,7 +189,7 @@
                                 <rect key="frame" x="279" y="179" width="91" height="173"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nJ-HE-yPQ" userLabel="Continue Button">
-                                <rect key="frame" x="597" y="299" width="139" height="50"/>
+                                <rect key="frame" x="578" y="299" width="139" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="fq1-6H-URb"/>
                                     <constraint firstAttribute="width" constant="139" id="ym2-Xl-HYg"/>
@@ -207,19 +202,19 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="we5-9v-c2u">
-                                <rect key="frame" x="18" y="114" width="699" height="50"/>
+                                <rect key="frame" x="18" y="114" width="700" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wf5-AA-gq4" userLabel="Skin">
-                                        <rect key="frame" x="0.0" y="0.0" width="156" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="156.33333333333334" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ags-IQ-Dxd">
-                                                <rect key="frame" x="58" y="14" width="41" height="22"/>
+                                                <rect key="frame" x="60.333333333333329" y="14.666666666666657" width="35.333333333333329" height="21"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXn-oU-okg" userLabel="Face Right Button">
-                                                <rect key="frame" x="131" y="13" width="25" height="25"/>
+                                                <rect key="frame" x="131.33333333333334" y="12.666666666666671" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="7Fw-yY-3lY"/>
                                                     <constraint firstAttribute="width" constant="25" id="fS9-Ly-SH2"/>
@@ -232,7 +227,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5OM-SX-h1L" userLabel="Face Left Button">
-                                                <rect key="frame" x="0.0" y="13" width="25" height="25"/>
+                                                <rect key="frame" x="0.0" y="12.666666666666671" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="ps6-Jw-G1G"/>
                                                     <constraint firstAttribute="width" constant="25" id="spO-9r-ckK"/>
@@ -257,10 +252,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWe-BM-6YC" userLabel="Eyes">
-                                        <rect key="frame" x="181" y="0.0" width="156" height="50"/>
+                                        <rect key="frame" x="181.33333333333331" y="0.0" width="156.33333333333331" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtQ-TS-ZBo" userLabel="Eyes Left Button">
-                                                <rect key="frame" x="0.0" y="13" width="25" height="25"/>
+                                                <rect key="frame" x="0.0" y="12.666666666666671" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="RuI-Fw-lvr"/>
                                                     <constraint firstAttribute="width" constant="25" id="YzE-hX-gNT"/>
@@ -273,7 +268,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIF-aS-j9q" userLabel="Eyes Right Button">
-                                                <rect key="frame" x="131" y="13" width="25" height="25"/>
+                                                <rect key="frame" x="131.33333333333334" y="12.666666666666671" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="IXG-DC-0N6"/>
                                                     <constraint firstAttribute="width" constant="25" id="rlk-GS-Y1H"/>
@@ -286,7 +281,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eyes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbt-qX-ypc">
-                                                <rect key="frame" x="57.333333333333314" y="14" width="42.666666666666657" height="22"/>
+                                                <rect key="frame" x="58.666666666666657" y="14.666666666666657" width="38.666666666666657" height="21"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -304,10 +299,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="26l-58-ibl" userLabel="Clothes">
-                                        <rect key="frame" x="362" y="0.0" width="156" height="50"/>
+                                        <rect key="frame" x="362.66666666666669" y="0.0" width="156.00000000000006" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3b-dN-rVC" userLabel="Clothes Left Button">
-                                                <rect key="frame" x="0.0" y="13" width="25" height="25"/>
+                                                <rect key="frame" x="0.0" y="12.666666666666671" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="cel-iR-C9Y"/>
                                                     <constraint firstAttribute="height" constant="25" id="eed-3F-xm5"/>
@@ -320,7 +315,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Flf-Ud-C6K" userLabel="Clothes Right Button">
-                                                <rect key="frame" x="131" y="13" width="25" height="25"/>
+                                                <rect key="frame" x="131" y="12.666666666666671" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="BVG-oA-Sqf"/>
                                                     <constraint firstAttribute="height" constant="25" id="GyW-Sy-riq"/>
@@ -333,7 +328,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clothes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5p4-KD-Db0">
-                                                <rect key="frame" x="47" y="15.333333333333345" width="62.333333333333343" height="19.666666666666671"/>
+                                                <rect key="frame" x="50.333333333333314" y="15.666666666666659" width="55" height="18.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="16"/>
                                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -351,10 +346,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9L-wy-h7f" userLabel="Hair">
-                                        <rect key="frame" x="543" y="0.0" width="156" height="50"/>
+                                        <rect key="frame" x="543.66666666666663" y="0.0" width="156.33333333333337" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNy-UE-xYX" userLabel="Hair Left Button">
-                                                <rect key="frame" x="0.0" y="13" width="25" height="25"/>
+                                                <rect key="frame" x="0.0" y="12.666666666666671" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="P5i-r2-WSq"/>
                                                     <constraint firstAttribute="height" constant="25" id="qE0-Be-pea"/>
@@ -367,7 +362,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyl-s9-vop" userLabel="Hair Right Button">
-                                                <rect key="frame" x="131" y="13" width="25" height="25"/>
+                                                <rect key="frame" x="131.33333333333337" y="12.666666666666671" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="CKd-ZA-Xed"/>
                                                     <constraint firstAttribute="height" constant="25" id="jIe-Wn-Lya"/>
@@ -380,7 +375,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hair" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kg-9a-CDD">
-                                                <rect key="frame" x="59" y="14" width="38.333333333333343" height="22"/>
+                                                <rect key="frame" x="62" y="14.666666666666657" width="32.666666666666657" height="21"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -403,14 +398,14 @@
                                 <rect key="frame" x="279" y="179" width="91" height="173"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rN-B1-EyF" userLabel="back button">
-                                <rect key="frame" x="20" y="15" width="25" height="25"/>
+                                <rect key="frame" x="20" y="15" width="51" height="25"/>
                                 <state key="normal" image="left_arrow"/>
                                 <connections>
                                     <action selector="backButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="gtS-ZK-i5D"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is your avatar! Tap CONTINUE to start your journey." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="KeK-fp-IKT" userLabel="confirm label">
-                                <rect key="frame" x="0.0" y="119" width="736" height="41"/>
+                                <rect key="frame" x="0.0" y="118" width="717" height="42"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -442,7 +437,7 @@
                             <constraint firstItem="6Xa-mf-lH7" firstAttribute="top" secondItem="we5-9v-c2u" secondAttribute="bottom" constant="15" id="fyM-Mw-O3g"/>
                             <constraint firstItem="lW9-er-4kz" firstAttribute="top" secondItem="acu-mp-gO5" secondAttribute="bottom" id="h1r-kc-hCA"/>
                             <constraint firstItem="lW9-er-4kz" firstAttribute="top" secondItem="9nJ-HE-yPQ" secondAttribute="bottom" constant="65" id="hVp-9Y-L3c"/>
-                            <constraint firstAttribute="trailing" secondItem="9nJ-HE-yPQ" secondAttribute="trailing" id="jf4-x1-jAB"/>
+                            <constraint firstAttribute="trailing" secondItem="9nJ-HE-yPQ" secondAttribute="trailing" constant="19" id="jLs-Vy-ATa"/>
                             <constraint firstItem="6Xa-mf-lH7" firstAttribute="trailing" secondItem="FxG-LX-wOY" secondAttribute="trailing" id="jtZ-q2-Tjh"/>
                             <constraint firstItem="KeK-fp-IKT" firstAttribute="trailing" secondItem="9nJ-HE-yPQ" secondAttribute="trailing" id="kXO-QK-McW"/>
                             <constraint firstItem="6Xa-mf-lH7" firstAttribute="trailing" secondItem="8IZ-CD-HcB" secondAttribute="trailing" id="lMA-lU-cWp"/>
@@ -475,7 +470,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KnS-W8-cZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="CP2-u9-bQu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-238" y="841"/>
+            <point key="canvasLocation" x="-344.92753623188406" y="563.16964285714278"/>
         </scene>
         <!--ScenarioViewController-->
         <scene sceneID="tne-QT-ifu">
@@ -512,7 +507,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marcello" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6u7-zE-DVc">
-                                <rect key="frame" x="597.33333333333337" y="379.66666666666669" width="87.666666666666629" height="24.333333333333314"/>
+                                <rect key="frame" x="603" y="379.66666666666669" width="76.333333333333371" height="24.333333333333314"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -537,7 +532,7 @@
                                 <rect key="frame" x="266.66666666666669" y="15" width="313.00000000000006" height="176"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vn8-s2-SmV" userLabel="Question Label">
-                                <rect key="frame" x="286.66666666666669" y="25.666666666666671" width="250.66666666666669" height="154.33333333333331"/>
+                                <rect key="frame" x="287.66666666666669" y="25.666666666666671" width="250.00000000000006" height="154.66666666666663"/>
                                 <color key="backgroundColor" red="0.55226291700578689" green="1" blue="0.67648041399783065" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="15"/>
                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -556,11 +551,11 @@
                                         <rect key="frame" x="0.0" y="28" width="265.66666666666674" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HQ3-2f-iQG" id="Jww-8q-mUw">
-                                            <rect key="frame" x="0.0" y="0.0" width="265.66666666666674" height="39.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="265.66666666666674" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Sample Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="JR9-C4-9RX">
-                                                    <rect key="frame" x="20" y="0.0" width="229.66666666666674" height="39.666666666666664"/>
+                                                    <rect key="frame" x="20" y="0.0" width="229.66666666666674" height="40"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="14"/>
@@ -591,7 +586,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scenario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nut-8U-Q0c" userLabel="Scenario Name Label">
-                                <rect key="frame" x="19.999999999999993" y="20" width="89.333333333333314" height="24.666666666666671"/>
+                                <rect key="frame" x="20" y="20" width="79" height="23.333333333333329"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -651,7 +646,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="tRn-hQ-WhV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2257.5" y="303.5"/>
+            <point key="canvasLocation" x="3271.739130434783" y="203.23660714285714"/>
         </scene>
         <!--MiniGameViewController-->
         <scene sceneID="b2Q-yH-u8Q">
@@ -673,7 +668,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WKc-Ic-VMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2012" y="831"/>
+            <point key="canvasLocation" x="2915.9420289855075" y="556.47321428571422"/>
         </scene>
         <!--Shop View Controller-->
         <scene sceneID="uGO-Kb-Jms">
@@ -691,14 +686,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="karma_star" translatesAutoresizingMaskIntoConstraints="NO" id="24j-Zk-rSY" userLabel="Karma Motif">
-                                <rect key="frame" x="20" y="22" width="40" height="40"/>
+                                <rect key="frame" x="20" y="21.333333333333329" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="ljf-s3-tbf"/>
                                     <constraint firstAttribute="height" constant="40" id="lo6-Rh-vNp"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9IW-7K-Gls" userLabel="Karma Points Label">
-                                <rect key="frame" x="75" y="29.666666666666664" width="25" height="24.666666666666664"/>
+                                <rect key="frame" x="75" y="29.666666666666671" width="25.333333333333329" height="23.333333333333329"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -719,33 +714,33 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="114" height="141.33333333333334"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shop_available_box" translatesAutoresizingMaskIntoConstraints="NO" id="2Uv-dW-Wkm" userLabel="Display Box 1">
-                                                        <rect key="frame" x="0.0" y="-0.3333333333333286" width="114" height="142"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="114" height="141.33333333333334"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar_earring" translatesAutoresizingMaskIntoConstraints="NO" id="Ph2-7Y-YUB" userLabel="Display Image 1">
                                                         <rect key="frame" x="21" y="31" width="72" height="68"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xOn-ZP-O4p" userLabel="Price Label 1">
-                                                        <rect key="frame" x="54.333333333333343" y="8.0000000000000018" width="45.333333333333343" height="20.666666666666671"/>
+                                                        <rect key="frame" x="53.999999999999972" y="7.3333333333333286" width="45.666666666666657" height="21"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                                         <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SELECT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UT3-0Z-0jd" userLabel="Button Text">
-                                                        <rect key="frame" x="30.000000000000004" y="105" width="50.333333333333343" height="16"/>
+                                                        <rect key="frame" x="30.999999999999996" y="105.33333333333334" width="48.666666666666657" height="15.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.38039215686274508" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="purchased_checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="9WE-dB-veC" userLabel="Purchased Checkmark">
-                                                        <rect key="frame" x="32.666666666666657" y="38.666666666666657" width="50" height="50"/>
+                                                        <rect key="frame" x="32" y="38.666666666666657" width="50" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="BF0-j4-YGA"/>
                                                             <constraint firstAttribute="width" constant="50" id="iAh-ji-INP"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfJ-MH-hSD" userLabel="Purchase Button 1">
-                                                        <rect key="frame" x="-0.66666666666668561" y="0.3333333333333286" width="114.33333333333333" height="141.66666666666669"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="114" height="141.33333333333334"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <connections>
                                                             <action selector="purchaseItem:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="a9Y-2B-uLp"/>
@@ -776,33 +771,33 @@
                                                 <rect key="frame" x="163.99999999999997" y="0.0" width="113.66666666666666" height="141.33333333333334"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shop_available_box" translatesAutoresizingMaskIntoConstraints="NO" id="X50-eP-Zyb" userLabel="Display Box 2">
-                                                        <rect key="frame" x="0.0" y="-0.3333333333333286" width="113.66666666666667" height="142"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="113.66666666666667" height="141.33333333333334"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zvb-F1-HLk" userLabel="Display Image 2">
                                                         <rect key="frame" x="18" y="28" width="63" height="61"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cL-Bv-cLy" userLabel="Price Label 2">
-                                                        <rect key="frame" x="54" y="8.0000000000000018" width="46" height="20.666666666666671"/>
+                                                        <rect key="frame" x="54" y="7.3333333333333286" width="45.666666666666657" height="21"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                                         <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hB-Cx-GvA" userLabel="Button Text">
-                                                        <rect key="frame" x="34.333333333333371" y="105" width="41.333333333333343" height="16"/>
+                                                        <rect key="frame" x="36.666666666666686" y="105.33333333333334" width="36.666666666666657" height="15.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="purchased_checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="eNS-nb-Jhs" userLabel="Purchased Checkmark">
-                                                        <rect key="frame" x="32.333333333333371" y="38.666666666666657" width="50" height="50"/>
+                                                        <rect key="frame" x="32" y="38.666666666666657" width="50" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="EEo-Kd-Zho"/>
                                                             <constraint firstAttribute="width" constant="50" id="ZU2-PK-hJL"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UB2-in-0ZB" userLabel="Purchase Button 2">
-                                                        <rect key="frame" x="-0.33333333333331439" y="0.3333333333333286" width="113.66666666666667" height="141.66666666666669"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="113.66666666666667" height="141.33333333333334"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <connections>
                                                             <action selector="purchaseItem:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="CcU-xH-iT2"/>
@@ -833,14 +828,14 @@
                                                 <rect key="frame" x="327.66666666666663" y="0.0" width="114" height="141.33333333333334"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shop_available_box" translatesAutoresizingMaskIntoConstraints="NO" id="Xbb-5J-AKk" userLabel="Display Box 3">
-                                                        <rect key="frame" x="0.0" y="-0.3333333333333286" width="114" height="142"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="114" height="141.33333333333334"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Srn-Qj-2cy" userLabel="Display Image 3">
                                                         <rect key="frame" x="18" y="28" width="63" height="61"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bih-0W-rIU" userLabel="Price Label 3">
-                                                        <rect key="frame" x="54.666666666666629" y="8.0000000000000018" width="45.666666666666657" height="20.666666666666671"/>
+                                                        <rect key="frame" x="54.333333333333371" y="7.3333333333333286" width="45.333333333333343" height="21"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                                         <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -853,13 +848,13 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJd-dk-a8M" userLabel="Button Text">
-                                                        <rect key="frame" x="34.666666666666629" y="105" width="41.333333333333343" height="16"/>
+                                                        <rect key="frame" x="37" y="105.33333333333334" width="36.666666666666657" height="15.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v20-II-dkv" userLabel="Purchase Button 3">
-                                                        <rect key="frame" x="-0.33333333333337123" y="0.3333333333333286" width="113.66666666666667" height="141.66666666666669"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="114" height="141.33333333333334"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <connections>
                                                             <action selector="purchaseItem:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="DY3-is-U8K"/>
@@ -892,36 +887,36 @@
                                         <rect key="frame" x="0.0" y="161.33333333333334" width="441.66666666666669" height="141.00000000000003"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uur-dU-lTp">
-                                                <rect key="frame" x="0.0" y="0.33333333333334281" width="114" height="141"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="114" height="141"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shop_available_box" translatesAutoresizingMaskIntoConstraints="NO" id="5qr-Ke-PiT" userLabel="Display Box 4">
-                                                        <rect key="frame" x="0.0" y="0.0" width="114" height="141.66666666666666"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="114" height="141"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="06b-l4-D6S" userLabel="Display Image 4">
                                                         <rect key="frame" x="21" y="31" width="72" height="68"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqL-nh-FT0" userLabel="Price Label 4">
-                                                        <rect key="frame" x="54.333333333333343" y="8" width="45.333333333333343" height="21"/>
+                                                        <rect key="frame" x="53.999999999999972" y="6.9999999999999716" width="45.666666666666657" height="21"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                                         <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="purchased_checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="PIr-lw-o6P" userLabel="Purchased Checkmark">
-                                                        <rect key="frame" x="32.333333333333314" y="38.666666666666686" width="50" height="50"/>
+                                                        <rect key="frame" x="32" y="38.333333333333343" width="50" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="BIw-fS-Q52"/>
                                                             <constraint firstAttribute="width" constant="50" id="a9L-11-iFw"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4J-mj-DPt" userLabel="Button Text">
-                                                        <rect key="frame" x="34.666666666666657" y="105" width="41.333333333333343" height="16"/>
+                                                        <rect key="frame" x="37" y="104.99999999999997" width="36.666666666666657" height="15.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Pk-9s-C0k" userLabel="Purchase Button 4">
-                                                        <rect key="frame" x="-0.66666666666668561" y="0.0" width="114.33333333333333" height="141.66666666666666"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="114" height="141"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <connections>
                                                             <action selector="purchaseItem:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="pbE-Xk-nY1"/>
@@ -949,36 +944,36 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Prz-hx-C7s">
-                                                <rect key="frame" x="163.99999999999997" y="0.33333333333334281" width="113.66666666666666" height="141"/>
+                                                <rect key="frame" x="163.99999999999997" y="0.0" width="113.66666666666666" height="141"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shop_available_box" translatesAutoresizingMaskIntoConstraints="NO" id="xQD-5I-vss" userLabel="Display Box 5">
-                                                        <rect key="frame" x="0.0" y="0.0" width="113.66666666666667" height="141.66666666666666"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="113.66666666666667" height="141"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i4t-Ti-nZx" userLabel="Display Image 5">
                                                         <rect key="frame" x="18" y="28" width="63" height="61"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Bg-q0-Dxb" userLabel="Price Label 5">
-                                                        <rect key="frame" x="54" y="8" width="46" height="21"/>
+                                                        <rect key="frame" x="54" y="6.9999999999999716" width="45.666666666666657" height="21"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                                         <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="purchased_checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="l82-zb-gkH" userLabel="Purchased Checkmark">
-                                                        <rect key="frame" x="32.333333333333371" y="38.666666666666686" width="50" height="50"/>
+                                                        <rect key="frame" x="32" y="38.333333333333343" width="50" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="F5s-pG-biL"/>
                                                             <constraint firstAttribute="width" constant="50" id="dPN-X5-ET9"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6uT-um-xmX" userLabel="Button Text">
-                                                        <rect key="frame" x="34.333333333333371" y="105" width="41.333333333333343" height="16"/>
+                                                        <rect key="frame" x="36.666666666666686" y="104.99999999999997" width="36.666666666666657" height="15.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uIF-P3-mGf" userLabel="Purchase Button 5">
-                                                        <rect key="frame" x="-0.33333333333331439" y="0.0" width="113.66666666666667" height="141.66666666666666"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="113.66666666666667" height="141"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <connections>
                                                             <action selector="purchaseItem:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="M9r-X8-XPr"/>
@@ -1006,36 +1001,36 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J2q-nV-rqM">
-                                                <rect key="frame" x="327.66666666666663" y="0.33333333333334281" width="114" height="141"/>
+                                                <rect key="frame" x="327.66666666666663" y="0.0" width="114" height="141"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shop_available_box" translatesAutoresizingMaskIntoConstraints="NO" id="sQ8-y7-6JZ" userLabel="Display Box 6">
-                                                        <rect key="frame" x="0.0" y="0.0" width="114" height="141.66666666666666"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="114" height="141"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rZL-NX-JXV" userLabel="Display Image 6">
                                                         <rect key="frame" x="18" y="28" width="63" height="61"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpl-51-ETr" userLabel="Price Label 6">
-                                                        <rect key="frame" x="54.666666666666629" y="8" width="45.666666666666657" height="21"/>
+                                                        <rect key="frame" x="54.333333333333371" y="6.9999999999999716" width="45.333333333333343" height="21"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                                         <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="purchased_checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="c2K-F6-l2O" userLabel="Purchased Checkmark">
-                                                        <rect key="frame" x="32" y="38.666666666666686" width="50" height="50"/>
+                                                        <rect key="frame" x="32" y="38.333333333333343" width="50" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="50" id="Sqd-zL-ZwR"/>
                                                             <constraint firstAttribute="height" constant="50" id="fO4-60-CYk"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQo-Hs-1Vo" userLabel="Button Text">
-                                                        <rect key="frame" x="34.666666666666629" y="105" width="41.333333333333343" height="16"/>
+                                                        <rect key="frame" x="37" y="104.99999999999997" width="36.666666666666657" height="15.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TxL-Fj-r9g" userLabel="Purchase Button 6">
-                                                        <rect key="frame" x="-0.33333333333337123" y="0.0" width="113.66666666666667" height="141.66666666666666"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="114" height="141"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <connections>
                                                             <action selector="purchaseItem:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="NZ9-hb-gLg"/>
@@ -1078,19 +1073,19 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQp-zY-86c" userLabel="Hair Button">
-                                <rect key="frame" x="147" y="26.333333333333336" width="110.66666666666669" height="30.333333333333336"/>
+                                <rect key="frame" x="147.33333333333334" y="26.333333333333336" width="110.33333333333334" height="30.333333333333336"/>
                                 <connections>
                                     <action selector="hairCategoryChosen:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="4Uj-Iv-FH5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNs-33-Qom" userLabel="Clothes Button">
-                                <rect key="frame" x="261" y="26.333333333333336" width="121.66666666666669" height="30.333333333333336"/>
+                                <rect key="frame" x="261.33333333333331" y="26.333333333333336" width="121.33333333333331" height="30.333333333333336"/>
                                 <connections>
                                     <action selector="clothesCategoryChosen:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="QhG-la-mCM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="de7-VX-YPL" userLabel="Accessories Button">
-                                <rect key="frame" x="394" y="26.333333333333336" width="187.66666666666663" height="30.333333333333336"/>
+                                <rect key="frame" x="393.66666666666669" y="26.333333333333336" width="187.66666666666669" height="30.333333333333336"/>
                                 <connections>
                                     <action selector="accessoryCategoryChosen:" destination="Ayb-3h-vA7" eventType="touchUpInside" id="mf5-AL-nkO"/>
                                 </connections>
@@ -1139,7 +1134,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0A7-Zd-dwO">
-                                <rect key="frame" x="30" y="136" width="70" height="21"/>
+                                <rect key="frame" x="30" y="135.33333333333334" width="70" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="RJw-SL-ZjI"/>
                                     <constraint firstAttribute="height" constant="21" id="aYK-Oc-vrW"/>
@@ -1255,7 +1250,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKe-Du-9T9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1043.5" y="851.5"/>
+            <point key="canvasLocation" x="1512.3188405797102" y="570.20089285714278"/>
         </scene>
         <!--Results View Controller-->
         <scene sceneID="7iy-JJ-2EY">
@@ -1273,7 +1268,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eA-5h-upJ" userLabel="Continue Button">
-                                <rect key="frame" x="413" y="251" width="169" height="36"/>
+                                <rect key="frame" x="412.33333333333331" y="251" width="168.99999999999994" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="9hx-xe-8br"/>
                                     <constraint firstAttribute="width" constant="169" id="SAn-bA-xIo"/>
@@ -1286,7 +1281,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJ2-0z-LHF">
-                                <rect key="frame" x="154" y="251" width="169" height="36"/>
+                                <rect key="frame" x="154.66666666666666" y="251" width="168.99999999999997" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="nlF-B1-PRR"/>
                                     <constraint firstAttribute="width" constant="169" id="xXr-Bm-1LV"/>
@@ -1297,7 +1292,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Scenario: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAT-bp-U9O">
-                                <rect key="frame" x="276" y="91" width="185" height="24"/>
+                                <rect key="frame" x="275.66666666666669" y="91.666666666666671" width="185" height="24"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1314,17 +1309,17 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LCU-a0-55m">
-                                <rect key="frame" x="0.0" y="0.0" width="736" height="80"/>
+                                <rect key="frame" x="0.0" y="0.0" width="736" height="80.666666666666671"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="karma_star" translatesAutoresizingMaskIntoConstraints="NO" id="06L-8d-x15" userLabel="Karma Motif">
-                                        <rect key="frame" x="8" y="15" width="50" height="50"/>
+                                        <rect key="frame" x="8" y="15.333333333333336" width="50" height="50.000000000000007"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="Ntf-Sj-MTO"/>
                                             <constraint firstAttribute="height" constant="50" id="mA2-cB-ryr"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IIY-Or-IBi">
-                                        <rect key="frame" x="678" y="15" width="50" height="50"/>
+                                        <rect key="frame" x="678" y="15.333333333333336" width="50" height="50.000000000000007"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Doz-9V-Ifs">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -1345,7 +1340,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sui-gy-H7k" userLabel="Points Label">
-                                        <rect key="frame" x="66" y="15" width="130" height="50"/>
+                                        <rect key="frame" x="66" y="15.333333333333336" width="130" height="50.000000000000007"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="130" id="dCf-9E-tdA"/>
                                             <constraint firstAttribute="height" constant="50" id="e5D-pg-LUS"/>
@@ -1399,7 +1394,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kEs-g1-97C" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="AXo-70-yQg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2782" y="831"/>
+            <point key="canvasLocation" x="4031.884057971015" y="556.47321428571422"/>
         </scene>
         <!--Completed View Controller-->
         <scene sceneID="KiG-y7-maB">
@@ -1417,7 +1412,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggV-oD-bbd">
-                                <rect key="frame" x="154" y="251" width="169" height="36"/>
+                                <rect key="frame" x="154.66666666666666" y="251" width="168.99999999999997" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="O7Q-bM-bW2"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="169" id="yKU-W6-nE7"/>
@@ -1428,7 +1423,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Scenario:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3x2-5c-b2v">
-                                <rect key="frame" x="279" y="91" width="179" height="24"/>
+                                <rect key="frame" x="278.66666666666669" y="91.666666666666671" width="179" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="Po6-iM-lOW"/>
                                 </constraints>
@@ -1437,7 +1432,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NFe-EU-XXC" userLabel="Map Button">
-                                <rect key="frame" x="412" y="251" width="169" height="36"/>
+                                <rect key="frame" x="412.33333333333331" y="251" width="168.99999999999994" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="169" id="Ovl-Sh-Ocq"/>
                                     <constraint firstAttribute="height" constant="36" id="YMv-cv-qAe"/>
@@ -1448,10 +1443,10 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4p4-11-KM4">
-                                <rect key="frame" x="0.0" y="0.0" width="736" height="80"/>
+                                <rect key="frame" x="0.0" y="0.0" width="736" height="80.666666666666671"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOP-gF-DVR">
-                                        <rect key="frame" x="74" y="15" width="130" height="50"/>
+                                        <rect key="frame" x="74" y="15.333333333333336" width="130" height="50.000000000000007"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="PT8-ZH-DYb"/>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="130" id="ePc-6C-Mi6"/>
@@ -1461,14 +1456,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="karma_star" translatesAutoresizingMaskIntoConstraints="NO" id="Sjq-tY-NP2">
-                                        <rect key="frame" x="8" y="15" width="50" height="50"/>
+                                        <rect key="frame" x="8" y="15.333333333333336" width="50" height="50.000000000000007"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="3LH-IX-paM"/>
                                             <constraint firstAttribute="width" constant="50" id="oK5-KZ-enV"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jhh-4N-zWz">
-                                        <rect key="frame" x="678" y="15" width="50" height="50"/>
+                                        <rect key="frame" x="678" y="15.333333333333336" width="50" height="50.000000000000007"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a87-JU-rSY">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -1528,7 +1523,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NIo-dC-jOr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="i9o-3C-Maz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1724" y="-188"/>
+            <point key="canvasLocation" x="2498.5507246376815" y="-125.89285714285714"/>
         </scene>
         <!--MapViewController-->
         <scene sceneID="8zi-ZT-9cM">
@@ -1555,7 +1550,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                             </imageView>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ywa-nu-uIK" userLabel="Hospital Scenario Button">
-                                <rect key="frame" x="515.33333333333337" y="0.0" width="161.66666666666663" height="145.66666666666666"/>
+                                <rect key="frame" x="515.33333333333337" y="0.0" width="161.66666666666663" height="145"/>
                                 <state key="normal">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1565,7 +1560,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wu8-rw-HXZ" userLabel="School Scenario Button">
-                                <rect key="frame" x="41.333333333333329" y="29.333333333333329" width="220.33333333333337" height="145.33333333333337"/>
+                                <rect key="frame" x="41" y="29" width="221" height="145"/>
                                 <state key="normal">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1588,7 +1583,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="571-Oe-vdt" userLabel="Shop Button">
-                                <rect key="frame" x="279" y="103.66666666666667" width="154.66666666666663" height="144.33333333333331"/>
+                                <rect key="frame" x="279.66666666666669" y="103.66666666666667" width="154.66666666666669" height="144.66666666666663"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1598,7 +1593,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b9k-wY-tNO" userLabel="Home Scenario Button">
-                                <rect key="frame" x="21.999999999999993" y="186.66666666666663" width="110.33333333333331" height="165"/>
+                                <rect key="frame" x="21.999999999999993" y="186.33333333333337" width="110.33333333333331" height="165.66666666666663"/>
                                 <accessibility key="accessibilityConfiguration" identifier="mapvc-home-scenario-button"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.92477746660000004" green="1" blue="0.97109429339999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1674,7 +1669,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OMF-eo-Ren" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QuD-Og-rFX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="951.5" y="303.5"/>
+            <point key="canvasLocation" x="1378.985507246377" y="203.23660714285714"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cD8-wF-rc7">
@@ -1691,7 +1686,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="srp-4W-yeh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-963" y="304"/>
+            <point key="canvasLocation" x="-1395.6521739130435" y="203.57142857142856"/>
         </scene>
         <!--End View Controller-->
         <scene sceneID="nn6-Fo-6ig">
@@ -1716,7 +1711,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWP-8n-6F6" userLabel="Points Label">
-                                <rect key="frame" x="60" y="13" width="50" height="35"/>
+                                <rect key="frame" x="60" y="13" width="50" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="dw9-ak-2AJ"/>
                                 </constraints>
@@ -1780,45 +1775,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EX2-ps-Nj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ljT-EX-slo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2726" y="1441"/>
+            <point key="canvasLocation" x="3950.7246376811599" y="964.95535714285711"/>
         </scene>
     </scenes>
     <resources>
         <image name="Marco" width="612" height="792"/>
-        <image name="about_background" width="682" height="384"/>
-        <image name="avatar_bag" width="496" height="960"/>
-        <image name="avatar_choker" width="496" height="960"/>
-        <image name="avatar_clothes_01" width="496" height="960"/>
-        <image name="avatar_earring" width="496" height="960"/>
-        <image name="avatar_eyes_01" width="496" height="960"/>
-        <image name="avatar_hair_01" width="496" height="960"/>
-        <image name="avatar_necklace" width="496" height="960"/>
-        <image name="avatar_skin_01" width="496" height="960"/>
-        <image name="class_room_background" width="682" height="384"/>
-        <image name="continue_button" width="253" height="91"/>
-        <image name="dressingroom_bgd" width="682" height="384"/>
-        <image name="endscreen_background" width="682" height="384"/>
+        <image name="about_background" width="682.66668701171875" height="384"/>
+        <image name="avatar_bag" width="496.33334350585938" height="960"/>
+        <image name="avatar_choker" width="496.33334350585938" height="960"/>
+        <image name="avatar_clothes_01" width="496.33334350585938" height="960"/>
+        <image name="avatar_earring" width="496.33334350585938" height="960"/>
+        <image name="avatar_eyes_01" width="496.33334350585938" height="960"/>
+        <image name="avatar_hair_01" width="496.33334350585938" height="960"/>
+        <image name="avatar_necklace" width="496.33334350585938" height="960"/>
+        <image name="avatar_skin_01" width="496.33334350585938" height="960"/>
+        <image name="class_room_background" width="682.66668701171875" height="384"/>
+        <image name="continue_button" width="253.66667175292969" height="91"/>
+        <image name="dressingroom_bgd" width="682.66668701171875" height="384"/>
+        <image name="endscreen_background" width="682.66668701171875" height="384"/>
         <image name="home_button" width="140" height="130"/>
         <image name="karma_star" width="41" height="36"/>
-        <image name="left_arrow" width="25" height="25"/>
-        <image name="left_dialogue_2" width="199" height="118"/>
-        <image name="map_background" width="682" height="384"/>
-        <image name="map_button" width="169" height="36"/>
-        <image name="map_hospital" width="273" height="153"/>
-        <image name="map_library" width="682" height="384"/>
-        <image name="map_school" width="682" height="384"/>
-        <image name="purchased_checkmark" width="64" height="55"/>
-        <image name="replay_button" width="169" height="36"/>
-        <image name="right_arrow" width="25" height="25"/>
-        <image name="right_dialogue_2" width="198" height="118"/>
-        <image name="scenario_complete_scene" width="682" height="384"/>
-        <image name="shop_available_box" width="97" height="132"/>
-        <image name="shop_background" width="682" height="384"/>
-        <image name="shop_category_bar" width="364" height="25"/>
-        <image name="start_scene" width="682" height="384"/>
+        <image name="left_arrow" width="25.666666030883789" height="25.666666030883789"/>
+        <image name="left_dialogue_2" width="199" height="118.66666412353516"/>
+        <image name="map_background" width="682.66668701171875" height="384"/>
+        <image name="map_button" width="169.33332824707031" height="36.333332061767578"/>
+        <image name="map_hospital" width="273" height="153.33332824707031"/>
+        <image name="map_library" width="682.66668701171875" height="384"/>
+        <image name="map_school" width="682.66668701171875" height="384"/>
+        <image name="purchased_checkmark" width="64.666664123535156" height="55"/>
+        <image name="replay_button" width="169.33332824707031" height="36.333332061767578"/>
+        <image name="right_arrow" width="25.666666030883789" height="25.666666030883789"/>
+        <image name="right_dialogue_2" width="198" height="118.66666412353516"/>
+        <image name="scenario_complete_scene" width="682.66668701171875" height="384"/>
+        <image name="shop_available_box" width="97.333335876464844" height="132.33332824707031"/>
+        <image name="shop_background" width="682.66668701171875" height="384"/>
+        <image name="shop_category_bar" width="364.66665649414062" height="25"/>
+        <image name="start_scene" width="682.66668701171875" height="384"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ck5-aV-1L2"/>
+        <segue reference="Vcg-vV-Did"/>
         <segue reference="HHh-kx-uKw"/>
         <segue reference="1yy-KV-VO2"/>
     </inferredMetricsTieBreakers>
