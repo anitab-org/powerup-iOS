@@ -305,9 +305,6 @@ class StorySequencePlayer: UIView {
         if #available(iOS 10.0, *) {
             addBlur(view, .prominent)
             addBlur(warningView, .prominent)
-        } else {
-            addBlur(view, .extraLight)
-            addBlur(warningView, .extraLight)
         }
 
         let bounds = warningView.bounds
