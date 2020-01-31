@@ -301,15 +301,12 @@ class StorySequencePlayer: UIView {
 
         let warningView = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height / 2))
         warningView.center = CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)
-
-        if #available(iOS 10.0, *) {
-            addBlur(view, .prominent)
-            addBlur(warningView, .prominent)
-        } else {
-            addBlur(view, .extraLight)
-            addBlur(warningView, .extraLight)
-        }
-
+        
+        
+        addBlur(view, .prominent)
+        addBlur(warningView, .prominent)
+        
+        
         let bounds = warningView.bounds
         let topContainer = UIView(frame: CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height / 2))
         let botContainer = UIView(frame: CGRect(x: 0, y: bounds.height / 2, width: bounds.width, height: bounds.height / 2))
@@ -770,9 +767,9 @@ class StorySequencePlayer: UIView {
      Also calls the delegate method `sequenceDidFinish(sender:)`.
      */
     func hide() {
-        if #available(iOS 10.0, *) {
-            soundPlayer.player?.setVolume(0, fadeDuration: baseAnimDuration)
-        }
+        
+        soundPlayer.player?.setVolume(0, fadeDuration: baseAnimDuration)
+        
         let v = Animate(self, baseAnimDuration)
         v.fade(to: 0, then: {
             self.soundPlayer.player?.stop()
@@ -780,7 +777,7 @@ class StorySequencePlayer: UIView {
             self.removeFromSuperview()
         })
     }
-
+    
 }
 
 /* *******************************
