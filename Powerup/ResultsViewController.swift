@@ -159,6 +159,8 @@ class ResultsViewController: UIViewController, SegueHandler {
         else {
             performSegueWithIdentifier(.toScenarioView, sender: nil)
         }
+        // call the function AppStoreReviewManager to review the app.
+        AppStoreReviewManager.requestReviewIfAppropriate()
     }
 
 

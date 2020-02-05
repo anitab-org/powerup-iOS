@@ -90,6 +90,7 @@
 		D9E74B7F1F1F1AF800A42B7E /* VocabMatchingTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E74B7E1F1F1AF800A42B7E /* VocabMatchingTile.swift */; };
 		D9E922E71F1C9FFA0091D8BB /* SinkToSwimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E922E61F1C9FFA0091D8BB /* SinkToSwimTests.swift */; };
 		D9EEC4551F2A1A230037C745 /* VocabMatchingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EEC4541F2A1A230037C745 /* VocabMatchingTests.swift */; };
+		E69751E623EB45F8005D1B5D /* AppStoreReviewManager.swift..swift in Sources */ = {isa = PBXBuildFile; fileRef = E69751E523EB45F8005D1B5D /* AppStoreReviewManager.swift..swift */; };
 		EAB1B4AC1FE9E4FB005964AF /* UserDefaultsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB1B4AB1FE9E4FB005964AF /* UserDefaultsHandler.swift */; };
 /* End PBXBuildFile section */
 
@@ -209,6 +210,7 @@
 		D9E74B7E1F1F1AF800A42B7E /* VocabMatchingTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabMatchingTile.swift; sourceTree = "<group>"; };
 		D9E922E61F1C9FFA0091D8BB /* SinkToSwimTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinkToSwimTests.swift; sourceTree = "<group>"; };
 		D9EEC4541F2A1A230037C745 /* VocabMatchingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VocabMatchingTests.swift; sourceTree = "<group>"; };
+		E69751E523EB45F8005D1B5D /* AppStoreReviewManager.swift..swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreReviewManager.swift..swift; sourceTree = "<group>"; };
 		EAB1B4AB1FE9E4FB005964AF /* UserDefaultsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -241,6 +243,7 @@
 		2A0CA5461B294C6B00ED8781 = {
 			isa = PBXGroup;
 			children = (
+				E69751E523EB45F8005D1B5D /* AppStoreReviewManager.swift..swift */,
 				2AC905691CDB445B00FFA856 /* FMDB */,
 				2AD1A1E61B2B1ADA00BCA94D /* ModelManager.swift */,
 				2A0CA5741B294C9200ED8781 /* libsqlite3.dylib */,
@@ -620,6 +623,7 @@
 				5BD864812046F61900004B39 /* Strings.swift in Sources */,
 				2A2A4DB71B373C5B00D50860 /* StartViewController.swift in Sources */,
 				D9E74B7B1F1F14ED00A42B7E /* VocabMatchingClipboard.swift in Sources */,
+				E69751E623EB45F8005D1B5D /* AppStoreReviewManager.swift..swift in Sources */,
 				2AF82A8D1B4BA74A00307BED /* FMDatabase.m in Sources */,
 				D96944AF1F2EE97900FBE0E4 /* SKTutorialScene.swift in Sources */,
 				6A69DC8F20AB3881006511E3 /* PopupEventPlayer.swift in Sources */,
