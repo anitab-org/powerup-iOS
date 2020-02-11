@@ -445,6 +445,7 @@ class SinkToSwimGameScene: SKScene {
             
             // Game over.
             gameOver(drowned: false)
+          
         }
         
         if isGameOver { return }
@@ -526,6 +527,9 @@ class SinkToSwimGameScene: SKScene {
     func gameOver(drowned: Bool) {
         isGameOver = true
         
+        // calling requestReviewIfAppropriate function for request to review Powerup
+        AppStoreReviewManager.requestReviewIfAppropriate()
+        
         // Stop the timer ticking animation.
         removeAction(forKey: "timer_tick")
         
@@ -543,7 +547,9 @@ class SinkToSwimGameScene: SKScene {
             self.endSceneSprite.run(SKAction.fadeIn(withDuration: self.endSceneFadeInDuration)) {
                 self.continueButtonInteractable = true
             }
+        
         }
+     
     }
     
     // Fade-in the next question.
@@ -622,10 +628,13 @@ class SinkToSwimGameScene: SKScene {
                 viewController.score = score
                 // End game.
                 viewController.endGame()
+              
             }
             
             // Disable true/false/dont know buttons if the game is over.
             return
+            
+           
         }
         
         let location = touch.location(in: questionBoxSprite)
