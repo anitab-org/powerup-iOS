@@ -31,7 +31,7 @@ When a repository is cloned, it has a default remote called `origin` that points
 `git fetch upstream develop`<br />
  `git rebase  upstream/develop`<br />
 This will give you an exact copy of the current remote, make sure you don't have any local changes.<br />
-6. Project set-up is complete. For more details and additional git commands, [click here](https://docs.google.com/document/d/1N_-zmmjPn6D1H6wTdF4z66mFGT3af_FWbfGvLKkeY1w/edit#bookmark=id.lsmu7e8l1dnn).<br />
+6. Project set-up is complete.<br />
 ## Contributing and developing a feature
 1. Make sure you are in the develop branch `git checkout develop`.<br />
 2. Sync your copy `git pull --rebase upstream develop`.<br />
