@@ -527,6 +527,7 @@ class SinkToSwimGameScene: SKScene {
     func gameOver(drowned: Bool) {
         isGameOver = true
         
+       
         // calling requestReviewIfAppropriate function for request to review Powerup
         AppStoreReviewManager.requestReviewIfAppropriate()
         
