@@ -14,6 +14,7 @@ and self-esteem by navigating the life of their Avatar.
 3. Make sure you have installed [Github Desktop(for Mac)](https://desktop.github.com/).<br />
 4. Open Github Desktop, click on Clone Repository in File Menu. Clone the forked repo to get a local copy on your system.<br />
 5. Fetch the latest version of code from the appropriate branch (usually "develop").<br />
+
 ## Configure remotes
 When a repository is cloned, it has a default remote called `origin` that points to your fork on GitHub, not the original repository it was forked from. To keep track of the original repository, you should add another remote named `upstream`:<br />
 1. Get the path where you have your git repository on your machine. Go to that path in Terminal using cd. Alternatively, Right click on project in Github Desktop and hit ‘Open in Terminal’.<br />
@@ -32,6 +33,7 @@ When a repository is cloned, it has a default remote called `origin` that points
  `git rebase  upstream/develop`<br />
 This will give you an exact copy of the current remote, make sure you don't have any local changes.<br />
 6. Project set-up is complete.
+
 ## Contributing and developing a feature
 1. Make sure you are in the develop branch `git checkout develop`.<br />
 2. Sync your copy `git pull --rebase upstream develop`.<br />
@@ -48,6 +50,7 @@ This will give you an exact copy of the current remote, make sure you don't have
  12. Once you've run a git rebase -i command, text editor will open with a file that lists all the commits in current branch, and in front of each commit is the word "pick". For every line except the first, replace the word "pick" with the word "squash".<br />
  13. Save and close the file, and a moment later a new file should pop up in  editor, combining all the commit messages of all the commits. Reword this commit message into meaningful one briefly explaining all the features, and then save and close that file as well. This commit message will be the commit message for the one, big commit that you are squashing all of your larger commits into. Once you've saved and closed that file, your commits of current branch have been squashed together.<br />
 14. Force push to update your pull request with command `git push origin branchname --force`.<br/>
+
 ## Contributing Guidelines
 [Click](https://github.com/anitab-org/powerup-iOS/wiki/How-to-Contribute) here to find the contributing guidelines for the project and follow them before sending a contribution.<br />
 
