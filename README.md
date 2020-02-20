@@ -1,7 +1,7 @@
 | Branch | Status |
 | :---: | :---: |
-| [master](https://github.com/systers/powerup-iOS/tree/master) | [![Build Status](https://travis-ci.org/systers/powerup-iOS.svg?branch=master)](https://travis-ci.org/systers/powerup-iOS) |
-| [develop](https://github.com/systers/powerup-iOS/tree/develop) | [![Build Status](https://travis-ci.org/systers/powerup-iOS.svg?branch=develop)](https://travis-ci.org/systers/powerup-iOS) |
+| [master](https://github.com/anitab-org/powerup-iOS/tree/master) | [![Build Status](https://api.travis-ci.org/anitab-org/powerup-iOS.svg?branch=master)](https://travis-ci.org/anitab-org/powerup-iOS) |
+| [develop](https://github.com/anitab-org/powerup-iOS/tree/develop) | [![Build Status](https://api.travis-ci.org/anitab-org/powerup-iOS.svg?branch=develop)](https://travis-ci.org/anitab-org/powerup-iOS) |
 
 # PowerUp - iOS 
 
@@ -10,7 +10,7 @@ and self-esteem by navigating the life of their Avatar.
 
 ## Setup for Developers
 1. Make sure you have Xcode IDE downloaded on your machine for software development for iOS.<br />
-2. Fork the systers project. Go to [Powerup-iOS](https://github.com/systers/powerup-iOS) and click on Fork in the top right corner. Fork the repo on your Github id. Make sure that you don’t have any existing repo with the same name in your profile else there will be conflicts.<br />
+2. Fork the anitab-org project. Go to [Powerup-iOS](https://github.com/anitab-org/powerup-iOS) and click on Fork in the top right corner. Fork the repo on your Github id. Make sure that you don’t have any existing repo with the same name in your profile else there will be conflicts.<br />
 3. Make sure you have installed [Github Desktop(for Mac)](https://desktop.github.com/).<br />
 4. Open Github Desktop, click on Clone Repository in File Menu. Clone the forked repo to get a local copy on your system.<br />
 5. Fetch the latest version of code from the appropriate branch (usually "develop").<br />
@@ -21,17 +21,17 @@ When a repository is cloned, it has a default remote called `origin` that points
 > origin    https://github.com/YOUR_USERNAME/powerup-iOS.git (fetch)<br />
 > origin    https://github.com/YOUR_USERNAME/powerup-iOS.git (push)<br />
 3. Set the `upstream`:<br />
- `git remote add upstream https://github.com/systers/powerup-iOS.git`<br />
+ `git remote add upstream https://github.com/anitab-org/powerup-iOS.git`<br />
 4. Run `git remote -v`  again to check the status, you should see something like the following:<br />
 > origin    https://github.com/YOUR_USERNAME/powerup-iOS.git (fetch)<br />
 > origin    https://github.com/YOUR_USERNAME/powerup-iOS.git (push)<br />
-> upstream  https://github.com/systers/powerup-iOS.git (fetch)<br />
-> upstream  https://github.com/systers/powerup-iOS.git (push)<br />
+> upstream  https://github.com/anitab-org/powerup-iOS.git (fetch)<br />
+> upstream  https://github.com/anitab-org/powerup-iOS.git (push)<br />
 5. To update your local copy with remote changes, run the following:<br />
 `git fetch upstream develop`<br />
  `git rebase  upstream/develop`<br />
 This will give you an exact copy of the current remote, make sure you don't have any local changes.<br />
-6. Project set-up is complete.<br />
+6. Project set-up is complete.
 ## Contributing and developing a feature
 1. Make sure you are in the develop branch `git checkout develop`.<br />
 2. Sync your copy `git pull --rebase upstream develop`.<br />
@@ -41,7 +41,7 @@ This will give you an exact copy of the current remote, make sure you don't have
 6. Commit your changes `git commit -m "Message briefly explaining the feature"`.<br />
 7. Keep one commit per feature. If you forgot to add changes, you can edit the previous commit `git commit --amend`.<br />
 8. Push to your repo `git push origin branch-name`.<br />
-9. Go into [the Github repo](https://github.com/systers/powerup-iOS/) and create a pull request explaining your changes.<br />
+9. Go into [the Github repo](https://github.com/anitab-org/powerup-iOS/) and create a pull request explaining your changes.<br />
 10. If you are requested to make changes, edit your commit using `git commit --amend`, push again and the pull request will edit automatically.<br />
 11. If you have more than one commit try squashing them into single commit by following command:<br />
  `git rebase -i origin/master~n master`(having n number of commits).<br />
@@ -49,7 +49,7 @@ This will give you an exact copy of the current remote, make sure you don't have
  13. Save and close the file, and a moment later a new file should pop up in  editor, combining all the commit messages of all the commits. Reword this commit message into meaningful one briefly explaining all the features, and then save and close that file as well. This commit message will be the commit message for the one, big commit that you are squashing all of your larger commits into. Once you've saved and closed that file, your commits of current branch have been squashed together.<br />
 14. Force push to update your pull request with command `git push origin branchname --force`.<br/>
 ## Contributing Guidelines
-[Click](https://github.com/systers/powerup-iOS/wiki/How-to-Contribute) here to find the contributing guidelines for the project and follow them before sending a contribution.<br />
+[Click](https://github.com/anitab-org/powerup-iOS/wiki/How-to-Contribute) here to find the contributing guidelines for the project and follow them before sending a contribution.<br />
 
 ## Documentation of PowerUp-iOS
 Links to the Documentation:<br />
