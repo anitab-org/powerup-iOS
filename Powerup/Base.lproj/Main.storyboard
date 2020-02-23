@@ -24,24 +24,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about_background" translatesAutoresizingMaskIntoConstraints="NO" id="tEY-r5-Byb">
                                 <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="FdT-xN-nZO">
-                                <rect key="frame" x="35" y="61.666666666666657" width="400" height="337.33333333333337"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="400" id="D4I-aU-tqT"/>
-                                </constraints>
-                                <string key="text">The Game
-                                    PowerUp is an educational choose-your-own-adventure game for girls between the age of 12 and 14. The game consists of different scenarios in which the user can choose between multiple answers and thereby lead the conversation into different directions. The user can create a personalized avatar by choosing clothes, hair eye and skin color. Later on the avatar can be further customized and other accessories can be bought using points earned in the scenarios. Additional mini games contain key information surrounding reproductive health and provide a break from the storyline.
-
-                                    Why this app is needed
-                                    Increased exposure among preadolescents aged 12-14 to sexualized media has normalized engagement in sexual activity at younger ages. However information regarding sex is not very accessible to preadolescents. Only 65% of schools provide sex education and even less explain condom use. Having the talk at home is usually very awkward. Preadolescent girls need better options for reproductive health and self-esteem education. They are at risk for possible pregnancy and spread of sexually transmitted infection (STI), yet very little information reaches preadolescents about risk and responsibility associated with sex. Additionally, preadolescents struggle with self-esteem, which makes them vulnerable to peer and media influence. Current trends in sexual activity among preadolescents impact the economy, hurt family cohesion, affect female education, and burden healthcare systems.
-
-                                    How does PowerUp help teenagers?
-                                    The app uses Social and Emotional Learning (SEL) to empower middle school girls to take ownership of their health and sexual activity. It is designed to increase access to reproductive health and self-esteem education by incorporating quality and relevant information surrounding those topics and it helps concretize corresponding concepts through interactive activities. The content is based on SEL Core Competencies (Self-awareness, Self-management, Social awareness, Relationship skills, Decision making).</string>
-                                <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycz-xD-2DD">
                                 <rect key="frame" x="631" y="30" width="75" height="75"/>
                                 <constraints>
@@ -63,28 +45,64 @@
                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wgp-NZ-d49">
+                                <rect key="frame" x="15" y="61.666666666666657" width="430" height="337.33333333333337"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="430" id="M5y-BI-vYY"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="KS6-l5-QB2" customClass="CollapsableTableViewCell" customModule="Powerup" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="430" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KS6-l5-QB2" id="0jX-KA-xP1">
+                                            <rect key="frame" x="0.0" y="0.0" width="430" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GPl-3c-6yW">
+                                                    <rect key="frame" x="0.0" y="0.0" width="430" height="43.666666666666664"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTj-b5-gT7">
+                                                            <rect key="frame" x="20" y="12.666666666666664" width="42" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                </view>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="tEY-r5-Byb" firstAttribute="width" secondItem="9yw-ae-sTQ" secondAttribute="width" id="56D-os-mnU"/>
-                            <constraint firstItem="2TS-AX-Kbm" firstAttribute="bottom" secondItem="FdT-xN-nZO" secondAttribute="bottom" constant="15" id="A2q-7P-MlC"/>
                             <constraint firstItem="ycz-xD-2DD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CMB-we-gPZ" secondAttribute="trailing" constant="400" id="EaY-Ix-SWB"/>
-                            <constraint firstItem="FdT-xN-nZO" firstAttribute="top" secondItem="CMB-we-gPZ" secondAttribute="bottom" constant="6.6699999999999999" id="FkG-kY-1ik"/>
                             <constraint firstItem="tEY-r5-Byb" firstAttribute="centerX" secondItem="2TS-AX-Kbm" secondAttribute="centerX" id="Jlp-A4-hFo"/>
                             <constraint firstItem="2TS-AX-Kbm" firstAttribute="trailing" secondItem="ycz-xD-2DD" secondAttribute="trailing" constant="30" id="RIi-uV-CQv"/>
                             <constraint firstItem="CMB-we-gPZ" firstAttribute="top" secondItem="2TS-AX-Kbm" secondAttribute="top" constant="15" id="Yug-Ps-SBh"/>
                             <constraint firstItem="tEY-r5-Byb" firstAttribute="centerY" secondItem="9yw-ae-sTQ" secondAttribute="centerY" id="dWg-zs-4Ea"/>
-                            <constraint firstItem="FdT-xN-nZO" firstAttribute="leading" secondItem="9yw-ae-sTQ" secondAttribute="leadingMargin" constant="15" id="hEk-Zq-RbH"/>
+                            <constraint firstItem="wgp-NZ-d49" firstAttribute="top" secondItem="CMB-we-gPZ" secondAttribute="bottom" constant="6.6699999999999999" id="hOz-1k-Kmd"/>
+                            <constraint firstItem="wgp-NZ-d49" firstAttribute="leading" secondItem="2TS-AX-Kbm" secondAttribute="leading" constant="15" id="kqJ-im-BWy"/>
                             <constraint firstItem="ycz-xD-2DD" firstAttribute="top" secondItem="9yw-ae-sTQ" secondAttribute="top" constant="30" id="ne6-G4-Q5R"/>
+                            <constraint firstItem="2TS-AX-Kbm" firstAttribute="bottom" secondItem="wgp-NZ-d49" secondAttribute="bottom" constant="15" id="pec-HZ-mIh"/>
                             <constraint firstItem="tEY-r5-Byb" firstAttribute="height" secondItem="9yw-ae-sTQ" secondAttribute="height" id="uAq-Tf-1Dp"/>
                             <constraint firstItem="CMB-we-gPZ" firstAttribute="leading" secondItem="9yw-ae-sTQ" secondAttribute="leadingMargin" constant="15" id="ute-Fm-ALn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2TS-AX-Kbm"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="wgp-NZ-d49" id="HJS-2B-21W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zwe-o9-mfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="954.34782608695662" y="-125.55803571428571"/>
+            <point key="canvasLocation" x="953.804347826087" y="-126.08695652173914"/>
         </scene>
         <!--Start View Controller-->
         <scene sceneID="bOj-Fm-Fh1">
@@ -675,7 +693,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9IW-7K-Gls" userLabel="Karma Points Label">
-                                <rect key="frame" x="75" y="29" width="25.333333333333329" height="24.666666666666671"/>
+                                <rect key="frame" x="75" y="29.666666666666671" width="25.333333333333329" height="23.333333333333329"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -709,7 +727,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SELECT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UT3-0Z-0jd" userLabel="Button Text">
-                                                        <rect key="frame" x="30.000000000000004" y="105" width="50.333333333333343" height="16"/>
+                                                        <rect key="frame" x="30.999999999999996" y="105.33333333333334" width="48.666666666666657" height="15.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.38039215686274508" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -766,7 +784,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hB-Cx-GvA" userLabel="Button Text">
-                                                        <rect key="frame" x="34.333333333333371" y="105" width="41.333333333333343" height="16"/>
+                                                        <rect key="frame" x="36.666666666666686" y="105.33333333333334" width="36.666666666666657" height="15.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -830,7 +848,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJd-dk-a8M" userLabel="Button Text">
-                                                        <rect key="frame" x="34.666666666666629" y="105" width="41.333333333333343" height="16"/>
+                                                        <rect key="frame" x="37" y="105.33333333333334" width="36.666666666666657" height="15.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -892,7 +910,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4J-mj-DPt" userLabel="Button Text">
-                                                        <rect key="frame" x="34.666666666666657" y="104.66666666666666" width="41.333333333333343" height="16"/>
+                                                        <rect key="frame" x="37" y="104.99999999999997" width="36.666666666666657" height="15.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -949,7 +967,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6uT-um-xmX" userLabel="Button Text">
-                                                        <rect key="frame" x="34.333333333333371" y="104.66666666666666" width="41.333333333333343" height="16"/>
+                                                        <rect key="frame" x="36.666666666666686" y="104.99999999999997" width="36.666666666666657" height="15.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -1006,7 +1024,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQo-Hs-1Vo" userLabel="Button Text">
-                                                        <rect key="frame" x="34.666666666666629" y="104.66666666666666" width="41.333333333333343" height="16"/>
+                                                        <rect key="frame" x="37" y="104.99999999999997" width="36.666666666666657" height="15.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
