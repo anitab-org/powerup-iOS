@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+//cell
 
 class CollapsableTableViewCell: UITableViewCell {
 

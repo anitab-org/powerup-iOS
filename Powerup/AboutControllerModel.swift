@@ -1,4 +1,4 @@
-
+//model
 import Foundation
 struct Sections {
     var title: String
