@@ -1,10 +1,3 @@
-//
-//  AboutControllerModel.swift
-//  Powerup
-//
-//  Created by MANINDER SINGH on 23/02/20.
-//  Copyright © 2020 Systers. All rights reserved.
-//
 
 import Foundation
 struct Sections {
@@ -39,7 +32,7 @@ public struct Section {
 }
 
 public var sectionsData: [Section] = [
-    Section(powerupQues: SectionWhatIsPowerup, powerupDetail: PoweupInfo(detail: SectionWhatIsPowerupDetail), collapsed: true),
+    Section(powerupQues: SectiontheGame, powerupDetail: PoweupInfo(detail: SectionWhatIsPowerupDetail), collapsed: false),
     Section(powerupQues: SectionWhyIsPowerupNeeded, powerupDetail: PoweupInfo(detail: SectionWhyIsPowerupNeededDetail), collapsed: true),
     Section(powerupQues: SectionPowerupHelpTeenagers, powerupDetail: PoweupInfo(detail: SectionPowerupHelpTeenagersDetail), collapsed: true)
 ]

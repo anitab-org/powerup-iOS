@@ -1,6 +1,6 @@
 import XCTest
 import SpriteKit
-@testable import Powerup
+//@testable import Powerup
 
 class SinkToSwimTests: XCTestCase {
     

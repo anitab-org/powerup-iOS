@@ -1,11 +1,3 @@
-//
-//  aboutTableViewCell.swift
-//  Powerup
-//
-//  Created by MANINDER SINGH on 23/02/20.
-//  Copyright © 2020 Systers. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
@@ -28,7 +20,7 @@ class CollapsableTableViewCell: UITableViewCell {
         detailLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
         detailLabel.topAnchor.constraint(equalTo: marginGuide.topAnchor, constant: -10).isActive = true
         detailLabel.numberOfLines = 0
-        detailLabel.textColor = #colorLiteral(red: 0.3803921569, green: 0.6, blue: 0.6941176471, alpha: 1)
+        detailLabel.textColor = #colorLiteral(red: 0.1333333333, green: 0.6352941176, blue: 0.662745098, alpha: 1)
         detailLabel.font = UIFont(name: "montserrat", size: 17)
     }
 

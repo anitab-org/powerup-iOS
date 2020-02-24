@@ -1,12 +1,6 @@
-//
-//  tableViewDelegate.swift
-//  Powerup
-//
-//  Created by MANINDER SINGH on 23/02/20.
-//  Copyright © 2020 Systers. All rights reserved.
-//
-
 import UIKit
+import QuartzCore
+
 
 protocol CollapsibleTableViewHeaderDelegate {
     func toggleSection(_ header: CollapsableTableViewHeader, section: Int)
@@ -30,8 +24,11 @@ class CollapsableTableViewHeader: UITableViewHeaderFooterView {
 
         // Title label
         contentView.addSubview(titleLabel)
-        titleLabel.textColor = #colorLiteral(red: 0.3803921569, green: 0.6, blue: 0.6941176471, alpha: 1)
-        titleLabel.font = UIFont(name: "montserrat", size: 19)
+        titleLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        titleLabel.backgroundColor = #colorLiteral(red: 0, green: 0.8407999873, blue: 0.8739981651, alpha: 0.8470588235)
+        titleLabel.layer.cornerRadius = 20
+        titleLabel.layer.masksToBounds = true
+        titleLabel.font = UIFont(name: "montserrat", size: 25)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
