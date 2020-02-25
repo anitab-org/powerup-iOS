@@ -29,7 +29,7 @@ class CollapsableTableViewHeader: UITableViewHeaderFooterView {
         titleLabel.backgroundColor = #colorLiteral(red: 0, green: 0.8407999873, blue: 0.8739981651, alpha: 0.8470588235)
         titleLabel.layer.cornerRadius = 20
         titleLabel.layer.masksToBounds = true
-        titleLabel.font = UIFont(name: "montserrat", size: 25)
+        titleLabel.font = UIFont(name: "montserrat", size: 22)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
