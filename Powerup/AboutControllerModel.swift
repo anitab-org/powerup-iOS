@@ -32,7 +32,7 @@ public struct Section {
 }
 
 public var sectionsData: [Section] = [
-    Section(powerupQues: SectiontheGame, powerupDetail: PoweupInfo(detail: SectionWhatIsPowerupDetail), collapsed: false),
+    Section(powerupQues: SectiontheGame, powerupDetail: PoweupInfo(detail: SectionWhatIsPowerupDetail), collapsed: true),
     Section(powerupQues: SectionWhyIsPowerupNeeded, powerupDetail: PoweupInfo(detail: SectionWhyIsPowerupNeededDetail), collapsed: true),
     Section(powerupQues: SectionPowerupHelpTeenagers, powerupDetail: PoweupInfo(detail: SectionPowerupHelpTeenagersDetail), collapsed: true)
 ]
