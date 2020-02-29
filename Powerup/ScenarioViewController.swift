@@ -59,8 +59,8 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         } catch _ {
             // Unwind back to map view if cound't fetch choices from database.
 
-            let alert = UIAlertController(title: warningTitleMessage, message: errorLoadingChoicesMessage, preferredStyle: .alert)
-            let okButton = UIAlertAction(title: okText, style: .default, handler: { action in self.performSegueWithIdentifier(.unwindToMapView, sender: self) })
+            let alert = UIAlertController(title: CustomMessage.warningTitle, message: CustomError.loadingChoicesMessage, preferredStyle: .alert)
+            let okButton = UIAlertAction(title: CustomText.ok, style: .default, handler: { action in self.performSegueWithIdentifier(.unwindToMapView, sender: self) })
 
             alert.addAction(okButton)
 
@@ -88,8 +88,8 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         } catch _ {
             // Unwind back to map view if cound't fetch avatar from database.
 
-            let alert = UIAlertController(title: warningTitleMessage, message: errorLoadingAvatarMessage, preferredStyle: .alert)
-            let okButton = UIAlertAction(title: okText, style: .default, handler: { action in self.performSegueWithIdentifier(.unwindToMapView, sender: self) })
+            let alert = UIAlertController(title: CustomMessage.warningTitle, message: CustomError.loadingAvatarMessage, preferredStyle: .alert)
+            let okButton = UIAlertAction(title: CustomText.ok, style: .default, handler: { action in self.performSegueWithIdentifier(.unwindToMapView, sender: self) })
 
             alert.addAction(okButton)
 
@@ -143,8 +143,8 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
         } catch _ {
             // Unwind back to map view if cound't fetch questions from database.
 
-            let alert = UIAlertController(title: warningTitleMessage, message: errorLoadingScenarioMessage, preferredStyle: .alert)
-            let okButton = UIAlertAction(title: okText, style: .default, handler: { action in self.performSegueWithIdentifier(.unwindToMapView, sender: self) })
+            let alert = UIAlertController(title: CustomMessage.warningTitle, message: CustomError.loadingScenarioMessage, preferredStyle: .alert)
+            let okButton = UIAlertAction(title: CustomText.ok, style: .default, handler: { action in self.performSegueWithIdentifier(.unwindToMapView, sender: self) })
 
             alert.addAction(okButton)
 
@@ -360,9 +360,9 @@ class ScenarioViewController: UIViewController, UITableViewDelegate, UITableView
 
     // Alert the user about possibly losing karma points upon migrating back to the map.
     @IBAction func homeButtonPressed(_ sender: Any) {
-        let alert = UIAlertController(title: confirmationTitleMessage, message: mapMigrationAlertMessage, preferredStyle: .alert)
-        let okButton = UIAlertAction(title: okText, style: .default, handler: { action in self.performSegueWithIdentifier(.unwindToMapView, sender: self) })
-        let cancelButton = UIAlertAction(title: cancelText, style: .cancel, handler: { action in self.dismiss(animated: true, completion: nil) })
+        let alert = UIAlertController(title: CustomMessage.confirmationTitle, message: CustomWarning.mapMigrationAlert, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: CustomText.ok, style: .default, handler: { action in self.performSegueWithIdentifier(.unwindToMapView, sender: self) })
+        let cancelButton = UIAlertAction(title: CustomText.cancel, style: .cancel, handler: { action in self.dismiss(animated: true, completion: nil) })
 
         alert.addAction(okButton)
         alert.addAction(cancelButton)

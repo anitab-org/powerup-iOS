@@ -66,10 +66,10 @@ class ShopViewController: UIViewController {
             score = try dataSource.getScore()
             avatar = try dataSource.getAvatar()
         } catch _ {
-            let alert = UIAlertController(title: warningTitleMessage, message: errorFetchingAvatarMessage, preferredStyle: .alert)
+            let alert = UIAlertController(title: CustomMessage.warningTitle, message: CustomError.fetchingAvatarMessage, preferredStyle: .alert)
             
             // Exit shop when ok button is pressed.
-            let okButton = UIAlertAction(title: okText, style: .default, handler: {action in self.dismiss(animated: true, completion: nil)})
+            let okButton = UIAlertAction(title: CustomText.ok, style: .default, handler: {action in self.dismiss(animated: true, completion: nil)})
             alert.addAction(okButton)
             
             self.present(alert, animated: true, completion: nil)
@@ -150,10 +150,10 @@ class ShopViewController: UIViewController {
             
             // If the item isn't bought and it is unaffordable, grey out the box.
             if !currItem.purchased && currItem.points > score.karmaPoints {
-                displayBoxes[boxIndex].image = UIImage(named: greyOutBoxImageName)
+                displayBoxes[boxIndex].image = UIImage(named: CustomImage.greyOutBox)
                 buttonTexts[boxIndex].text = ""
             } else {
-                displayBoxes[boxIndex].image = UIImage(named: boxImageName)
+                displayBoxes[boxIndex].image = UIImage(named: CustomImage.box)
             }
         }
     }
@@ -175,8 +175,8 @@ class ShopViewController: UIViewController {
         
         // Show alert dialog if players are trying to buy items they can't afford.
         if score.karmaPoints < accessoryPrice {
-            let alertDialog = UIAlertController(title: oopsTitleMessage, message: notEnoughPointsMessage, preferredStyle: .alert)
-            alertDialog.addAction(UIAlertAction(title: okText, style: .default))
+            let alertDialog = UIAlertController(title: CustomMessage.oopsTitle, message: CustomWarning.notEnoughPoints, preferredStyle: .alert)
+            alertDialog.addAction(UIAlertAction(title: CustomText.ok, style: .default))
             self.present(alertDialog, animated: true, completion: nil)
             
             return false
@@ -186,8 +186,8 @@ class ShopViewController: UIViewController {
     }
     
     func presentBuyingErrorDiaologue() {
-        let alert = UIAlertController(title: warningTitleMessage, message: errorPurchasingMessage, preferredStyle: .alert)
-        let okButton = UIAlertAction(title: okText, style: .default)
+        let alert = UIAlertController(title: CustomMessage.warningTitle, message: CustomError.purchasingMessage, preferredStyle: .alert)
+        let okButton = UIAlertAction(title: CustomText.ok, style: .default)
         alert.addAction(okButton)
         self.present(alert, animated: true, completion: nil)
     }
@@ -242,13 +242,13 @@ class ShopViewController: UIViewController {
                     self.updateAvatarImageView()
                     
                     // Set the preview label's text to "Preview".
-                    previewLabel.text = previewLabelText
+                    previewLabel.text = CustomText.previewLabel
                     
                     // If have enough points, buy the item.
                     // Alert the player that the purchase couldn't be reverted.
 
-                    let cannotRevertAlert = UIAlertController(title: confirmationTitleMessage, message: "You will be spending \(itemChosen.points) Karma Points!", preferredStyle: .alert)
-                    let cancelButton = UIAlertAction(title: cancelText, style: .cancel, handler: {action in
+                    let cannotRevertAlert = UIAlertController(title: CustomMessage.confirmationTitle, message: "You will be spending \(itemChosen.points) Karma Points!", preferredStyle: .alert)
+                    let cancelButton = UIAlertAction(title: CustomText.cancel, style: .cancel, handler: {action in
                      // Revert to whatever accessory the user had before.
                         self.avatar.setAccessoryByType(itemChosen.type, accessory: currentItem)
                         self.updateAvatarImageView()
@@ -256,7 +256,7 @@ class ShopViewController: UIViewController {
                         // Get rid of the preview text.
                         self.previewLabel.text = ""
                     })
-                    let purchaseButton = UIAlertAction(title: purchaseButtonText, style: .default, handler: {action in
+                    let purchaseButton = UIAlertAction(title: CustomText.purchaseButton, style: .default, handler: {action in
                         
                         // Save the purchased data into the database.
                         do {
@@ -267,8 +267,8 @@ class ShopViewController: UIViewController {
                             self.score.karmaPoints -= itemChosen.points
                             try self.dataSource.saveScore(score: self.score)
                         } catch _ {
-                            let failedAlert = UIAlertController(title: oopsTitleMessage, message: errorSavingPurchaseMessage, preferredStyle: .alert)
-                            failedAlert.addAction(UIAlertAction(title: okText, style: .default))
+                            let failedAlert = UIAlertController(title: CustomMessage.oopsTitle, message: CustomError.savingPurchaseMessage, preferredStyle: .alert)
+                            failedAlert.addAction(UIAlertAction(title: CustomText.ok, style: .default))
                             self.present(failedAlert, animated: true, completion: nil)
                             
                             return
@@ -288,8 +288,8 @@ class ShopViewController: UIViewController {
                         self.updateAvatarImageView()
                         
                         // Show purchase successful dialogue.
-                        let successfulDiologue = UIAlertController(title: yayTitleMessage, message: successFullPurchaseMessage, preferredStyle: .alert)
-                        let confirmButton = UIAlertAction(title: okText, style: .default)
+                        let successfulDiologue = UIAlertController(title: CustomMessage.yayTitle, message: CustomMessage.successFullPurchase, preferredStyle: .alert)
+                        let confirmButton = UIAlertAction(title: CustomText.ok, style: .default)
                         successfulDiologue.addAction(confirmButton)
                         self.present(successfulDiologue, animated: true, completion: nil)
                         
@@ -333,8 +333,8 @@ class ShopViewController: UIViewController {
             // Save the avatar.
             try self.dataSource.saveAvatar(self.avatar)
         } catch _ {
-            let failedAlert = UIAlertController(title: oopsTitleMessage, message: errorFetchingAvatarMessage, preferredStyle: .alert)
-            failedAlert.addAction(UIAlertAction(title: okText, style: .default))
+            let failedAlert = UIAlertController(title: CustomMessage.oopsTitle, message: CustomError.fetchingAvatarMessage, preferredStyle: .alert)
+            failedAlert.addAction(UIAlertAction(title: CustomText.ok, style: .default))
             self.present(failedAlert, animated: true, completion: nil)
             
             return
