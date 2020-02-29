@@ -27,9 +27,9 @@ class VocabMatchingGameScene: SKScene {
     
     // Sizing and position of the nodes (They are relative to the width and height of the game scene.)
     // Score Box
-    let scoreBoxSpriteWidth = 0.09
+    let scoreBoxSpriteWidth = 0.11
     let scoreBoxSpriteHeight = 0.15
-    let scoreBoxSpritePosY = 0.9
+    let scoreBoxSpritePosY = 0.89
     
     // The following two is relative to the score box.
     let scoreLabelPosX = 0.4
