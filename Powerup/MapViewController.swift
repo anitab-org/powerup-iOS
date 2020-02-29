@@ -48,8 +48,8 @@ class MapViewController: UIViewController, SegueHandler {
             do {
                 currScenario = try dataSource.getScenario(of: scenarioID)
             } catch _ {
-                let alert = UIAlertController(title: warningTitleMessage, message: errorLoadingScenarioMessage, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: okText, style: .default))
+                let alert = UIAlertController(title: CustomMessage.warningTitle, message: CustomError.loadingScenarioMessage, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: CustomText.ok, style: .default))
                 self.present(alert, animated: true, completion: nil)
                 
                 return
@@ -74,8 +74,8 @@ class MapViewController: UIViewController, SegueHandler {
         do {
             selectedScenario = try dataSource.getScenario(of: sender.tag)
         } catch _ {
-            let alert = UIAlertController(title: warningTitleMessage, message: errorLoadingScenarioMessage, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: okText, style: .default))
+            let alert = UIAlertController(title: CustomMessage.warningTitle, message: CustomError.loadingScenarioMessage, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: CustomText.ok, style: .default))
             self.present(alert, animated: true, completion: nil)
 
             return

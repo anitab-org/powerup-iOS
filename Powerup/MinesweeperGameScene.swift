@@ -452,8 +452,8 @@ class MinesweeperGameScene: SKScene {
             currBox = guessingBox
             
             // Perform animation.
-            guessingBox.removeAction(forKey: boxShrinkingKey)
-            guessingBox.run(SKAction.scale(to: boxEnlargingScale, duration: boxEnlargingDuration), withKey: boxEnlargingKey)
+            guessingBox.removeAction(forKey: CustomText.boxShrinkingKey)
+            guessingBox.run(SKAction.scale(to: boxEnlargingScale, duration: boxEnlargingDuration), withKey: CustomText.boxEnlargingKey)
         }
     }
     
@@ -473,8 +473,8 @@ class MinesweeperGameScene: SKScene {
         } else if let box = currBox {
             
             // Animate (shrink) back the card.
-            box.removeAction(forKey: boxEnlargingKey)
-            box.run(SKAction.scale(to: 1.0, duration: boxEnlargingDuration), withKey: boxEnlargingKey)
+            box.removeAction(forKey: CustomText.boxEnlargingKey)
+            box.run(SKAction.scale(to: 1.0, duration: boxEnlargingDuration), withKey: CustomText.boxEnlargingKey)
             
             currBox = nil
         }

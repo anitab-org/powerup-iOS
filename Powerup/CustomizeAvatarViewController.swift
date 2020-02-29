@@ -103,10 +103,10 @@ class CustomizeAvatarViewController: UIViewController,SegueHandler {
             try dataSource.boughtAccessory(accessory: avatar.hair)
             try dataSource.boughtAccessory(accessory: avatar.clothes)
         } catch _ {
-            let alert = UIAlertController(title: warningTitleMessage, message: failedtoSaveAvatarMessage, preferredStyle: .alert)
+            let alert = UIAlertController(title: CustomMessage.warningTitle, message: CustomError.failedtoSaveAvatarMessage, preferredStyle: .alert)
 
             // Unwind to Start View when Ok Button is pressed.
-            let okButton = UIAlertAction(title: okText, style: .cancel, handler: {action in
+            let okButton = UIAlertAction(title: CustomText.ok, style: .cancel, handler: {action in
                 self.performSegueWithIdentifier(.unwindToStartView, sender: self)
             })
             alert.addAction(okButton)

@@ -54,8 +54,8 @@ class ResultsViewController: UIViewController, SegueHandler {
             karmaPointsLabel.text = String(score.karmaPoints)
         } catch _ {
             // If the saving failed, show an alert dialogue.
-            let alert = UIAlertController(title: warningTitleMessage, message: errorLoadingKarmaPoints, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: okText, style: .default))
+            let alert = UIAlertController(title: CustomMessage.warningTitle, message: CustomError.loadingKarmaPoints, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: CustomText.ok, style: .default))
             self.present(alert, animated: true, completion: nil)
 
             return
@@ -67,14 +67,14 @@ class ResultsViewController: UIViewController, SegueHandler {
             if !(try dataSource.getScenario(of: completedScenarioID)).completed {
 
                 // Notify the players of the karma gain with a pop-up.
-                let notification = UIAlertController(title: hoorayTitleMesssage, message: "You gained \(karmaGain) Karma points!", preferredStyle: .alert)
-                notification.addAction(UIAlertAction(title: okText, style: .default, handler: { action in self.gainKarmaPoints() }))
+                let notification = UIAlertController(title: CustomMessage.hoorayTitle, message: "You gained \(karmaGain) Karma points!", preferredStyle: .alert)
+                notification.addAction(UIAlertAction(title: CustomText.ok, style: .default, handler: { action in self.gainKarmaPoints() }))
                 self.present(notification, animated: true, completion: nil)
             }
 
         } catch _ {
-            let alert = UIAlertController(title: warningTitleMessage, message: errorFetchingScenarioMessage, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: okText, style: .default))
+            let alert = UIAlertController(title: CustomMessage.warningTitle, message: CustomError.fetchingScenarioMessage, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: CustomText.ok, style: .default))
             self.present(alert, animated: true, completion: nil)
 
             return
@@ -92,8 +92,8 @@ class ResultsViewController: UIViewController, SegueHandler {
             try dataSource.saveScore(score: newScore)
         } catch _ {
             // If the saving failed, show an alert dialogue.
-            let alert = UIAlertController(title: warningTitleMessage, message: errorSavingKarmaPointsMessage, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: okText, style: .default))
+            let alert = UIAlertController(title: CustomMessage.warningTitle, message: CustomError.savingKarmaPointsMessage, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: CustomText.ok, style: .default))
             self.present(alert, animated: true, completion: nil)
 
             return
@@ -123,8 +123,8 @@ class ResultsViewController: UIViewController, SegueHandler {
             try dataSource.saveScenario(nextScenario)
 
         } catch _ {
-            let alert = UIAlertController(title: warningTitleMessage, message: errorSavingScenarioCompletionMessage, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: okText, style: .default))
+            let alert = UIAlertController(title: CustomMessage.warningTitle, message: CustomError.savingScenarioCompletionMessage, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: CustomText.ok, style: .default))
             self.present(alert, animated: true, completion: nil)
 
             return

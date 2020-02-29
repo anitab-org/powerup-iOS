@@ -22,10 +22,10 @@ class StartViewController: UIViewController, SegueHandler {
             do {
                 try dataSource.initializeDatabase()
             } catch _ {
-                let alert = UIAlertController(title: warningTitleMessage, message: errorRestartAppMessage, preferredStyle: .alert)
+                let alert = UIAlertController(title: CustomMessage.warningTitle, message: CustomError.restartAppMessage, preferredStyle: .alert)
 
                 // Quit app when ok button is clicked.
-                let okButton = UIAlertAction(title: okText, style: .destructive, handler: { action in exit(1) })
+                let okButton = UIAlertAction(title: CustomText.ok, style: .destructive, handler: { action in exit(1) })
 
                 alert.addAction(okButton)
                 self.present(alert, animated: true)
@@ -42,8 +42,8 @@ class StartViewController: UIViewController, SegueHandler {
         } else {
             // Remind players to create an avatar first.
 
-            let alert = UIAlertController(title: warningTitleMessage, message: createAvatarMessage, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: okText, style: .default, handler: { action in
+            let alert = UIAlertController(title: CustomMessage.warningTitle, message: CustomMessage.createAvatar, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: CustomText.ok, style: .default, handler: { action in
                 self.performSegueWithIdentifier(.toNewAvatarView, sender: self)
             }))
 
@@ -54,9 +54,9 @@ class StartViewController: UIViewController, SegueHandler {
     @IBAction func newAvatarButtonTouched(_ sender: UIButton) {
         // If previous avatar exists, warns the player that previous data will be lost.
         if dataSource.avatarExists() {
-            let alert = UIAlertController(title: confirmationTitleMessage, message: startNewGameMessage, preferredStyle: .alert)
-            let okButton = UIAlertAction(title: newAvatarTitleMessage, style: .destructive, handler: { (action) -> Void in self.performSegueWithIdentifier(.toNewAvatarView, sender: self) })
-            let cancelButton = UIAlertAction(title: cancelText, style: .cancel)
+            let alert = UIAlertController(title: CustomMessage.confirmationTitle, message: CustomWarning.startNewGame, preferredStyle: .alert)
+            let okButton = UIAlertAction(title: CustomMessage.newAvatarTitle, style: .destructive, handler: { (action) -> Void in self.performSegueWithIdentifier(.toNewAvatarView, sender: self) })
+            let cancelButton = UIAlertAction(title: CustomText.cancel, style: .cancel)
             alert.addAction(okButton)
             alert.addAction(cancelButton)
             self.present(alert, animated: true, completion: nil)
