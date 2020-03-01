@@ -29,7 +29,7 @@ class VocabMatchingGameScene: SKScene {
     // Score Box
     let scoreBoxSpriteWidth = 0.11
     let scoreBoxSpriteHeight = 0.15
-    let scoreBoxSpritePosY = 0.89
+    let scoreBoxSpritePosY = 0.83
     
     // The following two is relative to the score box.
     let scoreLabelPosX = 0.4
@@ -43,7 +43,7 @@ class VocabMatchingGameScene: SKScene {
     // Clipboard
     let clipboardSpriteWidth = 0.24
     let clipboardSpriteHeight = 0.29
-    let clipboardSpritePosX = 0.855
+    let clipboardSpritePosX = 0.845
     
     // Continue button
     let continueButtonBottomMargin = 0.08
