@@ -4,7 +4,6 @@ class MapViewController: UIViewController, SegueHandler {
     
     enum SegueIdentifier: String {
         case toScenarioView = "toScenarioView"
-        case toCompletedView = "toCompletedView"
         case toShopView = "toShopView"
         case unwindToStartView = "unwindToStartView"
     }
@@ -77,21 +76,16 @@ class MapViewController: UIViewController, SegueHandler {
             let alert = UIAlertController(title: warningTitleMessage, message: errorLoadingScenarioMessage, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: okText, style: .default))
             self.present(alert, animated: true, completion: nil)
-
+            
             return
         }
         
         // Configure the selected scenario name.
         selectedScenarioName = selectedScenario.name
-        // If completed, go to completed view.
-        if selectedScenario.completed {
-            performSegueWithIdentifier(.toCompletedView, sender: sender)
-        } else {
-            // Go to the corresponding scenario
-            performSegueWithIdentifier(.toScenarioView, sender: sender)
-        }
+        
+        // Go to the corresponding scenario
+        performSegueWithIdentifier(.toScenarioView, sender: sender)
     }
-    
     
     // MARK: Segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -103,19 +97,13 @@ class MapViewController: UIViewController, SegueHandler {
                 (segue.destination as? ScenarioViewController)?.scenarioName = selectedScenarioName
                 (segue.destination as? ScenarioViewController)?.backgroundImage = UIImage(named: backgroundImages[scenarioID] ?? "")
                 
-            case .toCompletedView?:
-                (segue.destination as? CompletedViewController)?.scenarioID = scenarioID
-                (segue.destination as? CompletedViewController)?.scenarioName = selectedScenarioName
-                (segue.destination as? CompletedViewController)?.backgroundImage = UIImage(named: backgroundImages[scenarioID] ?? "")
             case .toShopView?:
-                 break
+                break
             case .unwindToStartView?:
-                 break
+                break
             case .none:
                 assertionFailure("Did not recognize segue identifier \(segue.identifier!)")
             }
-            
-            
         }
     }
     

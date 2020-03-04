@@ -332,7 +332,7 @@ class VocabMatchingGameScene: SKScene {
         var randomizedTiles = tileTypes
         randomizedTiles.shuffle()
         
-        var laneNumbers = getRandomLaneNumbers()
+        let laneNumbers = getRandomLaneNumbers()
         
         // Configure tile.
         for index in 0..<tilesPerRound {
@@ -353,7 +353,7 @@ class VocabMatchingGameScene: SKScene {
     
     // Configure the clipboards for a new round.
     func configureClipboardsForNewRound(tiles: [VocabMatchingTile]) {
-        var laneNumbers = getRandomLaneNumbers()
+        let laneNumbers = getRandomLaneNumbers()
         
         // Configure the clipboards so that the tiles would have a match.
         for (index, tile) in tiles.enumerated() {

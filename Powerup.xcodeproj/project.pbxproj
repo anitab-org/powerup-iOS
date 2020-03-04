@@ -24,7 +24,6 @@
 		2AF82A911B4BA74A00307BED /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF82A8C1B4BA74A00307BED /* FMResultSet.m */; };
 		4D4074AC200E68FF009118F6 /* ShopViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4074AB200E68FF009118F6 /* ShopViewControllerTests.swift */; };
 		4D4074AE200E69AA009118F6 /* MapViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D4074AD200E69AA009118F6 /* MapViewControllerTests.swift */; };
-		4DF1CBB120152582008B5359 /* CompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF1CBB020152582008B5359 /* CompletedViewController.swift */; };
 		5BAC4644206D2D9B0091C73C /* EndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAC4643206D2D9B0091C73C /* EndViewController.swift */; };
 		5BB66DBF2055D5D800DE3B9C /* SegueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB66DBE2055D5D800DE3B9C /* SegueHandler.swift */; };
 		5BD864812046F61900004B39 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD864802046F61900004B39 /* Strings.swift */; };
@@ -152,7 +151,6 @@
 		2AF82A8C1B4BA74A00307BED /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = FMDB/FMResultSet.m; sourceTree = "<group>"; };
 		4D4074AB200E68FF009118F6 /* ShopViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewControllerTests.swift; sourceTree = "<group>"; };
 		4D4074AD200E69AA009118F6 /* MapViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewControllerTests.swift; sourceTree = "<group>"; };
-		4DF1CBB020152582008B5359 /* CompletedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedViewController.swift; sourceTree = "<group>"; };
 		5BAC4643206D2D9B0091C73C /* EndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndViewController.swift; sourceTree = "<group>"; };
 		5BB66DBE2055D5D800DE3B9C /* SegueHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueHandler.swift; sourceTree = "<group>"; };
 		5BD864802046F61900004B39 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -413,7 +411,6 @@
 				D95B03CD1EDEA680001DB858 /* MiniGameViewController.swift */,
 				D9D10A3F1EE130BD003584F4 /* ResultsViewController.swift */,
 				D95BBB7F1F4A911D00E0E620 /* AboutViewController.swift */,
-				4DF1CBB020152582008B5359 /* CompletedViewController.swift */,
 				5BAC4643206D2D9B0091C73C /* EndViewController.swift */,
 			);
 			name = "View Controllers";
@@ -664,7 +661,6 @@
 				D95B03CE1EDEA680001DB858 /* MiniGameViewController.swift in Sources */,
 				D95B03CC1EDE7470001DB858 /* MapViewController.swift in Sources */,
 				D9AAA9C91EF25E4600287A79 /* ShuffleArrayExtension.swift in Sources */,
-				4DF1CBB120152582008B5359 /* CompletedViewController.swift in Sources */,
 				D9AAA9C41EF2335F00287A79 /* MinesweeperGameScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

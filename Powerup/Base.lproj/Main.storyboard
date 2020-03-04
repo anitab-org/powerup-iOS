@@ -84,7 +84,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zwe-o9-mfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="954.34782608695662" y="-125.55803571428571"/>
+            <point key="canvasLocation" x="-169" y="-551"/>
         </scene>
         <!--Start View Controller-->
         <scene sceneID="bOj-Fm-Fh1">
@@ -154,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5D-0F-CHK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-211.59420289855075" y="203.57142857142856"/>
+            <point key="canvasLocation" x="-496" y="162"/>
         </scene>
         <!--Customize Avatar View Controller-->
         <scene sceneID="zcc-y7-lCe">
@@ -168,16 +168,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_skin_01" translatesAutoresizingMaskIntoConstraints="NO" id="6Xa-mf-lH7" userLabel="Face Image">
-                                <rect key="frame" x="279" y="179" width="91.000000000000114" height="173"/>
+                                <rect key="frame" x="279" y="179" width="91" height="173"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="91" id="V82-Sm-pnh"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_eyes_01" translatesAutoresizingMaskIntoConstraints="NO" id="FxG-LX-wOY" userLabel="Eyes Image">
-                                <rect key="frame" x="279" y="179" width="91.000000000000114" height="173"/>
+                                <rect key="frame" x="279" y="179" width="91" height="173"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_hair_01" translatesAutoresizingMaskIntoConstraints="NO" id="8IZ-CD-HcB" userLabel="Hair Image">
-                                <rect key="frame" x="279" y="179" width="91.000000000000114" height="173"/>
+                                <rect key="frame" x="279" y="179" width="91" height="173"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nJ-HE-yPQ" userLabel="Continue Button">
                                 <rect key="frame" x="597" y="299" width="139" height="50"/>
@@ -199,7 +199,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="156.33333333333334" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ags-IQ-Dxd">
-                                                <rect key="frame" x="57.666666666666671" y="14" width="41" height="22"/>
+                                                <rect key="frame" x="60.333333333333329" y="14.666666666666657" width="35.333333333333329" height="21"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -272,7 +272,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eyes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbt-qX-ypc">
-                                                <rect key="frame" x="56.666666666666657" y="14" width="42.666666666666657" height="22"/>
+                                                <rect key="frame" x="58.666666666666657" y="14.666666666666657" width="38.666666666666657" height="21"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -319,7 +319,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clothes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5p4-KD-Db0">
-                                                <rect key="frame" x="46.666666666666629" y="15.333333333333345" width="62.333333333333343" height="19.666666666666671"/>
+                                                <rect key="frame" x="50.333333333333314" y="15.666666666666659" width="55" height="18.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="16"/>
                                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -366,7 +366,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hair" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kg-9a-CDD">
-                                                <rect key="frame" x="59" y="14" width="38.333333333333343" height="22"/>
+                                                <rect key="frame" x="62" y="14.666666666666657" width="32.666666666666657" height="21"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -386,10 +386,10 @@
                                 </subviews>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_clothes_01" translatesAutoresizingMaskIntoConstraints="NO" id="8Q4-PA-meK" userLabel="Clothes Image">
-                                <rect key="frame" x="279" y="179" width="91.000000000000114" height="173"/>
+                                <rect key="frame" x="279" y="179" width="91" height="173"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rN-B1-EyF" userLabel="back button">
-                                <rect key="frame" x="20" y="15" width="25.666666666666671" height="25"/>
+                                <rect key="frame" x="20" y="15" width="51" height="25"/>
                                 <state key="normal" image="left_arrow"/>
                                 <connections>
                                     <action selector="backButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="gtS-ZK-i5D"/>
@@ -462,7 +462,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KnS-W8-cZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="CP2-u9-bQu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-344.92753623188406" y="563.16964285714278"/>
+            <point key="canvasLocation" x="-254" y="996"/>
         </scene>
         <!--ScenarioViewController-->
         <scene sceneID="tne-QT-ifu">
@@ -495,7 +495,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marcello" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6u7-zE-DVc">
-                                <rect key="frame" x="597.33333333333337" y="379.66666666666669" width="87.666666666666629" height="24.333333333333314"/>
+                                <rect key="frame" x="603" y="379.66666666666669" width="76.333333333333371" height="24.333333333333314"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -574,7 +574,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scenario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nut-8U-Q0c" userLabel="Scenario Name Label">
-                                <rect key="frame" x="19.999999999999993" y="20" width="89.333333333333314" height="24.666666666666671"/>
+                                <rect key="frame" x="20" y="20" width="79" height="23.333333333333329"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -635,7 +635,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="tRn-hQ-WhV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3271.739130434783" y="203.23660714285714"/>
+            <point key="canvasLocation" x="1158" y="161"/>
         </scene>
         <!--MiniGameViewController-->
         <scene sceneID="b2Q-yH-u8Q">
@@ -654,7 +654,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WKc-Ic-VMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2915.9420289855075" y="556.47321428571422"/>
+            <point key="canvasLocation" x="1399" y="909"/>
         </scene>
         <!--Shop View Controller-->
         <scene sceneID="uGO-Kb-Jms">
@@ -675,7 +675,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9IW-7K-Gls" userLabel="Karma Points Label">
-                                <rect key="frame" x="75" y="29" width="25.333333333333329" height="24.666666666666671"/>
+                                <rect key="frame" x="75" y="29.666666666666671" width="25.333333333333329" height="23.333333333333329"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -709,7 +709,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SELECT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UT3-0Z-0jd" userLabel="Button Text">
-                                                        <rect key="frame" x="30.000000000000004" y="105" width="50.333333333333343" height="16"/>
+                                                        <rect key="frame" x="30.999999999999996" y="105.33333333333334" width="48.666666666666657" height="15.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.38039215686274508" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -766,7 +766,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hB-Cx-GvA" userLabel="Button Text">
-                                                        <rect key="frame" x="34.333333333333371" y="105" width="41.333333333333343" height="16"/>
+                                                        <rect key="frame" x="36.666666666666686" y="105.33333333333334" width="36.666666666666657" height="15.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -830,7 +830,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJd-dk-a8M" userLabel="Button Text">
-                                                        <rect key="frame" x="34.666666666666629" y="105" width="41.333333333333343" height="16"/>
+                                                        <rect key="frame" x="37" y="105.33333333333334" width="36.666666666666657" height="15.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -892,7 +892,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4J-mj-DPt" userLabel="Button Text">
-                                                        <rect key="frame" x="34.666666666666657" y="104.66666666666666" width="41.333333333333343" height="16"/>
+                                                        <rect key="frame" x="37" y="104.99999999999997" width="36.666666666666657" height="15.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -949,7 +949,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6uT-um-xmX" userLabel="Button Text">
-                                                        <rect key="frame" x="34.333333333333371" y="104.66666666666666" width="41.333333333333343" height="16"/>
+                                                        <rect key="frame" x="36.666666666666686" y="104.99999999999997" width="36.666666666666657" height="15.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -1006,7 +1006,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQo-Hs-1Vo" userLabel="Button Text">
-                                                        <rect key="frame" x="34.666666666666629" y="104.66666666666666" width="41.333333333333343" height="16"/>
+                                                        <rect key="frame" x="37" y="104.99999999999997" width="36.666666666666657" height="15.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -1233,7 +1233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKe-Du-9T9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1512.3188405797102" y="570.20089285714278"/>
+            <point key="canvasLocation" x="550" y="1349"/>
         </scene>
         <!--Results View Controller-->
         <scene sceneID="7iy-JJ-2EY">
@@ -1371,136 +1371,10 @@
                         <segue destination="BYZ-38-t0r" kind="push" identifier="toScenarioScene" id="1yy-KV-VO2"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kEs-g1-97C" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="AXo-70-yQg" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kEs-g1-97C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4031.884057971015" y="556.47321428571422"/>
-        </scene>
-        <!--Completed View Controller-->
-        <scene sceneID="KiG-y7-maB">
-            <objects>
-                <viewController id="rlW-vW-5EN" customClass="CompletedViewController" customModule="Powerup" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="uPm-ct-ZVH">
-                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scenario_complete_scene" translatesAutoresizingMaskIntoConstraints="NO" id="o1p-K2-wtC">
-                                <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggV-oD-bbd">
-                                <rect key="frame" x="154.66666666666666" y="251" width="168.99999999999997" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="O7Q-bM-bW2"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="169" id="yKU-W6-nE7"/>
-                                </constraints>
-                                <state key="normal" title="Button" image="replay_button"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="push" identifier="toScenarioView" id="g9d-TJ-O76"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Scenario:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3x2-5c-b2v">
-                                <rect key="frame" x="278.66666666666669" y="91.666666666666671" width="179" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="Po6-iM-lOW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
-                                <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NFe-EU-XXC" userLabel="Map Button">
-                                <rect key="frame" x="412.33333333333331" y="251" width="168.99999999999994" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="169" id="Ovl-Sh-Ocq"/>
-                                    <constraint firstAttribute="height" constant="36" id="YMv-cv-qAe"/>
-                                </constraints>
-                                <state key="normal" image="map_button"/>
-                                <connections>
-                                    <segue destination="i9o-3C-Maz" kind="unwind" identifier="unwindtoMapView" unwindAction="unwindToMapWithUnwindSegue:" id="4am-5n-qq6"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4p4-11-KM4">
-                                <rect key="frame" x="0.0" y="0.0" width="736" height="80.666666666666671"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOP-gF-DVR">
-                                        <rect key="frame" x="74" y="15.333333333333336" width="130" height="50.000000000000007"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="PT8-ZH-DYb"/>
-                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="130" id="ePc-6C-Mi6"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
-                                        <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="karma_star" translatesAutoresizingMaskIntoConstraints="NO" id="Sjq-tY-NP2">
-                                        <rect key="frame" x="8" y="15.333333333333336" width="50" height="50.000000000000007"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="3LH-IX-paM"/>
-                                            <constraint firstAttribute="width" constant="50" id="oK5-KZ-enV"/>
-                                        </constraints>
-                                    </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jhh-4N-zWz">
-                                        <rect key="frame" x="678" y="15.333333333333336" width="50" height="50.000000000000007"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a87-JU-rSY">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                <state key="normal" title="Button" image="home_button"/>
-                                                <connections>
-                                                    <segue destination="i9o-3C-Maz" kind="unwind" identifier="unwindtoStartView" unwindAction="unwindToStartWithUnwindSegue:" id="a0y-t0-Us7"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="a87-JU-rSY" firstAttribute="leading" secondItem="Jhh-4N-zWz" secondAttribute="leading" id="6Zi-HP-Jeb"/>
-                                            <constraint firstItem="a87-JU-rSY" firstAttribute="top" secondItem="Jhh-4N-zWz" secondAttribute="top" id="b15-Ta-eG3"/>
-                                            <constraint firstAttribute="trailing" secondItem="a87-JU-rSY" secondAttribute="trailing" id="b3B-KD-nxr"/>
-                                            <constraint firstAttribute="width" constant="50" id="evB-6g-jZW"/>
-                                            <constraint firstAttribute="bottom" secondItem="a87-JU-rSY" secondAttribute="bottom" id="ii5-0H-h4h"/>
-                                            <constraint firstAttribute="height" constant="50" id="wXe-uc-EsV"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="Sjq-tY-NP2" firstAttribute="leading" secondItem="4p4-11-KM4" secondAttribute="leading" constant="8" id="6IM-9F-NSc"/>
-                                    <constraint firstAttribute="trailing" secondItem="Jhh-4N-zWz" secondAttribute="trailing" constant="8" id="HQV-gE-web"/>
-                                    <constraint firstItem="Sjq-tY-NP2" firstAttribute="centerY" secondItem="4p4-11-KM4" secondAttribute="centerY" id="HjM-7z-FQI"/>
-                                    <constraint firstItem="Jhh-4N-zWz" firstAttribute="centerY" secondItem="4p4-11-KM4" secondAttribute="centerY" id="OCX-BK-fJb"/>
-                                    <constraint firstItem="cOP-gF-DVR" firstAttribute="centerY" secondItem="4p4-11-KM4" secondAttribute="centerY" id="bYa-Qs-5mR"/>
-                                    <constraint firstItem="Jhh-4N-zWz" firstAttribute="leading" relation="lessThanOrEqual" secondItem="cOP-gF-DVR" secondAttribute="trailing" constant="474" id="iyt-w3-6yM"/>
-                                    <constraint firstItem="cOP-gF-DVR" firstAttribute="leading" secondItem="Sjq-tY-NP2" secondAttribute="trailing" constant="16" id="oBv-wx-ma7"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="o1p-K2-wtC" firstAttribute="height" secondItem="uPm-ct-ZVH" secondAttribute="height" id="3wD-gh-VXD"/>
-                            <constraint firstItem="o1p-K2-wtC" firstAttribute="centerX" secondItem="kf5-k4-P7P" secondAttribute="centerX" id="9Tb-CR-JEO"/>
-                            <constraint firstItem="3x2-5c-b2v" firstAttribute="top" secondItem="4p4-11-KM4" secondAttribute="bottom" constant="11" id="AYW-9e-dcl"/>
-                            <constraint firstItem="4p4-11-KM4" firstAttribute="trailing" secondItem="o1p-K2-wtC" secondAttribute="trailing" id="Ujb-7P-mRB"/>
-                            <constraint firstItem="ggV-oD-bbd" firstAttribute="centerY" secondItem="o1p-K2-wtC" secondAttribute="centerY" multiplier="1.3" id="VpX-9o-3dH"/>
-                            <constraint firstItem="4p4-11-KM4" firstAttribute="top" secondItem="o1p-K2-wtC" secondAttribute="top" id="YXU-HK-Qfq"/>
-                            <constraint firstItem="3x2-5c-b2v" firstAttribute="centerY" secondItem="uPm-ct-ZVH" secondAttribute="centerY" multiplier="0.5" id="cIj-uW-oMi"/>
-                            <constraint firstItem="NFe-EU-XXC" firstAttribute="centerX" secondItem="kf5-k4-P7P" secondAttribute="centerX" multiplier="1.35" id="fKW-c3-UtX"/>
-                            <constraint firstItem="ggV-oD-bbd" firstAttribute="centerX" secondItem="o1p-K2-wtC" secondAttribute="centerX" multiplier="0.65" id="j5U-Yf-1jk"/>
-                            <constraint firstItem="o1p-K2-wtC" firstAttribute="centerY" secondItem="uPm-ct-ZVH" secondAttribute="centerY" id="jji-0E-Qlf"/>
-                            <constraint firstItem="NFe-EU-XXC" firstAttribute="centerY" secondItem="uPm-ct-ZVH" secondAttribute="centerY" multiplier="1.3" id="kIk-uK-KmT"/>
-                            <constraint firstItem="o1p-K2-wtC" firstAttribute="width" secondItem="uPm-ct-ZVH" secondAttribute="width" id="nCx-ib-BIm"/>
-                            <constraint firstItem="4p4-11-KM4" firstAttribute="leading" secondItem="o1p-K2-wtC" secondAttribute="leading" id="rxz-SU-qol"/>
-                            <constraint firstItem="3x2-5c-b2v" firstAttribute="centerX" secondItem="kf5-k4-P7P" secondAttribute="centerX" id="y64-1S-zIE"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="kf5-k4-P7P"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="QiI-9m-e9X"/>
-                    <connections>
-                        <outlet property="karmaPointsLabel" destination="cOP-gF-DVR" id="cZU-fK-VdG"/>
-                        <outlet property="scenarioLabel" destination="3x2-5c-b2v" id="cQA-va-YK0"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NIo-dC-jOr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="i9o-3C-Maz" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="2498.5507246376815" y="-125.89285714285714"/>
+            <point key="canvasLocation" x="2049" y="203"/>
         </scene>
         <!--MapViewController-->
         <scene sceneID="8zi-ZT-9cM">
@@ -1637,13 +1511,13 @@
                         <outletCollection property="scenarioImages" destination="Fmy-iT-ufw" collectionClass="NSMutableArray" id="PZ9-jB-B8c"/>
                         <outletCollection property="scenarioImages" destination="ZEg-pi-KP9" collectionClass="NSMutableArray" id="aA8-Se-gqc"/>
                         <segue destination="BYZ-38-t0r" kind="push" identifier="toScenarioView" id="mzp-Ek-ra4"/>
-                        <segue destination="rlW-vW-5EN" kind="push" identifier="toCompletedView" id="ZO7-ES-LCW"/>
+                        <segue destination="Kej-3M-rbU" kind="push" id="EJn-fp-0KJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OMF-eo-Ren" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QuD-Og-rFX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1378.985507246377" y="203.23660714285714"/>
+            <point key="canvasLocation" x="430" y="543"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cD8-wF-rc7">
@@ -1743,10 +1617,10 @@
                         <outlet property="karmaPointsLabel" destination="iWP-8n-6F6" id="IGf-o9-DQ5"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EX2-ps-Nj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ljT-EX-slo" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EX2-ps-Nj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3950.7246376811599" y="964.95535714285711"/>
+            <point key="canvasLocation" x="2355" y="997"/>
         </scene>
     </scenes>
     <resources>
@@ -1785,7 +1659,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Vcg-vV-Did"/>
-        <segue reference="HHh-kx-uKw"/>
-        <segue reference="1yy-KV-VO2"/>
+        <segue reference="EJn-fp-0KJ"/>
+        <segue reference="mzp-Ek-ra4"/>
     </inferredMetricsTieBreakers>
 </document>
