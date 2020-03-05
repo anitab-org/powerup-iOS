@@ -1594,9 +1594,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="UMB-Yq-rOx" firstAttribute="centerY" secondItem="jQo-by-wdf" secondAttribute="centerY" constant="40" id="3Jb-UE-y76"/>
-                            <constraint firstItem="GqS-kL-Xqm" firstAttribute="leading" secondItem="ucy-dB-Hec" secondAttribute="leading" id="54S-yj-VEr"/>
+                            <constraint firstItem="GqS-kL-Xqm" firstAttribute="leading" secondItem="jQo-by-wdf" secondAttribute="leading" id="54S-yj-VEr"/>
                             <constraint firstItem="wyS-fw-fBB" firstAttribute="centerX" secondItem="ucy-dB-Hec" secondAttribute="centerX" id="Ci9-ew-47z"/>
-                            <constraint firstItem="GqS-kL-Xqm" firstAttribute="top" secondItem="ucy-dB-Hec" secondAttribute="top" id="Ns9-UV-pGs"/>
+                            <constraint firstItem="GqS-kL-Xqm" firstAttribute="top" secondItem="jQo-by-wdf" secondAttribute="top" id="Ns9-UV-pGs"/>
                             <constraint firstItem="OdA-pZ-nes" firstAttribute="leading" secondItem="jQo-by-wdf" secondAttribute="leadingMargin" constant="-10" id="QIL-BQ-y1B"/>
                             <constraint firstItem="aI2-xc-czF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iWP-8n-6F6" secondAttribute="trailing" constant="500" id="Qjc-FI-10e"/>
                             <constraint firstItem="iWP-8n-6F6" firstAttribute="leading" secondItem="OdA-pZ-nes" secondAttribute="trailing" constant="10" id="SUc-3o-wRf"/>
@@ -1604,8 +1604,8 @@
                             <constraint firstItem="OdA-pZ-nes" firstAttribute="top" secondItem="ucy-dB-Hec" secondAttribute="top" constant="10" id="e4Z-3A-1Df"/>
                             <constraint firstItem="aI2-xc-czF" firstAttribute="top" secondItem="ucy-dB-Hec" secondAttribute="top" constant="15" id="fCK-DX-80A"/>
                             <constraint firstItem="iWP-8n-6F6" firstAttribute="top" secondItem="ucy-dB-Hec" secondAttribute="top" constant="13" id="gjr-2I-hj1"/>
-                            <constraint firstItem="ucy-dB-Hec" firstAttribute="trailing" secondItem="GqS-kL-Xqm" secondAttribute="trailing" id="iwm-B1-9Uf"/>
-                            <constraint firstItem="GqS-kL-Xqm" firstAttribute="bottom" secondItem="ucy-dB-Hec" secondAttribute="bottom" id="jIA-LW-T2X"/>
+                            <constraint firstAttribute="trailing" secondItem="GqS-kL-Xqm" secondAttribute="trailing" id="iwm-B1-9Uf"/>
+                            <constraint firstItem="GqS-kL-Xqm" firstAttribute="bottom" secondItem="jQo-by-wdf" secondAttribute="bottom" id="jIA-LW-T2X"/>
                             <constraint firstItem="wyS-fw-fBB" firstAttribute="centerY" secondItem="jQo-by-wdf" secondAttribute="centerY" constant="-20" id="n5Y-BG-NY9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aI2-xc-czF" secondAttribute="trailing" constant="10" id="tJ2-52-vLo"/>
                             <constraint firstItem="OdA-pZ-nes" firstAttribute="centerY" secondItem="iWP-8n-6F6" secondAttribute="centerY" id="zn1-A7-8Kq"/>
@@ -1659,7 +1659,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Vcg-vV-Did"/>
-        <segue reference="EJn-fp-0KJ"/>
-        <segue reference="mzp-Ek-ra4"/>
+        <segue reference="0it-aH-Xs8"/>
+        <segue reference="1yy-KV-VO2"/>
     </inferredMetricsTieBreakers>
 </document>
