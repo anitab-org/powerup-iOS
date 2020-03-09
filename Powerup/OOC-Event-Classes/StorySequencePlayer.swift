@@ -89,7 +89,7 @@ class StorySequencePlayer: UIView {
         super.init(frame: frame)
 
         self.accessibilityIdentifier = AccessibilityIdentifiers.storySequencePlayer.rawValue
-        let margin: CGFloat = 25
+        let margin: CGFloat = 25 // margin for sentances
         let imageViewHeight: CGFloat = 0.6
 
         addBlur(self, .dark)
