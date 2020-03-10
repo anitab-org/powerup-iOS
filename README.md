@@ -8,6 +8,16 @@
 PowerUp is an educational mobile game app that seeks to empower young girls to take charge of their reproductive health
 and self-esteem by navigating the life of their Avatar.
 
+![](https://user-images.githubusercontent.com/29337604/76241784-891ac380-625b-11ea-8a92-7d3c4b8a278b.png)
+![](https://user-images.githubusercontent.com/29337604/76241823-98017600-625b-11ea-9f47-e4826f6c50c0.png)
+![](https://user-images.githubusercontent.com/29337604/76241793-8b7d1d80-625b-11ea-969d-efa95038c424.png)
+![](https://user-images.githubusercontent.com/29337604/76241801-8f10a480-625b-11ea-94ee-4d3bee7ecab4.png)
+![](https://user-images.githubusercontent.com/29337604/76241807-920b9500-625b-11ea-8be7-945432f78a7e.png)
+![](https://user-images.githubusercontent.com/29337604/76241813-946def00-625b-11ea-82ee-9126e2d46811.png)
+![](https://user-images.githubusercontent.com/29337604/76241828-9a63d000-625b-11ea-8734-c81d3b6a61f7.png)
+![](https://user-images.githubusercontent.com/29337604/76241833-9df75700-625b-11ea-9045-36c9e1c3059d.png)
+![](https://user-images.githubusercontent.com/29337604/76242182-3f7ea880-625c-11ea-88a7-80a45decb721.png)
+
 ## Setup for Developers
 1. Make sure you have Xcode IDE downloaded on your machine for software development for iOS.<br />
 2. Fork the anitab-org project. Go to [Powerup-iOS](https://github.com/anitab-org/powerup-iOS) and click on Fork in the top right corner. Fork the repo on your Github id. Make sure that you don’t have any existing repo with the same name in your profile else there will be conflicts.<br />
