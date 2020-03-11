@@ -52,15 +52,6 @@ class ShopViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Fetch the accessory arrays from the database.
-        accessories = dataSource.getAccessoryArray(accessoryType: .handbag)
-        accessories.append(contentsOf: dataSource.getAccessoryArray(accessoryType: .glasses))
-        accessories.append(contentsOf: dataSource.getAccessoryArray(accessoryType: .hat))
-        accessories.append(contentsOf: dataSource.getAccessoryArray(accessoryType: .necklace))
-        
-        hairs = dataSource.getAccessoryArray(accessoryType: .hair)
-        clothes = dataSource.getAccessoryArray(accessoryType: .clothes)
-        
         // Fetch avatar and score from database.
         do {
             score = try dataSource.getScore()
@@ -83,8 +74,7 @@ class ShopViewController: UIViewController {
         updateAvatarImageView()
         
         // Configure the exhibition box for hairs (default).
-        currDisplayingArray = hairs
-        updateExhibition()
+        hairCategoryChosen(UIButton())
         
     }
     
@@ -139,11 +129,15 @@ class ShopViewController: UIViewController {
             // Enable buttons.
             purchaseButtons[boxIndex].isEnabled = true
             
-            // Show checkmark if bought.
-            purchasedCheckmark[boxIndex].isHidden = !currItem.purchased
-            
             // Change button text according to "item bought".
             buttonTexts[boxIndex].text = currItem.purchased ? "SELECT" : "BUY"
+            
+            // Special changes for selected item
+            let isItemSelected: Bool = avatar.getAccessoryByType(currItem.type) != nil && currItem.id == avatar.getAccessoryByType(currItem.type)!.id
+            purchasedCheckmark[boxIndex].isHidden = !isItemSelected
+            if(isItemSelected == true) {
+                buttonTexts[boxIndex].text = "CHOSEN"
+            }
             
             // Configure the price label.
             priceLabels[boxIndex].text = currItem.purchased ? "-" : String(currItem.points)
@@ -216,6 +210,8 @@ class ShopViewController: UIViewController {
     
     // Touched the "buy" button of a display box.
     @IBAction func purchaseItem(_ sender: UIButton) {
+        //flag used to not update exhibiiton in case of cancelled purchase
+        var toUpdateExhibition = true
         // Get the index of the purchased item by the tag of UIButton.
         let boxIndex = sender.tag
         
@@ -223,7 +219,6 @@ class ShopViewController: UIViewController {
         
         // Check if already worn.
         if avatar.getAccessoryByType(itemChosen.type) != nil && itemChosen.id == avatar.getAccessoryByType(itemChosen.type)!.id {
-            
             // If already worn, unwear it.
             avatar.setAccessoryByType(itemChosen.type, accessory: nil)
             updateAvatarImageView()
@@ -232,8 +227,8 @@ class ShopViewController: UIViewController {
             
             // Buy the accessory if it isn't purchased yet.
             if !itemChosen.purchased {
-                
                 if haveEnoughPointsToBuy(accessoryPrice: itemChosen.points) {
+                    toUpdateExhibition = false
                     // Save the current item in case the user wants to revert.
                     let currentItem = self.avatar.getAccessoryByType(itemChosen.type)
                     
@@ -246,10 +241,10 @@ class ShopViewController: UIViewController {
                     
                     // If have enough points, buy the item.
                     // Alert the player that the purchase couldn't be reverted.
-
+                    
                     let cannotRevertAlert = UIAlertController(title: confirmationTitleMessage, message: "You will be spending \(itemChosen.points) Karma Points!", preferredStyle: .alert)
                     let cancelButton = UIAlertAction(title: cancelText, style: .cancel, handler: {action in
-                     // Revert to whatever accessory the user had before.
+                        // Revert to whatever accessory the user had before.
                         self.avatar.setAccessoryByType(itemChosen.type, accessory: currentItem)
                         self.updateAvatarImageView()
                         
@@ -274,11 +269,9 @@ class ShopViewController: UIViewController {
                             return
                         }
                         
-                        // Purchase successful.
+                        //Purchase Successful
                         
-                        // Reconfigure display boxes.
                         self.currDisplayingArray[boxIndex + self.firstAccessoryIndex].purchased = true
-                        self.updateExhibition()
                         
                         // Update point label
                         self.pointsLabel.text = String(self.score.karmaPoints)
@@ -289,8 +282,9 @@ class ShopViewController: UIViewController {
                         
                         // Show purchase successful dialogue.
                         let successfulDiologue = UIAlertController(title: yayTitleMessage, message: successFullPurchaseMessage, preferredStyle: .alert)
-                        let confirmButton = UIAlertAction(title: okText, style: .default)
-                        successfulDiologue.addAction(confirmButton)
+                        successfulDiologue.addAction(UIAlertAction(title: okText, style: .default, handler: { (UIAlertAction) in
+                            self.updateExhibition()
+                        }))
                         self.present(successfulDiologue, animated: true, completion: nil)
                         
                         // Get rid of the preview text.
@@ -307,21 +301,36 @@ class ShopViewController: UIViewController {
                 updateAvatarImageView()
             }
         }
+        if(toUpdateExhibition == true) {
+            updateExhibition()
+        }
     }
     
     @IBAction func hairCategoryChosen(_ sender: UIButton) {
+        //fetch hair database details
+        hairs = dataSource.getAccessoryArray(accessoryType: .hair)
+        //settings
         currDisplayingArray = hairs
         firstAccessoryIndex = 0
         updateExhibition()
     }
     
     @IBAction func clothesCategoryChosen(_ sender: UIButton) {
+        //fetch clothes database details
+        clothes = dataSource.getAccessoryArray(accessoryType: .clothes)
+        //settings
         currDisplayingArray = clothes
         firstAccessoryIndex = 0
         updateExhibition()
     }
     
     @IBAction func accessoryCategoryChosen(_ sender: UIButton) {
+        //fetch accessories database details
+        accessories = dataSource.getAccessoryArray(accessoryType: .handbag)
+        accessories.append(contentsOf: dataSource.getAccessoryArray(accessoryType: .glasses))
+        accessories.append(contentsOf: dataSource.getAccessoryArray(accessoryType: .hat))
+        accessories.append(contentsOf: dataSource.getAccessoryArray(accessoryType: .necklace))
+        //settings
         currDisplayingArray = accessories
         firstAccessoryIndex = 0
         updateExhibition()
