@@ -540,7 +540,7 @@
 				TargetAttributes = {
 					2A0CA54E1B294C6B00ED8781 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = ZCF7ZR4CVF;
+						DevelopmentTeam = MZWL92LA7S;
 						LastSwiftMigration = 1020;
 					};
 					2A0CA5631B294C6B00ED8781 = {
@@ -857,14 +857,14 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZCF7ZR4CVF;
+				DEVELOPMENT_TEAM = MZWL92LA7S;
 				INFOPLIST_FILE = Powerup/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.PowerupTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Powerup;
 				PRODUCT_NAME = Powerup;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Powerup-Bridging-Header.h";
@@ -882,13 +882,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZCF7ZR4CVF;
+				DEVELOPMENT_TEAM = MZWL92LA7S;
 				INFOPLIST_FILE = Powerup/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				New_Setting = "";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.PowerupTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Powerup;
 				PRODUCT_NAME = Powerup;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Powerup-Bridging-Header.h";

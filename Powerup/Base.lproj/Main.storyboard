@@ -715,7 +715,7 @@
                                                         <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="UT3-0Z-0jd" userLabel="Button Text">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="UT3-0Z-0jd" userLabel="Button Text">
                                                         <rect key="frame" x="25" y="93.5" width="50" height="16"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.38039215686274508" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -773,7 +773,7 @@
                                                         <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="2hB-Cx-GvA" userLabel="Button Text">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="2hB-Cx-GvA" userLabel="Button Text">
                                                         <rect key="frame" x="25" y="93.5" width="50" height="16"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -838,7 +838,7 @@
                                                             <constraint firstAttribute="height" constant="40" id="qlt-vR-XZc"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jJd-dk-a8M" userLabel="Button Text">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="jJd-dk-a8M" userLabel="Button Text">
                                                         <rect key="frame" x="25" y="93.5" width="50" height="16"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -901,7 +901,7 @@
                                                             <constraint firstAttribute="width" constant="40" id="a9L-11-iFw"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="k4J-mj-DPt" userLabel="Button Text">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="k4J-mj-DPt" userLabel="Button Text">
                                                         <rect key="frame" x="25" y="93.5" width="50" height="16"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -959,7 +959,7 @@
                                                             <constraint firstAttribute="width" constant="40" id="dPN-X5-ET9"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="6uT-um-xmX" userLabel="Button Text">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="6uT-um-xmX" userLabel="Button Text">
                                                         <rect key="frame" x="25" y="93.5" width="50" height="16"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1017,7 +1017,7 @@
                                                             <constraint firstAttribute="height" constant="40" id="fO4-60-CYk"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="UQo-Hs-1Vo" userLabel="Button Text">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="UQo-Hs-1Vo" userLabel="Button Text">
                                                         <rect key="frame" x="25" y="93.5" width="50" height="16"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

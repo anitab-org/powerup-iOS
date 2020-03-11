@@ -145,7 +145,9 @@ class ShopViewController: UIViewController {
             // Special changes for selected item
             let isItemSelected: Bool = avatar.getAccessoryByType(currItem.type) != nil && currItem.id == avatar.getAccessoryByType(currItem.type)!.id
             purchasedCheckmark[boxIndex].isHidden = !isItemSelected
-            buttonTexts[boxIndex].isHidden = isItemSelected ? true : false
+            if(isItemSelected == true) {
+                buttonTexts[boxIndex].text = "CHOSEN"
+            }
             
             // Configure the price label.
             priceLabels[boxIndex].text = currItem.purchased ? "-" : String(currItem.points)
@@ -218,6 +220,8 @@ class ShopViewController: UIViewController {
     
     // Touched the "buy" button of a display box.
     @IBAction func purchaseItem(_ sender: UIButton) {
+        //flag used to not update exhibiiton in case of cancelled purchase
+        var toUpdateExhibition = true
         // Get the index of the purchased item by the tag of UIButton.
         let boxIndex = sender.tag
         
@@ -233,8 +237,8 @@ class ShopViewController: UIViewController {
             
             // Buy the accessory if it isn't purchased yet.
             if !itemChosen.purchased {
-                
                 if haveEnoughPointsToBuy(accessoryPrice: itemChosen.points) {
+                    toUpdateExhibition = false
                     // Save the current item in case the user wants to revert.
                     let currentItem = self.avatar.getAccessoryByType(itemChosen.type)
                     
@@ -276,6 +280,7 @@ class ShopViewController: UIViewController {
                         }
                         
                         //Purchase Successful
+                        
                         self.currDisplayingArray[boxIndex + self.firstAccessoryIndex].purchased = true
                         
                         // Update point label
@@ -287,8 +292,9 @@ class ShopViewController: UIViewController {
                         
                         // Show purchase successful dialogue.
                         let successfulDiologue = UIAlertController(title: yayTitleMessage, message: successFullPurchaseMessage, preferredStyle: .alert)
-                        let confirmButton = UIAlertAction(title: okText, style: .default)
-                        successfulDiologue.addAction(confirmButton)
+                        successfulDiologue.addAction(UIAlertAction(title: okText, style: .default, handler: { (UIAlertAction) in
+                            self.updateExhibition()
+                        }))
                         self.present(successfulDiologue, animated: true, completion: nil)
                         
                         // Get rid of the preview text.
@@ -305,7 +311,9 @@ class ShopViewController: UIViewController {
                 updateAvatarImageView()
             }
         }
-        updateExhibition()
+        if(toUpdateExhibition == true) {
+            updateExhibition()
+        }
     }
     
     @IBAction func hairCategoryChosen(_ sender: UIButton) {
