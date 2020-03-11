@@ -139,8 +139,9 @@ class ShopViewController: UIViewController {
             // Enable buttons.
             purchaseButtons[boxIndex].isEnabled = true
             
-            // Show checkmark if bought.
-            purchasedCheckmark[boxIndex].isHidden = !currItem.purchased
+            // Show checkmark if selected
+            let isItemSelected: Bool = avatar.getAccessoryByType(currItem.type) != nil && currItem.id == avatar.getAccessoryByType(currItem.type)!.id
+            purchasedCheckmark[boxIndex].isHidden = !isItemSelected
             
             // Change button text according to "item bought".
             buttonTexts[boxIndex].text = currItem.purchased ? "SELECT" : "BUY"
@@ -274,11 +275,8 @@ class ShopViewController: UIViewController {
                             return
                         }
                         
-                        // Purchase successful.
-                        
-                        // Reconfigure display boxes.
+                        //Purchase Successful
                         self.currDisplayingArray[boxIndex + self.firstAccessoryIndex].purchased = true
-                        self.updateExhibition()
                         
                         // Update point label
                         self.pointsLabel.text = String(self.score.karmaPoints)
@@ -307,6 +305,7 @@ class ShopViewController: UIViewController {
                 updateAvatarImageView()
             }
         }
+        updateExhibition()
     }
     
     @IBAction func hairCategoryChosen(_ sender: UIButton) {
