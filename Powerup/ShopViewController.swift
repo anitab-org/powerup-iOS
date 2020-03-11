@@ -139,12 +139,13 @@ class ShopViewController: UIViewController {
             // Enable buttons.
             purchaseButtons[boxIndex].isEnabled = true
             
-            // Show checkmark if selected
-            let isItemSelected: Bool = avatar.getAccessoryByType(currItem.type) != nil && currItem.id == avatar.getAccessoryByType(currItem.type)!.id
-            purchasedCheckmark[boxIndex].isHidden = !isItemSelected
-            
             // Change button text according to "item bought".
             buttonTexts[boxIndex].text = currItem.purchased ? "SELECT" : "BUY"
+            
+            // Special changes for selected item
+            let isItemSelected: Bool = avatar.getAccessoryByType(currItem.type) != nil && currItem.id == avatar.getAccessoryByType(currItem.type)!.id
+            purchasedCheckmark[boxIndex].isHidden = !isItemSelected
+            buttonTexts[boxIndex].isHidden = isItemSelected ? true : false
             
             // Configure the price label.
             priceLabels[boxIndex].text = currItem.purchased ? "-" : String(currItem.points)
@@ -224,7 +225,6 @@ class ShopViewController: UIViewController {
         
         // Check if already worn.
         if avatar.getAccessoryByType(itemChosen.type) != nil && itemChosen.id == avatar.getAccessoryByType(itemChosen.type)!.id {
-            
             // If already worn, unwear it.
             avatar.setAccessoryByType(itemChosen.type, accessory: nil)
             updateAvatarImageView()
@@ -247,10 +247,10 @@ class ShopViewController: UIViewController {
                     
                     // If have enough points, buy the item.
                     // Alert the player that the purchase couldn't be reverted.
-
+                    
                     let cannotRevertAlert = UIAlertController(title: confirmationTitleMessage, message: "You will be spending \(itemChosen.points) Karma Points!", preferredStyle: .alert)
                     let cancelButton = UIAlertAction(title: cancelText, style: .cancel, handler: {action in
-                     // Revert to whatever accessory the user had before.
+                        // Revert to whatever accessory the user had before.
                         self.avatar.setAccessoryByType(itemChosen.type, accessory: currentItem)
                         self.updateAvatarImageView()
                         

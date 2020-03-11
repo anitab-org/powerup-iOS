@@ -199,19 +199,19 @@
                                     <action selector="continueButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="qYM-Yl-zAI"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="we5-9v-c2u">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="we5-9v-c2u">
                                 <rect key="frame" x="18" y="89" width="631" height="36"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wf5-AA-gq4" userLabel="Skin">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wf5-AA-gq4" userLabel="Skin">
                                         <rect key="frame" x="0.0" y="0.0" width="139" height="36"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ags-IQ-Dxd">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Skin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ags-IQ-Dxd">
                                                 <rect key="frame" x="49" y="7" width="41" height="22"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXn-oU-okg" userLabel="Face Right Button">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXn-oU-okg" userLabel="Face Right Button">
                                                 <rect key="frame" x="114" y="5.5" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="7Fw-yY-3lY"/>
@@ -224,7 +224,7 @@
                                                     <action selector="faceRightButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="bcK-jL-EZS"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5OM-SX-h1L" userLabel="Face Left Button">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5OM-SX-h1L" userLabel="Face Left Button">
                                                 <rect key="frame" x="0.0" y="5.5" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="ps6-Jw-G1G"/>
@@ -249,10 +249,10 @@
                                             <constraint firstItem="SXn-oU-okg" firstAttribute="centerY" secondItem="wf5-AA-gq4" secondAttribute="centerY" id="zpU-Ff-roX"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWe-BM-6YC" userLabel="Eyes">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eWe-BM-6YC" userLabel="Eyes">
                                         <rect key="frame" x="164" y="0.0" width="139" height="36"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtQ-TS-ZBo" userLabel="Eyes Left Button">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtQ-TS-ZBo" userLabel="Eyes Left Button">
                                                 <rect key="frame" x="0.0" y="5.5" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="RuI-Fw-lvr"/>
@@ -265,7 +265,7 @@
                                                     <action selector="eyesLeftButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="3J4-hE-3fY"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIF-aS-j9q" userLabel="Eyes Right Button">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIF-aS-j9q" userLabel="Eyes Right Button">
                                                 <rect key="frame" x="114" y="5.5" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="IXG-DC-0N6"/>
@@ -278,7 +278,7 @@
                                                     <action selector="eyesRightButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="wrB-fn-Z6U"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eyes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbt-qX-ypc">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Eyes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zbt-qX-ypc">
                                                 <rect key="frame" x="48" y="7" width="43" height="22"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -296,10 +296,10 @@
                                             <constraint firstItem="oIF-aS-j9q" firstAttribute="centerY" secondItem="eWe-BM-6YC" secondAttribute="centerY" id="cA8-yt-z9s"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="26l-58-ibl" userLabel="Clothes">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="26l-58-ibl" userLabel="Clothes">
                                         <rect key="frame" x="328" y="0.0" width="139" height="36"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3b-dN-rVC" userLabel="Clothes Left Button">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3b-dN-rVC" userLabel="Clothes Left Button">
                                                 <rect key="frame" x="0.0" y="5.5" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="cel-iR-C9Y"/>
@@ -312,7 +312,7 @@
                                                     <action selector="clothesLeftButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="gIA-B0-dKx"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Flf-Ud-C6K" userLabel="Clothes Right Button">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Flf-Ud-C6K" userLabel="Clothes Right Button">
                                                 <rect key="frame" x="114" y="5.5" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="BVG-oA-Sqf"/>
@@ -325,7 +325,7 @@
                                                     <action selector="clothesRightButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="ufM-eD-HdI"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clothes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5p4-KD-Db0">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Clothes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5p4-KD-Db0">
                                                 <rect key="frame" x="38.5" y="8" width="62.5" height="20"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="16"/>
                                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -343,10 +343,10 @@
                                             <constraint firstItem="Flf-Ud-C6K" firstAttribute="centerY" secondItem="26l-58-ibl" secondAttribute="centerY" id="zz9-cS-E7M"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9L-wy-h7f" userLabel="Hair">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N9L-wy-h7f" userLabel="Hair">
                                         <rect key="frame" x="492" y="0.0" width="139" height="36"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNy-UE-xYX" userLabel="Hair Left Button">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNy-UE-xYX" userLabel="Hair Left Button">
                                                 <rect key="frame" x="0.0" y="5.5" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="P5i-r2-WSq"/>
@@ -359,7 +359,7 @@
                                                     <action selector="hairLeftButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="F7w-bv-bhQ"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyl-s9-vop" userLabel="Hair Right Button">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyl-s9-vop" userLabel="Hair Right Button">
                                                 <rect key="frame" x="114" y="5.5" width="25" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="25" id="CKd-ZA-Xed"/>
@@ -372,7 +372,7 @@
                                                     <action selector="hairRightButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="Dob-hW-7jN"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hair" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kg-9a-CDD">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Hair" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kg-9a-CDD">
                                                 <rect key="frame" x="50.5" y="7" width="38.5" height="22"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -395,14 +395,14 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_clothes_01" translatesAutoresizingMaskIntoConstraints="NO" id="8Q4-PA-meK" userLabel="Clothes Image">
                                 <rect key="frame" x="279" y="140" width="91" height="173"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rN-B1-EyF" userLabel="back button">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rN-B1-EyF" userLabel="back button">
                                 <rect key="frame" x="20" y="15" width="38.5" height="0.0"/>
                                 <state key="normal" image="left_arrow"/>
                                 <connections>
                                     <action selector="backButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="gtS-ZK-i5D"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is your avatar! Tap CONTINUE to start your journey." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="KeK-fp-IKT" userLabel="confirm label">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="This is your avatar! Tap CONTINUE to start your journey." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="KeK-fp-IKT" userLabel="confirm label">
                                 <rect key="frame" x="0.0" y="93" width="667" height="28"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="18"/>
                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -682,7 +682,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="9IW-7K-Gls" userLabel="Karma Points Label">
-                                <rect key="frame" x="70" y="26" width="33.5" height="23.5"/>
+                                <rect key="frame" x="70" y="25.5" width="33.5" height="24.5"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="20"/>
                                 <color key="textColor" red="0.38069673900000001" green="0.59913557640000004" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -716,16 +716,16 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SELECT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UT3-0Z-0jd" userLabel="Button Text">
-                                                        <rect key="frame" x="24" y="93.5" width="48.5" height="15.5"/>
+                                                        <rect key="frame" x="23" y="93.5" width="50.5" height="16"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.38039215686274508" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="purchased_checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="9WE-dB-veC" userLabel="Purchased Checkmark">
-                                                        <rect key="frame" x="25" y="32" width="50" height="50"/>
+                                                        <rect key="frame" x="30" y="67" width="40" height="40"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="50" id="BF0-j4-YGA"/>
-                                                            <constraint firstAttribute="width" constant="50" id="iAh-ji-INP"/>
+                                                            <constraint firstAttribute="height" constant="40" id="BF0-j4-YGA"/>
+                                                            <constraint firstAttribute="width" constant="40" id="iAh-ji-INP"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfJ-MH-hSD" userLabel="Purchase Button 1">
@@ -745,7 +745,7 @@
                                                     <constraint firstItem="2Uv-dW-Wkm" firstAttribute="centerX" secondItem="3YO-Jg-dhu" secondAttribute="centerX" id="TwG-Gv-GdJ"/>
                                                     <constraint firstItem="xOn-ZP-O4p" firstAttribute="height" secondItem="3YO-Jg-dhu" secondAttribute="height" multiplier="0.15" id="ZVR-Lo-1c1"/>
                                                     <constraint firstItem="sfJ-MH-hSD" firstAttribute="centerX" secondItem="3YO-Jg-dhu" secondAttribute="centerX" id="fuR-7A-8ws"/>
-                                                    <constraint firstItem="9WE-dB-veC" firstAttribute="centerY" secondItem="3YO-Jg-dhu" secondAttribute="centerY" multiplier="0.9" id="iHb-xA-hoL"/>
+                                                    <constraint firstItem="9WE-dB-veC" firstAttribute="centerY" secondItem="3YO-Jg-dhu" secondAttribute="centerY" multiplier="0.9" constant="30" id="iHb-xA-hoL"/>
                                                     <constraint firstItem="UT3-0Z-0jd" firstAttribute="centerX" secondItem="3YO-Jg-dhu" secondAttribute="centerX" multiplier="0.97" id="kJq-u5-jaJ"/>
                                                     <constraint firstItem="xOn-ZP-O4p" firstAttribute="centerY" secondItem="3YO-Jg-dhu" secondAttribute="centerY" multiplier="0.25" id="kYj-FT-1ZW"/>
                                                     <constraint firstItem="2Uv-dW-Wkm" firstAttribute="width" secondItem="3YO-Jg-dhu" secondAttribute="width" id="kdz-00-dI2"/>
@@ -773,16 +773,16 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hB-Cx-GvA" userLabel="Button Text">
-                                                        <rect key="frame" x="30.5" y="93.5" width="36.5" height="15.5"/>
+                                                        <rect key="frame" x="28" y="93.5" width="41.5" height="16"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="purchased_checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="eNS-nb-Jhs" userLabel="Purchased Checkmark">
-                                                        <rect key="frame" x="25" y="32" width="50" height="50"/>
+                                                        <rect key="frame" x="30" y="67" width="40" height="40"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="50" id="EEo-Kd-Zho"/>
-                                                            <constraint firstAttribute="width" constant="50" id="ZU2-PK-hJL"/>
+                                                            <constraint firstAttribute="width" constant="40" id="JMR-I1-oFM"/>
+                                                            <constraint firstAttribute="height" constant="40" id="vbb-2K-G3J"/>
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UB2-in-0ZB" userLabel="Purchase Button 2">
@@ -808,7 +808,7 @@
                                                     <constraint firstItem="X50-eP-Zyb" firstAttribute="centerX" secondItem="xh2-yc-LTu" secondAttribute="centerX" id="Xew-Ka-bfd"/>
                                                     <constraint firstItem="4cL-Bv-cLy" firstAttribute="centerX" secondItem="xh2-yc-LTu" secondAttribute="centerX" multiplier="1.35" id="deL-r4-sQP"/>
                                                     <constraint firstItem="X50-eP-Zyb" firstAttribute="centerY" secondItem="xh2-yc-LTu" secondAttribute="centerY" id="kXd-dK-niG"/>
-                                                    <constraint firstItem="eNS-nb-Jhs" firstAttribute="centerY" secondItem="xh2-yc-LTu" secondAttribute="centerY" multiplier="0.9" id="l6R-Bs-S6k"/>
+                                                    <constraint firstItem="eNS-nb-Jhs" firstAttribute="centerY" secondItem="xh2-yc-LTu" secondAttribute="centerY" multiplier="0.9" constant="30" id="l6R-Bs-S6k"/>
                                                     <constraint firstItem="4cL-Bv-cLy" firstAttribute="height" secondItem="xh2-yc-LTu" secondAttribute="height" multiplier="0.15" id="lvN-ki-TZX"/>
                                                     <constraint firstItem="X50-eP-Zyb" firstAttribute="height" secondItem="xh2-yc-LTu" secondAttribute="height" id="qV7-zd-KCR"/>
                                                 </constraints>
@@ -830,14 +830,14 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="purchased_checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="fod-Nq-H5S" userLabel="Purchased Checkmark">
-                                                        <rect key="frame" x="25" y="32" width="50" height="50"/>
+                                                        <rect key="frame" x="30" y="67" width="40" height="40"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="50" id="aZC-B3-4bU"/>
-                                                            <constraint firstAttribute="height" constant="50" id="qlt-vR-XZc"/>
+                                                            <constraint firstAttribute="width" constant="40" id="aZC-B3-4bU"/>
+                                                            <constraint firstAttribute="height" constant="40" id="qlt-vR-XZc"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJd-dk-a8M" userLabel="Button Text">
-                                                        <rect key="frame" x="30.5" y="93.5" width="36.5" height="15.5"/>
+                                                        <rect key="frame" x="28" y="93.5" width="41.5" height="16"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -861,7 +861,7 @@
                                                     <constraint firstItem="Xbb-5J-AKk" firstAttribute="centerX" secondItem="7MQ-gY-hk6" secondAttribute="centerX" id="VwA-s2-S61"/>
                                                     <constraint firstItem="bih-0W-rIU" firstAttribute="width" secondItem="7MQ-gY-hk6" secondAttribute="width" multiplier="0.4" id="Y5j-Ls-MlL"/>
                                                     <constraint firstItem="Xbb-5J-AKk" firstAttribute="centerY" secondItem="7MQ-gY-hk6" secondAttribute="centerY" id="b3d-Ue-w0Q"/>
-                                                    <constraint firstItem="fod-Nq-H5S" firstAttribute="centerY" secondItem="7MQ-gY-hk6" secondAttribute="centerY" multiplier="0.9" id="gms-gB-Xm3"/>
+                                                    <constraint firstItem="fod-Nq-H5S" firstAttribute="centerY" secondItem="7MQ-gY-hk6" secondAttribute="centerY" multiplier="0.9" constant="30" id="gms-gB-Xm3"/>
                                                     <constraint firstItem="v20-II-dkv" firstAttribute="centerY" secondItem="7MQ-gY-hk6" secondAttribute="centerY" id="iFo-Yh-P47"/>
                                                     <constraint firstItem="Xbb-5J-AKk" firstAttribute="width" secondItem="7MQ-gY-hk6" secondAttribute="width" id="jpw-4q-wXH"/>
                                                     <constraint firstItem="v20-II-dkv" firstAttribute="width" secondItem="7MQ-gY-hk6" secondAttribute="width" id="nrd-ht-NsH"/>
@@ -899,7 +899,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4J-mj-DPt" userLabel="Button Text">
-                                                        <rect key="frame" x="30" y="93.5" width="36.5" height="15.5"/>
+                                                        <rect key="frame" x="27.5" y="93.5" width="41.5" height="16"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -956,7 +956,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6uT-um-xmX" userLabel="Button Text">
-                                                        <rect key="frame" x="30.5" y="93.5" width="36.5" height="15.5"/>
+                                                        <rect key="frame" x="28" y="93.5" width="41.5" height="16"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -1013,7 +1013,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQo-Hs-1Vo" userLabel="Button Text">
-                                                        <rect key="frame" x="30.5" y="93.5" width="36.5" height="15.5"/>
+                                                        <rect key="frame" x="28" y="93.5" width="41.5" height="16"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="13"/>
                                                         <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
