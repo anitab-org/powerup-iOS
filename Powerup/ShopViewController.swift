@@ -52,15 +52,6 @@ class ShopViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Fetch the accessory arrays from the database.
-        accessories = dataSource.getAccessoryArray(accessoryType: .handbag)
-        accessories.append(contentsOf: dataSource.getAccessoryArray(accessoryType: .glasses))
-        accessories.append(contentsOf: dataSource.getAccessoryArray(accessoryType: .hat))
-        accessories.append(contentsOf: dataSource.getAccessoryArray(accessoryType: .necklace))
-        
-        hairs = dataSource.getAccessoryArray(accessoryType: .hair)
-        clothes = dataSource.getAccessoryArray(accessoryType: .clothes)
-        
         // Fetch avatar and score from database.
         do {
             score = try dataSource.getScore()
@@ -83,8 +74,7 @@ class ShopViewController: UIViewController {
         updateAvatarImageView()
         
         // Configure the exhibition box for hairs (default).
-        currDisplayingArray = hairs
-        updateExhibition()
+        hairCategoryChosen(UIButton())
         
     }
     
@@ -317,18 +307,30 @@ class ShopViewController: UIViewController {
     }
     
     @IBAction func hairCategoryChosen(_ sender: UIButton) {
+        //fetch hair database details
+        hairs = dataSource.getAccessoryArray(accessoryType: .hair)
+        //settings
         currDisplayingArray = hairs
         firstAccessoryIndex = 0
         updateExhibition()
     }
     
     @IBAction func clothesCategoryChosen(_ sender: UIButton) {
+        //fetch clothes database details
+        clothes = dataSource.getAccessoryArray(accessoryType: .clothes)
+        //settings
         currDisplayingArray = clothes
         firstAccessoryIndex = 0
         updateExhibition()
     }
     
     @IBAction func accessoryCategoryChosen(_ sender: UIButton) {
+        //fetch accessories database details
+        accessories = dataSource.getAccessoryArray(accessoryType: .handbag)
+        accessories.append(contentsOf: dataSource.getAccessoryArray(accessoryType: .glasses))
+        accessories.append(contentsOf: dataSource.getAccessoryArray(accessoryType: .hat))
+        accessories.append(contentsOf: dataSource.getAccessoryArray(accessoryType: .necklace))
+        //settings
         currDisplayingArray = accessories
         firstAccessoryIndex = 0
         updateExhibition()
