@@ -36,10 +36,10 @@ class MinesweeperGameScene: SKScene {
     let scoreTextPopDuraion = 0.25
     
     // These are relative to the size of the view, so they can be applied to different screen sizes.
-    let gridOffsetXRelativeToWidth = 0.31
     let gridOffsetYRelativeToHeight = 0.0822
     let gridSpacingRelativeToWidth = 0.0125
-    let boxSizeRelativeToWidth = 0.084
+    var gridOffsetXRelativeToWidth:Double
+    var boxSizeRelativeToWidth:Double
     
     let continueButtonBottomMargin = 0.08
     let continueButtonHeightRelativeToSceneHeight = 0.2
@@ -189,6 +189,18 @@ class MinesweeperGameScene: SKScene {
         consLabel.zPosition = uiLayer
         consLabelNode.addChild(consLabel)
         descriptionBanner.addChild(consLabelNode)
+       
+        // Set different values of boxSizeRelativeToWidth, gridOffsetXRelativeToWidth for different screen width size
+        let sizeWidth = Double(size.width)
+        
+        if (sizeWidth > 738.0){
+         gridOffsetXRelativeToWidth = 0.35
+         boxSizeRelativeToWidth = 0.066
+        }
+        else{
+            gridOffsetXRelativeToWidth = 0.31
+            boxSizeRelativeToWidth = 0.084
+        }
         
         // Calcuate positioning and sizing according to the size of the view.
         boxSize = Double(size.width) * boxSizeRelativeToWidth
