@@ -55,7 +55,7 @@ This will give you an exact copy of the current remote, make sure you don't have
 Links to the Documentation:<br />
 
 [2017](https://docs.google.com/document/d/1-45bBWAL8oh5o_1bc42BXGDKTHlGrQW0PCN9gFtlt6U/edit?usp=sharing)<br/>
-[2016](https://docs.google.com/document/d/1N_-zmmjPn6D1H6wTdF4z66mFGT3af_FWbfGvLKkeY1w/edit?usp=sharing)<br/>
+[2016](https://docs.google.com/document/d/1stQnZVDXp461qs2m6J9KHYwN-j58s-wEQsvNKjOQNm8/edit?usp=sharing)<br/>
 [2015](https://docs.google.com/document/d/1WkhcVrUs-B_vlCBknNPYqxqc7_7wVrBF2pV0bKu_EiQ/edit?usp=sharing)
 
 ## Contact
