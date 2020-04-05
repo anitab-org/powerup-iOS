@@ -33,16 +33,16 @@
                                 <attributedString key="attributedText">
                                     <fragment content="The Game                                 ">
                                         <attributes>
-                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="NSColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="24" name="Arial-BoldItalicMT"/>
                                             <font key="NSOriginalFont" size="24" name="Arial-BoldItalicMT"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">PowerUp is an educational choose-your-own-adventure game for girls between the age of 12 and 14. The game consists of different scenarios in which the user can choose between multiple answers and thereby lead the conversation into different directions. The user can create a personalized avatar by choosing clothes, hair eye and skin color. Later on the avatar can be further customized and other accessories can be bought using points earned in the scenarios. Additional mini games contain key information surrounding reproductive health and provide a break from the storyline.</mutableString>
+                                        <string key="content">PowerUp is an educational choose-your-own-adventure game for girls between the age of 12 and 14. The game consists of different scenarios in which the user can choose between multiple answers and thereby lead the conversation into different directions. The user can create a personalized avatar by choosing clothes, hair eye and skin color. Later on the avatar can be further customized and other accessories can be bought using points earned in the scenarios. Additional mini games contain key information surrounding reproductive health and provide a break from the storyline.</string>
                                         <attributes>
-                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="NSColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="18" name="ArialMT"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -52,15 +52,15 @@
 
 Why this app is needed?     </string>
                                         <attributes>
-                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="NSColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="24" name="Arial-BoldItalicMT"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">Increased exposure among preadolescents aged 12-14 to sexualised media has normalized engagement in sexual activity at younger ages. However information regarding sex is not very accessible to preadolescents. Only 65% of schools provide sex education and even less explain condom use. Having the talk at home is usually very awkward. Preadolescent girls need better options for reproductive health and self-esteem education. They are at risk for possible pregnancy and spread of sexually transmitted infection (STI), yet very little information reaches preadolescents about risk and responsibility associated with sex. Additionally, preadolescents struggle with self-esteem, which makes them vulnerable to peer and media influence. Current trends in sexual activity among preadolescents impact the economy, hurt family cohesion, affect female education, and burden healthcare systems.</mutableString>
+                                        <string key="content">Increased exposure among preadolescents aged 12-14 to sexualized media has normalized engagement in sexual activity at younger ages. However information regarding sex is not very accessible to preadolescents. Only 65% of schools provide sex education and even less explain condom use. Having the talk at home is usually very awkward. Preadolescent girls need better options for reproductive health and self-esteem education. They are at risk for possible pregnancy and spread of sexually transmitted infection (STI), yet very little information reaches preadolescents about risk and responsibility associated with sex. Additionally, preadolescents struggle with self-esteem, which makes them vulnerable to peer and media influence. Current trends in sexual activity among preadolescents impact the economy, hurt family cohesion, affect female education, and burden healthcare systems.</string>
                                         <attributes>
-                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="NSColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="18" name="ArialMT"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -71,15 +71,15 @@ Why this app is needed?     </string>
 How does PowerUp help teenagers?
 </string>
                                         <attributes>
-                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="NSColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="24" name="Arial-BoldItalicMT"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">                            The app uses Social and Emotional Learning (SEL) to empower middle school girls to take ownership of their health and sexual activity. It is designed to increase access to reproductive health and self-esteem education by incorporating quality and relevant information surrounding those topics and it helps concretize corresponding concepts through interactive activities. The content is based on SEL Core Competencies (Self-awareness, Self-management, Social awareness, Relationship skills, Decision making).</mutableString>
+                                        <string key="content">                            The app uses Social and Emotional Learning (SEL) to empower middle school girls to take ownership of their health and sexual activity. It is designed to increase access to reproductive health and self-esteem education by incorporating quality and relevant information surrounding those topics and it helps concretize corresponding concepts through interactive activities. The content is based on SEL Core Competencies (Self-awareness, Self-management, Social awareness, Relationship skills, Decision making).</string>
                                         <attributes>
-                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="NSColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" metaFont="system" size="18"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
