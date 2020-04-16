@@ -23,21 +23,25 @@ class AboutViewController: UIViewController {
         
     }
 
+    // function for modification of about view taking string i/p from string and print to about view.
     func text(desc1: String, desc2: String, desc3: String){
-       label1.text! = "The Game"
+        label1.text! = "The Game"
         label1.textColor? = #colorLiteral(red: 0.3803921569, green: 0.6, blue: 0.6928837435, alpha: 1)
         label1.font = UIFont(name: "Arial", size: 22)
         label1.font = UIFont.boldSystemFont(ofSize: 22)
      
+        // attributes for answer1
         answerLabel1.text! = desc1
         answerLabel1.textColor? = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         answerLabel1.font = UIFont(name: "Arial", size: 15)
       
+         // attributes for answer
         answerLabel2.text! = desc2
         answerLabel2.textColor? = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         answerLabel2.font = UIFont(name: "Arial", size: 15)
        
-       answerLabel3.text! = desc3
+         // attributes for answer3
+        answerLabel3.text! = desc3
         answerLabel3.textColor? = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         answerLabel3.font = UIFont(name: "Arial", size: 15) 
     }
