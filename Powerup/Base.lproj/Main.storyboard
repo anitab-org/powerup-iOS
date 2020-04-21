@@ -30,14 +30,6 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="400" id="D4I-aU-tqT"/>
                                 </constraints>
-                                <string key="text">The Game
-                                    PowerUp is an educational choose-your-own-adventure game for girls between the age of 12 and 14. The game consists of different scenarios in which the user can choose between multiple answers and thereby lead the conversation into different directions. The user can create a personalized avatar by choosing clothes, hair eye and skin color. Later on the avatar can be further customized and other accessories can be bought using points earned in the scenarios. Additional mini games contain key information surrounding reproductive health and provide a break from the storyline.
-
-                                    Why this app is needed
-                                    Increased exposure among preadolescents aged 12-14 to sexualized media has normalized engagement in sexual activity at younger ages. However information regarding sex is not very accessible to preadolescents. Only 65% of schools provide sex education and even less explain condom use. Having the talk at home is usually very awkward. Preadolescent girls need better options for reproductive health and self-esteem education. They are at risk for possible pregnancy and spread of sexually transmitted infection (STI), yet very little information reaches preadolescents about risk and responsibility associated with sex. Additionally, preadolescents struggle with self-esteem, which makes them vulnerable to peer and media influence. Current trends in sexual activity among preadolescents impact the economy, hurt family cohesion, affect female education, and burden healthcare systems.
-
-                                    How does PowerUp help teenagers?
-                                    The app uses Social and Emotional Learning (SEL) to empower middle school girls to take ownership of their health and sexual activity. It is designed to increase access to reproductive health and self-esteem education by incorporating quality and relevant information surrounding those topics and it helps concretize corresponding concepts through interactive activities. The content is based on SEL Core Competencies (Self-awareness, Self-management, Social awareness, Relationship skills, Decision making).</string>
                                 <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69288374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -81,6 +73,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2TS-AX-Kbm"/>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="FdT-xN-nZO" id="lM5-XK-djv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zwe-o9-mfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -396,7 +391,7 @@
                                 <rect key="frame" x="279" y="140" width="91" height="173"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rN-B1-EyF" userLabel="back button">
-                                <rect key="frame" x="20" y="15" width="38.5" height="0.0"/>
+                                <rect key="frame" x="20" y="15" width="77" height="0.0"/>
                                 <state key="normal" image="left_arrow"/>
                                 <connections>
                                     <action selector="backButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="gtS-ZK-i5D"/>
@@ -1558,7 +1553,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="endscreen_background" translatesAutoresizingMaskIntoConstraints="NO" id="GqS-kL-Xqm" userLabel="Background Image">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="375"/>
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="karma_star" translatesAutoresizingMaskIntoConstraints="NO" id="OdA-pZ-nes" userLabel="Karma Motif">
                                 <rect key="frame" x="10" y="10" width="40" height="40"/>
@@ -1588,7 +1583,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UMB-Yq-rOx">
-                                <rect key="frame" x="427.5" y="200.5" width="169" height="54.5"/>
+                                <rect key="frame" x="249" y="173" width="169" height="109"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="169" id="SDR-Yu-9ny"/>
                                 </constraints>
@@ -1598,7 +1593,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wow! You Are Brilliant. Game Completed!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyS-fw-fBB">
-                                <rect key="frame" x="274" y="154" width="476" height="27"/>
+                                <rect key="frame" x="95.5" y="154" width="476" height="27"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="22"/>
                                 <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
