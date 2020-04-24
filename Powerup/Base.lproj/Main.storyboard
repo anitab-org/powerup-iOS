@@ -79,7 +79,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zwe-o9-mfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-169" y="-551"/>
+            <point key="canvasLocation" x="-537" y="-1079"/>
         </scene>
         <!--Start View Controller-->
         <scene sceneID="bOj-Fm-Fh1">
@@ -156,7 +156,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5D-0F-CHK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-496" y="162"/>
+            <point key="canvasLocation" x="-537" y="202"/>
         </scene>
         <!--Customize Avatar View Controller-->
         <scene sceneID="zcc-y7-lCe">
@@ -391,7 +391,7 @@
                                 <rect key="frame" x="279" y="140" width="91" height="173"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rN-B1-EyF" userLabel="back button">
-                                <rect key="frame" x="20" y="15" width="77" height="0.0"/>
+                                <rect key="frame" x="20" y="15" width="38.5" height="0.0"/>
                                 <state key="normal" image="left_arrow"/>
                                 <connections>
                                     <action selector="backButtonTouched:" destination="vCf-Jb-qhY" eventType="touchUpInside" id="gtS-ZK-i5D"/>
@@ -464,7 +464,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KnS-W8-cZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="CP2-u9-bQu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-254" y="996"/>
+            <point key="canvasLocation" x="-151" y="1361"/>
         </scene>
         <!--ScenarioViewController-->
         <scene sceneID="tne-QT-ifu">
@@ -637,7 +637,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="tRn-hQ-WhV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1158" y="161"/>
+            <point key="canvasLocation" x="1797" y="202"/>
         </scene>
         <!--MiniGameViewController-->
         <scene sceneID="b2Q-yH-u8Q">
@@ -656,7 +656,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WKc-Ic-VMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1399" y="909"/>
+            <point key="canvasLocation" x="1797" y="1361"/>
         </scene>
         <!--Shop View Controller-->
         <scene sceneID="uGO-Kb-Jms">
@@ -1241,7 +1241,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OKe-Du-9T9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="550" y="1349"/>
+            <point key="canvasLocation" x="700" y="1362"/>
         </scene>
         <!--Results View Controller-->
         <scene sceneID="7iy-JJ-2EY">
@@ -1382,7 +1382,7 @@
                 <exit id="AXo-70-yQg" userLabel="Exit" sceneMemberID="exit"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kEs-g1-97C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4191" y="542"/>
+            <point key="canvasLocation" x="2869" y="202"/>
         </scene>
         <!--MapViewController-->
         <scene sceneID="8zi-ZT-9cM">
@@ -1525,7 +1525,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OMF-eo-Ren" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QuD-Og-rFX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="430" y="543"/>
+            <point key="canvasLocation" x="699" y="201"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cD8-wF-rc7">
@@ -1553,7 +1553,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="endscreen_background" translatesAutoresizingMaskIntoConstraints="NO" id="GqS-kL-Xqm" userLabel="Background Image">
-                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="375"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="karma_star" translatesAutoresizingMaskIntoConstraints="NO" id="OdA-pZ-nes" userLabel="Karma Motif">
                                 <rect key="frame" x="10" y="10" width="40" height="40"/>
@@ -1572,7 +1572,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aI2-xc-czF">
-                                <rect key="frame" x="772" y="15" width="50" height="50"/>
+                                <rect key="frame" x="587" y="15" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="oEU-sh-GoQ"/>
                                     <constraint firstAttribute="width" constant="50" id="xXu-3B-ygj"/>
@@ -1583,7 +1583,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UMB-Yq-rOx">
-                                <rect key="frame" x="249" y="173" width="169" height="109"/>
+                                <rect key="frame" x="427.5" y="200.5" width="169" height="54.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="169" id="SDR-Yu-9ny"/>
                                 </constraints>
@@ -1593,7 +1593,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wow! You Are Brilliant. Game Completed!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyS-fw-fBB">
-                                <rect key="frame" x="95.5" y="154" width="476" height="27"/>
+                                <rect key="frame" x="274" y="154" width="476.5" height="27"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Bold" family="Montserrat" pointSize="22"/>
                                 <color key="textColor" red="0.3803921569" green="0.59999999999999998" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1628,7 +1628,7 @@
                 <exit id="ljT-EX-slo" userLabel="Exit" sceneMemberID="exit"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EX2-ps-Nj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2355" y="997"/>
+            <point key="canvasLocation" x="3900" y="202"/>
         </scene>
     </scenes>
     <resources>
@@ -1671,6 +1671,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="Vcg-vV-Did"/>
         <segue reference="0it-aH-Xs8"/>
-        <segue reference="mzp-Ek-ra4"/>
+        <segue reference="1yy-KV-VO2"/>
     </inferredMetricsTieBreakers>
 </document>
