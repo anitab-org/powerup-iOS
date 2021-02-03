@@ -5,8 +5,13 @@
 
 # PowerUp - iOS 
 
-PowerUp is an educational mobile game app that seeks to empower young girls to take charge of their reproductive health
-and self-esteem by navigating the life of their Avatar.
+PowerUp is an educational mobile game app that seeks to empower young girls to take charge of their reproductive health and self-esteem by navigating the life of their Avatar.
+
+**Map Screen**
+![oo](https://user-images.githubusercontent.com/29337604/76792498-2f7d4080-67e9-11ea-8528-7c8cb847d20a.png)
+ 
+**Vocal Matching Game Screen**
+![ooo](https://user-images.githubusercontent.com/29337604/76792587-5b98c180-67e9-11ea-88c9-0d2addca2a9b.png)
 
 ## Setup for Developers
 1. Make sure you have Xcode IDE downloaded on your machine for software development for iOS.<br />
